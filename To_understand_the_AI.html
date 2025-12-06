@@ -32,8 +32,8 @@
             font-family: 'Alef', sans-serif;
             background: var(--bg);
             color: var(--text);
-            line-height: 1.9;
-            font-size: 19px;
+            line-height: 2.1;
+            font-size: 21px;
             -webkit-font-smoothing: antialiased;
         }
 
@@ -95,11 +95,11 @@
         }
 
         .hero-subtitle {
-            font-size: 1.25rem;
+            font-size: 1.3rem;
             color: var(--text-light);
             max-width: 750px;
-            margin: 0 auto 32px;
-            line-height: 1.8;
+            margin: 0 auto 40px;
+            line-height: 2;
         }
 
         .hero-cta-box {
@@ -255,14 +255,14 @@
             background: var(--white);
             border: 2px solid var(--accent);
             border-radius: 16px;
-            padding: 32px;
+            padding: 40px;
             box-shadow: 0 4px 20px rgba(0, 102, 204, 0.08);
         }
 
         .benefits-section .section-title {
             color: var(--accent);
             text-align: center;
-            margin-bottom: 24px;
+            margin-bottom: 32px;
         }
 
         /* Benefits List */
@@ -273,12 +273,12 @@
         }
 
         .benefits-list li {
-            padding: 18px 0;
-            padding-right: 44px;
+            padding: 24px 0;
+            padding-right: 52px;
             position: relative;
             border-bottom: 1px solid var(--border);
-            font-size: 1.05rem;
-            line-height: 1.7;
+            font-size: 1.1rem;
+            line-height: 1.9;
         }
 
         .benefits-list li:last-child {
@@ -294,9 +294,9 @@
             content: '✓';
             position: absolute;
             right: 0;
-            top: 18px;
-            width: 28px;
-            height: 28px;
+            top: 24px;
+            width: 32px;
+            height: 32px;
             background: var(--accent-light);
             color: var(--accent);
             font-weight: 700;
@@ -304,7 +304,7 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 0.9rem;
+            font-size: 1rem;
         }
 
         .benefits-list li:first-child::before {
@@ -314,7 +314,7 @@
         .benefits-list strong {
             color: var(--text);
             display: block;
-            margin-bottom: 4px;
+            margin-bottom: 6px;
         }
 
         /* Places List */
@@ -381,20 +381,20 @@
 
         /* Speaker Section - Less prominent */
         .speaker-section {
-            padding: 50px 0;
+            padding: 60px 0;
             background: var(--bg);
         }
 
         .speaker-header {
             display: flex;
-            gap: 24px;
+            gap: 28px;
             align-items: flex-start;
-            margin-bottom: 24px;
+            margin-bottom: 32px;
         }
 
         .speaker-image {
-            width: 120px;
-            height: 120px;
+            width: 130px;
+            height: 130px;
             border-radius: 50%;
             object-fit: cover;
             flex-shrink: 0;
@@ -403,28 +403,29 @@
         }
 
         .speaker-intro h2 {
-            font-size: 1.5rem;
+            font-size: 1.6rem;
             font-weight: 700;
-            margin-bottom: 6px;
+            margin-bottom: 8px;
             color: var(--text-light);
         }
 
         .speaker-quote {
             background: var(--white);
-            padding: 20px;
+            padding: 28px;
             border-radius: 10px;
-            margin-bottom: 24px;
+            margin-bottom: 32px;
             font-style: italic;
             color: var(--text-light);
-            border-right: 3px solid var(--border);
-            font-size: 0.95rem;
+            border-right: 4px solid var(--border);
+            font-size: 1.05rem;
+            line-height: 2;
         }
 
         .speaker-details h3 {
-            font-size: 1rem;
+            font-size: 1.1rem;
             font-weight: 700;
-            color: var(--text-light);
-            margin: 20px 0 10px;
+            color: var(--text);
+            margin: 28px 0 14px;
         }
 
         .speaker-details h3:first-child {
@@ -433,17 +434,18 @@
 
         .speaker-details p {
             color: var(--text-light);
-            font-size: 0.95rem;
+            font-size: 1rem;
+            line-height: 2;
         }
 
         .speaker-motto {
             background: var(--text-light);
             color: var(--white);
-            padding: 18px;
+            padding: 22px;
             border-radius: 10px;
             text-align: center;
-            margin-top: 24px;
-            font-size: 1rem;
+            margin-top: 32px;
+            font-size: 1.1rem;
         }
 
         /* CTA Section */
@@ -499,8 +501,8 @@
         /* Mobile */
         @media (max-width: 768px) {
             body {
-                font-size: 17px;
-                line-height: 1.8;
+                font-size: 18px;
+                line-height: 1.9;
             }
 
             .container {
@@ -518,9 +520,9 @@
             }
 
             .hero-subtitle {
-                font-size: 1.05rem;
-                margin-bottom: 24px;
-                line-height: 1.7;
+                font-size: 1.1rem;
+                margin-bottom: 28px;
+                line-height: 1.9;
             }
 
             .hero-cta-box {
@@ -569,19 +571,20 @@
             }
 
             .benefits-section {
-                padding: 24px 20px;
+                padding: 28px 20px;
             }
 
             .benefits-list li {
-                padding: 16px 0;
-                padding-right: 40px;
-                font-size: 1rem;
+                padding: 20px 0;
+                padding-right: 44px;
+                font-size: 1.05rem;
+                line-height: 1.8;
             }
 
             .benefits-list li::before {
-                width: 26px;
-                height: 26px;
-                top: 16px;
+                width: 28px;
+                height: 28px;
+                top: 20px;
             }
 
             .benefits-list li:first-child::before {
@@ -626,17 +629,19 @@
             }
 
             .speaker-quote {
-                padding: 16px;
-                font-size: 0.9rem;
+                padding: 20px;
+                font-size: 1rem;
+                line-height: 1.9;
             }
 
             .speaker-details h3 {
-                font-size: 0.95rem;
-                margin: 18px 0 8px;
+                font-size: 1rem;
+                margin: 22px 0 10px;
             }
 
             .speaker-details p {
-                font-size: 0.9rem;
+                font-size: 0.95rem;
+                line-height: 1.9;
             }
 
             .speaker-motto {
