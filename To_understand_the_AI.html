@@ -241,6 +241,23 @@
             color: var(--text);
         }
 
+        /* Places List */
+        .places-list {
+            list-style: none;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            margin-top: 12px;
+        }
+
+        .places-list li {
+            background: var(--accent-light);
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            color: var(--text);
+        }
+
         /* Topics */
         .topics-grid {
             display: grid;
@@ -437,7 +454,7 @@
         <section class="hero">
             <div class="container">
                 <h1 class="hero-title">"להבין את הבינה תכל'ס - AI בגובה העיניים"</h1>
-                <p class="hero-subtitle">ההרצאה שתעשה לכם סדר בראש. מפגש חווייתי, מעשי והומוריסטי שמפשט את עולם הבינה המלאכותית ומציג אותו ככלי יומיומי נגיש. נבין איך באמת עובדים עם AI, נכיר כלים לקיצור זמנים וייעול משימות, ונצא עם ביטחון להשתמש בטכנולוגיה כבר ביום למחרת.</p>
+                <p class="hero-subtitle">ההרצאה שתעשה לכם סדר בראש. מפגש חווייתי, מעשי והומוריסטי שמפשט את עולם הבינה המלאכותית ומציג אותו ככלי יומיומי נגיש. נבין איך באמת עובדים עם AI, נכיר כלים לקיצור זמנים וייעול משימות, ונצא עם ביטחון להשתמש בטכנולוגיה כבר ביום שלמחרת.</p>
                 
                 <div class="info-bar">
                     <div class="info-item">
@@ -461,38 +478,38 @@
             </div>
         </section>
 
+        <section class="section-alt">
+            <div class="container">
+                <h2 class="section-title">מה מקבלים בהרצאה?</h2>
+                <ul class="benefits-list">
+                    <li><strong>בלי מונחים מאיימים:</strong> הבנה פשוטה וברורה של איך הבינה עובדת בשבילנו.</li>
+                    <li><strong>ארגז כלים פרקטי:</strong> כלים לשימוש מידי בעבודה ובחיים האישיים.</li>
+                    <li><strong>חיסכון משמעותי בזמן:</strong> להפוך משימות של שעה לדקות ספורות.</li>
+                    <li><strong>בונוס למשתתפים:</strong> רשימת כלים ופרומפטים מוכנים לשימוש.</li>
+                </ul>
+            </div>
+        </section>
+
         <section class="video-section">
             <div class="container">
                 <div class="video-wrapper">
                     <div class="video-embed">
-                        <iframe 
-                            width="100%" 
-                            height="450" 
-                            src="https://www.youtube.com/embed/Dk0NAi3Xmww?si=hSCppsBS6Va_WUgI" 
-                            title="YouTube video player" 
-                            frameborder="0" 
-                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                        <iframe
+                            width="100%"
+                            height="450"
+                            src="https://www.youtube.com/embed/Dk0NAi3Xmww?si=hSCppsBS6Va_WUgI"
+                            title="YouTube video player"
+                            frameborder="0"
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                             allowfullscreen>
                         </iframe>
                     </div>
                 </div>
 
                 <p class="video-caption">
-                    לצפייה בטעימה מההרצאה (מתוך כנס איגוד המבקרים בכנסת ישראל): 
+                    לצפייה בטעימה מההרצאה (מתוך כנס איגוד המבקרים בכנסת ישראל):
                     <a href="https://youtu.be/Dk0NAi3Xmww?si=hSCppsBS6Va_WUgI" target="_blank">לחצו כאן</a>
                 </p>
-            </div>
-        </section>
-
-        <section class="section-alt">
-            <div class="container">
-                <h2 class="section-title">מה מקבלים בהרצאה?</h2>
-                <ul class="benefits-list">
-                    <li><strong>בלי מונחים מאיימים:</strong> הבנה בהירה של איך הבינה עובדת ואיך היא משרתת אותנו.</li>
-                    <li><strong>ארגז כלים פרקטי:</strong> היכרות עם כלים לשימוש מיידי בעבודה היומיומית ובחיים האישיים.</li>
-                    <li><strong>חיסכון בזמן:</strong> שיטות לייעול משימות, כתיבת תוכן וקבלת החלטות חכמה.</li>
-                    <li><strong>בונוס למשתתפים:</strong> רשימת כלים מומלצים, פרומפטים מוכנים וסיכום.</li>
-                </ul>
             </div>
         </section>
 
@@ -531,8 +548,16 @@
 
                 <div class="speaker-details">
                     <h3>הניסיון מדבר:</h3>
-                    <p>שגיא הוא חוקר ויועץ מוביל בתחום הבינה המלאכותית, עם יותר מ־25 שנות ניסיון בתעשיית ההיי־טק. הוא משלב ידע טכנולוגי עמוק (פיתוח, אוטומציה ואסטרטגיה) עם הבנה של המשתמשים.</p>
-                    <p>שגיא מרצה אורח באוניברסיטאות (רייכמן, אריאל), באיגוד המבקרים הפנימיים (IIA), חבר סגל בחינות מה"ט ומלווה את משרד החינוך כמנטור לחדשנות ב-AI. הוא בעל תואר שני (MBA) במנהל עסקים בהתמחות ב-AI וייעוץ אסטרטגי עסקי, תואר ראשון במדעים (B.Sc), תעודת הנדסאי תוכנה, הסמכת NLP MASTER ודמיון מודרך (רטר).</p>
+                    <p>שגיא הוא חוקר ויועץ מוביל בתחום הבינה המלאכותית, עם יותר מ־25 שנות ניסיון בתעשיית ההיי־טק. הוא משלב ידע טכנולוגי עמוק (פיתוח, אוטומציה ואסטרטגיה) עם הבנה של המשתמשים. שגיא מרצה אורח באוניברסיטאות (רייכמן, אריאל), באיגוד המבקרים הפנימיים ,(IIA) חבר סגל בחינות מה"ט ומלווה את משרד החינוך כמנטור לחדשנות ב.AI- הוא בעל תואר שני (MBA) במנהל עסקים בהתמחות ב-AI וייעוץ אסטרטגי עסקי, תואר ראשון במדעים (B.SC), תעודת הנדסאי תוכנה, הסמכת NLP MASTER ודמיון מודרך (רטר).</p>
+
+                    <h3>איפה כבר פגשו את שגיא:</h3>
+                    <ul class="places-list">
+                        <li>אוניברסיטת רייכמן</li>
+                        <li>אוניברסיטת אריאל</li>
+                        <li>איגוד המבקרים הפנימיים (IIA)</li>
+                        <li>מה"ט - חבר סגל בחינות</li>
+                        <li>משרד החינוך - מנטור לחדשנות ב-AI</li>
+                    </ul>
 
                     <h3>הגישה:</h3>
                     <p>שגיא חי את השטח. הוא לא מלמד תיאוריות, אלא מעניק למשתתפים מתודולוגיות עבודה מוכחות שמייצרות "שקט תעשייתי", ביטחון טכנולוגי וחיסכון אדיר בזמן.</p>
@@ -547,8 +572,8 @@
         <section class="cta-section" id="contact">
             <div class="container">
                 <h2>מוכנים להכניס AI לארגון?</h2>
-                <p>הזמינו את ההרצאה וצאו עם כלים מעשיים ליום למחרת</p>
-                <a href="https://api.whatsapp.com/send?phone=972549995050" class="cta-button">צרו קשר להזמנת הרצאה</a>
+                <p>השאירו פרטים או שלחו וואטסאפ ונארגן לכם מפגש AI פרקטי בגובה העיניים</p>
+                <a href="https://api.whatsapp.com/send?phone=972549995050" class="cta-button">שלחו וואטסאפ</a>
             </div>
         </section>
     </main>
