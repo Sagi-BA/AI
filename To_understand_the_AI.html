@@ -18,8 +18,17 @@
             --bg: #fafafa;
             --text: #1a1a1a;
             --text-light: #555;
-            --accent: #0066cc;
-            --accent-light: #e8f4fc;
+            --accent: #ff6b00;
+            --accent-dark: #e55a00;
+            --accent-light: #fff3e6;
+            --yellow: #ffc107;
+            --yellow-light: #fff8e1;
+            --green: #4caf50;
+            --green-light: #e8f5e9;
+            --purple: #9c27b0;
+            --purple-light: #f3e5f5;
+            --cyan: #00bcd4;
+            --cyan-light: #e0f7fa;
             --border: #e0e0e0;
             --white: #ffffff;
         }
@@ -38,7 +47,7 @@
         }
 
         .container {
-            max-width: 900px;
+            max-width: 1000px;
             margin: 0 auto;
             padding: 0 24px;
         }
@@ -69,126 +78,266 @@
             background: var(--accent);
             color: white;
             padding: 10px 24px;
-            border-radius: 8px;
+            border-radius: 25px;
             text-decoration: none;
-            font-weight: 500;
+            font-weight: 700;
             font-size: 0.95rem;
-            transition: background 0.2s;
+            transition: background 0.2s, transform 0.2s;
         }
 
         .header-cta:hover {
-            background: #0052a3;
+            background: var(--accent-dark);
+            transform: translateY(-2px);
         }
 
         /* Hero */
         .hero {
-            padding: 60px 0 50px;
+            background: linear-gradient(180deg, #fff9f0 0%, #fff5e6 50%, var(--bg) 100%);
+            padding: 70px 0 60px;
             text-align: center;
         }
 
         .hero-title {
-            font-size: clamp(2.2rem, 5vw, 3rem);
+            font-size: clamp(2.2rem, 5vw, 3.2rem);
             font-weight: 700;
-            margin-bottom: 28px;
-            line-height: 1.4;
+            margin-bottom: 24px;
+            line-height: 1.3;
             color: var(--text);
         }
 
+        .hero-title .highlight {
+            color: var(--accent);
+        }
+
         .hero-subtitle {
-            font-size: 1.3rem;
+            font-size: 1.2rem;
             color: var(--text-light);
             max-width: 750px;
             margin: 0 auto 40px;
             line-height: 2;
         }
 
-        .hero-cta-box {
-            background: linear-gradient(135deg, var(--accent) 0%, #0052a3 100%);
-            padding: 28px 32px;
-            border-radius: 16px;
-            max-width: 600px;
-            margin: 0 auto 32px;
-            box-shadow: 0 8px 30px rgba(0, 102, 204, 0.25);
-        }
-
-        .hero-cta-box p {
-            color: rgba(255,255,255,0.95);
-            margin-bottom: 16px;
-            font-size: 1.1rem;
-            line-height: 1.7;
-        }
-
         .hero-cta-button {
             display: inline-block;
-            background: white;
-            color: var(--accent);
-            padding: 14px 32px;
-            border-radius: 10px;
+            background: var(--accent);
+            color: white;
+            padding: 16px 40px;
+            border-radius: 30px;
             text-decoration: none;
             font-weight: 700;
             font-size: 1.15rem;
-            transition: transform 0.2s, box-shadow 0.2s;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            transition: transform 0.2s, box-shadow 0.2s, background 0.2s;
+            box-shadow: 0 4px 20px rgba(255, 107, 0, 0.3);
         }
 
         .hero-cta-button:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(0,0,0,0.15);
+            background: var(--accent-dark);
+            transform: translateY(-3px);
+            box-shadow: 0 8px 30px rgba(255, 107, 0, 0.4);
+        }
+
+        /* Value Props - Cards */
+        .value-section {
+            padding: 70px 0;
+            background: var(--white);
+        }
+
+        .section-title {
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 16px;
+            color: var(--text);
+            text-align: center;
+        }
+
+        .section-subtitle {
+            font-size: 1.1rem;
+            color: var(--text-light);
+            margin-bottom: 50px;
+            text-align: center;
+        }
+
+        .cards-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+            margin-bottom: 40px;
+        }
+
+        .value-card {
+            background: var(--bg);
+            border-radius: 16px;
+            padding: 32px 24px;
+            text-align: center;
+            box-shadow: 0 2px 12px rgba(0,0,0,0.04);
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .value-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 24px rgba(0,0,0,0.1);
+        }
+
+        .value-card.purple { border-top: 4px solid var(--purple); }
+        .value-card.cyan { border-top: 4px solid var(--cyan); }
+        .value-card.green { border-top: 4px solid var(--green); }
+
+        .card-icon {
+            font-size: 2.5rem;
+            margin-bottom: 16px;
+        }
+
+        .value-card h3 {
+            font-size: 1.15rem;
+            font-weight: 700;
+            margin-bottom: 12px;
+            color: var(--text);
+        }
+
+        .value-card.purple h3 { color: var(--purple); }
+        .value-card.cyan h3 { color: var(--cyan); }
+        .value-card.green h3 { color: var(--green); }
+
+        .value-card p {
+            font-size: 0.95rem;
+            color: var(--text-light);
+            line-height: 1.8;
+        }
+
+        /* Highlight Box */
+        .highlight-box {
+            background: linear-gradient(135deg, var(--accent) 0%, #ff8533 100%);
+            border-radius: 16px;
+            padding: 32px 40px;
+            text-align: center;
+            color: white;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .highlight-box h3 {
+            font-size: 1.4rem;
+            font-weight: 700;
+            margin-bottom: 12px;
+        }
+
+        .highlight-box p {
+            font-size: 1rem;
+            opacity: 0.95;
+            line-height: 1.8;
+        }
+
+        /* Benefits Section */
+        .benefits-section {
+            padding: 70px 0;
+            background: var(--bg);
+        }
+
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 24px;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .benefit-card {
+            background: var(--white);
+            border-radius: 12px;
+            padding: 28px;
+            display: flex;
+            gap: 16px;
+            align-items: flex-start;
+            box-shadow: 0 2px 12px rgba(0,0,0,0.04);
+        }
+
+        .benefit-icon {
+            width: 48px;
+            height: 48px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            flex-shrink: 0;
+        }
+
+        .benefit-icon.orange { background: var(--accent-light); }
+        .benefit-icon.green { background: var(--green-light); }
+        .benefit-icon.purple { background: var(--purple-light); }
+        .benefit-icon.yellow { background: var(--yellow-light); }
+
+        .benefit-content h4 {
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: var(--text);
+            margin-bottom: 6px;
+        }
+
+        .benefit-content p {
+            font-size: 0.95rem;
+            color: var(--text-light);
+            line-height: 1.7;
+        }
+
+        /* Info Bar */
+        .info-section {
+            padding: 50px 0;
+            background: var(--white);
         }
 
         .info-bar {
             display: flex;
             justify-content: center;
-            gap: 40px;
+            gap: 50px;
             flex-wrap: wrap;
-            background: var(--white);
-            border: 1px solid var(--border);
-            border-radius: 12px;
-            padding: 20px 30px;
-            max-width: 700px;
-            margin: 0 auto 20px;
+            background: var(--bg);
+            border-radius: 16px;
+            padding: 28px 40px;
+            max-width: 800px;
+            margin: 0 auto 24px;
         }
 
         .info-item {
             display: flex;
             align-items: center;
-            gap: 8px;
+            gap: 12px;
         }
 
         .info-icon {
-            font-size: 1.2rem;
+            font-size: 1.4rem;
         }
 
         .info-text {
-            font-size: 0.95rem;
+            font-size: 1rem;
             color: var(--text-light);
         }
 
         .info-text strong {
             color: var(--text);
+            font-size: 0.9rem;
         }
 
         .audience-note {
             display: flex;
-            align-items: flex-start;
-            gap: 10px;
-            background: var(--accent-light);
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            background: var(--yellow-light);
+            border: 2px solid var(--yellow);
             border-radius: 12px;
-            padding: 16px 24px;
-            max-width: 700px;
+            padding: 20px 28px;
+            max-width: 800px;
             margin: 0 auto;
-            font-size: 0.95rem;
-            color: var(--text-light);
-            text-align: right;
-        }
-
-        .audience-note strong {
+            font-size: 1rem;
             color: var(--text);
+            text-align: center;
         }
 
         /* Video Section */
         .video-section {
-            padding: 0 0 60px;
+            padding: 70px 0;
+            background: var(--bg);
         }
 
         .video-wrapper {
@@ -196,14 +345,14 @@
             width: 100%;
             max-width: 800px;
             margin: 0 auto;
-            border-radius: 12px;
+            border-radius: 16px;
             overflow: hidden;
-            box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+            box-shadow: 0 10px 40px rgba(0,0,0,0.12);
         }
 
         .video-embed {
             position: relative;
-            padding-bottom: 56.25%; /* יחס 16:9 */
+            padding-bottom: 56.25%;
             height: 0;
         }
 
@@ -213,12 +362,11 @@
             left: 0;
             width: 100%;
             height: 100%;
-            border-radius: 12px;
         }
 
         .video-caption {
             text-align: center;
-            margin-top: 16px;
+            margin-top: 20px;
             font-size: 0.95rem;
             color: var(--text-light);
         }
@@ -226,197 +374,107 @@
         .video-caption a {
             color: var(--accent);
             text-decoration: none;
+            font-weight: 700;
         }
 
         .video-caption a:hover {
             text-decoration: underline;
         }
 
-        /* Sections */
-        section {
-            padding: 50px 0;
-        }
-
-        .section-alt {
+        /* Topics Section */
+        .topics-section {
+            padding: 70px 0;
             background: var(--white);
-            border-top: 1px solid var(--border);
-            border-bottom: 1px solid var(--border);
         }
 
-        .section-title {
-            font-size: 1.8rem;
-            font-weight: 700;
-            margin-bottom: 28px;
-            color: var(--text);
-        }
-
-        /* Benefits Section */
-        .benefits-section {
-            background: var(--white);
-            border: 2px solid var(--accent);
-            border-radius: 16px;
-            padding: 40px;
-            box-shadow: 0 4px 20px rgba(0, 102, 204, 0.08);
-        }
-
-        .benefits-section .section-title {
-            color: var(--accent);
-            text-align: center;
-            margin-bottom: 32px;
-        }
-
-        /* Benefits List */
-        .benefits-list {
-            list-style: none;
+        .topics-grid {
             display: grid;
-            gap: 0;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
         }
 
-        .benefits-list li {
-            padding: 24px 0;
-            padding-right: 52px;
-            position: relative;
-            border-bottom: 1px solid var(--border);
-            font-size: 1.1rem;
-            line-height: 1.9;
+        .topic-card {
+            background: var(--bg);
+            border-radius: 12px;
+            padding: 28px;
+            text-align: center;
         }
 
-        .benefits-list li:last-child {
-            border-bottom: none;
-            padding-bottom: 0;
-        }
-
-        .benefits-list li:first-child {
-            padding-top: 0;
-        }
-
-        .benefits-list li::before {
-            content: '✓';
-            position: absolute;
-            right: 0;
-            top: 24px;
-            width: 32px;
-            height: 32px;
-            background: var(--accent-light);
-            color: var(--accent);
-            font-weight: 700;
+        .topic-number {
+            width: 40px;
+            height: 40px;
+            background: var(--accent);
+            color: white;
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 1rem;
+            font-weight: 700;
+            font-size: 1.1rem;
+            margin: 0 auto 16px;
         }
 
-        .benefits-list li:first-child::before {
-            top: 0;
-        }
-
-        .benefits-list strong {
-            color: var(--text);
-            display: block;
-            margin-bottom: 6px;
-        }
-
-        /* Places List */
-        .places-list {
-            list-style: none;
-            display: flex;
-            flex-wrap: wrap;
-            gap: 12px;
-            margin-top: 12px;
-        }
-
-        .places-list li {
-            background: var(--accent-light);
-            padding: 8px 16px;
-            border-radius: 20px;
-            font-size: 0.9rem;
-            color: var(--text);
-        }
-
-        /* Topics */
-        .topics-grid {
-            display: grid;
-            gap: 20px;
-        }
-
-        .topic-item {
-            background: var(--accent-light);
-            padding: 24px;
-            border-radius: 12px;
-            border-right: 4px solid var(--accent);
-        }
-
-        .topic-item h3 {
+        .topic-card h3 {
             font-size: 1.1rem;
             font-weight: 700;
-            margin-bottom: 8px;
             color: var(--accent);
+            margin-bottom: 12px;
         }
 
-        .topic-item p {
-            color: var(--text-light);
+        .topic-card p {
             font-size: 0.95rem;
-        }
-
-        /* Audience */
-        .audience-box {
-            background: var(--white);
-            border: 2px solid var(--border);
-            border-radius: 12px;
-            padding: 30px;
-            text-align: center;
-        }
-
-        .audience-box h2 {
-            font-size: 1.4rem;
-            margin-bottom: 16px;
-        }
-
-        .audience-box p {
             color: var(--text-light);
-            max-width: 600px;
-            margin: 0 auto;
+            line-height: 1.8;
         }
 
-        /* Speaker Section - Less prominent */
+        /* Speaker Section */
         .speaker-section {
-            padding: 60px 0;
+            padding: 70px 0;
             background: var(--bg);
+        }
+
+        .speaker-content {
+            max-width: 800px;
+            margin: 0 auto;
         }
 
         .speaker-header {
             display: flex;
             gap: 28px;
-            align-items: flex-start;
+            align-items: center;
             margin-bottom: 32px;
         }
 
         .speaker-image {
-            width: 130px;
-            height: 130px;
+            width: 140px;
+            height: 140px;
             border-radius: 50%;
             object-fit: cover;
             flex-shrink: 0;
-            border: 3px solid var(--white);
-            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+            border: 4px solid var(--accent-light);
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
         }
 
         .speaker-intro h2 {
-            font-size: 1.6rem;
+            font-size: 1.8rem;
             font-weight: 700;
             margin-bottom: 8px;
+            color: var(--text);
+        }
+
+        .speaker-intro p {
             color: var(--text-light);
+            font-size: 1rem;
         }
 
         .speaker-quote {
-            background: var(--white);
+            background: var(--accent-light);
             padding: 28px;
-            border-radius: 10px;
+            border-radius: 12px;
             margin-bottom: 32px;
             font-style: italic;
-            color: var(--text-light);
-            border-right: 4px solid var(--border);
+            color: var(--text);
+            border-right: 4px solid var(--accent);
             font-size: 1.05rem;
             line-height: 2;
         }
@@ -424,7 +482,7 @@
         .speaker-details h3 {
             font-size: 1.1rem;
             font-weight: 700;
-            color: var(--text);
+            color: var(--accent);
             margin: 28px 0 14px;
         }
 
@@ -438,45 +496,63 @@
             line-height: 2;
         }
 
+        .places-list {
+            list-style: none;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            margin-top: 12px;
+        }
+
+        .places-list li {
+            background: var(--accent-light);
+            padding: 8px 18px;
+            border-radius: 25px;
+            font-size: 0.9rem;
+            color: var(--accent);
+            font-weight: 500;
+        }
+
         .speaker-motto {
-            background: var(--text-light);
+            background: linear-gradient(135deg, var(--accent) 0%, #ff8533 100%);
             color: var(--white);
-            padding: 22px;
-            border-radius: 10px;
+            padding: 24px;
+            border-radius: 12px;
             text-align: center;
             margin-top: 32px;
-            font-size: 1.1rem;
+            font-size: 1.15rem;
+            font-weight: 700;
         }
 
         /* CTA Section */
         .cta-section {
-            background: linear-gradient(135deg, var(--accent) 0%, #0052a3 100%);
+            background: linear-gradient(135deg, var(--accent) 0%, #ff8533 100%);
             color: white;
-            padding: 60px 0;
+            padding: 70px 0;
             text-align: center;
         }
 
         .cta-section h2 {
-            font-size: 2rem;
+            font-size: 2.2rem;
             margin-bottom: 16px;
         }
 
         .cta-section p {
             opacity: 0.95;
-            margin-bottom: 28px;
+            margin-bottom: 32px;
             font-size: 1.15rem;
             max-width: 500px;
             margin-left: auto;
             margin-right: auto;
-            line-height: 1.7;
+            line-height: 1.8;
         }
 
         .cta-button {
             display: inline-block;
             background: white;
             color: var(--accent);
-            padding: 18px 44px;
-            border-radius: 12px;
+            padding: 18px 50px;
+            border-radius: 30px;
             text-decoration: none;
             font-weight: 700;
             font-size: 1.2rem;
@@ -499,6 +575,24 @@
         }
 
         /* Mobile */
+        @media (max-width: 900px) {
+            .cards-grid {
+                grid-template-columns: 1fr;
+                max-width: 400px;
+                margin: 0 auto 40px;
+            }
+
+            .benefits-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .topics-grid {
+                grid-template-columns: 1fr;
+                max-width: 400px;
+                margin: 0 auto;
+            }
+        }
+
         @media (max-width: 768px) {
             body {
                 font-size: 18px;
@@ -510,122 +604,80 @@
             }
 
             .hero {
-                padding: 28px 0 24px;
+                padding: 50px 0 40px;
             }
 
             .hero-title {
-                font-size: 1.7rem;
+                font-size: 1.8rem;
                 margin-bottom: 18px;
                 line-height: 1.35;
             }
 
             .hero-subtitle {
-                font-size: 1.1rem;
-                margin-bottom: 28px;
-                line-height: 1.9;
-            }
-
-            .hero-cta-box {
-                padding: 24px 20px;
-                margin: 0 auto 24px;
-            }
-
-            .hero-cta-box p {
-                font-size: 1rem;
-            }
-
-            .hero-cta-button {
-                width: 100%;
-                text-align: center;
-                padding: 16px 24px;
-                font-size: 1.1rem;
-            }
-
-            .info-bar {
-                gap: 14px;
-                padding: 18px;
-                flex-direction: column;
-                align-items: flex-start;
-            }
-
-            .info-text {
-                font-size: 1rem;
-            }
-
-            .audience-note {
-                padding: 16px 18px;
-                font-size: 0.95rem;
-            }
-
-            section {
-                padding: 36px 0;
-            }
-
-            .section-title {
-                font-size: 1.45rem;
-                margin-bottom: 20px;
-            }
-
-            .section-alt {
-                padding: 28px 0;
-            }
-
-            .benefits-section {
-                padding: 28px 20px;
-            }
-
-            .benefits-list li {
-                padding: 20px 0;
-                padding-right: 44px;
                 font-size: 1.05rem;
+                margin-bottom: 28px;
                 line-height: 1.8;
             }
 
-            .benefits-list li::before {
-                width: 28px;
-                height: 28px;
-                top: 20px;
+            .hero-cta-button {
+                padding: 14px 32px;
+                font-size: 1.05rem;
+                width: 100%;
             }
 
-            .benefits-list li:first-child::before {
-                top: 0;
+            .section-title {
+                font-size: 1.5rem;
             }
 
-            .topic-item {
+            .section-subtitle {
+                font-size: 1rem;
+            }
+
+            .value-section,
+            .benefits-section,
+            .video-section,
+            .topics-section,
+            .speaker-section {
+                padding: 50px 0;
+            }
+
+            .info-bar {
+                flex-direction: column;
+                gap: 20px;
+                padding: 24px;
+                align-items: flex-start;
+            }
+
+            .audience-note {
+                flex-direction: column;
+                text-align: center;
+                padding: 18px 20px;
+            }
+
+            .highlight-box {
+                padding: 24px 20px;
+            }
+
+            .highlight-box h3 {
+                font-size: 1.2rem;
+            }
+
+            .benefit-card {
                 padding: 20px;
-            }
-
-            .topic-item h3 {
-                font-size: 1.1rem;
-            }
-
-            .topic-item p {
-                font-size: 0.95rem;
-            }
-
-            .places-list {
-                gap: 10px;
-                justify-content: center;
-            }
-
-            .places-list li {
-                padding: 8px 14px;
-                font-size: 0.9rem;
             }
 
             .speaker-header {
                 flex-direction: column;
-                align-items: center;
                 text-align: center;
             }
 
             .speaker-image {
-                width: 100px;
-                height: 100px;
+                width: 120px;
+                height: 120px;
             }
 
             .speaker-intro h2 {
-                font-size: 1.3rem;
+                font-size: 1.5rem;
             }
 
             .speaker-quote {
@@ -644,64 +696,41 @@
                 line-height: 1.9;
             }
 
-            .speaker-motto {
-                padding: 16px;
-                font-size: 1rem;
+            .places-list {
+                justify-content: center;
             }
 
             .cta-section {
-                padding: 40px 0;
+                padding: 50px 0;
             }
 
             .cta-section h2 {
-                font-size: 1.4rem;
+                font-size: 1.5rem;
             }
 
             .cta-section p {
-                font-size: 0.95rem;
+                font-size: 1rem;
             }
 
             .cta-button {
-                padding: 12px 28px;
-                font-size: 1rem;
+                padding: 14px 32px;
+                font-size: 1.05rem;
                 width: 100%;
-                text-align: center;
             }
 
             .header-cta {
-                padding: 8px 16px;
+                padding: 8px 18px;
                 font-size: 0.9rem;
-            }
-
-            .video-section {
-                padding: 0 0 32px;
-            }
-
-            .video-caption {
-                font-size: 0.85rem;
             }
         }
 
-        /* Small mobile */
         @media (max-width: 380px) {
             .hero-title {
                 font-size: 1.5rem;
             }
 
-            .hero-cta-box {
-                padding: 20px 16px;
-            }
-
-            .info-bar {
-                gap: 12px;
-            }
-
-            .benefits-section {
-                padding: 20px 16px;
-            }
-
-            .cta-button {
-                padding: 14px 24px;
+            .section-title {
+                font-size: 1.3rem;
             }
         }
     </style>
@@ -718,29 +747,95 @@
     <main>
         <section class="hero">
             <div class="container">
-                <h1 class="hero-title">להבין את הבינה תכל'ס - AI בגובה העיניים</h1>
+                <h1 class="hero-title">להבין את הבינה תכל'ס - <span class="highlight">AI</span> בגובה העיניים</h1>
                 <p class="hero-subtitle">ההרצאה שתעשה לכם סדר בראש. מפגש חווייתי, מעשי והומוריסטי שמפשט את עולם הבינה המלאכותית ומציג אותו ככלי יומיומי נגיש. נבין איך באמת עובדים עם AI, נכיר כלים לקיצור זמנים וייעול משימות, ונצא עם ביטחון להשתמש בטכנולוגיה כבר ביום שלמחרת.</p>
+                <a href="https://api.whatsapp.com/send?phone=972549995050" target="_blank" class="hero-cta-button">להזמנת הרצאה בוואטסאפ</a>
+            </div>
+        </section>
 
-                <div class="hero-cta-box">
-                    <p>מוכנים להכניס AI לארגון? לחצו כאן ונארגן לכם מפגש AI פרקטי בגובה העיניים.</p>
-                    <a href="https://api.whatsapp.com/send?phone=972549995050" target="_blank" class="hero-cta-button">שלחו הודעה בוואטסאפ</a>
+        <section class="value-section">
+            <div class="container">
+                <h2 class="section-title">כאן אני נכנס לתמונה</h2>
+                <p class="section-subtitle">אני פה כדי לעשות סדר בבלאגן</p>
+
+                <div class="cards-grid">
+                    <div class="value-card purple">
+                        <div class="card-icon">👤</div>
+                        <h3>חשיפה אישית</h3>
+                        <p>לגרום לכם להרגיש ששיחה עם הבינה היא טבעית – בלי לחץ ובלי לחשוש מה לכתוב</p>
+                    </div>
+                    <div class="value-card cyan">
+                        <div class="card-icon">💡</div>
+                        <h3>תהליך ברור</h3>
+                        <p>להעביר אתכם מהתחלה קטנה לתוצאות גדולות, בצורה שיטתית וממוקדת</p>
+                    </div>
+                    <div class="value-card green">
+                        <div class="card-icon">✓</div>
+                        <h3>כלים נבונים</h3>
+                        <p>להראות לכם בדיוק באילו כלים להשתמש בצורה שמשנה ומייעלת את החיים</p>
+                    </div>
                 </div>
 
+                <div class="highlight-box">
+                    <h3>הדרך ברורה. הקצב קליל. הכוונה מדויקת.</h3>
+                    <p>כדי שתחזרו לשגרה עם ידע וכלים מעולים – בקלות, כשעושים את זה נכון</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="benefits-section">
+            <div class="container">
+                <h2 class="section-title">מה מקבלים בהרצאה?</h2>
+                <div class="benefits-grid">
+                    <div class="benefit-card">
+                        <div class="benefit-icon orange">💬</div>
+                        <div class="benefit-content">
+                            <h4>בלי מונחים מאיימים</h4>
+                            <p>הבנה פשוטה וברורה של איך הבינה עובדת בשבילנו.</p>
+                        </div>
+                    </div>
+                    <div class="benefit-card">
+                        <div class="benefit-icon green">🧰</div>
+                        <div class="benefit-content">
+                            <h4>ארגז כלים פרקטי</h4>
+                            <p>כלים לשימוש מידי בעבודה ובחיים האישיים.</p>
+                        </div>
+                    </div>
+                    <div class="benefit-card">
+                        <div class="benefit-icon purple">⏱️</div>
+                        <div class="benefit-content">
+                            <h4>חיסכון משמעותי בזמן</h4>
+                            <p>להפוך משימות של שעה לדקות ספורות.</p>
+                        </div>
+                    </div>
+                    <div class="benefit-card">
+                        <div class="benefit-icon yellow">🎁</div>
+                        <div class="benefit-content">
+                            <h4>בונוס למשתתפים</h4>
+                            <p>רשימת כלים ופרומפטים מוכנים לשימוש.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="info-section">
+            <div class="container">
                 <div class="info-bar">
                     <div class="info-item">
                         <span class="info-icon">📍</span>
-                        <span class="info-text"><strong>סוג מפגש:</strong> פיסי או מקוון</span>
+                        <span class="info-text"><strong>סוג מפגש</strong> פיסי או מקוון</span>
                     </div>
                     <div class="info-item">
                         <span class="info-icon">⏳</span>
-                        <span class="info-text"><strong>משך:</strong> שעה</span>
+                        <span class="info-text"><strong>משך</strong> שעה</span>
                     </div>
                     <div class="info-item">
                         <span class="info-icon">📅</span>
-                        <span class="info-text"><strong>מועד:</strong> בתיאום מראש</span>
+                        <span class="info-text"><strong>מועד</strong> בתיאום מראש</span>
                     </div>
                 </div>
-                
+
                 <div class="audience-note">
                     <span class="info-icon">👥</span>
                     <span><strong>מיועד:</strong> לכל מי שרוצה להכיר את הבינה. כל מי שרוצה להבין את הדבר הגדול הבא בדרך פשוטה וגם למי שמגדיר את עצמו כ"לא טכנולוגי".</span>
@@ -748,22 +843,9 @@
             </div>
         </section>
 
-        <section class="section-alt">
-            <div class="container">
-                <div class="benefits-section">
-                    <h2 class="section-title">מה מקבלים בהרצאה?</h2>
-                    <ul class="benefits-list">
-                        <li><strong>בלי מונחים מאיימים</strong> הבנה פשוטה וברורה של איך הבינה עובדת בשבילנו.</li>
-                        <li><strong>ארגז כלים פרקטי</strong> כלים לשימוש מידי בעבודה ובחיים האישיים.</li>
-                        <li><strong>חיסכון משמעותי בזמן</strong> להפוך משימות של שעה לדקות ספורות.</li>
-                        <li><strong>בונוס למשתתפים</strong> רשימת כלים ופרומפטים מוכנים לשימוש.</li>
-                    </ul>
-                </div>
-            </div>
-        </section>
-
         <section class="video-section">
             <div class="container">
+                <h2 class="section-title">טעימה מההרצאה</h2>
                 <div class="video-wrapper">
                     <div class="video-embed">
                         <iframe
@@ -777,27 +859,29 @@
                         </iframe>
                     </div>
                 </div>
-
                 <p class="video-caption">
-                    לצפייה בטעימה מההרצאה (מתוך כנס איגוד המבקרים בכנסת ישראל):
-                    <a href="https://youtu.be/Dk0NAi3Xmww?si=hSCppsBS6Va_WUgI" target="_blank">לחצו כאן</a>
+                    מתוך כנס איגוד המבקרים בכנסת ישראל |
+                    <a href="https://youtu.be/Dk0NAi3Xmww?si=hSCppsBS6Va_WUgI" target="_blank">לצפייה ביוטיוב</a>
                 </p>
             </div>
         </section>
 
-        <section>
+        <section class="topics-section">
             <div class="container">
-                <h2 class="section-title">נושאי הליבה:</h2>
+                <h2 class="section-title">נושאי הליבה</h2>
                 <div class="topics-grid">
-                    <div class="topic-item">
+                    <div class="topic-card">
+                        <div class="topic-number">1</div>
                         <h3>הבסיס והחשיבה</h3>
                         <p>מה זה מודל AI? ואיך "מדברים" איתו נכון כדי לקבל תוצאות מעולות.</p>
                     </div>
-                    <div class="topic-item">
+                    <div class="topic-card">
+                        <div class="topic-number">2</div>
                         <h3>יישומים וקסמים</h3>
                         <p>יצירת מצגות, סיכומים, שירים ומשחקים מפרומפט בלבד. היכרות עם "סוכני AI" שרואים מסך ומייעלים תהליכים.</p>
                     </div>
-                    <div class="topic-item">
+                    <div class="topic-card">
+                        <div class="topic-number">3</div>
                         <h3>בטיחות, אתיקה וניהול סיכונים</h3>
                         <p>איך להימנע מטעויות נפוצות ולשמור על פרטיות.</p>
                     </div>
@@ -807,37 +891,41 @@
 
         <section class="speaker-section">
             <div class="container">
-                <div class="speaker-header">
-                    <img src="sagi.webp" alt="שגיא בר און" class="speaker-image">
-                    <div class="speaker-intro">
-                        <h2>שגיא בר און</h2>
+                <h2 class="section-title">מי מאחורי ההרצאה?</h2>
+                <div class="speaker-content">
+                    <div class="speaker-header">
+                        <img src="sagi.webp" alt="שגיא בר און" class="speaker-image">
+                        <div class="speaker-intro">
+                            <h2>שגיא בר און</h2>
+                            <p>חוקר ויועץ מוביל בתחום הבינה המלאכותית</p>
+                        </div>
                     </div>
-                </div>
 
-                <div class="speaker-quote">
-                    "כשהבינה המלאכותית פרצה, מצאתי את עצמי מתוסכל בדיוק כמו רבים אחרים: חיפשתי דרך פשוטה, ברורה, כזו שבאמת עובדת. לא הצלחתי להבין איזה כלי מתאים ומה באמת שווה את הזמן שלי. למדתי, חקרתי, ניסיתי ובסוף פיתחתי מתודולוגיה ייחודית שמטרתה לפשט את עולמות ה-AI, לנטרל את ה"בלגן", ולהנגיש את הכלים המתקדמים ביותר בצורה הפשוטה והמעשית ביותר".
-                </div>
+                    <div class="speaker-quote">
+                        "כשהבינה המלאכותית פרצה, מצאתי את עצמי מתוסכל בדיוק כמו רבים אחרים: חיפשתי דרך פשוטה, ברורה, כזו שבאמת עובדת. לא הצלחתי להבין איזה כלי מתאים ומה באמת שווה את הזמן שלי. למדתי, חקרתי, ניסיתי ובסוף פיתחתי מתודולוגיה ייחודית שמטרתה לפשט את עולמות ה-AI, לנטרל את ה"בלגן", ולהנגיש את הכלים המתקדמים ביותר בצורה הפשוטה והמעשית ביותר".
+                    </div>
 
-                <div class="speaker-details">
-                    <h3>הניסיון מדבר:</h3>
-                    <p>שגיא הוא חוקר ויועץ מוביל בתחום הבינה המלאכותית, עם יותר מ־25 שנות ניסיון בתעשיית ההיי־טק. הוא משלב ידע טכנולוגי עמוק (פיתוח, אוטומציה ואסטרטגיה) עם הבנה של המשתמשים.
-                        
-                        שגיא מרצה אורח באוניברסיטאות (רייכמן, אריאל), באיגוד המבקרים הפנימיים (IIA), חבר סגל בחינות מה"ט ומלווה את משרד החינוך כמנטור לחדשנות ב-AI, הוא בעל תואר שני (MBA) במנהל עסקים בהתמחות ב-AI וייעוץ אסטרטגי עסקי, תואר ראשון במדעים (B.SC), תעודת הנדסאי תוכנה, הסמכת NLP MASTER ודמיון מודרך (רטר).</p>
-                    <h3>איפה כבר פגשו את שגיא:</h3>
-                    <ul class="places-list">
-                        <li>אוניברסיטת רייכמן</li>
-                        <li>אוניברסיטת אריאל</li>
-                        <li>איגוד המבקרים הפנימיים (IIA)</li>
-                        <li>מה"ט - חבר סגל בחינות</li>
-                        <li>משרד החינוך - מנטור לחדשנות ב-AI</li>
-                    </ul>
+                    <div class="speaker-details">
+                        <h3>הניסיון מדבר:</h3>
+                        <p>שגיא הוא חוקר ויועץ מוביל בתחום הבינה המלאכותית, עם יותר מ־25 שנות ניסיון בתעשיית ההיי־טק. הוא משלב ידע טכנולוגי עמוק (פיתוח, אוטומציה ואסטרטגיה) עם הבנה של המשתמשים.
 
-                    <h3>הגישה:</h3>
-                    <p>שגיא חי את השטח. הוא לא מלמד תיאוריות, אלא מעניק למשתתפים מתודולוגיות עבודה מוכחות שמייצרות "שקט תעשייתי", ביטחון טכנולוגי וחיסכון אדיר בזמן.</p>
-                </div>
+                            שגיא מרצה אורח באוניברסיטאות (רייכמן, אריאל), באיגוד המבקרים הפנימיים (IIA), חבר סגל בחינות מה"ט ומלווה את משרד החינוך כמנטור לחדשנות ב-AI, הוא בעל תואר שני (MBA) במנהל עסקים בהתמחות ב-AI וייעוץ אסטרטגי עסקי, תואר ראשון במדעים (B.SC), תעודת הנדסאי תוכנה, הסמכת NLP MASTER ודמיון מודרך (רטר).</p>
+                        <h3>איפה כבר פגשו את שגיא:</h3>
+                        <ul class="places-list">
+                            <li>אוניברסיטת רייכמן</li>
+                            <li>אוניברסיטת אריאל</li>
+                            <li>איגוד המבקרים הפנימיים (IIA)</li>
+                            <li>מה"ט - חבר סגל בחינות</li>
+                            <li>משרד החינוך - מנטור לחדשנות ב-AI</li>
+                        </ul>
 
-                <div class="speaker-motto">
-                    המוטו שלו: "להנגיש, ולחבר את כולם לטכנולוגיה בצורה ברורה ופשוטה"
+                        <h3>הגישה:</h3>
+                        <p>שגיא חי את השטח. הוא לא מלמד תיאוריות, אלא מעניק למשתתפים מתודולוגיות עבודה מוכחות שמייצרות "שקט תעשייתי", ביטחון טכנולוגי וחיסכון אדיר בזמן.</p>
+                    </div>
+
+                    <div class="speaker-motto">
+                        המוטו שלו: "להנגיש, ולחבר את כולם לטכנולוגיה בצורה ברורה ופשוטה"
+                    </div>
                 </div>
             </div>
         </section>
@@ -845,7 +933,7 @@
         <section class="cta-section" id="contact">
             <div class="container">
                 <h2>מוכנים להכניס AI לארגון?</h2>
-                <p>השאירו פרטים או שלחו וואטסאפ ונארגן לכם מפגש AI פרקטי בגובה העיניים</p>
+                <p>שלחו וואטסאפ ונארגן לכם מפגש AI פרקטי בגובה העיניים</p>
                 <a href="https://api.whatsapp.com/send?phone=972549995050" class="cta-button">שלחו וואטסאפ</a>
             </div>
         </section>
