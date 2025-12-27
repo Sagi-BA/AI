@@ -359,29 +359,52 @@
       border-radius: 50%;
     }
 
-    /* Details List */
-    .details-list {
-      max-width: 450px;
-      margin: 0 auto 40px;
-    }
-
-    .detail-item {
+    /* Details Cards */
+    .details-cards {
       display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 14px 0;
-      border-bottom: 1px solid rgba(255,255,255,0.08);
-      font-size: 1rem;
-      color: #e5e7eb;
+      justify-content: center;
+      gap: 20px;
+      flex-wrap: wrap;
+      margin: 0 auto 50px;
+      max-width: 700px;
     }
 
-    .detail-item:last-child {
-      border-bottom: none;
+    .detail-card {
+      flex: 1;
+      min-width: 180px;
+      max-width: 220px;
+      background: rgba(255,255,255,0.03);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 16px;
+      padding: 24px 20px;
+      text-align: center;
+      transition: all 0.3s ease;
     }
 
-    .detail-label {
-      font-weight: 700;
+    .detail-card:hover {
+      background: rgba(255,255,255,0.06);
+      border-color: rgba(96, 165, 250, 0.3);
+      transform: translateY(-4px);
+    }
+
+    .detail-card-icon {
+      font-size: 2rem;
+      margin-bottom: 12px;
+    }
+
+    .detail-card-label {
+      font-size: 0.9rem;
       color: #60a5fa;
+      font-weight: 700;
+      margin-bottom: 8px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    .detail-card-value {
+      font-size: 1.05rem;
+      color: #fff;
+      line-height: 1.5;
     }
 
     /* CTA in About Section */
@@ -495,6 +518,106 @@
       flex-shrink: 0;
     }
 
+    /* Speaker Section */
+    .speaker-section {
+      padding: 80px 20px;
+      background: rgba(255,255,255,0.02);
+    }
+
+    .speaker-content {
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    .speaker-header {
+      display: flex;
+      gap: 28px;
+      align-items: center;
+      margin-bottom: 32px;
+      justify-content: center;
+    }
+
+    .speaker-image {
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+      object-fit: cover;
+      flex-shrink: 0;
+      border: 3px solid rgba(96, 165, 250, 0.5);
+      box-shadow: 0 8px 30px rgba(0,0,0,0.3);
+    }
+
+    .speaker-intro h3 {
+      font-size: 1.5rem;
+      font-weight: 700;
+      margin-bottom: 8px;
+      color: #fff;
+    }
+
+    .speaker-intro p {
+      color: #60a5fa;
+      font-size: 1rem;
+    }
+
+    .speaker-quote {
+      background: rgba(255, 213, 79, 0.1);
+      padding: 28px;
+      border-radius: 12px;
+      margin-bottom: 32px;
+      font-style: italic;
+      color: #ffd54f;
+      border-right: 4px solid #ffd54f;
+      font-size: 1.05rem;
+      line-height: 2;
+    }
+
+    .speaker-details h3 {
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: #60a5fa;
+      margin: 28px 0 14px;
+    }
+
+    .speaker-details h3:first-child {
+      margin-top: 0;
+    }
+
+    .speaker-details p {
+      color: #d1d5db;
+      font-size: 1rem;
+      line-height: 2;
+    }
+
+    .places-list {
+      list-style: none;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 12px;
+      justify-content: center;
+    }
+
+    .places-list li {
+      background: rgba(96, 165, 250, 0.15);
+      padding: 8px 18px;
+      border-radius: 25px;
+      font-size: 0.9rem;
+      color: #60a5fa;
+      font-weight: 500;
+      border: 1px solid rgba(96, 165, 250, 0.3);
+    }
+
+    .speaker-motto {
+      background: linear-gradient(135deg, #dc2626 0%, #ea580c 100%);
+      color: #fff;
+      padding: 24px;
+      border-radius: 12px;
+      text-align: center;
+      margin-top: 32px;
+      font-size: 1.15rem;
+      font-weight: 700;
+    }
+
     /* Footer */
     footer {
       position: relative;
@@ -597,10 +720,21 @@
         font-size: 0.95rem;
       }
 
-      .detail-item {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 4px;
+      .details-cards {
+        gap: 16px;
+      }
+
+      .detail-card {
+        min-width: 140px;
+        padding: 20px 16px;
+      }
+
+      .detail-card-icon {
+        font-size: 1.6rem;
+      }
+
+      .detail-card-value {
+        font-size: 0.95rem;
       }
 
       .crawl-container {
@@ -618,6 +752,36 @@
 
       .about-highlight {
         font-size: 1.1rem;
+      }
+
+      .speaker-header {
+        flex-direction: column;
+        text-align: center;
+        gap: 16px;
+      }
+
+      .speaker-image {
+        width: 100px;
+        height: 100px;
+      }
+
+      .speaker-intro h3 {
+        font-size: 1.3rem;
+      }
+
+      .speaker-quote {
+        padding: 20px;
+        font-size: 0.95rem;
+      }
+
+      .places-list li {
+        font-size: 0.85rem;
+        padding: 6px 14px;
+      }
+
+      .speaker-motto {
+        font-size: 1rem;
+        padding: 20px;
       }
     }
   </style>
@@ -700,18 +864,21 @@
           <h3>פרטים טכניים</h3>
         </div>
 
-        <div class="details-list">
-          <div class="detail-item">
-            <span class="detail-label">מתי?</span>
-            <span>יום שני, 05/01 בשעה 20:00 בערב</span>
+        <div class="details-cards">
+          <div class="detail-card">
+            <div class="detail-card-icon">📅</div>
+            <div class="detail-card-label">מתי?</div>
+            <div class="detail-card-value">יום שני, 05/01<br>בשעה 20:00</div>
           </div>
-          <div class="detail-item">
-            <span class="detail-label">איפה?</span>
-            <span>אונליין (לינק ישלח לאחר הרשמה)</span>
+          <div class="detail-card">
+            <div class="detail-card-icon">💻</div>
+            <div class="detail-card-label">איפה?</div>
+            <div class="detail-card-value">אונליין<br>(לינק ישלח לאחר הרשמה)</div>
           </div>
-          <div class="detail-item">
-            <span class="detail-label">עלות:</span>
-            <span>חינם בהרשמה מראש</span>
+          <div class="detail-card">
+            <div class="detail-card-icon">🎁</div>
+            <div class="detail-card-label">עלות</div>
+            <div class="detail-card-value">חינם<br>בהרשמה מראש</div>
           </div>
         </div>
 
@@ -750,7 +917,7 @@
         <iframe
           src="https://docs.google.com/forms/d/e/1FAIpQLScFayjTYgm6Vwb0LzGpIHdH_Mc5tRsnvv77O06ht3x_P6nCcw/viewform?embedded=true"
           width="100%"
-          height="20000"
+          height="2000"
           frameborder="0"
           marginheight="0"
           marginwidth="0">
@@ -766,6 +933,64 @@
           </svg>
           הצטרפו לקבוצת הוואטסאפ
         </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Speaker Section -->
+  <section class="speaker-section">
+    <div class="container">
+      <div class="section-title">
+        <h2>מי מאחורי הוובינר?</h2>
+        <div class="title-decoration">
+          <div class="line"></div>
+          <div class="dot"></div>
+          <div class="line"></div>
+        </div>
+      </div>
+
+      <div class="speaker-content">
+        <div class="speaker-header">
+          <img src="../sagi.webp" alt="שגיא בר און" class="speaker-image">
+          <div class="speaker-intro">
+            <h3>שגיא בר און</h3>
+            <p>חוקר ויועץ מוביל בתחום הבינה המלאכותית</p>
+          </div>
+        </div>
+
+        <div class="speaker-quote">
+          "כשהבינה המלאכותית פרצה, מצאתי את עצמי מתוסכל בדיוק כמו רבים אחרים: חיפשתי דרך פשוטה, ברורה, כזו שבאמת עובדת. לא הצלחתי להבין איזה כלי מתאים ומה באמת שווה את הזמן שלי. למדתי, חקרתי, ניסיתי ובסוף פיתחתי מתודולוגיה ייחודית שמטרתה לפשט את עולמות ה-AI, לנטרל את ה"בלגן", ולהנגיש את הכלים המתקדמים ביותר בצורה הפשוטה והמעשית ביותר".
+        </div>
+
+        <div class="speaker-details">
+          <h3>הניסיון מדבר:</h3>
+          <p>שגיא הוא חוקר ויועץ בתחום הבינה המלאכותית, עם יותר מ־25 שנות ניסיון בתעשיית ההיי־טק. הוא משלב ידע טכנולוגי עמוק (פיתוח, אוטומציה ואסטרטגיה) עם הבנה של המשתמשים.
+          שגיא מרצה אורח באוניברסיטאות (רייכמן, אריאל), באיגוד המבקרים הפנימיים (IIA), חבר סגל בחינות מה"ט ומלווה את משרד החינוך כמנטור לחדשנות ב-AI, הוא בעל תואר שני (MBA) במנהל עסקים בהתמחות ב-AI וייעוץ אסטרטגי עסקי, תואר ראשון במדעים (B.SC), תעודת הנדסאי תוכנה, הסמכת NLP MASTER ודמיון מודרך (רטר).</p>
+
+          <h3>איפה כבר פגשו את שגיא:</h3>
+          <ul class="places-list">
+            <li>אוניברסיטת רייכמן</li>
+            <li>אוניברסיטת אריאל</li>
+            <li>איגוד המבקרים הפנימיים (IIA)</li>
+            <li>מה"ט - חבר סגל בחינות</li>
+            <li>משרד החינוך - מנטור לחדשנות ב-AI</li>
+            <li>פרינטופ סחר</li>
+            <li>רשת בתי ספר תיכוניים דרכא</li>
+            <li>מרכז סליקה בנקאי</li>
+            <li>סגני ראשי רשויות</li>
+            <li>וידאו הד</li>
+            <li>fiverr</li>
+            <li>ISA Group</li>
+            <li>Level UP - Orthodox Women in Tech</li>
+          </ul>
+
+          <h3>הגישה:</h3>
+          <p>שגיא חי את השטח. הוא לא מלמד תיאוריות, אלא מעניק למשתתפים מתודולוגיות עבודה מוכחות שמייצרות "שקט תעשייתי", ביטחון טכנולוגי וחיסכון אדיר בזמן.</p>
+        </div>
+
+        <div class="speaker-motto">
+          המוטו שלו: "להנגיש, ולחבר את כולם לטכנולוגיה בצורה ברורה ופשוטה"
+        </div>
       </div>
     </div>
   </section>
