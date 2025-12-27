@@ -1,0 +1,772 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>סרטוני סלפי עם AI: מהרעיון למסך</title>
+  <link href="https://fonts.googleapis.com/css2?family=Alef:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Alef', sans-serif;
+      background: #000;
+      color: #fff;
+      overflow-x: hidden;
+      line-height: 1.6;
+    }
+
+    /* Animated Background */
+    .bg-container {
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .glow-blue {
+      position: absolute;
+      top: 20%;
+      left: 20%;
+      width: 400px;
+      height: 400px;
+      background: rgba(59, 130, 246, 0.08);
+      border-radius: 50%;
+      filter: blur(80px);
+      animation: pulse 4s ease-in-out infinite;
+    }
+
+    .glow-red {
+      position: absolute;
+      bottom: 20%;
+      right: 20%;
+      width: 350px;
+      height: 350px;
+      background: rgba(239, 68, 68, 0.06);
+      border-radius: 50%;
+      filter: blur(80px);
+      animation: pulse 4s ease-in-out infinite 1s;
+    }
+
+    .vignette {
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse at center, transparent 0%, black 70%);
+    }
+
+    @keyframes pulse {
+      0%, 100% { opacity: 0.5; transform: scale(1); }
+      50% { opacity: 1; transform: scale(1.1); }
+    }
+
+    @keyframes twinkle {
+      0%, 100% { opacity: 0.3; }
+      50% { opacity: 0.9; }
+    }
+
+    .star {
+      position: absolute;
+      width: 2px;
+      height: 2px;
+      background: #fff;
+      border-radius: 50%;
+    }
+
+    /* Hero Section */
+    .hero {
+      position: relative;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 60px 20px;
+      z-index: 1;
+    }
+
+    .hero-content {
+      text-align: center;
+      max-width: 800px;
+    }
+
+    .decorative-line {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 16px;
+      margin-bottom: 32px;
+    }
+
+    .line {
+      height: 1px;
+      width: 60px;
+      background: linear-gradient(to right, transparent, #60a5fa);
+    }
+
+    .line:last-child {
+      background: linear-gradient(to left, transparent, #60a5fa);
+    }
+
+    .diamond {
+      width: 8px;
+      height: 8px;
+      border: 1px solid #60a5fa;
+      transform: rotate(45deg);
+    }
+
+    .main-title {
+      font-size: clamp(1.8rem, 6vw, 3.5rem);
+      font-weight: 900;
+      margin-bottom: 24px;
+      line-height: 1.3;
+    }
+
+    .title-gradient {
+      display: block;
+      margin-top: 12px;
+      background: linear-gradient(to left, #60a5fa, #fff, #f87171);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .subtitle {
+      font-size: clamp(1rem, 3vw, 1.25rem);
+      color: #d1d5db;
+      margin-bottom: 40px;
+      max-width: 600px;
+      margin-left: auto;
+      margin-right: auto;
+      line-height: 1.8;
+    }
+
+    .event-info {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 16px;
+      margin-bottom: 40px;
+    }
+
+    .info-badge {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(255,255,255,0.05);
+      backdrop-filter: blur(10px);
+      padding: 12px 20px;
+      border-radius: 12px;
+      border: 1px solid rgba(255,255,255,0.1);
+      font-size: 0.95rem;
+    }
+
+    .info-badge span:first-child {
+      color: #60a5fa;
+    }
+
+    .cta-button {
+      display: inline-block;
+      padding: 18px 48px;
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: #fff;
+      background: linear-gradient(to left, #2563eb, #3b82f6);
+      border: 1px solid rgba(96, 165, 250, 0.5);
+      border-radius: 12px;
+      text-decoration: none;
+      transition: all 0.3s ease;
+      cursor: pointer;
+    }
+
+    .cta-button:hover {
+      transform: scale(1.05);
+      background: linear-gradient(to left, #3b82f6, #60a5fa);
+      box-shadow: 0 0 30px rgba(59, 130, 246, 0.4);
+    }
+
+    .scroll-indicator {
+      position: absolute;
+      bottom: 30px;
+      left: 50%;
+      transform: translateX(-50%);
+      animation: bounce 2s infinite;
+    }
+
+    .scroll-indicator div {
+      width: 24px;
+      height: 40px;
+      border: 2px solid rgba(255,255,255,0.3);
+      border-radius: 20px;
+      display: flex;
+      justify-content: center;
+      padding-top: 8px;
+    }
+
+    .scroll-indicator div::after {
+      content: '';
+      width: 4px;
+      height: 8px;
+      background: rgba(255,255,255,0.5);
+      border-radius: 4px;
+    }
+
+    @keyframes bounce {
+      0%, 100% { transform: translateX(-50%) translateY(0); }
+      50% { transform: translateX(-50%) translateY(10px); }
+    }
+
+    /* Sections */
+    section {
+      position: relative;
+      z-index: 1;
+      padding: 80px 20px;
+    }
+
+    .container {
+      max-width: 700px;
+      margin: 0 auto;
+    }
+
+    .section-title {
+      text-align: center;
+      margin-bottom: 40px;
+    }
+
+    .section-title h2 {
+      font-size: clamp(1.5rem, 5vw, 2rem);
+      font-weight: 700;
+      margin-bottom: 16px;
+    }
+
+    .title-decoration {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+    }
+
+    .title-decoration .line {
+      width: 50px;
+      height: 1px;
+      background: linear-gradient(to right, transparent, rgba(255,255,255,0.3));
+    }
+
+    .title-decoration .line:last-child {
+      background: linear-gradient(to left, transparent, rgba(255,255,255,0.3));
+    }
+
+    .title-decoration .dot {
+      width: 6px;
+      height: 6px;
+      background: #60a5fa;
+      transform: rotate(45deg);
+    }
+
+    /* Video Section */
+    .video-section {
+      padding: 60px 20px;
+    }
+
+    .video-caption {
+      text-align: center;
+      font-size: 1.1rem;
+      color: #9ca3af;
+      margin-top: 24px;
+      font-style: italic;
+    }
+
+    .video-container {
+      max-width: 800px;
+      margin: 0 auto;
+      aspect-ratio: 16/9;
+      border-radius: 16px;
+      overflow: hidden;
+      border: 1px solid rgba(255,255,255,0.1);
+      box-shadow: 0 25px 50px rgba(59, 130, 246, 0.1);
+    }
+
+    .video-container iframe {
+      width: 100%;
+      height: 100%;
+      border: none;
+    }
+
+    /* Bullet Points */
+    .bullets {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .bullet-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 16px;
+      padding: 20px;
+      background: rgba(255,255,255,0.03);
+      backdrop-filter: blur(10px);
+      border-radius: 12px;
+      border: 1px solid rgba(255,255,255,0.08);
+      transition: all 0.3s ease;
+    }
+
+    .bullet-item:hover {
+      background: rgba(255,255,255,0.06);
+      border-color: rgba(255,255,255,0.15);
+    }
+
+    .bullet-dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      margin-top: 8px;
+      flex-shrink: 0;
+    }
+
+    .bullet-dot.blue { background: linear-gradient(to right, #3b82f6, #06b6d4); box-shadow: 0 0 10px rgba(59, 130, 246, 0.5); }
+    .bullet-dot.red { background: linear-gradient(to right, #ef4444, #f97316); box-shadow: 0 0 10px rgba(239, 68, 68, 0.5); }
+    .bullet-dot.cyan { background: linear-gradient(to right, #06b6d4, #14b8a6); box-shadow: 0 0 10px rgba(6, 182, 212, 0.5); }
+
+    .bullet-item span {
+      color: #e5e7eb;
+      font-size: 1.05rem;
+      line-height: 1.7;
+    }
+
+    /* Intro Section */
+    .intro-section {
+      padding: 80px 20px 100px;
+    }
+
+    .intro-text {
+      text-align: center;
+      max-width: 700px;
+      margin: 0 auto 60px;
+      font-size: 1.15rem;
+      line-height: 2;
+      color: #e5e7eb;
+    }
+
+    .intro-text p {
+      margin-bottom: 16px;
+    }
+
+    .intro-greeting {
+      font-size: 1.3rem;
+      color: #fff;
+    }
+
+    .intro-greeting strong {
+      color: #60a5fa;
+    }
+
+    .intro-highlight {
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: #f87171;
+      margin-top: 24px;
+    }
+
+    .feature-list {
+      list-style: none;
+      max-width: 500px;
+      margin: 0 auto 60px;
+      text-align: right;
+    }
+
+    .feature-list li {
+      position: relative;
+      padding: 12px 0;
+      padding-right: 28px;
+      font-size: 1.1rem;
+      color: #e5e7eb;
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+    }
+
+    .feature-list li:last-child {
+      border-bottom: none;
+    }
+
+    .feature-list li::before {
+      content: '';
+      position: absolute;
+      right: 0;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 8px;
+      height: 8px;
+      background: linear-gradient(to right, #3b82f6, #60a5fa);
+      border-radius: 50%;
+    }
+
+    .details-list {
+      max-width: 500px;
+      margin: 0 auto 50px;
+    }
+
+    .detail-item {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 16px 0;
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+      font-size: 1.05rem;
+      color: #e5e7eb;
+    }
+
+    .detail-item:last-child {
+      border-bottom: none;
+    }
+
+    .detail-label {
+      font-weight: 700;
+      color: #60a5fa;
+    }
+
+    .cta-text {
+      text-align: center;
+      font-size: 1.2rem;
+      color: #9ca3af;
+      margin-bottom: 30px;
+    }
+
+    .intro-section .register-button {
+      display: block;
+      max-width: 350px;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    /* Webinar Flyer */
+    .webinar-flyer-section {
+      padding: 60px 20px;
+      text-align: center;
+    }
+
+    .webinar-flyer-section .container {
+      max-width: 700px;
+      margin: 0 auto;
+      padding: 0 12px;
+    }
+
+    .webinar-flyer-image {
+      max-width: 100%;
+      height: auto;
+      border-radius: 16px;
+      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+      border: 1px solid rgba(255,255,255,0.1);
+    }
+
+    .webinar-flyer-caption {
+      margin-top: 24px;
+      font-size: 1.1rem;
+      color: #9ca3af;
+      font-style: italic;
+    }
+
+    /* Registration */
+    .registration {
+      padding: 100px 20px;
+      text-align: center;
+    }
+
+    .register-button {
+      display: inline-block;
+      padding: 22px 60px;
+      font-size: 1.3rem;
+      font-weight: 700;
+      color: #fff;
+      background: linear-gradient(to left, #dc2626, #ea580c);
+      border: 1px solid rgba(239, 68, 68, 0.5);
+      border-radius: 12px;
+      text-decoration: none;
+      transition: all 0.3s ease;
+      box-shadow: 0 10px 40px rgba(239, 68, 68, 0.3);
+    }
+
+    .register-button:hover {
+      transform: scale(1.05);
+      background: linear-gradient(to left, #ef4444, #f97316);
+      box-shadow: 0 15px 50px rgba(239, 68, 68, 0.4);
+    }
+
+    .form-intro {
+      text-align: center;
+      font-size: 1.1rem;
+      color: #9ca3af;
+      margin-bottom: 30px;
+    }
+
+    .form-container {
+      max-width: 640px;
+      margin: 0 auto;
+      border-radius: 16px;
+      overflow: hidden;
+      border: 1px solid rgba(255,255,255,0.1);
+      background: rgba(255,255,255,0.02);
+    }
+
+    .form-container iframe {
+      display: block;
+      background: #fff;
+    }
+
+    /* Footer */
+    footer {
+      position: relative;
+      z-index: 1;
+      padding: 50px 20px;
+      border-top: 1px solid rgba(255,255,255,0.1);
+      text-align: center;
+    }
+
+    .footer-links {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 24px;
+      margin-bottom: 20px;
+    }
+
+    .footer-links a {
+      color: #9ca3af;
+      text-decoration: none;
+      font-size: 0.95rem;
+      transition: color 0.3s;
+    }
+
+    .footer-links a:hover {
+      color: #60a5fa;
+    }
+
+    .footer-note {
+      color: #4b5563;
+      font-size: 0.85rem;
+      margin-bottom: 30px;
+    }
+
+    .footer-decoration {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+    }
+
+    .footer-decoration .line {
+      width: 40px;
+      height: 1px;
+      background: linear-gradient(to right, transparent, rgba(96, 165, 250, 0.4));
+    }
+
+    .footer-decoration .line:last-child {
+      background: linear-gradient(to left, transparent, rgba(96, 165, 250, 0.4));
+    }
+
+    .footer-decoration .dot {
+      width: 5px;
+      height: 5px;
+      border: 1px solid rgba(96, 165, 250, 0.5);
+      transform: rotate(45deg);
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Background Effects -->
+  <div class="bg-container">
+    <div class="glow-blue"></div>
+    <div class="glow-red"></div>
+    <div class="vignette"></div>
+  </div>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="hero-content">
+      <div class="decorative-line">
+        <div class="line"></div>
+        <div class="diamond"></div>
+        <div class="line"></div>
+      </div>
+
+      <h1 class="main-title">
+        סרטוני סלפי עם AI:
+        <span class="title-gradient">מהרעיון למסך</span>
+      </h1>
+
+      <p class="subtitle">
+        איך יוצרים סרטוני סלפי שנראים קולנועיים, אמיתיים ומדויקים —
+        שלב אחרי שלב, בלי ידע טכני מוקדם.
+      </p>
+
+      <div class="event-info">
+        <div class="info-badge">
+          <span>📅</span>
+          <span>5 בינואר 2026</span>
+        </div>
+        <div class="info-badge">
+          <span>⏰</span>
+          <span>20:00</span>
+        </div>
+        <div class="info-badge">
+          <span>💻</span>
+          <span>וובינר אונליין (בשידור חי)</span>
+        </div>
+      </div>
+
+      <a href="#registration" class="cta-button">הירשמו עכשיו</a>
+
+      <div class="scroll-indicator">
+        <div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Video Section -->
+  <section class="video-section">
+    <div class="video-container">
+      <iframe
+        src="https://www.youtube.com/embed/2XqBbmaCzbM?si=feoM2xichQ45Imu3&autoplay=1&vq=hd1080"
+        title="Demo Video"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+        allowfullscreen>
+      </iframe>
+    </div>
+    <p class="video-caption">זה בדיוק סוג הסרטונים שנלמד ליצור בוובינר</p>
+  </section>
+
+  <!-- Intro Content -->
+  <section class="intro-section">
+    <div class="container">
+      <div class="intro-text">
+        <p class="intro-greeting">כאן <strong>שגיא בר און</strong>,</p>
+        <p>ואני מזמין אתכם לוובינר שבו נצלול בפועל לאיך יוצרים סרטוני סלפי עם AI כמו הסרטון שראיתם, ועם כל דמות שתרצו.</p>
+        <p class="intro-highlight">לא תיאוריה.</p>
+        <p>רק תכל'ס: איך לוקחים רעיון, ומוציאים ממנו סרטון סלפי שנראה וואו.</p>
+        <p>בוובינר נבנה יחד תהליך עבודה ברור, כזה שתוכלו להשתמש בו שוב ושוב ליצירת סרטוני סלפי עם דמויות, סצנות, הומור, עומק וסיפור.</p>
+      </div>
+
+      <div class="section-title">
+        <h2>אז מה מיוחד פה?</h2>
+        <div class="title-decoration">
+          <div class="line"></div>
+          <div class="dot"></div>
+          <div class="line"></div>
+        </div>
+      </div>
+
+      <ul class="feature-list">
+        <li>תהליך ברור, פשוט ויישומי</li>
+        <li>דוגמאות חיות מהשטח</li>
+        <li>כלים שאפשר להשתמש בהם מיד אחרי</li>
+        <li>בלי חפירות, בלי באזזוורדס</li>
+      </ul>
+
+      <div class="section-title">
+        <h2>פרטים טכניים</h2>
+        <div class="title-decoration">
+          <div class="line"></div>
+          <div class="dot"></div>
+          <div class="line"></div>
+        </div>
+      </div>
+
+      <div class="details-list">
+        <div class="detail-item">
+          <span class="detail-label">מתי?</span>
+          <span>יום שני, 05/01 בשעה 20:00 בערב</span>
+        </div>
+        <div class="detail-item">
+          <span class="detail-label">איפה?</span>
+          <span>אונליין (לינק ישלח לאחר הרשמה)</span>
+        </div>
+        <div class="detail-item">
+          <span class="detail-label">עלות:</span>
+          <span>חינם בהרשמה מראש</span>
+        </div>
+      </div>
+
+      <p class="cta-text">שריינו מקום עכשיו כי מספר המקומות מוגבל</p>
+
+      <a href="#registration" class="register-button">שריינו מקום עכשיו</a>
+    </div>
+  </section>
+
+  <!-- Webinar Flyer -->
+  <section id="webinar-flyer" class="webinar-flyer-section">
+    <div class="container">
+      <img src="Webinars.png"
+           alt="וובינר אונליין: סרטוני סלפי עם AI – מהרעיון למסך"
+           class="webinar-flyer-image" />
+      <p class="webinar-flyer-caption">את כל מה שרואים בפלייר – נלמד לעשות בוובינר, צעד־אחר־צעד.</p>
+    </div>
+  </section>
+
+  <!-- Registration -->
+  <section class="registration" id="registration">
+    <div class="container">
+      <div class="section-title">
+        <h2>הרשמה לוובינר</h2>
+        <div class="title-decoration">
+          <div class="line"></div>
+          <div class="dot"></div>
+          <div class="line"></div>
+        </div>
+      </div>
+
+      <p class="form-intro">מלאו את הפרטים ונשלח לכם את הלינק להשתתפות</p>
+
+      <div class="form-container">
+        <iframe
+          src="https://docs.google.com/forms/d/e/1FAIpQLScFayjTYgm6Vwb0LzGpIHdH_Mc5tRsnvv77O06ht3x_P6nCcw/viewform?embedded=true"
+          width="100%"
+          height="500"
+          frameborder="0"
+          marginheight="0"
+          marginwidth="0">
+          טוען...
+        </iframe>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="footer-links">
+      <a href="http://www.nanobananai.site" target="_blank" rel="noopener noreferrer">www.nanobananai.site</a>
+      <a href="tel:054-9995050">054-9995050</a>
+    </div>
+    <p class="footer-note">מספר המקומות מוגבל כדי לשמור על וובינר ממוקד ואיכותי.</p>
+    <div class="footer-decoration">
+      <div class="line"></div>
+      <div class="dot"></div>
+      <div class="line"></div>
+    </div>
+  </footer>
+
+  <!-- Stars Script -->
+  <script>
+    const bgContainer = document.querySelector('.bg-container');
+    for (let i = 0; i < 60; i++) {
+      const star = document.createElement('div');
+      star.className = 'star';
+      star.style.top = Math.random() * 100 + '%';
+      star.style.left = Math.random() * 100 + '%';
+      star.style.animation = `twinkle ${2 + Math.random() * 3}s infinite`;
+      star.style.animationDelay = Math.random() * 2 + 's';
+      bgContainer.appendChild(star);
+    }
+
+    // Smooth scroll
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function(e) {
+        e.preventDefault();
+        document.querySelector(this.getAttribute('href')).scrollIntoView({ behavior: 'smooth' });
+      });
+    });
+  </script>
+
+</body>
+</html>
