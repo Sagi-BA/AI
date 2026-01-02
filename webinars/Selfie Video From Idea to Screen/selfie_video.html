@@ -1,0 +1,1054 @@
+<!-- https://bit.ly/SagiSelfie -->
+<!-- https://htmlpreview.github.io/?https://github.com/Sagi-BA/AI/blob/main/webinars/selfie_video.html
+  -->
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>סרטוני סלפי עם AI: מרעיון לסלפי</title>
+  <link href="https://fonts.googleapis.com/css2?family=Alef:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Alef', sans-serif;
+      background: #000;
+      color: #fff;
+      overflow-x: hidden;
+      line-height: 1.7;
+    }
+
+    /* Animated Background */
+    .bg-container {
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .glow-blue {
+      position: absolute;
+      top: 20%;
+      left: 20%;
+      width: 400px;
+      height: 400px;
+      background: rgba(59, 130, 246, 0.08);
+      border-radius: 50%;
+      filter: blur(80px);
+      animation: pulse 4s ease-in-out infinite;
+    }
+
+    .glow-red {
+      position: absolute;
+      bottom: 20%;
+      right: 20%;
+      width: 350px;
+      height: 350px;
+      background: rgba(239, 68, 68, 0.06);
+      border-radius: 50%;
+      filter: blur(80px);
+      animation: pulse 4s ease-in-out infinite 1s;
+    }
+
+    .vignette {
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse at center, transparent 0%, black 70%);
+    }
+
+    @keyframes pulse {
+      0%, 100% { opacity: 0.5; transform: scale(1); }
+      50% { opacity: 1; transform: scale(1.1); }
+    }
+
+    @keyframes twinkle {
+      0%, 100% { opacity: 0.3; }
+      50% { opacity: 0.9; }
+    }
+
+    .star {
+      position: absolute;
+      width: 2px;
+      height: 2px;
+      background: #fff;
+      border-radius: 50%;
+    }
+
+    /* Hero Section */
+    .hero {
+      position: relative;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 40px 20px;
+      z-index: 1;
+    }
+
+    .hero-content {
+      text-align: center;
+      max-width: 900px;
+      width: 100%;
+    }
+
+    .main-title {
+      font-size: clamp(1.8rem, 5vw, 3rem);
+      font-weight: 700;
+      margin-bottom: 16px;
+      line-height: 1.3;
+    }
+
+    .title-gradient {
+      display: block;
+      margin-top: 8px;
+      background: linear-gradient(to left, #60a5fa, #fff, #f87171);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .subtitle {
+      font-size: clamp(1rem, 2.5vw, 1.15rem);
+      color: #d1d5db;
+      margin-bottom: 32px;
+      max-width: 600px;
+      margin-left: auto;
+      margin-right: auto;
+      line-height: 1.8;
+    }
+
+    /* Video in Hero */
+    .hero-video {
+      max-width: 800px;
+      width: 100%;
+      margin: 0 auto 16px;
+      aspect-ratio: 16/9;
+      border-radius: 16px;
+      overflow: hidden;
+      border: 1px solid rgba(255,255,255,0.1);
+      box-shadow: 0 25px 50px rgba(59, 130, 246, 0.15);
+    }
+
+    .hero-video iframe {
+      width: 100%;
+      height: 100%;
+      border: none;
+    }
+
+    .video-caption {
+      text-align: center;
+      font-size: 1rem;
+      color: #9ca3af;
+      margin-bottom: 32px;
+      font-style: italic;
+    }
+
+    .cta-button {
+      display: inline-block;
+      padding: 18px 48px;
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: #fff;
+      background: linear-gradient(to left, #dc2626, #ea580c);
+      border: 1px solid rgba(239, 68, 68, 0.5);
+      border-radius: 12px;
+      text-decoration: none;
+      transition: all 0.3s ease;
+      cursor: pointer;
+      box-shadow: 0 10px 40px rgba(239, 68, 68, 0.3);
+    }
+
+    .cta-button:hover {
+      transform: scale(1.05);
+      background: linear-gradient(to left, #ef4444, #f97316);
+      box-shadow: 0 15px 50px rgba(239, 68, 68, 0.4);
+    }
+
+    /* Sections */
+    section {
+      position: relative;
+      z-index: 1;
+      padding: 80px 20px;
+    }
+
+    .container {
+      max-width: 700px;
+      margin: 0 auto;
+    }
+
+    /* Section Titles */
+    .section-title {
+      text-align: center;
+      margin-bottom: 40px;
+    }
+
+    .section-title h2 {
+      font-size: clamp(1.5rem, 4vw, 2rem);
+      font-weight: 700;
+      margin-bottom: 16px;
+    }
+
+    .section-title h3 {
+      font-size: clamp(1.2rem, 3vw, 1.5rem);
+      font-weight: 700;
+      margin-bottom: 12px;
+    }
+
+    .title-decoration {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+    }
+
+    .title-decoration .line {
+      width: 50px;
+      height: 1px;
+      background: linear-gradient(to right, transparent, rgba(255,255,255,0.3));
+    }
+
+    .title-decoration .line:last-child {
+      background: linear-gradient(to left, transparent, rgba(255,255,255,0.3));
+    }
+
+    .title-decoration .dot {
+      width: 6px;
+      height: 6px;
+      background: #60a5fa;
+      transform: rotate(45deg);
+    }
+
+    /* About Section - Star Wars Crawl */
+    .about-section {
+      padding: 0;
+      overflow: hidden;
+    }
+
+    .crawl-container {
+      position: relative;
+      width: 100%;
+      min-height: 500px;
+      perspective: 350px;
+      overflow: hidden;
+      display: flex;
+      align-items: flex-start;
+      justify-content: center;
+      padding-top: 60px;
+    }
+
+    .crawl-content {
+      position: relative;
+      width: 90%;
+      max-width: 700px;
+      transform-origin: 50% 100%;
+      color: #ffd54f;
+      text-align: center;
+      font-size: 1.15rem;
+      line-height: 2;
+      /* Start invisible, animation will be added by JS */
+      opacity: 0;
+      transform: rotateX(25deg) translateY(100%);
+    }
+
+    .crawl-content.animate {
+      animation: crawl 6s ease-out forwards;
+    }
+
+    @keyframes crawl {
+      0% {
+        transform: rotateX(25deg) translateY(100%);
+        opacity: 0;
+      }
+      10% {
+        opacity: 1;
+      }
+      100% {
+        transform: rotateX(0deg) translateY(0);
+        opacity: 1;
+      }
+    }
+
+    /* Reduced motion - skip animation */
+    @media (prefers-reduced-motion: reduce) {
+      .crawl-content {
+        animation: none;
+        transform: rotateX(0deg) translateY(0);
+        opacity: 1;
+      }
+    }
+
+    .crawl-content.animation-done {
+      animation: none;
+      transform: rotateX(0deg) translateY(0);
+      opacity: 1;
+    }
+
+    .about-text {
+      text-align: center;
+      max-width: 700px;
+      margin: 0 auto 50px;
+      font-size: 1.1rem;
+      line-height: 2;
+      color: #ffd54f;
+    }
+
+    .about-text p {
+      margin-bottom: 16px;
+    }
+
+    .about-greeting {
+      font-size: 1.3rem;
+      color: #ffd54f;
+    }
+
+    .about-greeting strong {
+      color: #fff;
+      text-shadow: 0 0 10px rgba(255, 213, 79, 0.5);
+    }
+
+    .about-highlight {
+      font-size: 1.3rem;
+      font-weight: 700;
+      color: #fff;
+      margin-top: 20px;
+      text-shadow: 0 0 15px rgba(255, 213, 79, 0.6);
+    }
+
+    /* Rest of about section (after crawl) */
+    .about-rest {
+      padding: 40px 20px 80px;
+    }
+
+    /* Feature List */
+    .feature-list {
+      list-style: none;
+      max-width: 450px;
+      margin: 0 auto 50px;
+      text-align: right;
+    }
+
+    .feature-list li {
+      position: relative;
+      padding: 14px 0;
+      padding-right: 24px;
+      font-size: 1.05rem;
+      color: #e5e7eb;
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+    }
+
+    .feature-list li:last-child {
+      border-bottom: none;
+    }
+
+    .feature-list li::before {
+      content: '';
+      position: absolute;
+      right: 0;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 8px;
+      height: 8px;
+      background: linear-gradient(to right, #3b82f6, #60a5fa);
+      border-radius: 50%;
+    }
+
+    /* Details Cards */
+    .details-cards {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      flex-wrap: wrap;
+      margin: 0 auto 50px;
+      max-width: 700px;
+    }
+
+    .detail-card {
+      flex: 1;
+      min-width: 180px;
+      max-width: 220px;
+      background: rgba(255,255,255,0.03);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 16px;
+      padding: 24px 20px;
+      text-align: center;
+      transition: all 0.3s ease;
+    }
+
+    .detail-card:hover {
+      background: rgba(255,255,255,0.06);
+      border-color: rgba(96, 165, 250, 0.3);
+      transform: translateY(-4px);
+    }
+
+    .detail-card-icon {
+      font-size: 2rem;
+      margin-bottom: 12px;
+    }
+
+    .detail-card-label {
+      font-size: 0.9rem;
+      color: #60a5fa;
+      font-weight: 700;
+      margin-bottom: 8px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    .detail-card-value {
+      font-size: 1.05rem;
+      color: #fff;
+      line-height: 1.5;
+    }
+
+    /* CTA in About Section */
+    .cta-highlight {
+      text-align: center;
+      font-size: 1.15rem;
+      color: #fff;
+      margin-bottom: 24px;
+      font-weight: 700;
+    }
+
+    .about-section .cta-button {
+      display: block;
+      max-width: 350px;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    /* Webinar Flyer */
+    .webinar-flyer-section {
+      padding: 40px 20px 60px;
+      text-align: center;
+    }
+
+    .webinar-flyer-section .container {
+      max-width: 650px;
+      margin: 0 auto;
+      padding: 0 12px;
+    }
+
+    .webinar-flyer-image {
+      max-width: 100%;
+      height: auto;
+      border-radius: 12px;
+      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+      border: 1px solid rgba(255,255,255,0.1);
+    }
+
+    .webinar-flyer-caption {
+      margin-top: 20px;
+      font-size: 0.95rem;
+      color: #9ca3af;
+    }
+
+    /* Registration */
+    .registration {
+      padding: 80px 20px;
+      text-align: center;
+    }
+
+    .form-intro {
+      text-align: center;
+      font-size: 1rem;
+      color: #9ca3af;
+      margin-bottom: 24px;
+    }
+
+    .form-container {
+      max-width: 600px;
+      margin: 0 auto;
+      border-radius: 16px;
+      overflow: hidden;
+      border: 1px solid rgba(255,255,255,0.1);
+      background: rgba(255,255,255,0.02);
+    }
+
+    .form-container iframe {
+      display: block;
+      background: #fff;
+    }
+
+    /* WhatsApp Notice */
+    .whatsapp-notice {
+      margin-top: 40px;
+      padding: 30px 20px;
+      background: rgba(37, 211, 102, 0.1);
+      border: 1px solid rgba(37, 211, 102, 0.3);
+      border-radius: 16px;
+      text-align: center;
+    }
+
+    .whatsapp-notice p {
+      color: #e5e7eb;
+      font-size: 1.05rem;
+      line-height: 1.8;
+      margin-bottom: 20px;
+    }
+
+    .whatsapp-button {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 14px 32px;
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: #fff;
+      background: #25D366;
+      border-radius: 12px;
+      text-decoration: none;
+      transition: all 0.3s ease;
+      box-shadow: 0 8px 25px rgba(37, 211, 102, 0.3);
+    }
+
+    .whatsapp-button:hover {
+      transform: scale(1.05);
+      background: #20bd5a;
+      box-shadow: 0 12px 35px rgba(37, 211, 102, 0.4);
+    }
+
+    .whatsapp-button svg {
+      flex-shrink: 0;
+    }
+
+    /* Speaker Section */
+    .speaker-section {
+      padding: 80px 20px;
+      background: rgba(255,255,255,0.02);
+    }
+
+    .speaker-content {
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    .speaker-header {
+      display: flex;
+      gap: 28px;
+      align-items: center;
+      margin-bottom: 32px;
+      justify-content: center;
+    }
+
+    .speaker-image {
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+      object-fit: cover;
+      flex-shrink: 0;
+      border: 3px solid rgba(96, 165, 250, 0.5);
+      box-shadow: 0 8px 30px rgba(0,0,0,0.3);
+    }
+
+    .speaker-intro h3 {
+      font-size: 1.5rem;
+      font-weight: 700;
+      margin-bottom: 8px;
+      color: #fff;
+    }
+
+    .speaker-intro p {
+      color: #60a5fa;
+      font-size: 1rem;
+    }
+
+    .speaker-quote {
+      background: rgba(255, 213, 79, 0.1);
+      padding: 28px;
+      border-radius: 12px;
+      margin-bottom: 32px;
+      font-style: italic;
+      color: #ffd54f;
+      border-right: 4px solid #ffd54f;
+      font-size: 1.05rem;
+      line-height: 2;
+    }
+
+    .speaker-details h3 {
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: #60a5fa;
+      margin: 28px 0 14px;
+    }
+
+    .speaker-details h3:first-child {
+      margin-top: 0;
+    }
+
+    .speaker-details p {
+      color: #d1d5db;
+      font-size: 1rem;
+      line-height: 2;
+    }
+
+    .places-list {
+      list-style: none;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 12px;
+      justify-content: center;
+    }
+
+    .places-list li {
+      background: rgba(96, 165, 250, 0.15);
+      padding: 8px 18px;
+      border-radius: 25px;
+      font-size: 0.9rem;
+      color: #60a5fa;
+      font-weight: 500;
+      border: 1px solid rgba(96, 165, 250, 0.3);
+    }
+
+    .speaker-motto {
+      background: linear-gradient(135deg, #dc2626 0%, #ea580c 100%);
+      color: #fff;
+      padding: 24px;
+      border-radius: 12px;
+      text-align: center;
+      margin-top: 32px;
+      font-size: 1.15rem;
+      font-weight: 700;
+    }
+
+    /* Footer */
+    footer {
+      position: relative;
+      z-index: 1;
+      padding: 40px 20px;
+      border-top: 1px solid rgba(255,255,255,0.1);
+      text-align: center;
+    }
+
+    .footer-links {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 24px;
+      margin-bottom: 16px;
+    }
+
+    .footer-links a {
+      color: #9ca3af;
+      text-decoration: none;
+      font-size: 0.95rem;
+      transition: color 0.3s;
+    }
+
+    .footer-links a:hover {
+      color: #60a5fa;
+    }
+
+    .footer-note {
+      color: #4b5563;
+      font-size: 0.85rem;
+      margin-bottom: 24px;
+    }
+
+    .footer-decoration {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+    }
+
+    .footer-decoration .line {
+      width: 40px;
+      height: 1px;
+      background: linear-gradient(to right, transparent, rgba(96, 165, 250, 0.4));
+    }
+
+    .footer-decoration .line:last-child {
+      background: linear-gradient(to left, transparent, rgba(96, 165, 250, 0.4));
+    }
+
+    .footer-decoration .dot {
+      width: 5px;
+      height: 5px;
+      border: 1px solid rgba(96, 165, 250, 0.5);
+      transform: rotate(45deg);
+    }
+
+    /* Mobile Responsiveness */
+    @media (max-width: 768px) {
+      .hero {
+        padding: 30px 16px;
+        min-height: auto;
+      }
+
+      .main-title {
+        font-size: 1.6rem;
+      }
+
+      .subtitle {
+        font-size: 0.95rem;
+        margin-bottom: 24px;
+      }
+
+      .hero-video {
+        margin-bottom: 12px;
+      }
+
+      .video-caption {
+        font-size: 0.9rem;
+        margin-bottom: 24px;
+      }
+
+      .cta-button {
+        padding: 16px 36px;
+        font-size: 1.1rem;
+      }
+
+      section {
+        padding: 50px 16px;
+      }
+
+      .about-text {
+        font-size: 1rem;
+        line-height: 1.9;
+      }
+
+      .feature-list li,
+      .detail-item {
+        font-size: 0.95rem;
+      }
+
+      .details-cards {
+        gap: 16px;
+      }
+
+      .detail-card {
+        min-width: 140px;
+        padding: 20px 16px;
+      }
+
+      .detail-card-icon {
+        font-size: 1.6rem;
+      }
+
+      .detail-card-value {
+        font-size: 0.95rem;
+      }
+
+      .crawl-container {
+        min-height: 400px;
+        padding-top: 40px;
+      }
+
+      .crawl-content {
+        font-size: 1rem;
+      }
+
+      .about-greeting {
+        font-size: 1.1rem;
+      }
+
+      .about-highlight {
+        font-size: 1.1rem;
+      }
+
+      .speaker-header {
+        flex-direction: column;
+        text-align: center;
+        gap: 16px;
+      }
+
+      .speaker-image {
+        width: 100px;
+        height: 100px;
+      }
+
+      .speaker-intro h3 {
+        font-size: 1.3rem;
+      }
+
+      .speaker-quote {
+        padding: 20px;
+        font-size: 0.95rem;
+      }
+
+      .places-list li {
+        font-size: 0.85rem;
+        padding: 6px 14px;
+      }
+
+      .speaker-motto {
+        font-size: 1rem;
+        padding: 20px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Background Effects -->
+  <div class="bg-container">
+    <div class="glow-blue"></div>
+    <div class="glow-red"></div>
+    <div class="vignette"></div>
+  </div>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="hero-content">
+      <h1 class="main-title">
+        מרעיון לסלפי
+        <span class="title-gradient">בעזרת כלי AI</span>
+      </h1>
+
+      <p class="subtitle">
+        וובינר מעשי שבו תלמדו ליצור סרטוני סלפי מרשימים עם AI - צעד אחר צעד, בלי ידע טכני מוקדם.
+      </p>
+
+      <div class="hero-video">
+        <iframe
+          src="https://www.youtube.com/embed/2XqBbmaCzbM?si=feoM2xichQ45Imu3&autoplay=1&mute=1&vq=hd1080"
+          title="Demo Video"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowfullscreen>
+        </iframe>
+      </div>
+
+      <p class="video-caption">זה בדיוק סוג הסרטונים שנלמד ליצור בוובינר.</p>
+
+      <a href="#registration-form" class="cta-button">שריינו מקום עכשיו</a>
+    </div>
+  </section>
+
+  <!-- About the Webinar - Star Wars Crawl -->
+  <section class="about-section">
+    <!-- Crawl Animation Container -->
+    <div class="crawl-container">
+      <div class="crawl-content" id="crawl-text">
+        <div class="section-title">
+          <h2>על הוובינר</h2>
+          <div class="title-decoration">
+            <div class="line"></div>
+            <div class="dot"></div>
+            <div class="line"></div>
+          </div>
+        </div>
+
+        <div class="about-text">
+          <p class="about-greeting">כאן <strong>שגיא בר און</strong>,</p>
+          <p>ואני מזמין אתכם לוובינר שבו נצלול בפועל לאיך יוצרים סרטוני סלפי עם AI כמו הסרטון שראיתם, ועם כל דמות שתרצו.</p>
+          <p class="about-highlight">לא תיאוריה.</p>
+          <p>רק תכל'ס: איך לוקחים רעיון, ומוציאים ממנו סרטון סלפי שנראה וואו.</p>
+          <p>בוובינר נבנה יחד תהליך עבודה ברור, כזה שתוכלו להשתמש בו שוב ושוב ליצירת סרטוני סלפי עם דמויות, סצנות, הומור, עומק וסיפור.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Rest of section (no animation) -->
+    <div class="about-rest">
+      <div class="container">
+        <div class="section-title">
+          <h3>אז מה מיוחד פה?</h3>
+        </div>
+
+        <ul class="feature-list">
+          <li>תהליך ברור, פשוט ויישומי</li>
+          <li>דוגמאות חיות מהשטח</li>
+          <li>כלים שאפשר להשתמש בהם מיד אחרי</li>
+          <li>בלי חפירות, בלי באזזוורדס</li>
+        </ul>
+
+        <div class="section-title">
+          <h3>פרטים טכניים</h3>
+        </div>
+
+        <div class="details-cards">
+          <div class="detail-card">
+            <div class="detail-card-icon">📅</div>
+            <div class="detail-card-label">מתי?</div>
+            <div class="detail-card-value">יום שני, 05/01<br>בשעה 20:00</div>
+          </div>
+          <div class="detail-card">
+            <div class="detail-card-icon">💻</div>
+            <div class="detail-card-label">איפה?</div>
+            <div class="detail-card-value">אונליין<br>(לינק ישלח לאחר הרשמה)</div>
+          </div>
+          <div class="detail-card">
+            <div class="detail-card-icon">🎁</div>
+            <div class="detail-card-label">עלות</div>
+            <div class="detail-card-value">חינם<br>בהרשמה מראש</div>
+          </div>
+        </div>
+
+        <p class="cta-highlight">שריינו מקום עכשיו - מספר המקומות מוגבל</p>
+
+        <a href="#registration-form" class="cta-button">שריינו מקום עכשיו</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Webinar Flyer -->
+  <section id="webinar-flyer" class="webinar-flyer-section">
+    <div class="container">
+      <img src="Webinars.png"
+           alt="וובינר אונליין: סרטוני סלפי עם AI - מרעיון לסלפי"
+           class="webinar-flyer-image" />
+      <p class="webinar-flyer-caption">את מה שרואים פה - נלמד ליצור צעד־אחר־צעד בוובינר.</p>
+    </div>
+  </section>
+
+  <!-- Registration -->
+  <section class="registration" id="registration-form">
+    <div class="container">
+      <div class="section-title">
+        <h2>הרשמה לוובינר</h2>
+        <div class="title-decoration">
+          <div class="line"></div>
+          <div class="dot"></div>
+          <div class="line"></div>
+        </div>
+      </div>
+
+      <p class="form-intro">השאירו פרטים כדי לקבל את הלינק לוובינר.</p>
+
+      <div class="form-container">
+        <iframe
+          src="https://docs.google.com/forms/d/e/1FAIpQLScFayjTYgm6Vwb0LzGpIHdH_Mc5tRsnvv77O06ht3x_P6nCcw/viewform?embedded=true"
+          width="100%"
+          height="2000"
+          frameborder="0"
+          marginheight="0"
+          marginwidth="0">
+          טוען...
+        </iframe>
+      </div>
+
+      <div class="whatsapp-notice">
+        <p>תוודאו שאתם מצטרפים לקבוצת הוואטסאפ הייעודית לוובינר<br>כי שם תקבלו את הלינק כניסה ללייב</p>
+        <a href="https://chat.whatsapp.com/BCKQnUDZrKlBA2aj9SPzCu" target="_blank" rel="noopener noreferrer" class="whatsapp-button">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+          </svg>
+          הצטרפו לקבוצת הוואטסאפ
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Speaker Section -->
+  <section class="speaker-section">
+    <div class="container">
+      <div class="section-title">
+        <h2>מי מאחורי הוובינר?</h2>
+        <div class="title-decoration">
+          <div class="line"></div>
+          <div class="dot"></div>
+          <div class="line"></div>
+        </div>
+      </div>
+
+      <div class="speaker-content">
+        <div class="speaker-header">
+          <img src="../sagi.webp" alt="שגיא בר און" class="speaker-image">
+          <div class="speaker-intro">
+            <h3>שגיא בר און</h3>
+            <p>חוקר ויועץ מוביל בתחום הבינה המלאכותית</p>
+          </div>
+        </div>
+
+        <div class="speaker-quote">
+          "כשהבינה המלאכותית פרצה, מצאתי את עצמי מתוסכל בדיוק כמו רבים אחרים: חיפשתי דרך פשוטה, ברורה, כזו שבאמת עובדת. לא הצלחתי להבין איזה כלי מתאים ומה באמת שווה את הזמן שלי. למדתי, חקרתי, ניסיתי ובסוף פיתחתי מתודולוגיה ייחודית שמטרתה לפשט את עולמות ה-AI, לנטרל את ה"בלגן", ולהנגיש את הכלים המתקדמים ביותר בצורה הפשוטה והמעשית ביותר".
+        </div>
+
+        <div class="speaker-details">
+          <h3>הניסיון מדבר:</h3>
+          <p>שגיא הוא חוקר ויועץ בתחום הבינה המלאכותית, עם יותר מ־25 שנות ניסיון בתעשיית ההיי־טק. הוא משלב ידע טכנולוגי עמוק (פיתוח, אוטומציה ואסטרטגיה) עם הבנה של המשתמשים.
+          שגיא מרצה אורח באוניברסיטאות (רייכמן, אריאל), באיגוד המבקרים הפנימיים (IIA), חבר סגל בחינות מה"ט ומלווה את משרד החינוך כמנטור לחדשנות ב-AI, הוא בעל תואר שני (MBA) במנהל עסקים בהתמחות ב-AI וייעוץ אסטרטגי עסקי, תואר ראשון במדעים (B.SC), תעודת הנדסאי תוכנה, הסמכת NLP MASTER ודמיון מודרך (רטר).</p>
+
+          <h3>איפה כבר פגשו את שגיא:</h3>
+          <ul class="places-list">
+            <li>אוניברסיטת רייכמן</li>
+            <li>אוניברסיטת אריאל</li>
+            <li>איגוד המבקרים הפנימיים (IIA)</li>
+            <li>מה"ט - חבר סגל בחינות</li>
+            <li>משרד החינוך - מנטור לחדשנות ב-AI</li>
+            <li>פרינטופ סחר</li>
+            <li>רשת בתי ספר תיכוניים דרכא</li>
+            <li>מרכז סליקה בנקאי</li>
+            <li>סגני ראשי רשויות</li>
+            <li>וידאו הד</li>
+            <li>fiverr</li>
+            <li>ISA Group</li>
+            <li>Level UP - Orthodox Women in Tech</li>
+          </ul>
+
+          <h3>הגישה:</h3>
+          <p>שגיא חי את השטח. הוא לא מלמד תיאוריות, אלא מעניק למשתתפים מתודולוגיות עבודה מוכחות שמייצרות "שקט תעשייתי", ביטחון טכנולוגי וחיסכון אדיר בזמן.</p>
+        </div>
+
+        <div class="speaker-motto">
+          המוטו שלו: "להנגיש, ולחבר את כולם לטכנולוגיה בצורה ברורה ופשוטה"
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="footer-links">
+      <a href="http://www.nanobananai.site" target="_blank" rel="noopener noreferrer">www.nanobananai.site</a>
+      <a href="tel:054-9995050">054-9995050</a>
+    </div>
+    <p class="footer-note">מספר המקומות מוגבל כדי לשמור על וובינר ממוקד ואיכותי.</p>
+    <div class="footer-decoration">
+      <div class="line"></div>
+      <div class="dot"></div>
+      <div class="line"></div>
+    </div>
+  </footer>
+
+  <!-- Stars Script & Crawl Animation -->
+  <script>
+    // Create stars
+    const bgContainer = document.querySelector('.bg-container');
+    for (let i = 0; i < 60; i++) {
+      const star = document.createElement('div');
+      star.className = 'star';
+      star.style.top = Math.random() * 100 + '%';
+      star.style.left = Math.random() * 100 + '%';
+      star.style.animation = `twinkle ${2 + Math.random() * 3}s infinite`;
+      star.style.animationDelay = Math.random() * 2 + 's';
+      bgContainer.appendChild(star);
+    }
+
+    // Star Wars Crawl Animation
+    const crawlText = document.getElementById('crawl-text');
+    const crawlContainer = document.querySelector('.crawl-container');
+
+    // Use Intersection Observer to start animation when section is visible
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          // Add animate class to trigger the animation
+          crawlText.classList.add('animate');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.1 });
+
+    observer.observe(crawlContainer);
+
+    // Mark animation as done after it finishes
+    crawlText.addEventListener('animationend', () => {
+      crawlText.classList.remove('animate');
+      crawlText.classList.add('animation-done');
+    });
+  </script>
+
+</body>
+</html>
