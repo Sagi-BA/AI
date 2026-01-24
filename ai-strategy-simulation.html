@@ -1,0 +1,631 @@
+<!-- https://htmlpreview.github.io/?https://github.com/Sagi-BA/AI/blob/main/ai-strategy-simulation.html -->
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>סימולציה אסטרטגית | שגיא - יועץ AI</title>
+    <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --navy-dark: #0a1628;
+            --navy-medium: #1a2d4a;
+            --navy-light: #2a4060;
+            --orange-primary: #e8873b;
+            --orange-light: #f5a623;
+            --orange-bg: #fff8f0;
+            --blue-bg: #f0f7ff;
+            --blue-border: #3b82f6;
+            --orange-border: #f59e0b;
+            --white: #ffffff;
+            --gray-light: #f8fafc;
+            --gray-medium: #64748b;
+            --text-dark: #1e293b;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Heebo', sans-serif;
+            background-color: var(--white);
+            color: var(--text-dark);
+            line-height: 1.7;
+            overflow-x: hidden;
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(40px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+
+        .animate-on-scroll {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+
+        .animate-on-scroll.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 60px 20px;
+            background: linear-gradient(135deg, var(--gray-light) 0%, var(--white) 50%, var(--blue-bg) 100%);
+            position: relative;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background:
+                radial-gradient(circle at 20% 80%, rgba(232, 135, 59, 0.08) 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, rgba(59, 130, 246, 0.08) 0%, transparent 50%);
+            pointer-events: none;
+        }
+
+        .badge {
+            display: inline-block;
+            background: linear-gradient(135deg, var(--navy-dark), var(--navy-medium));
+            color: var(--white);
+            padding: 10px 28px;
+            border-radius: 50px;
+            font-size: 0.95rem;
+            font-weight: 500;
+            margin-bottom: 40px;
+            animation: fadeIn 1s ease;
+            box-shadow: 0 4px 20px rgba(10, 22, 40, 0.3);
+        }
+
+        .hero h1 {
+            font-size: clamp(2.5rem, 6vw, 4.5rem);
+            font-weight: 900;
+            color: var(--navy-dark);
+            margin-bottom: 24px;
+            animation: fadeInUp 1s ease 0.2s both;
+            line-height: 1.2;
+        }
+
+        .hero .subtitle {
+            font-size: clamp(1.2rem, 3vw, 1.8rem);
+            color: var(--navy-medium);
+            margin-bottom: 30px;
+            font-weight: 600;
+            animation: fadeInUp 1s ease 0.4s both;
+            max-width: 800px;
+        }
+
+        .hero .context {
+            font-size: 1.1rem;
+            color: var(--gray-medium);
+            max-width: 700px;
+            animation: fadeInUp 1s ease 0.6s both;
+            background: var(--white);
+            padding: 20px 30px;
+            border-radius: 12px;
+            border-right: 4px solid var(--orange-primary);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+        }
+
+        .scroll-indicator {
+            position: absolute;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            animation: pulse 2s ease infinite;
+        }
+
+        .scroll-indicator svg {
+            width: 30px;
+            height: 30px;
+            fill: var(--gray-medium);
+        }
+
+        /* Conflict Section */
+        .conflict-section {
+            padding: 100px 20px;
+            background: var(--white);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .cards-wrapper {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 40px;
+            margin-top: 20px;
+        }
+
+        .conflict-card {
+            padding: 40px;
+            border-radius: 20px;
+            position: relative;
+            overflow: hidden;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .conflict-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+        }
+
+        .card-accelerators {
+            background: var(--blue-bg);
+            border: 2px solid var(--blue-border);
+        }
+
+        .card-brakers {
+            background: var(--orange-bg);
+            border: 2px solid var(--orange-border);
+        }
+
+        .card-icon {
+            font-size: 3rem;
+            margin-bottom: 20px;
+        }
+
+        .conflict-card h3 {
+            font-size: 1.6rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .card-accelerators h3 {
+            color: var(--blue-border);
+        }
+
+        .card-brakers h3 {
+            color: var(--orange-border);
+        }
+
+        .conflict-card .claim {
+            font-size: 1.15rem;
+            color: var(--text-dark);
+            margin-bottom: 24px;
+            line-height: 1.8;
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.7);
+            border-radius: 12px;
+        }
+
+        .conflict-card .insight {
+            font-size: 1rem;
+            font-weight: 600;
+            padding: 15px 20px;
+            border-radius: 10px;
+        }
+
+        .card-accelerators .insight {
+            background: rgba(59, 130, 246, 0.15);
+            color: var(--blue-border);
+        }
+
+        .card-brakers .insight {
+            background: rgba(245, 158, 11, 0.15);
+            color: #b45309;
+        }
+
+        /* Bridge Section */
+        .bridge-section {
+            padding: 80px 20px;
+            background: linear-gradient(180deg, var(--white) 0%, var(--gray-light) 100%);
+            text-align: center;
+        }
+
+        .bridge-text {
+            font-size: clamp(1.3rem, 3vw, 1.8rem);
+            font-weight: 700;
+            color: var(--navy-dark);
+            max-width: 800px;
+            margin: 0 auto;
+            position: relative;
+            padding: 40px;
+        }
+
+        .bridge-text::before,
+        .bridge-text::after {
+            content: '"';
+            font-size: 4rem;
+            color: var(--orange-primary);
+            opacity: 0.3;
+            position: absolute;
+            font-family: Georgia, serif;
+        }
+
+        .bridge-text::before {
+            top: 0;
+            right: 0;
+        }
+
+        .bridge-text::after {
+            bottom: 0;
+            left: 0;
+            transform: rotate(180deg);
+        }
+
+        /* Solution Section */
+        .solution-section {
+            padding: 100px 20px;
+            background: linear-gradient(135deg, var(--navy-dark) 0%, var(--navy-medium) 100%);
+            color: var(--white);
+        }
+
+        .solution-section h2 {
+            font-size: clamp(2rem, 4vw, 3rem);
+            font-weight: 800;
+            text-align: center;
+            margin-bottom: 40px;
+            background: linear-gradient(135deg, var(--white), var(--orange-light));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .solution-intro {
+            text-align: center;
+            font-size: 1.25rem;
+            max-width: 800px;
+            margin: 0 auto 50px;
+            line-height: 1.9;
+            color: rgba(255, 255, 255, 0.9);
+        }
+
+        .solution-intro strong {
+            color: var(--orange-light);
+        }
+
+        .services-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .service-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 20px;
+            padding: 30px;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 16px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .service-item:hover {
+            background: rgba(255, 255, 255, 0.1);
+            transform: translateX(-5px);
+        }
+
+        .service-icon {
+            flex-shrink: 0;
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, var(--orange-primary), var(--orange-light));
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .service-icon svg {
+            width: 28px;
+            height: 28px;
+            fill: var(--white);
+        }
+
+        .service-content h4 {
+            font-size: 1.2rem;
+            font-weight: 700;
+            margin-bottom: 8px;
+            color: var(--white);
+        }
+
+        .service-content p {
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 1rem;
+        }
+
+        /* CTA Section */
+        .cta-section {
+            padding: 100px 20px;
+            text-align: center;
+            background: linear-gradient(180deg, var(--gray-light) 0%, var(--white) 100%);
+        }
+
+        .cta-text {
+            font-size: clamp(1.3rem, 3vw, 1.8rem);
+            font-weight: 600;
+            color: var(--navy-dark);
+            margin-bottom: 40px;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .cta-button {
+            display: inline-block;
+            padding: 20px 50px;
+            background: linear-gradient(135deg, var(--orange-primary) 0%, var(--orange-light) 100%);
+            color: var(--white);
+            text-decoration: none;
+            font-size: 1.3rem;
+            font-weight: 700;
+            border-radius: 60px;
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 40px rgba(232, 135, 59, 0.4);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta-button::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+            transition: left 0.5s ease;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px) scale(1.02);
+            box-shadow: 0 15px 50px rgba(232, 135, 59, 0.5);
+        }
+
+        .cta-button:hover::before {
+            left: 100%;
+        }
+
+        /* Footer */
+        footer {
+            padding: 30px 20px;
+            text-align: center;
+            background: var(--navy-dark);
+            color: rgba(255, 255, 255, 0.6);
+            font-size: 0.9rem;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .cards-wrapper {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+
+            .conflict-card {
+                padding: 30px;
+            }
+
+            .hero {
+                padding: 40px 20px;
+                min-height: auto;
+                padding-top: 80px;
+                padding-bottom: 100px;
+            }
+
+            .bridge-text {
+                padding: 30px 20px;
+            }
+
+            .bridge-text::before,
+            .bridge-text::after {
+                font-size: 2.5rem;
+            }
+
+            .services-list {
+                grid-template-columns: 1fr;
+            }
+
+            .service-item {
+                padding: 25px;
+            }
+
+            .cta-button {
+                padding: 18px 40px;
+                font-size: 1.1rem;
+            }
+
+            .solution-section,
+            .conflict-section,
+            .cta-section {
+                padding: 60px 20px;
+            }
+        }
+
+        @media (max-width: 380px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .badge {
+                font-size: 0.85rem;
+                padding: 8px 20px;
+            }
+
+            .conflict-card h3 {
+                font-size: 1.3rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <span class="badge">מקרה בוחן: סימולציה אסטרטגית</span>
+        <h1>09:00 בבוקר. חדר הדירקטוריון סוער.</h1>
+        <p class="subtitle">ה-AI הניח על השולחן הזדמנות של מיליונים.<br>הדירקטוריון נחצה לשניים. מי צדק?</p>
+        <p class="context">התרחיש הבא הוא סימולציה (Atlas Digital) שנותחה בכיתה עם מנהלים בכירים. הדילמה - אמיתית לחלוטין.</p>
+        <div class="scroll-indicator">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                <path d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6 1.41-1.41z"/>
+            </svg>
+        </div>
+    </section>
+
+    <!-- Conflict Section -->
+    <section class="conflict-section">
+        <div class="container">
+            <div class="cards-wrapper">
+                <div class="conflict-card card-accelerators animate-on-scroll">
+                    <div class="card-icon">🚀</div>
+                    <h3>🟦 קבוצה א': "המאיצים"</h3>
+                    <p class="claim">
+                        <strong>הטענה:</strong> הנתונים ברורים. אי אפשר להתווכח עם המדע. חייבים להיכנס עכשיו לפני שהמתחרים יקדימו אותנו.
+                    </p>
+                    <div class="insight">
+                        💡 הגישה: ה-AI הוא האמת המוחלטת.
+                    </div>
+                </div>
+
+                <div class="conflict-card card-brakers animate-on-scroll">
+                    <div class="card-icon">🛡️</div>
+                    <h3>🟧 קבוצה ב': "הבלמים"</h3>
+                    <p class="claim">
+                        <strong>הטענה:</strong> האלגוריתם עיוור לתרבות. הודו היא ביצה בירוקרטית שדורשת קשרים והבנה עמוקה של השוק המקומי.
+                    </p>
+                    <div class="insight">
+                        💡 הגישה: ה-AI הוא כלי עיוור למורכבות אנושית.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Bridge Section -->
+    <section class="bridge-section">
+        <div class="container">
+            <p class="bridge-text animate-on-scroll">
+                הטעות של שתי הקבוצות הייתה המחשבה שצריך לבחור: או אדם, או מכונה.
+            </p>
+        </div>
+    </section>
+
+    <!-- Solution Section -->
+    <section class="solution-section">
+        <div class="container">
+            <h2 class="animate-on-scroll">כאן נכנסת האינטליגנציה ההיברידית</h2>
+            <p class="solution-intro animate-on-scroll">
+                נעים להכיר, אני <strong>שגיא</strong>, יועץ אסטרטגי ומומחה AI.<br>
+                אני עוזר להנהלות ומנכ"לים לא להיות "מאיצים" עיוורים ולא "בלמים" מפוחדים.
+            </p>
+
+            <div class="services-list">
+                <div class="service-item animate-on-scroll">
+                    <div class="service-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                            <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/>
+                        </svg>
+                    </div>
+                    <div class="service-content">
+                        <h4>אסטרטגיה מבוססת דאטה</h4>
+                        <p>שילוב אנליטיקה מתקדמת עם שיקול דעת אנושי לקבלת החלטות מדויקות.</p>
+                    </div>
+                </div>
+
+                <div class="service-item animate-on-scroll">
+                    <div class="service-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                            <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/>
+                        </svg>
+                    </div>
+                    <div class="service-content">
+                        <h4>סדנאות סימולציה</h4>
+                        <p>תרגול מצבי קיצון והכנת הצוות לקבלת החלטות תחת לחץ.</p>
+                    </div>
+                </div>
+
+                <div class="service-item animate-on-scroll">
+                    <div class="service-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                            <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/>
+                        </svg>
+                    </div>
+                    <div class="service-content">
+                        <h4>ליווי תהליכי הטמעה</h4>
+                        <p>חיבור בין החזון האסטרטגי ליישום בשטח, צעד אחר צעד.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="container">
+            <p class="cta-text animate-on-scroll">אל תחכו למשבר. בואו נהפוך את הקונפליקט למנוע צמיחה.</p>
+            <a href="http://sagiai.co.il/" target="_blank" class="cta-button animate-on-scroll">לתיאום פגישת אבחון אסטרטגית</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>© 2025 שגיא בר-און | יועץ אסטרטגי ומומחה AI</p>
+    </footer>
+
+    <!-- Scroll Animation Script -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const observerOptions = {
+                root: null,
+                rootMargin: '0px',
+                threshold: 0.1
+            };
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                    }
+                });
+            }, observerOptions);
+
+            document.querySelectorAll('.animate-on-scroll').forEach(el => {
+                observer.observe(el);
+            });
+        });
+    </script>
+
+</body>
+</html>
