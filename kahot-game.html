@@ -1,3 +1,5 @@
+<!-- https://htmlpreview.github.io/?https://github.com/Sagi-BA/AI/blob/main/kahot-game.html -->
+ <!-- https://sagiai.short.gy/uByEH8 -->
 <!DOCTYPE html>
 <html lang="he" dir="rtl">
 <head>
@@ -332,6 +334,9 @@
 
             const TopBar = () => (
                 <div className="absolute top-4 left-4 flex gap-2 z-10">
+                    {gameState === 'playing' && (
+                        <button onClick={() => setGameState('menu')} className="rounded-full p-2 text-xl shadow-md transition-all hover:scale-110" style={{ background: colors.card, color: colors.orange }} title="חזרה לתפריט">🏠</button>
+                    )}
                     <button onClick={() => setSoundEnabled(!soundEnabled)} className="rounded-full p-2 text-xl shadow-md transition-all" style={{ background: colors.card, color: colors.orange }}>{soundEnabled ? '🔊' : '🔇'}</button>
                     <button onClick={() => setDarkMode(!darkMode)} className="rounded-full p-2 text-xl shadow-md transition-all" style={{ background: colors.card, color: colors.orange }}>{darkMode ? '☀️' : '🌙'}</button>
                 </div>
