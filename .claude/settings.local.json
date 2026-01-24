@@ -1,7 +1,9 @@
 {
   "permissions": {
     "allow": [
-      "Bash(cat:*)"
+      "Bash(cat:*)",
+      "Bash(npx http-server -p 8080 -o kahot-game.html)",
+      "Bash(npx http-server -p 3000)"
     ],
     "deny": [],
     "ask": []
