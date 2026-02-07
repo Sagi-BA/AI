@@ -642,6 +642,57 @@
       font-weight: 700;
     }
 
+    /* ======================== Testimonials ======================== */
+    .testimonials-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+    }
+
+    .testimonial-card {
+      background: var(--bg);
+      border-radius: 12px;
+      padding: 20px;
+      border-right: 4px solid var(--accent);
+      position: relative;
+    }
+
+    .testimonial-card::before {
+      content: '\201D';
+      font-size: 3rem;
+      color: var(--accent-light);
+      position: absolute;
+      top: 8px;
+      left: 16px;
+      line-height: 1;
+      font-family: serif;
+    }
+
+    .testimonial-text {
+      font-size: 0.88rem;
+      color: var(--text-light);
+      line-height: 1.7;
+      margin-bottom: 12px;
+      font-style: italic;
+    }
+
+    .testimonial-author {
+      font-size: 0.82rem;
+      color: var(--text);
+      font-weight: 700;
+    }
+
+    .testimonial-role {
+      font-size: 0.78rem;
+      color: var(--text-muted);
+    }
+
+    @media (max-width: 768px) {
+      .testimonials-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
     /* ======================== Signature Block ======================== */
     .signature-block {
       display: grid;
@@ -837,8 +888,9 @@
         padding: 20px 0;
       }
 
-      /* Profile starts on a new page */
-      .profile-section {
+      /* Profile & signature start on a new page */
+      .profile-section,
+      .signature-block {
         page-break-before: always;
       }
 
@@ -853,11 +905,15 @@
       .diagnostic-card,
       .quote-title-section,
       .intro-section,
-      .signature-section {
+      .signature-block {
         page-break-inside: avoid;
       }
 
       /* Keep individual elements together */
+      .testimonial-card {
+        page-break-inside: avoid;
+      }
+
       .principle-card {
         page-break-inside: avoid;
       }
@@ -969,7 +1025,7 @@
       </div>
       <div class="quote-meta" style="margin-top: 12px;">
         <span><i class="fa-solid fa-calendar"></i> תאריך: __/__/____</span>
-        <span><i class="fa-solid fa-hashtag"></i> מספר הצעה: SBO-2026-001</span>
+        <span><i class="fa-solid fa-hashtag"></i> מספר הצעה: SBO-2026-010</span>
       </div>
     </section>
 
@@ -1074,6 +1130,10 @@
           <i class="fa-solid fa-laptop"></i>
           30% ידע תיאורטי | 70% תרגול Hands-on
         </span>
+        <span class="format-tag">
+          <i class="fa-solid fa-users"></i>
+          עד 20 משתתפים
+        </span>        
       </div>
 
       <p style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 16px;">* מועדי המפגשים ייקבעו בתיאום הדדי בין הצדדים.</p>
@@ -1210,6 +1270,46 @@
       </div>
     </section>
 
+    <!-- ======================== Testimonials ======================== -->
+    <section class="section-card testimonials-section">
+      <h2 class="section-title">
+        <i class="fa-solid fa-comments"></i>
+        מה אומרים עליי
+      </h2>
+      <div class="testimonials-grid">
+        <div class="testimonial-card">
+          <p class="testimonial-text">חייבת להגיד תודה גדולה לשגיא על הסדנה! היה מרתק, מעשיר ידע וכיפי. הסבלנות שלך והידע שלך ממש חוצים גבולות וזכינו בך. נשאר טעם של עוד ואני אישית אשמח ללמוד תכנים נוספים.</p>
+          <div class="testimonial-author">מיטל בן יעקב</div>
+          <div class="testimonial-role">מרכז סליקה בנקאי</div>
+        </div>
+        <div class="testimonial-card">
+          <p class="testimonial-text">רב תודות על ההרצאה המאלפת. בתודה ובברכה.</p>
+          <div class="testimonial-author">ד"ר נתן תירוש</div>
+          <div class="testimonial-role">המכללה האקדמית צפת</div>
+        </div>
+        <div class="testimonial-card">
+          <p class="testimonial-text">תודה ענקית שהגעת, היה פשוט מעולה!</p>
+          <div class="testimonial-author">ד"ר מאור אלימלך</div>
+          <div class="testimonial-role">אוניברסיטת אריאל</div>
+        </div>
+        <div class="testimonial-card">
+          <p class="testimonial-text">הסדנה הייתה מעולה! נתעדכן על ההכשרות הבאות.</p>
+          <div class="testimonial-author">סובחייה</div>
+          <div class="testimonial-role">אוניברסיטת רייכמן</div>
+        </div>
+      </div>
+
+      <div style="margin-top: 24px; padding: 16px 20px; background: var(--bg); border-radius: 10px;">
+        <h3 style="font-size: 0.9rem; color: var(--accent); margin-bottom: 12px;"><i class="fa-solid fa-phone"></i> ממליצים - ניתן ליצור קשר:</h3>
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 8px 24px; font-size: 0.85rem; color: var(--text-light);">
+          <span><strong>סובחייה</strong> – הכשרות הממשלה ב-AI | 054-678-8713</span>
+          <span><strong>ד"ר מאור אלימלך</strong> – אוניברסיטת אריאל | 052-869-0298</span>
+          <span><strong>חן הרייתי</strong> – איגוד המבקרים הפנימיים | 054-576-8428</span>
+          <span><strong>ד"ר יובב עשת</strong> – המכללה האקדמית צפת | 054-480-7491</span>
+        </div>
+      </div>
+    </section>
+
     <!-- ======================== Commercial Terms ======================== -->
     <section class="section-card terms-section">
       <h2 class="section-title">
@@ -1219,7 +1319,7 @@
       <ol class="terms-list">
         <li>
           <span class="terms-subtitle">תוקף ההצעה:</span>
-          הצעת המחיר תקפה למשך <strong>30 יום</strong> מיום הוצאתה.
+          הצעת המחיר תקפה למשך <strong>15 יום</strong> מיום הוצאתה.
         </li>
         <li>
           <span class="terms-subtitle">תנאי תשלום:</span>
