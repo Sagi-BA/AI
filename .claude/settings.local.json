@@ -13,7 +13,11 @@
       "Bash(where:*)",
       "Bash(dir:*)",
       "Bash(dir \"C:\\\\Program Files \\(x86\\)\\\\Google\\\\Chrome\\\\Application\\\\chrome.exe\")",
-      "Bash(\"C:\\\\Program Files\\\\Google\\\\Chrome\\\\Application\\\\chrome.exe\" --headless --disable-gpu --print-to-pdf=\"c:\\\\projects\\\\AI\\\\forms\\\\Price-quotes\\\\Shmuel-Harofeh-Medical-Center.pdf\" --no-pdf-header-footer \"file:///c:/projects/AI/forms/Price-quotes/Shmuel-Harofeh-Medical-Center.html\")"
+      "Bash(\"C:\\\\Program Files\\\\Google\\\\Chrome\\\\Application\\\\chrome.exe\" --headless --disable-gpu --print-to-pdf=\"c:\\\\projects\\\\AI\\\\forms\\\\Price-quotes\\\\Shmuel-Harofeh-Medical-Center.pdf\" --no-pdf-header-footer \"file:///c:/projects/AI/forms/Price-quotes/Shmuel-Harofeh-Medical-Center.html\")",
+      "Bash(\"C:\\\\Program Files\\\\Google\\\\Chrome\\\\Application\\\\chrome.exe\" --headless --disable-gpu --print-to-pdf=\"c:\\\\projects\\\\AI\\\\forms\\\\Price-quotes\\\\Shmuel-Harofeh-Medical-Center.pdf\" --no-pdf-header-footer --virtual-time-budget=10000 \"file:///c:/projects/AI/forms/Price-quotes/Shmuel-Harofeh-Medical-Center.html\")",
+      "Bash(\"C:\\\\Program Files\\\\Google\\\\Chrome\\\\Application\\\\chrome.exe\" --headless --disable-gpu --print-to-pdf=\"c:\\\\projects\\\\AI\\\\forms\\\\Price-quotes\\\\Shmuel-Harofeh-Medical-Center-new.pdf\" --no-pdf-header-footer --virtual-time-budget=10000 \"file:///c:/projects/AI/forms/Price-quotes/Shmuel-Harofeh-Medical-Center.html\")",
+      "Bash(copy /Y \"c:\\\\projects\\\\AI\\\\forms\\\\Price-quotes\\\\Shmuel-Harofeh-Medical-Center-new.pdf\" \"c:\\\\projects\\\\AI\\\\forms\\\\Price-quotes\\\\Shmuel-Harofeh-Medical-Center.pdf\")",
+      "Bash(del \"c:\\\\projects\\\\AI\\\\forms\\\\Price-quotes\\\\Shmuel-Harofeh-Medical-Center-new.pdf\")"
     ],
     "deny": [],
     "ask": []
