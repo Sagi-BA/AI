@@ -9,7 +9,11 @@
       "Bash(git push)",
       "WebFetch(domain:docs.google.com)",
       "WebFetch(domain:sagiai.co.il)",
-      "Bash(npx http-server:*)"
+      "Bash(npx http-server:*)",
+      "Bash(where:*)",
+      "Bash(dir:*)",
+      "Bash(dir \"C:\\\\Program Files \\(x86\\)\\\\Google\\\\Chrome\\\\Application\\\\chrome.exe\")",
+      "Bash(\"C:\\\\Program Files\\\\Google\\\\Chrome\\\\Application\\\\chrome.exe\" --headless --disable-gpu --print-to-pdf=\"c:\\\\projects\\\\AI\\\\forms\\\\Price-quotes\\\\Shmuel-Harofeh-Medical-Center.pdf\" --no-pdf-header-footer \"file:///c:/projects/AI/forms/Price-quotes/Shmuel-Harofeh-Medical-Center.html\")"
     ],
     "deny": [],
     "ask": []

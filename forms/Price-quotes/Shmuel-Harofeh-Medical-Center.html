@@ -67,6 +67,7 @@
       background: var(--accent);
       color: var(--white);
       border: none;
+      text-decoration: none;
       padding: 12px 24px;
       border-radius: 30px;
       font-family: 'Alef', sans-serif;
@@ -1047,42 +1048,10 @@
 <body>
 
   <!-- PDF Download Button -->
-  <button class="print-btn" onclick="handlePrint()">
+  <a href="Shmuel-Harofeh-Medical-Center.pdf" download class="print-btn">
     <i class="fa-solid fa-file-pdf"></i>
     <span class="print-btn-text">הורדת PDF</span>
-  </button>
-
-  <script>
-    function handlePrint() {
-      var isMobile = /Android|iPhone|iPad|iPod/i.test(navigator.userAgent);
-      var printOpened = false;
-
-      // Listen for print dialog opening
-      if (window.onbeforeprint !== undefined) {
-        window.onbeforeprint = function() { printOpened = true; };
-      }
-
-      try {
-        window.print();
-      } catch (e) {
-        // print() not supported
-      }
-
-      // On mobile, if print didn't open, show instructions
-      if (isMobile) {
-        setTimeout(function() {
-          if (!printOpened) {
-            var isIOS = /iPhone|iPad|iPod/i.test(navigator.userAgent);
-            if (isIOS) {
-              alert('לשמירת PDF באייפון:\n\nלחצו על כפתור השיתוף ⬆ בתחתית המסך → בחרו "הדפסה" → "שמור PDF"');
-            } else {
-              alert('לשמירת PDF באנדרואיד:\n\nלחצו על תפריט ⋮ בפינה העליונה → בחרו "שיתוף" או "הדפסה" → "שמור כ-PDF"');
-            }
-          }
-        }, 500);
-      }
-    }
-  </script>
+  </a>
 
   <!-- ======================== Header Banner ======================== -->
   <header class="quote-header">
