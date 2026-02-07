@@ -1,0 +1,1246 @@
+<!-- https://htmlpreview.github.io/?https://github.com/Sagi-BA/AI/blob/main/forms/Price-quotes/Shmuel-Harofeh-Medical-Center.html -->
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>הצעת מחיר | שגיא בר און AI - הכשרת AI CHAMPIONS</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Alef:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    :root {
+      --bg: #fafafa;
+      --text: #1a1a1a;
+      --text-light: #555;
+      --text-muted: #888;
+      --accent: #ff6b00;
+      --accent-dark: #e55a00;
+      --accent-light: #fff3e6;
+      --green: #4caf50;
+      --green-light: #e8f5e9;
+      --purple: #9c27b0;
+      --purple-light: #f3e5f5;
+      --cyan: #00bcd4;
+      --cyan-light: #e0f7fa;
+      --border: #e0e0e0;
+      --white: #ffffff;
+      --shadow: 0 2px 16px rgba(0, 0, 0, 0.06);
+      --shadow-hover: 0 4px 24px rgba(0, 0, 0, 0.1);
+      --radius: 12px;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Alef', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.8;
+      font-size: 16px;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .page-container {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 0 24px 40px;
+    }
+
+    /* ======================== PDF Download Button ======================== */
+    .print-btn {
+      position: fixed;
+      top: 20px;
+      left: 20px;
+      z-index: 1000;
+      background: var(--accent);
+      color: var(--white);
+      border: none;
+      padding: 12px 24px;
+      border-radius: 30px;
+      font-family: 'Alef', sans-serif;
+      font-size: 0.95rem;
+      font-weight: 700;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      box-shadow: 0 4px 16px rgba(255, 107, 0, 0.35);
+      transition: all 0.3s ease;
+    }
+
+    .print-btn:hover {
+      background: var(--accent-dark);
+      transform: translateY(-2px);
+      box-shadow: 0 6px 24px rgba(255, 107, 0, 0.45);
+    }
+
+    .print-btn i {
+      font-size: 1.1rem;
+    }
+
+    /* ======================== Header Banner ======================== */
+    .quote-header {
+      background: linear-gradient(135deg, #ff6b00 0%, #ff8f3f 50%, #ffab6b 100%);
+      color: var(--white);
+      padding: 36px 0 32px;
+      margin-bottom: 32px;
+    }
+
+    .header-inner {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 0 24px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+
+    .logo {
+      font-size: 1.6rem;
+      font-weight: 700;
+      letter-spacing: 0.5px;
+    }
+
+    .logo span {
+      opacity: 0.85;
+      font-size: 1rem;
+      font-weight: 400;
+      margin-right: 8px;
+    }
+
+    .header-contact {
+      display: flex;
+      align-items: center;
+      gap: 24px;
+      font-size: 0.9rem;
+      opacity: 0.95;
+    }
+
+    .header-contact a {
+      color: var(--white);
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      transition: opacity 0.2s;
+    }
+
+    .header-contact a:hover {
+      opacity: 0.8;
+    }
+
+    /* ======================== Section Cards ======================== */
+    .section-card {
+      background: var(--white);
+      border-radius: var(--radius);
+      padding: 32px;
+      margin-bottom: 24px;
+      box-shadow: var(--shadow);
+    }
+
+    .section-title {
+      font-size: 1.4rem;
+      font-weight: 700;
+      color: var(--text);
+      margin-bottom: 20px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .section-title i {
+      color: var(--accent);
+      font-size: 1.2rem;
+    }
+
+    .title-decoration {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 24px;
+    }
+
+    .title-decoration .line {
+      flex: 1;
+      height: 2px;
+      background: linear-gradient(to left, var(--accent), transparent);
+    }
+
+    .title-decoration .dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--accent);
+    }
+
+    /* ======================== Quote Title ======================== */
+    .quote-title-section {
+      text-align: center;
+      padding: 40px 32px;
+    }
+
+    .quote-title-section h1 {
+      font-size: 1.8rem;
+      color: var(--accent);
+      margin-bottom: 4px;
+      line-height: 1.4;
+    }
+
+    .quote-title-section .subtitle {
+      font-size: 1.3rem;
+      color: var(--text);
+      margin-bottom: 24px;
+      font-weight: 700;
+    }
+
+    .quote-meta {
+      display: flex;
+      justify-content: center;
+      gap: 40px;
+      font-size: 1rem;
+      color: var(--text-light);
+      flex-wrap: wrap;
+    }
+
+    .quote-meta span {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    /* ======================== Introduction ======================== */
+    .intro-section p {
+      font-size: 1.05rem;
+      line-height: 2;
+      color: var(--text-light);
+    }
+
+    .intro-section .section-title {
+      color: var(--accent);
+    }
+
+    /* ======================== Profile Section ======================== */
+    .profile-top {
+      display: flex;
+      gap: 28px;
+      align-items: flex-start;
+      margin-bottom: 28px;
+    }
+
+    .profile-image {
+      width: 140px;
+      height: 140px;
+      border-radius: 50%;
+      object-fit: cover;
+      object-position: center top;
+      border: 4px solid var(--accent-light);
+      box-shadow: 0 4px 20px rgba(255, 107, 0, 0.15);
+      flex-shrink: 0;
+    }
+
+    .profile-text h2 {
+      font-size: 1.3rem;
+      margin-bottom: 8px;
+      color: var(--text);
+    }
+
+    .profile-text p {
+      font-size: 0.95rem;
+      line-height: 1.9;
+      color: var(--text-light);
+    }
+
+    /* Highlight Badges */
+    .badges-row {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 12px;
+      margin-bottom: 28px;
+    }
+
+    .badge {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      padding: 16px 8px;
+      background: var(--accent-light);
+      border-radius: 10px;
+      gap: 8px;
+    }
+
+    .badge i {
+      font-size: 1.4rem;
+      color: var(--accent);
+    }
+
+    .badge span {
+      font-size: 0.82rem;
+      font-weight: 700;
+      color: var(--text);
+      line-height: 1.4;
+    }
+
+    /* Experience Details */
+    .experience-block {
+      margin-bottom: 20px;
+    }
+
+    .experience-block h3 {
+      font-size: 1.05rem;
+      color: var(--accent);
+      margin-bottom: 8px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .experience-block h3 i {
+      font-size: 0.9rem;
+    }
+
+    .experience-block p,
+    .experience-block li {
+      font-size: 0.95rem;
+      color: var(--text-light);
+      line-height: 1.9;
+    }
+
+    .experience-block ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    .experience-block ul li {
+      padding: 4px 0;
+      padding-right: 20px;
+      position: relative;
+    }
+
+    .experience-block ul li::before {
+      content: '';
+      position: absolute;
+      right: 0;
+      top: 14px;
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--accent);
+    }
+
+    /* ROI Box */
+    .roi-box {
+      background: linear-gradient(135deg, var(--accent-light) 0%, #fff8f0 100%);
+      border-right: 4px solid var(--accent);
+      border-radius: 8px;
+      padding: 20px 24px;
+      margin-top: 16px;
+    }
+
+    .roi-box h3 {
+      font-size: 1.05rem;
+      color: var(--accent-dark);
+      margin-bottom: 6px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .roi-box p {
+      font-size: 0.95rem;
+      color: var(--text-light);
+      line-height: 1.8;
+    }
+
+    /* ======================== Diagnostic Section ======================== */
+    .diagnostic-card {
+      border-right: 4px solid var(--accent);
+    }
+
+    .diagnostic-card p {
+      font-size: 0.95rem;
+      color: var(--text-light);
+      line-height: 1.9;
+    }
+
+    /* ======================== Course Table ======================== */
+    .format-info {
+      display: flex;
+      gap: 24px;
+      margin-bottom: 20px;
+      flex-wrap: wrap;
+    }
+
+    .format-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: var(--accent-light);
+      color: var(--accent-dark);
+      padding: 6px 16px;
+      border-radius: 20px;
+      font-size: 0.85rem;
+      font-weight: 700;
+    }
+
+    .table-wrapper {
+      overflow-x: auto;
+      margin: 0 -8px;
+      padding: 0 8px;
+    }
+
+    .course-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.9rem;
+    }
+
+    .course-table thead th {
+      background: var(--accent);
+      color: var(--white);
+      padding: 14px 16px;
+      text-align: right;
+      font-weight: 700;
+      font-size: 0.95rem;
+    }
+
+    .course-table thead th:first-child {
+      border-radius: 0 8px 0 0;
+      width: 70px;
+      text-align: center;
+    }
+
+    .course-table thead th:last-child {
+      border-radius: 8px 0 0 0;
+    }
+
+    .course-table tbody td {
+      padding: 14px 16px;
+      border-bottom: 1px solid var(--border);
+      vertical-align: top;
+      line-height: 1.8;
+    }
+
+    .course-table tbody tr:nth-child(even) {
+      background: var(--accent-light);
+    }
+
+    .course-table tbody tr:last-child td {
+      border-bottom: none;
+    }
+
+    .meeting-num {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      background: var(--accent);
+      color: var(--white);
+      font-weight: 700;
+      font-size: 0.9rem;
+    }
+
+    .course-table td:first-child {
+      text-align: center;
+    }
+
+    .course-table td:nth-child(2) {
+      font-weight: 700;
+      width: 30%;
+    }
+
+    /* ======================== Core Principles ======================== */
+    .principles-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 16px;
+    }
+
+    .principle-card {
+      display: flex;
+      align-items: flex-start;
+      gap: 14px;
+      padding: 20px;
+      border-radius: 10px;
+      background: var(--white);
+      border: 1px solid var(--border);
+      transition: box-shadow 0.3s ease;
+    }
+
+    .principle-card:hover {
+      box-shadow: var(--shadow-hover);
+    }
+
+    .principle-icon {
+      width: 48px;
+      height: 48px;
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      font-size: 1.2rem;
+    }
+
+    .principle-icon.purple {
+      background: var(--purple-light);
+      color: var(--purple);
+    }
+
+    .principle-icon.cyan {
+      background: var(--cyan-light);
+      color: var(--cyan);
+    }
+
+    .principle-icon.orange {
+      background: var(--accent-light);
+      color: var(--accent);
+    }
+
+    .principle-icon.green {
+      background: var(--green-light);
+      color: var(--green);
+    }
+
+    .principle-content h4 {
+      font-size: 0.95rem;
+      margin-bottom: 4px;
+      color: var(--text);
+    }
+
+    .principle-content p {
+      font-size: 0.85rem;
+      color: var(--text-light);
+      line-height: 1.7;
+    }
+
+    /* ======================== Pricing Table ======================== */
+    .pricing-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.95rem;
+    }
+
+    .pricing-table thead th {
+      background: var(--accent);
+      color: var(--white);
+      padding: 14px 16px;
+      text-align: right;
+      font-weight: 700;
+    }
+
+    .pricing-table thead th:first-child {
+      border-radius: 0 8px 0 0;
+    }
+
+    .pricing-table thead th:last-child {
+      border-radius: 8px 0 0 0;
+      text-align: center;
+      width: 140px;
+    }
+
+    .pricing-table tbody td {
+      padding: 14px 16px;
+      border-bottom: 1px solid var(--border);
+      vertical-align: top;
+    }
+
+    .pricing-table tbody td:last-child {
+      text-align: center;
+      font-weight: 700;
+      white-space: nowrap;
+    }
+
+    .pricing-table .discount-row {
+      background: var(--green-light);
+    }
+
+    .pricing-table .discount-row td {
+      color: var(--green);
+      font-weight: 700;
+    }
+
+    .pricing-table .included-row td:last-child {
+      color: var(--green);
+    }
+
+    .pricing-table .total-row {
+      background: var(--accent-light);
+    }
+
+    .pricing-table .total-row td {
+      border-top: 3px solid var(--accent);
+      border-bottom: none;
+      font-size: 1.15rem;
+      font-weight: 700;
+      padding: 18px 16px;
+      color: var(--accent-dark);
+    }
+
+    /* ======================== Commercial Terms ======================== */
+    .terms-list {
+      counter-reset: terms;
+      list-style: none;
+      padding: 0;
+    }
+
+    .terms-list > li {
+      padding: 14px 0;
+      border-bottom: 1px solid var(--border);
+      font-size: 0.9rem;
+      line-height: 1.9;
+      color: var(--text-light);
+    }
+
+    .terms-list > li:last-child {
+      border-bottom: none;
+    }
+
+    .terms-list > li strong {
+      color: var(--text);
+    }
+
+    .terms-subtitle {
+      font-weight: 700;
+      color: var(--text);
+      margin-bottom: 4px;
+      display: block;
+    }
+
+    .terms-sub-list {
+      list-style: none;
+      padding: 0;
+      margin-top: 8px;
+    }
+
+    .terms-sub-list li {
+      padding: 6px 0;
+      padding-right: 18px;
+      position: relative;
+      font-size: 0.88rem;
+    }
+
+    .terms-sub-list li::before {
+      content: '\2022';
+      position: absolute;
+      right: 0;
+      color: var(--accent);
+      font-weight: 700;
+    }
+
+    /* ======================== Signature ======================== */
+    .signature-section {
+      text-align: center;
+      padding: 36px 32px;
+    }
+
+    .signature-section .name {
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: var(--text);
+      margin-bottom: 8px;
+    }
+
+    .signature-section .contact-line {
+      font-size: 0.95rem;
+      color: var(--text-light);
+      display: flex;
+      justify-content: center;
+      gap: 24px;
+      flex-wrap: wrap;
+    }
+
+    .signature-section .contact-line a {
+      color: var(--accent);
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .signature-section .contact-line a:hover {
+      color: var(--accent-dark);
+    }
+
+    /* ======================== Footer ======================== */
+    .quote-footer {
+      border-top: 3px solid var(--accent);
+      padding: 20px 24px;
+      text-align: center;
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    .quote-footer a {
+      color: var(--accent);
+      text-decoration: none;
+      font-weight: 700;
+    }
+
+    .footer-links {
+      display: flex;
+      justify-content: center;
+      gap: 24px;
+      flex-wrap: wrap;
+    }
+
+    .footer-links span {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    /* ======================== Responsive ======================== */
+    @media (max-width: 768px) {
+      .header-inner {
+        flex-direction: column;
+        text-align: center;
+      }
+
+      .header-contact {
+        flex-direction: column;
+        gap: 8px;
+      }
+
+      .profile-top {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+      }
+
+      .badges-row {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .principles-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .quote-meta {
+        flex-direction: column;
+        gap: 8px;
+        align-items: center;
+      }
+
+      .section-card {
+        padding: 24px 18px;
+      }
+
+      .quote-title-section h1 {
+        font-size: 1.4rem;
+      }
+
+      .format-info {
+        flex-direction: column;
+        gap: 8px;
+      }
+
+      .print-btn {
+        top: 12px;
+        left: 12px;
+        padding: 10px 16px;
+        font-size: 0.85rem;
+      }
+    }
+
+    @media (max-width: 380px) {
+      .badges-row {
+        grid-template-columns: 1fr;
+      }
+
+      .page-container {
+        padding: 0 12px 24px;
+      }
+    }
+
+    /* ======================== Print Styles ======================== */
+    @page {
+      margin: 10mm 10mm 12mm 10mm;
+    }
+
+    @media print {
+      * {
+        -webkit-print-color-adjust: exact !important;
+        print-color-adjust: exact !important;
+      }
+
+      body {
+        background: var(--white);
+        font-size: 13px;
+        padding-bottom: 50px;
+      }
+
+      .print-btn {
+        display: none !important;
+      }
+
+      .page-container {
+        max-width: 100%;
+        padding: 0 16px;
+      }
+
+      .section-card {
+        box-shadow: none;
+        border: 1px solid var(--border);
+      }
+
+      .quote-header {
+        padding: 20px 0;
+      }
+
+      /* Profile starts on a new page */
+      .profile-section {
+        page-break-before: always;
+      }
+
+      /* Allow large sections to break across pages */
+      .profile-section,
+      .course-table-section {
+        page-break-inside: auto;
+      }
+
+      /* Keep smaller sections together */
+      .pricing-section,
+      .diagnostic-card,
+      .quote-title-section,
+      .intro-section,
+      .signature-section {
+        page-break-inside: avoid;
+      }
+
+      /* Keep individual elements together */
+      .principle-card {
+        page-break-inside: avoid;
+      }
+
+      .course-table tr {
+        page-break-inside: avoid;
+      }
+
+      .pricing-table tr {
+        page-break-inside: avoid;
+      }
+
+      .experience-block {
+        page-break-inside: avoid;
+      }
+
+      .roi-box {
+        page-break-inside: avoid;
+      }
+
+      .badges-row {
+        page-break-inside: avoid;
+      }
+
+      .terms-list > li {
+        page-break-inside: avoid;
+      }
+
+      /* Don't orphan titles */
+      .section-title {
+        page-break-after: avoid;
+      }
+
+      h3 {
+        page-break-after: avoid;
+      }
+
+      /* Add breathing room before sections for cleaner breaks */
+      .section-card {
+        margin-bottom: 16px;
+      }
+
+      /* Footer on every page */
+      .quote-footer {
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        background: var(--white);
+        border-top: 2px solid var(--accent);
+        padding: 3px 24px;
+        font-size: 0.65rem;
+        margin: 0;
+        max-width: 100%;
+      }
+
+      .principle-card:hover {
+        box-shadow: none;
+      }
+
+      a {
+        color: inherit !important;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- PDF Download Button -->
+  <button class="print-btn" onclick="window.print()">
+    <i class="fa-solid fa-file-pdf"></i>
+    הורד PDF
+  </button>
+
+  <!-- ======================== Header Banner ======================== -->
+  <header class="quote-header">
+    <div class="header-inner">
+      <div class="logo">
+        שגיא בר און AI
+        <span>| בינה מלאכותית לעסקים</span>
+      </div>
+      <div class="header-contact">
+        <a href="tel:054-9995050">
+          <i class="fa-solid fa-phone"></i> 054-9995050
+        </a>
+        <a href="https://sagiai.co.il/" target="_blank">
+          <i class="fa-solid fa-globe"></i> sagiai.co.il
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <main class="page-container">
+
+    <!-- ======================== Quote Title ======================== -->
+    <!-- TEMPLATE-FIELD: QUOTE_TITLE, CLIENT_NAME, CLIENT_CONTACT, DATE -->
+    <section class="section-card quote-title-section">
+      <h1>הצעת מחיר</h1>
+      <div class="subtitle">הכשרת AI CHAMPIONS למרכז רפואי "שמואל הרופא"</div>
+      <div class="title-decoration">
+        <div class="line"></div>
+        <div class="dot"></div>
+        <div class="line"></div>
+      </div>
+      <div class="quote-meta">
+        <span><i class="fa-solid fa-building"></i> עבור: XXX</span>
+        <span><i class="fa-solid fa-user"></i> מאת: שגיא בר און</span>
+        <span><i class="fa-solid fa-phone"></i> 054-9995050</span>
+      </div>
+    </section>
+
+    <!-- ======================== Introduction ======================== -->
+    <section class="section-card intro-section">
+      <h2 class="section-title">
+        <i class="fa-solid fa-robot"></i>
+        בינה מלאכותית ככלי עבודה ניהולי
+      </h2>
+      <p>
+        בעולם הרפואה והניהול המודרני, זמן הוא המשאב היקר ביותר. מטרת הקורס של שגיא בר און היא להטמיע תפיסת <strong>AI FIRST</strong> בדרגים הניהוליים, ולהפוך את הבינה המלאכותית ממושג טכנולוגי מופשט לכלי עבודה יומיומי המייצר ערך מיידי. התוכנית נבנתה בדגש על יישום פרקטי (Hands-on), תוך התאמה מלאה לאתגרים הניהוליים הייחודיים של בית חולים ציבורי.
+      </p>
+    </section>
+
+    <!-- ======================== Professional Profile ======================== -->
+    <section class="section-card profile-section">
+      <div class="profile-top">
+        <img src="https://sagiai.co.il/assets/sagi-face-BM8CcVRz.webp" alt="שגיא בר און" class="profile-image">
+        <div class="profile-text">
+          <h2>שגיא בר און</h2>
+          <p>
+            אני מביא עמי ניסיון של מעל 25 שנות ניסיון בתעשיית ההיי-טק והתמחות ספציפית בהנגשת טכנולוגיה מורכבת לדרגים ניהוליים. הגישה שלי הופכת את ה-AI מטרנד לכלי עבודה שמוטמע בהצלחה בארגונים.
+          </p>
+        </div>
+      </div>
+
+      <!-- Highlight Badges -->
+      <div class="badges-row">
+        <div class="badge">
+          <i class="fa-solid fa-medal"></i>
+          <span>25+ שנות ניסיון בהייטק</span>
+        </div>
+        <div class="badge">
+          <i class="fa-solid fa-chart-line"></i>
+          <span>חיסכון 20%-30% בזמן</span>
+        </div>
+        <div class="badge">
+          <i class="fa-solid fa-graduation-cap"></i>
+          <span>MBA, B.Sc, NLP Master</span>
+        </div>
+        <div class="badge">
+          <i class="fa-solid fa-building-columns"></i>
+          <span>כנסת ישראל, הכשרות לממשלה, רייכמן ועוד...</span>
+        </div>
+      </div>
+
+      <!-- Experience Details -->
+      <div class="experience-block">
+        <h3><i class="fa-solid fa-star"></i> הניסיון מדבר:</h3>
+        <ul>
+          <li><strong>רקע מקצועי:</strong> חוקר ויועץ בתחום הבינה המלאכותית, המשלב ידע טכנולוגי עמוק (פיתוח, אוטומציה ואסטרטגיה) עם הבנה של המשתמש.</li>
+          <li><strong>הכשרה אקדמית ומוסמכת:</strong> בעל תואר שני (MBA) במנהל עסקים בהתמחות ב-AI וייעוץ אסטרטגי עסקי, תואר ראשון (B.Sc) בהנדסת תוכנה, הנדסאי תוכנה, ומוסמך NLP MASTER.</li>
+          <li><strong>איפה כבר פגשו את שגיא:</strong>כנסת ישראל, הכשרות לממשלה, הנהלת בתי המשפט, אוניברסיטת רייכמן, אוניברסיטת אריאל, מה"ט, משרד החינוך וארגונים ארגונים נוספים בישראל.</li>
+        </ul>
+      </div>
+
+      <div class="experience-block">
+        <h3><i class="fa-solid fa-hands"></i> הגישה הפרקטית:</h3>
+        <p>
+          אני חי את השטח. במקום ללמד תיאוריות, אני מעניק למשתתפים מתודולוגיות עבודה מוכחות שמטרתן לפשט את עולמות ה-AI, לנטרל את ה"בלגן" ולהביא ל:
+        </p>
+        <ul>
+          <li><strong>תוצאה מיידית:</strong> מתן ביטחון טכנולוגי וחיסכון אדיר בזמן.</li>
+          <li><strong>התאמה אישית:</strong> התוכן מעודכן ומותאם אישית לצרכים הספציפיים של המנהלים, ללא קוד וללא מתמטיקה.</li>
+        </ul>
+      </div>
+
+      <!-- ROI Box -->
+      <div class="roi-box">
+        <h3><i class="fa-solid fa-arrow-trend-up"></i> בשורה התחתונה - החזר השקעה (ROI):</h3>
+        <p>הניסיון שלי מוכיח כי ליווי נכון הופך את ה-AI לכלי עבודה שחוסך בפועל בין <strong>20% ל-30%</strong> מהזמן המושקע במשימות ניהוליות ואדמיניסטרטיביות.</p>
+      </div>
+    </section>
+
+    <!-- ======================== Diagnostic Section ======================== -->
+    <section class="section-card diagnostic-card">
+      <h2 class="section-title">
+        <i class="fa-solid fa-magnifying-glass-chart"></i>
+        אבחון, מיפוי והתאמה
+      </h2>
+      <p>
+        כדי להבטיח רלוונטיות מקסימלית למנהלים בשמואל הרופא, נבצע שיחת הכנה לקראת הפעילות.
+      </p>
+      <p style="margin-top: 8px;">
+        <strong>המטרה:</strong> זיהוי "כאבים" ניהוליים, מיפוי מערכות קיימות והתאמת התרגולים לדילמות מהשטח.
+      </p>
+    </section>
+
+    <!-- ======================== Course Structure ======================== -->
+    <section class="section-card course-table-section">
+      <h2 class="section-title">
+        <i class="fa-solid fa-list-check"></i>
+        מבנה הקורס (5 מפגשים פרונטליים)
+      </h2>
+
+      <div class="format-info">
+        <span class="format-tag">
+          <i class="fa-solid fa-clock"></i>
+          5 מפגשים x 3 שעות (09:00-12:00)
+        </span>
+        <span class="format-tag">
+          <i class="fa-solid fa-laptop"></i>
+          30% ידע תיאורטי | 70% תרגול Hands-on
+        </span>
+      </div>
+
+      <div class="table-wrapper">
+        <table class="course-table">
+          <thead>
+            <tr>
+              <th>מפגש</th>
+              <th>נושא מרכזי</th>
+              <th>תוצר מעשי למנהל</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><span class="meeting-num">1</span></td>
+              <td>ה-AI כעוזר אישי ושותף לחשיבה</td>
+              <td><strong>Prompting & Research:</strong> יצירת פרומפטים מדויקים, תרגול כתיבת נהלים ומיילים, וקבלת דוח מחקר מעמיק עם מקורות.</td>
+            </tr>
+            <tr>
+              <td><span class="meeting-num">2</span></td>
+              <td>ניהול ידע ו"המוח המחלקתי"</td>
+              <td><strong>מאגר ידע חכם:</strong> הפיכת נהלים וקבצי PDF למאגר מידע פרטי ליצירת סיכומים, שאלות-תשובות וקבלת החלטות מבוססת תוכן ארגוני.</td>
+            </tr>
+            <tr>
+              <td><span class="meeting-num">3</span></td>
+              <td>דאטה, אקסל וויזואליזציה (המנהל כאנליסט)</td>
+              <td><strong>ניתוח נתונים בשיחה:</strong> העלאת קבצי אקסל (תקציב, תורנויות) ושיחה חופשית עם הנתונים לזיהוי חריגות ומגמות, ויצירת גרפים לשיחות הנהלה.</td>
+            </tr>
+            <tr>
+              <td><span class="meeting-num">4</span></td>
+              <td>ניהול צוות, HR ותקשורת רגישה</td>
+              <td><strong>תקשורת אמפתית:</strong> שימוש במודל להכנה לשיחות משוב, פתרון קונפליקטים, וניסוח הודעות רגישות.<br><strong>עיצוב מהיר:</strong> יצירת חומרי הדרכה ופוסטרים באמצעות כלי AI.</td>
+            </tr>
+            <tr>
+              <td><span class="meeting-num">5</span></td>
+              <td>פרויקטים, אוטומציה וסיכום הקורס</td>
+              <td><strong>ניהול פרויקטים:</strong> בניית תוכנית עבודה שנתית, חלוקת משימות וניהול סיכונים.<br><strong>Showcase & Future:</strong> המנהלים מציגים "תוצר AI" שהטמיעו, ומפת דרכים לשמירה על המיומנות.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- ======================== Core Principles ======================== -->
+    <section class="section-card">
+      <h2 class="section-title">
+        <i class="fa-solid fa-gem"></i>
+        עקרונות הליבה של התוכנית
+      </h2>
+      <div class="principles-grid">
+        <div class="principle-card">
+          <div class="principle-icon purple">
+            <i class="fa-solid fa-shield-halved"></i>
+          </div>
+          <div class="principle-content">
+            <h4>אבטחת מידע ופרטיות</h4>
+            <p>דגש קריטי על עבודה בטוחה ב-AI ללא חשיפת מידע רפואי או חסוי.</p>
+          </div>
+        </div>
+        <div class="principle-card">
+          <div class="principle-icon cyan">
+            <i class="fa-solid fa-wand-magic-sparkles"></i>
+          </div>
+          <div class="principle-content">
+            <h4>פשטות יישומית</h4>
+            <p>ללא קוד, ללא מתמטיקה - עבודה בשפה עברית פשוטה.</p>
+          </div>
+        </div>
+        <div class="principle-card">
+          <div class="principle-icon orange">
+            <i class="fa-solid fa-bolt"></i>
+          </div>
+          <div class="principle-content">
+            <h4>תוצאה מיידית</h4>
+            <p>כל מפגש מסתיים במשימה יישומית לשטח ("משימת בית").</p>
+          </div>
+        </div>
+        <div class="principle-card">
+          <div class="principle-icon green">
+            <i class="fa-brands fa-whatsapp"></i>
+          </div>
+          <div class="principle-content">
+            <h4>ליווי רציף</h4>
+            <p>קבוצת וואטסאפ ייעודית לשאלות ותמיכה בין המפגשים.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ======================== Pricing Table ======================== -->
+    <!-- TEMPLATE-FIELD: PRICING_ITEMS, DISCOUNT, TOTAL -->
+    <section class="section-card pricing-section">
+      <h2 class="section-title">
+        <i class="fa-solid fa-file-invoice-dollar"></i>
+        הצעת מחיר
+      </h2>
+      <div class="table-wrapper">
+        <table class="pricing-table">
+          <thead>
+            <tr>
+              <th>פריט</th>
+              <th>תיאור</th>
+              <th>עלות (&#8362;)</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>שלב אבחון והתאמה אישית</strong></td>
+              <td>פגישת אפיון + בניית חומרים ייעודיים</td>
+              <td>—</td>
+            </tr>
+            <tr>
+              <td><strong>הדרכה מקצועית</strong></td>
+              <td>5 מפגשים x 3 שעות (15 שעות סה"כ) לעד 20 משתתפים</td>
+              <td>35,000 &#8362;</td>
+            </tr>
+            <tr class="included-row">
+              <td><strong>ליווי וחומרי עזר</strong></td>
+              <td>ליווי וואטסאפ, חוברת דיגיטלית ותבניות עבודה</td>
+              <td>כלול</td>
+            </tr>
+            <tr class="discount-row">
+              <td><strong>הטבת הנחה (10%)</strong></td>
+              <td></td>
+              <td>3,500- &#8362;</td>
+            </tr>
+            <tr class="total-row">
+              <td colspan="2"><strong>סה"כ (לפני מע"מ)</strong></td>
+              <td>31,500 &#8362;</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- ======================== Commercial Terms ======================== -->
+    <section class="section-card terms-section">
+      <h2 class="section-title">
+        <i class="fa-solid fa-handshake"></i>
+        תנאים מסחריים ותנאי תשלום
+      </h2>
+      <ol class="terms-list">
+        <li>
+          <span class="terms-subtitle">תוקף ההצעה:</span>
+          הצעת המחיר תקפה למשך <strong>30 יום</strong> מיום הוצאתה.
+        </li>
+        <li>
+          <span class="terms-subtitle">תנאי תשלום:</span>
+          התשלום יבוצע בהעברה בנקאית או בכל אמצעי תשלום אחר שיוסכם, עד <strong>שוטף + 30 יום</strong> ממועד קבלת החשבונית.
+        </li>
+        <li>
+          <span class="terms-subtitle">מקדמה ואישור הזמנה:</span>
+          <ul class="terms-sub-list">
+            <li>נדרשת מקדמה בסך <strong>20%</strong> מסך הצעת המחיר לאישור סופי של ההזמנה ושיריון תאריכי הקורס.</li>
+            <li>תשלום המקדמה מהווה אישור מחייב להזמנת הקורס.</li>
+          </ul>
+        </li>
+        <li>
+          <span class="terms-subtitle">מדיניות ביטולים ודחיית מועד:</span>
+          <ul class="terms-sub-list">
+            <li><strong>ביטול עד 14 ימי עסקים</strong> לפני מועד הפעילות הראשון: ישולם סכום השווה ל-<strong>50%</strong> מעלות ההכשרה הכוללת, כדמי טיפול ושיריון זמן.</li>
+            <li><strong>ביטול בטווח של 48 שעות</strong> לפני מועד הפעילות הראשון: הלקוח יחויב בתשלום מלא של <strong>100%</strong> מעלות ההכשרה הכוללת.</li>
+            <li><strong>דחיית מועד:</strong> דחיית מועד הקורס שתתבצע בתיאום של 14 ימי עסקים מראש, לא תחויב בדמי ביטול. דחייה שמתבצעת פחות מ-14 ימי עסקים מראש עשויה להיות כרוכה בעלות נוספת או תחויב בהתאם לסעיף הביטול של 50%, בהתאם לנסיבות.</li>
+          </ul>
+        </li>
+        <li>
+          <span class="terms-subtitle">כללי:</span>
+          <ul class="terms-sub-list">
+            <li><strong>מע"מ:</strong> המחירים הנקובים בהצעת המחיר אינם כוללים מע"מ כחוק.</li>
+            <li><strong>זכויות יוצרים:</strong> כל חומרי ההדרכה והתכנים שיועברו בקורס הם קניינו הרוחני הבלעדי של שגיא בר און. חל איסור מוחלט על העתקה, שכפול או הפצה שלהם ללא אישור מפורש ובכתב.</li>
+            <li><strong>סודיות:</strong> יש שמירה על סודיות מוחלטת לגבי כל מידע ארגוני שייחשף במהלך הקורס, בהתאם לעקרונות אבטחת המידע המפורטים בהצעה.</li>
+          </ul>
+        </li>
+      </ol>
+    </section>
+
+    <!-- ======================== Signature ======================== -->
+    <section class="section-card signature-section">
+      <div class="name">שגיא בר און</div>
+      <div class="contact-line">
+        <a href="tel:054-9995050">
+          <i class="fa-solid fa-phone"></i> 054-9995050
+        </a>
+        <a href="https://sagiai.co.il/" target="_blank">
+          <i class="fa-solid fa-globe"></i> sagiai.co.il
+        </a>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ======================== Footer ======================== -->
+  <footer class="quote-footer">
+    <div class="footer-links">
+      <span>
+        <i class="fa-solid fa-globe"></i>
+        <a href="https://sagiai.co.il/" target="_blank">sagiai.co.il</a>
+      </span>
+      <span>
+        <i class="fa-solid fa-phone"></i>
+        054-9995050
+      </span>
+      <span>&copy; שגיא בר און - כל הזכויות שמורות</span>
+    </div>
+  </footer>
+
+</body>
+</html>
