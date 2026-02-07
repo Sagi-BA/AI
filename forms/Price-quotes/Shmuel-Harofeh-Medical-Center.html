@@ -905,7 +905,14 @@
 
     /* ======================== Print Styles ======================== */
     @page {
-      margin: 10mm 10mm 12mm 10mm;
+      margin: 10mm 10mm 16mm 10mm;
+
+      @bottom-center {
+        content: "עמוד " counter(page) " מתוך " counter(pages);
+        font-family: 'Alef', sans-serif;
+        font-size: 8px;
+        color: #888;
+      }
     }
 
     @media print {
@@ -1442,7 +1449,7 @@
           <span class="terms-subtitle">כללי:</span>
           <ul class="terms-sub-list">
             <li><strong>מע"מ:</strong> המחירים הנקובים בהצעת המחיר אינם כוללים מע"מ כחוק.</li>
-            <li><strong>זכויות יוצרים:</strong> כל חומרי ההדרכה והתכנים שיועברו בקורס הם קניינו הרוחני הבלעדי של שגיא בר און. חל איסור מוחלט על העתקה, שכפול או הפצה שלהם ללא אישור מפורש ובכתב.</li>
+            <li><strong>זכויות יוצרים:</strong> כל חומרי ההדרכה והתכנים שיועברו בקורס הם קניינו הרוחני הבלעדי של ש.ב. ידע וטכנולוגיה. חל איסור מוחלט על העתקה, שכפול או הפצה שלהם ללא אישור מפורש ובכתב.</li>
             <li><strong>סודיות:</strong> יש שמירה על סודיות מוחלטת לגבי כל מידע ארגוני שייחשף במהלך הקורס, בהתאם לעקרונות אבטחת המידע המפורטים בהצעה.</li>
           </ul>
         </li>
@@ -1455,7 +1462,7 @@
         <h3><i class="fa-solid fa-pen-nib"></i> הספק</h3>
         <div class="signature-line">
           <label>שם:</label>
-          <span>שגיא בר און</span>
+          <span>ש.ב. ידע וטכנולוגיה</span>
         </div>
         <div class="signature-line">
           <label>ח.פ.:</label>
@@ -1513,7 +1520,7 @@
           <i class="fa-brands fa-whatsapp"></i> 054-9995050
         </a>
       </span>
-      <span>&copy; שגיא בר און | ח.פ.: 037565348</span>
+      <span>&copy; ש.ב. ידע וטכנולוגיה | ח.פ.: 037565348</span>
     </div>
   </footer>
 
