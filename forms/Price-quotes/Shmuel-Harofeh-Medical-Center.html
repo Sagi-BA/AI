@@ -642,29 +642,59 @@
       font-weight: 700;
     }
 
-    /* ======================== Signature ======================== */
-    .signature-section {
-      text-align: center;
-      padding: 36px 32px;
+    /* ======================== Signature Block ======================== */
+    .signature-block {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 40px;
+      padding: 32px;
     }
 
-    .signature-section .name {
-      font-size: 1.2rem;
+    .signature-side {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .signature-side h3 {
+      font-size: 1rem;
+      color: var(--accent);
+      margin-bottom: 4px;
+      padding-bottom: 8px;
+      border-bottom: 2px solid var(--accent);
+    }
+
+    .signature-line {
+      display: flex;
+      align-items: baseline;
+      gap: 8px;
+      font-size: 0.9rem;
+      color: var(--text-light);
+    }
+
+    .signature-line label {
+      white-space: nowrap;
       font-weight: 700;
       color: var(--text);
-      margin-bottom: 8px;
+      min-width: 70px;
     }
 
-    .signature-section .contact-line {
-      font-size: 0.95rem;
+    .signature-line .sign-field {
+      flex: 1;
+      border-bottom: 1px solid var(--border);
+      min-height: 24px;
+    }
+
+    .signature-side .contact-line {
+      font-size: 0.9rem;
       color: var(--text-light);
       display: flex;
-      justify-content: center;
-      gap: 24px;
+      gap: 16px;
       flex-wrap: wrap;
+      margin-top: 4px;
     }
 
-    .signature-section .contact-line a {
+    .signature-side .contact-line a {
       color: var(--accent);
       text-decoration: none;
       display: flex;
@@ -672,8 +702,11 @@
       gap: 6px;
     }
 
-    .signature-section .contact-line a:hover {
-      color: var(--accent-dark);
+    @media (max-width: 768px) {
+      .signature-block {
+        grid-template-columns: 1fr;
+        gap: 28px;
+      }
     }
 
     /* ======================== Footer ======================== */
@@ -907,8 +940,8 @@
         <span>| בינה מלאכותית לעסקים</span>
       </div>
       <div class="header-contact">
-        <a href="tel:054-9995050">
-          <i class="fa-solid fa-phone"></i> 054-9995050
+        <a href="https://api.whatsapp.com/send?phone=972549995050" target="_blank">
+          <i class="fa-brands fa-whatsapp"></i> 054-9995050
         </a>
         <a href="https://sagiai.co.il/" target="_blank">
           <i class="fa-solid fa-globe"></i> sagiai.co.il
@@ -930,9 +963,13 @@
         <div class="line"></div>
       </div>
       <div class="quote-meta">
-        <span><i class="fa-solid fa-building"></i> עבור: XXX</span>
-        <span><i class="fa-solid fa-user"></i> מאת: שגיא בר און</span>
-        <span><i class="fa-solid fa-phone"></i> 054-9995050</span>
+        <span><i class="fa-solid fa-building"></i> עבור: ענת</span>
+        <span><i class="fa-solid fa-user"></i> מוגש על ידי: שגיא בר און</span>
+        <span><a href="https://api.whatsapp.com/send?phone=972549995050" target="_blank" style="color:inherit;text-decoration:none;"><i class="fa-brands fa-whatsapp"></i> 054-9995050</a></span>
+      </div>
+      <div class="quote-meta" style="margin-top: 12px;">
+        <span><i class="fa-solid fa-calendar"></i> תאריך: __/__/____</span>
+        <span><i class="fa-solid fa-hashtag"></i> מספר הצעה: SBO-2026-001</span>
       </div>
     </section>
 
@@ -944,6 +981,20 @@
       </h2>
       <p>
         בעולם הרפואה והניהול המודרני, זמן הוא המשאב היקר ביותר. מטרת הקורס של שגיא בר און היא להטמיע תפיסת <strong>AI FIRST</strong> בדרגים הניהוליים, ולהפוך את הבינה המלאכותית ממושג טכנולוגי מופשט לכלי עבודה יומיומי המייצר ערך מיידי. התוכנית נבנתה בדגש על יישום פרקטי (Hands-on), תוך התאמה מלאה לאתגרים הניהוליים הייחודיים של בית חולים ציבורי.
+      </p>
+    </section>
+
+    <!-- ======================== Diagnostic Section ======================== -->
+    <section class="section-card diagnostic-card">
+      <h2 class="section-title">
+        <i class="fa-solid fa-magnifying-glass-chart"></i>
+        אבחון, מיפוי והתאמה
+      </h2>
+      <p>
+        כדי להבטיח רלוונטיות מקסימלית למנהלים בשמואל הרופא, נבצע שיחת הכנה לקראת הפעילות.
+      </p>
+      <p style="margin-top: 8px;">
+        <strong>המטרה:</strong> זיהוי "כאבים" ניהוליים, מיפוי מערכות קיימות והתאמת התרגולים לדילמות מהשטח.
       </p>
     </section>
 
@@ -985,7 +1036,7 @@
         <ul>
           <li><strong>רקע מקצועי:</strong> חוקר ויועץ בתחום הבינה המלאכותית, המשלב ידע טכנולוגי עמוק (פיתוח, אוטומציה ואסטרטגיה) עם הבנה של המשתמש.</li>
           <li><strong>הכשרה אקדמית ומוסמכת:</strong> בעל תואר שני (MBA) במנהל עסקים בהתמחות ב-AI וייעוץ אסטרטגי עסקי, תואר ראשון (B.Sc) בהנדסת תוכנה, הנדסאי תוכנה, ומוסמך NLP MASTER.</li>
-          <li><strong>איפה כבר פגשו את שגיא:</strong>כנסת ישראל, הכשרות לממשלה, הנהלת בתי המשפט, אוניברסיטת רייכמן, אוניברסיטת אריאל, מה"ט, משרד החינוך וארגונים ארגונים נוספים בישראל.</li>
+          <li><strong>איפה כבר פגשו את שגיא:</strong>כנסת ישראל, הכשרות לממשלה, הנהלת בתי המשפט, אוניברסיטת רייכמן, אוניברסיטת אריאל, מה"ט, משרד החינוך וארגונים נוספים בישראל.</li>
         </ul>
       </div>
 
@@ -1007,20 +1058,6 @@
       </div>
     </section>
 
-    <!-- ======================== Diagnostic Section ======================== -->
-    <section class="section-card diagnostic-card">
-      <h2 class="section-title">
-        <i class="fa-solid fa-magnifying-glass-chart"></i>
-        אבחון, מיפוי והתאמה
-      </h2>
-      <p>
-        כדי להבטיח רלוונטיות מקסימלית למנהלים בשמואל הרופא, נבצע שיחת הכנה לקראת הפעילות.
-      </p>
-      <p style="margin-top: 8px;">
-        <strong>המטרה:</strong> זיהוי "כאבים" ניהוליים, מיפוי מערכות קיימות והתאמת התרגולים לדילמות מהשטח.
-      </p>
-    </section>
-
     <!-- ======================== Course Structure ======================== -->
     <section class="section-card course-table-section">
       <h2 class="section-title">
@@ -1038,6 +1075,8 @@
           30% ידע תיאורטי | 70% תרגול Hands-on
         </span>
       </div>
+
+      <p style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 16px;">* מועדי המפגשים ייקבעו בתיאום הדדי בין הצדדים.</p>
 
       <div class="table-wrapper">
         <table class="course-table">
@@ -1092,7 +1131,7 @@
           </div>
           <div class="principle-content">
             <h4>אבטחת מידע ופרטיות</h4>
-            <p>דגש קריטי על עבודה בטוחה ב-AI ללא חשיפת מידע רפואי או חסוי.</p>
+            <p>דגש קריטי על עבודה בטוחה ב-AI ללא חשיפת מידע חסוי.</p>
           </div>
         </div>
         <div class="principle-card">
@@ -1101,7 +1140,7 @@
           </div>
           <div class="principle-content">
             <h4>פשטות יישומית</h4>
-            <p>ללא קוד, ללא מתמטיקה - עבודה בשפה עברית פשוטה.</p>
+            <p>ללא קוד - עבודה בשפה פשוטה וברורה.</p>
           </div>
         </div>
         <div class="principle-card">
@@ -1184,7 +1223,7 @@
         </li>
         <li>
           <span class="terms-subtitle">תנאי תשלום:</span>
-          התשלום יבוצע בהעברה בנקאית או בכל אמצעי תשלום אחר שיוסכם, עד <strong>שוטף + 30 יום</strong> ממועד קבלת החשבונית.
+          התשלום יבוצע בהעברה בנקאית או בכל אמצעי תשלום אחר שיוסכם, עד <strong>שוטף + 30 יום</strong> ממועד חתימה על הסכם זה.
         </li>
         <li>
           <span class="terms-subtitle">מקדמה ואישור הזמנה:</span>
@@ -1212,16 +1251,53 @@
       </ol>
     </section>
 
-    <!-- ======================== Signature ======================== -->
-    <section class="section-card signature-section">
-      <div class="name">שגיא בר און</div>
-      <div class="contact-line">
-        <a href="tel:054-9995050">
-          <i class="fa-solid fa-phone"></i> 054-9995050
-        </a>
-        <a href="https://sagiai.co.il/" target="_blank">
-          <i class="fa-solid fa-globe"></i> sagiai.co.il
-        </a>
+    <!-- ======================== Signature Block ======================== -->
+    <section class="section-card signature-block">
+      <div class="signature-side">
+        <h3><i class="fa-solid fa-pen-nib"></i> הספק</h3>
+        <div class="signature-line">
+          <label>שם:</label>
+          <span>שגיא בר און</span>
+        </div>
+        <div class="signature-line">
+          <label>ע.מ:</label>
+          <span class="sign-field"></span>
+        </div>
+        <div class="signature-line">
+          <label>חתימה:</label>
+          <span class="sign-field"></span>
+        </div>
+        <div class="signature-line">
+          <label>תאריך:</label>
+          <span class="sign-field"></span>
+        </div>
+        <div class="contact-line">
+          <a href="https://api.whatsapp.com/send?phone=972549995050" target="_blank">
+            <i class="fa-brands fa-whatsapp"></i> 054-9995050
+          </a>
+          <a href="https://sagiai.co.il/" target="_blank">
+            <i class="fa-solid fa-globe"></i> sagiai.co.il
+          </a>
+        </div>
+      </div>
+      <div class="signature-side">
+        <h3><i class="fa-solid fa-building"></i> הלקוח</h3>
+        <div class="signature-line">
+          <label>שם:</label>
+          <span class="sign-field"></span>
+        </div>
+        <div class="signature-line">
+          <label>תפקיד:</label>
+          <span class="sign-field"></span>
+        </div>
+        <div class="signature-line">
+          <label>חתימה:</label>
+          <span class="sign-field"></span>
+        </div>
+        <div class="signature-line">
+          <label>תאריך:</label>
+          <span class="sign-field"></span>
+        </div>
       </div>
     </section>
 
@@ -1235,10 +1311,11 @@
         <a href="https://sagiai.co.il/" target="_blank">sagiai.co.il</a>
       </span>
       <span>
-        <i class="fa-solid fa-phone"></i>
-        054-9995050
+        <a href="https://api.whatsapp.com/send?phone=972549995050" target="_blank" style="color:inherit;text-decoration:none;">
+          <i class="fa-brands fa-whatsapp"></i> 054-9995050
+        </a>
       </span>
-      <span>&copy; שגיא בר און - כל הזכויות שמורות</span>
+      <span>&copy; שגיא בר און | ע.מ: __________</span>
     </div>
   </footer>
 
