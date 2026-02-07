@@ -26,6 +26,7 @@ jobs:
             chrome --headless --disable-gpu --no-sandbox \
               --print-to-pdf="$pdf_file" \
               --no-pdf-header-footer \
+              --virtual-time-budget=10000 \
               "file://$(pwd)/$html_file"
           done
 
