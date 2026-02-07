@@ -1,4 +1,6 @@
+<!-- https://app.short.io/users/dashboard/1617390/links -->
 <!-- https://htmlpreview.github.io/?https://github.com/Sagi-BA/AI/blob/main/forms/Price-quotes/Shmuel-Harofeh-Medical-Center.html -->
+ <!-- https://sagiai.short.gy/Shmuel-Harofe-Hospital -->
 <!DOCTYPE html>
 <html lang="he" dir="rtl">
 <head>
@@ -76,12 +78,20 @@
       gap: 8px;
       box-shadow: 0 4px 16px rgba(255, 107, 0, 0.35);
       transition: all 0.3s ease;
+      -webkit-tap-highlight-color: transparent;
+      touch-action: manipulation;
+      user-select: none;
     }
 
     .print-btn:hover {
       background: var(--accent-dark);
       transform: translateY(-2px);
       box-shadow: 0 6px 24px rgba(255, 107, 0, 0.45);
+    }
+
+    .print-btn:active {
+      background: var(--accent-dark);
+      transform: scale(0.96);
     }
 
     .print-btn i {
@@ -983,10 +993,42 @@
 <body>
 
   <!-- PDF Download Button -->
-  <button class="print-btn" onclick="window.print()">
+  <button class="print-btn" onclick="handlePrint()">
     <i class="fa-solid fa-file-pdf"></i>
-    הורד PDF
+    <span class="print-btn-text">הורדת PDF</span>
   </button>
+
+  <script>
+    function handlePrint() {
+      var isMobile = /Android|iPhone|iPad|iPod/i.test(navigator.userAgent);
+      var printOpened = false;
+
+      // Listen for print dialog opening
+      if (window.onbeforeprint !== undefined) {
+        window.onbeforeprint = function() { printOpened = true; };
+      }
+
+      try {
+        window.print();
+      } catch (e) {
+        // print() not supported
+      }
+
+      // On mobile, if print didn't open, show instructions
+      if (isMobile) {
+        setTimeout(function() {
+          if (!printOpened) {
+            var isIOS = /iPhone|iPad|iPod/i.test(navigator.userAgent);
+            if (isIOS) {
+              alert('לשמירת PDF באייפון:\n\nלחצו על כפתור השיתוף ⬆ בתחתית המסך → בחרו "הדפסה" → "שמור PDF"');
+            } else {
+              alert('לשמירת PDF באנדרואיד:\n\nלחצו על תפריט ⋮ בפינה העליונה → בחרו "שיתוף" או "הדפסה" → "שמור כ-PDF"');
+            }
+          }
+        }, 500);
+      }
+    }
+  </script>
 
   <!-- ======================== Header Banner ======================== -->
   <header class="quote-header">
@@ -1061,7 +1103,7 @@
         <div class="profile-text">
           <h2>שגיא בר און</h2>
           <p>
-            אני מביא עמי ניסיון של מעל 25 שנות ניסיון בתעשיית ההיי-טק והתמחות ספציפית בהנגשת טכנולוגיה מורכבת לדרגים ניהוליים. הגישה שלי הופכת את ה-AI מטרנד לכלי עבודה שמוטמע בהצלחה בארגונים.
+            אני מביא עמי מעל 25 שנות ניסיון בתעשיית ההיי-טק והתמחות ספציפית בהנגשת טכנולוגיה מורכבת לדרגים ניהוליים. הגישה שלי הופכת את ה-AI מטרנד לכלי עבודה שמוטמע בהצלחה בארגונים.
           </p>
         </div>
       </div>
