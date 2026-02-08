@@ -1,0 +1,456 @@
+<!-- https://app.short.io/users/dashboard/1617390/links -->
+<!-- https://raw.githack.com/Sagi-BA/AI/main/games/data-driven-management-kahot-game.html -->
+<!-- https://sagiai.short.gy/data-driven-management-kahot-game  -->
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>משחק קהוט לקורס ניהול מבוסס נתונים</title>
+    
+    <script src="https://cdn.jsdelivr.net/npm/react@18/umd/react.production.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/react-dom@18/umd/react-dom.production.min.js"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/@babel/standalone@7/babel.min.js"></script>
+
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/tone@14/build/Tone.min.js"></script>
+
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;700;900&display=swap');
+        
+        body {
+            font-family: 'Heebo', sans-serif;
+            margin: 0;
+            overflow-x: hidden;
+        }
+
+        /* אנימציות מותאמות אישית */
+        @keyframes fall { 
+            0% { transform: translateY(0) rotate(0deg); opacity: 1; } 
+            100% { transform: translateY(100vh) rotate(720deg); opacity: 0; } 
+        }
+        .animate-fall { 
+            animation: fall 2s ease-out forwards; 
+        }
+        
+        @keyframes wrong-pulse { 
+            0% { transform: scale(0); opacity: 0; } 
+            50% { transform: scale(1.2); opacity: 1; } 
+            100% { transform: scale(1); opacity: 0; } 
+        } 
+        .animate-wrong-pulse { 
+            animation: wrong-pulse 0.5s ease-out forwards; 
+        }
+
+        @keyframes shake { 
+            0%, 100% { transform: translateX(0); } 
+            20%, 60% { transform: translateX(-10px); } 
+            40%, 80% { transform: translateX(10px); } 
+        } 
+        .animate-shake { 
+            animation: shake 0.5s ease-in-out; 
+        }
+    </style>
+</head>
+<body>
+    <div id="root"></div>
+
+    <script type="text/babel">
+        const { useState, useEffect, useRef } = React;
+
+        const KahootQuiz = () => {
+            const [gameState, setGameState] = useState('menu');
+            const [darkMode, setDarkMode] = useState(false);
+            const [gameMode, setGameMode] = useState('normal');
+            const [difficulty, setDifficulty] = useState('medium');
+            const [selectedCategories, setSelectedCategories] = useState([]);
+            const [questionCount, setQuestionCount] = useState(7);
+            const [showExplanation, setShowExplanation] = useState(true);
+            
+            const allQuestions = [
+                { question: "ארגון שבוחר לקחת תהליכים ידניים ולהעביר אותם כך שיהפכו לטכנולוגיים...", answers: ["חוסך כסף לארגון", "עושה מעשה לא חכם, אם לא בחן את הנכונות של התהליכים קודם לכן", "אף לא אחת מן התשובות נכונה", "עושה בחוכמה שכן כל מיחשוב של תהליך הוא טוב לארגון"], correct: 1, category: "שיעור 1", explanation: "לפני מיחשוב תהליך, חשוב לבחון אם התהליך עצמו נכון ויעיל. מיחשוב תהליך לא נכון רק מנציח בעיות." },
+                { question: "מה מהבאים לא נכון בנוגע למערכת מידע?", answers: ["מערכת מידע מוצלחת היא מערכת מידע שיש לה ערך אמיתי לארגון", "מערכת המידע היא טכנולוגיה מתקדמת", "מטרת מערכת המידע היא שימוש בטכנולוגיה ככלי לייעול תהליכי עבודה", "מערכת המידע מיוצרת עבור האנשים בארגון"], correct: 1, category: "שיעור 1", explanation: "מערכת מידע מוגדרת כשילוב של תהליכים, טכנולוגיה ואנשים, ולא טכנולוגיה בלבד." },
+                { question: "הדוגמא של פרטנר וסלקום מלמדת אותנו כי:", answers: ["אף לא אחת מן התשובות נכונה", "כל חברה נבדלת מרעותה בתפיסת השיווק שלה", "כל חברה נבדלת מרעותה ביכולת הכספית שלה", "כל חברה נבדלת מרעותה בתפיסה הארגונית שלה"], correct: 0, category: "שיעור 1", explanation: "הדוגמא מלמדת שההבדלים בין החברות אינם רק בשיווק, כסף או תפיסה ארגונית, אלא במשהו עמוק יותר." },
+                { question: "מי מהמסיחים הבאים הוא הנכון ביותר לגבי נתונים?", answers: ["פרטי, שם משפחה, מספר הנעליים הם דוגמא לנתונים", "גובה ומשקל של ילד הם דוגמא לנתונים", "נתונים הם פריטים גולמיים", "יש יותר מתשובה נכונה אחת"], correct: 3, category: "שיעור 1", explanation: "סעיפים א', ב' ו-ג' כולם נכונים (דוגמאות לנתונים או הגדרתם כפריטים גולמיים), ולכן התשובה היא שיש יותר מתשובה נכונה אחת." },
+                { question: "מה ההבדל בין נתונים למידע?", answers: ["יש יותר מתשובה נכונה אחת", "מידע הינו הפרטים גולמיים ואילו נתונים זהו המידע לאחר הוספת הניסיון", "נתונים הינם פרטים גולמיים ואילו מידע אלו הנתונים לאחר הוספת הניסיון", "נתונים הינם פריטים גולמיים ואילו מידע אלו הנתונים לאחר תהליך עיבוד"], correct: 3, category: "שיעור 1", explanation: "נתונים הם אוסף פריטים גולמיים, ומידע הוא נתונים שעברו עיבוד." },
+                { question: "מי מהמסיחים הבאים הוא הנכון ביותר לגבי מערכת מידע מוצלחת?", answers: ["יש יותר מתשובה נכונה אחת", "מערכת מידע מוצלחת היא מערכת מידע שיש בה תועלת מוכחת לארגון", "כל מערכת מידע היא מוצלחת", "מערכת מידע מוצלחת היא מערכת מידע שיש לה ערך אמיתי לארגון"], correct: 0, category: "שיעור 1", explanation: "סעיפים ב' ו-ד' מתארים נכונה מערכת מוצלחת (בעלת ערך ותועלת), לכן התשובה היא שיש יותר מתשובה נכונה אחת." },
+                { question: "הגורם ה'מאתגר' מבין שלושת הגורמים במשולש מערכות המידע הוא:", answers: ["תהליכי עבודה", "טכנולוגיה", "אנשים", "הידע של הארגון"], correct: 2, category: "שיעור 1", explanation: "הבעיה העיקרית היא האנשים, שכן תהליכים וטכנולוגיה קלים יותר לניהול ובדיקה." }
+            ];
+
+            const categories = [...new Set(allQuestions.map(q => q.category))];
+            
+            const [questions, setQuestions] = useState([]);
+            const [currentQuestion, setCurrentQuestion] = useState(0);
+            const [score, setScore] = useState(0);
+            const [timeLeft, setTimeLeft] = useState(20);
+            const [selectedAnswer, setSelectedAnswer] = useState(null);
+            const [showResult, setShowResult] = useState(false);
+            const [streak, setStreak] = useState(0);
+            const [correctCount, setCorrectCount] = useState(0);
+            const [wrongCount, setWrongCount] = useState(0);
+            const [shuffledQuestions, setShuffledQuestions] = useState([]);
+            const [soundEnabled, setSoundEnabled] = useState(true);
+            const [musicEnabled, setMusicEnabled] = useState(false);
+            const [showConfetti, setShowConfetti] = useState(false);
+            const [showWrongEffect, setShowWrongEffect] = useState(false);
+            const [bestStreak, setBestStreak] = useState(0);
+            const [categoryStats, setCategoryStats] = useState({});
+            const [highScores, setHighScores] = useState([]);
+            const synthRef = useRef(null);
+
+            const timeByDifficulty = { easy: 30, medium: 20, hard: 10 };
+            const colors = darkMode 
+                ? { orange: '#FB923C', orangeLight: '#FDBA74', cream: '#1F2937', peach: '#111827', green: '#22C55E', yellow: '#EAB308', answers: ['#EA580C', '#16A34A', '#CA8A04', '#2563EB'], text: '#F9FAFB', textMuted: '#9CA3AF', card: '#374151', border: '#4B5563' }
+                : { orange: '#F97316', orangeLight: '#FB923C', cream: '#FFF7ED', peach: '#FFEDD5', green: '#22C55E', yellow: '#EAB308', answers: ['#F97316', '#22C55E', '#EAB308', '#3B82F6'], text: '#1F2937', textMuted: '#6B7280', card: 'white', border: '#F97316' };
+            const answerShapes = ['▲', '◆', '●', '■'];
+
+            useEffect(() => { synthRef.current = new Tone.Synth().toDestination(); return () => { if (synthRef.current) synthRef.current.dispose(); }; }, []);
+
+            const playSound = async (type) => {
+                if (!soundEnabled) return;
+                try {
+                    await Tone.start();
+                    const synth = synthRef.current;
+                    if (!synth) return;
+                    if (type === 'correct') { synth.triggerAttackRelease('C5', '0.1'); setTimeout(() => synth.triggerAttackRelease('E5', '0.1'), 100); setTimeout(() => synth.triggerAttackRelease('G5', '0.2'), 200); }
+                    else if (type === 'wrong') { synth.triggerAttackRelease('A3', '0.3'); setTimeout(() => synth.triggerAttackRelease('Ab3', '0.4'), 200); }
+                    else if (type === 'tick') { synth.triggerAttackRelease('C4', '0.05'); }
+                    else if (type === 'start') { synth.triggerAttackRelease('C4', '0.1'); setTimeout(() => synth.triggerAttackRelease('E4', '0.1'), 100); setTimeout(() => synth.triggerAttackRelease('G4', '0.1'), 200); setTimeout(() => synth.triggerAttackRelease('C5', '0.3'), 300); }
+                    else if (type === 'finish') { synth.triggerAttackRelease('G4', '0.15'); setTimeout(() => synth.triggerAttackRelease('C5', '0.15'), 150); setTimeout(() => synth.triggerAttackRelease('E5', '0.15'), 300); setTimeout(() => synth.triggerAttackRelease('G5', '0.4'), 450); }
+                    else if (type === 'timeout') { synth.triggerAttackRelease('G3', '0.5'); }
+                } catch (e) {}
+            };
+
+            const shuffleArray = (arr) => { const s = [...arr]; for (let i = s.length - 1; i > 0; i--) { const j = Math.floor(Math.random() * (i + 1)); [s[i], s[j]] = [s[j], s[i]]; } return s; };
+            const shuffleAnswers = (q) => { const ca = q.answers[q.correct]; const sa = shuffleArray([...q.answers]); return { ...q, answers: sa, correct: sa.indexOf(ca) }; };
+
+            useEffect(() => {
+                if (gameState === 'playing' && timeLeft > 0 && !showResult && gameMode !== 'practice') {
+                    const timer = setTimeout(() => { setTimeLeft(t => t - 1); if (timeLeft <= 6 && timeLeft > 1) playSound('tick'); }, 1000);
+                    return () => clearTimeout(timer);
+                } else if (gameState === 'playing' && timeLeft === 0 && !showResult && gameMode !== 'practice') { 
+                    playSound('timeout'); setShowResult(true); setStreak(0); setWrongCount(w => w + 1); 
+                    updateCategoryStats(shuffledQuestions[currentQuestion].category, false);
+                }
+            }, [timeLeft, gameState, showResult, gameMode]);
+
+            const updateCategoryStats = (category, correct) => {
+                setCategoryStats(prev => ({
+                    ...prev,
+                    [category]: {
+                        total: (prev[category]?.total || 0) + 1,
+                        correct: (prev[category]?.correct || 0) + (correct ? 1 : 0)
+                    }
+                }));
+            };
+
+            const handleAnswer = (index) => {
+                if (showResult) return;
+                setSelectedAnswer(index); setShowResult(true);
+                const currentQ = shuffledQuestions[currentQuestion];
+                const isCorrect = index === currentQ.correct;
+                updateCategoryStats(currentQ.category, isCorrect);
+                if (isCorrect) { 
+                    playSound('correct'); 
+                    const timeBonus = gameMode === 'practice' ? 500 : Math.floor(timeLeft * 50);
+                    setScore(s => s + 1000 + timeBonus + streak * 100); 
+                    setStreak(s => s + 1); 
+                    setCorrectCount(c => c + 1); 
+                    setShowConfetti(true); 
+                    setTimeout(() => setShowConfetti(false), 2000);
+                    if (streak + 1 > bestStreak) setBestStreak(streak + 1);
+                }
+                else { 
+                    playSound('wrong'); 
+                    if (gameMode === 'challenge') { setTimeout(() => setGameState('finished'), 1500); }
+                    setStreak(0); 
+                    setWrongCount(w => w + 1); 
+                    setShowWrongEffect(true); 
+                    setTimeout(() => setShowWrongEffect(false), 500); 
+                }
+            };
+
+            const handleSkip = () => {
+                if (showResult) return;
+                setShowResult(true);
+                setStreak(0);
+                setWrongCount(w => w + 1);
+                updateCategoryStats(shuffledQuestions[currentQuestion].category, false);
+                playSound('timeout');
+            };
+
+            const nextQuestion = () => {
+                if (currentQuestion + 1 < shuffledQuestions.length && !(gameMode === 'challenge' && wrongCount > 0)) { 
+                    setCurrentQuestion(q => q + 1); 
+                    setSelectedAnswer(null); 
+                    setShowResult(false); 
+                    setTimeLeft(timeByDifficulty[difficulty]); 
+                }
+                else { playSound('finish'); saveHighScore(); setGameState('finished'); }
+            };
+
+            const saveHighScore = () => {
+                const newScore = { score, correct: correctCount, total: shuffledQuestions.length, date: new Date().toLocaleDateString('he-IL'), mode: gameMode };
+                setHighScores(prev => [...prev, newScore].sort((a, b) => b.score - a.score).slice(0, 5));
+            };
+
+            const shareResults = () => {
+                const pct = Math.round((correctCount / shuffledQuestions.length) * 100);
+                const text = `🎯 השגתי ${pct}% בטריוויה ניהול מבוסס נתונים של שגיא בר און!\n✓ ${correctCount} תשובות נכונות\n🏆 ${score.toLocaleString()} נקודות\n🔥 רצף שיא: ${bestStreak}\n\nבואו לנסות: sagiai.co.il`;
+                window.open(`https://wa.me/?text=${encodeURIComponent(text)}`, '_blank');
+            };
+
+            const startGame = async () => {
+                await playSound('start');
+                let filtered = allQuestions;
+                if (selectedCategories.length > 0) {
+                    filtered = allQuestions.filter(q => selectedCategories.includes(q.category));
+                }
+                const shuffled = shuffleArray(filtered).slice(0, Math.min(questionCount, filtered.length)).map(shuffleAnswers);
+                setShuffledQuestions(shuffled);
+                setGameState('playing');
+                setCurrentQuestion(0);
+                setScore(0);
+                setStreak(0);
+                setBestStreak(0);
+                setCorrectCount(0);
+                setWrongCount(0);
+                setCategoryStats({});
+                setTimeLeft(timeByDifficulty[difficulty]);
+                setSelectedAnswer(null);
+                setShowResult(false);
+            };
+
+            const toggleCategory = (cat) => {
+                setSelectedCategories(prev => prev.includes(cat) ? prev.filter(c => c !== cat) : [...prev, cat]);
+            };
+
+            const TopBar = () => (
+                <div className="absolute top-4 left-4 flex gap-2 z-10">
+                    {gameState === 'playing' && (
+                        <button onClick={() => setGameState('menu')} className="rounded-full p-2 text-xl shadow-md transition-all hover:scale-110" style={{ background: colors.card, color: colors.orange }} title="חזרה לתפריט">🏠</button>
+                    )}
+                    <button onClick={() => setSoundEnabled(!soundEnabled)} className="rounded-full p-2 text-xl shadow-md transition-all" style={{ background: colors.card, color: colors.orange }}>{soundEnabled ? '🔊' : '🔇'}</button>
+                    <button onClick={() => setDarkMode(!darkMode)} className="rounded-full p-2 text-xl shadow-md transition-all" style={{ background: colors.card, color: colors.orange }}>{darkMode ? '☀️' : '🌙'}</button>
+                </div>
+            );
+
+            const Confetti = () => {
+                const pieces = Array.from({ length: 50 }, (_, i) => ({ id: i, left: Math.random() * 100, delay: Math.random() * 0.5, color: ['#F97316', '#22C55E', '#EAB308', '#3B82F6', '#EC4899', '#8B5CF6'][Math.floor(Math.random() * 6)], size: Math.random() * 10 + 5 }));
+                return (<div className="fixed inset-0 pointer-events-none z-50 overflow-hidden">{pieces.map(p => (<div key={p.id} className="absolute animate-fall" style={{ left: `${p.left}%`, top: '-20px', width: `${p.size}px`, height: `${p.size}px`, backgroundColor: p.color, borderRadius: Math.random() > 0.5 ? '50%' : '0', animationDelay: `${p.delay}s`, animationDuration: '2s' }} />))}</div>);
+            };
+
+            const WrongEffect = () => (<div className="fixed inset-0 pointer-events-none z-50 flex items-center justify-center"><div className="text-9xl animate-wrong-pulse">❌</div></div>);
+
+            const ProgressBar = () => (
+                <div className="w-full h-2 rounded-full mb-4" style={{ background: colors.border }}>
+                    <div className="h-full rounded-full transition-all duration-300" style={{ width: `${((currentQuestion + 1) / shuffledQuestions.length) * 100}%`, background: colors.orange }} />
+                </div>
+            );
+
+            // Menu Screen
+            if (gameState === 'menu') {
+                return (
+                    <div dir="rtl" className="min-h-screen p-4 relative" style={{ background: `linear-gradient(180deg, ${colors.peach} 0%, ${colors.cream} 100%)` }}>
+                        <TopBar />
+                        <div className="max-w-lg mx-auto pt-16">
+                            <div className="text-center mb-6">
+                                <div className="text-6xl mb-3">🎯</div>
+                                <h1 className="text-3xl font-black mb-2" style={{ color: colors.text }}>טריוויה ניהול מבוסס <span style={{ color: colors.orange }}>נתונים</span></h1>
+                                <a href="https:/sagiai.co.il" target="_blank" rel="noopener noreferrer" className="text-sm hover:underline" style={{ color: colors.orange }}>נוצר ב 🧡 ע"י שגיא בר און</a>
+                            </div>
+
+                            <div className="rounded-2xl p-4 mb-4 shadow-lg" style={{ background: colors.card, border: `2px solid ${colors.border}` }}>
+                                <h3 className="font-bold mb-3" style={{ color: colors.orange }}>🎮 מצב משחק</h3>
+                                <div className="grid grid-cols-3 gap-2">
+                                    {[{id: 'normal', icon: '🎯', label: 'רגיל'}, {id: 'practice', icon: '📚', label: 'תרגול'}, {id: 'challenge', icon: '⚡', label: 'אתגר'}].map(m => (
+                                        <button key={m.id} onClick={() => setGameMode(m.id)} className={`p-3 rounded-xl text-center transition-all ${gameMode === m.id ? 'ring-2' : ''}`} style={{ background: gameMode === m.id ? colors.orange : colors.peach, color: gameMode === m.id ? 'white' : colors.text, ringColor: colors.orange }}>
+                                            <div className="text-2xl">{m.icon}</div>
+                                            <div className="text-xs font-bold">{m.label}</div>
+                                        </button>
+                                    ))}
+                                </div>
+                                <p className="text-xs mt-2" style={{ color: colors.textMuted }}>
+                                    {gameMode === 'normal' && '⏱️ משחק רגיל עם טיימר'}
+                                    {gameMode === 'practice' && '📚 ללא טיימר - לומדים בקצב שלך'}
+                                    {gameMode === 'challenge' && '⚡ כמה תצליח ברצף? טעות אחת וזה נגמר!'}
+                                </p>
+                            </div>
+
+                            <div className="rounded-2xl p-4 mb-4 shadow-lg" style={{ background: colors.card, border: `2px solid ${colors.border}` }}>
+                                <h3 className="font-bold mb-3" style={{ color: colors.orange }}>⚡ רמת קושי</h3>
+                                <div className="grid grid-cols-3 gap-2">
+                                    {[{id: 'easy', label: 'קל', time: '30'}, {id: 'medium', label: 'בינוני', time: '20'}, {id: 'hard', label: 'קשה', time: '10'}].map(d => (
+                                        <button key={d.id} onClick={() => setDifficulty(d.id)} className={`p-2 rounded-xl text-center transition-all ${difficulty === d.id ? 'ring-2' : ''}`} style={{ background: difficulty === d.id ? colors.orange : colors.peach, color: difficulty === d.id ? 'white' : colors.text }}>
+                                            <div className="font-bold text-sm">{d.label}</div>
+                                            <div className="text-xs">{d.time} שניות</div>
+                                        </button>
+                                    ))}
+                                </div>
+                            </div>
+
+                            <div className="rounded-2xl p-4 mb-4 shadow-lg" style={{ background: colors.card, border: `2px solid ${colors.border}` }}>
+                                <h3 className="font-bold mb-3" style={{ color: colors.orange }}>📂 קטגוריות</h3>
+                                <div className="flex flex-wrap gap-2">
+                                    {categories.map(cat => (
+                                        <button key={cat} onClick={() => toggleCategory(cat)} className={`px-3 py-1 rounded-full text-sm font-medium transition-all`} style={{ background: selectedCategories.includes(cat) ? colors.orange : colors.peach, color: selectedCategories.includes(cat) ? 'white' : colors.text }}>
+                                            {cat}
+                                        </button>
+                                    ))}
+                                </div>
+                                <p className="text-xs mt-2" style={{ color: colors.textMuted }}>{selectedCategories.length === 0 ? 'כל הקטגוריות נבחרו' : `${selectedCategories.length} קטגוריות נבחרו`}</p>
+                            </div>
+
+                            <div className="rounded-2xl p-4 mb-4 shadow-lg" style={{ background: colors.card, border: `2px solid ${colors.border}` }}>
+                                <h3 className="font-bold mb-3" style={{ color: colors.orange }}>🔢 מספר שאלות</h3>
+                                <div className="grid grid-cols-3 gap-2">
+                                    {[5, 7, allQuestions.length].map(n => (
+                                        <button key={n} onClick={() => setQuestionCount(n)} className={`p-2 rounded-xl text-center transition-all`} style={{ background: questionCount === n ? colors.orange : colors.peach, color: questionCount === n ? 'white' : colors.text }}>
+                                            <div className="font-bold">{n === allQuestions.length ? 'הכל' : n}</div>
+                                        </button>
+                                    ))}
+                                </div>
+                            </div>
+
+                            <button onClick={startGame} className="w-full py-4 text-xl font-bold text-white rounded-full shadow-xl hover:scale-105 transition-all" style={{ background: `linear-gradient(135deg, ${colors.orange} 0%, ${colors.orangeLight} 100%)` }}>
+                                🚀 התחל משחק!
+                            </button>
+
+                            {highScores.length > 0 && (
+                                <div className="rounded-2xl p-4 mt-4 shadow-lg" style={{ background: colors.card, border: `2px solid ${colors.border}` }}>
+                                    <h3 className="font-bold mb-2" style={{ color: colors.orange }}>🏆 שיאים</h3>
+                                    {highScores.slice(0, 3).map((hs, i) => (
+                                        <div key={i} className="flex justify-between text-sm py-1" style={{ color: colors.text }}>
+                                            <span>{['🥇','🥈','🥉'][i]} {hs.score.toLocaleString()} נק'</span>
+                                            <span style={{ color: colors.textMuted }}>{hs.correct}/{hs.total} • {hs.date}</span>
+                                        </div>
+                                    ))}
+                                </div>
+                            )}
+                        </div>
+                    </div>
+                );
+            }
+
+            // Finished Screen
+            if (gameState === 'finished') {
+                const pct = Math.round((correctCount / shuffledQuestions.length) * 100);
+                const [emoji, msg] = pct >= 80 ? ['🏆', 'מדהים!'] : pct >= 60 ? ['🌟', 'יופי של תוצאה!'] : pct >= 40 ? ['👍', 'לא רע!'] : ['💪', 'נסה שוב!'];
+                const weakCategories = Object.entries(categoryStats).filter(([_, s]) => s.total > 0 && (s.correct / s.total) < 0.5).map(([cat]) => cat);
+                
+                return (
+                    <div dir="rtl" className="min-h-screen flex items-center justify-center p-4 relative overflow-hidden" style={{ background: `linear-gradient(180deg, ${colors.peach} 0%, ${colors.cream} 100%)` }}>
+                        {pct >= 60 && <Confetti />}
+                        <TopBar />
+                        <div className="text-center max-w-lg w-full">
+                            <div className="text-7xl mb-4">{emoji}</div>
+                            <h1 className="text-4xl font-black mb-4" style={{ color: colors.orange }}>{msg}</h1>
+                            
+                            <div className="rounded-2xl p-5 mb-4 shadow-lg" style={{ background: colors.card, border: `2px solid ${colors.border}` }}>
+                                <p className="text-4xl font-black mb-1" style={{ color: colors.orange }}>{score.toLocaleString()}</p>
+                                <p className="text-sm" style={{ color: colors.textMuted }}>נקודות</p>
+                                <div className="border-t my-3" style={{ borderColor: colors.peach }} />
+                                <div className="grid grid-cols-3 gap-2 text-center">
+                                    <div><p className="text-2xl font-bold" style={{ color: colors.green }}>✓ {correctCount}</p><p className="text-xs" style={{ color: colors.textMuted }}>נכונות</p></div>
+                                    <div><p className="text-2xl font-bold text-red-500">✗ {wrongCount}</p><p className="text-xs" style={{ color: colors.textMuted }}>שגויות</p></div>
+                                    <div><p className="text-2xl font-bold" style={{ color: colors.yellow }}>🔥 {bestStreak}</p><p className="text-xs" style={{ color: colors.textMuted }}>רצף שיא</p></div>
+                                </div>
+                                <div className="border-t my-3" style={{ borderColor: colors.peach }} />
+                                <p className="text-xl font-bold" style={{ color: colors.text }}>{pct}% דיוק</p>
+                            </div>
+
+                            {weakCategories.length > 0 && (
+                                <div className="rounded-2xl p-4 mb-4 shadow-lg text-right" style={{ background: colors.card, border: `2px solid ${colors.border}` }}>
+                                    <h3 className="font-bold mb-2" style={{ color: colors.orange }}>💡 כדאי לחזק:</h3>
+                                    <p className="text-sm" style={{ color: colors.text }}>{weakCategories.join(', ')}</p>
+                                </div>
+                            )}
+
+                            <div className="flex gap-3">
+                                <button onClick={shareResults} className="flex-1 py-3 rounded-full font-bold text-white shadow-lg hover:scale-105 transition-all" style={{ background: '#25D366' }}>
+                                    📤 שתף בוואטסאפ
+                                </button>
+                                <button onClick={() => setGameState('menu')} className="flex-1 py-3 rounded-full font-bold text-white shadow-lg hover:scale-105 transition-all" style={{ background: colors.orange }}>
+                                    🔄 שחק שוב
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                );
+            }
+
+            // Playing Screen
+            const currentQ = shuffledQuestions[currentQuestion];
+            if (!currentQ) return null;
+
+            return (
+                <div dir="rtl" className={`min-h-screen flex flex-col relative ${showWrongEffect ? 'animate-shake' : ''}`} style={{ background: `linear-gradient(180deg, ${colors.peach} 0%, ${colors.cream} 100%)` }}>
+                    {showConfetti && <Confetti />}
+                    {showWrongEffect && <WrongEffect />}
+                    <TopBar />
+                    
+                    <div className="p-3 pt-14">
+                        <ProgressBar />
+                        <div className="flex justify-between items-center flex-wrap gap-2">
+                            <div className="rounded-full px-4 py-2 shadow-md" style={{ background: colors.card, color: colors.orange }}><span className="font-bold text-sm">{currentQuestion + 1}/{shuffledQuestions.length}</span></div>
+                            <div className="rounded-full px-4 py-2 shadow-md" style={{ background: colors.card }}><span className="font-bold text-sm" style={{ color: colors.green }}>✓ {correctCount}</span><span className="mx-2" style={{ color: colors.textMuted }}>|</span><span className="font-bold text-sm text-red-500">✗ {wrongCount}</span></div>
+                            <div className="rounded-full px-4 py-2 shadow-md" style={{ background: colors.orange, color: 'white' }}><span className="font-bold text-sm">🏆 {score.toLocaleString()}</span></div>
+                            {streak > 1 && <div className="rounded-full px-4 py-2 animate-pulse shadow-md" style={{ background: colors.yellow, color: 'white' }}><span className="font-bold text-sm">🔥 x{streak}</span></div>}
+                        </div>
+                    </div>
+
+                    {gameMode !== 'practice' && (
+                        <div className="px-4 mb-2">
+                            <div className="rounded-full h-3 overflow-hidden" style={{ background: colors.card }}>
+                                <div className="h-full transition-all duration-1000 ease-linear rounded-full" style={{ width: `${(timeLeft / timeByDifficulty[difficulty]) * 100}%`, background: timeLeft > timeByDifficulty[difficulty] * 0.5 ? colors.green : timeLeft > timeByDifficulty[difficulty] * 0.25 ? colors.yellow : '#EF4444' }} />
+                            </div>
+                            <div className="text-center mt-1"><span className={`text-3xl font-black ${timeLeft <= 5 ? 'text-red-500 animate-pulse' : ''}`} style={{ color: timeLeft > 5 ? colors.orange : undefined }}>{timeLeft}</span></div>
+                        </div>
+                    )}
+
+                    <div className="flex-grow flex flex-col px-4 pb-4">
+                        <div className="rounded-2xl p-4 md:p-6 mb-3 shadow-xl" style={{ background: colors.card, borderTop: `4px solid ${colors.orange}` }}>
+                            <span className="text-xs px-2 py-1 rounded-full mb-2 inline-block" style={{ background: colors.peach, color: colors.orange }}>{currentQ.category}</span>
+                            <h2 className="text-base md:text-xl font-bold text-center leading-relaxed" style={{ color: colors.text }}>{currentQ.question}</h2>
+                        </div>
+
+                        <div className={`grid gap-2 ${currentQ.answers.length === 2 ? 'grid-cols-1 md:grid-cols-2' : 'grid-cols-1 md:grid-cols-2'}`}>
+                            {currentQ.answers.map((ans, i) => {
+                                const isC = i === currentQ.correct, isS = selectedAnswer === i;
+                                let bg = colors.answers[i % 4], op = 1;
+                                if (showResult) { if (isC) bg = '#22C55E'; else if (isS) bg = '#EF4444'; else op = 0.5; }
+                                return (
+                                    <button key={i} onClick={() => handleAnswer(i)} disabled={showResult} className={`p-3 md:p-4 rounded-xl text-white font-bold text-sm md:text-base transition-all shadow-lg ${!showResult ? 'hover:brightness-110 active:scale-98' : ''} ${showResult && isC ? 'ring-4 ring-white animate-pulse' : ''}`} style={{ backgroundColor: bg, opacity: op }}>
+                                        <div className="flex items-center gap-2">
+                                            <span className="text-xl opacity-70">{answerShapes[i % 4]}</span>
+                                            <span className="flex-grow text-right leading-snug">{ans}</span>
+                                            {showResult && isC && <span className="text-xl">✓</span>}
+                                            {showResult && isS && !isC && <span className="text-xl">✗</span>}
+                                        </div>
+                                    </button>
+                                );
+                            })}
+                        </div>
+
+                        {showResult && showExplanation && currentQ.explanation && (
+                            <div className="mt-3 p-3 rounded-xl" style={{ background: colors.card, border: `2px solid ${colors.green}` }}>
+                                <p className="text-sm" style={{ color: colors.text }}>💡 {currentQ.explanation}</p>
+                            </div>
+                        )}
+
+                        <div className="mt-3 text-center">
+                            {!showResult && <button onClick={handleSkip} className="px-6 py-2 rounded-full transition-all shadow-md text-sm font-medium" style={{ background: colors.card, color: colors.textMuted }}>⏭️ דלג</button>}
+                            {showResult && <button onClick={nextQuestion} className="px-8 py-3 rounded-full text-white font-bold transition-all shadow-lg hover:scale-105" style={{ background: `linear-gradient(135deg, ${colors.orange} 0%, ${colors.orangeLight} 100%)` }}>לשאלה הבאה ➡️</button>}
+                        </div>
+                    </div>
+                </div>
+            );
+        }
+
+        const root = ReactDOM.createRoot(document.getElementById('root'));
+        root.render(<KahootQuiz />);
+    </script>
+</body>
+</html>
