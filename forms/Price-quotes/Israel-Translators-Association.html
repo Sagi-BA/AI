@@ -1046,6 +1046,76 @@
       text-decoration: underline !important;
     }
 
+    /* ======================== Dark Mode Toggle ======================== */
+    .darkmode-toggle {
+      position: fixed;
+      bottom: 84px;
+      left: 24px;
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      background: var(--white);
+      color: var(--accent);
+      border: none;
+      cursor: pointer;
+      font-size: 1.4rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 2px 12px rgba(0, 0, 0, 0.15);
+      z-index: 1000;
+      transition: all 0.3s ease;
+    }
+
+    .darkmode-toggle:hover {
+      transform: scale(1.08);
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.25);
+    }
+
+    /* Dark mode overrides */
+    body.dark-mode {
+      --bg: #121212;
+      --text: #e0e0e0;
+      --text-light: #aaa;
+      --text-muted: #888;
+      --white: #1e1e1e;
+      --border: #333;
+      --accent-light: #332200;
+      --green-light: #1b3a1b;
+      --purple-light: #2a1530;
+      --cyan-light: #0a2a2f;
+      --shadow: 0 2px 16px rgba(0, 0, 0, 0.3);
+      --shadow-hover: 0 4px 24px rgba(0, 0, 0, 0.4);
+    }
+
+    body.dark-mode .quote-header {
+      background: linear-gradient(135deg, #1a1a1a 0%, #2a2a2a 100%);
+      border-bottom: 2px solid var(--accent);
+    }
+
+    body.dark-mode .darkmode-toggle {
+      background: #2a2a2a;
+      color: #ffc107;
+      box-shadow: 0 2px 12px rgba(255, 193, 7, 0.3);
+    }
+
+    body.dark-mode .a11y-toggle {
+      box-shadow: 0 2px 12px rgba(21, 101, 192, 0.2);
+    }
+
+    body.dark-mode .a11y-panel {
+      background: #1e1e1e;
+      border: 1px solid #333;
+    }
+
+    body.dark-mode .section-card {
+      background: #1e1e1e;
+    }
+
+    body.dark-mode .quote-footer {
+      background: #0a0a0a;
+    }
+
     /* ======================== Print Styles ======================== */
     @page {
       margin: 10mm 10mm 16mm 10mm;
@@ -1614,6 +1684,11 @@
     </div>
   </footer>
 
+  <!-- ======================== Dark Mode Toggle ======================== -->
+  <button class="darkmode-toggle" aria-label="מצב כהה" title="מצב כהה / בהיר" onclick="toggleDarkMode()">
+    🌙
+  </button>
+
   <!-- ======================== Accessibility Widget ======================== -->
   <button class="a11y-toggle" aria-label="תפריט נגישות" title="נגישות" onclick="document.querySelector('.a11y-panel').classList.toggle('open')">
     <i class="fa-solid fa-universal-access"></i>
@@ -1660,7 +1735,9 @@
     }
 
     function a11yReset() {
+      var wasDark = document.body.classList.contains('dark-mode');
       document.body.className = '';
+      if (wasDark) document.body.classList.add('dark-mode');
       document.documentElement.style.fontSize = '';
       a11yFontLevel = 0;
       document.querySelectorAll('.a11y-toggle-switch').forEach(function(s) { s.classList.remove('active'); });
@@ -1674,6 +1751,22 @@
         panel.classList.remove('open');
       }
     });
+  </script>
+
+  <script>
+    // Dark Mode
+    function toggleDarkMode() {
+      document.body.classList.toggle('dark-mode');
+      var isDark = document.body.classList.contains('dark-mode');
+      document.querySelector('.darkmode-toggle').textContent = isDark ? '☀️' : '🌙';
+      localStorage.setItem('darkMode', isDark ? 'on' : 'off');
+    }
+
+    // Restore dark mode preference
+    if (localStorage.getItem('darkMode') === 'on') {
+      document.body.classList.add('dark-mode');
+      document.querySelector('.darkmode-toggle').textContent = '☀️';
+    }
   </script>
 
 </body>
