@@ -21,7 +21,9 @@
       "WebFetch(domain:youtube.com)",
       "Bash(python -c:*)",
       "Bash(node:*)",
-      "Bash(del:*)"
+      "Bash(del:*)",
+      "WebFetch(domain:podcasts.apple.com)",
+      "WebFetch(domain:www.mako.co.il)"
     ],
     "deny": [],
     "ask": []
