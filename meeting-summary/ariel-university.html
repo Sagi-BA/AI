@@ -1,8 +1,16 @@
 <!-- https://app.short.io/users/dashboard/1617390/links -->
-<!-- https://raw.githack.com/Sagi-BA/AI/main/meeting-summary/Ariel-University -->
- <!-- https://htmlpreview.github.io/?https://github.com/Sagi-BA/AI/blob/main/meeting-summary/Ariel-University/ -->
-
 <!-- https://sagiai.short.gy/Ariel-University -->
+
+<!-- Paste this GitHub URL into the raw.githack.com input field: [https://raw.githack.com/]
+https://github.com/Sagi-BA/AI/blob/main/meeting-summary/ariel-university.html
+
+It will give you:Development (updates within minutes after push):
+https://raw.githack.com/Sagi-BA/AI/main/meeting-summary/ariel-university.html
+
+Production (CDN cached):
+https://rawcdn.githack.com/Sagi-BA/AI/main/meeting-summary/ariel-university.html
+
+Use the development URL while you're still making changes, and switch to production when it's finalized. -->
 
 <!DOCTYPE html>
 <html lang="he" dir="rtl">
@@ -59,6 +67,37 @@
             max-width: 1000px;
             margin: 0 auto;
             padding: 0 24px;
+        }
+
+        /* PDF Download Button */
+        .pdf-download-link {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            margin-top: 12px;
+            background: var(--accent);
+            color: #fff;
+            text-decoration: none;
+            font-family: 'Alef', sans-serif;
+            font-size: 0.9rem;
+            font-weight: 700;
+            padding: 10px 28px;
+            border: none;
+            border-radius: 25px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 12px rgba(255, 107, 0, 0.25);
+        }
+
+        .pdf-download-link:hover {
+            background: var(--accent-dark);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 18px rgba(255, 107, 0, 0.35);
+        }
+
+        .pdf-download-link i {
+            font-size: 1rem;
         }
 
         /* Header Banner */
@@ -119,7 +158,7 @@
         /* Hero */
         .hero {
             background: linear-gradient(180deg, #fff9f0 0%, #fff5e6 50%, var(--bg) 100%);
-            padding: 70px 0 60px;
+            padding: 10px 0 60px;
             text-align: center;
         }
 
@@ -180,7 +219,7 @@
 
         /* Value Cards */
         .value-section {
-            padding: 70px 0;
+            padding: 10px 0;
             background: var(--white);
         }
 
@@ -256,7 +295,7 @@
 
         /* Topics / Prompt Methods */
         .topics-section {
-            padding: 70px 0;
+            padding: 5px 0;
             background: var(--white);
         }
 
@@ -310,7 +349,7 @@
 
         /* Benefits / Recommendations */
         .benefits-section {
-            padding: 70px 0;
+            padding: 10px 0;
             background: var(--bg);
         }
 
@@ -406,7 +445,7 @@
         /* VIBE CODE Section */
         .vibe-code-section {
             background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
-            padding: 70px 0;
+            padding: 10px 0;
             text-align: center;
             color: var(--white);
         }
@@ -590,7 +629,7 @@
 
         /* Profile Section */
         .profile-section {
-            padding: 70px 0;
+            padding: 10px 0;
             background: var(--bg);
         }
 
@@ -765,7 +804,7 @@
 
         /* Podcasts Section */
         .podcasts-section {
-            padding: 70px 0;
+            padding: 10px 0;
             background: var(--white);
         }
 
@@ -806,7 +845,7 @@
 
         /* Apps Showcase Section */
         .apps-showcase-section {
-            padding: 70px 0;
+            padding: 10px 0;
             background: var(--bg);
         }
 
@@ -913,6 +952,26 @@
         .cta-button:hover {
             transform: translateY(-3px);
             box-shadow: 0 10px 35px rgba(0,0,0,0.2);
+        }
+
+        .cta-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 16px;
+            flex-wrap: wrap;
+        }
+
+        .cta-button-outline {
+            background: transparent;
+            color: white;
+            border: 2px solid rgba(255,255,255,0.7);
+            box-shadow: none;
+        }
+
+        .cta-button-outline:hover {
+            background: rgba(255,255,255,0.15);
+            border-color: white;
+            box-shadow: none;
         }
 
         .cta-contact {
@@ -1090,10 +1149,16 @@
                 font-size: 1rem;
             }
 
+            .cta-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+
             .cta-button {
                 padding: 14px 32px;
                 font-size: 1.05rem;
                 width: 100%;
+                max-width: 320px;
             }
 
             .header-inner {
@@ -1340,6 +1405,39 @@
             text-decoration: underline !important;
         }
 
+        /* ======================== Print Styles ======================== */
+        @media print {
+            * {
+                -webkit-print-color-adjust: exact !important;
+                print-color-adjust: exact !important;
+            }
+
+            body {
+                font-size: 14px;
+            }
+
+            .pdf-download-link,
+            .hero-cta-button,
+            .cta-section,
+            .a11y-toggle,
+            .a11y-panel,
+            .quote-footer {
+                display: none !important;
+            }
+
+            .quote-header {
+                position: relative !important;
+            }
+
+            .hero {
+                padding: 30px 0 20px;
+            }
+
+            section {
+                break-inside: avoid;
+            }
+        }
+
     </style>
 </head>
 <body>
@@ -1371,6 +1469,8 @@
                     מרצה: שגיא בר און | חוקר ויועץ AI | NLP Master
                 </p>
                 <a href="#whatsapp-group" class="hero-cta-button" data-track="hero-join-group"><i class="fa-brands fa-whatsapp"></i> הצטרפו לקבוצת הוואטסאפ שלנו</a>
+                <br>
+                <button class="pdf-download-link" onclick="window.print()" data-track="download-pdf"><i class="fa-solid fa-file-pdf"></i> הורדת הסיכום כקובץ PDF</button>
             </div>
         </section>
 
@@ -1727,7 +1827,10 @@
         <section class="cta-section" id="whatsapp-group">
             <div class="container">
                 <h2>רוצים להישאר מעודכנים?</h2>
-                <a href="https://chat.whatsapp.com/YOUR_GROUP_LINK" target="_blank" class="cta-button" data-track="whatsapp-group-cta"><i class="fa-brands fa-whatsapp"></i> הצטרפו לקבוצה השקטה</a>
+                <div class="cta-buttons">
+                    <a href="https://chat.whatsapp.com/F5rwMzOOgHK5nNKw6ALucH" target="_blank" class="cta-button" data-track="whatsapp-group-cta"><i class="fa-brands fa-whatsapp"></i> הצטרפו לקבוצה השקטה</a>
+                    <a href="https://forms.gle/BWpq3ASFfNdvE29SA" target="_blank" class="cta-button cta-button-outline" data-track="feedback-form"><i class="fa-solid fa-comment-dots"></i> מלאו משוב על ההרצאה</a>
+                </div>
             </div>
         </section>
     </main>
