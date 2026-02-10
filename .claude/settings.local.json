@@ -23,7 +23,10 @@
       "Bash(node:*)",
       "Bash(del:*)",
       "WebFetch(domain:podcasts.apple.com)",
-      "WebFetch(domain:www.mako.co.il)"
+      "WebFetch(domain:www.mako.co.il)",
+      "Bash(git -C c:/projects/AI status)",
+      "Bash(git -C c:/projects/AI diff --stat)",
+      "Bash(git -C c:/projects/AI log --oneline -5)"
     ],
     "deny": [],
     "ask": []
