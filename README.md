@@ -19,6 +19,7 @@ Claude URL: https://claude.ai/chat/584b950f-4f21-4ed6-8e1d-9e165ee61beb
 the code is at: 
 the github is at: 
 
-
+## for claude
+commit my changes with a descriptive message
 
 
