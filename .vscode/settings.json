@@ -1,0 +1,10 @@
+{
+  "terminal.integrated.rendererType": "dom",
+  "editor.fontFamily": "'Cascadia Code', monospace",
+  "editor.renderControlCharacters": true,
+  "editor.unicodeHighlight.ambiguousCharacters": true,
+  "[html]": {
+    "editor.defaultFormatter": "vscode.html-language-features",
+    "editor.wordWrap": "on"
+  }
+}
