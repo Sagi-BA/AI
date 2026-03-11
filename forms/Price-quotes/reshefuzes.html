@@ -55,6 +55,23 @@
       max-width: 900px;
       margin: 0 auto;
       padding: 0 24px 40px;
+      position: relative;
+    }
+
+    /* ======================== Watermark ======================== */
+    .page-container::after {
+      content: 'ש.ב. ידע וטכנולוגיה';
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%) rotate(-45deg);
+      font-size: 5rem;
+      font-weight: 700;
+      color: rgba(0, 0, 0, 0.04);
+      white-space: nowrap;
+      pointer-events: none;
+      z-index: 0;
+      letter-spacing: 4px;
     }
 
     /* ======================== PDF Download Link ======================== */
@@ -1273,6 +1290,12 @@
         padding: 0 16px;
       }
 
+      .page-container::after {
+        position: fixed;
+        color: rgba(0, 0, 0, 0.06);
+        font-size: 4rem;
+      }
+
       .section-card {
         box-shadow: none;
         border: 1px solid var(--border);
@@ -1357,12 +1380,17 @@
         margin-bottom: 16px;
       }
 
+      body {
+        padding-bottom: 40px;
+      }
+
       /* Footer on every page */
       .quote-footer {
         position: fixed;
         bottom: 0;
         left: 0;
         right: 0;
+        z-index: 9999;
         background: var(--white);
         border-top: 2px solid var(--accent);
         padding: 3px 24px;
