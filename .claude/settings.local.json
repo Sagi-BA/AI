@@ -26,7 +26,8 @@
       "WebFetch(domain:www.mako.co.il)",
       "Bash(git -C c:/projects/AI status)",
       "Bash(git -C c:/projects/AI diff --stat)",
-      "Bash(git -C c:/projects/AI log --oneline -5)"
+      "Bash(git -C c:/projects/AI log --oneline -5)",
+      "Bash(powershell -Command:*)"
     ],
     "deny": [],
     "ask": []
