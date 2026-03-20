@@ -17,7 +17,44 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;700;800&display=swap" rel="stylesheet">
+  <!-- Accessibility: skip to main content link -->
   <style>
+    /* ===== ACCESSIBILITY ===== */
+    .skip-link {
+      position: absolute;
+      top: -100px;
+      right: 0;
+      background: #d4a017;
+      color: #060a14;
+      padding: 10px 20px;
+      font-weight: 700;
+      font-size: 1rem;
+      z-index: 99999;
+      border-radius: 0 0 8px 8px;
+      text-decoration: none;
+      transition: top 0.2s ease;
+    }
+
+    .skip-link:focus {
+      top: 0;
+      outline: 3px solid #fff;
+      outline-offset: 2px;
+    }
+
+    /* Focus visible styles for keyboard navigation */
+    :focus-visible {
+      outline: 3px solid #d4a017;
+      outline-offset: 3px;
+      border-radius: 4px;
+    }
+
+    /* High contrast focus for interactive elements */
+    a:focus-visible,
+    button:focus-visible,
+    iframe:focus-visible {
+      outline: 3px solid #d4a017;
+      outline-offset: 4px;
+    }
     *, *::before, *::after {
       box-sizing: border-box;
       margin: 0;
@@ -791,108 +828,323 @@
       .step-item { opacity: 1; transform: none; }
       .form-iframe-wrap { opacity: 1; transform: none; }
       .highlight::after { width: 100%; }
+      .radar-sweep, .searchlights, .particles { display: none; }
+    }
+
+    /* ===== ACCESSIBILITY WIDGET ===== */
+    .a11y-fab {
+      position: fixed;
+      bottom: 20px;
+      left: 20px;
+      z-index: 9000;
+      direction: ltr;
+    }
+
+    .a11y-btn {
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      border: 2px solid rgba(212, 160, 23, 0.4);
+      background: rgba(6, 10, 20, 0.95);
+      color: #d4a017;
+      font-size: 1.4rem;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+      transition: all 0.3s ease;
+      backdrop-filter: blur(10px);
+      line-height: 1;
+    }
+
+    .a11y-btn:hover,
+    .a11y-btn:focus-visible {
+      background: rgba(212, 160, 23, 0.15);
+      border-color: #d4a017;
+      transform: scale(1.08);
+    }
+
+    .a11y-btn svg {
+      width: 24px;
+      height: 24px;
+      fill: currentColor;
+    }
+
+    .a11y-panel {
+      position: absolute;
+      bottom: 58px;
+      left: 0;
+      background: rgba(6, 10, 20, 0.97);
+      border: 1px solid rgba(212, 160, 23, 0.25);
+      border-radius: 12px;
+      padding: 16px;
+      min-width: 220px;
+      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.6);
+      backdrop-filter: blur(15px);
+      display: none;
+      direction: rtl;
+    }
+
+    .a11y-panel.open { display: block; }
+
+    .a11y-panel-title {
+      font-size: 0.85rem;
+      font-weight: 700;
+      color: #d4a017;
+      margin-bottom: 12px;
+      padding-bottom: 8px;
+      border-bottom: 1px solid rgba(212, 160, 23, 0.15);
+    }
+
+    .a11y-option {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 8px 0;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    }
+
+    .a11y-option:last-child { border-bottom: none; }
+
+    .a11y-option-label {
+      font-size: 0.85rem;
+      color: #d1d5db;
+      font-weight: 400;
+    }
+
+    .a11y-toggle {
+      width: 40px;
+      height: 22px;
+      border-radius: 11px;
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      background: rgba(255, 255, 255, 0.08);
+      cursor: pointer;
+      position: relative;
+      transition: all 0.3s ease;
+      flex-shrink: 0;
+    }
+
+    .a11y-toggle::after {
+      content: "";
+      position: absolute;
+      top: 2px;
+      left: 2px;
+      width: 16px;
+      height: 16px;
+      border-radius: 50%;
+      background: #6b7280;
+      transition: all 0.3s ease;
+    }
+
+    .a11y-toggle.active {
+      background: rgba(212, 160, 23, 0.2);
+      border-color: #d4a017;
+    }
+
+    .a11y-toggle.active::after {
+      left: 20px;
+      background: #d4a017;
+    }
+
+    .a11y-font-controls {
+      display: flex;
+      gap: 6px;
+    }
+
+    .a11y-font-btn {
+      width: 30px;
+      height: 30px;
+      border-radius: 6px;
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      background: rgba(255, 255, 255, 0.06);
+      color: #d1d5db;
+      cursor: pointer;
+      font-size: 0.85rem;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.2s ease;
+    }
+
+    .a11y-font-btn:hover,
+    .a11y-font-btn:focus-visible {
+      background: rgba(212, 160, 23, 0.15);
+      border-color: #d4a017;
+      color: #d4a017;
+    }
+
+    /* Accessibility states applied to body */
+    body.a11y-large-text { font-size: 22px; }
+    body.a11y-large-text .header-card h1 { font-size: 3rem; }
+    body.a11y-large-text .steps-card h2,
+    body.a11y-large-text .form-card h2 { font-size: 2rem; }
+    body.a11y-large-text .step-text { font-size: 1.3rem; }
+    body.a11y-large-text .header-card .subtitle { font-size: 1.35rem; }
+
+    body.a11y-no-anim *,
+    body.a11y-no-anim *::before,
+    body.a11y-no-anim *::after {
+      animation-duration: 0ms !important;
+      animation-delay: 0ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0ms !important;
+    }
+
+    body.a11y-no-anim .intro-overlay { display: none !important; }
+    body.a11y-no-anim .radar-sweep,
+    body.a11y-no-anim .searchlights,
+    body.a11y-no-anim .particles { display: none !important; }
+    body.a11y-no-anim .card.reveal { opacity: 1; transform: none; }
+    body.a11y-no-anim .step-item { opacity: 1; transform: none; }
+    body.a11y-no-anim .form-iframe-wrap { opacity: 1; transform: none; }
+    body.a11y-no-anim .highlight::after { width: 100%; }
+
+    body.a11y-high-contrast {
+      background: #000;
+    }
+
+    body.a11y-high-contrast .card {
+      background: #000;
+      border: 2px solid #fff;
+    }
+
+    body.a11y-high-contrast .header-card h1,
+    body.a11y-high-contrast .steps-card h2,
+    body.a11y-high-contrast .form-card h2 { color: #fff; }
+
+    body.a11y-high-contrast .subtitle,
+    body.a11y-high-contrast .step-text,
+    body.a11y-high-contrast .form-hint,
+    body.a11y-high-contrast .tagline { color: #fff; }
+
+    body.a11y-high-contrast .step-number {
+      border-color: #fff;
+      color: #fff;
+      background: transparent;
+    }
+
+    body.a11y-high-contrast .highlight::after {
+      background: rgba(255, 255, 0, 0.35);
+    }
+
+    body.a11y-high-contrast .status-bar { color: #ccc; }
+    body.a11y-high-contrast .footer p { color: #aaa; }
+
+    /* High contrast mode support */
+    @media (forced-colors: active) {
+      .card { border: 2px solid CanvasText; }
+      .top-bar { background: Highlight; }
+      .step-number { border: 2px solid Highlight; color: HighlightText; }
+      .highlight::after { background: Highlight; }
+      .tagline { border: 1px solid CanvasText; }
+      .corner.tl, .corner.tr, .corner.bl, .corner.br { display: none; }
     }
   </style>
 </head>
 <body>
 
+  <!-- Skip to content for keyboard users -->
+  <a href="#main-content" class="skip-link">דלג לתוכן הראשי</a>
+
   <!-- ===== CINEMATIC INTRO ===== -->
-  <div class="intro-overlay" id="intro">
+  <div class="intro-overlay" id="intro" aria-hidden="true" role="presentation">
     <span class="intro-text">שידור מאובטח</span>
     <div class="intro-line"></div>
     <img src="shaagat-hari-logo.png" alt="" class="intro-logo">
     <span class="intro-mission">מבצע פסקול שאגת הארי</span>
   </div>
 
-  <!-- Background effects -->
-  <div class="radar-sweep"></div>
-  <div class="searchlights"></div>
+  <!-- Background effects (decorative, hidden from screen readers) -->
+  <div class="radar-sweep" aria-hidden="true"></div>
+  <div class="searchlights" aria-hidden="true"></div>
 
-  <!-- Floating particles -->
-  <div class="particles">
+  <!-- Floating particles (decorative) -->
+  <div class="particles" aria-hidden="true">
     <div class="particle"></div><div class="particle"></div><div class="particle"></div>
     <div class="particle"></div><div class="particle"></div><div class="particle"></div>
     <div class="particle"></div><div class="particle"></div><div class="particle"></div>
     <div class="particle"></div><div class="particle"></div><div class="particle"></div>
   </div>
 
-  <div class="top-bar"></div>
+  <div class="top-bar" aria-hidden="true"></div>
 
   <!-- Military emblem -->
-  <div class="emblem">
+  <div class="emblem" role="banner">
     <div class="emblem-logo-wrap">
-      <img src="shaagat-hari-logo.png" alt="שאגת הארי" class="emblem-logo">
+      <img src="shaagat-hari-logo.png" alt="סמל שאגת הארי - מבצע פסקול הקדשות לחיילי מילואים" class="emblem-logo">
     </div>
   </div>
 
-  <div class="container">
+  <main id="main-content" class="container">
 
     <!-- Header Card -->
-    <div class="card header-card reveal">
-      <div class="border-glow"></div>
-      <div class="h-scan"></div>
-      <span class="corner tl"></span><span class="corner tr"></span>
-      <span class="corner bl"></span><span class="corner br"></span>
-      <div class="glow-overlay"></div>
-      <h1 id="title"></h1>
-      <div class="h1-underline" id="underline"></div>
+    <header class="card header-card reveal" aria-label="אודות המבצע">
+      <div class="border-glow" aria-hidden="true"></div>
+      <div class="h-scan" aria-hidden="true"></div>
+      <span class="corner tl" aria-hidden="true"></span><span class="corner tr" aria-hidden="true"></span>
+      <span class="corner bl" aria-hidden="true"></span><span class="corner br" aria-hidden="true"></span>
+      <div class="glow-overlay" aria-hidden="true"></div>
+      <h1 id="title" aria-label="פסקול שאגת הארי"></h1>
+      <div class="h1-underline" id="underline" aria-hidden="true"></div>
       <p class="subtitle">ממלאים טופס קצר, ואנחנו דואגים שה<span class="highlight">שיר וההקדשה</span> יגיעו ל<span class="highlight">חייל/ת המילואים</span> שלך לקראת פסח.</p>
-      <div class="tagline">
-        <span class="tagline-dot"></span>
+      <div class="tagline" role="note">
+        <span class="tagline-dot" aria-hidden="true"></span>
         <span>ליומן המבצע - <span class="highlight">פסקול אחד גדול</span> של אהבה מהעורף לחזית.</span>
       </div>
-      <div class="status-bar">
+      <div class="status-bar" aria-label="סטטוס מבצע">
         <div class="status-item">
-          <span class="status-dot"></span>
+          <span class="status-dot" aria-hidden="true"></span>
           <span>מבצע פעיל</span>
         </div>
         <div class="status-item">
-          <span class="status-dot gold"></span>
+          <span class="status-dot gold" aria-hidden="true"></span>
           <span>פסח 2026</span>
         </div>
       </div>
-    </div>
+    </header>
 
     <!-- Steps Card -->
-    <div class="card steps-card reveal">
-      <div class="border-glow"></div>
-      <div class="h-scan"></div>
-      <span class="corner tl"></span><span class="corner tr"></span>
-      <span class="corner bl"></span><span class="corner br"></span>
-      <h2>איך זה עובד?</h2>
-      <div class="section-divider"></div>
-      <ul class="steps-list">
+    <section class="card steps-card reveal" aria-labelledby="steps-heading">
+      <div class="border-glow" aria-hidden="true"></div>
+      <div class="h-scan" aria-hidden="true"></div>
+      <span class="corner tl" aria-hidden="true"></span><span class="corner tr" aria-hidden="true"></span>
+      <span class="corner bl" aria-hidden="true"></span><span class="corner br" aria-hidden="true"></span>
+      <h2 id="steps-heading">איך זה עובד?</h2>
+      <div class="section-divider" aria-hidden="true"></div>
+      <ol class="steps-list" role="list">
         <li class="step-item">
-          <span class="step-number">1</span>
+          <span class="step-number" aria-hidden="true">1</span>
           <span class="step-text">ממלאים את הפרטים בטופס: <span class="highlight">הקדשה, שם השיר, לינק</span>, שם המשרת/ת ומספר נייד.</span>
         </li>
         <li class="step-item">
-          <span class="step-number">2</span>
+          <span class="step-number" aria-hidden="true">2</span>
           <span class="step-text">אנחנו מרכיבים את כל השירים ל<span class="highlight">פסקול אחד</span> של גדוד/מחוז המילואים.</span>
         </li>
         <li class="step-item">
-          <span class="step-number">3</span>
+          <span class="step-number" aria-hidden="true">3</span>
           <span class="step-text">החיילים מקבלים את ההקדשות והפסקול ל<span class="highlight">שמיעה בדרך לבסיס</span>, לפני החג ובזמן החג.</span>
         </li>
-      </ul>
-    </div>
+      </ol>
+    </section>
 
     <!-- Form Card -->
-    <section class="card form-card reveal">
-      <div class="border-glow"></div>
-      <div class="h-scan"></div>
-      <span class="corner tl"></span><span class="corner tr"></span>
-      <span class="corner bl"></span><span class="corner br"></span>
-      <div class="scan-line"></div>
-      <div class="scan-line-2"></div>
-      <h2>ממלאים ומשגרים &#10084;&#65039;&#127926;</h2>
-      <div class="section-divider" style="background: linear-gradient(90deg, #4b5320, transparent);"></div>
+    <section class="card form-card reveal" aria-labelledby="form-heading">
+      <div class="border-glow" aria-hidden="true"></div>
+      <div class="h-scan" aria-hidden="true"></div>
+      <span class="corner tl" aria-hidden="true"></span><span class="corner tr" aria-hidden="true"></span>
+      <span class="corner bl" aria-hidden="true"></span><span class="corner br" aria-hidden="true"></span>
+      <div class="scan-line" aria-hidden="true"></div>
+      <div class="scan-line-2" aria-hidden="true"></div>
+      <h2 id="form-heading">ממלאים ומשגרים &#10084;&#65039;&#127926;</h2>
+      <div class="section-divider" style="background: linear-gradient(90deg, #4b5320, transparent);" aria-hidden="true"></div>
       <p class="form-hint">
-        <span class="lock-icon">&#x1F512;</span>
+        <span class="lock-icon" aria-hidden="true">&#x1F512;</span>
         הטופס הבא הוא טופס מאובטח של Google. מילוי הטופס לוקח פחות מדקה.
       </p>
       <div class="form-iframe-wrap" id="formWrap">
-        <div class="form-loading" id="formLoading">
+        <div class="form-loading" id="formLoading" role="status" aria-live="polite">
           <span class="form-loading-text">טוען טופס...</span>
           <div class="form-loading-bar"></div>
         </div>
@@ -906,16 +1158,109 @@
       </div>
     </section>
 
-  </div>
+  </main>
 
   <!-- Footer -->
-  <footer class="footer">
+  <footer class="footer" role="contentinfo">
     <div class="footer-divider"></div>
     <p>המידע בטופס ישמש רק לצורך יצירת הפסקול והעברתו לחיילי המילואים.</p>
     <p class="credit">SHAAGAT HARI OPS</p>
   </footer>
 
+  <!-- Accessibility Widget -->
+  <div class="a11y-fab" id="a11yWidget">
+    <div class="a11y-panel" id="a11yPanel" role="dialog" aria-label="הגדרות נגישות">
+      <div class="a11y-panel-title">נגישות</div>
+
+      <div class="a11y-option">
+        <span class="a11y-option-label">גודל טקסט</span>
+        <div class="a11y-font-controls">
+          <button class="a11y-font-btn" id="fontDown" aria-label="הקטן טקסט">א-</button>
+          <button class="a11y-font-btn" id="fontReset" aria-label="אפס גודל טקסט">א</button>
+          <button class="a11y-font-btn" id="fontUp" aria-label="הגדל טקסט">א+</button>
+        </div>
+      </div>
+
+      <div class="a11y-option">
+        <span class="a11y-option-label">עצור אנימציות</span>
+        <button class="a11y-toggle" id="toggleAnim" role="switch" aria-checked="false" aria-label="עצור אנימציות"></button>
+      </div>
+
+      <div class="a11y-option">
+        <span class="a11y-option-label">ניגודיות גבוהה</span>
+        <button class="a11y-toggle" id="toggleContrast" role="switch" aria-checked="false" aria-label="ניגודיות גבוהה"></button>
+      </div>
+    </div>
+
+    <button class="a11y-btn" id="a11yToggle" aria-label="פתח תפריט נגישות" aria-expanded="false" aria-controls="a11yPanel">
+      <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 2a2 2 0 1 1 0 4 2 2 0 0 1 0-4zm9 7h-6l-1.41 7.41L16 22h-2l-2-5-2 5H8l2.41-5.59L9 9H3V7h18v2z"/></svg>
+    </button>
+  </div>
+
   <script>
+    // ===== ACCESSIBILITY WIDGET =====
+    (function() {
+      var btn = document.getElementById('a11yToggle');
+      var panel = document.getElementById('a11yPanel');
+      var body = document.body;
+      var fontLevel = 0; // -1, 0, 1
+
+      btn.addEventListener('click', function() {
+        var isOpen = panel.classList.toggle('open');
+        btn.setAttribute('aria-expanded', isOpen);
+      });
+
+      // Close panel on outside click
+      document.addEventListener('click', function(e) {
+        if (!document.getElementById('a11yWidget').contains(e.target)) {
+          panel.classList.remove('open');
+          btn.setAttribute('aria-expanded', 'false');
+        }
+      });
+
+      // Close panel on Escape
+      document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape' && panel.classList.contains('open')) {
+          panel.classList.remove('open');
+          btn.setAttribute('aria-expanded', 'false');
+          btn.focus();
+        }
+      });
+
+      // Font size controls
+      document.getElementById('fontUp').addEventListener('click', function() {
+        fontLevel = Math.min(fontLevel + 1, 1);
+        applyFont();
+      });
+      document.getElementById('fontDown').addEventListener('click', function() {
+        fontLevel = Math.max(fontLevel - 1, -1);
+        applyFont();
+      });
+      document.getElementById('fontReset').addEventListener('click', function() {
+        fontLevel = 0;
+        applyFont();
+      });
+
+      function applyFont() {
+        body.classList.remove('a11y-large-text', 'a11y-small-text');
+        if (fontLevel === 1) body.classList.add('a11y-large-text');
+      }
+
+      // Animation toggle
+      document.getElementById('toggleAnim').addEventListener('click', function() {
+        var active = this.classList.toggle('active');
+        this.setAttribute('aria-checked', active);
+        body.classList.toggle('a11y-no-anim', active);
+      });
+
+      // High contrast toggle
+      document.getElementById('toggleContrast').addEventListener('click', function() {
+        var active = this.classList.toggle('active');
+        this.setAttribute('aria-checked', active);
+        body.classList.toggle('a11y-high-contrast', active);
+      });
+    })();
+
     // ===== TYPEWRITER EFFECT =====
     (function() {
       var text = 'פסקול שאגת הארי';
