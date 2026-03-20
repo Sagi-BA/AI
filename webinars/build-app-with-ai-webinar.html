@@ -1,0 +1,1662 @@
+<!-- https://sagi-ba.github.io/AI/webinars/build-app-with-ai-webinar.html -->
+<!-- https://chatgpt.com/c/69b84b7b-32d4-838e-b2f6-d9b240b5f725 -->
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>מוצר אמיתי. בלי צוות. בלי קוד. | וובינר מעשי | שגיא בר און</title>
+    <meta name="description"
+        content="וובינר מעשי: איך להפוך רעיון למוצר עובד בעזרת כלי AI, גם בלי ידע בתכנות. הדגמות חיות, כלים מעשיים, תהליך ברור.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Alef:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --bg: #fafafa;
+            --text: #1a1a1a;
+            --text-light: #555;
+            --accent: #ff6b00;
+            --accent-dark: #e55a00;
+            --accent-light: #fff3e6;
+            --yellow: #ffc107;
+            --yellow-light: #fff8e1;
+            --green: #4caf50;
+            --green-light: #e8f5e9;
+            --purple: #9c27b0;
+            --purple-light: #f3e5f5;
+            --cyan: #00bcd4;
+            --cyan-light: #e0f7fa;
+            --border: #e0e0e0;
+            --white: #ffffff;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Alef', sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 2.1;
+            font-size: 25px;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        /* Header Banner */
+        .quote-header {
+            background: linear-gradient(135deg, #ff6b00 0%, #ff8f3f 50%, #ffab6b 100%);
+            color: var(--white);
+            padding: 18px 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .header-inner {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 0 24px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 16px;
+        }
+
+        .logo {
+            font-size: 1.6rem;
+            font-weight: 700;
+            letter-spacing: 0.5px;
+        }
+
+        .logo span {
+            opacity: 0.85;
+            font-size: 1rem;
+            font-weight: 400;
+            margin-right: 8px;
+        }
+
+        .header-contact {
+            display: flex;
+            align-items: center;
+            gap: 24px;
+            font-size: 0.9rem;
+            opacity: 0.95;
+        }
+
+        .header-contact a {
+            color: var(--white);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            transition: opacity 0.2s;
+        }
+
+        .header-contact a:hover {
+            opacity: 0.8;
+        }
+
+        /* Hero */
+        .hero {
+            background: linear-gradient(180deg, #fff9f0 0%, #fff5e6 50%, var(--bg) 100%);
+            padding: 70px 0 60px;
+            text-align: center;
+        }
+
+        .hero-title {
+            font-size: clamp(2.2rem, 5vw, 3.2rem);
+            font-weight: 700;
+            margin-bottom: 24px;
+            line-height: 1.3;
+            color: var(--text);
+        }
+
+        .hero-title .highlight {
+            color: var(--accent);
+        }
+
+        .hero-subtitle {
+            font-size: 1.2rem;
+            color: var(--text-light);
+            max-width: 750px;
+            margin: 0 auto 40px;
+            line-height: 2;
+        }
+
+        /* Hero Image */
+        .hero-image-wrapper {
+            display: block;
+            max-width: 500px;
+            margin: 0 auto 16px;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.12);
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .hero-image-wrapper:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 14px 50px rgba(0, 0, 0, 0.18);
+        }
+
+        .hero-image {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .hero-image-caption {
+            text-align: center;
+            font-size: 0.9rem;
+            color: var(--text-light);
+            margin-bottom: 8px;
+            font-style: italic;
+        }
+
+        .hero-image-link {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .hero-image-link a {
+            font-size: 0.8rem;
+            color: var(--text-light);
+            text-decoration: none;
+            opacity: 0.7;
+            transition: opacity 0.2s;
+        }
+
+        .hero-image-link a:hover {
+            opacity: 1;
+            text-decoration: underline;
+        }
+
+        /* Video Embed */
+        .video-wrapper {
+            max-width: 800px;
+            margin: 0 auto 12px;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.15);
+        }
+
+        .video-embed {
+            position: relative;
+            padding-bottom: 56.25%;
+            height: 0;
+            overflow: hidden;
+        }
+
+        .video-embed iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
+        .video-caption {
+            text-align: center;
+            font-size: 0.95rem;
+            color: var(--text-light);
+            margin-bottom: 24px;
+            font-style: italic;
+        }
+
+        .hero-cta-button {
+            display: inline-block;
+            background: var(--accent);
+            color: white;
+            padding: 16px 40px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 1.15rem;
+            transition: transform 0.2s, box-shadow 0.2s, background 0.2s;
+            box-shadow: 0 4px 20px rgba(255, 107, 0, 0.3);
+        }
+
+        .hero-cta-button:hover {
+            background: var(--accent-dark);
+            transform: translateY(-3px);
+            box-shadow: 0 8px 30px rgba(255, 107, 0, 0.4);
+        }
+
+        .cta-helper {
+            text-align: center;
+            font-size: 0.75rem;
+            color: var(--text-light);
+            margin-top: 12px;
+            opacity: 0.7;
+        }
+
+        .info-badges {
+            display: flex;
+            justify-content: center;
+            gap: 24px;
+            flex-wrap: wrap;
+            margin-top: 32px;
+        }
+
+        .info-badge {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 0.9rem;
+            color: var(--text-light);
+        }
+
+        .info-badge-icon {
+            font-size: 1.2rem;
+        }
+
+        .hero-reinforcement {
+            margin-top: 28px;
+            font-size: 1rem;
+            color: var(--accent);
+            font-weight: 700;
+        }
+
+        /* Social Proof Bar */
+        .proof-bar {
+            padding: 40px 0;
+            background: var(--white);
+            text-align: center;
+        }
+
+        .proof-bar-label {
+            font-size: 0.85rem;
+            color: var(--text-light);
+            margin-bottom: 20px;
+        }
+
+        .proof-pills {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 12px;
+        }
+
+        .proof-pill {
+            background: var(--accent-light);
+            padding: 8px 18px;
+            border-radius: 25px;
+            font-size: 0.85rem;
+            color: var(--accent);
+            font-weight: 500;
+        }
+
+        /* Section Title */
+        .section-title {
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 16px;
+            color: var(--text);
+            text-align: center;
+        }
+
+        .section-subtitle {
+            font-size: 1.1rem;
+            color: var(--text-light);
+            margin-bottom: 50px;
+            text-align: center;
+        }
+
+        /* About Section */
+        .about-section {
+            padding: 70px 0;
+            background: var(--bg);
+        }
+
+        .about-text {
+            max-width: 800px;
+            margin: 0 auto 40px;
+            font-size: 1.05rem;
+            color: var(--text-light);
+            line-height: 2;
+            text-align: center;
+        }
+
+        .about-text p {
+            margin-bottom: 16px;
+        }
+
+        .about-list {
+            list-style: none;
+            max-width: 600px;
+            margin: 0 auto;
+            text-align: right;
+        }
+
+        .about-list li {
+            position: relative;
+            padding: 12px 0;
+            padding-right: 28px;
+            font-size: 1rem;
+            color: var(--text);
+            border-bottom: 1px solid var(--border);
+        }
+
+        .about-list li:last-child {
+            border-bottom: none;
+        }
+
+        .about-list li::before {
+            content: '';
+            position: absolute;
+            right: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 10px;
+            height: 10px;
+            background: var(--accent);
+            border-radius: 50%;
+        }
+
+        /* Tools Cards */
+        .tools-section {
+            padding: 70px 0;
+            background: var(--white);
+        }
+
+        .cards-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+            margin-bottom: 40px;
+        }
+
+        .value-card {
+            background: var(--bg);
+            border-radius: 16px;
+            padding: 32px 24px;
+            text-align: center;
+            box-shadow: 0 2px 12px rgba(0, 0, 0, 0.04);
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .value-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+        }
+
+        .value-card.purple {
+            border-top: 4px solid var(--purple);
+        }
+
+        .value-card.cyan {
+            border-top: 4px solid var(--cyan);
+        }
+
+        .value-card.green {
+            border-top: 4px solid var(--green);
+        }
+
+        .value-card.yellow {
+            border-top: 4px solid var(--yellow);
+        }
+
+        .value-card.orange {
+            border-top: 4px solid var(--accent);
+        }
+
+        .card-icon {
+            font-size: 2.5rem;
+            margin-bottom: 16px;
+        }
+
+        .value-card h3 {
+            font-size: 1.15rem;
+            font-weight: 700;
+            margin-bottom: 12px;
+            color: var(--text);
+        }
+
+        .value-card.purple h3 {
+            color: var(--purple);
+        }
+
+        .value-card.cyan h3 {
+            color: var(--cyan);
+        }
+
+        .value-card.green h3 {
+            color: var(--green);
+        }
+
+        .value-card.yellow h3 {
+            color: #e6a800;
+        }
+
+        .value-card.orange h3 {
+            color: var(--accent);
+        }
+
+        .value-card p {
+            font-size: 0.95rem;
+            color: var(--text-light);
+            line-height: 1.8;
+        }
+
+        .card-tools {
+            margin-top: 12px;
+            font-size: 0.8rem;
+            color: var(--text-light);
+            opacity: 0.7;
+        }
+
+        /* Tools Icons Strip */
+        .tools-icons {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 20px;
+            margin-bottom: 48px;
+        }
+
+        .tool-icon-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .tool-icon-item img {
+            width: 40px;
+            height: 40px;
+            border-radius: 10px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+            background: var(--white);
+            padding: 4px;
+        }
+
+        .tool-icon-item span {
+            font-size: 0.7rem;
+            color: var(--text-light);
+        }
+
+        /* Demos Section */
+        .demos-section {
+            padding: 70px 0;
+            background: var(--bg);
+        }
+
+        .demo-list {
+            list-style: none;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .demo-list li {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            padding: 18px 0;
+            font-size: 1.05rem;
+            color: var(--text);
+            border-bottom: 1px solid var(--border);
+        }
+
+        .demo-list li:last-child {
+            border-bottom: none;
+        }
+
+        .demo-check {
+            flex-shrink: 0;
+            width: 32px;
+            height: 32px;
+            background: var(--green-light);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--green);
+            font-size: 1rem;
+            font-weight: 700;
+        }
+
+        /* Takeaways Section */
+        .takeaways-section {
+            padding: 70px 0;
+            background: var(--white);
+        }
+
+        .takeaway-list {
+            list-style: none;
+            max-width: 700px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+        }
+
+        .takeaway-item {
+            background: var(--bg);
+            border-radius: 12px;
+            padding: 24px;
+            display: flex;
+            gap: 14px;
+            align-items: flex-start;
+        }
+
+        .takeaway-icon {
+            width: 40px;
+            height: 40px;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.3rem;
+            flex-shrink: 0;
+            background: var(--accent-light);
+        }
+
+        .takeaway-item p {
+            font-size: 0.95rem;
+            color: var(--text);
+            line-height: 1.7;
+        }
+
+        /* Audience Section */
+        .audience-section {
+            padding: 70px 0;
+            background: var(--bg);
+        }
+
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 24px;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .benefit-card {
+            background: var(--white);
+            border-radius: 12px;
+            padding: 28px;
+            display: flex;
+            gap: 16px;
+            align-items: flex-start;
+            box-shadow: 0 2px 12px rgba(0, 0, 0, 0.04);
+        }
+
+        .benefit-icon {
+            width: 48px;
+            height: 48px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            flex-shrink: 0;
+        }
+
+        .benefit-icon.orange {
+            background: var(--accent-light);
+        }
+
+        .benefit-icon.green {
+            background: var(--green-light);
+        }
+
+        .benefit-icon.purple {
+            background: var(--purple-light);
+        }
+
+        .benefit-icon.yellow {
+            background: var(--yellow-light);
+        }
+
+        .benefit-icon.cyan {
+            background: var(--cyan-light);
+        }
+
+        .benefit-content h4 {
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: var(--text);
+            margin-bottom: 6px;
+        }
+
+        .benefit-content p {
+            font-size: 0.95rem;
+            color: var(--text-light);
+            line-height: 1.7;
+        }
+
+        .audience-note {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            background: var(--yellow-light);
+            border: 2px solid var(--yellow);
+            border-radius: 12px;
+            padding: 20px 28px;
+            max-width: 800px;
+            margin: 32px auto 0;
+            font-size: 1rem;
+            color: var(--text);
+            text-align: center;
+        }
+
+        /* Speaker Section */
+        .speaker-section {
+            padding: 70px 0;
+            background: var(--white);
+        }
+
+        .speaker-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .speaker-header {
+            display: flex;
+            gap: 28px;
+            align-items: center;
+            margin-bottom: 24px;
+        }
+
+        .speaker-image {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            object-fit: cover;
+            flex-shrink: 0;
+            border: 4px solid var(--accent-light);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .speaker-intro h2 {
+            font-size: 1.6rem;
+            font-weight: 700;
+            margin-bottom: 6px;
+            color: var(--text);
+        }
+
+        .speaker-intro p {
+            color: var(--text-light);
+            font-size: 0.95rem;
+        }
+
+        .speaker-connecting {
+            font-size: 1rem;
+            color: var(--accent);
+            font-weight: 700;
+            margin-bottom: 24px;
+        }
+
+        .speaker-credentials {
+            list-style: none;
+            margin-bottom: 24px;
+        }
+
+        .speaker-credentials li {
+            position: relative;
+            padding: 8px 0;
+            padding-right: 24px;
+            font-size: 0.95rem;
+            color: var(--text-light);
+            line-height: 1.7;
+        }
+
+        .speaker-credentials li::before {
+            content: '\2713';
+            position: absolute;
+            right: 0;
+            color: var(--accent);
+            font-weight: 700;
+        }
+
+        .speaker-motto {
+            background: linear-gradient(135deg, var(--accent) 0%, #ff8533 100%);
+            color: var(--white);
+            padding: 20px;
+            border-radius: 12px;
+            text-align: center;
+            font-size: 1rem;
+            font-weight: 700;
+            margin-bottom: 16px;
+        }
+
+        .speaker-link {
+            text-align: center;
+            font-size: 0.85rem;
+        }
+
+        .speaker-link a {
+            color: var(--accent);
+            text-decoration: none;
+            font-weight: 700;
+        }
+
+        .speaker-link a:hover {
+            text-decoration: underline;
+        }
+
+        /* CTA Section */
+        .cta-section {
+            background: linear-gradient(135deg, var(--accent) 0%, #ff8533 100%);
+            color: white;
+            padding: 70px 0;
+            text-align: center;
+        }
+
+        .cta-section h2 {
+            font-size: 2.2rem;
+            margin-bottom: 16px;
+        }
+
+        .cta-section p {
+            opacity: 0.95;
+            margin-bottom: 12px;
+            font-size: 1.15rem;
+            max-width: 500px;
+            margin-left: auto;
+            margin-right: auto;
+            line-height: 1.8;
+        }
+
+        .cta-urgency {
+            font-size: 0.9rem;
+            opacity: 0.9;
+            margin-bottom: 28px;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: white;
+            color: var(--accent);
+            padding: 18px 50px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 1.2rem;
+            transition: transform 0.2s, box-shadow 0.2s;
+            box-shadow: 0 6px 25px rgba(0, 0, 0, 0.15);
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 35px rgba(0, 0, 0, 0.2);
+        }
+
+        .cta-section .cta-helper {
+            color: rgba(255, 255, 255, 0.7);
+            margin-top: 12px;
+            font-size: 0.75rem;
+        }
+
+        /* FAQ Section */
+        .faq-section {
+            padding: 70px 0;
+            background: var(--bg);
+        }
+
+        .faq-grid {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .faq-item {
+            background: var(--white);
+            border-radius: 12px;
+            padding: 24px 28px;
+            margin-bottom: 16px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+        }
+
+        .faq-question {
+            font-size: 1.05rem;
+            font-weight: 700;
+            color: var(--accent);
+            margin-bottom: 8px;
+        }
+
+        .faq-answer {
+            font-size: 0.95rem;
+            color: var(--text-light);
+            line-height: 1.8;
+        }
+
+        /* Footer */
+        .quote-footer {
+            background: var(--text);
+            padding: 24px;
+            text-align: center;
+            font-size: 0.85rem;
+            color: rgba(255, 255, 255, 0.6);
+        }
+
+        .quote-footer a {
+            color: var(--accent);
+            text-decoration: none;
+            font-weight: 700;
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 24px;
+            flex-wrap: wrap;
+        }
+
+        .footer-links span {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        /* Accessibility Widget */
+        .a11y-toggle {
+            position: fixed;
+            bottom: 24px;
+            left: 24px;
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            background: #1565c0;
+            color: var(--white);
+            border: none;
+            cursor: pointer;
+            font-size: 1.4rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 2px 12px rgba(21, 101, 192, 0.4);
+            z-index: 1000;
+            transition: all 0.3s ease;
+        }
+
+        .a11y-toggle:hover {
+            background: #0d47a1;
+            transform: scale(1.08);
+        }
+
+        .a11y-panel {
+            position: fixed;
+            bottom: 84px;
+            left: 24px;
+            background: var(--white);
+            border-radius: 12px;
+            box-shadow: 0 4px 24px rgba(0, 0, 0, 0.15);
+            padding: 20px;
+            z-index: 1000;
+            width: 240px;
+            display: none;
+            direction: rtl;
+        }
+
+        .a11y-panel.open {
+            display: block;
+        }
+
+        .a11y-panel h3 {
+            font-size: 0.95rem;
+            margin-bottom: 14px;
+            color: #1565c0;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .a11y-option {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 10px 0;
+            border-bottom: 1px solid var(--border);
+            font-size: 0.88rem;
+            color: var(--text);
+            cursor: pointer;
+            user-select: none;
+        }
+
+        .a11y-option:last-child {
+            border-bottom: none;
+        }
+
+        .a11y-option-label {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .a11y-option-label i {
+            width: 20px;
+            text-align: center;
+            color: #1565c0;
+        }
+
+        .a11y-btn {
+            background: none;
+            border: 1px solid var(--border);
+            border-radius: 6px;
+            width: 32px;
+            height: 32px;
+            cursor: pointer;
+            font-size: 0.85rem;
+            color: var(--text);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.2s;
+        }
+
+        .a11y-btn:hover {
+            background: var(--bg);
+            border-color: #1565c0;
+            color: #1565c0;
+        }
+
+        .a11y-btn-group {
+            display: flex;
+            gap: 4px;
+        }
+
+        .a11y-toggle-switch {
+            position: relative;
+            width: 40px;
+            height: 22px;
+            background: var(--border);
+            border-radius: 11px;
+            cursor: pointer;
+            transition: background 0.3s;
+            border: none;
+            padding: 0;
+        }
+
+        .a11y-toggle-switch.active {
+            background: #1565c0;
+        }
+
+        .a11y-toggle-switch::after {
+            content: '';
+            position: absolute;
+            top: 2px;
+            left: 2px;
+            width: 18px;
+            height: 18px;
+            background: var(--white);
+            border-radius: 50%;
+            transition: transform 0.3s;
+        }
+
+        .a11y-toggle-switch.active::after {
+            transform: translateX(18px);
+        }
+
+        .a11y-reset {
+            margin-top: 12px;
+            width: 100%;
+            padding: 8px;
+            background: none;
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            cursor: pointer;
+            font-family: 'Alef', sans-serif;
+            font-size: 0.85rem;
+            color: var(--text-light);
+            transition: all 0.2s;
+        }
+
+        .a11y-reset:hover {
+            border-color: #c62828;
+            color: #c62828;
+        }
+
+        body.a11y-high-contrast {
+            --bg: #000 !important;
+            --text: #fff !important;
+            --text-light: #e0e0e0 !important;
+            --white: #1a1a1a !important;
+            --border: #555 !important;
+            --accent-light: #332200 !important;
+        }
+
+        body.a11y-high-contrast .quote-header {
+            background: #000 !important;
+            border-bottom: 2px solid var(--accent);
+        }
+
+        body.a11y-high-contrast .a11y-panel {
+            background: #1a1a1a;
+            border: 1px solid #555;
+        }
+
+        body.a11y-highlight-links a {
+            outline: 2px solid #1565c0 !important;
+            outline-offset: 2px;
+            text-decoration: underline !important;
+        }
+
+        /* Mobile Responsive */
+        @media (max-width: 900px) {
+            .cards-grid {
+                grid-template-columns: 1fr;
+                max-width: 400px;
+                margin: 0 auto 40px;
+            }
+
+            .benefits-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .takeaway-list {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 768px) {
+            body {
+                font-size: 22px;
+                line-height: 1.9;
+            }
+
+            .container {
+                padding: 0 20px;
+            }
+
+            .hero {
+                padding: 50px 0 40px;
+            }
+
+            .hero-title {
+                font-size: 1.8rem;
+                margin-bottom: 18px;
+                line-height: 1.35;
+            }
+
+            .hero-subtitle {
+                font-size: 1.05rem;
+                margin-bottom: 28px;
+                line-height: 1.8;
+            }
+
+            .hero-cta-button {
+                padding: 14px 32px;
+                font-size: 1.05rem;
+                width: 100%;
+            }
+
+            .hero-image-wrapper {
+                max-width: 350px;
+            }
+
+            .info-badges {
+                flex-direction: column;
+                align-items: center;
+                gap: 12px;
+            }
+
+            .section-title {
+                font-size: 1.5rem;
+            }
+
+            .section-subtitle {
+                font-size: 1rem;
+            }
+
+            .about-section,
+            .tools-section,
+            .demos-section,
+            .takeaways-section,
+            .audience-section,
+            .speaker-section,
+            .faq-section {
+                padding: 50px 0;
+            }
+
+            .speaker-header {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .speaker-image {
+                width: 100px;
+                height: 100px;
+            }
+
+            .speaker-intro h2 {
+                font-size: 1.4rem;
+            }
+
+            .speaker-connecting {
+                text-align: center;
+            }
+
+            .benefit-card {
+                padding: 20px;
+            }
+
+            .audience-note {
+                flex-direction: column;
+                text-align: center;
+                padding: 18px 20px;
+            }
+
+            .cta-section {
+                padding: 50px 0;
+            }
+
+            .cta-section h2 {
+                font-size: 1.5rem;
+            }
+
+            .cta-section p {
+                font-size: 1rem;
+            }
+
+            .cta-button {
+                padding: 14px 32px;
+                font-size: 1.05rem;
+                width: 100%;
+            }
+
+            .header-inner {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .header-contact {
+                flex-direction: column;
+                gap: 8px;
+            }
+
+            .proof-pills {
+                gap: 8px;
+            }
+
+            .proof-pill {
+                font-size: 0.8rem;
+                padding: 6px 14px;
+            }
+        }
+
+        @media (max-width: 380px) {
+            .hero-title {
+                font-size: 1.5rem;
+            }
+
+            .section-title {
+                font-size: 1.3rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <header class="quote-header">
+        <div class="header-inner">
+            <div class="logo">
+                שגיא בר און AI
+                <span>לעסקים</span>
+            </div>
+            <div class="header-contact">
+                <a href="https://api.whatsapp.com/send?phone=972549995050" target="_blank">
+                    <i class="fa-brands fa-whatsapp"></i> 054-9995050
+                </a>
+                <a href="https://sagiai.co.il/" target="_blank">
+                    <i class="fa-solid fa-globe"></i> sagiai.co.il
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="container">
+                <h1 class="hero-title">מוצר אמיתי. בלי צוות. בלי קוד.
+                    <br>בעזרת כלי <span class="highlight">AI</span>
+                </h1>
+                <p class="hero-subtitle">איך להפוך רעיון למוצר עובד בעזרת כלי AI - גם בלי לדעת לתכנת.</p>
+
+                <!-- Visual Proof - Nano Banana AI -->
+                <a href="https://www.nanobananai.site/" target="_blank" rel="noopener noreferrer"
+                    class="hero-image-wrapper">
+                    <img src="nanobanana-logo.jpg" alt="Nano Banana AI - מוצר שנבנה בעזרת AI" class="hero-image">
+                </a>
+                <p class="hero-image-caption">מוצר אמיתי שנבנה בעזרת כלי AI - בלי תהליך פיתוח מסורתי</p>
+                <p class="hero-image-link"><a href="https://www.nanobananai.site/" target="_blank"
+                        rel="noopener noreferrer">לצפייה באתר: nanobananai.site</a></p>
+
+                <a href="https://api.whatsapp.com/send?phone=972549995050&text=%D7%A9%D7%9C%D7%95%D7%9D%20%D7%A9%D7%92%D7%99%D7%90%2C%20%D7%90%D7%A0%D7%99%20%D7%A8%D7%95%D7%A6%D7%94%20%D7%9C%D7%94%D7%99%D7%A8%D7%A9%D7%9D%20%D7%9C%D7%95%D7%95%D7%91%D7%99%D7%A0%D7%A8%20%22%D7%9E%D7%A8%D7%A2%D7%99%D7%95%D7%9F%20%D7%9C%D7%9E%D7%95%D7%A6%D7%A8%20%D7%91%D7%A4%D7%A8%D7%95%D7%93%D7%A7%D7%A9%D7%9F%20%D7%91%D7%A2%D7%96%D7%A8%D7%AA%20AI%22"
+                    target="_blank" class="hero-cta-button">הרשמה לוובינר</a>
+                <p class="cta-helper">לחיצה על הכפתור תפתח הודעת WhatsApp מוכנה להרשמה</p>
+
+                <div class="info-badges">
+                    <div class="info-badge">
+                        <span class="info-badge-icon">⏱️</span>
+                        <span>120 דקות</span>
+                    </div>
+                    <div class="info-badge">
+                        <span class="info-badge-icon">💻</span>
+                        <span>אונליין</span>
+                    </div>
+                    <div class="info-badge">
+                        <span class="info-badge-icon">🎯</span>
+                        <span>כולל הדגמה חיה</span>
+                    </div>
+                </div>
+
+                <p class="hero-reinforcement">במהלך הוובינר נבנה מוצר בלייב - צעד אחרי צעד.</p>
+            </div>
+        </section>
+
+        <!-- Social Proof Bar -->
+        <section class="proof-bar">
+            <div class="container">
+                <p class="proof-bar-label">מרצה בארגונים, אוניברסיטאות ומוסדות מובילים</p>
+                <div class="proof-pills">
+                    <span class="proof-pill">כנסת ישראל</span>
+                    <span class="proof-pill">אוניברסיטת רייכמן</span>
+                    <span class="proof-pill">אלביט</span>
+                    <span class="proof-pill">Fiverr</span>
+                    <span class="proof-pill">הראל</span>
+                    <span class="proof-pill">משרד החינוך</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- About the Webinar -->
+        <section class="about-section">
+            <div class="container">
+                <h2 class="section-title">על הוובינר</h2>
+                <div class="about-text">
+                    <p>בעבר, כדי לבנות מוצר היה צריך צוות שלם: מנהל מוצר, מפתחים, מעצבים ו-DevOps.</p>
+                    <p>היום, עם כלי AI, אפשר לעשות את זה לבד - גם בלי לדעת לתכנת.</p>
+                    <p>בוובינר הזה נראה כיצד ניתן:</p>
+                </div>
+                <ul class="about-list">
+                    <li>להגדיר רעיון ולהפוך אותו למפרט מוצר</li>
+                    <li>לבנות מוצר עובד</li>
+                    <li>לשלב יכולות AI חכמות</li>
+                    <li>לעצב ממשק משתמש מקצועי</li>
+                    <li>להגיע למוצר עובד בזמן קצר</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- What We'll Learn -->
+        <section class="tools-section">
+            <div class="container">
+                <h2 class="section-title">מה נלמד בוובינר</h2>
+                <p class="section-subtitle">ארבעה שלבים - מרעיון באוויר למוצר בפרודקשן</p>
+
+                <div class="tools-icons">
+                    <div class="tool-icon-item">
+                        <img src="https://www.google.com/s2/favicons?domain=chat.openai.com&sz=64" alt="ChatGPT">
+                        <span>ChatGPT</span>
+                    </div>
+                    <div class="tool-icon-item">
+                        <img src="https://www.google.com/s2/favicons?domain=claude.ai&sz=64" alt="Claude">
+                        <span>Claude</span>
+                    </div>
+                    <div class="tool-icon-item">
+                        <img src="https://www.google.com/s2/favicons?domain=gemini.google.com&sz=64" alt="Gemini">
+                        <span>Gemini</span>
+                    </div>
+                    <div class="tool-icon-item">
+                        <img src="https://www.google.com/s2/favicons?domain=lovable.dev&sz=64" alt="Lovable">
+                        <span>Lovable</span>
+                    </div>
+                    <div class="tool-icon-item">
+                        <img src="https://www.google.com/s2/favicons?domain=www.base44.com&sz=64" alt="Base44">
+                        <span>Base44</span>
+                    </div>
+                    <div class="tool-icon-item">
+                        <img src="https://www.google.com/s2/favicons?domain=aistudio.google.com&sz=64"
+                            alt="Google AI Studio">
+                        <span>AI Studio</span>
+                    </div>
+                    <div class="tool-icon-item">
+                        <img src="https://www.google.com/s2/favicons?domain=stitch.withgoogle.com&sz=64"
+                            alt="Google Stitch">
+                        <span>Stitch</span>
+                    </div>
+                    <div class="tool-icon-item">
+                        <img src="https://www.google.com/s2/favicons?domain=make.com&sz=64" alt="Make">
+                        <span>Make</span>
+                    </div>
+                </div>
+
+                <div class="cards-grid">
+                    <div class="value-card purple">
+                        <div class="card-icon">🎯</div>
+                        <h3>מגדירים רעיון למוצר</h3>
+                        <p>איך לקחת צורך או רעיון ולהפוך אותו לאפיון ברור בעזרת AI</p>
+                        <div class="card-tools">כלים: ChatGPT, Claude, Gemini</div>
+                    </div>
+                    <div class="value-card cyan">
+                        <div class="card-icon">🏗️</div>
+                        <h3>בונים מוצר</h3>
+                        <p>איך ליצור מוצר עובד בלי לכתוב שורת קוד</p>
+                        <div class="card-tools">כלים: Lovable, Base44, Google AI Studio, Claude Code</div>
+                    </div>
+                    <div class="value-card yellow">
+                        <div class="card-icon">🎨</div>
+                        <h3>מעצבים את המוצר</h3>
+                        <p>איך ליצור ממשק מקצועי שנראה מושקע ומזמין</p>
+                        <div class="card-tools">כלים: Google Stitch, Gemini</div>
+                    </div>
+                    <div class="value-card orange">
+                        <div class="card-icon">⚡</div>
+                        <h3>מחברים אוטומציות</h3>
+                        <p>איך לחבר את הכל למערכות קיימות ולהפוך תהליכים לאוטומטיים</p>
+                        <div class="card-tools">כלים: Make</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Live Demos -->
+        <section class="demos-section">
+            <div class="container">
+                <h2 class="section-title">הדגמות חיות בוובינר</h2>
+                <p class="section-subtitle">לא תיאוריה - רואים את זה קורה בזמן אמת</p>
+
+                <ul class="demo-list">
+                    <li>
+                        <span class="demo-check">&#10003;</span>
+                        <span>יצירת רעיון למוצר בעזרת AI</span>
+                    </li>
+                    <li>
+                        <span class="demo-check">&#10003;</span>
+                        <span>בניית מוצר תוך דקות</span>
+                    </li>
+                    <li>
+                        <span class="demo-check">&#10003;</span>
+                        <span>שימוש ב-AI לכתיבת קוד</span>
+                    </li>
+                    <li>
+                        <span class="demo-check">&#10003;</span>
+                        <span>יצירת ממשק משתמש למוצר</span>
+                    </li>
+                    <li>
+                        <span class="demo-check">&#10003;</span>
+                        <span>חיבור המוצר לאוטומציות</span>
+                    </li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- What You'll Take Away -->
+        <section class="takeaways-section">
+            <div class="container">
+                <h2 class="section-title">מה תיקחו מהוובינר</h2>
+                <p class="section-subtitle">מה נשאר איתכם אחרי שעה</p>
+
+                <div class="takeaway-list">
+                    <div class="takeaway-item">
+                        <div class="takeaway-icon">🧭</div>
+                        <p>הבנה ברורה של תהליך העבודה מרעיון למוצר</p>
+                    </div>
+                    <div class="takeaway-item">
+                        <div class="takeaway-icon">🧰</div>
+                        <p>הכרות עם כלי AI רלוונטיים לבניית מוצרים</p>
+                    </div>
+                    <div class="takeaway-item">
+                        <div class="takeaway-icon">🎬</div>
+                        <p>הדגמה חיה של בניית מוצר מאפס</p>
+                    </div>
+                    <div class="takeaway-item">
+                        <div class="takeaway-icon">💡</div>
+                        <p>מסגרת חשיבה שתעזור לכם להתחיל לבנות בעצמכם</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Who Is It For -->
+        <section class="audience-section">
+            <div class="container">
+                <h2 class="section-title">למי הוובינר מתאים</h2>
+
+                <div class="benefits-grid">
+                    <div class="benefit-card">
+                        <div class="benefit-icon orange">🚀</div>
+                        <div class="benefit-content">
+                            <h4>יזמים ומייסדים</h4>
+                            <p>רוצים להוציא רעיון לדרך בעצמם, בלי תלות בצוות פיתוח.</p>
+                        </div>
+                    </div>
+                    <div class="benefit-card">
+                        <div class="benefit-icon purple">💼</div>
+                        <div class="benefit-content">
+                            <h4>מנהלי מוצר</h4>
+                            <p>רוצים להבין מה אפשרי היום עם AI ולהוביל מוצרים חכמים יותר.</p>
+                        </div>
+                    </div>
+                    <div class="benefit-card">
+                        <div class="benefit-icon cyan">💻</div>
+                        <div class="benefit-content">
+                            <h4>אנשי טכנולוגיה</h4>
+                            <p>רוצים לגלות כלים חדשים שמאיצים פיתוח ומייעלים תהליכים.</p>
+                        </div>
+                    </div>
+                    <div class="benefit-card">
+                        <div class="benefit-icon green">📊</div>
+                        <div class="benefit-content">
+                            <h4>מנהלים בארגונים</h4>
+                            <p>רוצים להבין את עולם ה-AI ואיך הוא יכול לשרת את הארגון.</p>
+                        </div>
+                    </div>
+                    <div class="benefit-card">
+                        <div class="benefit-icon yellow">💡</div>
+                        <div class="benefit-content">
+                            <h4>כל מי שיש לו רעיון</h4>
+                            <p>רוצים להפוך רעיון למוצר אמיתי - לא רק לדבר עליו.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="audience-note">
+                    <span>⚡</span>
+                    <span><strong>אין צורך בידע בתכנות.</strong> הכל יהיה ברור, פשוט ומעשי.</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Speaker Section -->
+        <section class="speaker-section">
+            <div class="container">
+                <h2 class="section-title">מי מאחורי הוובינר?</h2>
+                <div class="speaker-content">
+                    <div class="speaker-header">
+                        <img src="../sagi.webp" alt="שגיא בר און" class="speaker-image">
+                        <div class="speaker-intro">
+                            <h2>שגיא בר און</h2>
+                            <p>חוקר, מרצה ויועץ בתחום הבינה המלאכותית</p>
+                        </div>
+                    </div>
+
+                    <p class="speaker-connecting">שגיא לא רק מלמד על AI - הוא בונה בפועל מוצרים ופתרונות מבוססי AI.</p>
+
+                    <ul class="speaker-credentials">
+                        <li>25+ שנות ניסיון בתעשיית ההיי-טק</li>
+                        <li>מרצה אורח באוניברסיטאות רייכמן ואריאל</li>
+                        <li>מנטור לחדשנות ב-AI במשרד החינוך</li>
+                        <li>מלווה ארגונים מובילים: אלביט, הראל, כללית, Fiverr</li>
+                        <li>בעל MBA בהתמחות AI וייעוץ אסטרטגי</li>
+                    </ul>
+
+                    <!-- Video - Knesset Lecture -->
+                    <div class="video-wrapper">
+                        <div class="video-embed">
+                            <iframe src="https://www.youtube.com/embed/Dk0NAi3Xmww?rel=0"
+                                title="שגיא בר און מרצה בכנסת ישראל"
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                allowfullscreen></iframe>
+                        </div>
+                    </div>
+                    <p class="video-caption">מתוך כנס איגוד המבקרים בכנסת ישראל</p>
+
+                    <div class="speaker-motto">
+                        המוטו שלו: "להנגיש, ולחבר את כולם לטכנולוגיה בצורה ברורה ופשוטה"
+                    </div>
+                    <p class="speaker-link"><a href="https://sagiai.co.il" target="_blank"
+                            rel="noopener noreferrer">sagiai.co.il</a></p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Bottom CTA -->
+        <section class="cta-section" id="register">
+            <div class="container">
+                <h2>הצטרפו לוובינר</h2>
+                <p>גלו כיצד ניתן להפוך רעיון למוצר אמיתי בעזרת AI.</p>
+                <p class="cta-urgency">מספר המקומות מוגבל | נרשמים מקבלים הקלטה + חומר מסכם</p>
+                <a href="https://api.whatsapp.com/send?phone=972549995050&text=%D7%A9%D7%9C%D7%95%D7%9D%20%D7%A9%D7%92%D7%99%D7%90%2C%20%D7%90%D7%A9%D7%9E%D7%97%20%D7%9C%D7%A9%D7%A8%D7%99%D7%99%D7%9F%20%D7%9E%D7%A7%D7%95%D7%9D%20%D7%91%D7%95%D7%95%D7%91%D7%99%D7%A0%D7%A8%20%D7%9E%D7%A8%D7%A2%D7%99%D7%95%D7%9F%20%D7%9C%D7%9E%D7%95%D7%A6%D7%A8"
+                    target="_blank" class="cta-button">הירשם עכשיו</a>
+                <p class="cta-helper">ההרשמה מתבצעת דרך WhatsApp</p>
+            </div>
+        </section>
+
+        <!-- FAQ -->
+        <section class="faq-section">
+            <div class="container">
+                <h2 class="section-title">שאלות נפוצות</h2>
+
+                <div class="faq-grid">
+                    <div class="faq-item">
+                        <div class="faq-question">האם צריך ידע בתכנות?</div>
+                        <div class="faq-answer">לא. הוובינר מיועד לכולם, גם למי שמעולם לא כתב שורת קוד.</div>
+                    </div>
+                    <div class="faq-item">
+                        <div class="faq-question">האם הוובינר מתאים גם למי שאינו טכנולוגי?</div>
+                        <div class="faq-answer">בהחלט. הכל מוסבר בצורה ברורה ופשוטה, ללא מונחים טכניים מיותרים.</div>
+                    </div>
+                    <div class="faq-item">
+                        <div class="faq-question">האם אראה בנייה חיה של מוצר?</div>
+                        <div class="faq-answer">כן. במהלך הוובינר נבנה מוצר בשידור חי - מרעיון ועד מוצר עובד.</div>
+                    </div>
+                    <div class="faq-item">
+                        <div class="faq-question">האם הכלים מתאימים גם לעבודה בארגון?</div>
+                        <div class="faq-answer">כן. כל הכלים שנציג מתאימים לשימוש אישי וארגוני כאחד.</div>
+                    </div>
+                    <div class="faq-item">
+                        <div class="faq-question">האם צריך ניסיון קודם ב-AI?</div>
+                        <div class="faq-answer">לא. מתחילים מאפס ומתקדמים צעד אחר צעד.</div>
+                    </div>
+                    <div class="faq-item">
+                        <div class="faq-question">האם אקבל הקלטה או חומר מסכם?</div>
+                        <div class="faq-answer">כן. כל הנרשמים מקבלים הקלטה מלאה וחומר מסכם לאחר הוובינר.</div>
+                    </div>
+                    <div class="faq-item">
+                        <div class="faq-question">האם צריך מנוי בתשלום לכלים שנציג?</div>
+                        <div class="faq-answer">חלק מהכלים חינמיים לחלוטין, ולחלק יש גרסה חינמית שמספיקה. נסביר בדיוק מה
+                            צריך ומה לא.</div>
+                    </div>
+                    <div class="faq-item">
+                        <div class="faq-question">כמה זמן לוקח ללמוד לבנות דברים כאלה?</div>
+                        <div class="faq-answer">הוובינר נותן את הבסיס, הגישה והכלים הראשונים. כבר במהלך ההדגמה תראו איך
+                            אפשר להתחיל לבנות מוצר במהירות ובצורה פרקטית.</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="quote-footer">
+        <div class="footer-links">
+            <span>
+                <i class="fa-solid fa-globe"></i>
+                <a href="https://sagiai.co.il/" target="_blank">sagiai.co.il</a>
+            </span>
+            <span>
+                <a href="https://api.whatsapp.com/send?phone=972549995050" target="_blank"
+                    style="color:inherit;text-decoration:none;">
+                    <i class="fa-brands fa-whatsapp"></i> 054-9995050
+                </a>
+            </span>
+            <span>&copy; ש.ב. ידע וטכנולוגיה | ח.פ.: 037565348</span>
+        </div>
+    </footer>
+
+    <!-- Accessibility Widget -->
+    <button class="a11y-toggle" aria-label="תפריט נגישות" title="נגישות"
+        onclick="document.querySelector('.a11y-panel').classList.toggle('open')">
+        <i class="fa-solid fa-universal-access"></i>
+    </button>
+
+    <div class="a11y-panel" role="dialog" aria-label="אפשרויות נגישות">
+        <h3><i class="fa-solid fa-universal-access"></i> נגישות</h3>
+
+        <div class="a11y-option">
+            <span class="a11y-option-label"><i class="fa-solid fa-text-height"></i> גודל גופן</span>
+            <div class="a11y-btn-group">
+                <button class="a11y-btn" onclick="a11yFontSize(-1)" aria-label="הקטנת גופן">א-</button>
+                <button class="a11y-btn" onclick="a11yFontSize(1)" aria-label="הגדלת גופן">א+</button>
+            </div>
+        </div>
+
+        <div class="a11y-option" onclick="a11yToggle('high-contrast', this)">
+            <span class="a11y-option-label"><i class="fa-solid fa-circle-half-stroke"></i> ניגודיות גבוהה</span>
+            <button class="a11y-toggle-switch" aria-label="ניגודיות גבוהה"></button>
+        </div>
+
+        <div class="a11y-option" onclick="a11yToggle('highlight-links', this)">
+            <span class="a11y-option-label"><i class="fa-solid fa-link"></i> הדגשת קישורים</span>
+            <button class="a11y-toggle-switch" aria-label="הדגשת קישורים"></button>
+        </div>
+
+        <button class="a11y-reset" onclick="a11yReset()">
+            <i class="fa-solid fa-rotate-left"></i> איפוס נגישות
+        </button>
+    </div>
+
+    <script>
+        let a11yFontLevel = 0;
+
+        function a11yFontSize(dir) {
+            a11yFontLevel = Math.max(-2, Math.min(4, a11yFontLevel + dir));
+            document.documentElement.style.fontSize = (16 + a11yFontLevel * 2) + 'px';
+        }
+
+        function a11yToggle(feature, el) {
+            document.body.classList.toggle('a11y-' + feature);
+            var sw = el.querySelector('.a11y-toggle-switch');
+            if (sw) sw.classList.toggle('active');
+        }
+
+        function a11yReset() {
+            document.body.className = '';
+            document.documentElement.style.fontSize = '';
+            a11yFontLevel = 0;
+            document.querySelectorAll('.a11y-toggle-switch').forEach(function (s) { s.classList.remove('active'); });
+        }
+
+        document.addEventListener('click', function (e) {
+            var panel = document.querySelector('.a11y-panel');
+            var toggle = document.querySelector('.a11y-toggle');
+            if (!panel.contains(e.target) && !toggle.contains(e.target)) {
+                panel.classList.remove('open');
+            }
+        });
+    </script>
+
+</body>
+
+</html>
