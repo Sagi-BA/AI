@@ -89,7 +89,7 @@
       align-items: center;
       justify-content: center;
       flex-direction: column;
-      animation: intro-fade 0.6s ease-out 1.5s forwards;
+      animation: intro-fade 0.8s ease-out 2.8s forwards;
       pointer-events: none;
     }
 
@@ -129,10 +129,42 @@
       animation: intro-line-expand 0.5s ease-out 0.9s forwards;
     }
 
+    .intro-overlay .intro-org {
+      margin-top: 24px;
+      text-align: center;
+      opacity: 0;
+      animation: intro-org-in 0.6s ease-out 1.1s forwards;
+    }
+
+    .intro-overlay .intro-org-title {
+      font-size: 1.4rem;
+      font-weight: 800;
+      color: #fff;
+      letter-spacing: 3px;
+      text-shadow: 0 0 20px rgba(212, 160, 23, 0.5);
+    }
+
+    .intro-overlay .intro-org-sub {
+      font-size: 0.9rem;
+      font-weight: 500;
+      color: #d4a017;
+      letter-spacing: 4px;
+      margin-top: 4px;
+    }
+
+    .intro-overlay .intro-line-2 {
+      width: 0;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, rgba(212, 160, 23, 0.4), transparent);
+      margin: 12px 0 0;
+      animation: intro-line-expand 0.4s ease-out 1.0s forwards;
+    }
+
     @keyframes intro-fade { to { opacity: 0; visibility: hidden; } }
     @keyframes intro-text-in { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
     @keyframes intro-logo-in { from { opacity: 0; transform: scale(0.5); filter: brightness(4) saturate(2); } to { opacity: 1; transform: scale(1); filter: brightness(2) saturate(1.5); } }
     @keyframes intro-line-expand { to { width: 200px; } }
+    @keyframes intro-org-in { from { opacity: 0; transform: translateY(12px) scale(0.95); } to { opacity: 1; transform: translateY(0) scale(1); } }
 
     /* ===== ANIMATED BACKGROUND ===== */
 
@@ -244,7 +276,7 @@
       border: 2px solid #d4a017;
       box-shadow: 0 0 8px rgba(212, 160, 23, 0.3);
       opacity: 0;
-      animation: header-fade-in 0.5s ease-out 1.6s both;
+      animation: header-fade-in 0.5s ease-out 2.9s both;
     }
 
     .emblem-logo {
@@ -256,14 +288,14 @@
       border: 2px solid #d4a017;
       box-shadow: 0 0 8px rgba(212, 160, 23, 0.3);
       opacity: 0;
-      animation: header-fade-in 0.5s ease-out 1.5s both;
+      animation: header-fade-in 0.5s ease-out 2.8s both;
     }
 
     .header-text {
       text-align: center;
       margin-top: 6px;
       opacity: 0;
-      animation: header-fade-in 0.5s ease-out 1.7s both;
+      animation: header-fade-in 0.5s ease-out 3.0s both;
     }
 
     .header-text .header-title {
@@ -1049,6 +1081,11 @@
     <div class="intro-line"></div>
     <img src="shaagat-hari-logo.webp" alt="" class="intro-logo">
     <span class="intro-mission">מבצע פסקול שאגת הארי</span>
+    <div class="intro-line-2"></div>
+    <div class="intro-org">
+      <div class="intro-org-title">פיקוד העורף</div>
+      <div class="intro-org-sub">מגנים על העורף</div>
+    </div>
   </div>
 
   <!-- Background effects (decorative, hidden from screen readers) -->
