@@ -232,6 +232,21 @@
       z-index: 1;
     }
 
+    .emblem-row {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 32px;
+    }
+
+    .side-logo {
+      width: 90px;
+      height: auto;
+      opacity: 0;
+      animation: emblem-drop 0.8s cubic-bezier(0.34, 1.56, 0.64, 1) 3.4s both;
+      filter: brightness(1.2);
+    }
+
     .emblem-logo-wrap {
       position: relative;
       display: inline-block;
@@ -802,6 +817,7 @@
       .emblem-logo { width: 220px; }
       .emblem-logo-wrap::before { width: 200px; height: 200px; }
       .emblem-logo-wrap::after { width: 220px; height: 220px; }
+      .side-logo { width: 110px; }
     }
 
     @media (min-width: 1024px) {
@@ -815,6 +831,7 @@
       .emblem-logo { width: 260px; }
       .emblem-logo-wrap::before { width: 240px; height: 240px; }
       .emblem-logo-wrap::after { width: 260px; height: 260px; }
+      .side-logo { width: 130px; }
     }
 
     @media (prefers-reduced-motion: reduce) {
@@ -1052,7 +1069,7 @@
   <div class="intro-overlay" id="intro" aria-hidden="true" role="presentation">
     <span class="intro-text">שידור מאובטח</span>
     <div class="intro-line"></div>
-    <img src="shaagat-hari-logo.png" alt="" class="intro-logo">
+    <img src="shaagat-hari-logo.webp" alt="" class="intro-logo">
     <span class="intro-mission">מבצע פסקול שאגת הארי</span>
   </div>
 
@@ -1072,8 +1089,12 @@
 
   <!-- Military emblem -->
   <div class="emblem" role="banner">
-    <div class="emblem-logo-wrap">
-      <img src="shaagat-hari-logo.png" alt="סמל שאגת הארי - מבצע פסקול הקדשות לחיילי מילואים" class="emblem-logo">
+    <div class="emblem-row">
+      <img src="../images/maganim-center.webp" alt="לוגו מרכז מגנים" class="side-logo">
+      <div class="emblem-logo-wrap">
+        <img src="../images/shaagat-hari-logo.webp" alt="סמל שאגת הארי - מבצע פסקול הקדשות לחיילי מילואים" class="emblem-logo">
+      </div>
+      <img src="../images/oref-haifa.webp" alt="לוגו עורף חיפה" class="side-logo">
     </div>
   </div>
 
