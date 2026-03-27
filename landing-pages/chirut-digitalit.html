@@ -17,6 +17,14 @@
   <meta name="twitter:card" content="summary_large_image">
   <!-- Favicon -->
   <link rel="icon" type="image/webp" href="../sagi.webp">
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-XSH19K5LBZ"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-XSH19K5LBZ');
+  </script>
   <!-- Heebo font -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -1536,6 +1544,72 @@
       }
     }
 
+    /* ===== NANOBANANAI BANNER ===== */
+    .nano-banner {
+      background: linear-gradient(135deg, rgba(139, 92, 246, 0.15) 0%, rgba(201, 168, 76, 0.1) 50%, rgba(236, 72, 153, 0.15) 100%);
+      border: 1.5px solid rgba(139, 92, 246, 0.3);
+      border-radius: 14px;
+      padding: 30px 24px;
+      text-align: center;
+      margin-bottom: 20px;
+      position: relative;
+      z-index: 1;
+      overflow: hidden;
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+
+    .nano-banner:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 12px 35px rgba(139, 92, 246, 0.15);
+    }
+
+    .nano-banner::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(circle at 20% 50%, rgba(139, 92, 246, 0.08) 0%, transparent 60%),
+                  radial-gradient(circle at 80% 50%, rgba(236, 72, 153, 0.08) 0%, transparent 60%);
+      pointer-events: none;
+    }
+
+    .nano-banner .nano-icon {
+      font-size: 2.5rem;
+      margin-bottom: 12px;
+      display: block;
+    }
+
+    .nano-banner h3 {
+      font-size: 1.3rem;
+      font-weight: 700;
+      color: #f0ece4;
+      margin-bottom: 8px;
+    }
+
+    .nano-banner p {
+      color: #9ca3af;
+      font-size: 0.95rem;
+      margin-bottom: 20px;
+      line-height: 1.6;
+    }
+
+    .nano-btn {
+      display: inline-block;
+      background: linear-gradient(135deg, #8b5cf6, #ec4899);
+      color: white;
+      padding: 14px 40px;
+      border-radius: 30px;
+      font-size: 1.1rem;
+      font-weight: 700;
+      text-decoration: none;
+      transition: transform 0.3s, box-shadow 0.3s;
+      box-shadow: 0 4px 20px rgba(139, 92, 246, 0.3);
+    }
+
+    .nano-btn:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 8px 30px rgba(139, 92, 246, 0.5);
+    }
+
     /* ===== FLOATING WHATSAPP BUTTON ===== */
     .whatsapp-float {
       position: fixed;
@@ -2264,6 +2338,14 @@
           </div>
         </div>
       </section>
+
+      <!-- ===== NANOBANANAI BANNER ===== -->
+      <div class="nano-banner">
+        <span class="nano-icon">🎨✨</span>
+        <h3>רוצים לייצר עוד תמונות מדהימות?</h3>
+        <p>באתר NanoBananai תוכלו ליצור תמונות AI מרהיבות בקלות - בלי גבולות לדמיון!</p>
+        <a href="https://www.nanobananai.site/" target="_blank" rel="noopener" class="nano-btn">בואו ליצור ←</a>
+      </div>
 
       <!-- ===== CTA SECTION ===== -->
       <section class="cta-section" aria-label="יצירת קשר">
