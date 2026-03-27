@@ -1545,69 +1545,121 @@
     }
 
     /* ===== NANOBANANAI BANNER ===== */
-    .nano-banner {
-      background: linear-gradient(135deg, rgba(139, 92, 246, 0.15) 0%, rgba(201, 168, 76, 0.1) 50%, rgba(236, 72, 153, 0.15) 100%);
-      border: 1.5px solid rgba(139, 92, 246, 0.3);
-      border-radius: 14px;
-      padding: 30px 24px;
+    .nanobanner {
+      direction: rtl;
+      max-width: 900px;
+      margin: 0 auto 20px;
+      padding: 2.5rem 2rem;
+      background: linear-gradient(135deg, rgba(30, 20, 60, 0.85) 0%, rgba(10, 14, 26, 0.95) 100%);
+      border: 1.5px solid #c9a84c;
+      border-radius: 18px;
+      font-family: 'Heebo', system-ui, sans-serif;
       text-align: center;
-      margin-bottom: 20px;
       position: relative;
-      z-index: 1;
       overflow: hidden;
-      transition: transform 0.3s, box-shadow 0.3s;
+      box-sizing: border-box;
     }
 
-    .nano-banner:hover {
-      transform: translateY(-4px);
-      box-shadow: 0 12px 35px rgba(139, 92, 246, 0.15);
-    }
-
-    .nano-banner::before {
-      content: "";
+    .nanobanner::before {
+      content: '';
       position: absolute;
-      inset: 0;
-      background: radial-gradient(circle at 20% 50%, rgba(139, 92, 246, 0.08) 0%, transparent 60%),
-                  radial-gradient(circle at 80% 50%, rgba(236, 72, 153, 0.08) 0%, transparent 60%);
-      pointer-events: none;
+      inset: -2px;
+      border-radius: 20px;
+      background: conic-gradient(from 0deg, #c9a84c33, #7c3aed33, #c9a84c33);
+      z-index: -1;
+      animation: nanobanner-spin 8s linear infinite;
     }
 
-    .nano-banner .nano-icon {
-      font-size: 2.5rem;
-      margin-bottom: 12px;
-      display: block;
+    @keyframes nanobanner-spin {
+      to { transform: rotate(360deg); }
     }
 
-    .nano-banner h3 {
-      font-size: 1.3rem;
-      font-weight: 700;
+    .nanobanner-icons {
+      display: flex;
+      justify-content: center;
+      gap: 0.6rem;
+      margin-bottom: 1rem;
+      font-size: 1.6rem;
+      filter: saturate(1.2);
+    }
+
+    .nanobanner-title {
+      font-size: 1.65rem;
+      font-weight: 800;
+      color: #c9a84c;
+      margin: 0 0 0.5rem;
+      line-height: 1.4;
+    }
+
+    .nanobanner-subtitle {
+      font-size: 1.05rem;
       color: #f0ece4;
-      margin-bottom: 8px;
-    }
-
-    .nano-banner p {
-      color: #9ca3af;
-      font-size: 0.95rem;
-      margin-bottom: 20px;
+      margin: 0 0 0.3rem;
+      font-weight: 400;
       line-height: 1.6;
     }
 
-    .nano-btn {
-      display: inline-block;
-      background: linear-gradient(135deg, #8b5cf6, #ec4899);
-      color: white;
-      padding: 14px 40px;
-      border-radius: 30px;
-      font-size: 1.1rem;
-      font-weight: 700;
-      text-decoration: none;
-      transition: transform 0.3s, box-shadow 0.3s;
-      box-shadow: 0 4px 20px rgba(139, 92, 246, 0.3);
+    .nanobanner-desc {
+      font-size: 0.92rem;
+      color: #a8a29e;
+      margin: 0 0 1.5rem;
+      line-height: 1.6;
     }
 
-    .nano-btn:hover {
-      transform: translateY(-3px);
-      box-shadow: 0 8px 30px rgba(139, 92, 246, 0.5);
+    .nanobanner-tags {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 0.5rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .nanobanner-tag {
+      background: rgba(201, 168, 76, 0.12);
+      border: 1px solid rgba(201, 168, 76, 0.35);
+      color: #c9a84c;
+      padding: 0.3rem 0.85rem;
+      border-radius: 20px;
+      font-size: 0.8rem;
+      font-weight: 500;
+      white-space: nowrap;
+    }
+
+    .nanobanner-cta {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: linear-gradient(135deg, #c9a84c, #b8943f);
+      color: #0a0e1a;
+      padding: 0.85rem 2.2rem;
+      border-radius: 25px;
+      font-size: 1.05rem;
+      font-weight: 700;
+      text-decoration: none;
+      font-family: 'Heebo', system-ui, sans-serif;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+      box-shadow: 0 4px 20px rgba(201, 168, 76, 0.25);
+    }
+
+    .nanobanner-cta:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 28px rgba(201, 168, 76, 0.4);
+    }
+
+    .nanobanner-cta:active {
+      transform: translateY(0);
+    }
+
+    @media (max-width: 600px) {
+      .nanobanner {
+        padding: 1.8rem 1.2rem;
+      }
+      .nanobanner-title {
+        font-size: 1.35rem;
+      }
+      .nanobanner-icons {
+        font-size: 1.3rem;
+      }
     }
 
     /* ===== FLOATING WHATSAPP BUTTON ===== */
@@ -2340,11 +2392,29 @@
       </section>
 
       <!-- ===== NANOBANANAI BANNER ===== -->
-      <div class="nano-banner">
-        <span class="nano-icon">🎨✨</span>
-        <h3>רוצים לייצר עוד תמונות מדהימות?</h3>
-        <p>באתר NanoBananai תוכלו ליצור תמונות AI מרהיבות בקלות - בלי גבולות לדמיון!</p>
-        <a href="https://www.nanobananai.site/" target="_blank" rel="noopener" class="nano-btn">בואו ליצור ←</a>
+      <div class="nanobanner">
+        <div class="nanobanner-icons">
+          <span>🎨</span><span>🖼️</span><span>🍌</span><span>✨</span><span>🤖</span>
+        </div>
+        <h3 class="nanobanner-title">Nano-Banana AI Art</h3>
+        <p class="nanobanner-subtitle">הפרומפט שלנו, היצירה שלכם</p>
+        <p class="nanobanner-desc">
+          גלו מאות פרומפטים מקצועיים ליצירת תמונות AI מדהימות.<br>
+          מוכנים לשימוש ב-ChatGPT, Gemini ו-Perplexity — בחינם.
+        </p>
+        <div class="nanobanner-tags">
+          <span class="nanobanner-tag">דיוקן</span>
+          <span class="nanobanner-tag">פנטזיה</span>
+          <span class="nanobanner-tag">איור</span>
+          <span class="nanobanner-tag">קולאז'</span>
+          <span class="nanobanner-tag">מוצר</span>
+          <span class="nanobanner-tag">רטרו</span>
+          <span class="nanobanner-tag">ריאליזם</span>
+          <span class="nanobanner-tag">נוף</span>
+        </div>
+        <a class="nanobanner-cta" href="https://www.nanobananai.site/" target="_blank" rel="noopener">
+          גלו את הפרומפטים 🎨
+        </a>
       </div>
 
       <!-- ===== CTA SECTION ===== -->
