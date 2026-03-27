@@ -867,12 +867,12 @@
       font-weight: 500;
     }
 
-    /* ===== GIFT PROMPT SECTION ===== */
-    .gift-section {
+    /* ===== GIFT CAROUSEL SECTION ===== */
+    .gift-card {
       border-top: 2px solid rgba(201, 168, 76, 0.4);
     }
 
-    .gift-section .gift-badge {
+    .gift-card .gift-badge {
       display: inline-block;
       background: linear-gradient(135deg, #c9a84c, #d4a017);
       color: #0a0e1a;
@@ -884,27 +884,120 @@
       letter-spacing: 1px;
     }
 
-    .gift-section h2 {
+    .gift-card h2 {
       font-size: clamp(1.4rem, 3vw, 1.8rem);
       font-weight: 700;
       color: #f0ece4;
       margin-bottom: 8px;
     }
 
-    .gift-section .gift-desc {
+    .gift-card .gift-desc {
       color: #9ca3af;
       font-size: 1.05rem;
       line-height: 1.7;
       margin-bottom: 24px;
     }
 
+    /* Carousel */
+    .carousel {
+      position: relative;
+      z-index: 5;
+      margin-bottom: 20px;
+    }
+
+    .carousel-viewport {
+      overflow: hidden;
+      border-radius: 12px;
+    }
+
+    .carousel-track {
+      display: flex;
+      transition: transform 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+    }
+
+    .carousel-slide {
+      min-width: 100%;
+    }
+
+    /* Style name tag */
+    .style-name {
+      text-align: center;
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: #c9a84c;
+      margin-top: 14px;
+      min-height: 1.5em;
+    }
+
+    /* Carousel navigation */
+    .carousel-controls {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 16px;
+      margin-top: 16px;
+      margin-bottom: 20px;
+    }
+
+    .carousel-btn {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      border: 1.5px solid rgba(201, 168, 76, 0.3);
+      background: rgba(201, 168, 76, 0.08);
+      color: #c9a84c;
+      font-size: 1.2rem;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.2s;
+      font-family: inherit;
+    }
+
+    .carousel-btn:hover {
+      background: rgba(201, 168, 76, 0.2);
+      border-color: #c9a84c;
+      transform: scale(1.1);
+    }
+
+    .carousel-dots {
+      display: flex;
+      gap: 8px;
+      align-items: center;
+    }
+
+    .carousel-dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      border: none;
+      background: rgba(201, 168, 76, 0.2);
+      cursor: pointer;
+      transition: all 0.3s;
+      padding: 0;
+    }
+
+    .carousel-dot.active {
+      background: #c9a84c;
+      box-shadow: 0 0 10px rgba(201, 168, 76, 0.5);
+      transform: scale(1.2);
+    }
+
+    .carousel-counter {
+      font-size: 0.8rem;
+      color: #9ca3af;
+      font-weight: 500;
+      min-width: 30px;
+      text-align: center;
+    }
+
     /* Before/After comparison */
     .ba-container {
       display: grid;
       grid-template-columns: 1fr auto 1fr;
-      gap: 16px;
+      gap: 12px;
       align-items: center;
-      margin-bottom: 28px;
     }
 
     .ba-item {
@@ -988,14 +1081,19 @@
     }
 
     .prompt-text {
-      font-size: 0.95rem;
+      font-size: 0.9rem;
       line-height: 1.7;
       color: #d1d5db;
       direction: ltr;
       text-align: left;
       font-family: 'Courier New', monospace;
       word-break: break-word;
+      max-height: 120px;
+      overflow-y: auto;
     }
+
+    .prompt-text::-webkit-scrollbar { width: 4px; }
+    .prompt-text::-webkit-scrollbar-thumb { background: rgba(201, 168, 76, 0.3); border-radius: 2px; }
 
     .gift-steps {
       display: flex;
@@ -1091,27 +1189,34 @@
       z-index: 5;
     }
 
-    .ba-container {
-      position: relative;
-      z-index: 5;
+    .ba-item img.clickable:hover {
+      transform: scale(1.03);
+      box-shadow: 0 12px 35px rgba(0, 0, 0, 0.6);
+      border-color: rgba(201, 168, 76, 0.4);
     }
 
     @media (max-width: 768px) {
       .ba-container {
-        grid-template-columns: 1fr;
-        gap: 12px;
+        gap: 6px;
       }
 
       .ba-arrow {
-        transform: rotate(90deg);
-      }
-
-      .ba-item img {
-        max-width: 280px;
+        font-size: 1.2rem;
       }
 
       .gift-steps {
         flex-direction: column;
+      }
+
+      .carousel-btn {
+        width: 36px;
+        height: 36px;
+        font-size: 1rem;
+      }
+
+      .prompt-text {
+        max-height: 100px;
+        font-size: 0.8rem;
       }
     }
 
@@ -1626,36 +1731,90 @@
 
       </section>
 
-      <!-- ===== GIFT PROMPT SECTION ===== -->
-      <section class="card gift-section reveal" aria-label="מתנת חג - פרומפט">
+      <!-- ===== GIFT CAROUSEL ===== -->
+      <section class="card gift-card reveal" id="giftCarousel" aria-label="מתנות חג - פרומפטים של AI">
         <div class="border-glow" aria-hidden="true"></div>
         <div class="h-scan" aria-hidden="true"></div>
         <span class="corner tl" aria-hidden="true"></span><span class="corner tr" aria-hidden="true"></span>
         <span class="corner bl" aria-hidden="true"></span><span class="corner br" aria-hidden="true"></span>
-        <span class="gift-badge">🎁 מתנת חג</span>
-        <h2>הפכו את עצמכם לגיבורי יציאת מצרים!</h2>
-        <p class="gift-desc">העלו תמונה שלכם ל-ChatGPT או Gemini יחד עם הפרומפט הזה, וקבלו תמונה אפית של עצמכם בקריעת ים סוף.</p>
+        <span class="gift-badge">🎁 מתנות חג</span>
+        <h2>3 פרומפטים שיהפכו אתכם לכוכבי פסח!</h2>
+        <p class="gift-desc">העלו תמונה שלכם ל-ChatGPT או Gemini יחד עם אחד מהפרומפטים, וקבלו תמונה מדהימה. החליקו בין הסגנונות:</p>
 
-        <!-- Before / After -->
-        <div class="ba-container">
-          <div class="ba-item">
-            <img src="../images/Passover/image1_before.webp" alt="תמונה לפני - תמונת פורטרט רגילה" loading="lazy">
-            <span class="ba-label">📷 התמונה שלכם</span>
+        <!-- Carousel -->
+        <div class="carousel">
+          <div class="carousel-viewport">
+            <div class="carousel-track" id="carouselTrack">
+
+              <!-- Slide 1: Red Sea -->
+              <div class="carousel-slide">
+                <div class="ba-container">
+                  <div class="ba-item">
+                    <img src="../images/Passover/image1_before.webp" alt="תמונה לפני" loading="lazy">
+                    <span class="ba-label">📷 התמונה שלכם</span>
+                  </div>
+                  <div class="ba-arrow" aria-hidden="true">⬅</div>
+                  <div class="ba-item">
+                    <img src="../images/Passover/image1_after.webp" alt="קריעת ים סוף בסגנון פוסטר קולנועי" loading="lazy" class="clickable">
+                    <span class="ba-label">🎬 התוצאה עם AI</span>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Slide 2: Manuscript -->
+              <div class="carousel-slide">
+                <div class="ba-container">
+                  <div class="ba-item">
+                    <img src="../images/Passover/image2_before.webp" alt="תמונה לפני" loading="lazy">
+                    <span class="ba-label">📷 התמונה שלכם</span>
+                  </div>
+                  <div class="ba-arrow" aria-hidden="true">⬅</div>
+                  <div class="ba-item">
+                    <img src="../images/Passover/image2_after.webp" alt="כתב יד מאוייר על קלף עתיק" loading="lazy" class="clickable">
+                    <span class="ba-label">🎨 התוצאה עם AI</span>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Slide 3: Luxury Seder -->
+              <div class="carousel-slide">
+                <div class="ba-container">
+                  <div class="ba-item">
+                    <img src="../images/Passover/image3_before.webp" alt="תמונה לפני" loading="lazy">
+                    <span class="ba-label">📷 התמונה שלכם</span>
+                  </div>
+                  <div class="ba-arrow" aria-hidden="true">⬅</div>
+                  <div class="ba-item">
+                    <img src="../images/Passover/image3_after.webp" alt="שולחן סדר יוקרתי בסגנון מגזין" loading="lazy" class="clickable">
+                    <span class="ba-label">🍷 התוצאה עם AI</span>
+                  </div>
+                </div>
+              </div>
+
+            </div>
           </div>
-          <div class="ba-arrow" aria-hidden="true">⬅</div>
-          <div class="ba-item">
-            <img src="../images/Passover/image1_after.webp" alt="תמונה אחרי - קריעת ים סוף בסגנון פוסטר קולנועי" loading="lazy" class="clickable" id="afterImg">
-            <span class="ba-label">🎬 התוצאה עם AI</span>
+
+          <div class="style-name" id="styleName">קריעת ים סוף 🌊</div>
+
+          <div class="carousel-controls">
+            <button class="carousel-btn" id="carouselPrev" aria-label="הקודם">›</button>
+            <div class="carousel-dots" id="carouselDots">
+              <button class="carousel-dot active" data-index="0" aria-label="סגנון 1"></button>
+              <button class="carousel-dot" data-index="1" aria-label="סגנון 2"></button>
+              <button class="carousel-dot" data-index="2" aria-label="סגנון 3"></button>
+            </div>
+            <span class="carousel-counter" id="carouselCounter">1/3</span>
+            <button class="carousel-btn" id="carouselNext" aria-label="הבא">‹</button>
           </div>
         </div>
 
-        <!-- Prompt box -->
+        <!-- Prompt box (updates per slide) -->
         <div class="prompt-box">
           <div class="prompt-box-header">
             <span class="prompt-box-title">📜 הפרומפט (לחצו להעתקה)</span>
-            <button class="copy-btn" data-prompt="promptText" aria-label="העתק פרומפט">העתק</button>
+            <button class="copy-btn" id="copyPrompt" aria-label="העתק פרומפט">העתק</button>
           </div>
-          <p class="prompt-text" id="promptText">An epic, movie poster style 4K scene depicting the Parting of the Red Sea. Place the subject in the center, walking through the dry seabed with massive walls of turquoise water on either side. Please keep the person's face and clothing exactly as in the photo. Dramatic lighting, heroic composition, highly detailed environment.</p>
+          <p class="prompt-text" id="promptText"></p>
         </div>
 
         <!-- Steps -->
@@ -1674,113 +1833,7 @@
           </div>
           <div class="gift-step">
             <span class="gift-step-num">4</span>
-            <span>קבלו תמונה אפית!</span>
-          </div>
-        </div>
-      </section>
-
-      <!-- ===== GIFT PROMPT 2: MANUSCRIPT ===== -->
-      <section class="card gift-section reveal" aria-label="מתנת חג - כתב יד מאוייר">
-        <div class="border-glow" aria-hidden="true"></div>
-        <div class="h-scan" aria-hidden="true"></div>
-        <span class="corner tl" aria-hidden="true"></span><span class="corner tr" aria-hidden="true"></span>
-        <span class="corner bl" aria-hidden="true"></span><span class="corner br" aria-hidden="true"></span>
-        <span class="gift-badge">🎁 מתנת חג נוספת</span>
-        <h2>הפכו את עצמכם לכתב יד עתיק מאוייר!</h2>
-        <p class="gift-desc">העלו תמונה שלכם ל-ChatGPT או Gemini יחד עם הפרומפט הזה, וקבלו פורטרט בסגנון כתב יד מאוייר על קלף עתיק עם עיטורי זהב וסצנות מההגדה.</p>
-
-        <!-- Before / After -->
-        <div class="ba-container">
-          <div class="ba-item">
-            <img src="../images/Passover/image2_before.webp" alt="תמונה לפני - תמונת פורטרט רגילה" loading="lazy">
-            <span class="ba-label">📷 התמונה שלכם</span>
-          </div>
-          <div class="ba-arrow" aria-hidden="true">⬅</div>
-          <div class="ba-item">
-            <img src="../images/Passover/image2_after.webp" alt="תמונה אחרי - כתב יד מאוייר על קלף עתיק" loading="lazy" class="clickable lightbox-trigger">
-            <span class="ba-label">🎨 התוצאה עם AI</span>
-          </div>
-        </div>
-
-        <!-- Prompt box -->
-        <div class="prompt-box">
-          <div class="prompt-box-header">
-            <span class="prompt-box-title">📜 הפרומפט (לחצו להעתקה)</span>
-            <button class="copy-btn" data-prompt="prompt2Text" aria-label="העתק פרומפט">העתק</button>
-          </div>
-          <p class="prompt-text" id="prompt2Text">A 4K illustrated manuscript portrait on aged parchment, integrating the specific subject from the uploaded image. The bald man with a grey beard and blue eyes, in his light blue V-neck shirt, maintains his likeness exactly. The elaborate gold-leaf and blue ornamental border is retained, featuring the view of Jerusalem's Old City at the top-left, the scene of figures at the top-right, and all four narrative vignettes at the bottom (Jerusalem gate, Moses with staff and people, and figures with donkeys). The text field next to the man's head, in clear Hebrew calligraphy with niqqud, now reads exactly: 'וּמָרְדֳּכַי יָדַע / אֵת כָּל / אֲשֶׁר נַעֲשָׂה.' ('And Mordecai knew all that had been done.'). Artistic masterpiece, intricate details, historical parchment texture, warm illumination.</p>
-        </div>
-
-        <!-- Steps -->
-        <div class="gift-steps">
-          <div class="gift-step">
-            <span class="gift-step-num">1</span>
-            <span>פתחו ChatGPT או Gemini</span>
-          </div>
-          <div class="gift-step">
-            <span class="gift-step-num">2</span>
-            <span>העלו תמונה שלכם</span>
-          </div>
-          <div class="gift-step">
-            <span class="gift-step-num">3</span>
-            <span>הדביקו את הפרומפט</span>
-          </div>
-          <div class="gift-step">
-            <span class="gift-step-num">4</span>
-            <span>קבלו פורטרט מרהיב!</span>
-          </div>
-        </div>
-      </section>
-
-      <!-- ===== GIFT PROMPT 3: LUXURY SEDER ===== -->
-      <section class="card gift-section reveal" aria-label="מתנת חג - שולחן סדר יוקרתי">
-        <div class="border-glow" aria-hidden="true"></div>
-        <div class="h-scan" aria-hidden="true"></div>
-        <span class="corner tl" aria-hidden="true"></span><span class="corner tr" aria-hidden="true"></span>
-        <span class="corner bl" aria-hidden="true"></span><span class="corner br" aria-hidden="true"></span>
-        <span class="gift-badge">🎁 עוד מתנה!</span>
-        <h2>שבו ליד שולחן סדר יוקרתי!</h2>
-        <p class="gift-desc">העלו תמונה שלכם ל-ChatGPT או Gemini יחד עם הפרומפט הזה, וקבלו תמונת לייפסטייל מרהיבה ליד שולחן סדר מעוצב כמו ממגזין יוקרה.</p>
-
-        <!-- Before / After -->
-        <div class="ba-container">
-          <div class="ba-item">
-            <img src="../images/Passover/image3_before.webp" alt="תמונה לפני - תמונת פורטרט רגילה" loading="lazy">
-            <span class="ba-label">📷 התמונה שלכם</span>
-          </div>
-          <div class="ba-arrow" aria-hidden="true">⬅</div>
-          <div class="ba-item">
-            <img src="../images/Passover/image3_after.webp" alt="תמונה אחרי - שולחן סדר יוקרתי בסגנון מגזין" loading="lazy" class="clickable lightbox-trigger">
-            <span class="ba-label">🍷 התוצאה עם AI</span>
-          </div>
-        </div>
-
-        <!-- Prompt box -->
-        <div class="prompt-box">
-          <div class="prompt-box-header">
-            <span class="prompt-box-title">📜 הפרומפט (לחצו להעתקה)</span>
-            <button class="copy-btn" data-prompt="prompt3Text" aria-label="העתק פרומפט">העתק</button>
-          </div>
-          <p class="prompt-text" id="prompt3Text">A professional, brightly lit lifestyle photograph for a luxury magazine. The subject is in a modern, elegant home decorated for Passover. They are next to a minimalist Seder table with fresh spring flowers and delicate wine glasses. Please keep the person's face and clothing exactly as in the photo. 4K, clean look, soft bokeh background, sophisticated holiday feel.</p>
-        </div>
-
-        <!-- Steps -->
-        <div class="gift-steps">
-          <div class="gift-step">
-            <span class="gift-step-num">1</span>
-            <span>פתחו ChatGPT או Gemini</span>
-          </div>
-          <div class="gift-step">
-            <span class="gift-step-num">2</span>
-            <span>העלו תמונה שלכם</span>
-          </div>
-          <div class="gift-step">
-            <span class="gift-step-num">3</span>
-            <span>הדביקו את הפרומפט</span>
-          </div>
-          <div class="gift-step">
-            <span class="gift-step-num">4</span>
-            <span>קבלו תמונה מרהיבה!</span>
+            <span>קבלו תמונה מדהימה!</span>
           </div>
         </div>
       </section>
@@ -1966,19 +2019,95 @@
       });
     })();
 
+    // ===== GIFT CAROUSEL =====
+    (function() {
+      var slides = [
+        {
+          title: 'קריעת ים סוף 🌊',
+          prompt: 'An epic, movie poster style 4K scene depicting the Parting of the Red Sea. Place the subject in the center, walking through the dry seabed with massive walls of turquoise water on either side. Please keep the person\'s face and clothing exactly as in the photo. Dramatic lighting, heroic composition, highly detailed environment.'
+        },
+        {
+          title: 'כתב יד מאוייר 📜',
+          prompt: 'A 4K illustrated manuscript portrait on aged parchment, integrating the specific subject from the uploaded image. The bald man with a grey beard and blue eyes, in his light blue V-neck shirt, maintains his likeness exactly. The elaborate gold-leaf and blue ornamental border is retained, featuring the view of Jerusalem\'s Old City at the top-left, the scene of figures at the top-right, and all four narrative vignettes at the bottom (Jerusalem gate, Moses with staff and people, and figures with donkeys). The text field next to the man\'s head, in clear Hebrew calligraphy with niqqud, now reads exactly: \'וּמָרְדֳּכַי יָדַע / אֵת כָּל / אֲשֶׁר נַעֲשָׂה.\' (\'And Mordecai knew all that had been done.\'). Artistic masterpiece, intricate details, historical parchment texture, warm illumination.'
+        },
+        {
+          title: 'שולחן סדר יוקרתי 🍷',
+          prompt: 'A professional, brightly lit lifestyle photograph for a luxury magazine. The subject is in a modern, elegant home decorated for Passover. They are next to a minimalist Seder table with fresh spring flowers and delicate wine glasses. Please keep the person\'s face and clothing exactly as in the photo. 4K, clean look, soft bokeh background, sophisticated holiday feel.'
+        }
+      ];
+
+      var track = document.getElementById('carouselTrack');
+      var dots = document.querySelectorAll('.carousel-dot');
+      var counter = document.getElementById('carouselCounter');
+      var styleName = document.getElementById('styleName');
+      var promptText = document.getElementById('promptText');
+      var current = 0;
+
+      function goTo(index) {
+        if (index < 0) index = slides.length - 1;
+        if (index >= slides.length) index = 0;
+        current = index;
+
+        track.style.transform = 'translateX(' + (current * 100) + '%)';
+        dots.forEach(function(d, i) { d.classList.toggle('active', i === current); });
+        counter.textContent = (current + 1) + '/' + slides.length;
+        styleName.textContent = slides[current].title;
+        promptText.textContent = slides[current].prompt;
+        promptText.scrollTop = 0;
+      }
+
+      // Init
+      goTo(0);
+
+      // Arrows
+      document.getElementById('carouselNext').addEventListener('click', function() { goTo(current + 1); });
+      document.getElementById('carouselPrev').addEventListener('click', function() { goTo(current - 1); });
+
+      // Dots
+      dots.forEach(function(dot) {
+        dot.addEventListener('click', function() { goTo(parseInt(this.getAttribute('data-index'))); });
+      });
+
+      // Touch swipe
+      var startX = 0, startY = 0, isDragging = false;
+      var viewport = document.querySelector('.carousel-viewport');
+
+      viewport.addEventListener('touchstart', function(e) {
+        startX = e.touches[0].clientX;
+        startY = e.touches[0].clientY;
+        isDragging = true;
+      }, { passive: true });
+
+      viewport.addEventListener('touchend', function(e) {
+        if (!isDragging) return;
+        isDragging = false;
+        var dx = e.changedTouches[0].clientX - startX;
+        var dy = e.changedTouches[0].clientY - startY;
+        if (Math.abs(dx) > Math.abs(dy) && Math.abs(dx) > 50) {
+          if (dx > 0) goTo(current + 1); // RTL: swipe right = next
+          else goTo(current - 1);
+        }
+      }, { passive: true });
+
+      // Keyboard
+      document.getElementById('giftCarousel').addEventListener('keydown', function(e) {
+        if (e.key === 'ArrowLeft') goTo(current - 1);
+        if (e.key === 'ArrowRight') goTo(current + 1);
+      });
+    })();
+
     // ===== LIGHTBOX =====
     (function() {
       var lightbox = document.getElementById('lightbox');
       var lightboxImg = lightbox ? lightbox.querySelector('img') : null;
       if (!lightbox || !lightboxImg) return;
 
-      // All clickable images open lightbox
-      document.querySelectorAll('img.clickable, img.lightbox-trigger').forEach(function(img) {
-        img.addEventListener('click', function() {
-          lightboxImg.src = this.src;
-          lightboxImg.alt = this.alt;
+      document.addEventListener('click', function(e) {
+        if (e.target.matches('img.clickable')) {
+          lightboxImg.src = e.target.src;
+          lightboxImg.alt = e.target.alt;
           lightbox.classList.add('open');
-        });
+        }
       });
 
       lightbox.addEventListener('click', function() {
@@ -1992,21 +2121,18 @@
 
     // ===== COPY PROMPT =====
     (function() {
-      document.querySelectorAll('.copy-btn').forEach(function(btn) {
-        btn.addEventListener('click', function() {
-          var targetId = this.getAttribute('data-prompt') || 'promptText';
-          var text = document.getElementById(targetId);
-          if (!text) return;
+      var btn = document.getElementById('copyPrompt');
+      var text = document.getElementById('promptText');
+      if (!btn || !text) return;
 
-          var self = this;
-          navigator.clipboard.writeText(text.textContent).then(function() {
-            self.textContent = 'הועתק! ✓';
-            self.classList.add('copied');
-            setTimeout(function() {
-              self.textContent = 'העתק';
-              self.classList.remove('copied');
-            }, 2000);
-          });
+      btn.addEventListener('click', function() {
+        navigator.clipboard.writeText(text.textContent).then(function() {
+          btn.textContent = 'הועתק! ✓';
+          btn.classList.add('copied');
+          setTimeout(function() {
+            btn.textContent = 'העתק';
+            btn.classList.remove('copied');
+          }, 2000);
         });
       });
     })();
