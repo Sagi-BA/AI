@@ -83,7 +83,7 @@
       position: fixed;
       inset: 0;
       z-index: 9999;
-      background: radial-gradient(ellipse at 50% 60%, #2a1f0e 0%, #1a150a 50%, #0a0e1a 100%);
+      background: radial-gradient(ellipse at 50% 60%, #1a0505 0%, #0d0202 50%, #0a0e1a 100%);
       display: flex;
       align-items: center;
       justify-content: center;
@@ -106,12 +106,32 @@
 
     .sea-wall-left {
       left: 0;
-      background: linear-gradient(135deg, #0c3d5e 0%, #1565a0 30%, #2196f3 60%, #1976d2 100%);
+      background: linear-gradient(135deg, #2d0a0a 0%, #6b1515 25%, #8b1a1a 50%, #a31d1d 75%, #6b1515 100%);
     }
 
     .sea-wall-right {
       right: 0;
-      background: linear-gradient(225deg, #0c3d5e 0%, #1565a0 30%, #2196f3 60%, #1976d2 100%);
+      background: linear-gradient(225deg, #2d0a0a 0%, #6b1515 25%, #8b1a1a 50%, #a31d1d 75%, #6b1515 100%);
+    }
+
+    /* Lice dots on blood walls */
+    .sea-wall-left .lice-layer,
+    .sea-wall-right .lice-layer {
+      position: absolute;
+      inset: 0;
+      background-image:
+        radial-gradient(circle 2px, rgba(0,0,0,0.6) 100%, transparent 100%),
+        radial-gradient(circle 1.5px, rgba(0,0,0,0.5) 100%, transparent 100%),
+        radial-gradient(circle 1px, rgba(0,0,0,0.7) 100%, transparent 100%);
+      background-size: 60px 50px, 45px 65px, 80px 40px;
+      background-position: 10px 10px, 30px 25px, 5px 35px;
+      animation: lice-crawl 3s linear infinite;
+      pointer-events: none;
+    }
+
+    @keyframes lice-crawl {
+      0% { background-position: 10px 10px, 30px 25px, 5px 35px; }
+      100% { background-position: 15px 16px, 25px 31px, 10px 29px; }
     }
 
     /* Sea parting - triggered by JS */
@@ -123,7 +143,7 @@
       transform: translateX(105%);
     }
 
-    /* Water wave edges */
+    /* Blood wave edges */
     .sea-wall-left::after {
       content: "";
       position: absolute;
@@ -132,9 +152,9 @@
       left: calc(100% - 30px);
       width: 60px;
       background:
-        radial-gradient(ellipse 30px 20px at 30px 30px, rgba(65, 165, 210, 0.5) 0%, transparent 100%),
-        radial-gradient(ellipse 25px 15px at 25px 80px, rgba(65, 165, 210, 0.4) 0%, transparent 100%),
-        radial-gradient(ellipse 35px 18px at 28px 140px, rgba(65, 165, 210, 0.45) 0%, transparent 100%);
+        radial-gradient(ellipse 30px 20px at 30px 30px, rgba(180, 30, 30, 0.6) 0%, transparent 100%),
+        radial-gradient(ellipse 25px 15px at 25px 80px, rgba(150, 20, 20, 0.5) 0%, transparent 100%),
+        radial-gradient(ellipse 35px 18px at 28px 140px, rgba(180, 30, 30, 0.55) 0%, transparent 100%);
       background-repeat: repeat-y;
       background-size: 60px 160px;
     }
@@ -147,21 +167,21 @@
       right: calc(100% - 30px);
       width: 60px;
       background:
-        radial-gradient(ellipse 30px 20px at 30px 50px, rgba(65, 165, 210, 0.5) 0%, transparent 100%),
-        radial-gradient(ellipse 25px 15px at 35px 100px, rgba(65, 165, 210, 0.4) 0%, transparent 100%),
-        radial-gradient(ellipse 35px 18px at 25px 160px, rgba(65, 165, 210, 0.45) 0%, transparent 100%);
+        radial-gradient(ellipse 30px 20px at 30px 50px, rgba(180, 30, 30, 0.6) 0%, transparent 100%),
+        radial-gradient(ellipse 25px 15px at 35px 100px, rgba(150, 20, 20, 0.5) 0%, transparent 100%),
+        radial-gradient(ellipse 35px 18px at 25px 160px, rgba(180, 30, 30, 0.55) 0%, transparent 100%);
       background-repeat: repeat-y;
       background-size: 60px 180px;
     }
 
-    /* Water surface highlights */
+    /* Blood surface highlights */
     .sea-wall-left::before {
       content: "";
       position: absolute;
       inset: 0;
       background:
-        linear-gradient(180deg, rgba(65, 185, 230, 0.2) 0%, transparent 30%),
-        linear-gradient(0deg, rgba(10, 30, 50, 0.5) 0%, transparent 40%);
+        linear-gradient(180deg, rgba(180, 40, 40, 0.2) 0%, transparent 30%),
+        linear-gradient(0deg, rgba(30, 5, 5, 0.5) 0%, transparent 40%);
       pointer-events: none;
     }
 
@@ -170,8 +190,8 @@
       position: absolute;
       inset: 0;
       background:
-        linear-gradient(180deg, rgba(65, 185, 230, 0.15) 0%, transparent 30%),
-        linear-gradient(0deg, rgba(10, 30, 50, 0.5) 0%, transparent 40%);
+        linear-gradient(180deg, rgba(180, 40, 40, 0.15) 0%, transparent 30%),
+        linear-gradient(0deg, rgba(30, 5, 5, 0.5) 0%, transparent 40%);
       pointer-events: none;
     }
 
@@ -1853,8 +1873,8 @@
 
   <!-- ===== CINEMATIC INTRO: RED SEA PARTING ===== -->
   <div class="intro-overlay" id="intro" aria-hidden="true">
-    <div class="sea-wall sea-wall-left"></div>
-    <div class="sea-wall sea-wall-right"></div>
+    <div class="sea-wall sea-wall-left"><div class="lice-layer"></div></div>
+    <div class="sea-wall sea-wall-right"><div class="lice-layer"></div></div>
     <div class="intro-quote">
       <p class="intro-quote-text">בכל דור ודור חייב אדם לראות את עצמו</p>
       <p class="intro-quote-text">כאילו הוא יצא ממצרים</p>
