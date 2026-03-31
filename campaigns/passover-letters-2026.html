@@ -1,0 +1,495 @@
+<!-- https://sagi-ba.github.io/AI/campaigns/passover-letters-2026html -->
+ <!-- https://l5k.me/peP04 -->
+<!-- http://127.0.0.1:8080/campaigns/passover-letters-2026.html -->
+
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>דשבורד קמפיינים - אגרות פסח 2026</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Alef:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        :root {
+            --bg: #f5f7fa;
+            --text: #1a1a1a;
+            --text-light: #555;
+            --accent: #2563eb;
+            --accent-light: #dbeafe;
+            --green: #16a34a;
+            --green-light: #dcfce7;
+            --orange: #ea580c;
+            --orange-light: #fff7ed;
+            --red: #dc2626;
+            --red-light: #fef2f2;
+            --purple: #9333ea;
+            --purple-light: #faf5ff;
+            --border: #e2e8f0;
+            --white: #ffffff;
+            --card-shadow: 0 1px 3px rgba(0,0,0,0.08), 0 1px 2px rgba(0,0,0,0.06);
+        }
+
+        body {
+            font-family: 'Alef', sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.6;
+            font-size: 16px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 24px;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 32px;
+        }
+
+        header h1 {
+            font-size: 28px;
+            color: var(--text);
+            margin-bottom: 4px;
+        }
+
+        header p {
+            color: var(--text-light);
+            font-size: 15px;
+        }
+
+        .summary-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 16px;
+            margin-bottom: 32px;
+        }
+
+        .card {
+            background: var(--white);
+            border-radius: 12px;
+            padding: 20px;
+            box-shadow: var(--card-shadow);
+            text-align: center;
+        }
+
+        .card .value {
+            font-size: 36px;
+            font-weight: 700;
+            line-height: 1.2;
+        }
+
+        .card .label {
+            font-size: 14px;
+            color: var(--text-light);
+            margin-top: 4px;
+        }
+
+        .card.sent .value { color: var(--accent); }
+        .card.clicks .value { color: var(--green); }
+        .card.rate .value { color: var(--orange); }
+        .card.removals .value { color: var(--red); }
+
+        .section {
+            background: var(--white);
+            border-radius: 12px;
+            padding: 24px;
+            box-shadow: var(--card-shadow);
+            margin-bottom: 24px;
+        }
+
+        .section h2 {
+            font-size: 20px;
+            margin-bottom: 20px;
+            padding-bottom: 12px;
+            border-bottom: 2px solid var(--border);
+        }
+
+        /* Bar Charts */
+        .chart-row {
+            display: flex;
+            align-items: center;
+            margin-bottom: 10px;
+            gap: 12px;
+        }
+
+        .chart-label {
+            min-width: 140px;
+            font-size: 13px;
+            text-align: left;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        .chart-bar-wrapper {
+            flex: 1;
+            height: 28px;
+            background: #f1f5f9;
+            border-radius: 6px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .chart-bar {
+            height: 100%;
+            border-radius: 6px;
+            transition: width 0.6s ease;
+            min-width: 2px;
+        }
+
+        .chart-bar.blue { background: linear-gradient(90deg, #3b82f6, #2563eb); }
+        .chart-bar.green { background: linear-gradient(90deg, #22c55e, #16a34a); }
+        .chart-bar.orange { background: linear-gradient(90deg, #fb923c, #ea580c); }
+        .chart-bar.default { background: linear-gradient(90deg, #94a3b8, #64748b); }
+
+        .chart-value {
+            min-width: 50px;
+            font-size: 13px;
+            font-weight: 700;
+            text-align: right;
+        }
+
+        /* Table */
+        .table-wrapper {
+            overflow-x: auto;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 14px;
+        }
+
+        th {
+            background: #f8fafc;
+            padding: 12px 16px;
+            text-align: right;
+            font-weight: 700;
+            border-bottom: 2px solid var(--border);
+            cursor: pointer;
+            user-select: none;
+            white-space: nowrap;
+        }
+
+        th:hover {
+            background: #eef2f7;
+        }
+
+        th .sort-arrow {
+            margin-right: 4px;
+            opacity: 0.3;
+        }
+
+        th.sorted .sort-arrow {
+            opacity: 1;
+        }
+
+        td {
+            padding: 10px 16px;
+            border-bottom: 1px solid var(--border);
+            text-align: right;
+        }
+
+        tr:hover td {
+            background: #f8fafc;
+        }
+
+        .loading {
+            text-align: center;
+            padding: 60px 20px;
+            color: var(--text-light);
+            font-size: 18px;
+        }
+
+        .error {
+            text-align: center;
+            padding: 40px 20px;
+            color: var(--red);
+            font-size: 16px;
+        }
+
+        @media (max-width: 768px) {
+            .container { padding: 16px; }
+            header h1 { font-size: 22px; }
+            .card .value { font-size: 28px; }
+            .chart-label { min-width: 100px; font-size: 12px; }
+            .section { padding: 16px; }
+            td, th { padding: 8px 10px; font-size: 13px; }
+        }
+
+        @media (max-width: 480px) {
+            .summary-cards { grid-template-columns: repeat(2, 1fr); gap: 10px; }
+            .card { padding: 14px; }
+            .card .value { font-size: 24px; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>דשבורד קמפיינים - אגרות פסח 2026</h1>
+            <p>מרכז חוסן "מגנים על העורף" - מחוז חיפה</p>
+            <p style="display:inline-block; background:#fef08a; color:#854d0e; padding:4px 16px; border-radius:20px; font-weight:700; font-size:15px; margin-top:8px;">המידע מעודכן מתאריך 30/3/2026 ועד לתאריך 31/03/2026 בשעה 18:30</p>
+        </header>
+
+        <div id="content">
+            <div class="loading">טוען נתונים...</div>
+        </div>
+    </div>
+
+    <script>
+        async function loadCSV() {
+            const response = await fetch('SMS-Campaigns-Report.csv');
+            if (!response.ok) throw new Error('Failed to load CSV');
+            return await response.text();
+        }
+
+        function parseCSV(text) {
+            const records = [];
+            let i = 0;
+            const len = text.length;
+
+            // Skip BOM if present
+            if (text.charCodeAt(0) === 0xFEFF) i = 1;
+
+            // Parse header line
+            const headerEnd = text.indexOf('\n', i);
+            const headers = text.substring(i, headerEnd).trim().split(',');
+            i = headerEnd + 1;
+
+            // Parse data rows - handle quoted fields with newlines
+            while (i < len) {
+                const fields = [];
+                while (i < len && text[i] !== '\n' || fields.length < headers.length) {
+                    if (i >= len) break;
+                    if (text[i] === '"') {
+                        // Quoted field
+                        i++; // skip opening quote
+                        let val = '';
+                        while (i < len) {
+                            if (text[i] === '"') {
+                                if (i + 1 < len && text[i + 1] === '"') {
+                                    val += '"';
+                                    i += 2;
+                                } else {
+                                    i++; // skip closing quote
+                                    break;
+                                }
+                            } else {
+                                val += text[i];
+                                i++;
+                            }
+                        }
+                        fields.push(val);
+                        if (i < len && text[i] === ',') i++;
+                    } else {
+                        // Unquoted field
+                        let val = '';
+                        while (i < len && text[i] !== ',' && text[i] !== '\n' && text[i] !== '\r') {
+                            val += text[i];
+                            i++;
+                        }
+                        fields.push(val.trim());
+                        if (i < len && text[i] === ',') i++;
+                    }
+
+                    if (fields.length >= headers.length) {
+                        // Skip to next line
+                        while (i < len && text[i] !== '\n') i++;
+                        if (i < len) i++; // skip \n
+                        break;
+                    }
+                }
+
+                if (fields.length >= headers.length) {
+                    records.push({
+                        message: fields[0],
+                        name: fields[1],
+                        created: fields[2],
+                        sent_date: fields[3],
+                        source: fields[4],
+                        sent: parseInt(fields[5]) || 0,
+                        not_received: parseInt(fields[6]) || 0,
+                        clicked: parseInt(fields[7]) || 0,
+                        click_pct: parseInt(fields[8]) || 0,
+                        removals: parseInt(fields[9]) || 0,
+                        removal_pct: parseInt(fields[10]) || 0,
+                        revenue: parseFloat(fields[11]) || 0,
+                        transactions: parseInt(fields[12]) || 0,
+                        avg_revenue: parseFloat(fields[13]) || 0
+                    });
+                }
+            }
+            return records;
+        }
+
+        function shortName(name) {
+            return name.replace(/ניהול אגרות פסח 2026 - /, '');
+        }
+
+        function render(data) {
+            const totalSent = data.reduce((s, r) => s + r.sent, 0);
+            const totalClicked = data.reduce((s, r) => s + r.clicked, 0);
+            const totalRemovals = data.reduce((s, r) => s + r.removals, 0);
+            const avgClickRate = totalSent > 0 ? Math.round((totalClicked / totalSent) * 100) : 0;
+            const maxSent = Math.max(...data.map(r => r.sent));
+            const maxClickPct = Math.max(...data.map(r => r.click_pct));
+
+            const sortedBySent = [...data].sort((a, b) => b.sent - a.sent);
+            const sortedByClick = [...data].sort((a, b) => b.click_pct - a.click_pct);
+
+            let html = `
+                <div class="summary-cards">
+                    <div class="card sent">
+                        <div class="value">${totalSent.toLocaleString()}</div>
+                        <div class="label">הודעות שנשלחו</div>
+                    </div>
+                    <div class="card clicks">
+                        <div class="value">${totalClicked.toLocaleString()}</div>
+                        <div class="label">סה"כ הקלקות</div>
+                    </div>
+                    <div class="card rate">
+                        <div class="value">${avgClickRate}%</div>
+                        <div class="label">אחוז הקלקה ממוצע</div>
+                    </div>
+                    <div class="card removals">
+                        <div class="value">${totalRemovals}</div>
+                        <div class="label">הסרות</div>
+                    </div>
+                </div>
+
+                <div class="section">
+                    <h2>הודעות שנשלחו לפי קמפיין</h2>
+                    ${sortedBySent.map(r => `
+                        <div class="chart-row">
+                            <div class="chart-label">${shortName(r.name)}</div>
+                            <div class="chart-bar-wrapper">
+                                <div class="chart-bar blue" style="width: ${(r.sent / maxSent) * 100}%"></div>
+                            </div>
+                            <div class="chart-value">${r.sent.toLocaleString()}</div>
+                        </div>
+                    `).join('')}
+                </div>
+
+                <div class="section">
+                    <h2>אחוז הקלקה לפי קמפיין</h2>
+                    ${sortedByClick.map(r => {
+                        let colorClass = 'default';
+                        if (r.click_pct >= 20) colorClass = 'green';
+                        else if (r.click_pct >= 15) colorClass = 'orange';
+                        return `
+                        <div class="chart-row">
+                            <div class="chart-label">${shortName(r.name)}</div>
+                            <div class="chart-bar-wrapper">
+                                <div class="chart-bar ${colorClass}" style="width: ${maxClickPct > 0 ? (r.click_pct / maxClickPct) * 100 : 0}%"></div>
+                            </div>
+                            <div class="chart-value">${r.click_pct}%</div>
+                        </div>`;
+                    }).join('')}
+                </div>
+
+                <div class="section">
+                    <h2>טבלת נתונים מלאה</h2>
+                    <div class="table-wrapper">
+                        <table id="dataTable">
+                            <thead>
+                                <tr>
+                                    <th data-col="name" data-type="string">שם קמפיין <span class="sort-arrow">&#x25B2;</span></th>
+                                    <th data-col="sent_date" data-type="string">תאריך שליחה <span class="sort-arrow">&#x25B2;</span></th>
+                                    <th data-col="sent" data-type="number">נשלחו <span class="sort-arrow">&#x25B2;</span></th>
+                                    <th data-col="not_received" data-type="number">לא התקבלו <span class="sort-arrow">&#x25B2;</span></th>
+                                    <th data-col="clicked" data-type="number">הקליקו <span class="sort-arrow">&#x25B2;</span></th>
+                                    <th data-col="click_pct" data-type="number">% הקלקה <span class="sort-arrow">&#x25B2;</span></th>
+                                    <th data-col="removals" data-type="number">הסרות <span class="sort-arrow">&#x25B2;</span></th>
+                                    <th data-col="removal_pct" data-type="number">% הסרות <span class="sort-arrow">&#x25B2;</span></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                ${sortedBySent.map(r => `
+                                    <tr>
+                                        <td>${shortName(r.name)}</td>
+                                        <td>${r.sent_date}</td>
+                                        <td>${r.sent.toLocaleString()}</td>
+                                        <td>${r.not_received}</td>
+                                        <td>${r.clicked}</td>
+                                        <td>${r.click_pct}%</td>
+                                        <td>${r.removals}</td>
+                                        <td>${r.removal_pct}%</td>
+                                    </tr>
+                                `).join('')}
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            `;
+
+            document.getElementById('content').innerHTML = html;
+            setupTableSort(data);
+        }
+
+        function setupTableSort(data) {
+            const table = document.getElementById('dataTable');
+            if (!table) return;
+            const headers = table.querySelectorAll('th');
+            let currentSort = { col: null, asc: true };
+
+            headers.forEach(th => {
+                th.addEventListener('click', () => {
+                    const col = th.dataset.col;
+                    const type = th.dataset.type;
+                    const asc = currentSort.col === col ? !currentSort.asc : false;
+                    currentSort = { col, asc };
+
+                    const sorted = [...data].sort((a, b) => {
+                        let va = col === 'name' ? shortName(a[col]) : a[col];
+                        let vb = col === 'name' ? shortName(b[col]) : b[col];
+                        if (type === 'number') return asc ? va - vb : vb - va;
+                        return asc ? String(va).localeCompare(String(vb), 'he') : String(vb).localeCompare(String(va), 'he');
+                    });
+
+                    const tbody = table.querySelector('tbody');
+                    tbody.innerHTML = sorted.map(r => `
+                        <tr>
+                            <td>${shortName(r.name)}</td>
+                            <td>${r.sent_date}</td>
+                            <td>${r.sent.toLocaleString()}</td>
+                            <td>${r.not_received}</td>
+                            <td>${r.clicked}</td>
+                            <td>${r.click_pct}%</td>
+                            <td>${r.removals}</td>
+                            <td>${r.removal_pct}%</td>
+                        </tr>
+                    `).join('');
+
+                    headers.forEach(h => h.classList.remove('sorted'));
+                    th.classList.add('sorted');
+                    th.querySelector('.sort-arrow').innerHTML = asc ? '&#x25B2;' : '&#x25BC;';
+                });
+            });
+        }
+
+        async function init() {
+            try {
+                const csvText = await loadCSV();
+                const data = parseCSV(csvText);
+                if (data.length === 0) {
+                    document.getElementById('content').innerHTML = '<div class="error">לא נמצאו נתונים בקובץ ה-CSV</div>';
+                    return;
+                }
+                render(data);
+            } catch (err) {
+                document.getElementById('content').innerHTML =
+                    `<div class="error">שגיאה בטעינת הנתונים: ${err.message}<br><small>יש להריץ דרך שרת HTTP (למשל: npx http-server)</small></div>`;
+            }
+        }
+
+        init();
+    </script>
+</body>
+</html>
