@@ -1240,13 +1240,16 @@ Style: ultra realistic, epic, sacred, cinematic, 8K.</pre>
       });
     });
 
-    document.getElementById('copyAllBtn').addEventListener('click', () => {
-      const all = [...document.querySelectorAll('pre')].map((pre, i) => {
-        const title = pre.closest('.card').querySelector('h2').innerText;
-        return `### ${i + 1}. ${title}\n\n${pre.innerText}`;
-      }).join('\n\n');
-      copyText(all);
-    });
+    const copyAllBtn = document.getElementById('copyAllBtn');
+    if (copyAllBtn) {
+      copyAllBtn.addEventListener('click', () => {
+        const all = [...document.querySelectorAll('pre')].map((pre, i) => {
+          const title = pre.closest('.card').querySelector('h2').innerText;
+          return `### ${i + 1}. ${title}\n\n${pre.innerText}`;
+        }).join('\n\n');
+        copyText(all);
+      });
+    }
 
     document.getElementById('jumpSelect').addEventListener('change', (e) => {
       if (!e.target.value) return;
