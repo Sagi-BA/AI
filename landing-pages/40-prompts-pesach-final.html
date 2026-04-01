@@ -1,0 +1,1285 @@
+<!-- https://sagi-ba.github.io/AI/landing-pages/40-prompts-pesach-final.html -->
+<!-- http://127.0.0.1:8080/landing-pages/40-prompts-pesach-final.html -->
+<!DOCTYPE html>
+
+<html dir="rtl" lang="he">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>40 הפרומפטים לפסח</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;700;800&display=swap" rel="stylesheet">
+<style>
+    :root {
+      --bg: #1a1008;
+      --panel: #231a0e;
+      --panel-2: #2c2013;
+      --text: #f5f0e6;
+      --muted: #d4cbb8;
+      --accent: #d4af37;
+      --accent-2: #a3841f;
+      --border: rgba(212,175,55,.12);
+      --success: #2dce89;
+      --shadow: 0 18px 50px rgba(0,0,0,.4);
+      --radius: 18px;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      font-family: "Heebo", "Assistant", Arial, sans-serif;
+      background:
+        radial-gradient(circle at top right, rgba(212,175,55,.18), transparent 30%),
+        radial-gradient(circle at bottom left, rgba(139,69,19,.12), transparent 40%),
+        linear-gradient(180deg, #1a1008 0%, #140c04 100%);
+      color: var(--text);
+      font-size: 18px;
+      line-height: 1.65;
+    }
+
+    .hero {
+      padding: 34px 20px 24px;
+      border-bottom: 2px solid rgba(212,175,55,.2);
+      background: linear-gradient(180deg, rgba(212,175,55,.06), rgba(139,69,19,.03), transparent);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::after {
+      content: "";
+      position: absolute;
+      inset: auto -80px -90px auto;
+      width: 300px;
+      height: 300px;
+      background: radial-gradient(circle, rgba(212,175,55,.15), transparent 70%);
+      filter: blur(12px);
+      pointer-events: none;
+    }
+
+    .hero-inner {
+      max-width: 1260px;
+      margin: 0 auto;
+    }
+
+    h1 {
+      margin: 0 0 10px;
+      font-size: clamp(28px, 4vw, 46px);
+      line-height: 1.08;
+    }
+
+    .subtitle {
+      margin: 0;
+      color: var(--muted);
+      font-size: 16px;
+      max-width: 950px;
+    }
+
+    .topbar {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      backdrop-filter: blur(14px);
+      background: rgba(26, 16, 8, 0.92);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .topbar-inner {
+      max-width: 1260px;
+      margin: 0 auto;
+      padding: 12px 20px;
+      display: flex;
+      gap: 12px;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+
+    .search {
+      flex: 1 1 260px;
+      min-width: 220px;
+      background: var(--panel);
+      color: var(--text);
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      padding: 14px 18px;
+      outline: none;
+      font-size: 16px;
+      font-family: inherit;
+    }
+
+    .jump {
+      background: var(--panel);
+      color: var(--text);
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      padding: 14px 18px;
+      font-size: 16px;
+      min-width: 220px;
+      font-family: inherit;
+    }
+
+    .copy-all {
+      background: linear-gradient(180deg, #e2be4f, #b38817);
+      color: #1b1402;
+      border: none;
+      border-radius: 999px;
+      padding: 14px 18px;
+      font-weight: 700;
+      font-size: 16px;
+      cursor: pointer;
+      font-family: inherit;
+    }
+
+    .layout {
+      max-width: 1260px;
+      margin: 0 auto;
+      padding: 20px;
+      display: grid;
+      grid-template-columns: 290px 1fr;
+      gap: 20px;
+    }
+
+    .sidebar {
+      position: sticky;
+      top: 78px;
+      align-self: start;
+      background: rgba(35, 26, 14, 0.88);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding: 16px;
+      max-height: calc(100vh - 110px);
+      overflow: auto;
+    }
+
+    .sidebar h3 {
+      margin: 0 0 12px;
+      font-size: 20px;
+      color: var(--accent);
+    }
+
+    .timeline {
+      display: grid;
+      gap: 8px;
+    }
+
+    .timeline a {
+      display: block;
+      color: var(--muted);
+      text-decoration: none;
+      background: var(--panel-2);
+      border: 1px solid transparent;
+      padding: 11px 14px;
+      border-radius: 12px;
+      transition: .18s ease;
+      font-size: 15px;
+    }
+
+    .timeline a:hover {
+      color: var(--accent);
+      border-color: rgba(212,175,55,.4);
+      background: rgba(212,175,55,.08);
+      transform: translateX(-2px);
+    }
+
+    .content {
+      display: grid;
+      gap: 16px;
+    }
+
+    .card {
+      background: rgba(35, 26, 14, 0.85);
+      border: 1px solid rgba(212,175,55,.15);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      overflow: hidden;
+    }
+
+    .card-head {
+      display: flex;
+      gap: 16px;
+      align-items: flex-start;
+      padding: 20px;
+      border-bottom: 1px solid rgba(212,175,55,.1);
+    }
+
+    .num {
+      min-width: 58px;
+      height: 58px;
+      display: grid;
+      place-items: center;
+      border-radius: 16px;
+      background: linear-gradient(180deg, rgba(212,175,55,.28), rgba(139,69,19,.22));
+      border: 1px solid rgba(212,175,55,.3);
+      color: #f7dd88;
+      font-weight: 800;
+      font-size: 20px;
+    }
+
+    .titles {
+      flex: 1;
+    }
+
+    .titles h2 {
+      margin: 0 0 6px;
+      font-size: clamp(22px, 2.3vw, 30px);
+      line-height: 1.2;
+    }
+
+    .desc {
+      margin: 0;
+      color: var(--muted);
+      font-size: 16px;
+      line-height: 1.6;
+    }
+
+    .copy-btn {
+      margin-inline-start: auto;
+      background: rgba(212,175,55,.08);
+      color: var(--accent);
+      border: 1px solid rgba(212,175,55,.35);
+      border-radius: 12px;
+      padding: 13px 18px;
+      cursor: pointer;
+      font-weight: 700;
+      font-size: 16px;
+      white-space: nowrap;
+      font-family: inherit;
+      transition: .18s ease;
+    }
+
+    .copy-btn:hover {
+      background: rgba(212,175,55,.18);
+      border-color: rgba(212,175,55,.5);
+    }
+
+    .prompt-wrap {
+      padding: 0;
+    }
+
+    pre {
+      margin: 0;
+      padding: 20px;
+      white-space: pre-wrap;
+      word-break: break-word;
+      background: rgba(15, 10, 4, 0.8);
+      color: #ede8dc;
+      font-family: "Consolas", "Courier New", monospace;
+      font-size: 15px;
+      line-height: 1.7;
+      direction: ltr;
+      text-align: left;
+      overflow-x: auto;
+    }
+
+    .footer {
+      max-width: 1260px;
+      margin: 0 auto;
+      padding: 8px 20px 34px;
+      color: var(--muted);
+      text-align: center;
+      font-size: 16px;
+    }
+
+    .toast {
+      position: fixed;
+      left: 20px;
+      bottom: 20px;
+      background: rgba(45, 206, 137, 0.95);
+      color: #072112;
+      padding: 12px 14px;
+      border-radius: 12px;
+      font-weight: 700;
+      box-shadow: var(--shadow);
+      opacity: 0;
+      transform: translateY(8px);
+      pointer-events: none;
+      transition: .22s ease;
+    }
+
+    .toast.show {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .hidden {
+      display: none !important;
+    }
+
+    @media (max-width: 980px) {
+      .layout {
+        grid-template-columns: 1fr;
+      }
+
+      .sidebar {
+        position: static;
+        max-height: none;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .card-head {
+        flex-wrap: wrap;
+      }
+
+      .copy-btn {
+        width: 100%;
+      }
+
+      .topbar-inner {
+        padding: 10px 14px;
+      }
+
+      .hero {
+        padding: 28px 14px 18px;
+      }
+
+      .layout {
+        padding: 14px;
+      }
+    }
+  </style>
+</head>
+<body>
+<header class="hero">
+<div class="hero-inner" style="text-align:center;">
+<div style="font-size:48px; margin-bottom:8px;">🍷✡️🕯️</div>
+<h1 style="font-size:clamp(30px, 4.5vw, 48px); color:#d4af37; margin-bottom:6px;">40 הפרומפטים לפסח</h1>
+<p style="color:var(--muted); font-size:18px; margin:0 0 20px;">הכניסו את עצמכם לסיפור יציאת מצרים עם בינה מלאכותית</p>
+<div style="white-space: normal; line-height: 2; max-width:600px; margin:0 auto; background:rgba(212,175,55,.06); border:1px solid rgba(212,175,55,.15); border-radius:16px; padding:20px 24px; text-align:right; font-size:17px;">
+<div style="font-weight:700; margin-bottom:10px; text-align:center; color:#d4af37; font-size:19px;">איך משתמשים?</div>
+<div>1. העלו תמונה שלכם ל־Nano Banana או Seedream</div>
+<div>2. בחרו את הסצנה הרצויה מתוך הרשימה</div>
+<div>3. העתיקו את הפרומפט בלחיצה אחת</div>
+<div>4. הדביקו במערכת שבחרתם</div>
+<div>5. הגדירו יחס גובה-רוחב בהתאם לפלט הרצוי</div>
+<div>6. צרו את התמונה</div>
+<div style="margin-top:14px; font-weight:700; text-align:center; color:#d4af37; font-size:19px;">🔓 צאו מעבדות לחירות</div>
+</div>
+</div>
+</header>
+<div class="topbar">
+<div class="topbar-inner">
+<input class="search" id="searchInput" placeholder="חפש לפי שם סצנה או מילים בתיאור..." type="text"/>
+<select class="jump" id="jumpSelect">
+<option value="">קפיצה מהירה לסצנה...</option>
+<option value="scene-01">01. משה בתיבה על הנילוס</option><option value="scene-02">02. משה גדל בארמון מצרים</option><option value="scene-03">03. משה רואה עבד עברי מוכה</option><option value="scene-04">04. משה הורג את המצרי</option><option value="scene-05">05. משה נמלט למדבר</option><option value="scene-06">06. משה ליד באר במדין</option><option value="scene-07">07. משה כרועה צאן</option><option value="scene-08">08. הסנה הבוער</option><option value="scene-09">09. משה חוזר למצרים</option><option value="scene-10">10. משה ואהרון נפגשים</option><option value="scene-11">11. משה ואהרון מול פרעה</option><option value="scene-12">12. המטה הופך לנחש</option><option value="scene-13">13. מכת דם</option><option value="scene-14">14. מכת צפרדעים</option><option value="scene-15">15. מכת כינים</option><option value="scene-16">16. מכת ערוב</option><option value="scene-17">17. מכת דבר</option><option value="scene-18">18. מכת שחין</option><option value="scene-19">19. מכת ברד</option><option value="scene-20">20. אש וברד יחד</option><option value="scene-21">21. מכת ארבה</option><option value="scene-22">22. מכת חושך</option><option value="scene-23">23. פרעה נשבר בלילה</option><option value="scene-24">24. ליל בכורות ברחוב המצרי</option><option value="scene-25">25. יציאת מצרים</option><option value="scene-26">26. העם נושא בצק וכלים</option><option value="scene-27">27. עמוד ענן ביום</option><option value="scene-28">28. עמוד האש בלילה</option><option value="scene-29">29. פרעה מחליט לרדוף</option><option value="scene-30">30. המרכבות יוצאות למרדף</option><option value="scene-31">31. מרדף המרכבות</option><option value="scene-32">32. בני ישראל מול הים</option><option value="scene-33">33. משה מרים את המטה מול הים</option><option value="scene-34">34. קריעת ים סוף</option><option value="scene-35">35. המעבר בין חומות המים</option><option value="scene-36">36. הים נסגר על המצרים</option><option value="scene-37">37. שירת הים</option><option value="scene-38">38. המן במדבר</option><option value="scene-39">39. משה על הר סיני</option><option value="scene-40">40. משה עם לוחות הברית</option>
+</select>
+</div>
+</div>
+<main class="layout">
+<aside class="sidebar">
+<h3>ציר כרונולוגי</h3>
+<nav class="timeline" id="timelineNav">
+<a href="#scene-01">01. משה בתיבה על הנילוס</a><a href="#scene-02">02. משה גדל בארמון מצרים</a><a href="#scene-03">03. משה רואה עבד עברי מוכה</a><a href="#scene-04">04. משה הורג את המצרי</a><a href="#scene-05">05. משה נמלט למדבר</a><a href="#scene-06">06. משה ליד באר במדין</a><a href="#scene-07">07. משה כרועה צאן</a><a href="#scene-08">08. הסנה הבוער</a><a href="#scene-09">09. משה חוזר למצרים</a><a href="#scene-10">10. משה ואהרון נפגשים</a><a href="#scene-11">11. משה ואהרון מול פרעה</a><a href="#scene-12">12. המטה הופך לנחש</a><a href="#scene-13">13. מכת דם</a><a href="#scene-14">14. מכת צפרדעים</a><a href="#scene-15">15. מכת כינים</a><a href="#scene-16">16. מכת ערוב</a><a href="#scene-17">17. מכת דבר</a><a href="#scene-18">18. מכת שחין</a><a href="#scene-19">19. מכת ברד</a><a href="#scene-20">20. אש וברד יחד</a><a href="#scene-21">21. מכת ארבה</a><a href="#scene-22">22. מכת חושך</a><a href="#scene-23">23. פרעה נשבר בלילה</a><a href="#scene-24">24. ליל בכורות ברחוב המצרי</a><a href="#scene-25">25. יציאת מצרים</a><a href="#scene-26">26. העם נושא בצק וכלים</a><a href="#scene-27">27. עמוד ענן ביום</a><a href="#scene-28">28. עמוד האש בלילה</a><a href="#scene-29">29. פרעה מחליט לרדוף</a><a href="#scene-30">30. המרכבות יוצאות למרדף</a><a href="#scene-31">31. מרדף המרכבות</a><a href="#scene-32">32. בני ישראל מול הים</a><a href="#scene-33">33. משה מרים את המטה מול הים</a><a href="#scene-34">34. קריעת ים סוף</a><a href="#scene-35">35. המעבר בין חומות המים</a><a href="#scene-36">36. הים נסגר על המצרים</a><a href="#scene-37">37. שירת הים</a><a href="#scene-38">38. המן במדבר</a><a href="#scene-39">39. משה על הר סיני</a><a href="#scene-40">40. משה עם לוחות הברית</a>
+</nav>
+</aside>
+<div class="content" id="cardsContainer">
+<section class="card" id="scene-01">
+<div class="card-head">
+<div class="num">01</div>
+<div class="titles">
+<h2>משה בתיבה על הנילוס</h2>
+<p class="desc">תינוק משה, בדמות צעירה של הדמות המצורפת, שוכב בתיבה על מי הנילוס בין קנים ואור בוקר רך.</p>
+</div>
+<button class="copy-btn" data-target="prompt-01">העתק PR</button>
+</div>
+<div class="prompt-wrap">
+<pre id="prompt-01">Use the attached image as the exact identity reference. Create a baby version of the same person while preserving recognizable facial identity and features.
+
+Create a hyper-realistic cinematic scene of baby Moses floating in a small woven basket on the Nile River. The baby, based on the attached character, lies inside the basket, wrapped in simple cloth, calm and innocent. The basket gently floats among reeds and soft ripples in the water.
+
+The environment is lush and natural: tall green reeds, soft sunlight reflecting on the water, slight mist in the air. The moment feels peaceful but meaningful, with a sense of destiny. The baby’s face must be visible and recognizable as a younger version of the attached character.
+
+Camera: close cinematic shot from slightly above, focusing on the basket and baby.
+Style: ultra realistic, soft natural lighting, emotional, 8K.</pre>
+</div>
+</section>
+<section class="card" id="scene-02">
+<div class="card-head">
+<div class="num">02</div>
+<div class="titles">
+<h2>משה גדל בארמון מצרים</h2>
+<p class="desc">הדמות כמשה צעיר בתוך ארמון מצרי, רגע שמדגיש את חייו בין עושר, זהב וסמלי שלטון.</p>
+</div>
+<button class="copy-btn" data-target="prompt-02">העתק PR</button>
+</div>
+<div class="prompt-wrap">
+<pre id="prompt-02">Use the attached image as the exact identity reference for young Moses. Do not redesign or alter the face in any way. Preserve maximum facial accuracy.
+
+The character must be dressed in authentic ancient Egyptian royal court clothing appropriate to the period: refined linen garments, elegant Egyptian collar, period-accurate fabrics, sandals, and subtle palace-level styling.
+
+Create a hyper-realistic cinematic scene of young Moses growing up inside Pharaoh’s palace. The attached character stands in a luxurious ancient Egyptian hall surrounded by tall columns, carved hieroglyphs, polished stone floors, golden details, and royal atmosphere. His expression is thoughtful, intelligent, and slightly conflicted, as if he belongs there but feels something deeper.
+
+Camera: medium cinematic shot, palace depth behind him.
+Style: ultra realistic, royal, dramatic yet elegant, 8K.</pre>
+</div>
+</section>
+<section class="card" id="scene-03">
+<div class="card-head">
+<div class="num">03</div>
+<div class="titles">
+<h2>משה רואה עבד עברי מוכה</h2>
+<p class="desc">רגע טעון שבו משה עד למצרי המכה עבד עברי באתר עבודה במדבר.</p>
+</div>
+<button class="copy-btn" data-target="prompt-03">העתק PR</button>
+</div>
+<div class="prompt-wrap">
+<pre id="prompt-03">Use the attached image as the exact identity reference for Moses. Do not redesign or alter the face in any way. Preserve maximum facial accuracy.
+
+The character must be dressed in authentic ancient Egyptian clothing appropriate to the period: light linen garments, realistic fabric texture, slightly dusty from the environment, simple court-level styling, with period-accurate details such as a wrapped tunic, belt, and sandals.
+
+Create a hyper-realistic cinematic scene where Moses witnesses an Egyptian overseer beating a Hebrew slave. The attached character stands tense and disturbed in a sandy labor site with bricks, baskets, tools, and half-built structures. His expression shows outrage, compassion, and inner conflict just before action.
+
+Camera: medium-close cinematic shot, focusing on Moses’ emotional reaction while the violence unfolds in the background.
+Style: ultra realistic, dramatic, raw biblical realism, 8K.</pre>
+</div>
+</section>
+<section class="card" id="scene-04">
+<div class="card-head">
+<div class="num">04</div>
+<div class="titles">
+<h2>משה הורג את המצרי</h2>
+<p class="desc">רגע הפיצוץ שבו משה מבין שעבר נקודת אל חזור לאחר שהכה את המצרי.</p>
+</div>
+<button class="copy-btn" data-target="prompt-04">העתק PR</button>
+</div>
+<div class="prompt-wrap">
+<pre id="prompt-04">Use the attached image as the exact identity reference for Moses. Do not redesign or alter the face in any way. Preserve maximum facial accuracy.
+
+The character must be dressed in authentic ancient Egyptian clothing appropriate to the period: light linen garments, realistic fabric texture, slightly dusty from the environment, simple worker-level styling, with period-accurate details such as a wrapped tunic, belt, and sandals.
+
+Create a hyper-realistic cinematic scene where Moses, the attached character, is in a tense moment after striking an Egyptian. His expression is intense, conflicted, and shocked by his own action.
+
+The environment is a sandy construction area in ancient Egypt, with bricks, tools, and a fallen Egyptian soldier on the ground. Dust in the air, harsh sunlight, dramatic tension.
+
+Camera: medium-close cinematic shot, focusing on Moses’ face and emotional intensity.
+Style: ultra realistic, dramatic, raw biblical realism, 8K.</pre>
+</div>
+</section>
+<section class="card" id="scene-05">
+<div class="card-head">
+<div class="num">05</div>
+<div class="titles">
+<h2>משה נמלט למדבר</h2>
+<p class="desc">בריחה בודדה דרך מרחבי חול עצומים, עם תחושת ניתוק, פחד והתחלה חדשה.</p>
+</div>
+<button class="copy-btn" data-target="prompt-05">העתק PR</button>
+</div>
+<div class="prompt-wrap">
+<pre id="prompt-05">Use the attached image as the exact identity reference for Moses. Do not redesign or alter the face in any way. Preserve maximum facial accuracy.
+
+The character must be dressed in authentic ancient Egyptian clothing suitable for travel: lightweight linen garments, slightly worn, dusty, and affected by the harsh desert environment, with simple sandals and optional cloth wrap.
+
+Create a cinematic desert escape scene. Moses, the attached character, is walking alone through a vast desert landscape, exhausted but determined. His clothes show signs of travel and exposure to heat and sand, and he carries a wooden staff.
+
+The environment is wide, empty, and harsh: endless sand, distant mountains, strong sunlight, and heat haze. The mood is isolation, transition, and survival.
+
+Camera: wide cinematic shot, Moses small in frame, emphasizing loneliness.
+Style: ultra realistic, epic desert, strong sunlight, 8K.</pre>
+</div>
+</section>
+<section class="card" id="scene-06">
+<div class="card-head">
+<div class="num">06</div>
+<div class="titles">
+<h2>משה ליד באר במדין</h2>
+<p class="desc">משה מגיע זר ועייף למדין, נעצר ליד באר במדבר עם רגע של מנוחה והמתנה.</p>
+</div>
+<button class="copy-btn" data-target="prompt-06">העתק PR</button>
+</div>
+<div class="prompt-wrap">
+<pre id="prompt-06">Use the attached image as the exact identity reference for Moses. Do not redesign or alter the face. Preserve maximum facial accuracy.
+
+The character must be dressed in authentic ancient Near Eastern desert clothing suitable for a traveler in Midian: simple layered linen or wool garments, dusty fabric, sandals, and a practical cloth wrap.
+
+Create a hyper-realistic cinematic scene of Moses resting beside a desert well in Midian. The attached character stands or sits near the stone well, dusty and tired from the journey, holding a staff and looking alert yet relieved. The environment includes rough stones, desert light, water bucket details, and a quiet desert atmosphere.
+
+Camera: medium-wide cinematic shot with the well clearly visible.
+Style: ultra realistic, warm sunlight, grounded historical realism, 8K.</pre>
+</div>
+</section>
+<section class="card" id="scene-07">
+<div class="card-head">
+<div class="num">07</div>
+<div class="titles">
+<h2>משה כרועה צאן</h2>
+<p class="desc">משה כרועה שקט במדבר, רגע נינוח שמרגיש כמו השקט שלפני השליחות הגדולה.</p>
+</div>
+<button class="copy-btn" data-target="prompt-07">העתק PR</button>
+</div>
+<div class="prompt-wrap">
+<pre id="prompt-07">Use the attached image as the exact identity reference for Moses. Do not redesign or alter the face in any way. Preserve maximum facial accuracy.
+
+The character must be dressed in authentic ancient Egyptian desert-era clothing adapted for shepherd life: simple linen garments, slightly worn and dusty, natural tones, with a cloth wrap or light head covering, and sandals.
+
+Create a peaceful cinematic scene of Moses as a shepherd in the desert. The attached character stands among a flock of sheep, calm and grounded, holding a wooden staff.
+
+The environment is warm and quiet, with soft sunset light, gentle wind, and a natural desert setting. This is a calm, reflective moment before destiny unfolds.
+
+Camera: medium-wide shot, Moses central among sheep.
+Style: ultra realistic, soft lighting, peaceful atmosphere, 8K.</pre>
+</div>
+</section>
+<section class="card" id="scene-08">
+<div class="card-head">
+<div class="num">08</div>
+<div class="titles">
+<h2>הסנה הבוער</h2>
+<p class="desc">רגע ההתגלות. משה מול שיח בוער שאינו נאכל, בלילה מדברי טעון מסתורין.</p>
+</div>
+<button class="copy-btn" data-target="prompt-08">העתק PR</button>
+</div>
+<div class="prompt-wrap">
+<pre id="prompt-08">Use the attached image as the exact identity reference for Moses. Do not redesign, alter, or reinterpret the face in any way. Preserve maximum facial accuracy, skin tone, facial structure, and overall identity.
+
+Create a super realistic cinematic biblical scene in the desert at night. The attached character appears as Moses, standing alone in front of a glowing burning bush that is on fire but not consumed. He wears simple ancient biblical robes in natural earth tones, slightly dusty from the desert, and holds a wooden staff. His expression is stunned, emotional, full of awe and divine fear.
+
+The environment is dark and silent, with only the supernatural fire illuminating his face and body. Warm glowing light from the bush reflects on his skin and robe. The desert around him is dim, with subtle rocks and sand visible in the darkness. Thin smoke and glowing embers rise softly around the bush. The scene must feel holy, mysterious, dramatic, and deeply cinematic.
+
+Camera: medium-wide cinematic shot, slightly low angle, Moses facing the burning bush, both clearly visible.
+Style: ultra realistic, epic biblical atmosphere, dramatic lighting, 8K, photorealistic.</pre>
+</div>
+</section>
+<section class="card" id="scene-09">
+<div class="card-head">
+<div class="num">09</div>
+<div class="titles">
+<h2>משה חוזר למצרים</h2>
+<p class="desc">מסע החזרה, כשהדמות צועדת לעבר עתידה מול קו אופק מצרי מתקרב.</p>
+</div>
+<button class="copy-btn" data-target="prompt-09">העתק PR</button>
+</div>
+<div class="prompt-wrap">
+<pre id="prompt-09">Use the attached image as the exact identity reference for Moses. Do not redesign or alter the face. Preserve maximum facial accuracy.
+
+The character must wear authentic travel clothing of the Exodus period: desert-worn layered garments, sandals, cloth wrap, and practical textures affected by wind and dust.
+
+Create a cinematic scene of Moses returning toward Egypt after the divine calling. The attached character walks with determined purpose through a desert route, with distant Egyptian silhouettes, palm trees, or monumental structures barely visible on the horizon. His expression is focused, burdened, and resolute.
+
+Camera: wide cinematic shot with Moses advancing toward the frame direction of Egypt.
+Style: ultra realistic, epic journey mood, warm desert light, 8K.</pre>
+</div>
+</section>
+<section class="card" id="scene-10">
+<div class="card-head">
+<div class="num">10</div>
+<div class="titles">
+<h2>משה ואהרון נפגשים</h2>
+<p class="desc">מפגש אחים טעון רגש אחרי שנים, רגע של חיבור לפני ההתמודדות מול פרעה.</p>
+</div>
+<button class="copy-btn" data-target="prompt-10">העתק PR</button>
+</div>
+<div class="prompt-wrap">
+<pre id="prompt-10">Use the attached image as the exact identity reference. The same person must appear twice in the scene as two distinct brothers, Moses and Aaron. Do not redesign or alter the face in any way. Preserve maximum facial accuracy.
+
+Create a hyper-realistic cinematic reunion scene in the desert or near a rocky path. Moses and Aaron, both based on the attached character, stand facing each other in an emotional first meeting. Moses appears slightly more weathered and burdened, Aaron slightly more grounded and welcoming. Both wear historically accurate biblical garments suitable to the Exodus period.
+
+Camera: medium-wide cinematic shot with both brothers clearly visible.
+Style: ultra realistic, emotional, warm light, 8K.</pre>
+</div>
+</section>
+<section class="card" id="scene-11">
+<div class="card-head">
+<div class="num">11</div>
+<div class="titles">
+<h2>משה ואהרון מול פרעה</h2>
+<p class="desc">העימות הראשון בארמון, משה ואהרון ניצבים מול פרעה בכוח ובנחישות.</p>
+</div>
+<button class="copy-btn" data-target="prompt-11">העתק PR</button>
+</div>
+<div class="prompt-wrap">
+<pre id="prompt-11">Use the attached image as the exact identity reference. The same person must appear three times as Moses, Aaron, and Pharaoh.
+
+Create a hyper-realistic cinematic throne room scene in ancient Egypt. The attached character appears as Moses and Aaron standing together, facing Pharaoh, who is also the same person styled differently.
+
+Moses: simple robes, holding a staff, calm and strong.
+Aaron: similar but slightly different styling, supportive stance.
+Pharaoh: elevated, richly dressed, powerful and arrogant, wearing authentic royal Egyptian attire, headdress, collar, and jewelry.
+
+All faces must clearly be the same person. Massive Egyptian palace environment, golden decorations, dramatic lighting.
+
+Camera: wide cinematic shot, clear composition between the three figures.
+Style: ultra realistic, epic, 8K.</pre>
+</div>
+</section>
+<section class="card" id="scene-12">
+<div class="card-head">
+<div class="num">12</div>
+<div class="titles">
+<h2>המטה הופך לנחש</h2>
+<p class="desc">נס ראשון בארמון. מטה נזרק לרצפה והופך לנחש לעיני פרעה ואנשיו.</p>
+</div>
+<button class="copy-btn" data-target="prompt-12">העתק PR</button>
+</div>
+<div class="prompt-wrap">
+<pre id="prompt-12">Use the attached image as the exact identity reference for Moses.
+
+Create a dramatic cinematic moment where Moses, the attached character, throws his staff to the ground and it transforms into a snake. His expression is focused and powerful.
+
+The scene is inside Pharaoh’s palace, with Egyptian magicians in the background reacting. The snake is mid-transformation, dynamic and realistic. Moses wears historically accurate biblical robes. Egyptian figures wear authentic ancient Egyptian garments.
+
+Camera: medium cinematic shot capturing both Moses and the transforming staff.
+Style: ultra realistic, magical realism, dramatic lighting, 8K.</pre>
+</div>
+</section>
+<section class="card" id="scene-13">
+<div class="card-head">
+<div class="num">13</div>
+<div class="titles">
+<h2>מכת דם</h2>
+<p class="desc">מי הנילוס הופכים לדם. הדמות עדה לזעזוע על גדת הנהר האדום.</p>
+</div>
+<button class="copy-btn" data-target="prompt-13">העתק PR</button>
+</div>
+<div class="prompt-wrap">
+<pre id="prompt-13">Use the attached image as the exact identity reference for the main character. Do not redesign or alter the face in any way. Preserve maximum facial accuracy.
+
+The character must be dressed in authentic ancient Egyptian clothing appropriate to the Exodus period: linen garments, period-accurate cuts, simple or noble styling depending on status, natural fabrics, sandals, and optional Egyptian accessories such as collars or head cloth.
+
+Create a hyper-realistic cinematic ancient Egypt scene during the plague of blood. The attached character appears as a shocked witness standing at the edge of the Nile River, watching the water turn deep red like blood. His face is clearly visible and full of intense emotion, shock, fear, and awe.
+
+The Nile is dramatically red, with dead fish floating near the surface and disturbed ripples in the water. Ancient Egyptian architecture, columns, boats, and distant palm trees are visible in the background.
+
+Camera: cinematic medium shot or medium-wide shot, character near the riverbank, face clearly visible.
+Style: ultra realistic, historical biblical realism, dramatic color contrast, detailed textures, 8K.</pre>
+</div>
+</section>
+<section class="card" id="scene-14">
+<div class="card-head">
+<div class="num">14</div>
+<div class="titles">
+<h2>מכת צפרדעים</h2>
+<p class="desc">צפרדעים ממלאות את מצרים. הדמות מוקפת בהן בתוך חלל מצרי או רחוב אבן.</p>
+</div>
+<button class="copy-btn" data-target="prompt-14">העתק PR</button>
+</div>
+<div class="prompt-wrap">
+<pre id="prompt-14">Use the attached image as the exact identity reference for the main character. Do not redesign or alter the face in any way. Preserve maximum facial accuracy.
+
+The character must be dressed in authentic ancient Egyptian clothing appropriate to the Exodus period: light linen garments, period-accurate cuts, natural fabrics, sandals, optional Egyptian accessories such as collars or head cloth.
+
+Create a hyper-realistic cinematic scene during the plague of frogs in ancient Egypt. The attached character stands in the center of the frame, reacting with shock and discomfort as dozens of frogs surround him.
+
+Frogs are everywhere: on the ground, climbing on stone steps, on walls, even jumping in the air. Some are near his feet, some mid-jump. The environment includes Egyptian stone architecture, columns, and shallow water areas.
+
+Camera: medium cinematic shot, character centered, frogs in foreground and background.
+Style: ultra realistic, detailed textures, dramatic lighting, 8K.</pre>
+</div>
+</section>
+<section class="card" id="scene-15">
+<div class="card-head">
+<div class="num">15</div>
+<div class="titles">
+<h2>מכת כינים</h2>
+<p class="desc">מכה אישית, מטרידה וצפופה. הדמות מתמודדת עם אי נוחות וגועל קיצוני.</p>
+</div>
+<button class="copy-btn" data-target="prompt-15">העתק PR</button>
+</div>
+<div class="prompt-wrap">
+<pre id="prompt-15">Use the attached image as the exact identity reference for the main character. Do not alter identity.
+
+The character must wear accurate ancient Egyptian attire: light linen fabric, simple tunic or wrapped garments, appropriate to climate and era, with authentic texture and folds.
+
+Create a hyper-realistic cinematic close scene during the plague of lice. The attached character is standing while visibly disturbed, scratching his arm or neck as tiny lice swarm across skin and clothing.
+
+The lice should be subtle but visible, creating an uncomfortable and tense atmosphere. The character’s expression is irritation, discomfort, and frustration.
+
+Camera: close-medium shot focusing on face and upper body.
+Style: ultra realistic, detailed skin texture, intense discomfort, 8K.</pre>
+</div>
+</section>
+<section class="card" id="scene-16">
+<div class="card-head">
+<div class="num">16</div>
+<div class="titles">
+<h2>מכת ערוב</h2>
+<p class="desc">חיות טרף פולשות למרחב המצרי והדמות קופאת במקומה מול האיום.</p>
+</div>
+<button class="copy-btn" data-target="prompt-16">העתק PR</button>
+</div>
+<div class="prompt-wrap">
+<pre id="prompt-16">Use the attached image as the exact identity reference for the main character. Do not redesign or alter the face in any way. Preserve maximum facial accuracy.
+
+The character must be dressed in authentic ancient Egyptian clothing appropriate to the Exodus period: light linen garments with accurate historical cuts, natural fabric texture, slightly dusty from the environment, with period-accurate details such as a wrapped tunic, belt, sandals, and optional traditional elements like a broad collar or simple head cloth.
+
+Create a cinematic scene during the plague of wild beasts. The attached character stands frozen as dangerous animals move around him: lions, wolves, and other wild creatures.
+
+The animals should appear realistic and threatening but not attacking at this exact moment, creating tension. The character’s face shows fear and alertness.
+
+The environment is an Egyptian city edge or open area, slightly chaotic, with people in the distance running away, ancient stone structures, sand, and debris.
+
+Camera: medium-wide shot, character central, animals surrounding but spaced for composition.
+Style: ultra realistic, high tension, cinematic, 8K.</pre>
+</div>
+</section>
+<section class="card" id="scene-17">
+<div class="card-head">
+<div class="num">17</div>
+<div class="titles">
+<h2>מכת דבר</h2>
+<p class="desc">הדמות ניצבת בין בקר מת ומבינה שהמכה מתפשטת לכל מקום.</p>
+</div>
+<button class="copy-btn" data-target="prompt-17">העתק PR</button>
+</div>
+<div class="prompt-wrap">
+<pre id="prompt-17">Use the attached image as the exact identity reference for the main character.
+
+The character must wear realistic ancient Egyptian rural attire: simple linen clothing, worn texture, appropriate to a field environment.
+
+Create a cinematic rural Egyptian scene during the plague of livestock disease. The attached character stands among fallen cattle, looking shocked and disturbed.
+
+Some animals lie still on the ground, others appear weak. The environment includes open fields, simple fences, and distant Egyptian structures.
+
+Camera: medium-wide shot, character foreground, livestock around.
+Style: ultra realistic, somber tone, natural lighting, 8K.</pre>
+</div>
+</section>
+<section class="card" id="scene-18">
+<div class="card-head">
+<div class="num">18</div>
+<div class="titles">
+<h2>מכת שחין</h2>
+<p class="desc">סצנה קרובה וכואבת שמדגישה סבל גופני ופחד על הפנים.</p>
+</div>
+<button class="copy-btn" data-target="prompt-18">העתק PR</button>
+</div>
+<div class="prompt-wrap">
+<pre id="prompt-18">Use the attached image as the exact identity reference for the main character. Do not alter identity.
+
+The character must be dressed in accurate ancient Egyptian clothing, with visible skin exposure, such as arms and neck, to show the effects of the plague.
+
+Create a hyper-realistic cinematic scene during the plague of boils. The attached character is shown with visible skin irritation and boils on exposed areas like arms and neck.
+
+His expression is pain, frustration, and physical suffering. He may be slightly hunched or reacting to the pain.
+
+Camera: close-medium shot emphasizing skin and facial expression.
+Style: ultra realistic, raw, intense detail, 8K.</pre>
+</div>
+</section>
+<section class="card" id="scene-19">
+<div class="card-head">
+<div class="num">19</div>
+<div class="titles">
+<h2>מכת ברד</h2>
+<p class="desc">סערה אלימה של ברד בשדות מצרים. הדמות מנסה לשרוד בתוך הכאוס.</p>
+</div>
+<button class="copy-btn" data-target="prompt-19">העתק PR</button>
+</div>
+<div class="prompt-wrap">
+<pre id="prompt-19">Use the attached image as the exact identity reference for the main character.
+
+The character must wear authentic ancient Egyptian clothing reacting naturally to the storm: wet fabric, movement from wind, realistic physics.
+
+Create a dramatic cinematic scene during the plague of hail. The attached character stands in the middle of a violent storm with massive hailstones falling from the sky.
+
+Some hail hits the ground, shattering dust and debris. The sky is dark and stormy with lightning flashes.
+
+Camera: medium-wide shot, dynamic storm movement.
+Style: ultra realistic, extreme weather, dramatic lighting, 8K.</pre>
+</div>
+</section>
+<section class="card" id="scene-20">
+<div class="card-head">
+<div class="num">20</div>
+<div class="titles">
+<h2>אש וברד יחד</h2>
+<p class="desc">הגרסה העל טבעית של הברד, עם אש בוערת בתוך הקרח והדמות נדהמת.</p>
+</div>
+<button class="copy-btn" data-target="prompt-20">העתק PR</button>
+</div>
+<div class="prompt-wrap">
+<pre id="prompt-20">Use the attached image as the exact identity reference for the main character.
+
+The character must be styled in accurate ancient Egyptian attire, with lighting reacting to both fire and ice elements.
+
+Create a cinematic supernatural scene of hail mixed with fire. The attached character stands as flaming streaks appear within falling hailstones.
+
+The environment is chaotic: fire flashes within ice impacts, ground steaming slightly, sky filled with storm energy. The character looks in awe and fear.
+
+Camera: medium-wide cinematic shot, strong contrast lighting.
+Style: ultra realistic, supernatural realism, epic biblical, 8K.</pre>
+</div>
+</section>
+<section class="card" id="scene-21">
+<div class="card-head">
+<div class="num">21</div>
+<div class="titles">
+<h2>מכת ארבה</h2>
+<p class="desc">שמי מצרים מתכסים נחילי ארבה עצומים והאור כמעט נעלם.</p>
+</div>
+<button class="copy-btn" data-target="prompt-21">העתק PR</button>
+</div>
+<div class="prompt-wrap">
+<pre id="prompt-21">Use the attached image as the exact identity reference for the main character.
+
+The character must wear authentic ancient Egyptian clothing appropriate to outdoor agricultural areas.
+
+Create a cinematic scene where a massive locust swarm completely covers the sky. The attached character stands as the sky darkens dramatically.
+
+Locusts fly in dense layers, some close to the camera, some far away. Crops are being destroyed rapidly. The character’s face is lit by filtered light through the swarm, expression of disbelief and fear.
+
+Camera: wide cinematic shot with strong depth layers.
+Style: ultra realistic, apocalyptic scale, 8K.</pre>
+</div>
+</section>
+<section class="card" id="scene-22">
+<div class="card-head">
+<div class="num">22</div>
+<div class="titles">
+<h2>מכת חושך</h2>
+<p class="desc">חושך סמיך ובלתי טבעי. רק חלק קטן מהפנים נחשף באור חלש.</p>
+</div>
+<button class="copy-btn" data-target="prompt-22">העתק PR</button>
+</div>
+<div class="prompt-wrap">
+<pre id="prompt-22">Use the attached image as the exact identity reference for the main character.
+
+The character must wear traditional ancient Egyptian clothing, subtly visible through minimal lighting.
+
+Create a cinematic scene of absolute darkness where the attached character is barely visible except for a faint light outlining his face.
+
+The darkness feels thick and physical. The character reaches forward slightly as if unable to see. Minimal light source creates dramatic silhouette and partial face reveal.
+
+Camera: close cinematic shot.
+Style: ultra realistic, extreme contrast, psychological tension, 8K.</pre>
+</div>
+</section>
+<section class="card" id="scene-23">
+<div class="card-head">
+<div class="num">23</div>
+<div class="titles">
+<h2>פרעה נשבר בלילה</h2>
+<p class="desc">רגע הכניעה של פרעה בתוך הארמון לאחר מכת בכורות.</p>
+</div>
+<button class="copy-btn" data-target="prompt-23">העתק PR</button>
+</div>
+<div class="prompt-wrap">
+<pre id="prompt-23">Use the attached image as the exact identity reference for Pharaoh. Do not redesign or alter the face. Preserve maximum facial accuracy while styling him as an ancient Egyptian ruler.
+
+Create a hyper-realistic cinematic scene inside a royal Egyptian palace at night during the plague of the firstborn. The attached character appears as Pharaoh, seated or collapsed on a throne or low royal seat, emotionally shattered, devastated, and broken. He wears elaborate golden pharaoh clothing, royal jewelry, and a richly detailed headdress, but his expression is full of grief, shock, and helplessness.
+
+The palace is dimly lit by torches and oil lamps. Massive stone columns, hieroglyphics, dark gold decorations, and heavy shadows create a tragic, royal atmosphere.
+
+Camera: medium-wide cinematic shot, slightly low angle, emphasizing isolation and collapse.
+Style: ultra realistic, emotional, royal, dark biblical epic, 8K.</pre>
+</div>
+</section>
+<section class="card" id="scene-24">
+<div class="card-head">
+<div class="num">24</div>
+<div class="titles">
+<h2>ליל בכורות ברחוב המצרי</h2>
+<p class="desc">רחובות מצרים בלילה, עם לפידים, זעקות והדמות עדה למה שקרה.</p>
+</div>
+<button class="copy-btn" data-target="prompt-24">העתק PR</button>
+</div>
+<div class="prompt-wrap">
+<pre id="prompt-24">Use the attached image as the exact identity reference for the main character.
+
+The character must be dressed in authentic ancient Egyptian clothing, slightly disordered or affected by the chaos of the night.
+
+Create a cinematic night street scene in ancient Egypt after the plague of the firstborn. The attached character stands in the street, surrounded by distant cries and chaos.
+
+Torches flicker, shadows move across walls, doors open in panic. The character’s face is lit by firelight, expression serious, heavy, witnessing the aftermath.
+
+Camera: medium-wide shot, character foreground, chaos in background.
+Style: ultra realistic, emotional, dark, cinematic, 8K.</pre>
+</div>
+</section>
+<section class="card" id="scene-25">
+<div class="card-head">
+<div class="num">25</div>
+<div class="titles">
+<h2>יציאת מצרים</h2>
+<p class="desc">המון עצום יוצא לדרך, ומשה מוביל קדימה עם מטה ביד ואור זריחה ברקע.</p>
+</div>
+<button class="copy-btn" data-target="prompt-25">העתק PR</button>
+</div>
+<div class="prompt-wrap">
+<pre id="prompt-25">Use the attached image as the exact identity reference for Moses. Do not redesign or alter the face in any way. Preserve maximum facial accuracy.
+
+Create a massive cinematic Exodus scene at sunrise in the desert. The attached character appears as Moses leading the people out of Egypt at the front of a huge moving crowd. He wears biblical robes, holds a wooden staff, and walks with powerful determined energy. His face is clearly visible and must remain recognizable. He is the main subject and visual leader of the composition.
+
+Behind him stretches a large realistic crowd of men, women, children, animals, carts, and belongings moving through the desert. Golden sunrise light pours from behind, creating dust in the air and an epic sense of liberation and destiny.
+
+Camera: wide cinematic shot with Moses clearly in the foreground or center front, leading the exodus.
+Style: ultra realistic, epic scale, dramatic sunrise, biblical realism, 8K.</pre>
+</div>
+</section>
+<section class="card" id="scene-26">
+<div class="card-head">
+<div class="num">26</div>
+<div class="titles">
+<h2>העם נושא בצק וכלים</h2>
+<p class="desc">רגע אנושי מתוך היציאה, עם חפצים, סלים, ילדים ותחושת חיפזון.</p>
+</div>
+<button class="copy-btn" data-target="prompt-26">העתק PR</button>
+</div>
+<div class="prompt-wrap">
+<pre id="prompt-26">Use the attached image as the exact identity reference for the main character. Do not redesign or alter the face. Preserve maximum facial accuracy.
+
+Create a hyper-realistic cinematic Exodus scene showing the attached character among the departing Hebrews carrying bundles, vessels, and simple belongings in haste. The character should wear historically accurate biblical travel garments and appear focused, emotional, and determined. Around him are families, children, sacks, animals, and desert dust glowing in the morning light.
+
+Camera: medium-wide cinematic shot with movement and urgency.
+Style: ultra realistic, human, emotional, historical, 8K.</pre>
+</div>
+</section>
+<section class="card" id="scene-27">
+<div class="card-head">
+<div class="num">27</div>
+<div class="titles">
+<h2>עמוד ענן ביום</h2>
+<p class="desc">משה והעם מונחים במדבר בידי עמוד ענן עצום שמרחף מעליהם.</p>
+</div>
+<button class="copy-btn" data-target="prompt-27">העתק PR</button>
+</div>
+<div class="prompt-wrap">
+<pre id="prompt-27">Use the attached image as the exact identity reference for Moses.
+
+Create a cinematic daytime desert scene where Moses, the attached character, stands beneath a massive moving pillar of cloud guiding the people.
+
+The cloud is dense, towering, and slightly supernatural, casting shade over the group. The atmosphere is calm but powerful. Moses wears biblical robes and remains the central figure.
+
+Camera: wide cinematic shot, Moses central, cloud dominating the sky.
+Style: ultra realistic, soft daylight, epic scale, 8K.</pre>
+</div>
+</section>
+<section class="card" id="scene-28">
+<div class="card-head">
+<div class="num">28</div>
+<div class="titles">
+<h2>עמוד האש בלילה</h2>
+<p class="desc">לילה במדבר מואר בעמוד אש ענק, כשמשה מוביל את העם.</p>
+</div>
+<button class="copy-btn" data-target="prompt-28">העתק PR</button>
+</div>
+<div class="prompt-wrap">
+<pre id="prompt-28">Use the attached image as the exact identity reference for Moses.
+
+Create a cinematic night scene in the desert where Moses, the attached character, stands in front of a massive pillar of fire guiding the people.
+
+The fire column rises high into the sky, illuminating the dark desert. The attached character is lit dramatically by the fire glow, standing strong and leading.
+
+Camera: wide cinematic shot, Moses in foreground, pillar of fire towering behind.
+Style: ultra realistic, epic biblical, dramatic lighting, 8K.</pre>
+</div>
+</section>
+<section class="card" id="scene-29">
+<div class="card-head">
+<div class="num">29</div>
+<div class="titles">
+<h2>פרעה מחליט לרדוף</h2>
+<p class="desc">פרעה בארמון או במתחם צבאי מחליט לצאת למרדף, עם מבט נחוש וזועם.</p>
+</div>
+<button class="copy-btn" data-target="prompt-29">העתק PR</button>
+</div>
+<div class="prompt-wrap">
+<pre id="prompt-29">Use the attached image as the exact identity reference for Pharaoh. Do not redesign or alter the face. Preserve maximum facial accuracy.
+
+Create a hyper-realistic cinematic scene of Pharaoh making the decision to pursue the Israelites. The attached character appears as Pharaoh inside a royal war chamber or palace courtyard, wearing authentic ancient Egyptian royal military styling, headdress, collar, and ornate garments. His expression is furious, proud, and relentless.
+
+The environment includes chariot elements, guards, torches, and dramatic palace architecture.
+
+Camera: medium cinematic shot with commanding posture.
+Style: ultra realistic, royal tension, dramatic, 8K.</pre>
+</div>
+</section>
+<section class="card" id="scene-30">
+<div class="card-head">
+<div class="num">30</div>
+<div class="titles">
+<h2>המרכבות יוצאות למרדף</h2>
+<p class="desc">רגע דינמי של רתימת סוסים ומרכבות לפני הזינוק אל המדבר.</p>
+</div>
+<button class="copy-btn" data-target="prompt-30">העתק PR</button>
+</div>
+<div class="prompt-wrap">
+<pre id="prompt-30">Use the attached image as the exact identity reference for the main Egyptian lead character. Do not redesign or alter the face.
+
+The character must wear authentic ancient Egyptian military attire suitable for a commander of the pursuit.
+
+Create a hyper-realistic cinematic scene of the Egyptian chariot force preparing to chase the Israelites. The attached character stands beside or inside a war chariot as horses are readied, wheels glint, and dust rises from the ground. The mood is urgent and aggressive.
+
+Camera: medium-wide cinematic shot with strong action energy.
+Style: ultra realistic, historical action, 8K.</pre>
+</div>
+</section>
+<section class="card" id="scene-31">
+<div class="card-head">
+<div class="num">31</div>
+<div class="titles">
+<h2>מרדף המרכבות</h2>
+<p class="desc">המרכבות דוהרות ואדם בורח או מביט לאחור באימה בתוך ענן אבק עצום.</p>
+</div>
+<button class="copy-btn" data-target="prompt-31">העתק PR</button>
+</div>
+<div class="prompt-wrap">
+<pre id="prompt-31">Use the attached image as the exact identity reference for the main heroic character. Do not redesign or alter the face. Preserve maximum facial accuracy.
+
+Create a hyper-realistic cinematic chase scene during the Exodus. The attached character appears as a Hebrew man running through the desert while looking back at the Egyptian chariots racing toward him in the distance. His face is visible and filled with fear, urgency, and survival instinct. He wears dusty biblical clothing suitable for the Exodus era.
+
+Behind him, ancient Egyptian chariots pulled by horses charge forward through clouds of dust. The environment is chaotic, dramatic, and intense.
+
+Camera: dynamic medium-wide shot, character in foreground, chariots approaching from behind.
+Style: ultra realistic, action-heavy biblical epic, dramatic dust and motion, 8K.</pre>
+</div>
+</section>
+<section class="card" id="scene-32">
+<div class="card-head">
+<div class="num">32</div>
+<div class="titles">
+<h2>בני ישראל מול הים</h2>
+<p class="desc">העם נתקע מול ים סוף, עם פחד עצום ותחושת אין מוצא.</p>
+</div>
+<button class="copy-btn" data-target="prompt-32">העתק PR</button>
+</div>
+<div class="prompt-wrap">
+<pre id="prompt-32">Use the attached image as the exact identity reference for the main character. Do not redesign or alter the face.
+
+Create a hyper-realistic cinematic scene of the Israelites trapped before the Red Sea. The attached character stands near the front of the crowd, looking toward the impossible barrier of water while panic and urgency spread behind him. People, carts, animals, and desert chaos fill the background. The mood is fear, helplessness, and suspense.
+
+Camera: wide cinematic shot with the sea ahead and the crowd behind.
+Style: ultra realistic, epic suspense, 8K.</pre>
+</div>
+</section>
+<section class="card" id="scene-33">
+<div class="card-head">
+<div class="num">33</div>
+<div class="titles">
+<h2>משה מרים את המטה מול הים</h2>
+<p class="desc">שנייה לפני הנס, משה עומד מול הים הסוער ומרים מטה באמונה ובכוח.</p>
+</div>
+<button class="copy-btn" data-target="prompt-33">העתק PR</button>
+</div>
+<div class="prompt-wrap">
+<pre id="prompt-33">Use the attached image as the exact identity reference for Moses. Do not redesign or alter the face. Preserve maximum facial accuracy.
+
+Create a super realistic cinematic scene just before the parting of the Red Sea. The attached character appears as Moses standing at the shore, raising his staff toward the stormy sea. He wears flowing biblical robes, slightly wind-blown, and his expression is powerful, focused, and full of divine authority.
+
+The environment is epic and dramatic: violent wind, dark clouds, spray, wet sand, and immense tension before the miracle begins.
+
+Camera: wide cinematic shot, slightly low angle, Moses dominant in frame.
+Style: ultra realistic, epic biblical spectacle, dramatic weather, photorealistic, 8K.</pre>
+</div>
+</section>
+<section class="card" id="scene-34">
+<div class="card-head">
+<div class="num">34</div>
+<div class="titles">
+<h2>קריעת ים סוף</h2>
+<p class="desc">קירות מים עצומים נפתחים ומשה עומד במרכז הרגע הבלתי אפשרי.</p>
+</div>
+<button class="copy-btn" data-target="prompt-34">העתק PR</button>
+</div>
+<div class="prompt-wrap">
+<pre id="prompt-34">Use the attached image as the exact identity reference for Moses. Do not redesign or alter the face. Preserve maximum facial accuracy.
+
+Create a super realistic cinematic scene of the parting of the Red Sea. The attached character appears as Moses standing at the center foreground, raising his staff as the sea splits into enormous walls of water on both sides. He wears flowing biblical robes, slightly wind-blown, and his expression is powerful, focused, and full of divine authority.
+
+The environment is epic and dramatic: towering walls of water, stormy skies, intense wind, wet ground, mist in the air, and distant people beginning to cross behind him.
+
+Camera: wide cinematic shot, slightly low angle, Moses dominant in frame, massive scale behind him.
+Style: ultra realistic, epic biblical spectacle, dramatic weather, photorealistic, 8K.</pre>
+</div>
+</section>
+<section class="card" id="scene-35">
+<div class="card-head">
+<div class="num">35</div>
+<div class="titles">
+<h2>המעבר בין חומות המים</h2>
+<p class="desc">הדמות צועדת בתוך הנתיב הימי, בין קירות מים אדירים מכל צד.</p>
+</div>
+<button class="copy-btn" data-target="prompt-35">העתק PR</button>
+</div>
+<div class="prompt-wrap">
+<pre id="prompt-35">Use the attached image as the exact identity reference for the main character. Do not redesign or alter the face.
+
+Create a hyper-realistic cinematic scene of a person crossing through the parted Red Sea. The attached character walks along the seabed path between towering walls of water, lit by dramatic reflected light. Moist ground, mist, and immense scale surround him. The emotion is awe, fear, and faith.
+
+Camera: medium-wide cinematic shot with giant water walls on both sides.
+Style: ultra realistic, epic, immersive, 8K.</pre>
+</div>
+</section>
+<section class="card" id="scene-36">
+<div class="card-head">
+<div class="num">36</div>
+<div class="titles">
+<h2>הים נסגר על המצרים</h2>
+<p class="desc">רגע האסון. גל עצום קורס על הכוח המצרי בתוך כאוס מוחלט.</p>
+</div>
+<button class="copy-btn" data-target="prompt-36">העתק PR</button>
+</div>
+<div class="prompt-wrap">
+<pre id="prompt-36">Use the attached image as the exact identity reference for the central Egyptian figure in the scene. Do not redesign or alter the face. Preserve maximum facial accuracy.
+
+Create a super realistic cinematic moment of the Red Sea collapsing back onto the Egyptian army. The attached character appears as a leading Egyptian warrior or commander inside the chaos, caught in the final terrifying instant before the crashing wall of water destroys the army. He wears ancient Egyptian military attire with realistic armor details, wet textures, and panic on his face.
+
+Massive waves crash down around him, broken chariots and horses are thrown into the water, and the scene is filled with motion, spray, destruction, and fear.
+
+Camera: dramatic medium-wide cinematic shot with the character framed against the collapsing wave.
+Style: ultra realistic, intense action, biblical catastrophe, photorealistic, 8K.</pre>
+</div>
+</section>
+<section class="card" id="scene-37">
+<div class="card-head">
+<div class="num">37</div>
+<div class="titles">
+<h2>שירת הים</h2>
+<p class="desc">אחרי ההצלה מגיע רגע פרץ רגשי של שירה, ניצחון והודיה.</p>
+</div>
+<button class="copy-btn" data-target="prompt-37">העתק PR</button>
+</div>
+<div class="prompt-wrap">
+<pre id="prompt-37">Use the attached image as the exact identity reference for the main celebratory character. Do not redesign or alter the face. Preserve maximum facial accuracy.
+
+Create a hyper-realistic cinematic celebration scene after the crossing of the Red Sea. The attached character appears as the central joyful figure in the foreground, celebrating with deep emotion, relief, gratitude, and victory. He wears biblical robes and is surrounded by a crowd of Hebrews singing, dancing, and rejoicing.
+
+The setting is an open desert shore at sunrise, with golden light illuminating the scene. People celebrate with raised hands, movement, and joy.
+
+Camera: wide cinematic shot with the attached character clearly featured in the foreground.
+Style: ultra realistic, emotional biblical triumph, sunrise glow, 8K.</pre>
+</div>
+</section>
+<section class="card" id="scene-38">
+<div class="card-head">
+<div class="num">38</div>
+<div class="titles">
+<h2>המן במדבר</h2>
+<p class="desc">רגע של פליאה במדבר כשהעם מגלה מזון פלאי על הקרקע.</p>
+</div>
+<button class="copy-btn" data-target="prompt-38">העתק PR</button>
+</div>
+<div class="prompt-wrap">
+<pre id="prompt-38">Use the attached image as the exact identity reference for the main character. Do not redesign or alter the face.
+
+Create a hyper-realistic cinematic desert morning scene of the manna miracle. The attached character kneels or bends slightly, looking in amazement at fine miraculous food covering the ground. Around him, other Hebrews react with wonder and curiosity. The light is soft morning light, the desert open and quiet, and the mood is sacred surprise.
+
+Camera: medium-wide cinematic shot with the ground miracle clearly visible.
+Style: ultra realistic, spiritual, natural, 8K.</pre>
+</div>
+</section>
+<section class="card" id="scene-39">
+<div class="card-head">
+<div class="num">39</div>
+<div class="titles">
+<h2>משה על הר סיני</h2>
+<p class="desc">רגע ההתגלות ההררית. משה ניצב לבד מול אור אלוהי, רוח וברקים.</p>
+</div>
+<button class="copy-btn" data-target="prompt-39">העתק PR</button>
+</div>
+<div class="prompt-wrap">
+<pre id="prompt-39">Use the attached image as the exact identity reference for Moses. Do not redesign or alter the face. Preserve maximum facial accuracy.
+
+Create a super realistic cinematic scene of Moses standing on Mount Sinai during a divine revelation. The attached character appears as Moses on a high rocky mountain peak, wearing biblical robes, holding a staff or stone tablets, facing overwhelming divine light, thunder, and storm clouds. His expression is powerful, humbled, and deeply spiritual.
+
+The environment is dramatic and epic: dark storm clouds, lightning in the sky, strong wind moving the robe, glowing divine light breaking through from above, mist and dust swirling around the rocks.
+
+Camera: wide cinematic shot, slightly low angle, Moses silhouetted against divine light and storm.
+Style: ultra realistic, epic biblical revelation, photorealistic, dramatic weather, 8K.</pre>
+</div>
+</section>
+<section class="card" id="scene-40">
+<div class="card-head">
+<div class="num">40</div>
+<div class="titles">
+<h2>משה עם לוחות הברית</h2>
+<p class="desc">רגע שיא מסכם: משה יורד או עומד עם הלוחות ביד, מלא עוצמה וקדושה.</p>
+</div>
+<button class="copy-btn" data-target="prompt-40">העתק PR</button>
+</div>
+<div class="prompt-wrap">
+<pre id="prompt-40">Use the attached image as the exact identity reference for Moses. Do not redesign or alter the face. Preserve maximum facial accuracy.
+
+Create a hyper-realistic cinematic scene of Moses holding the stone tablets after receiving the commandments. The attached character stands powerfully on a rocky mountain path or elevated ridge, gripping the tablets, with intense divine light in the atmosphere. His robes move in the wind, his face is strong and transformed by the experience, and the entire composition feels sacred and monumental.
+
+Camera: medium-wide cinematic hero shot.
+Style: ultra realistic, epic, sacred, cinematic, 8K.</pre>
+</div>
+</section>
+</div>
+</main>
+<footer class="footer">תהיו מי שתרצו ...</footer>
+<div class="toast" id="toast">הועתק</div>
+<script>
+    const toast = document.getElementById('toast');
+
+    function showToast(message) {
+      toast.textContent = message;
+      toast.classList.add('show');
+      clearTimeout(window.toastTimer);
+      window.toastTimer = setTimeout(() => toast.classList.remove('show'), 1600);
+    }
+
+    async function copyText(text) {
+      try {
+        await navigator.clipboard.writeText(text);
+        showToast('ה-PR הועתק');
+      } catch (err) {
+        const ta = document.createElement('textarea');
+        ta.value = text;
+        document.body.appendChild(ta);
+        ta.select();
+        document.execCommand('copy');
+        ta.remove();
+        showToast('ה-PR הועתק');
+      }
+    }
+
+    document.querySelectorAll('.copy-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const target = document.getElementById(btn.dataset.target);
+        copyText(target.innerText);
+      });
+    });
+
+    document.getElementById('copyAllBtn').addEventListener('click', () => {
+      const all = [...document.querySelectorAll('pre')].map((pre, i) => {
+        const title = pre.closest('.card').querySelector('h2').innerText;
+        return `### ${i + 1}. ${title}\n\n${pre.innerText}`;
+      }).join('\n\n');
+      copyText(all);
+    });
+
+    document.getElementById('jumpSelect').addEventListener('change', (e) => {
+      if (!e.target.value) return;
+      document.getElementById(e.target.value)?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      e.target.value = '';
+    });
+
+    const searchInput = document.getElementById('searchInput');
+    const cards = [...document.querySelectorAll('.card')];
+    const navLinks = [...document.querySelectorAll('#timelineNav a')];
+
+    searchInput.addEventListener('input', () => {
+      const q = searchInput.value.trim().toLowerCase();
+      cards.forEach(card => {
+        const text = card.innerText.toLowerCase();
+        const match = !q || text.includes(q);
+        card.classList.toggle('hidden', !match);
+      });
+
+      navLinks.forEach(link => {
+        const id = link.getAttribute('href').replace('#', '');
+        const visible = !document.getElementById(id).classList.contains('hidden');
+        link.classList.toggle('hidden', !visible);
+      });
+    });
+  </script>
+<div style="margin-top:40px; padding-top:20px; border-top:1px solid #ccc; text-align:center; font-family:Arial;">
+<p><strong>Dracaris – Flame your story</strong></p>
+<p>📞 050-6339797</p>
+<p>📩 <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="80e4f2e1e3e1f2e9f3b0b5b0b6b3b3b9b7b9b7c0e7ede1e9ecaee3efed">[email&#160;protected]</a></p>
+<p>🌐 <a href="https://www.dracaris.ai" target="_blank" rel="noopener noreferrer">www.dracaris.ai</a></p>
+<p>📘 <a href="https://www.facebook.com/DracarisAi" target="_blank" rel="noopener noreferrer">www.facebook.com/DracarisAi</a></p>
+<p>📸 <a href="https://www.instagram.com/dracaris.ai" target="_blank" rel="noopener noreferrer">www.instagram.com/dracaris.ai</a></p>
+</div>
+</body>
+</html>
