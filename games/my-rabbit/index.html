@@ -1,0 +1,1884 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ארנב שלי 🐰 - עולם הארנבים הננסיים</title>
+  <meta name="description" content="כל מה שרצית לדעת על ארנבים ננסיים - עובדות, סרטונים, ואפשר להפוך את עצמך לארנב!">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;700;900&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --orange: #FF6B35;
+      --orange-light: #FFE8DF;
+      --blue: #4CC9F0;
+      --blue-light: #E0F5FD;
+      --yellow: #FFD166;
+      --green: #7BDE90;
+      --pink: #FF9BB5;
+      --purple: #C77DFF;
+      --cream: #FFF8F0;
+      --white: #ffffff;
+      --dark: #2D2D2D;
+      --mid: #666666;
+      --radius: 20px;
+      --radius-sm: 12px;
+      --shadow: 0 4px 20px rgba(0,0,0,0.08);
+      --shadow-lg: 0 8px 32px rgba(0,0,0,0.14);
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Heebo', sans-serif;
+      background: var(--cream);
+      color: var(--dark);
+      overflow-x: hidden;
+    }
+
+    /* ===== NAVIGATION ===== */
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 200;
+      background: rgba(255,255,255,0.96);
+      backdrop-filter: blur(10px);
+      box-shadow: 0 2px 16px rgba(0,0,0,0.07);
+    }
+
+    .nav-inner {
+      max-width: 960px;
+      margin: 0 auto;
+      padding: 0 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 66px;
+    }
+
+    .nav-logo {
+      font-size: 22px;
+      font-weight: 900;
+      color: var(--orange);
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      transition: transform 0.2s;
+    }
+    .nav-logo:hover { transform: scale(1.05); }
+
+    .nav-links {
+      display: flex;
+      gap: 4px;
+      list-style: none;
+    }
+
+    .nav-links a {
+      display: flex;
+      align-items: center;
+      gap: 5px;
+      padding: 8px 14px;
+      border-radius: 30px;
+      text-decoration: none;
+      color: var(--dark);
+      font-size: 14px;
+      font-weight: 500;
+      transition: all 0.2s;
+    }
+    .nav-links a:hover {
+      background: var(--orange-light);
+      color: var(--orange);
+    }
+
+    /* ===== SHARED ===== */
+    section { padding: 72px 24px; }
+
+    .container {
+      max-width: 960px;
+      margin: 0 auto;
+    }
+
+    .section-title {
+      font-size: clamp(28px, 5vw, 42px);
+      font-weight: 900;
+      text-align: center;
+      margin-bottom: 12px;
+    }
+
+    .section-sub {
+      text-align: center;
+      font-size: 17px;
+      color: var(--mid);
+      margin-bottom: 48px;
+      line-height: 1.6;
+    }
+
+    /* ===== HERO ===== */
+    #hero {
+      min-height: 100vh;
+      background: linear-gradient(150deg, #FFF0E8 0%, #EEF8FF 60%, #F2FFE8 100%);
+      display: flex;
+      align-items: center;
+      padding: 48px 24px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-blob {
+      position: absolute;
+      border-radius: 50%;
+      pointer-events: none;
+    }
+    .hero-blob-1 { width: 500px; height: 500px; background: rgba(255,107,53,0.05); top: -120px; right: -120px; }
+    .hero-blob-2 { width: 360px; height: 360px; background: rgba(76,201,240,0.07); bottom: -80px; left: -80px; }
+
+    .hero-inner {
+      max-width: 960px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 48px;
+      flex-wrap: wrap;
+      position: relative;
+      z-index: 1;
+    }
+
+    .hero-text { flex: 1; min-width: 280px; }
+
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: var(--orange);
+      color: white;
+      font-size: 13px;
+      font-weight: 700;
+      padding: 6px 16px;
+      border-radius: 30px;
+      margin-bottom: 20px;
+    }
+
+    .hero-title {
+      font-size: clamp(38px, 7vw, 72px);
+      font-weight: 900;
+      line-height: 1.1;
+      margin-bottom: 20px;
+    }
+    .hero-title .accent { color: var(--orange); }
+    .hero-title .accent2 { color: var(--blue); }
+
+    .hero-sub {
+      font-size: 19px;
+      color: var(--mid);
+      line-height: 1.7;
+      margin-bottom: 36px;
+    }
+
+    .hero-buttons {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .btn-primary {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--orange);
+      color: white;
+      padding: 16px 32px;
+      border-radius: 50px;
+      font-size: 17px;
+      font-weight: 700;
+      text-decoration: none;
+      box-shadow: 0 4px 20px rgba(255,107,53,0.38);
+      transition: all 0.3s;
+    }
+    .btn-primary:hover { transform: translateY(-3px); box-shadow: 0 8px 30px rgba(255,107,53,0.5); }
+
+    .btn-secondary {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: white;
+      color: var(--dark);
+      padding: 16px 28px;
+      border-radius: 50px;
+      font-size: 17px;
+      font-weight: 700;
+      text-decoration: none;
+      box-shadow: var(--shadow);
+      transition: all 0.3s;
+    }
+    .btn-secondary:hover { transform: translateY(-3px); box-shadow: var(--shadow-lg); }
+
+    .hero-visual {
+      flex-shrink: 0;
+      text-align: center;
+      position: relative;
+    }
+
+    .hero-rabbit {
+      font-size: clamp(80px, 14vw, 140px);
+      display: block;
+      animation: bunnyBounce 2.5s infinite ease-in-out;
+      filter: drop-shadow(0 16px 24px rgba(0,0,0,0.1));
+    }
+
+    @keyframes bunnyBounce {
+      0%,100% { transform: translateY(0) rotate(-4deg) scale(1); }
+      50% { transform: translateY(-24px) rotate(4deg) scale(1.04); }
+    }
+
+    .hero-sparkles {
+      position: absolute;
+      inset: -40px;
+      pointer-events: none;
+    }
+    .sparkle {
+      position: absolute;
+      font-size: clamp(20px, 3vw, 30px);
+      animation: floatSparkle 3.5s infinite ease-in-out;
+    }
+    @keyframes floatSparkle {
+      0%,100% { transform: translateY(0) rotate(0deg); opacity: 0.8; }
+      50% { transform: translateY(-14px) rotate(15deg); opacity: 1; }
+    }
+
+    .floaters-bg {
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      overflow: hidden;
+    }
+    .floater-bg {
+      position: absolute;
+      font-size: 26px;
+      opacity: 0.35;
+      animation: floatBg 5s infinite ease-in-out;
+    }
+    @keyframes floatBg {
+      0%,100% { transform: translateY(0); }
+      50% { transform: translateY(-10px); }
+    }
+
+    /* ===== FACTS ===== */
+    #facts { background: var(--white); }
+
+    .facts-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(268px, 1fr));
+      gap: 20px;
+    }
+
+    .fact-card {
+      border-radius: var(--radius);
+      padding: 28px 24px;
+      border: 2.5px solid transparent;
+    }
+
+    .fc-1 { background: #FFF0E8; border-color: #FFD0BB; }
+    .fc-1:hover { box-shadow: 0 12px 32px rgba(255,107,53,0.2); }
+    .fc-2 { background: #E8F6FF; border-color: #B8E2FF; }
+    .fc-2:hover { box-shadow: 0 12px 32px rgba(76,201,240,0.2); }
+    .fc-3 { background: #EDFFF2; border-color: #B4EFCA; }
+    .fc-3:hover { box-shadow: 0 12px 32px rgba(123,222,144,0.2); }
+    .fc-4 { background: #FFFAE8; border-color: #FFEDB0; }
+    .fc-4:hover { box-shadow: 0 12px 32px rgba(255,209,102,0.25); }
+    .fc-5 { background: #FFF0F5; border-color: #FFCCE0; }
+    .fc-5:hover { box-shadow: 0 12px 32px rgba(255,155,181,0.2); }
+    .fc-6 { background: #F5EEFF; border-color: #DEC9FF; }
+    .fc-6:hover { box-shadow: 0 12px 32px rgba(199,125,255,0.2); }
+
+    .fact-icon {
+      font-size: 48px;
+      display: block;
+      margin-bottom: 14px;
+    }
+    .fact-title {
+      font-size: 18px;
+      font-weight: 700;
+      margin-bottom: 8px;
+    }
+    .fact-text {
+      font-size: 15px;
+      color: var(--mid);
+      line-height: 1.65;
+    }
+
+    /* ===== VIDEOS ===== */
+    #videos { background: #F0F7FF; }
+
+    .videos-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+      gap: 24px;
+    }
+
+    .video-card {
+      border-radius: var(--radius);
+      overflow: hidden;
+      box-shadow: var(--shadow);
+      background: var(--dark);
+      transition: all 0.3s;
+    }
+    .video-card:hover { transform: translateY(-5px); box-shadow: var(--shadow-lg); }
+    .video-card iframe {
+      width: 100%;
+      aspect-ratio: 16/9;
+      display: block;
+      border: none;
+    }
+    .video-label {
+      padding: 14px 18px;
+      font-size: 15px;
+      font-weight: 700;
+      background: var(--white);
+      color: var(--dark);
+    }
+
+    /* ===== TRANSFORM ===== */
+    #transform {
+      background: linear-gradient(135deg, #FFF8E0 0%, #FFF0E8 100%);
+    }
+
+    .steps-row {
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin-bottom: 36px;
+    }
+    .step {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      background: white;
+      padding: 10px 18px;
+      border-radius: 40px;
+      font-size: 14px;
+      font-weight: 500;
+      box-shadow: var(--shadow);
+    }
+    .step-num {
+      width: 28px; height: 28px;
+      border-radius: 50%;
+      background: var(--orange);
+      color: white;
+      font-size: 13px;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .prompt-wrapper {
+      background: #1E1E2E;
+      border-radius: var(--radius);
+      overflow: hidden;
+      margin-bottom: 20px;
+      box-shadow: var(--shadow-lg);
+    }
+    .prompt-header {
+      background: #2A2A3C;
+      padding: 12px 20px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .prompt-dot { width: 12px; height: 12px; border-radius: 50%; }
+    .prompt-header span { font-size: 13px; color: #888; margin-right: auto; margin-left: 0; font-family: monospace; }
+    .prompt-text {
+      padding: 20px 24px;
+      font-size: 13px;
+      line-height: 1.8;
+      color: #C8D0E0;
+      font-family: monospace;
+      direction: ltr;
+      text-align: left;
+      max-height: 200px;
+      overflow-y: auto;
+    }
+    .prompt-text::-webkit-scrollbar { width: 6px; }
+    .prompt-text::-webkit-scrollbar-track { background: #1E1E2E; }
+    .prompt-text::-webkit-scrollbar-thumb { background: #444; border-radius: 3px; }
+
+    .copy-btn {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      background: var(--orange);
+      color: white;
+      border: none;
+      padding: 18px 24px;
+      border-radius: 50px;
+      font-size: 18px;
+      font-weight: 700;
+      cursor: pointer;
+      font-family: 'Heebo', sans-serif;
+      box-shadow: 0 4px 24px rgba(255,107,53,0.38);
+      transition: all 0.3s;
+      margin-bottom: 28px;
+    }
+    .copy-btn:hover { transform: translateY(-3px); box-shadow: 0 8px 32px rgba(255,107,53,0.5); }
+    .copy-btn.copied {
+      background: #3BB56A;
+      box-shadow: 0 4px 24px rgba(59,181,106,0.38);
+    }
+
+    .ai-links-title {
+      text-align: center;
+      font-size: 15px;
+      font-weight: 700;
+      color: var(--mid);
+      margin-bottom: 16px;
+    }
+
+    .ai-links {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 16px;
+    }
+
+    .ai-btn {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      padding: 20px 24px;
+      border-radius: var(--radius);
+      text-decoration: none;
+      font-size: 17px;
+      font-weight: 700;
+      font-family: 'Heebo', sans-serif;
+      transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+      box-shadow: var(--shadow);
+    }
+    .ai-btn:hover { transform: translateY(-6px) scale(1.02); box-shadow: var(--shadow-lg); }
+    .ai-btn-icon { font-size: 28px; }
+
+    .ai-chatgpt { background: #10A37F; color: white; }
+    .ai-gemini  { background: #4285F4; color: white; }
+    .ai-nano    { background: var(--yellow); color: var(--dark); }
+
+    /* ===== CARE ===== */
+    #care { background: var(--white); }
+
+    .care-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 20px;
+    }
+
+    .care-card {
+      text-align: center;
+      padding: 32px 20px;
+      border-radius: var(--radius);
+      background: var(--cream);
+      transition: all 0.3s;
+      border: 2px solid transparent;
+    }
+    .care-card:hover {
+      transform: translateY(-6px);
+      box-shadow: var(--shadow-lg);
+      border-color: var(--yellow);
+    }
+    .care-icon { font-size: 52px; display: block; margin-bottom: 14px; }
+    .care-title { font-size: 17px; font-weight: 700; margin-bottom: 8px; }
+    .care-text { font-size: 14px; color: var(--mid); line-height: 1.65; }
+
+    /* ===== FOOTER ===== */
+    footer {
+      background: var(--dark);
+      color: #aaa;
+      text-align: center;
+      padding: 36px 24px;
+    }
+    footer a { color: var(--orange); text-decoration: none; }
+    .footer-logo { font-size: 32px; display: block; margin-bottom: 12px; }
+    .footer-title { font-size: 17px; font-weight: 700; color: white; margin-bottom: 6px; }
+    .footer-sub { font-size: 13px; margin-top: 8px; color: #666; }
+
+    /* ===== SOUND BUTTON ===== */
+    .sound-btn {
+      position: fixed;
+      bottom: 24px;
+      left: 24px;
+      width: 52px; height: 52px;
+      border-radius: 50%;
+      background: white;
+      border: 2px solid var(--orange);
+      font-size: 22px;
+      cursor: pointer;
+      box-shadow: var(--shadow-lg);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 100;
+      transition: all 0.2s;
+    }
+    .sound-btn:hover { background: var(--orange); transform: scale(1.1); }
+
+    /* ===== SCROLL REVEAL ===== */
+    .reveal {
+      opacity: 0;
+      transform: translateY(28px);
+      transition: opacity 0.55s ease, transform 0.55s ease;
+    }
+    .reveal.in { opacity: 1; transform: none; }
+
+    /* ===== RESPONSIVE ===== */
+    @media (max-width: 680px) {
+      .nav-links { display: none; }
+      .videos-grid { grid-template-columns: 1fr; }
+      .ai-links { grid-template-columns: 1fr; }
+      section { padding: 52px 20px; }
+    }
+
+    @media (max-width: 480px) {
+      .hero-inner { justify-content: center; text-align: center; }
+      .hero-buttons { justify-content: center; }
+      .steps-row { gap: 8px; }
+      .step { font-size: 13px; padding: 8px 14px; }
+    }
+
+    /* ===== FACT FLIP CARDS ===== */
+    .fact-flip {
+      perspective: 800px;
+      cursor: pointer;
+    }
+
+    .fact-flip-inner {
+      position: relative;
+      min-height: 200px;
+      transition: transform 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
+      transform-style: preserve-3d;
+    }
+
+    .fact-flip:hover .fact-flip-inner {
+      transform: translateY(-8px);
+    }
+
+    .fact-flip.flipped .fact-flip-inner {
+      transform: rotateY(180deg);
+    }
+
+    .fact-flip.flipped:hover .fact-flip-inner {
+      transform: rotateY(180deg) translateY(-8px);
+    }
+
+    .fact-front,
+    .fact-back {
+      backface-visibility: hidden;
+      -webkit-backface-visibility: hidden;
+    }
+
+    .fact-front {
+      position: relative;
+      z-index: 2;
+    }
+
+    .fact-back {
+      position: absolute;
+      inset: 0;
+      transform: rotateY(180deg);
+      border-radius: var(--radius);
+      padding: 28px 24px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      z-index: 1;
+    }
+
+    .fact-back-icon { font-size: 36px; margin-bottom: 10px; }
+    .fact-back-text { font-size: 15px; color: var(--mid); line-height: 1.7; }
+    .fact-back-hint { font-size: 12px; color: #bbb; margin-top: 12px; }
+
+    /* ===== GALLERY (Before/After) ===== */
+    #gallery { background: linear-gradient(135deg, #FFF0F5 0%, #F0F7FF 100%); }
+
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 24px;
+    }
+
+    .gallery-item {
+      border-radius: var(--radius);
+      overflow: hidden;
+      box-shadow: var(--shadow);
+      background: var(--white);
+      transition: all 0.3s;
+    }
+    .gallery-item:hover { transform: translateY(-6px); box-shadow: var(--shadow-lg); }
+
+    .gallery-compare {
+      position: relative;
+      width: 100%;
+      aspect-ratio: 3/2;
+      overflow: hidden;
+      cursor: col-resize;
+      user-select: none;
+    }
+
+    .gallery-compare img {
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      object-fit: cover;
+    }
+
+    .gallery-compare .gallery-after {
+      clip-path: inset(0 50% 0 0);
+      z-index: 2;
+    }
+
+    .gallery-compare .gallery-before {
+      z-index: 1;
+    }
+
+    .gallery-slider {
+      position: absolute;
+      top: 0; bottom: 0;
+      left: 50%;
+      width: 4px;
+      background: var(--orange);
+      z-index: 3;
+      pointer-events: none;
+    }
+
+    .gallery-slider::after {
+      content: '⟨⟩';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 36px; height: 36px;
+      background: var(--orange);
+      color: white;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 14px;
+      font-weight: 700;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+    }
+
+    .gallery-label {
+      display: flex;
+      justify-content: space-between;
+      padding: 12px 16px;
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--mid);
+    }
+    .gallery-label span:first-child { color: var(--blue); }
+    .gallery-label span:last-child { color: var(--orange); }
+
+    /* ===== QUIZ ===== */
+    #quiz { background: linear-gradient(135deg, #E8F6FF 0%, #EDFFF2 100%); }
+
+    .quiz-container {
+      max-width: 640px;
+      margin: 0 auto;
+    }
+
+    .quiz-progress {
+      display: flex;
+      gap: 6px;
+      margin-bottom: 24px;
+      justify-content: center;
+    }
+
+    .quiz-dot {
+      width: 12px; height: 12px;
+      border-radius: 50%;
+      background: #ddd;
+      transition: all 0.3s;
+    }
+    .quiz-dot.active { background: var(--orange); transform: scale(1.3); }
+    .quiz-dot.correct { background: var(--green); }
+    .quiz-dot.wrong { background: var(--pink); }
+
+    .quiz-card {
+      background: var(--white);
+      border-radius: var(--radius);
+      padding: 36px 28px;
+      box-shadow: var(--shadow-lg);
+      text-align: center;
+    }
+
+    .quiz-question-icon { font-size: 52px; display: block; margin-bottom: 16px; }
+
+    .quiz-question {
+      font-size: 22px;
+      font-weight: 700;
+      margin-bottom: 28px;
+      line-height: 1.5;
+    }
+
+    .quiz-answers {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .quiz-answer {
+      padding: 16px 20px;
+      border: 2.5px solid #eee;
+      border-radius: var(--radius-sm);
+      font-size: 17px;
+      font-weight: 500;
+      cursor: pointer;
+      transition: all 0.3s;
+      background: var(--white);
+      font-family: 'Heebo', sans-serif;
+      text-align: right;
+    }
+    .quiz-answer:hover { border-color: var(--blue); background: var(--blue-light); }
+    .quiz-answer.correct { border-color: var(--green); background: #EDFFF2; color: #2a8c45; }
+    .quiz-answer.wrong { border-color: var(--pink); background: #FFF0F5; color: #c0392b; }
+    .quiz-answer.disabled { pointer-events: none; opacity: 0.6; }
+
+    .quiz-next {
+      display: none;
+      margin: 20px auto 0;
+      padding: 14px 32px;
+      border: none;
+      border-radius: 50px;
+      background: var(--orange);
+      color: white;
+      font-size: 17px;
+      font-weight: 700;
+      cursor: pointer;
+      font-family: 'Heebo', sans-serif;
+      box-shadow: 0 4px 16px rgba(255,107,53,0.3);
+      transition: all 0.3s;
+    }
+    .quiz-next:hover { transform: translateY(-2px); }
+
+    .quiz-result {
+      display: none;
+      text-align: center;
+      padding: 40px 28px;
+      background: var(--white);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow-lg);
+    }
+
+    .quiz-result-icon { font-size: 72px; display: block; margin-bottom: 16px; }
+
+    .quiz-result-title {
+      font-size: 28px;
+      font-weight: 900;
+      margin-bottom: 12px;
+    }
+
+    .quiz-result-text {
+      font-size: 18px;
+      color: var(--mid);
+      margin-bottom: 24px;
+    }
+
+    .quiz-restart {
+      padding: 14px 32px;
+      border: none;
+      border-radius: 50px;
+      background: var(--blue);
+      color: white;
+      font-size: 17px;
+      font-weight: 700;
+      cursor: pointer;
+      font-family: 'Heebo', sans-serif;
+      transition: all 0.3s;
+    }
+    .quiz-restart:hover { transform: translateY(-2px); }
+
+    /* ===== BREEDS ===== */
+    #breeds { background: var(--white); }
+
+    .breeds-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 20px;
+    }
+
+    .breed-card {
+      border-radius: var(--radius);
+      padding: 28px 22px;
+      text-align: center;
+      transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+      border: 2.5px solid transparent;
+      cursor: default;
+    }
+    .breed-card:hover { transform: translateY(-8px) rotate(-1.5deg); }
+
+    .bc-1 { background: #FFF0E8; border-color: #FFD0BB; }
+    .bc-1:hover { box-shadow: 0 12px 32px rgba(255,107,53,0.18); }
+    .bc-2 { background: #E8F6FF; border-color: #B8E2FF; }
+    .bc-2:hover { box-shadow: 0 12px 32px rgba(76,201,240,0.18); }
+    .bc-3 { background: #EDFFF2; border-color: #B4EFCA; }
+    .bc-3:hover { box-shadow: 0 12px 32px rgba(123,222,144,0.18); }
+    .bc-4 { background: #FFFAE8; border-color: #FFEDB0; }
+    .bc-4:hover { box-shadow: 0 12px 32px rgba(255,209,102,0.2); }
+    .bc-5 { background: #FFF0F5; border-color: #FFCCE0; }
+    .bc-5:hover { box-shadow: 0 12px 32px rgba(255,155,181,0.18); }
+    .bc-6 { background: #F5EEFF; border-color: #DEC9FF; }
+    .bc-6:hover { box-shadow: 0 12px 32px rgba(199,125,255,0.18); }
+
+    .breed-icon { font-size: 56px; display: block; margin-bottom: 12px; }
+    .breed-name { font-size: 19px; font-weight: 700; margin-bottom: 6px; }
+    .breed-weight { font-size: 13px; color: var(--orange); font-weight: 700; margin-bottom: 10px; }
+    .breed-desc { font-size: 14px; color: var(--mid); line-height: 1.65; }
+
+    /* ===== DARK MODE ===== */
+    body.dark {
+      --cream: #1a1a2e;
+      --white: #16213e;
+      --dark: #e0e0e0;
+      --mid: #a0a0b0;
+      --shadow: 0 4px 20px rgba(0,0,0,0.3);
+      --shadow-lg: 0 8px 32px rgba(0,0,0,0.45);
+    }
+
+    body.dark nav {
+      background: rgba(22,33,62,0.96);
+    }
+
+    body.dark #hero {
+      background: linear-gradient(150deg, #1a1a2e 0%, #16213e 60%, #1a2a1a 100%);
+    }
+
+    body.dark #gallery {
+      background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+    }
+
+    body.dark #quiz {
+      background: linear-gradient(135deg, #16213e 0%, #1a2a1a 100%);
+    }
+
+    body.dark #videos {
+      background: #1a1a2e;
+    }
+
+    body.dark #transform {
+      background: linear-gradient(135deg, #2a2a1e 0%, #1a1a2e 100%);
+    }
+
+    body.dark .fact-card,
+    body.dark .breed-card {
+      background: rgba(255,255,255,0.06);
+      border-color: rgba(255,255,255,0.1);
+    }
+
+    body.dark .care-card {
+      background: rgba(255,255,255,0.06);
+    }
+
+    body.dark .quiz-card,
+    body.dark .quiz-result {
+      background: #16213e;
+    }
+
+    body.dark .quiz-answer {
+      background: #1a1a2e;
+      border-color: rgba(255,255,255,0.1);
+      color: #e0e0e0;
+    }
+
+    body.dark .gallery-item {
+      background: #16213e;
+    }
+
+    body.dark .btn-secondary,
+    body.dark .step {
+      background: #16213e;
+      color: #e0e0e0;
+    }
+
+    body.dark .prompt-wrapper {
+      box-shadow: 0 8px 32px rgba(0,0,0,0.5);
+    }
+
+    body.dark .video-label {
+      background: #16213e;
+      color: #e0e0e0;
+    }
+
+    body.dark footer {
+      background: #0f0f1a;
+    }
+
+    .dark-toggle {
+      position: fixed;
+      bottom: 24px;
+      left: 84px;
+      width: 52px; height: 52px;
+      border-radius: 50%;
+      background: white;
+      border: 2px solid var(--purple);
+      font-size: 22px;
+      cursor: pointer;
+      box-shadow: var(--shadow-lg);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 100;
+      transition: all 0.2s;
+    }
+    .dark-toggle:hover { background: var(--purple); transform: scale(1.1); }
+
+    body.dark .dark-toggle { background: #16213e; }
+    body.dark .sound-btn { background: #16213e; }
+
+    /* ===== SHARE BUTTON ===== */
+    .share-section {
+      text-align: center;
+      padding: 24px 0;
+    }
+
+    .share-buttons {
+      display: flex;
+      justify-content: center;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .share-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 14px 28px;
+      border-radius: 50px;
+      font-size: 16px;
+      font-weight: 700;
+      text-decoration: none;
+      cursor: pointer;
+      border: none;
+      font-family: 'Heebo', sans-serif;
+      transition: all 0.3s;
+      box-shadow: var(--shadow);
+    }
+    .share-btn:hover { transform: translateY(-3px); box-shadow: var(--shadow-lg); }
+
+    .share-whatsapp { background: #25D366; color: white; }
+    .share-general { background: var(--blue); color: white; }
+
+    /* ===== PAW TRAIL ===== */
+    .paw-print {
+      position: fixed;
+      pointer-events: none;
+      z-index: 9998;
+      font-size: 18px;
+      opacity: 0.6;
+      animation: pawFade 1.2s ease-out forwards;
+    }
+
+    @keyframes pawFade {
+      0% { opacity: 0.6; transform: scale(1) rotate(var(--paw-rot)); }
+      100% { opacity: 0; transform: scale(0.5) rotate(var(--paw-rot)); }
+    }
+
+    /* ===== HAMBURGER MENU ===== */
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 8px;
+      z-index: 201;
+    }
+
+    .hamburger span {
+      display: block;
+      width: 24px; height: 3px;
+      background: var(--dark);
+      border-radius: 2px;
+      transition: all 0.3s;
+    }
+
+    .hamburger.active span:nth-child(1) { transform: rotate(45deg) translate(5px, 6px); }
+    .hamburger.active span:nth-child(2) { opacity: 0; }
+    .hamburger.active span:nth-child(3) { transform: rotate(-45deg) translate(5px, -6px); }
+
+    .mobile-menu {
+      display: none;
+      position: fixed;
+      top: 66px; left: 0; right: 0; bottom: 0;
+      background: rgba(255,255,255,0.98);
+      backdrop-filter: blur(10px);
+      z-index: 199;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+    }
+
+    body.dark .mobile-menu {
+      background: rgba(22,33,62,0.98);
+    }
+
+    .mobile-menu.open { display: flex; }
+
+    .mobile-menu a {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding: 14px 28px;
+      border-radius: 40px;
+      text-decoration: none;
+      color: var(--dark);
+      font-size: 18px;
+      font-weight: 700;
+      transition: all 0.2s;
+    }
+    .mobile-menu a:hover { background: var(--orange-light); color: var(--orange); }
+
+    @media (max-width: 680px) {
+      .hamburger { display: flex; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-inner">
+    <a href="#hero" class="nav-logo" onclick="playClick()">🐰 ארנב שלי</a>
+    <ul class="nav-links">
+      <li><a href="#gallery"   onclick="playClick()">📸 גלריה</a></li>
+      <li><a href="#facts"     onclick="playClick()">📚 עובדות</a></li>
+      <li><a href="#quiz"      onclick="playClick()">🧠 חידון</a></li>
+      <li><a href="#breeds"    onclick="playClick()">🐇 גזעים</a></li>
+      <li><a href="#videos"    onclick="playClick()">🎥 סרטונים</a></li>
+      <li><a href="#transform" onclick="playClick()">🪄 הפוך לארנב</a></li>
+      <li><a href="#care"      onclick="playClick()">💛 טיפול</a></li>
+    </ul>
+    <button class="hamburger" id="hamburgerBtn" onclick="toggleMenu()">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<!-- MOBILE MENU -->
+<div class="mobile-menu" id="mobileMenu">
+  <a href="#gallery"   onclick="closeMenu(); playClick()">📸 גלריה</a>
+  <a href="#facts"     onclick="closeMenu(); playClick()">📚 עובדות</a>
+  <a href="#quiz"      onclick="closeMenu(); playClick()">🧠 חידון</a>
+  <a href="#breeds"    onclick="closeMenu(); playClick()">🐇 גזעים</a>
+  <a href="#videos"    onclick="closeMenu(); playClick()">🎥 סרטונים</a>
+  <a href="#transform" onclick="closeMenu(); playClick()">🪄 הפוך לארנב</a>
+  <a href="#care"      onclick="closeMenu(); playClick()">💛 טיפול</a>
+</div>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="floaters-bg">
+    <span class="floater-bg" style="top:12%;right:6%;animation-delay:0s">🥕</span>
+    <span class="floater-bg" style="top:65%;right:4%;animation-delay:1.8s">⭐</span>
+    <span class="floater-bg" style="top:30%;left:5%;animation-delay:0.9s">🌿</span>
+    <span class="floater-bg" style="top:75%;left:7%;animation-delay:2.2s">✨</span>
+    <span class="floater-bg" style="top:50%;right:14%;animation-delay:1.2s">🌸</span>
+    <span class="floater-bg" style="top:20%;left:20%;animation-delay:3s">🍃</span>
+  </div>
+  <div class="hero-blob hero-blob-1"></div>
+  <div class="hero-blob hero-blob-2"></div>
+
+  <div class="hero-inner">
+    <div class="hero-text">
+      <div class="hero-badge">🐾 מדריך לילדים ולהורים</div>
+      <h1 class="hero-title">
+        ברוכים הבאים<br>
+        לעולם של<br>
+        <span class="accent">ארנבים</span>
+        <span class="accent2"> ננסיים!</span>
+      </h1>
+      <p class="hero-sub">
+        כל מה שרצית לדעת על הארנבים<br>
+        הכי חמודים בעולם 🐰💛
+      </p>
+      <div class="hero-buttons">
+        <a href="#facts" class="btn-primary" onclick="playClick()">🚀 בואו נגלה ביחד!</a>
+        <a href="#transform" class="btn-secondary" onclick="playClick()">🪄 הפוך לארנב</a>
+      </div>
+    </div>
+
+    <div class="hero-visual">
+      <div class="hero-sparkles">
+        <span class="sparkle" style="top:5%;right:5%;animation-delay:0s">✨</span>
+        <span class="sparkle" style="top:10%;left:0%;animation-delay:0.7s">⭐</span>
+        <span class="sparkle" style="bottom:10%;right:0%;animation-delay:1.4s">💫</span>
+        <span class="sparkle" style="bottom:5%;left:5%;animation-delay:0.4s">🌟</span>
+      </div>
+      <span class="hero-rabbit">🐰</span>
+    </div>
+  </div>
+</section>
+
+<!-- GALLERY -->
+<section id="gallery">
+  <div class="container">
+    <h2 class="section-title reveal">📸 לפני ואחרי - הפיכה לארנב!</h2>
+    <p class="section-sub reveal">גררו את הפס ימינה ושמאלה כדי לראות את הקסם ✨</p>
+    <div class="gallery-grid">
+
+      <div class="gallery-item reveal">
+        <div class="gallery-compare" onmousedown="startSlide(event)" ontouchstart="startSlide(event)">
+          <img src="images/image1_before.webp" alt="לפני" class="gallery-before">
+          <img src="images/image1_after.webp" alt="אחרי" class="gallery-after">
+          <div class="gallery-slider"></div>
+        </div>
+        <div class="gallery-label"><span>🐰 אחרי</span><span>👤 לפני</span></div>
+      </div>
+
+      <div class="gallery-item reveal">
+        <div class="gallery-compare" onmousedown="startSlide(event)" ontouchstart="startSlide(event)">
+          <img src="images/image2_before.webp" alt="לפני" class="gallery-before">
+          <img src="images/image2_after.webp" alt="אחרי" class="gallery-after">
+          <div class="gallery-slider"></div>
+        </div>
+        <div class="gallery-label"><span>🐰 אחרי</span><span>👤 לפני</span></div>
+      </div>
+
+      <div class="gallery-item reveal">
+        <div class="gallery-compare" onmousedown="startSlide(event)" ontouchstart="startSlide(event)">
+          <img src="images/image3_before.webp" alt="לפני" class="gallery-before">
+          <img src="images/image3_after.webp" alt="אחרי" class="gallery-after">
+          <div class="gallery-slider"></div>
+        </div>
+        <div class="gallery-label"><span>🐰 אחרי</span><span>👤 לפני</span></div>
+      </div>
+
+      <div class="gallery-item reveal">
+        <div class="gallery-compare" onmousedown="startSlide(event)" ontouchstart="startSlide(event)">
+          <img src="images/image4_before.webp" alt="לפני" class="gallery-before">
+          <img src="images/image4_after.webp" alt="אחרי" class="gallery-after">
+          <div class="gallery-slider"></div>
+        </div>
+        <div class="gallery-label"><span>🐰 אחרי</span><span>👤 לפני</span></div>
+      </div>
+
+      <div class="gallery-item reveal">
+        <div class="gallery-compare" onmousedown="startSlide(event)" ontouchstart="startSlide(event)">
+          <img src="images/image5_before.webp" alt="לפני" class="gallery-before">
+          <img src="images/image5_after.webp" alt="אחרי" class="gallery-after">
+          <div class="gallery-slider"></div>
+        </div>
+        <div class="gallery-label"><span>🐰 אחרי</span><span>👤 לפני</span></div>
+      </div>
+
+      <div class="gallery-item reveal">
+        <div class="gallery-compare" onmousedown="startSlide(event)" ontouchstart="startSlide(event)">
+          <img src="images/image6_before.webp" alt="לפני" class="gallery-before">
+          <img src="images/image6_after.webp" alt="אחרי" class="gallery-after">
+          <div class="gallery-slider"></div>
+        </div>
+        <div class="gallery-label"><span>🐰 אחרי</span><span>👤 לפני</span></div>
+      </div>
+
+      <div class="gallery-item reveal">
+        <div class="gallery-compare" onmousedown="startSlide(event)" ontouchstart="startSlide(event)">
+          <img src="images/image7_before.webp" alt="לפני" class="gallery-before">
+          <img src="images/image7_after.webp" alt="אחרי" class="gallery-after">
+          <div class="gallery-slider"></div>
+        </div>
+        <div class="gallery-label"><span>🐰 אחרי</span><span>👤 לפני</span></div>
+      </div>
+
+      <div class="gallery-item reveal">
+        <div class="gallery-compare" onmousedown="startSlide(event)" ontouchstart="startSlide(event)">
+          <img src="images/image8_before.webp" alt="לפני" class="gallery-before">
+          <img src="images/image8_after.webp" alt="אחרי" class="gallery-after">
+          <div class="gallery-slider"></div>
+        </div>
+        <div class="gallery-label"><span>🐰 אחרי</span><span>👤 לפני</span></div>
+      </div>
+
+      <div class="gallery-item reveal">
+        <div class="gallery-compare" onmousedown="startSlide(event)" ontouchstart="startSlide(event)">
+          <img src="images/image9_before.webp" alt="לפני" class="gallery-before">
+          <img src="images/image9_after.webp" alt="אחרי" class="gallery-after">
+          <div class="gallery-slider"></div>
+        </div>
+        <div class="gallery-label"><span>🐰 אחרי</span><span>👤 לפני</span></div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- FACTS -->
+<section id="facts">
+  <div class="container">
+    <h2 class="section-title reveal">🌟 עובדות מדהימות!</h2>
+    <p class="section-sub reveal">לחצו על כל כרטיסייה ותגלו משהו חדש על הארנב שלכם 🎉</p>
+    <div class="facts-grid">
+
+      <div class="fact-flip reveal" onclick="flipCard(this)">
+        <div class="fact-flip-inner">
+          <div class="fact-card fc-1 fact-front">
+            <span class="fact-icon">⚖️</span>
+            <div class="fact-title">קטנטנים ורכים</div>
+            <div class="fact-text">ארנב ננסי שוקל רק בין 0.5 עד 1.5 ק"ג - זה בערך כמו בקבוק מים קטן! 💧</div>
+          </div>
+          <div class="fact-back fc-1">
+            <span class="fact-back-icon">🍼</span>
+            <div class="fact-back-text">כשהם נולדים הם שוקלים רק 30-40 גרם! זה פחות ממשקל ביצה קטנה. תוך חודשיים הם כבר מגיעים למשקל מלא 🥚</div>
+            <div class="fact-back-hint">👆 לחצו לחזור</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="fact-flip reveal" onclick="flipCard(this)">
+        <div class="fact-flip-inner">
+          <div class="fact-card fc-2 fact-front">
+            <span class="fact-icon">⏰</span>
+            <div class="fact-title">חיים ארוכים</div>
+            <div class="fact-text">ארנבים ננסיים חיים 8 עד 12 שנים! הם יהיו חברים שלכם לאורך זמן 🎉</div>
+          </div>
+          <div class="fact-back fc-2">
+            <span class="fact-back-icon">🏆</span>
+            <div class="fact-back-text">הארנב הננסי הכי מבוגר בעולם חי 18 שנים! הסוד? תזונה בריאה, הרבה תנועה ואהבה בלי סוף 💕</div>
+            <div class="fact-back-hint">👆 לחצו לחזור</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="fact-flip reveal" onclick="flipCard(this)">
+        <div class="fact-flip-inner">
+          <div class="fact-card fc-3 fact-front">
+            <span class="fact-icon">🦘</span>
+            <div class="fact-title">קופצים גבוה!</div>
+            <div class="fact-text">ארנב קטן יכול לקפוץ גובה של מטר שלם - זה כמו שאתם קופצים 6 קומות! 🏢</div>
+          </div>
+          <div class="fact-back fc-3">
+            <span class="fact-back-icon">🤸</span>
+            <div class="fact-back-text">כשארנב שמח הוא עושה "בינקי" - קפיצה מטורפת באוויר עם סיבוב! זו הדרך שלו לצעוק "אני מאושר!" 🎊</div>
+            <div class="fact-back-hint">👆 לחצו לחזור</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="fact-flip reveal" onclick="flipCard(this)">
+        <div class="fact-flip-inner">
+          <div class="fact-card fc-4 fact-front">
+            <span class="fact-icon">🦷</span>
+            <div class="fact-title">שיניים שגדלות</div>
+            <div class="fact-text">שיני הארנב גדלות כל הזמן! לכן הם חייבים ללעוס עשב וענפים כל יום 🌿</div>
+          </div>
+          <div class="fact-back fc-4">
+            <span class="fact-back-icon">📏</span>
+            <div class="fact-back-text">השיניים גדלות בקצב של 2 מ"מ בשבוע! בלי לעיסה מתמדת הן היו גדלות בלי סוף. לכן עשב טימותי חשוב כל כך 🌾</div>
+            <div class="fact-back-hint">👆 לחצו לחזור</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="fact-flip reveal" onclick="flipCard(this)">
+        <div class="fact-flip-inner">
+          <div class="fact-card fc-5 fact-front">
+            <span class="fact-icon">👣</span>
+            <div class="fact-title">מדברים ברגליים</div>
+            <div class="fact-text">כשארנב כועס הוא דורך חזק ברצפה - זה הדרך שלו לומר "אני לא מרוצה!" 😠</div>
+          </div>
+          <div class="fact-back fc-5">
+            <span class="fact-back-icon">😊</span>
+            <div class="fact-back-text">וכשהם מרוצים? הם טוחנים שיניים בשקט - כמו חתול שמרכרך! אם הארנב שלכם עושה את זה, סימן שהוא אוהב אתכם 🥰</div>
+            <div class="fact-back-hint">👆 לחצו לחזור</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="fact-flip reveal" onclick="flipCard(this)">
+        <div class="fact-flip-inner">
+          <div class="fact-card fc-6 fact-front">
+            <span class="fact-icon">🌙</span>
+            <div class="fact-title">פעילים בוקר וערב</div>
+            <div class="fact-text">הארנבים אוהבים לשחק בבוקר ובערב - ובצהריים הם ישנים כמוכם! 💤</div>
+          </div>
+          <div class="fact-back fc-6">
+            <span class="fact-back-icon">👀</span>
+            <div class="fact-back-text">לארנבים יש שדה ראייה של כמעט 360°! הם רואים כמעט הכל מסביבם - בלי לסובב את הראש. בטבע זה עוזר להם לזהות טורפים 🦅</div>
+            <div class="fact-back-hint">👆 לחצו לחזור</div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- QUIZ -->
+<section id="quiz">
+  <div class="container">
+    <h2 class="section-title reveal">🧠 חידון הארנבים!</h2>
+    <p class="section-sub reveal">כמה אתם באמת מכירים ארנבים ננסיים? בואו נבדוק! 🎯</p>
+    <div class="quiz-container reveal">
+      <div class="quiz-progress" id="quizProgress"></div>
+      <div class="quiz-card" id="quizCard">
+        <span class="quiz-question-icon" id="quizIcon">🐰</span>
+        <div class="quiz-question" id="quizQuestion"></div>
+        <div class="quiz-answers" id="quizAnswers"></div>
+        <button class="quiz-next" id="quizNext" onclick="nextQuestion()">השאלה הבאה ➜</button>
+      </div>
+      <div class="quiz-result" id="quizResult">
+        <span class="quiz-result-icon" id="resultIcon">🏆</span>
+        <div class="quiz-result-title" id="resultTitle"></div>
+        <div class="quiz-result-text" id="resultText"></div>
+        <button class="quiz-restart" onclick="startQuiz()">🔄 שחקו שוב!</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- BREEDS -->
+<section id="breeds">
+  <div class="container">
+    <h2 class="section-title reveal">🐇 סוגי ארנבים ננסיים</h2>
+    <p class="section-sub reveal">הכירו את הגזעים הפופולריים ביותר בעולם! 🌍</p>
+    <div class="breeds-grid">
+
+      <div class="breed-card bc-1 reveal">
+        <span class="breed-icon">🐰</span>
+        <div class="breed-name">Holland Lop</div>
+        <div class="breed-weight">⚖️ 1.4-1.8 ק"ג</div>
+        <div class="breed-desc">הגזע הפופולרי ביותר! אוזניים מקופלות, פרווה רכה, ואופי מתוק ושובב</div>
+      </div>
+
+      <div class="breed-card bc-2 reveal">
+        <span class="breed-icon">🐇</span>
+        <div class="breed-name">Netherland Dwarf</div>
+        <div class="breed-weight">⚖️ 0.5-1.1 ק"ג</div>
+        <div class="breed-desc">הקטן ביותר! פנים עגולות, אוזניים קצרות וזקופות, ואישיות סקרנית</div>
+      </div>
+
+      <div class="breed-card bc-3 reveal">
+        <span class="breed-icon">✨</span>
+        <div class="breed-name">Mini Rex</div>
+        <div class="breed-weight">⚖️ 1.4-1.9 ק"ג</div>
+        <div class="breed-desc">פרווה קטיפתית כמו פלאש! רגועים ואוהבים מגע - מושלמים לילדים</div>
+      </div>
+
+      <div class="breed-card bc-4 reveal">
+        <span class="breed-icon">🦁</span>
+        <div class="breed-name">Lionhead</div>
+        <div class="breed-weight">⚖️ 1.1-1.7 ק"ג</div>
+        <div class="breed-desc">רעמת שיער כמו אריה קטן! חברותיים מאוד ואוהבים לשחק</div>
+      </div>
+
+      <div class="breed-card bc-5 reveal">
+        <span class="breed-icon">🧸</span>
+        <div class="breed-name">Mini Lop</div>
+        <div class="breed-weight">⚖️ 1.4-1.8 ק"ג</div>
+        <div class="breed-desc">עגלגלים וחמודים עם אוזניים תלויות. אוהבים חיבוקים ומשפחה</div>
+      </div>
+
+      <div class="breed-card bc-6 reveal">
+        <span class="breed-icon">🎀</span>
+        <div class="breed-name">Polish Rabbit</div>
+        <div class="breed-weight">⚖️ 0.9-1.4 ק"ג</div>
+        <div class="breed-desc">אלגנטיים ועדינים עם מבנה גוף קומפקטי. שקטים ונהדרים לדירה</div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- VIDEOS -->
+<section id="videos">
+  <div class="container">
+    <h2 class="section-title reveal">🎥 סרטונים מגניבים</h2>
+    <p class="section-sub reveal">צפו בארנבים הכי מצחיקים וחמודים ברשת 🍿</p>
+    <div class="videos-grid">
+
+      <!-- ✏️ החלף את קוד הסרטון (11 תווים אחרי /embed/) בקוד אמיתי מ-YouTube -->
+      <div class="video-card reveal">
+        <iframe src="https://www.youtube.com/embed/tIblA0apSUY?rel=0" title="The Funniest And Cutest Bunny Rabbit Compilation" allowfullscreen loading="lazy"></iframe>
+        <div class="video-label">🐰 הארנבים הכי מצחיקים וחמודים!</div>
+      </div>
+
+      <div class="video-card reveal">
+        <iframe src="https://www.youtube.com/embed/y6Ym6ycjvrM?rel=0" title="Funny Bunny Videos - Cutest Bunnies Compilation" allowfullscreen loading="lazy"></iframe>
+        <div class="video-label">😂 קומפילציית ארנבים מצחיקה — 5M צפיות!</div>
+      </div>
+
+      <div class="video-card reveal">
+        <iframe src="https://www.youtube.com/embed/dh4GkOBVKBY?rel=0" title="Cute Netherland Dwarf Bunny Compilation" allowfullscreen loading="lazy"></iframe>
+        <div class="video-label">🐇 ארנבי Netherland Dwarf חמודים!</div>
+      </div>
+
+      <div class="video-card reveal">
+        <iframe src="https://www.youtube.com/embed/8rCD-vwpuhA?rel=0" title="Netherland Dwarf Rabbit Growth Day By Day" allowfullscreen loading="lazy"></iframe>
+        <div class="video-label">💛 גידול ארנב ננסי יום אחרי יום</div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- TRANSFORM / AI PROMPT -->
+<section id="transform">
+  <div class="container">
+    <h2 class="section-title reveal">🪄 הפוך את עצמך לארנב!</h2>
+    <p class="section-sub reveal">
+      העתיקו את הפרומפט הקסום, היכנסו לאחד מהאתרים,<br>
+      העלו תמונה שלכם - וקבלו את הארנב שלכם! ✨
+    </p>
+
+    <div class="steps-row reveal">
+      <div class="step"><div class="step-num">1</div><span>העתיקו את הפרומפט</span></div>
+      <div class="step"><div class="step-num">2</div><span>בחרו אתר AI</span></div>
+      <div class="step"><div class="step-num">3</div><span>הדביקו + העלו תמונה</span></div>
+      <div class="step"><div class="step-num">4</div><span>קבלו ארנב! 🎉</span></div>
+    </div>
+
+    <div class="prompt-wrapper reveal">
+      <div class="prompt-header">
+        <div class="prompt-dot" style="background:#FF5F57"></div>
+        <div class="prompt-dot" style="background:#FFBD2E"></div>
+        <div class="prompt-dot" style="background:#28C840"></div>
+        <span>🪄 הפרומפט הקסום - העתיקו אותו</span>
+      </div>
+      <div class="prompt-text" id="thePrompt">A hyper-realistic photograph of a living Mini Lop rabbit, a Netherland Dwarf with flopped ears, derived from the specific human subject in the uploaded image. If the input image contains multiple human subjects, create a separate Mini Lop rabbit for each individual, maintaining their relative positions and poses within the same environmental background. Each rabbit must have a coat whose color and texture are derived from the specific clothing worn by its corresponding human. If a person wears a blue denim shirt, their rabbit should have a soft, dense, denim-blue coat, incorporating variations of denim weave texture as a fine fur pattern. Crucially, the rabbits must not be wearing clothing themselves; their body is the pattern. If clothing has multiple colors or patterns, they must be seamlessly translated into the rabbit's coat pattern (e.g., a patterned fur coat reflecting a patterned shirt). The rabbits are naturally posed, sitting or tucked, on a natural, soft-focus background identical to the original image's temperature. All rabbits must retain the direct, dark, expressive eyes and gaze intensity of their human counterparts, but within full rabbit anatomy. Shot on a Canon EOS R5, shallow depth of field, sharp focus on all rabbits' eyes, identical lighting to the original image.</div>
+    </div>
+
+    <button class="copy-btn reveal" id="copyBtn" onclick="copyPrompt()">
+      📋 העתיקו את הפרומפט הקסום!
+    </button>
+
+    <p class="ai-links-title reveal">👇 עכשיו היכנסו לאחד מהאתרים האלו:</p>
+
+    <div class="ai-links reveal">
+      <a href="https://chatgpt.com" target="_blank" rel="noopener" class="ai-btn ai-chatgpt" onclick="playClick()">
+        <span class="ai-btn-icon">🤖</span>
+        ChatGPT
+      </a>
+      <a href="https://gemini.google.com" target="_blank" rel="noopener" class="ai-btn ai-gemini" onclick="playClick()">
+        <span class="ai-btn-icon">✨</span>
+        Google Gemini
+      </a>
+      <a href="https://arena.ai/image" target="_blank" rel="noopener" class="ai-btn ai-nano" onclick="playClick()">
+        <span class="ai-btn-icon">🏟️</span>
+        Arena
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- CARE GUIDE -->
+<section id="care">
+  <div class="container">
+    <h2 class="section-title reveal">💛 איך מטפלים בארנב?</h2>
+    <p class="section-sub reveal">ארנב מאושר = ארנב בריא! הנה כל מה שצריך לדעת 🐾</p>
+    <div class="care-grid">
+
+      <div class="care-card reveal">
+        <span class="care-icon">🥕</span>
+        <div class="care-title">אוכל בריא</div>
+        <div class="care-text">עשב טימותי, גזר, פלפל ועלים ירוקים. פירות רק לפעמים - כטיפול מיוחד! 🍓</div>
+      </div>
+
+      <div class="care-card reveal">
+        <span class="care-icon">🏠</span>
+        <div class="care-title">בית נוח</div>
+        <div class="care-text">כלוב מרווח עם מיטה רכה מחציר. הארנב צריך מקום לרוץ ולשחק בחופשיות 🌿</div>
+      </div>
+
+      <div class="care-card reveal">
+        <span class="care-icon">💧</span>
+        <div class="care-title">מים תמיד</div>
+        <div class="care-text">קערת מים נקייה ומלאה כל הזמן! ארנבים שותים הרבה מים כל יום 💧</div>
+      </div>
+
+      <div class="care-card reveal">
+        <span class="care-icon">🤗</span>
+        <div class="care-title">חיבוקים בעדינות</div>
+        <div class="care-text">אוהבים ליפה בשקט ובעדינות. לא אוהבים רעש חזק ותנועות מפחידות 🤫</div>
+      </div>
+
+      <div class="care-card reveal">
+        <span class="care-icon">🧹</span>
+        <div class="care-title">ניקיון שוטף</div>
+        <div class="care-text">החלפת מצע פעמיים בשבוע. כלוב נקי = ארנב מאושר ובריא לחלוטין! ✨</div>
+      </div>
+
+      <div class="care-card reveal">
+        <span class="care-icon">👨‍⚕️</span>
+        <div class="care-title">ביקור וטרינר</div>
+        <div class="care-text">פעם בשנה לבדיקה כללית. חיסונים חשובים מאוד לבריאות ארוכת שנים 💉</div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- SHARE -->
+<section style="padding: 24px;">
+  <div class="share-section">
+    <h3 style="font-size: 20px; font-weight: 700; margin-bottom: 16px;">📤 שתפו עם חברים!</h3>
+    <div class="share-buttons">
+      <button class="share-btn share-whatsapp" onclick="shareWhatsApp()">💬 שתפו בוואטסאפ</button>
+      <button class="share-btn share-general" onclick="shareGeneral()">📤 שיתוף</button>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <span class="footer-logo">🐰</span>
+  <div class="footer-title">ארנב שלי - עולם הארנבים הננסיים</div>
+  <p>נבנה באהבה ע"י <a href="https://sagiai.co.il" target="_blank">SagiAI</a> - שגיא בר און | 054-9995050</p>
+  <p class="footer-sub">האתר נועד לחינוך ולכיף • בהצלחה לכל ילד עם הארנב שלו 💛</p>
+</footer>
+
+<!-- SOUND TOGGLE -->
+<button class="sound-btn" id="soundBtn" onclick="toggleSound()" title="הפעל/כבה צלילים">🔊</button>
+<!-- DARK MODE TOGGLE -->
+<button class="dark-toggle" id="darkBtn" onclick="toggleDark()" title="מצב כהה/בהיר">🌙</button>
+
+<script>
+/* ===== SOUND ENGINE (Web Audio API - ללא קבצים חיצוניים) ===== */
+let audioCtx = null;
+let soundOn = true;
+
+function ctx() {
+  if (!audioCtx) audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+  if (audioCtx.state === 'suspended') audioCtx.resume();
+  return audioCtx;
+}
+
+function tone(freq, dur, type = 'sine', vol = 0.35) {
+  if (!soundOn) return;
+  try {
+    const c = ctx();
+    const o = c.createOscillator();
+    const g = c.createGain();
+    o.connect(g); g.connect(c.destination);
+    o.type = type;
+    o.frequency.setValueAtTime(freq, c.currentTime);
+    o.frequency.linearRampToValueAtTime(freq * 0.8, c.currentTime + dur);
+    g.gain.setValueAtTime(vol, c.currentTime);
+    g.gain.linearRampToValueAtTime(0.01, c.currentTime + dur);
+    o.start(c.currentTime);
+    o.stop(c.currentTime + dur + 0.05);
+  } catch(e) { console.log('Audio error:', e); }
+}
+
+function playClick() { tone(600, 0.15, 'sine', 0.35); }
+function playPop()   { tone(880, 0.2, 'triangle', 0.4); }
+
+function playSuccess() {
+  if (!soundOn) return;
+  [523, 659, 784, 1047].forEach((f, i) => setTimeout(() => tone(f, 0.25, 'sine', 0.4), i * 120));
+}
+
+function toggleSound() {
+  soundOn = !soundOn;
+  document.getElementById('soundBtn').textContent = soundOn ? '🔊' : '🔇';
+}
+
+/* ===== COPY PROMPT ===== */
+function copyPrompt() {
+  const text = document.getElementById('thePrompt').textContent.trim();
+  navigator.clipboard.writeText(text).then(() => {
+    const btn = document.getElementById('copyBtn');
+    btn.textContent = '✅ הפרומפט הועתק! עכשיו היכנסו לאחד מהאתרים 👇';
+    btn.classList.add('copied');
+    playSuccess();
+    launchConfetti();
+    setTimeout(() => {
+      btn.textContent = '📋 העתיקו את הפרומפט הקסום!';
+      btn.classList.remove('copied');
+    }, 5000);
+  }).catch(() => {
+    const ta = document.createElement('textarea');
+    ta.value = text;
+    ta.style.position = 'fixed'; ta.style.opacity = '0';
+    document.body.appendChild(ta);
+    ta.select();
+    document.execCommand('copy');
+    document.body.removeChild(ta);
+    const btn = document.getElementById('copyBtn');
+    btn.textContent = '✅ הועתק!';
+    setTimeout(() => { btn.textContent = '📋 העתיקו את הפרומפט הקסום!'; }, 3000);
+  });
+}
+
+/* ===== CONFETTI ===== */
+function launchConfetti() {
+  const colors = ['#FF6B35','#4CC9F0','#FFD166','#7BDE90','#FF9BB5','#C77DFF'];
+  for (let i = 0; i < 50; i++) {
+    const el = document.createElement('div');
+    const size = 6 + Math.random() * 8;
+    el.style.cssText = `
+      position:fixed; pointer-events:none; z-index:9999;
+      left:${20 + Math.random() * 60}vw; top:-14px;
+      width:${size}px; height:${size}px;
+      border-radius:${Math.random() > 0.5 ? '50%' : '2px'};
+      background:${colors[Math.floor(Math.random() * colors.length)]};
+      animation:confettiFall ${1.2 + Math.random() * 1.8}s linear ${Math.random() * 0.4}s forwards;
+    `;
+    document.body.appendChild(el);
+    setTimeout(() => el.remove(), 3500);
+  }
+}
+
+const css = document.createElement('style');
+css.textContent = `@keyframes confettiFall { to { transform: translateY(100vh) rotate(${360 + Math.random()*360}deg); opacity:0; } }`;
+document.head.appendChild(css);
+
+/* ===== FLIP CARDS ===== */
+function flipCard(el) {
+  el.classList.toggle('flipped');
+  playPop();
+}
+
+/* ===== GALLERY SLIDER ===== */
+let activeSlider = null;
+
+function startSlide(e) {
+  e.preventDefault();
+  activeSlider = e.currentTarget;
+  document.addEventListener('mousemove', doSlide);
+  document.addEventListener('mouseup', stopSlide);
+  document.addEventListener('touchmove', doSlide, { passive: false });
+  document.addEventListener('touchend', stopSlide);
+}
+
+function doSlide(e) {
+  if (!activeSlider) return;
+  e.preventDefault();
+  const rect = activeSlider.getBoundingClientRect();
+  const clientX = e.touches ? e.touches[0].clientX : e.clientX;
+  let pct = ((clientX - rect.left) / rect.width) * 100;
+  pct = Math.max(0, Math.min(100, pct));
+  const afterImg = activeSlider.querySelector('.gallery-after');
+  const slider = activeSlider.querySelector('.gallery-slider');
+  afterImg.style.clipPath = `inset(0 ${100 - pct}% 0 0)`;
+  slider.style.left = pct + '%';
+}
+
+function stopSlide() {
+  activeSlider = null;
+  document.removeEventListener('mousemove', doSlide);
+  document.removeEventListener('mouseup', stopSlide);
+  document.removeEventListener('touchmove', doSlide);
+  document.removeEventListener('touchend', stopSlide);
+}
+
+/* ===== QUIZ ===== */
+const quizData = [
+  {
+    icon: '⚖️',
+    question: 'כמה שוקל ארנב ננסי בממוצע?',
+    answers: ['3-5 ק"ג', '0.5-1.5 ק"ג', '7-10 ק"ג'],
+    correct: 1
+  },
+  {
+    icon: '⏰',
+    question: 'כמה שנים חי ארנב ננסי?',
+    answers: ['2-3 שנים', '4-5 שנים', '8-12 שנים'],
+    correct: 2
+  },
+  {
+    icon: '🦘',
+    question: 'לאיזה גובה יכול ארנב ננסי לקפוץ?',
+    answers: ['20 ס"מ', 'מטר שלם!', '3 מטרים'],
+    correct: 1
+  },
+  {
+    icon: '🦷',
+    question: 'מה מיוחד בשיני הארנב?',
+    answers: ['הן נושרות כל שנה', 'הן גדלות כל הזמן', 'יש להם רק 4 שיניים'],
+    correct: 1
+  },
+  {
+    icon: '🌙',
+    question: 'מתי ארנבים הכי פעילים?',
+    answers: ['בצהריים', 'בבוקר ובערב', 'רק בלילה'],
+    correct: 1
+  }
+];
+
+let quizCurrent = 0;
+let quizScore = 0;
+
+function startQuiz() {
+  quizCurrent = 0;
+  quizScore = 0;
+  document.getElementById('quizCard').style.display = 'block';
+  document.getElementById('quizResult').style.display = 'none';
+  renderQuizProgress();
+  renderQuestion();
+}
+
+function renderQuizProgress() {
+  const el = document.getElementById('quizProgress');
+  el.innerHTML = quizData.map((_, i) =>
+    `<div class="quiz-dot${i === quizCurrent ? ' active' : ''}"></div>`
+  ).join('');
+}
+
+function renderQuestion() {
+  const q = quizData[quizCurrent];
+  document.getElementById('quizIcon').textContent = q.icon;
+  document.getElementById('quizQuestion').textContent = q.question;
+  document.getElementById('quizNext').style.display = 'none';
+  const answersEl = document.getElementById('quizAnswers');
+  answersEl.innerHTML = q.answers.map((a, i) =>
+    `<button class="quiz-answer" onclick="checkAnswer(${i})">${a}</button>`
+  ).join('');
+  renderQuizProgress();
+}
+
+function checkAnswer(idx) {
+  const q = quizData[quizCurrent];
+  const buttons = document.querySelectorAll('.quiz-answer');
+  buttons.forEach((btn, i) => {
+    btn.classList.add('disabled');
+    if (i === q.correct) btn.classList.add('correct');
+    else if (i === idx) btn.classList.add('wrong');
+  });
+
+  const dots = document.querySelectorAll('.quiz-dot');
+  if (idx === q.correct) {
+    quizScore++;
+    dots[quizCurrent].classList.add('correct');
+    playSuccess();
+  } else {
+    dots[quizCurrent].classList.add('wrong');
+    tone(220, 0.3, 'sawtooth', 0.08);
+  }
+
+  if (quizCurrent < quizData.length - 1) {
+    document.getElementById('quizNext').style.display = 'block';
+  } else {
+    setTimeout(showResult, 1200);
+  }
+}
+
+function nextQuestion() {
+  quizCurrent++;
+  renderQuestion();
+}
+
+function showResult() {
+  document.getElementById('quizCard').style.display = 'none';
+  const result = document.getElementById('quizResult');
+  result.style.display = 'block';
+
+  const pct = (quizScore / quizData.length) * 100;
+  let icon, title, text;
+  if (pct === 100) {
+    icon = '🏆'; title = 'מושלם!'; text = `ענית נכון על כל ${quizData.length} השאלות! אתם מומחים לארנבים!`;
+  } else if (pct >= 60) {
+    icon = '⭐'; title = 'כל הכבוד!'; text = `ענית נכון על ${quizScore} מתוך ${quizData.length} - יפה מאוד!`;
+  } else {
+    icon = '💪'; title = 'כמעט!'; text = `ענית נכון על ${quizScore} מתוך ${quizData.length} - נסו שוב ותשתפרו!`;
+  }
+
+  document.getElementById('resultIcon').textContent = icon;
+  document.getElementById('resultTitle').textContent = title;
+  document.getElementById('resultText').textContent = text;
+  launchConfetti();
+}
+
+startQuiz();
+
+/* ===== DARK MODE ===== */
+function toggleDark() {
+  document.body.classList.toggle('dark');
+  const isDark = document.body.classList.contains('dark');
+  document.getElementById('darkBtn').textContent = isDark ? '☀️' : '🌙';
+  localStorage.setItem('rabbit-dark', isDark ? '1' : '0');
+  playClick();
+}
+
+if (localStorage.getItem('rabbit-dark') === '1') {
+  document.body.classList.add('dark');
+  document.getElementById('darkBtn').textContent = '☀️';
+}
+
+/* ===== HAMBURGER MENU ===== */
+function toggleMenu() {
+  const btn = document.getElementById('hamburgerBtn');
+  const menu = document.getElementById('mobileMenu');
+  btn.classList.toggle('active');
+  menu.classList.toggle('open');
+  playClick();
+}
+
+function closeMenu() {
+  document.getElementById('hamburgerBtn').classList.remove('active');
+  document.getElementById('mobileMenu').classList.remove('open');
+}
+
+/* ===== PAW TRAIL ===== */
+let lastPaw = 0;
+document.addEventListener('mousemove', (e) => {
+  const now = Date.now();
+  if (now - lastPaw < 120) return;
+  lastPaw = now;
+  const paw = document.createElement('div');
+  paw.className = 'paw-print';
+  paw.textContent = '🐾';
+  paw.style.left = (e.clientX - 9) + 'px';
+  paw.style.top = (e.clientY - 9) + 'px';
+  paw.style.setProperty('--paw-rot', (Math.random() * 40 - 20) + 'deg');
+  document.body.appendChild(paw);
+  setTimeout(() => paw.remove(), 1200);
+});
+
+/* ===== SHARE ===== */
+function shareWhatsApp() {
+  const url = window.location.href;
+  const text = '🐰 בואו תראו את האתר המדהים הזה על ארנבים ננסיים! ' + url;
+  window.open('https://wa.me/?text=' + encodeURIComponent(text), '_blank');
+  playClick();
+}
+
+function shareGeneral() {
+  if (navigator.share) {
+    navigator.share({
+      title: 'ארנב שלי - עולם הארנבים הננסיים',
+      text: '🐰 כל מה שרצית לדעת על ארנבים ננסיים!',
+      url: window.location.href
+    }).catch(() => {});
+  } else {
+    navigator.clipboard.writeText(window.location.href).then(() => {
+      const btn = event.target;
+      const orig = btn.textContent;
+      btn.textContent = '✅ הקישור הועתק!';
+      setTimeout(() => { btn.textContent = orig; }, 2000);
+    });
+  }
+  playClick();
+}
+
+/* ===== SCROLL REVEAL ===== */
+const revealObserver = new IntersectionObserver((entries) => {
+  entries.forEach((entry, i) => {
+    if (entry.isIntersecting) {
+      const delay = (i % 4) * 80;
+      setTimeout(() => entry.target.classList.add('in'), delay);
+      revealObserver.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.08 });
+
+document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
+</script>
+
+</body>
+</html>
