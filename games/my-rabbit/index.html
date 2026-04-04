@@ -15,7 +15,21 @@
     gtag('config', 'G-XSH19K5LBZ');
   </script>
   <title>ארנב שלי 🐰 - עולם הארנבים הננסיים</title>
-  <meta name="description" content="כל מה שרצית לדעת על ארנבים ננסיים - עובדות, סרטונים, ואפשר להפוך את עצמך לארנב!">
+  <meta name="description" content="כל מה שרצית לדעת על ארנבים ננסיים - עובדות, סרטונים, ואפשר להפכו את עצמכם לארנב!">
+  <link rel="canonical" href="https://sagi-ba.github.io/AI/games/my-rabbit/">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🐰</text></svg>">
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="ארנב שלי 🐰 - עולם הארנבים הננסיים">
+  <meta property="og:description" content="כל מה שרצית לדעת על ארנבים ננסיים - עובדות, סרטונים, חידון, ואפשר להפכו את עצמכם לארנב!">
+  <meta property="og:url" content="https://sagi-ba.github.io/AI/games/my-rabbit/">
+  <meta property="og:image" content="https://sagi-ba.github.io/AI/games/my-rabbit/images/image1_after.webp">
+  <meta property="og:locale" content="he_IL">
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="ארנב שלי 🐰 - עולם הארנבים הננסיים">
+  <meta name="twitter:description" content="כל מה שרצית לדעת על ארנבים ננסיים - עובדות, סרטונים, ואפשר להפכו את עצמכם לארנב!">
+  <meta name="twitter:image" content="https://sagi-ba.github.io/AI/games/my-rabbit/images/image1_after.webp">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;700;900&display=swap" rel="stylesheet">
   <style>
@@ -378,6 +392,49 @@
       display: block;
       border: none;
     }
+
+    .yt-lite {
+      position: relative;
+      width: 100%;
+      aspect-ratio: 16/9;
+      background-color: #000;
+      background-size: cover;
+      background-position: center;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .yt-lite::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: rgba(0,0,0,0.15);
+      transition: background 0.2s;
+    }
+    .yt-lite:hover::after { background: rgba(0,0,0,0.05); }
+
+    .yt-lite-play {
+      position: relative;
+      z-index: 2;
+      width: 68px; height: 48px;
+      background: rgba(255,0,0,0.85);
+      border-radius: 14px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.2s;
+    }
+    .yt-lite:hover .yt-lite-play { background: #f00; transform: scale(1.1); }
+
+    .yt-lite-play::after {
+      content: '';
+      border-style: solid;
+      border-width: 10px 0 10px 18px;
+      border-color: transparent transparent transparent #fff;
+      margin-left: 3px;
+    }
     .video-label {
       padding: 14px 18px;
       font-size: 15px;
@@ -594,6 +651,40 @@
       transition: all 0.2s;
     }
     .sound-btn:hover { background: var(--orange); transform: scale(1.1); }
+    .sound-btn.pulse { animation: soundPulse 1.5s ease-in-out infinite; }
+    @keyframes soundPulse {
+      0%,100% { box-shadow: 0 0 0 0 rgba(255,107,53,0.5); }
+      50% { box-shadow: 0 0 0 14px rgba(255,107,53,0); }
+    }
+
+    .music-prompt {
+      position: fixed;
+      bottom: 82px;
+      left: 10px;
+      background: var(--orange);
+      color: white;
+      padding: 8px 16px;
+      border-radius: 20px;
+      font-size: 13px;
+      font-weight: 700;
+      z-index: 100;
+      animation: promptBounce 1.5s ease-in-out infinite;
+      white-space: nowrap;
+      box-shadow: var(--shadow);
+    }
+    .music-prompt::after {
+      content: '';
+      position: absolute;
+      bottom: -6px;
+      left: 24px;
+      width: 12px; height: 12px;
+      background: var(--orange);
+      transform: rotate(45deg);
+    }
+    @keyframes promptBounce {
+      0%,100% { transform: translateY(0); }
+      50% { transform: translateY(-5px); }
+    }
 
     /* ===== SCROLL REVEAL ===== */
     .reveal {
@@ -611,7 +702,7 @@
       .gallery-grid { grid-template-columns: 1fr 1fr; }
       section { padding: 52px 20px; }
       .sound-btn { width: 44px; height: 44px; font-size: 18px; bottom: 16px; left: 16px; }
-      .dark-toggle { width: 44px; height: 44px; font-size: 18px; bottom: 16px; left: 68px; }
+      .dark-toggle { width: 44px; height: 44px; font-size: 18px; bottom: 16px; left: 72px; }
     }
 
     @media (max-width: 480px) {
@@ -970,6 +1061,10 @@
       background: linear-gradient(135deg, #2a2a1e 0%, #1a1a2e 100%);
     }
 
+    body.dark #share {
+      background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #1a2a1a 100%);
+    }
+
     body.dark .fact-card,
     body.dark .breed-card,
     body.dark .care-card {
@@ -1033,7 +1128,136 @@
     body.dark .dark-toggle { background: #16213e; }
     body.dark .sound-btn { background: #16213e; }
 
-    /* ===== SHARE BUTTON ===== */
+    /* ===== BACK TO TOP ===== */
+    .back-to-top {
+      position: fixed;
+      bottom: 24px;
+      right: 24px;
+      width: 52px; height: 52px;
+      border-radius: 50%;
+      background: var(--orange);
+      color: white;
+      border: none;
+      font-size: 22px;
+      cursor: pointer;
+      box-shadow: 0 4px 16px rgba(255,107,53,0.35);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 100;
+      opacity: 0;
+      pointer-events: none;
+      transform: translateY(20px);
+      transition: all 0.3s;
+    }
+    .back-to-top.visible {
+      opacity: 1;
+      pointer-events: auto;
+      transform: translateY(0);
+    }
+    .back-to-top:hover { transform: translateY(-3px) scale(1.1); }
+
+    @media (max-width: 680px) {
+      .back-to-top { width: 44px; height: 44px; font-size: 18px; bottom: 16px; right: 16px; }
+    }
+
+    /* ===== CTA COMMUNITY ===== */
+    #community {
+      background: linear-gradient(135deg, #FFF0E8 0%, #FFE8DF 50%, #FFFAE8 100%);
+    }
+
+    .cta-card {
+      background: linear-gradient(135deg, rgba(255,107,53,0.08) 0%, rgba(255,255,255,0.95) 100%);
+      border: 2.5px solid rgba(255,107,53,0.2);
+      border-radius: var(--radius);
+      padding: 48px 32px;
+      text-align: center;
+      max-width: 700px;
+      margin: 0 auto;
+      box-shadow: var(--shadow-lg);
+    }
+
+    .cta-card h2 {
+      font-size: clamp(24px, 4vw, 32px);
+      font-weight: 900;
+      margin-bottom: 16px;
+      color: var(--dark);
+    }
+
+    .cta-card p {
+      font-size: 17px;
+      color: var(--mid);
+      line-height: 1.7;
+      margin-bottom: 28px;
+    }
+
+    .cta-buttons {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 14px;
+    }
+
+    .community-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: #25D366;
+      color: white;
+      padding: 18px 44px;
+      border-radius: 50px;
+      font-size: 19px;
+      font-weight: 700;
+      text-decoration: none;
+      font-family: 'Heebo', sans-serif;
+      box-shadow: 0 4px 24px rgba(37,211,102,0.4);
+      transition: all 0.3s;
+      animation: ctaPulse 2s ease-in-out infinite;
+    }
+    .community-btn:hover {
+      transform: translateY(-3px) scale(1.03);
+      box-shadow: 0 8px 32px rgba(37,211,102,0.55);
+    }
+
+    @keyframes ctaPulse {
+      0%,100% { box-shadow: 0 4px 24px rgba(37,211,102,0.4); }
+      50% { box-shadow: 0 4px 24px rgba(37,211,102,0.15), 0 0 0 10px rgba(37,211,102,0); }
+    }
+
+    .whatsapp-contact {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      color: var(--orange);
+      font-size: 16px;
+      font-weight: 700;
+      text-decoration: none;
+      transition: all 0.2s;
+    }
+    .whatsapp-contact:hover { opacity: 0.7; }
+
+    .cta-divider {
+      font-size: 14px;
+      color: #bbb;
+    }
+
+    body.dark #community {
+      background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+    }
+
+    body.dark .cta-card {
+      background: linear-gradient(135deg, rgba(255,107,53,0.06) 0%, rgba(22,33,62,0.95) 100%);
+      border-color: rgba(255,107,53,0.15);
+    }
+
+    @media (max-width: 680px) {
+      .community-btn { width: 100%; justify-content: center; padding: 16px 28px; font-size: 17px; }
+      .cta-card { padding: 36px 20px; }
+    }
+
+    /* ===== SHARE SECTION ===== */
+    #share { background: linear-gradient(135deg, #FFF0E8 0%, #F0F7FF 50%, #EDFFF2 100%); }
+
     .share-section {
       text-align: center;
       padding: 24px 0;
@@ -1151,12 +1375,13 @@
     <a href="#hero" class="nav-logo" onclick="playClick()">🐰 ארנב שלי</a>
     <ul class="nav-links">
       <li><a href="#gallery"   onclick="playClick()">📸 גלריה</a></li>
+      <li><a href="#transform" onclick="playClick()">🪄 הפכו לארנב</a></li>
       <li><a href="#facts"     onclick="playClick()">📚 עובדות</a></li>
       <li><a href="#quiz"      onclick="playClick()">🧠 חידון</a></li>
       <li><a href="#breeds"    onclick="playClick()">🐇 גזעים</a></li>
       <li><a href="#videos"    onclick="playClick()">🎥 סרטונים</a></li>
-      <li><a href="#transform" onclick="playClick()">🪄 הפוך את עצמך לארנב</a></li>
       <li><a href="#care"      onclick="playClick()">💛 טיפול</a></li>
+      <li><a href="#community" onclick="playClick()">🚀 קהילה</a></li>
     </ul>
     <button class="hamburger" id="hamburgerBtn" onclick="toggleMenu()" aria-expanded="false" aria-label="תפריט ניווט">
       <span></span><span></span><span></span>
@@ -1167,12 +1392,13 @@
 <!-- MOBILE MENU -->
 <div class="mobile-menu" id="mobileMenu">
   <a href="#gallery"   onclick="closeMenu(); playClick()">📸 גלריה</a>
+  <a href="#transform" onclick="closeMenu(); playClick()">🪄 הפכו לארנב</a>
   <a href="#facts"     onclick="closeMenu(); playClick()">📚 עובדות</a>
   <a href="#quiz"      onclick="closeMenu(); playClick()">🧠 חידון</a>
   <a href="#breeds"    onclick="closeMenu(); playClick()">🐇 גזעים</a>
   <a href="#videos"    onclick="closeMenu(); playClick()">🎥 סרטונים</a>
-  <a href="#transform" onclick="closeMenu(); playClick()">🪄 הפוך את עצמך לארנב</a>
   <a href="#care"      onclick="closeMenu(); playClick()">💛 טיפול</a>
+  <a href="#community" onclick="closeMenu(); playClick()">🚀 קהילה</a>
 </div>
 
 <!-- HERO -->
@@ -1203,7 +1429,7 @@
       </p>
       <div class="hero-buttons">
         <a href="#facts" class="btn-primary" onclick="playClick()">🚀 בואו נגלה ביחד!</a>
-        <a href="#transform" class="btn-secondary" onclick="playClick()">🪄 הפוך את עצמך לארנב</a>
+        <a href="#transform" class="btn-secondary" onclick="playClick()">🪄 הפכו את עצמכם לארנב</a>
       </div>
     </div>
 
@@ -1307,6 +1533,55 @@
         <div class="gallery-label"><span>👤 לפני</span><span>🐰 אחרי</span></div>
       </div>
 
+    </div>
+  </div>
+</section>
+
+<!-- TRANSFORM / AI PROMPT -->
+<section id="transform">
+  <div class="container">
+    <h2 class="section-title reveal">🪄 הפכו את עצמכם לארנב!</h2>
+    <p class="section-sub reveal">
+      העתיקו את הפרומפט הקסום, היכנסו לאחד מהאתרים,<br>
+      העלו תמונה שלכם או קבוצתית - וקבלו את הארנב שלכם! ✨
+    </p>
+
+    <div class="steps-row reveal">
+      <div class="step"><div class="step-num">1</div><span>העתיקו את הפרומפט</span></div>
+      <div class="step"><div class="step-num">2</div><span>בחרו אתר AI</span></div>
+      <div class="step"><div class="step-num">3</div><span>הדביקו + העלו תמונה</span></div>
+      <div class="step"><div class="step-num">4</div><span>קבלו ארנב! 🎉</span></div>
+    </div>
+
+    <div class="prompt-wrapper reveal">
+      <div class="prompt-header">
+        <div class="prompt-dot" style="background:#FF5F57"></div>
+        <div class="prompt-dot" style="background:#FFBD2E"></div>
+        <div class="prompt-dot" style="background:#28C840"></div>
+        <span>🪄 הפרומפט הקסום - העתיקו אותו</span>
+      </div>
+      <div class="prompt-text" id="thePrompt">A hyper-realistic photograph of a living Mini Lop rabbit, a Netherland Dwarf with flopped ears, derived from the specific human subject in the uploaded image. If the input image contains multiple human subjects, create a separate Mini Lop rabbit for each individual, maintaining their relative positions and poses within the same environmental background. Each rabbit must have a coat whose color and texture are derived from the specific clothing worn by its corresponding human. If a person wears a blue denim shirt, their rabbit should have a soft, dense, denim-blue coat, incorporating variations of denim weave texture as a fine fur pattern. Crucially, the rabbits must not be wearing clothing themselves; their body is the pattern. If clothing has multiple colors or patterns, they must be seamlessly translated into the rabbit's coat pattern (e.g., a patterned fur coat reflecting a patterned shirt). The rabbits are naturally posed, sitting or tucked, on a natural, soft-focus background identical to the original image's temperature. All rabbits must retain the direct, dark, expressive eyes and gaze intensity of their human counterparts, but within full rabbit anatomy. Shot on a Canon EOS R5, shallow depth of field, sharp focus on all rabbits' eyes, identical lighting to the original image.</div>
+    </div>
+
+    <button class="copy-btn reveal" id="copyBtn" onclick="copyPrompt()">
+      📋 העתיקו את הפרומפט הקסום!
+    </button>
+
+    <p class="ai-links-title reveal">👇 עכשיו היכנסו לאחד מהאתרים האלו:</p>
+
+    <div class="ai-links reveal">
+      <a href="https://chatgpt.com" target="_blank" rel="noopener" class="ai-btn ai-chatgpt" onclick="playClick()">
+        <span class="ai-btn-icon">🤖</span>
+        ChatGPT
+      </a>
+      <a href="https://gemini.google.com" target="_blank" rel="noopener" class="ai-btn ai-gemini" onclick="playClick()">
+        <span class="ai-btn-icon">✨</span>
+        Google Gemini
+      </a>
+      <a href="https://arena.ai/image" target="_blank" rel="noopener" class="ai-btn ai-nano" onclick="playClick()">
+        <span class="ai-btn-icon">🏟️</span>
+        Arena
+      </a>
     </div>
   </div>
 </section>
@@ -1498,94 +1773,45 @@
 
       <!-- ✏️ החלף את קוד הסרטון (11 תווים אחרי /embed/) בקוד אמיתי מ-YouTube -->
       <div class="video-card reveal">
-        <iframe src="https://www.youtube.com/embed/tIblA0apSUY?rel=0" title="The Funniest And Cutest Bunny Rabbit Compilation" allowfullscreen loading="lazy"></iframe>
+        <div class="yt-lite" data-id="tIblA0apSUY" style="background-image:url(https://i.ytimg.com/vi/tIblA0apSUY/hqdefault.jpg)" title="The Funniest And Cutest Bunny Rabbit Compilation" onclick="loadYT(this)"><div class="yt-lite-play"></div></div>
         <div class="video-label">🐰 הארנבים הכי מצחיקים וחמודים!</div>
       </div>
 
       <div class="video-card reveal">
-        <iframe src="https://www.youtube.com/embed/y6Ym6ycjvrM?rel=0" title="Funny Bunny Videos - Cutest Bunnies Compilation" allowfullscreen loading="lazy"></iframe>
-        <div class="video-label">😂 קומפילציית ארנבים מצחיקה — 5M צפיות!</div>
+        <div class="yt-lite" data-id="y6Ym6ycjvrM" style="background-image:url(https://i.ytimg.com/vi/y6Ym6ycjvrM/hqdefault.jpg)" title="Funny Bunny Videos - Cutest Bunnies Compilation" onclick="loadYT(this)"><div class="yt-lite-play"></div></div>
+        <div class="video-label">😂 קומפילציית ארנבים מצחיקה- 5M צפיות!</div>
       </div>
 
       <div class="video-card reveal">
-        <iframe src="https://www.youtube.com/embed/dh4GkOBVKBY?rel=0" title="Cute Netherland Dwarf Bunny Compilation" allowfullscreen loading="lazy"></iframe>
+        <div class="yt-lite" data-id="dh4GkOBVKBY" style="background-image:url(https://i.ytimg.com/vi/dh4GkOBVKBY/hqdefault.jpg)" title="Cute Netherland Dwarf Bunny Compilation" onclick="loadYT(this)"><div class="yt-lite-play"></div></div>
         <div class="video-label">🐇 ארנבי Netherland Dwarf חמודים!</div>
       </div>
 
       <div class="video-card reveal">
-        <iframe src="https://www.youtube.com/embed/8rCD-vwpuhA?rel=0" title="Netherland Dwarf Rabbit Growth Day By Day" allowfullscreen loading="lazy"></iframe>
+        <div class="yt-lite" data-id="8rCD-vwpuhA" style="background-image:url(https://i.ytimg.com/vi/8rCD-vwpuhA/hqdefault.jpg)" title="Netherland Dwarf Rabbit Growth Day By Day" onclick="loadYT(this)"><div class="yt-lite-play"></div></div>
         <div class="video-label">💛 גידול ארנב ננסי יום אחרי יום</div>
       </div>
 
       <div class="video-card reveal">
-        <iframe src="https://www.youtube.com/embed/FC4Kun_BimM?rel=0" title="The Cutest Baby Bunny Rabbit Compilation EVER" allowfullscreen loading="lazy"></iframe>
-        <div class="video-label">🐰 הארנבונים הכי חמודים — 12M צפיות!</div>
+        <div class="yt-lite" data-id="FC4Kun_BimM" style="background-image:url(https://i.ytimg.com/vi/FC4Kun_BimM/hqdefault.jpg)" title="The Cutest Baby Bunny Rabbit Compilation EVER" onclick="loadYT(this)"><div class="yt-lite-play"></div></div>
+        <div class="video-label">🐰 הארנבונים הכי חמודים- 12M צפיות!</div>
       </div>
 
       <div class="video-card reveal">
-        <iframe src="https://www.youtube.com/embed/8BYa0U1h5Fs?rel=0" title="Funny Baby Bunny Rabbit Videos Compilation" allowfullscreen loading="lazy"></iframe>
-        <div class="video-label">😂 ארנבונים מצחיקים — 11M צפיות!</div>
+        <div class="yt-lite" data-id="8BYa0U1h5Fs" style="background-image:url(https://i.ytimg.com/vi/8BYa0U1h5Fs/hqdefault.jpg)" title="Funny Baby Bunny Rabbit Videos Compilation" onclick="loadYT(this)"><div class="yt-lite-play"></div></div>
+        <div class="video-label">😂 ארנבונים מצחיקים- 11M צפיות!</div>
       </div>
 
       <div class="video-card reveal">
-        <iframe src="https://www.youtube.com/embed/6TkFojsmdpw?rel=0" title="Funny And Cute Bunny Rabbit Videos Compilation" allowfullscreen loading="lazy"></iframe>
-        <div class="video-label">🤣 ארנבים חמודים ומצחיקים — 4.4M צפיות!</div>
+        <div class="yt-lite" data-id="6TkFojsmdpw" style="background-image:url(https://i.ytimg.com/vi/6TkFojsmdpw/hqdefault.jpg)" title="Funny And Cute Bunny Rabbit Videos Compilation" onclick="loadYT(this)"><div class="yt-lite-play"></div></div>
+        <div class="video-label">🤣 ארנבים חמודים ומצחיקים- 4.4M צפיות!</div>
       </div>
 
       <div class="video-card reveal">
-        <iframe src="https://www.youtube.com/embed/4Uzo8km08_c?rel=0" title="Hairless Rabbit Has A Hundred Cozy Sweaters" allowfullscreen loading="lazy"></iframe>
-        <div class="video-label">🧶 ארנב עם מאה סוודרים — 48M צפיות!</div>
+        <div class="yt-lite" data-id="4Uzo8km08_c" style="background-image:url(https://i.ytimg.com/vi/4Uzo8km08_c/hqdefault.jpg)" title="Hairless Rabbit Has A Hundred Cozy Sweaters" onclick="loadYT(this)"><div class="yt-lite-play"></div></div>
+        <div class="video-label">🧶 ארנב עם מאה סוודרים- 48M צפיות!</div>
       </div>
 
-    </div>
-  </div>
-</section>
-
-<!-- TRANSFORM / AI PROMPT -->
-<section id="transform">
-  <div class="container">
-    <h2 class="section-title reveal">🪄 הפוך את עצמך לארנב!</h2>
-    <p class="section-sub reveal">
-      העתיקו את הפרומפט הקסום, היכנסו לאחד מהאתרים,<br>
-      העלו תמונה שלכם - וקבלו את הארנב שלכם! ✨
-    </p>
-
-    <div class="steps-row reveal">
-      <div class="step"><div class="step-num">1</div><span>העתיקו את הפרומפט</span></div>
-      <div class="step"><div class="step-num">2</div><span>בחרו אתר AI</span></div>
-      <div class="step"><div class="step-num">3</div><span>הדביקו + העלו תמונה</span></div>
-      <div class="step"><div class="step-num">4</div><span>קבלו ארנב! 🎉</span></div>
-    </div>
-
-    <div class="prompt-wrapper reveal">
-      <div class="prompt-header">
-        <div class="prompt-dot" style="background:#FF5F57"></div>
-        <div class="prompt-dot" style="background:#FFBD2E"></div>
-        <div class="prompt-dot" style="background:#28C840"></div>
-        <span>🪄 הפרומפט הקסום - העתיקו אותו</span>
-      </div>
-      <div class="prompt-text" id="thePrompt">A hyper-realistic photograph of a living Mini Lop rabbit, a Netherland Dwarf with flopped ears, derived from the specific human subject in the uploaded image. If the input image contains multiple human subjects, create a separate Mini Lop rabbit for each individual, maintaining their relative positions and poses within the same environmental background. Each rabbit must have a coat whose color and texture are derived from the specific clothing worn by its corresponding human. If a person wears a blue denim shirt, their rabbit should have a soft, dense, denim-blue coat, incorporating variations of denim weave texture as a fine fur pattern. Crucially, the rabbits must not be wearing clothing themselves; their body is the pattern. If clothing has multiple colors or patterns, they must be seamlessly translated into the rabbit's coat pattern (e.g., a patterned fur coat reflecting a patterned shirt). The rabbits are naturally posed, sitting or tucked, on a natural, soft-focus background identical to the original image's temperature. All rabbits must retain the direct, dark, expressive eyes and gaze intensity of their human counterparts, but within full rabbit anatomy. Shot on a Canon EOS R5, shallow depth of field, sharp focus on all rabbits' eyes, identical lighting to the original image.</div>
-    </div>
-
-    <button class="copy-btn reveal" id="copyBtn" onclick="copyPrompt()">
-      📋 העתיקו את הפרומפט הקסום!
-    </button>
-
-    <p class="ai-links-title reveal">👇 עכשיו היכנסו לאחד מהאתרים האלו:</p>
-
-    <div class="ai-links reveal">
-      <a href="https://chatgpt.com" target="_blank" rel="noopener" class="ai-btn ai-chatgpt" onclick="playClick()">
-        <span class="ai-btn-icon">🤖</span>
-        ChatGPT
-      </a>
-      <a href="https://gemini.google.com" target="_blank" rel="noopener" class="ai-btn ai-gemini" onclick="playClick()">
-        <span class="ai-btn-icon">✨</span>
-        Google Gemini
-      </a>
-      <a href="https://arena.ai/image" target="_blank" rel="noopener" class="ai-btn ai-nano" onclick="playClick()">
-        <span class="ai-btn-icon">🏟️</span>
-        Arena
-      </a>
     </div>
   </div>
 </section>
@@ -1637,15 +1863,34 @@
   </div>
 </section>
 
+<!-- COMMUNITY CTA -->
+<section id="community">
+  <div class="container">
+    <div class="cta-card reveal">
+      <h2>🐰 רוצים עוד תוכן על ארנבים ובינה מלאכותית?</h2>
+      <p>הצטרפו לקהילה השקטה שלנו בוואטסאפ!<br>עדכונים, כלי AI חדשים, ותוכן מגניב- ישירות לטלפון 💛</p>
+      <div class="cta-buttons">
+        <a href="https://chat.whatsapp.com/F5rwMzOOgHK5nNKw6ALucH" target="_blank" rel="noopener" class="community-btn" onclick="playClick()">
+          🚀 הצטרפו לקהילה בוואטסאפ
+        </a>
+        <span class="cta-divider">— או-</span>
+        <a href="https://wa.me/972549995050?text=היי סגי, ראיתי את אתר ארנב שלי ואשמח לשמוע עוד!" target="_blank" rel="noopener" class="whatsapp-contact" onclick="playClick()">
+          📱 שלחו הודעה לשגיא
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
 <!-- SHARE -->
-<section id="share" style="background: linear-gradient(135deg, #FFF0E8 0%, #F0F7FF 50%, #EDFFF2 100%);">
+<section id="share">
   <div class="container">
     <div class="share-section">
       <h3 class="section-title reveal">📤 שתפו עם חברים!</h3>
       <p class="section-sub reveal">אהבתם? שתפו את האתר עם חברים ומשפחה 💛</p>
       <div class="share-buttons reveal">
         <button class="share-btn share-whatsapp" onclick="shareWhatsApp()">💬 שתפו בוואטסאפ</button>
-        <button class="share-btn share-general" onclick="shareGeneral()">📤 שיתוף</button>
+        <button class="share-btn share-general" onclick="shareGeneral(this)">📤 שיתוף</button>
       </div>
     </div>
   </div>
@@ -1659,53 +1904,119 @@
   <p class="footer-sub">האתר נועד לחינוך ולכיף • בהצלחה לכל ילד עם הארנב שלו 💛</p>
 </footer>
 
+<!-- MUSIC PROMPT -->
+<div class="music-prompt" id="musicPrompt">🎵 לחצו להפעלת מוזיקה!</div>
+
+<!-- BACK TO TOP -->
+<button class="back-to-top" id="backToTop" onclick="window.scrollTo({top:0,behavior:'smooth'}); playClick();" aria-label="חזרה למעלה">⬆</button>
+
 <!-- SOUND TOGGLE -->
-<button class="sound-btn" id="soundBtn" onclick="toggleSound()" title="הפעל/כבה צלילים" aria-pressed="true" aria-label="צלילים">🔊</button>
+<button class="sound-btn pulse" id="soundBtn" onclick="toggleSound()" title="הפעל/כבה צלילים" aria-pressed="false" aria-label="צלילים">🔇</button>
 <!-- DARK MODE TOGGLE -->
 <button class="dark-toggle" id="darkBtn" onclick="toggleDark()" title="מצב כהה/בהיר" aria-pressed="false" aria-label="מצב כהה">🌙</button>
 
 <script>
-/* ===== SOUND ENGINE (Web Audio API - ללא קבצים חיצוניים) ===== */
-let audioCtx = null;
+/* ===== SOUND ENGINE (WAV generation) ===== */
 let soundOn = true;
 
-function ctx() {
-  if (!audioCtx) audioCtx = new (window.AudioContext || window.webkitAudioContext)();
-  if (audioCtx.state === 'suspended') audioCtx.resume();
-  return audioCtx;
+function generateWav(freq, duration, volume) {
+  const sampleRate = 22050;
+  const samples = Math.floor(sampleRate * duration);
+  const buffer = new ArrayBuffer(44 + samples * 2);
+  const view = new DataView(buffer);
+  const writeStr = (o, s) => { for (let i = 0; i < s.length; i++) view.setUint8(o + i, s.charCodeAt(i)); };
+  writeStr(0, 'RIFF');
+  view.setUint32(4, 36 + samples * 2, true);
+  writeStr(8, 'WAVE');
+  writeStr(12, 'fmt ');
+  view.setUint32(16, 16, true);
+  view.setUint16(20, 1, true);
+  view.setUint16(22, 1, true);
+  view.setUint32(24, sampleRate, true);
+  view.setUint32(28, sampleRate * 2, true);
+  view.setUint16(32, 2, true);
+  view.setUint16(34, 16, true);
+  writeStr(36, 'data');
+  view.setUint32(40, samples * 2, true);
+  for (let i = 0; i < samples; i++) {
+    const t = i / sampleRate;
+    const env = Math.max(0, 1 - t / duration) * volume;
+    const val = Math.sin(2 * Math.PI * freq * t) * env * 32767;
+    view.setInt16(44 + i * 2, val, true);
+  }
+  return URL.createObjectURL(new Blob([buffer], { type: 'audio/wav' }));
 }
 
-function tone(freq, dur, type = 'sine', vol = 0.35) {
+const sounds = {
+  click: generateWav(800, 0.1, 0.5),
+  pop: generateWav(1200, 0.12, 0.6),
+  success: [
+    generateWav(523, 0.15, 0.5),
+    generateWav(659, 0.15, 0.5),
+    generateWav(784, 0.15, 0.5),
+    generateWav(1047, 0.2, 0.6),
+  ],
+  wrong: generateWav(220, 0.25, 0.4),
+};
+
+function playSound(url) {
   if (!soundOn) return;
-  try {
-    const c = ctx();
-    const o = c.createOscillator();
-    const g = c.createGain();
-    o.connect(g); g.connect(c.destination);
-    o.type = type;
-    o.frequency.setValueAtTime(freq, c.currentTime);
-    o.frequency.linearRampToValueAtTime(freq * 0.8, c.currentTime + dur);
-    g.gain.setValueAtTime(vol, c.currentTime);
-    g.gain.linearRampToValueAtTime(0.01, c.currentTime + dur);
-    o.start(c.currentTime);
-    o.stop(c.currentTime + dur + 0.05);
-  } catch(e) { console.log('Audio error:', e); }
+  try { new Audio(url).play(); } catch(e) {}
 }
 
-function playClick() { tone(600, 0.15, 'sine', 0.35); }
-function playPop()   { tone(880, 0.2, 'triangle', 0.4); }
+function playClick() { playSound(sounds.click); }
+function playPop()   { playSound(sounds.pop); }
 
 function playSuccess() {
   if (!soundOn) return;
-  [523, 659, 784, 1047].forEach((f, i) => setTimeout(() => tone(f, 0.25, 'sine', 0.4), i * 120));
+  sounds.success.forEach((url, i) => setTimeout(() => playSound(url), i * 120));
 }
 
+/* ===== BACKGROUND MUSIC ===== */
+const bgMusic = new Audio('lexin_music-cinematic-documentary-115669.mp3');
+bgMusic.loop = true;
+bgMusic.volume = 0.3;
+let musicStarted = false;
+
 function toggleSound() {
-  soundOn = !soundOn;
+  if (!musicStarted) {
+    bgMusic.play().then(() => { musicStarted = true; }).catch(() => {});
+    soundOn = true;
+  } else {
+    soundOn = !soundOn;
+    if (soundOn) {
+      bgMusic.play();
+    } else {
+      bgMusic.pause();
+    }
+  }
   const btn = document.getElementById('soundBtn');
   btn.textContent = soundOn ? '🔊' : '🔇';
   btn.setAttribute('aria-pressed', soundOn);
+  btn.classList.remove('pulse');
+  const prompt = document.getElementById('musicPrompt');
+  if (prompt) prompt.remove();
 }
+
+// Start music on first real user gesture (click/touch/key)
+function startMusic() {
+  if (musicStarted) return;
+  bgMusic.play().then(() => {
+    musicStarted = true;
+    soundOn = true;
+    document.getElementById('soundBtn').textContent = '🔊';
+    document.getElementById('soundBtn').setAttribute('aria-pressed', 'true');
+    const prompt = document.getElementById('musicPrompt');
+    if (prompt) prompt.remove();
+  }).catch(() => {});
+}
+// Attach to real user gestures only
+['click','touchstart','keydown'].forEach(e =>
+  document.addEventListener(e, function handler() {
+    startMusic();
+    document.removeEventListener(e, handler);
+  })
+);
 
 /* ===== COPY PROMPT ===== */
 function copyPrompt() {
@@ -1746,6 +2057,7 @@ function launchConfetti() {
       width:${size}px; height:${size}px;
       border-radius:${Math.random() > 0.5 ? '50%' : '2px'};
       background:${colors[Math.floor(Math.random() * colors.length)]};
+      --rot: ${360 + Math.random() * 720}deg;
       animation:confettiFall ${1.2 + Math.random() * 1.8}s linear ${Math.random() * 0.4}s forwards;
     `;
     document.body.appendChild(el);
@@ -1754,13 +2066,26 @@ function launchConfetti() {
 }
 
 const css = document.createElement('style');
-css.textContent = `@keyframes confettiFall { to { transform: translateY(100vh) rotate(${360 + Math.random()*360}deg); opacity:0; } }`;
+css.textContent = `@keyframes confettiFall { to { transform: translateY(100vh) rotate(var(--rot)); opacity:0; } }`;
 document.head.appendChild(css);
 
 /* ===== FLIP CARDS ===== */
 function flipCard(el) {
   el.classList.toggle('flipped');
   playPop();
+}
+
+/* ===== YOUTUBE LITE ===== */
+function loadYT(el) {
+  const id = el.dataset.id;
+  const iframe = document.createElement('iframe');
+  iframe.src = 'https://www.youtube.com/embed/' + id + '?rel=0&autoplay=1';
+  iframe.title = el.title;
+  iframe.allowFullscreen = true;
+  iframe.allow = 'autoplay';
+  iframe.style.cssText = 'width:100%;aspect-ratio:16/9;display:block;border:none;';
+  el.replaceWith(iframe);
+  playClick();
 }
 
 /* ===== GALLERY SLIDER ===== */
@@ -1878,7 +2203,7 @@ function checkAnswer(idx) {
     playSuccess();
   } else {
     dots[quizCurrent].classList.add('wrong');
-    tone(220, 0.3, 'sawtooth', 0.08);
+    playSound(sounds.wrong);
   }
 
   if (quizCurrent < quizData.length - 1) {
@@ -1972,7 +2297,7 @@ function shareWhatsApp() {
   playClick();
 }
 
-function shareGeneral() {
+function shareGeneral(btn) {
   if (navigator.share) {
     navigator.share({
       title: 'ארנב שלי - עולם הארנבים הננסיים',
@@ -1981,7 +2306,6 @@ function shareGeneral() {
     }).catch(() => {});
   } else {
     navigator.clipboard.writeText(window.location.href).then(() => {
-      const btn = event.target;
       const orig = btn.textContent;
       btn.textContent = '✅ הקישור הועתק!';
       setTimeout(() => { btn.textContent = orig; }, 2000);
@@ -1989,6 +2313,11 @@ function shareGeneral() {
   }
   playClick();
 }
+
+/* ===== BACK TO TOP ===== */
+window.addEventListener('scroll', () => {
+  document.getElementById('backToTop').classList.toggle('visible', window.scrollY > 400);
+});
 
 /* ===== SCROLL REVEAL ===== */
 const revealObserver = new IntersectionObserver((entries) => {
