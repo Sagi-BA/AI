@@ -27,7 +27,8 @@
       "Bash(git -C c:/projects/AI status)",
       "Bash(git -C c:/projects/AI diff --stat)",
       "Bash(git -C c:/projects/AI log --oneline -5)",
-      "Bash(powershell -Command:*)"
+      "Bash(powershell -Command:*)",
+      "Bash(ffmpeg -y -i image1_after.png image1_after.webp)"
     ],
     "deny": [],
     "ask": []

@@ -1,0 +1,2171 @@
+<!-- https://sagi-ba.github.io/AI/games/my-rabbit/ -->
+ <!-- https://l5k.me/0Wd8P -->
+
+ <!-- https://analytics.google.com/analytics/web/#/a351596902p494681343/reports/reportinghub?params=_u..nav%3Dmaui -->
+<!-- http://127.0.0.1:8080/games/my-rabbit/ -->
+ 
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-XSH19K5LBZ"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-XSH19K5LBZ');
+</script>
+<title>HyperShot – שדרג את התמונה שלך לאיכות סטודיו</title>
+<meta name="description" content="הפוך כל תמונה לצילום מקצועי ברמת סטודיו – פרומפט קולנועי חינמי ל-ChatGPT, Gemini ו-Arena.">
+<link rel="canonical" href="https://sagi-ba.github.io/AI/games/hypershot/">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📸</text></svg>">
+<!-- Open Graph -->
+<meta property="og:type" content="website">
+<meta property="og:title" content="HyperShot – שדרג את התמונה שלך לאיכות סטודיו">
+<meta property="og:description" content="הפוך כל תמונה לצילום מקצועי ברמת סטודיו – פרומפט קולנועי חינמי ל-ChatGPT, Gemini ו-Arena.">
+<meta property="og:url" content="https://sagi-ba.github.io/AI/games/hypershot/">
+<meta property="og:image" content="https://sagi-ba.github.io/AI/games/hypershot/before-after-images/image1_after.webp">
+<meta property="og:locale" content="he_IL">
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="HyperShot – שדרג את התמונה שלך לאיכות סטודיו">
+<meta name="twitter:description" content="הפכו כל תמונה לצילום מקצועי ברמת סטודיו – פרומפט קולנועי חינמי ל-ChatGPT, Gemini ו-Arena.">
+<meta name="twitter:image" content="https://sagi-ba.github.io/AI/games/hypershot/before-after-images/image1_after.webp">
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;700;900&family=Playfair+Display:ital,wght@0,700;1,400&display=swap" rel="stylesheet"/>
+<style>
+  :root {
+    --gold: #C8973A;
+    --gold-light: #E5B660;
+    --gold-dim: #7A5B22;
+    --bg: #080807;
+    --bg2: #0F0E0D;
+    --bg3: #161513;
+    --text: #EDE8DF;
+    --text2: #9A9080;
+    --text3: #5A5448;
+    --border: rgba(200,151,58,0.15);
+    --border2: rgba(200,151,58,0.3);
+  }
+
+  * { margin:0; padding:0; box-sizing:border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'Alef', 'Heebo', sans-serif;
+    direction: rtl;
+    overflow-x: hidden;
+  }
+
+  /* ─── GRAIN OVERLAY ─── */
+  body::before {
+    content:'';
+    position:fixed;
+    inset:0;
+    pointer-events:none;
+    z-index:9999;
+    opacity:0.03;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  }
+
+  /* ─── SCROLL PROGRESS BAR ─── */
+  .scroll-progress {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: transparent;
+    z-index: 110;
+  }
+  .scroll-progress-bar {
+    height: 100%;
+    width: 0%;
+    background: linear-gradient(to right, var(--gold-dim), var(--gold), var(--gold-light));
+    transition: width 0.05s linear;
+  }
+
+  /* ─── NAV ─── */
+  nav {
+    position: fixed;
+    top: 3px; left: 0; right: 0;
+    z-index: 100;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.2rem 3rem;
+    background: linear-gradient(to bottom, rgba(8,8,7,0.95) 0%, transparent 100%);
+    backdrop-filter: blur(4px);
+  }
+  .logo {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.5rem;
+    color: var(--gold);
+    letter-spacing: 0.05em;
+  }
+  .logo span { color: var(--text); font-style: italic; font-weight: 400; }
+  nav ul {
+    list-style: none;
+    display: flex;
+    gap: 2rem;
+  }
+  nav a {
+    color: var(--text2);
+    text-decoration: none;
+    font-size: 0.85rem;
+    font-weight: 400;
+    letter-spacing: 0.05em;
+    transition: color 0.2s;
+  }
+  nav a:hover { color: var(--gold); }
+
+  /* ─── HERO ─── */
+  .hero {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 8rem 2rem 4rem;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero-bg {
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(ellipse 80% 60% at 50% 40%, rgba(200,151,58,0.06) 0%, transparent 70%),
+      radial-gradient(ellipse 40% 40% at 20% 80%, rgba(200,151,58,0.03) 0%, transparent 60%);
+  }
+  .hero-lines {
+    position: absolute;
+    inset: 0;
+    background-image:
+      linear-gradient(to right, var(--border) 1px, transparent 1px),
+      linear-gradient(to bottom, var(--border) 1px, transparent 1px);
+    background-size: 80px 80px;
+    opacity: 0.4;
+    mask-image: radial-gradient(ellipse 80% 80% at 50% 50%, black 20%, transparent 80%);
+  }
+  .hero-content { position: relative; z-index: 2; max-width: 900px; }
+
+  .hero-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    border: 1px solid var(--border2);
+    border-radius: 50px;
+    padding: 0.4rem 1rem;
+    font-size: 0.75rem;
+    color: var(--gold);
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    margin-bottom: 2rem;
+    background: rgba(200,151,58,0.05);
+  }
+  .badge-dot {
+    width: 6px; height: 6px;
+    border-radius: 50%;
+    background: var(--gold);
+    animation: pulse 2s infinite;
+  }
+  @keyframes pulse {
+    0%,100% { opacity:1; transform:scale(1); }
+    50% { opacity:0.4; transform:scale(0.7); }
+  }
+
+  .hero h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2.8rem, 7vw, 5.5rem);
+    font-weight: 700;
+    line-height: 1.1;
+    color: var(--text);
+    margin-bottom: 0.5rem;
+  }
+  .hero h1 em {
+    font-style: italic;
+    color: var(--gold);
+  }
+  .hero-sub {
+    font-size: clamp(1rem, 2.5vw, 1.3rem);
+    color: var(--text2);
+    font-weight: 300;
+    margin-top: 1.2rem;
+    margin-bottom: 2.5rem;
+    line-height: 1.7;
+  }
+
+  .hero-cta {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+  .btn-primary {
+    background: var(--gold);
+    color: #080807;
+    border: none;
+    padding: 0.9rem 2.2rem;
+    font-size: 0.95rem;
+    font-weight: 700;
+    font-family: 'Alef', 'Heebo', sans-serif;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: all 0.2s;
+    letter-spacing: 0.03em;
+    text-decoration: none;
+    display: inline-block;
+  }
+  .btn-primary:hover {
+    background: var(--gold-light);
+    transform: translateY(-1px);
+  }
+  .btn-secondary {
+    background: transparent;
+    color: var(--text);
+    border: 1px solid var(--border2);
+    padding: 0.9rem 2.2rem;
+    font-size: 0.95rem;
+    font-weight: 400;
+    font-family: 'Alef', 'Heebo', sans-serif;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: all 0.2s;
+    text-decoration: none;
+    display: inline-block;
+  }
+  .btn-secondary:hover {
+    border-color: var(--gold);
+    color: var(--gold);
+    transform: translateY(-1px);
+  }
+
+  /* ─── SCROLL INDICATOR ─── */
+  .scroll-down {
+    position: absolute;
+    bottom: 2.5rem;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.4rem;
+    color: var(--text3);
+    font-size: 0.7rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+  }
+  .scroll-line {
+    width: 1px;
+    height: 40px;
+    background: linear-gradient(to bottom, var(--gold), transparent);
+    animation: scrollAnim 2s infinite;
+  }
+  @keyframes scrollAnim {
+    0% { opacity:0; transform: scaleY(0); transform-origin: top; }
+    50% { opacity:1; transform: scaleY(1); transform-origin: top; }
+    100% { opacity:0; transform: scaleY(1); transform-origin: bottom; }
+  }
+
+  /* ─── SECTION BASE ─── */
+  section {
+    padding: 6rem 2rem;
+  }
+  .container {
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+  .section-label {
+    font-size: 0.7rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 0.8rem;
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+  }
+  .section-label::after {
+    content:'';
+    flex: 1;
+    height: 1px;
+    background: var(--border);
+    max-width: 60px;
+  }
+  .section-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(1.8rem, 4vw, 2.8rem);
+    font-weight: 700;
+    line-height: 1.2;
+    margin-bottom: 1rem;
+  }
+  .section-desc {
+    color: var(--text2);
+    font-size: 1rem;
+    font-weight: 300;
+    line-height: 1.8;
+    max-width: 600px;
+  }
+
+  /* ─── DIVIDER ─── */
+  .divider {
+    width: 100%;
+    height: 1px;
+    background: linear-gradient(to right, transparent, var(--border2), transparent);
+    margin: 0 auto;
+  }
+
+  /* ─── BEFORE/AFTER ─── */
+  .before-after-section {
+    background: var(--bg2);
+  }
+  /* old ba-grid/ba-side removed - replaced by .ba-compare slider */
+
+  /* ─── HOW IT WORKS ─── */
+  .steps-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+    margin-top: 3rem;
+  }
+  .step-card {
+    background: var(--bg3);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 0;
+    overflow: hidden;
+    position: relative;
+    transition: border-color 0.3s, transform 0.3s;
+  }
+  .step-img {
+    width: 100%;
+    aspect-ratio: 1/1;
+    object-fit: cover;
+    display: block;
+  }
+  .step-body {
+    padding: 1.5rem;
+  }
+  .step-card:hover {
+    border-color: var(--border2);
+    transform: translateY(-4px);
+  }
+  .step-num {
+    font-family: 'Playfair Display', serif;
+    font-size: 3.5rem;
+    color: var(--border2);
+    line-height: 1;
+    margin-bottom: 1rem;
+    font-weight: 700;
+  }
+  .step-title {
+    font-size: 1rem;
+    font-weight: 700;
+    margin-bottom: 0.7rem;
+    color: var(--text);
+  }
+  .step-desc {
+    font-size: 0.85rem;
+    color: var(--text2);
+    line-height: 1.7;
+    font-weight: 300;
+  }
+  /* step-icon removed - replaced by step-img */
+
+  /* ─── PROMPT SECTION ─── */
+  .prompt-section {
+    background: var(--bg2);
+  }
+  .prompt-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 3rem;
+    gap: 2rem;
+    flex-wrap: wrap;
+  }
+  .prompt-box {
+    background: #0A0908;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 0 60px rgba(0,0,0,0.5);
+  }
+  .prompt-topbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0.8rem 1.5rem;
+    background: var(--bg3);
+    border-bottom: 1px solid var(--border);
+  }
+  .terminal-dots {
+    display: flex;
+    gap: 6px;
+  }
+  .dot {
+    width: 11px;
+    height: 11px;
+    border-radius: 50%;
+  }
+  .dot-red { background: #FF5F57; }
+  .dot-yellow { background: #FFBD2E; }
+  .dot-green { background: #28CA41; }
+  .prompt-label-top {
+    font-size: 0.7rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--text3);
+  }
+
+  .copy-btn {
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+    background: var(--gold);
+    color: #080807;
+    border: none;
+    padding: 0.45rem 1rem;
+    font-size: 0.78rem;
+    font-weight: 700;
+    font-family: 'Alef', 'Heebo', sans-serif;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: all 0.2s;
+    letter-spacing: 0.03em;
+  }
+  .copy-btn:hover { background: var(--gold-light); }
+  .copy-btn.copied {
+    background: #2a6e3f;
+    color: #adffc8;
+  }
+  .copy-btn svg { width:14px; height:14px; flex-shrink:0; }
+
+  .prompt-text {
+    padding: 1.5rem;
+    font-family: 'Alef', 'Heebo', monospace;
+    font-size: 0.78rem;
+    line-height: 1.9;
+    color: #a8c4a0;
+    white-space: pre-wrap;
+    direction: ltr;
+    text-align: left;
+    max-height: 340px;
+    overflow-y: auto;
+    scrollbar-width: thin;
+    scrollbar-color: var(--gold-dim) transparent;
+  }
+  .prompt-text::-webkit-scrollbar { width: 4px; }
+  .prompt-text::-webkit-scrollbar-track { background: transparent; }
+  .prompt-text::-webkit-scrollbar-thumb { background: var(--gold-dim); border-radius: 2px; }
+
+  .prompt-highlight { color: var(--gold); }
+  .prompt-comment { color: var(--text3); }
+  .prompt-value { color: #8bbfa8; }
+
+  /* ─── PLATFORMS ─── */
+  .platforms-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+    margin-top: 2.5rem;
+  }
+  .platform-card {
+    background: var(--bg3);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 2rem 1.5rem 1.5rem;
+    text-align: center;
+    text-decoration: none;
+    color: var(--text);
+    transition: all 0.3s;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    cursor: pointer;
+  }
+  .platform-card:hover {
+    border-color: var(--border2);
+    background: var(--bg2);
+    transform: translateY(-4px);
+    box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+  }
+  .platform-logo {
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    font-weight: 900;
+  }
+  .platform-logo.chatgpt { background: rgba(16,163,127,0.15); border: 1px solid rgba(16,163,127,0.3); color: #10a37f; }
+  .platform-logo.gemini { background: rgba(66,133,244,0.15); border: 1px solid rgba(66,133,244,0.3); color: #4285f4; }
+  .platform-logo.arena { background: rgba(200,151,58,0.15); border: 1px solid var(--border2); color: var(--gold); }
+  .platform-name { font-weight: 700; font-size: 1rem; }
+  .platform-desc { font-size: 0.8rem; color: var(--text2); font-weight: 300; line-height: 1.5; }
+  .platform-arrow {
+    font-size: 0.75rem;
+    color: var(--gold);
+    letter-spacing: 0.05em;
+    margin-top: auto;
+    opacity: 0;
+    transition: opacity 0.2s;
+  }
+  .platform-card:hover .platform-arrow { opacity: 1; }
+
+  /* ─── AGENT SPECIAL SECTION ─── */
+  .agent-section {
+    background: linear-gradient(135deg, var(--bg) 0%, #100F0A 50%, var(--bg) 100%);
+  }
+  .agent-card {
+    border: 1px solid var(--border2);
+    border-radius: 12px;
+    padding: 3rem;
+    background: linear-gradient(135deg, rgba(200,151,58,0.04) 0%, transparent 60%);
+    display: grid;
+    grid-template-columns: 1fr auto;
+    align-items: center;
+    gap: 2rem;
+    position: relative;
+    overflow: hidden;
+  }
+  .agent-card::before {
+    content:'';
+    position: absolute;
+    top: -50%;
+    right: -10%;
+    width: 300px;
+    height: 300px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(200,151,58,0.08) 0%, transparent 70%);
+    pointer-events: none;
+  }
+  .agent-tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    background: rgba(200,151,58,0.1);
+    border: 1px solid var(--border2);
+    border-radius: 50px;
+    padding: 0.3rem 0.8rem;
+    font-size: 0.7rem;
+    color: var(--gold);
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    margin-bottom: 1rem;
+  }
+  .agent-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.8rem;
+    margin-bottom: 0.8rem;
+  }
+  .agent-desc {
+    color: var(--text2);
+    font-size: 0.9rem;
+    line-height: 1.8;
+    font-weight: 300;
+    max-width: 500px;
+  }
+
+  /* ─── TIPS ─── */
+  .tips-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+    margin-top: 2.5rem;
+  }
+  .tip-card {
+    background: var(--bg3);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    transition: border-color 0.2s;
+    padding: 0;
+    overflow: hidden;
+  }
+  .tip-card:hover { border-color: var(--border2); }
+  .tip-icon {
+    width: 36px;
+    height: 36px;
+    border-radius: 8px;
+    background: rgba(200,151,58,0.1);
+    border: 1px solid var(--border2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1rem;
+    flex-shrink: 0;
+  }
+  .tip-text strong {
+    display: block;
+    font-size: 0.9rem;
+    font-weight: 700;
+    margin-bottom: 0.3rem;
+    color: var(--text);
+  }
+  .tip-text p {
+    font-size: 0.82rem;
+    color: var(--text2);
+    font-weight: 300;
+    line-height: 1.6;
+  }
+
+  /* ─── HERO COUNTER ─── */
+  .hero-stats {
+    display: flex;
+    justify-content: center;
+    gap: 3rem;
+    margin-top: 2.5rem;
+    flex-wrap: wrap;
+  }
+  .stat-item {
+    text-align: center;
+  }
+  .stat-num {
+    font-family: 'Playfair Display', serif;
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--gold);
+    line-height: 1;
+  }
+  .stat-label {
+    font-size: 0.75rem;
+    color: var(--text3);
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    margin-top: 0.3rem;
+  }
+
+  /* ─── TESTIMONIALS ─── */
+  .testimonials-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+    margin-top: 3rem;
+  }
+  .testimonial-card {
+    background: var(--bg3);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 1.8rem;
+    transition: border-color 0.3s, transform 0.3s;
+  }
+  .testimonial-card:hover {
+    border-color: var(--border2);
+    transform: translateY(-4px);
+  }
+  .testimonial-stars {
+    color: var(--gold);
+    font-size: 0.85rem;
+    margin-bottom: 1rem;
+    letter-spacing: 2px;
+  }
+  .testimonial-text {
+    font-size: 0.9rem;
+    color: var(--text2);
+    line-height: 1.7;
+    font-weight: 300;
+    font-style: italic;
+    margin-bottom: 1.2rem;
+  }
+  .testimonial-author {
+    font-size: 0.8rem;
+    color: var(--text3);
+    font-weight: 500;
+  }
+
+  /* ─── TRY NOW BUTTON ─── */
+  .ba-try-now {
+    display: block;
+    text-align: center;
+    margin-top: 1rem;
+  }
+  .ba-try-now a {
+    color: var(--gold);
+    font-size: 0.8rem;
+    text-decoration: none;
+    letter-spacing: 0.05em;
+    transition: color 0.2s;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+  }
+  .ba-try-now a:hover { color: var(--gold-light); }
+
+  /* ─── FOOTER ─── */
+  footer {
+    padding: 3rem 2rem;
+    border-top: 1px solid var(--border);
+    text-align: center;
+  }
+  .footer-logo {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.2rem;
+    color: var(--gold);
+    margin-bottom: 0.8rem;
+  }
+  .footer-logo span { font-style: italic; color: var(--text2); font-weight: 400; }
+  footer p {
+    font-size: 0.8rem;
+    color: var(--text3);
+    font-weight: 300;
+  }
+
+  /* ─── SOUND WAVE (decorative) ─── */
+  .soundwave {
+    display: flex;
+    align-items: center;
+    gap: 3px;
+    height: 20px;
+  }
+  .sw-bar {
+    width: 2px;
+    background: var(--gold);
+    border-radius: 2px;
+    animation: swAnim 1.2s infinite ease-in-out;
+  }
+  .sw-bar:nth-child(1) { height: 4px; animation-delay: 0s; }
+  .sw-bar:nth-child(2) { height: 10px; animation-delay: 0.15s; }
+  .sw-bar:nth-child(3) { height: 16px; animation-delay: 0.3s; }
+  .sw-bar:nth-child(4) { height: 8px; animation-delay: 0.45s; }
+  .sw-bar:nth-child(5) { height: 14px; animation-delay: 0.6s; }
+  .sw-bar:nth-child(6) { height: 6px; animation-delay: 0.75s; }
+  @keyframes swAnim {
+    0%,100% { transform: scaleY(1); opacity: 0.6; }
+    50% { transform: scaleY(1.8); opacity: 1; }
+  }
+
+  /* ─── NOTIFICATION TOAST ─── */
+  #toast {
+    position: fixed;
+    bottom: 2rem;
+    left: 50%;
+    transform: translateX(-50%) translateY(20px);
+    background: rgba(42,110,63,0.9);
+    color: #adffc8;
+    border: 1px solid rgba(173,255,200,0.3);
+    border-radius: 50px;
+    padding: 0.7rem 1.5rem;
+    font-size: 0.85rem;
+    font-weight: 500;
+    backdrop-filter: blur(8px);
+    opacity: 0;
+    transition: all 0.3s;
+    z-index: 1000;
+    pointer-events: none;
+    white-space: nowrap;
+  }
+  #toast.show {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0);
+  }
+
+  /* ─── HAMBURGER MENU ─── */
+  .hamburger {
+    display: none;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0.5rem;
+    z-index: 110;
+  }
+  .hamburger span {
+    display: block;
+    width: 22px;
+    height: 2px;
+    background: var(--text);
+    margin: 5px 0;
+    border-radius: 2px;
+    transition: all 0.3s;
+  }
+  .hamburger.active span:nth-child(1) { transform: rotate(45deg) translate(5px,5px); }
+  .hamburger.active span:nth-child(2) { opacity: 0; }
+  .hamburger.active span:nth-child(3) { transform: rotate(-45deg) translate(5px,-5px); }
+
+  .mobile-overlay {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(8,8,7,0.95);
+    backdrop-filter: blur(12px);
+    z-index: 105;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 2rem;
+  }
+  .mobile-overlay.active { display: flex; }
+  .mobile-overlay a {
+    color: var(--text);
+    text-decoration: none;
+    font-size: 1.3rem;
+    font-weight: 500;
+    letter-spacing: 0.05em;
+    transition: color 0.2s;
+  }
+  .mobile-overlay a:hover { color: var(--gold); }
+
+  /* ─── BACK TO TOP ─── */
+  .back-to-top {
+    position: fixed;
+    bottom: 2rem;
+    right: 2rem;
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    background: var(--gold);
+    color: #080807;
+    border: none;
+    font-size: 1.2rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s;
+    z-index: 90;
+    box-shadow: 0 4px 20px rgba(200,151,58,0.3);
+  }
+  .back-to-top.visible { opacity: 1; visibility: visible; }
+  .back-to-top:hover { background: var(--gold-light); transform: translateY(-2px); }
+
+  /* ─── BEFORE/AFTER SLIDER ─── */
+  .ba-compare {
+    position: relative;
+    aspect-ratio: 4/3;
+    overflow: hidden;
+    cursor: col-resize;
+    user-select: none;
+    border-radius: 8px;
+    border: 1px solid var(--border);
+    box-shadow: 0 0 80px rgba(200,151,58,0.06);
+    margin-top: 2.5rem;
+  }
+  .ba-compare img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  .ba-compare .ba-after {
+    clip-path: inset(0 50% 0 0);
+    z-index: 2;
+  }
+  .ba-slider-line {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 50%;
+    width: 2px;
+    background: var(--gold);
+    z-index: 5;
+    pointer-events: none;
+    transform: translateX(-50%);
+  }
+  .ba-slider-handle {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background: var(--gold);
+    border: 2px solid #fff;
+    z-index: 6;
+    transform: translate(-50%, -50%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.8rem;
+    color: #080807;
+    font-weight: 900;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.5);
+    pointer-events: none;
+  }
+  .ba-compare .ba-label {
+    position: absolute;
+    bottom: 1rem;
+    background: rgba(8,8,7,0.8);
+    border: 1px solid var(--border2);
+    border-radius: 4px;
+    padding: 0.3rem 0.7rem;
+    font-size: 0.7rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--gold);
+    backdrop-filter: blur(4px);
+    z-index: 4;
+  }
+  .ba-compare .ba-label.before { right: 1rem; color: var(--text2); border-color: var(--border); }
+  .ba-compare .ba-label.after { left: 1rem; background: rgba(200,151,58,0.15); }
+
+  /* ─── SHARE SECTION ─── */
+  .share-section {
+    background: var(--bg2);
+    text-align: center;
+  }
+  .share-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin-top: 2rem;
+    flex-wrap: wrap;
+  }
+  .btn-whatsapp {
+    background: #25D366;
+    color: #fff;
+    border: none;
+    padding: 0.9rem 2rem;
+    font-size: 0.95rem;
+    font-weight: 700;
+    font-family: 'Alef','Heebo',sans-serif;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: all 0.2s;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+  .btn-whatsapp:hover { background: #1ebe57; transform: translateY(-1px); }
+  .btn-share {
+    background: transparent;
+    color: var(--text);
+    border: 1px solid var(--border2);
+    padding: 0.9rem 2rem;
+    font-size: 0.95rem;
+    font-weight: 500;
+    font-family: 'Alef','Heebo',sans-serif;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: all 0.2s;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+  .btn-share:hover { border-color: var(--gold); color: var(--gold); transform: translateY(-1px); }
+
+  /* ─── COMMUNITY CTA ─── */
+  .cta-card {
+    max-width: 600px;
+    margin: 2.5rem auto 0;
+    background: var(--bg3);
+    border: 1px solid var(--border2);
+    border-radius: 12px;
+    padding: 2.5rem;
+    text-align: center;
+  }
+  .cta-card p {
+    color: var(--text2);
+    font-size: 0.95rem;
+    line-height: 1.7;
+    margin-bottom: 1.5rem;
+  }
+
+  /* ─── QUIZ ─── */
+  .quiz-section { background: var(--bg2); }
+  .quiz-container {
+    max-width: 650px;
+    margin: 2.5rem auto 0;
+    background: var(--bg3);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 2.5rem;
+    text-align: center;
+  }
+  .quiz-progress {
+    display: flex;
+    justify-content: center;
+    gap: 0.5rem;
+    margin-bottom: 2rem;
+  }
+  .quiz-dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: var(--border);
+    transition: all 0.3s;
+  }
+  .quiz-dot.active { background: var(--gold); transform: scale(1.2); }
+  .quiz-dot.correct { background: #28CA41; }
+  .quiz-dot.wrong { background: #FF5F57; }
+  .quiz-question {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.3rem;
+    margin-bottom: 2rem;
+    line-height: 1.5;
+  }
+  .quiz-answers {
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+  }
+  .quiz-answer {
+    background: var(--bg2);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 1rem 1.5rem;
+    font-size: 0.95rem;
+    font-family: 'Alef','Heebo',sans-serif;
+    color: var(--text);
+    cursor: pointer;
+    transition: all 0.2s;
+    text-align: right;
+  }
+  .quiz-answer:hover { border-color: var(--border2); background: rgba(200,151,58,0.05); }
+  .quiz-answer.correct { border-color: #28CA41; background: rgba(40,202,65,0.1); color: #adffc8; }
+  .quiz-answer.wrong { border-color: #FF5F57; background: rgba(255,95,87,0.1); color: #ffb3b0; }
+  .quiz-answer.disabled { pointer-events: none; opacity: 0.6; }
+  .quiz-result {
+    text-align: center;
+  }
+  .quiz-score {
+    font-family: 'Playfair Display', serif;
+    font-size: 3rem;
+    color: var(--gold);
+    margin-bottom: 0.5rem;
+  }
+  .quiz-message {
+    color: var(--text2);
+    font-size: 1rem;
+    margin-bottom: 1.5rem;
+  }
+
+  /* ─── FLIP CARDS FOR TIPS ─── */
+  .tips-grid .tip-card {
+    perspective: 1000px;
+    cursor: pointer;
+    min-height: 130px;
+  }
+  .tip-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    transition: transform 0.6s;
+    transform-style: preserve-3d;
+  }
+  .tip-card.flipped .tip-inner { transform: rotateY(180deg); }
+  .tip-front, .tip-back {
+    backface-visibility: hidden;
+    display: flex;
+    gap: 1rem;
+    align-items: flex-start;
+    padding: 1.5rem;
+    border-radius: 8px;
+  }
+  .tip-front {
+    position: relative;
+  }
+  .tip-back {
+    position: absolute;
+    inset: 0;
+    transform: rotateY(180deg);
+    background: var(--bg2);
+    border: 1px solid var(--gold-dim);
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+  .tip-back p {
+    font-size: 0.85rem;
+    color: var(--text2);
+    line-height: 1.7;
+  }
+  .tip-flip-hint {
+    font-size: 0.65rem;
+    color: var(--text3);
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    margin-top: auto;
+    padding-top: 0.3rem;
+  }
+
+  /* ─── FLOATING HERO ELEMENTS ─── */
+  .hero-floater {
+    position: absolute;
+    font-size: 1.5rem;
+    opacity: 0.06;
+    pointer-events: none;
+    animation: heroFloat 8s infinite ease-in-out;
+  }
+  @keyframes heroFloat {
+    0%,100% { transform: translateY(0) rotate(0deg); }
+    50% { transform: translateY(-30px) rotate(10deg); }
+  }
+
+  /* ─── CURSOR SPARKLE ─── */
+  .sparkle {
+    position: fixed;
+    pointer-events: none;
+    font-size: 0.8rem;
+    z-index: 9998;
+    animation: sparkleFade 1s forwards;
+  }
+  @keyframes sparkleFade {
+    0% { opacity: 1; transform: scale(1) rotate(0deg); }
+    100% { opacity: 0; transform: scale(0.2) rotate(90deg) translateY(-20px); }
+  }
+
+  /* ─── CONFETTI ─── */
+  .confetti {
+    position: fixed;
+    width: 8px;
+    height: 8px;
+    z-index: 9998;
+    pointer-events: none;
+    animation: confettiFall 3.5s forwards;
+  }
+  @keyframes confettiFall {
+    0% { opacity: 1; transform: translateY(0) rotate(0deg); }
+    100% { opacity: 0; transform: translateY(100vh) rotate(var(--rot, 720deg)); }
+  }
+
+  /* ─── RESPONSIVE ─── */
+  @media (max-width: 768px) {
+    nav { padding: 1rem 1.5rem; }
+    nav ul { display: none; }
+    .hamburger { display: block; }
+    .steps-grid, .platforms-grid, .tips-grid, .testimonials-grid {
+      grid-template-columns: 1fr;
+    }
+    .hero-stats { gap: 1.5rem; }
+    .stat-num { font-size: 1.5rem; }
+    .ba-compare { aspect-ratio: auto; min-height: 300px; }
+    .agent-card { grid-template-columns: 1fr; }
+    .prompt-header { flex-direction: column; }
+    section { padding: 4rem 1.5rem; }
+    .back-to-top { width: 38px; height: 38px; bottom: 1.5rem; right: 1.5rem; }
+    .sound-btn, .dark-toggle { width: 42px; height: 42px; font-size: 18px; }
+    .dark-toggle { left: 72px; }
+  }
+
+  /* ─── SOUND TOGGLE ─── */
+  .sound-btn {
+    position: fixed;
+    bottom: 24px;
+    left: 24px;
+    width: 52px; height: 52px;
+    border-radius: 50%;
+    background: var(--bg3);
+    border: 2px solid var(--gold);
+    font-size: 22px;
+    cursor: pointer;
+    box-shadow: 0 4px 20px rgba(200,151,58,0.2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 100;
+    transition: all 0.2s;
+  }
+  .sound-btn:hover { background: var(--gold); transform: scale(1.1); }
+  .sound-btn.pulse { animation: soundPulse 1.5s ease-in-out infinite; }
+  @keyframes soundPulse {
+    0%,100% { box-shadow: 0 0 0 0 rgba(200,151,58,0.5); }
+    50% { box-shadow: 0 0 0 14px rgba(200,151,58,0); }
+  }
+  .music-prompt {
+    position: fixed;
+    bottom: 82px;
+    left: 10px;
+    background: var(--gold);
+    color: #080807;
+    padding: 8px 16px;
+    border-radius: 20px;
+    font-size: 13px;
+    font-weight: 700;
+    z-index: 100;
+    animation: promptBounce 1.5s ease-in-out infinite;
+    white-space: nowrap;
+    box-shadow: 0 4px 15px rgba(200,151,58,0.3);
+  }
+  .music-prompt::after {
+    content: '';
+    position: absolute;
+    bottom: -6px;
+    left: 24px;
+    width: 12px; height: 12px;
+    background: var(--gold);
+    transform: rotate(45deg);
+  }
+  @keyframes promptBounce {
+    0%,100% { transform: translateY(0); }
+    50% { transform: translateY(-5px); }
+  }
+
+  /* ─── DARK/LIGHT TOGGLE ─── */
+  .dark-toggle {
+    position: fixed;
+    bottom: 24px;
+    left: 84px;
+    width: 52px; height: 52px;
+    border-radius: 50%;
+    background: var(--bg3);
+    border: 2px solid #9B59B6;
+    font-size: 22px;
+    cursor: pointer;
+    box-shadow: 0 4px 20px rgba(155,89,182,0.2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 100;
+    transition: all 0.2s;
+  }
+  .dark-toggle:hover { background: #9B59B6; transform: scale(1.1); }
+
+  /* ─── LIGHT MODE ─── */
+  body.light {
+    --bg: #F5F0E8;
+    --bg2: #EDE8DF;
+    --bg3: #FFFFFF;
+    --text: #1A1916;
+    --text2: #5A5448;
+    --text3: #9A9080;
+    --border: rgba(200,151,58,0.2);
+    --border2: rgba(200,151,58,0.4);
+  }
+  body.light::before { opacity: 0.015; }
+  body.light nav {
+    background: linear-gradient(to bottom, rgba(245,240,232,0.95) 0%, transparent 100%);
+  }
+  body.light .prompt-text { color: #2d5a2d; background: #f8f6f0; }
+  body.light .prompt-box { background: #f8f6f0; }
+  body.light .prompt-topbar { background: #EDE8DF; }
+  body.light .dot-red { background: #FF5F57; }
+  body.light .dot-yellow { background: #FFBD2E; }
+  body.light .dot-green { background: #28CA41; }
+  body.light .copy-btn { color: #fff; }
+  body.light #toast { background: rgba(42,110,63,0.95); }
+  body.light .sound-btn,
+  body.light .dark-toggle { background: #fff; }
+  body.light .mobile-overlay { background: rgba(245,240,232,0.97); }
+  body.light .mobile-overlay a { color: #1A1916; }
+  body.light .ba-slider-handle { color: #fff; }
+  body.light .quiz-answer { background: #f8f6f0; color: #1A1916; }
+  body.light .quiz-answer:hover { background: rgba(200,151,58,0.08); }
+  body.light .hero-lines { opacity: 0.2; }
+  body.light .ba-compare .ba-label { background: rgba(255,255,255,0.85); color: #1A1916; }
+  body.light .ba-compare .ba-label.after { background: rgba(200,151,58,0.2); color: var(--gold); }
+
+  /* ─── FADE IN ANIMATION ─── */
+  .fade-in {
+    opacity: 0;
+    transform: translateY(24px);
+    transition: opacity 0.7s ease, transform 0.7s ease;
+  }
+  .fade-in.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  .fade-in:nth-child(2) { transition-delay: 0.1s; }
+  .fade-in:nth-child(3) { transition-delay: 0.2s; }
+  .fade-in:nth-child(4) { transition-delay: 0.3s; }
+</style>
+</head>
+<body>
+
+<!-- SCROLL PROGRESS -->
+<div class="scroll-progress"><div class="scroll-progress-bar" id="scrollProgress"></div></div>
+
+<!-- NAV -->
+<nav>
+  <div class="logo">Hyper<span>Shot</span></div>
+  <ul>
+    <li><a href="#examples">תוצאות</a></li>
+    <li><a href="#how">איך זה עובד</a></li>
+    <li><a href="#prompt">הפרומפט</a></li>
+    <li><a href="#platforms">פלטפורמות</a></li>
+    <li><a href="#agent">הסוכן שלנו</a></li>
+    <li><a href="#quiz">חידון</a></li>
+  </ul>
+  <button class="hamburger" onclick="toggleMenu()" aria-label="תפריט" aria-expanded="false">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+<div class="mobile-overlay" id="mobileMenu">
+  <a href="#examples" onclick="closeMenu()">תוצאות</a>
+  <a href="#how" onclick="closeMenu()">איך זה עובד</a>
+  <a href="#prompt" onclick="closeMenu()">הפרומפט</a>
+  <a href="#platforms" onclick="closeMenu()">פלטפורמות</a>
+  <a href="#agent" onclick="closeMenu()">הסוכן שלנו</a>
+  <a href="#quiz" onclick="closeMenu()">חידון</a>
+</div>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-lines"></div>
+  <div class="hero-floater" style="top:15%;left:10%;animation-delay:0s;">📷</div>
+  <div class="hero-floater" style="top:60%;right:8%;animation-delay:2s;font-size:1.2rem;">✨</div>
+  <div class="hero-floater" style="top:30%;right:20%;animation-delay:4s;font-size:1rem;">🎬</div>
+  <div class="hero-floater" style="bottom:20%;left:15%;animation-delay:6s;font-size:1.3rem;">🎞️</div>
+  <div class="hero-floater" style="top:45%;left:5%;animation-delay:3s;font-size:1.1rem;">💎</div>
+  <div class="hero-content">
+    <div class="hero-badge">
+      <div class="badge-dot"></div>
+      שדרוג תמונות באיכות סטודיו
+    </div>
+    <h1>הפכו כל תמונה<br/>ל<em>צילום מקצועי</em></h1>
+    <p class="hero-sub">
+      פרומפט קולנועי אחד. ארבע שניות. תוצאה שנראית כמו צלם שגבה אלפי שקלים.
+    </p>
+    <div class="hero-cta">
+      <a href="#prompt" class="btn-primary">⚡ קבלו את הפרומפט חינם</a>
+      <a href="#agent" class="btn-secondary">הסוכן המתקדם שלנו ←</a>
+    </div>
+    <div class="hero-stats">
+      <div class="stat-item">
+        <div class="stat-num" data-target="2500">0</div>
+        <div class="stat-label">תמונות שודרגו</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-num" data-target="3">0</div>
+        <div class="stat-label">פלטפורמות נתמכות</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-num" data-target="4">0</div>
+        <div class="stat-label">שניות לתוצאה</div>
+      </div>
+    </div>
+  </div>
+  <div class="scroll-down">
+    <div class="scroll-line"></div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- BEFORE/AFTER -->
+<section class="before-after-section" id="examples">
+  <div class="container">
+    <div class="section-label fade-in">תוצאות</div>
+    <div class="section-title fade-in">לפני ואחרי</div>
+    <p class="section-desc fade-in">תמונה רגילה מהנייד הופכת לצילום היפר-ריאליסטי עם תאורת סטודיו, גריידינג קולנועי ופרטים חדים.</p>
+    <div class="ba-compare" onmousedown="startSlide(event, this)" ontouchstart="startSlide(event, this)">
+      <img class="ba-before" src="before-after-images/image1_before.webp" alt="לפני – תמונה מקורית 1" loading="lazy">
+      <img class="ba-after" src="before-after-images/image1_after.webp" alt="אחרי HyperShot 1" loading="lazy">
+      <div class="ba-slider-line"></div>
+      <div class="ba-slider-handle">◀▶</div>
+      <div class="ba-label before">לפני</div>
+      <div class="ba-label after">אחרי</div>
+    </div>
+    <div class="ba-compare" onmousedown="startSlide(event, this)" ontouchstart="startSlide(event, this)">
+      <img class="ba-before" src="before-after-images/image2_before.webp" alt="לפני – תמונה מקורית 2" loading="lazy">
+      <img class="ba-after" src="before-after-images/image2_after.webp" alt="אחרי HyperShot 2" loading="lazy">
+      <div class="ba-slider-line"></div>
+      <div class="ba-slider-handle">◀▶</div>
+      <div class="ba-label before">לפני</div>
+      <div class="ba-label after">אחרי</div>
+    </div>
+    <div class="ba-compare" onmousedown="startSlide(event, this)" ontouchstart="startSlide(event, this)">
+      <img class="ba-before" src="before-after-images/image3_before.webp" alt="לפני – תמונה מקורית 3" loading="lazy">
+      <img class="ba-after" src="before-after-images/image3_after.webp" alt="אחרי HyperShot 3" loading="lazy">
+      <div class="ba-slider-line"></div>
+      <div class="ba-slider-handle">◀▶</div>
+      <div class="ba-label before">לפני</div>
+      <div class="ba-label after">אחרי</div>
+    </div>
+    <div class="ba-try-now fade-in">
+      <a href="#prompt">רוצים גם? קבלו את הפרומפט חינם ⚡</a>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- HOW IT WORKS -->
+<section id="how">
+  <div class="container">
+    <div class="section-label">תהליך</div>
+    <div class="section-title">שלושה צעדים פשוטים</div>
+    <div class="steps-grid">
+      <div class="step-card fade-in">
+        <img class="step-img" src="step-images/step1.webp" alt="שלב 1 – העתקת הפרומפט" loading="lazy">
+        <div class="step-body">
+          <div class="step-num">01</div>
+          <div class="step-title">העתיקו את הפרומפט</div>
+          <p class="step-desc">לחצו על כפתור ההעתקה. הפרומפט הקולנועי המלא יועתק לזיכרון שלכם - מוכן לשימוש.</p>
+        </div>
+      </div>
+      <div class="step-card fade-in">
+        <img class="step-img" src="step-images/step2.webp" alt="שלב 2 – פתיחת פלטפורמת AI" loading="lazy">
+        <div class="step-body">
+          <div class="step-num">02</div>
+          <div class="step-title">פתחו את פלטפורמת ה-AI</div>
+          <p class="step-desc">עיברו ל-ChatGPT, Google Gemini, או Arena. הדביקו את הפרומפט והעלו את התמונה שלכם.</p>
+        </div>
+      </div>
+      <div class="step-card fade-in">
+        <img class="step-img" src="step-images/step3.webp" alt="שלב 3 – תוצאה מקצועית" loading="lazy">
+        <div class="step-body">
+          <div class="step-num">03</div>
+          <div class="step-title">קבלו תוצאה מקצועית</div>
+          <p class="step-desc">תוך שניות תקבלו תמונה ברמת צלם מקצועי - עם תאורה, גריידינג, ועומק קולנועי.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- PROMPT -->
+<section class="prompt-section" id="prompt">
+  <div class="container">
+    <div class="prompt-header">
+      <div>
+        <div class="section-label">הכלי</div>
+        <div class="section-title">הפרומפט המלא</div>
+        <p class="section-desc">פרומפט מקצועי שמנעל את הזהות, משפר את התאורה, ומייצר תוצאה ברמת 8K קולנועי.</p>
+      </div>
+      <div class="soundwave" aria-hidden="true">
+        <div class="sw-bar"></div>
+        <div class="sw-bar"></div>
+        <div class="sw-bar"></div>
+        <div class="sw-bar"></div>
+        <div class="sw-bar"></div>
+        <div class="sw-bar"></div>
+      </div>
+    </div>
+
+    <div class="prompt-box fade-in">
+      <div class="prompt-topbar">
+        <div class="terminal-dots">
+          <div class="dot dot-red"></div>
+          <div class="dot dot-yellow"></div>
+          <div class="dot dot-green"></div>
+        </div>
+        <span class="prompt-label-top">HyperShot Cinematic Prompt v2.0</span>
+        <button class="copy-btn" id="copyBtn" onclick="copyPrompt()">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+            <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+          </svg>
+          העתק פרומפט
+        </button>
+      </div>
+      <div class="prompt-text" id="promptContent">
+<span class="prompt-highlight">Use the uploaded image as the ONLY identity reference.</span>
+
+<span class="prompt-comment">──────────────────────────────────</span>
+<span class="prompt-highlight">STRICT IDENTITY LOCK:</span>
+<span class="prompt-value">Preserve 100% exact facial identity, proportions, facial structure,
+eyes, nose, mouth, jawline, and expressions of both subjects.
+Do NOT stylize, beautify, or alter identity.
+No face mixing, no reinterpretation.</span>
+
+<span class="prompt-comment">──────────────────────────────────</span>
+<span class="prompt-highlight">IMAGE ENHANCEMENT – CINEMATIC MASTERING:</span>
+
+<span class="prompt-value">Ultra high-end cinematic photo enhancement of the original image.
+- Hyper-detailed sharpening with zero artifacts
+- Natural skin refinement: smooth but preserve pores, texture, and realism
+- Hair enhancement: refine strands, add natural shine, depth, and volume
+- Enhance eyes: subtle clarity, natural catchlight, no exaggeration
+- Improve makeup subtly: enhance lipstick tone, refine eye definition</span>
+
+<span class="prompt-highlight">LIGHTING:</span>
+<span class="prompt-value">- Studio-quality cinematic lighting
+- Soft diffused key light + subtle contrast shadows
+- Add gentle rim light for depth separation
+- Maintain realistic indoor lighting feel</span>
+
+<span class="prompt-highlight">COLOR &amp; GRADING:</span>
+<span class="prompt-value">- Cinematic color grading (film look)
+- Rich, deep tones with balanced skin tones
+- Slight warm highlights + soft cool shadows
+- Increased dynamic range and contrast</span>
+
+<span class="prompt-highlight">DEPTH &amp; QUALITY:</span>
+<span class="prompt-value">- Increase depth, clarity, and dimensionality
+- High-end lens look (sharp foreground, subtle depth falloff)
+- Ultra realistic, 8K detail level</span>
+
+<span class="prompt-highlight">COMPOSITION:</span>
+<span class="prompt-value">Keep original framing, pose, and scene intact.
+No changes to background structure.</span>
+
+<span class="prompt-highlight">FINAL RESULT:</span>
+<span class="prompt-value">Luxury, high-end cinematic photograph.
+Hyper-realistic, sharp, deep, and visually striking -
+while looking completely natural and true to the original people.</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- PLATFORMS -->
+<section id="platforms">
+  <div class="container">
+    <div class="section-label">פלטפורמות</div>
+    <div class="section-title">היכן להשתמש</div>
+    <p class="section-desc">העתיקו את הפרומפט ופתחו את אחת מהפלטפורמות האלו - כולן חינמיות ועובדות מצוין.</p>
+    <div class="platforms-grid">
+      <a class="platform-card fade-in" href="https://chat.openai.com" target="_blank">
+        <div class="platform-logo chatgpt">⬡</div>
+        <div class="platform-name">ChatGPT</div>
+        <p class="platform-desc">GPT-4o עם יכולות עריכת תמונה מתקדמות. העלו תמונה + הדביקו פרומפט.</p>
+        <div class="platform-arrow">פתח ←</div>
+      </a>
+      <a class="platform-card fade-in" href="https://gemini.google.com" target="_blank">
+        <div class="platform-logo gemini">✦</div>
+        <div class="platform-name">Google Gemini</div>
+        <p class="platform-desc">Gemini 2.0 Flash - מהיר, חזק, ומעבד תמונות בצורה מדויקת.</p>
+        <div class="platform-arrow">פתח ←</div>
+      </a>
+      <a class="platform-card fade-in" href="https://arena.ai/image" target="_blank">
+        <div class="platform-logo arena">◈</div>
+        <div class="platform-name">Arena</div>
+        <p class="platform-desc">השוו תוצאות מכמה מודלים בו-זמנית ובחרו את הטוב ביותר.</p>
+        <div class="platform-arrow">פתח ←</div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- AGENT SECTION -->
+<section class="agent-section" id="agent">
+  <div class="container">
+    <div class="section-label">הכלי המתקדם</div>
+    <div class="section-title">הסוכן המקצועי שלנו</div>
+    <div class="agent-card fade-in">
+      <div>
+        <div class="agent-tag">⭐ GPTs Agent</div>
+        <div class="agent-title">מאסטר צילום היפר-ריאליסטי</div>
+        <p class="agent-desc">
+          סוכן GPT ייעודי שבנינו במיוחד - מבין מה אתם צריכים, שואל שאלות חכמות, ומייצר לכם פרומפט אולטרה-מותאם אישית לכל תמונה. כמו לעבוד עם צלם מקצועי שמסביר כל צעד.
+        </p>
+        <div style="margin-top:1.5rem; display:flex; gap:1rem; flex-wrap:wrap;">
+          <a href="https://chatgpt.com/g/g-68cc555b2504819190882fc7da446c42-mstr-tsylvm-hypr-rylysty" target="_blank" class="btn-primary">פתח את הסוכן ⬡</a>
+          <div style="display:flex; align-items:center; gap:0.5rem; color:var(--text2); font-size:0.82rem;">
+            <span>●</span> דורש חשבון ChatGPT
+          </div>
+        </div>
+      </div>
+      <div style="text-align:center; padding:1rem;">
+        <img src="step-images/agent.webp" alt="סוכן AI מותאם" loading="lazy" style="width:140px; height:140px; border-radius:50%; object-fit:cover; border:2px solid var(--border2); margin:0 auto 0.8rem; display:block;">
+        <div style="font-size:0.7rem; color:var(--text3); letter-spacing:0.1em; text-transform:uppercase;">סוכן AI מותאם</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- TIPS -->
+<section id="tips">
+  <div class="container">
+    <div class="section-label">טיפים</div>
+    <div class="section-title">כדי לקבל תוצאה מושלמת</div>
+    <div class="tips-grid">
+      <div class="tip-card fade-in" onclick="this.classList.toggle('flipped')">
+        <div class="tip-inner">
+          <div class="tip-front">
+            <div class="tip-icon">💡</div>
+            <div class="tip-text">
+              <strong>תאורה טבעית עדיפה</strong>
+              <p>תמונה מקורית עם תאורה טבעית נותנת תוצאה טובה יותר מתמונה חשוכה.</p>
+              <div class="tip-flip-hint">לחצו לעוד</div>
+            </div>
+          </div>
+          <div class="tip-back">
+            <p>ה-AI משפר מה שקיים - הוא לא ממציא תאורה מחדש. צלמו ליד חלון, בחוץ, או בחדר מואר. הימנעו מפלאש ישיר שמשטח את הפנים.</p>
+          </div>
+        </div>
+      </div>
+      <div class="tip-card fade-in" onclick="this.classList.toggle('flipped')">
+        <div class="tip-inner">
+          <div class="tip-front">
+            <div class="tip-icon">🧑‍🦰</div>
+            <div class="tip-text">
+              <strong>פנים ברורות</strong>
+              <p>וודאו שהפנים נראים ברורות ולא מטושטשות בתמונה המקורית.</p>
+              <div class="tip-flip-hint">לחצו לעוד</div>
+            </div>
+          </div>
+          <div class="tip-back">
+            <p>הפרומפט נועל את הזהות הפנימית - אם הפנים מטושטשות, ה-AI ינסה "לנחש" ויפגע בדמיון. וודאו מיקוד חד על הפנים.</p>
+          </div>
+        </div>
+      </div>
+      <div class="tip-card fade-in" onclick="this.classList.toggle('flipped')">
+        <div class="tip-inner">
+          <div class="tip-front">
+            <div class="tip-icon">📸</div>
+            <div class="tip-text">
+              <strong>רזולוציה גבוהה</strong>
+              <p>ככל שהתמונה המקורית גדולה יותר, התוצאה תהיה מפורטת יותר.</p>
+              <div class="tip-flip-hint">לחצו לעוד</div>
+            </div>
+          </div>
+          <div class="tip-back">
+            <p>העלו את הקובץ המקורי מהטלפון, לא screenshot או תמונה מ-WhatsApp. קובץ מקורי = יותר פיקסלים = יותר פרטים שה-AI יכול לעבוד איתם.</p>
+          </div>
+        </div>
+      </div>
+      <div class="tip-card fade-in" onclick="this.classList.toggle('flipped')">
+        <div class="tip-inner">
+          <div class="tip-front">
+            <div class="tip-icon">🔀</div>
+            <div class="tip-text">
+              <strong>נסו כמה פלטפורמות</strong>
+              <p>לכל מודל AI יש סגנון קצת שונה. נסו ובחרו את שאהבתם.</p>
+              <div class="tip-flip-hint">לחצו לעוד</div>
+            </div>
+          </div>
+          <div class="tip-back">
+            <p>ChatGPT נוטה לגריידינג חם וקולנועי, Gemini מדויק יותר בצבעי עור, ו-Arena מאפשר להשוות תוצאות ממספר מודלים בו-זמנית.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- TESTIMONIALS -->
+<section id="testimonials">
+  <div class="container">
+    <div class="section-label">מה אומרים</div>
+    <div class="section-title">משתמשים מספרים</div>
+    <div class="testimonials-grid">
+      <div class="testimonial-card fade-in">
+        <div class="testimonial-stars">★★★★★</div>
+        <p class="testimonial-text">"העלאתי תמונה רגילה מהטלפון ותוך 4 שניות קיבלתי תוצאה שנראית כמו צילום סטודיו. פשוט לא האמנתי."</p>
+        <div class="testimonial-author">- מיכל ר., מעצבת גרפית</div>
+      </div>
+      <div class="testimonial-card fade-in">
+        <div class="testimonial-stars">★★★★★</div>
+        <p class="testimonial-text">"אני משתמש בזה לכל התמונות של העסק שלי. חוסך לי אלפי שקלים על צלם. התאורה והגריידינג פשוט מושלמים."</p>
+        <div class="testimonial-author">- אורן כ., בעל עסק</div>
+      </div>
+      <div class="testimonial-card fade-in">
+        <div class="testimonial-stars">★★★★★</div>
+        <p class="testimonial-text">"ניסיתי גם ב-ChatGPT וגם ב-Gemini. שניהם נתנו תוצאות מדהימות. הפרומפט הזה שווה זהב - ובחינם!"</p>
+        <div class="testimonial-author">- נועה ל., בלוגרית</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- QUIZ -->
+<section class="quiz-section" id="quiz">
+  <div class="container">
+    <div class="section-label">בדקו את עצמכם</div>
+    <div class="section-title">חידון צילום & AI</div>
+    <p class="section-desc fade-in">חמש שאלות קצרות על צילום, תאורה ובינה מלאכותית. מוכנים?</p>
+    <div class="quiz-container fade-in" id="quizContainer">
+      <div class="quiz-progress" id="quizProgress"></div>
+      <div id="quizBody"></div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- SHARE -->
+<section class="share-section">
+  <div class="container">
+    <div class="section-label">שיתוף</div>
+    <div class="section-title">אהבתם? שתפו חברים</div>
+    <p class="section-desc fade-in" style="margin:0 auto;">שתפו את הכלי עם חברים שרוצים לשדרג את התמונות שלהם - זה בחינם!</p>
+    <div class="share-buttons fade-in">
+      <button class="btn-whatsapp" onclick="shareWhatsApp()">שתפו ב-WhatsApp</button>
+      <button class="btn-share" onclick="shareGeneral()">שתפו / העתקת קישור</button>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- COMMUNITY CTA -->
+<section>
+  <div class="container">
+    <div class="cta-card fade-in">
+      <div class="section-title" style="font-size:1.5rem;">רוצים עזרה אישית?</div>
+      <p>שלחו לנו הודעה ב-WhatsApp ונעזור לכם לקבל את התוצאה המושלמת.</p>
+      <a href="https://wa.me/972549995050?text=%D7%94%D7%99%D7%99%20%D7%A8%D7%90%D7%99%D7%AA%D7%99%20%D7%90%D7%AA%20HyperShot%20%D7%95%D7%90%D7%A9%D7%9E%D7%97%20%D7%9C%D7%A2%D7%96%D7%A8%D7%94" target="_blank" class="btn-primary">דברו איתנו ב-WhatsApp</a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-logo">Hyper<span>Shot</span></div>
+  <p style="margin-bottom:0.3rem;">שדרג את התמונות שלך לאיכות צלם מקצועי - בחינם</p>
+  <p>נבנה ב ❤️ | שגיא בר און · <a href="https://sagiai.co.il" target="_blank" style="color:var(--gold);text-decoration:none;">SagiAI</a> · 054-9995050</p>
+</footer>
+
+<!-- BACK TO TOP -->
+<button class="back-to-top" id="backToTop" onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="חזרה למעלה">↑</button>
+
+<!-- SOUND TOGGLE -->
+<button class="sound-btn pulse" id="soundBtn" onclick="toggleSound()" title="הפעל/כבה צלילים" aria-pressed="false" aria-label="צלילים">🔇</button>
+<!-- MUSIC PROMPT -->
+<div class="music-prompt" id="musicPrompt">🎵 לחצו להפעלת מוזיקה!</div>
+
+<!-- DARK/LIGHT TOGGLE -->
+<button class="dark-toggle" id="darkBtn" onclick="toggleLight()" title="מצב בהיר/כהה" aria-pressed="false" aria-label="מצב תצוגה">🌙</button>
+
+<!-- TOAST -->
+<div id="toast">✓ הפרומפט הועתק ללוח!</div>
+
+<script>
+const PROMPT_TEXT = `Use the uploaded image as the ONLY identity reference.
+
+STRICT IDENTITY LOCK:
+Preserve 100% exact facial identity, proportions, facial structure, eyes, nose, mouth, jawline, and expressions of both subjects.
+Do NOT stylize, beautify, or alter identity. No face mixing, no reinterpretation.
+
+IMAGE ENHANCEMENT – CINEMATIC MASTERING:
+
+Ultra high-end cinematic photo enhancement of the original image.
+
+- Hyper-detailed sharpening with zero artifacts
+- Natural skin refinement: smooth but preserve pores, texture, and realism (no plastic skin)
+- Hair enhancement: refine strands, add natural shine, depth, and volume while keeping realism
+- Enhance eyes: subtle clarity, natural catchlight, no exaggeration
+- Improve makeup subtly: enhance lipstick tone, refine eye definition, natural highlights
+
+LIGHTING:
+- Studio-quality cinematic lighting
+- Soft diffused key light + subtle contrast shadows
+- Add gentle rim light for depth separation
+- Maintain realistic indoor lighting feel
+
+COLOR & GRADING:
+- Cinematic color grading (film look)
+- Rich, deep tones with balanced skin tones
+- Slight warm highlights + soft cool shadows
+- Increased dynamic range and contrast
+
+DEPTH & QUALITY:
+- Increase depth, clarity, and dimensionality
+- High-end lens look (sharp foreground, subtle depth falloff)
+- Ultra realistic, 8K detail level
+
+COMPOSITION:
+Keep original framing, pose, and scene intact.
+No changes to background structure.
+
+FINAL RESULT:
+Luxury, high-end cinematic photograph.
+Hyper-realistic, sharp, deep, and visually striking - while looking completely natural and true to the original people.`;
+
+/* ─── COPY PROMPT ─── */
+function copyPrompt() {
+  navigator.clipboard.writeText(PROMPT_TEXT).then(() => {
+    const btn = document.getElementById('copyBtn');
+    btn.classList.add('copied');
+    btn.innerHTML = `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" style="width:14px;height:14px;"><polyline points="20 6 9 17 4 12"></polyline></svg> הועתק!`;
+    showToast('✓ הפרומפט הועתק ללוח!');
+    playSuccess();
+    setTimeout(() => {
+      btn.classList.remove('copied');
+      btn.innerHTML = `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:14px;height:14px;flex-shrink:0;"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg> העתק פרומפט`;
+    }, 3000);
+  }).catch(() => {
+    const el = document.getElementById('promptContent');
+    const range = document.createRange();
+    range.selectNode(el);
+    window.getSelection().removeAllRanges();
+    window.getSelection().addRange(range);
+    showToast('📋 סמן + העתק (Ctrl+C)');
+  });
+}
+
+function showToast(msg) {
+  const t = document.getElementById('toast');
+  t.textContent = msg;
+  t.classList.add('show');
+  setTimeout(() => t.classList.remove('show'), 3000);
+}
+
+/* ─── SCROLL FADE-IN ─── */
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(e => {
+    if (e.isIntersecting) e.target.classList.add('visible');
+  });
+}, { threshold: 0.1 });
+document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+/* ─── BACK TO TOP ─── */
+const backBtn = document.getElementById('backToTop');
+window.addEventListener('scroll', () => {
+  backBtn.classList.toggle('visible', window.scrollY > 400);
+}, { passive: true });
+
+/* ─── HAMBURGER MENU ─── */
+function toggleMenu() {
+  const btn = document.querySelector('.hamburger');
+  const menu = document.getElementById('mobileMenu');
+  btn.classList.toggle('active');
+  menu.classList.toggle('active');
+  btn.setAttribute('aria-expanded', menu.classList.contains('active'));
+  document.body.style.overflow = menu.classList.contains('active') ? 'hidden' : '';
+}
+function closeMenu() {
+  document.querySelector('.hamburger').classList.remove('active');
+  document.getElementById('mobileMenu').classList.remove('active');
+  document.body.style.overflow = '';
+}
+
+/* ─── BEFORE/AFTER SLIDER ─── */
+let activeSlider = null;
+function startSlide(e, el) {
+  e.preventDefault();
+  activeSlider = el;
+  doSlide(e);
+  document.addEventListener('mousemove', handleSlide);
+  document.addEventListener('touchmove', handleSlide, { passive: false });
+  document.addEventListener('mouseup', stopSlide);
+  document.addEventListener('touchend', stopSlide);
+}
+function handleSlide(e) { if (activeSlider) doSlide(e); }
+function doSlide(e) {
+  if (!activeSlider) return;
+  const rect = activeSlider.getBoundingClientRect();
+  const clientX = e.touches ? e.touches[0].clientX : e.clientX;
+  let pct = ((clientX - rect.left) / rect.width) * 100;
+  pct = Math.max(2, Math.min(98, pct));
+  activeSlider.querySelector('.ba-after').style.clipPath = `inset(0 ${100-pct}% 0 0)`;
+  activeSlider.querySelector('.ba-slider-line').style.left = pct + '%';
+  activeSlider.querySelector('.ba-slider-handle').style.left = pct + '%';
+}
+function stopSlide() {
+  activeSlider = null;
+  document.removeEventListener('mousemove', handleSlide);
+  document.removeEventListener('touchmove', handleSlide);
+  document.removeEventListener('mouseup', stopSlide);
+  document.removeEventListener('touchend', stopSlide);
+}
+
+/* ─── SHARE ─── */
+function shareWhatsApp() {
+  const text = encodeURIComponent('גליתי כלי מדהים שהופך כל תמונה לצילום מקצועי ברמת סטודיו - בחינם! נסו את זה:\n' + window.location.href);
+  window.open('https://wa.me/?text=' + text, '_blank');
+}
+function shareGeneral() {
+  if (navigator.share) {
+    navigator.share({ title: 'HyperShot', text: 'הפכו כל תמונה לצילום מקצועי', url: window.location.href });
+  } else {
+    navigator.clipboard.writeText(window.location.href).then(() => {
+      showToast('✓ הקישור הועתק ללוח!');
+    });
+  }
+}
+
+/* ─── QUIZ ─── */
+const quizQuestions = [
+  {
+    q: 'מהו "Color Grading" בצילום?',
+    a: ['שינוי רזולוציה', 'עיבוד צבעים ליצירת מצב רוח', 'חידוד תמונה', 'הגדלת קובץ'],
+    correct: 1
+  },
+  {
+    q: 'איזו תאורה מתאימה ביותר לפורטרט קולנועי?',
+    a: ['פלאש ישיר מלמעלה', 'אור שמש ישיר בצהריים', 'תאורה רכה מוחזרת (Diffused)', 'תאורת ניאון צבעונית'],
+    correct: 2
+  },
+  {
+    q: 'מה תפקיד ה-Rim Light?',
+    a: ['למחוק צללים', 'ליצור הפרדה בין הנושא לרקע', 'להגביר רוויה', 'לטשטש רקע'],
+    correct: 1
+  },
+  {
+    q: 'מהי רזולוציית 8K?',
+    a: ['3840×2160', '7680×4320', '1920×1080', '5120×2880'],
+    correct: 1
+  },
+  {
+    q: 'למה חשוב לנעול את הזהות הפנימית בפרומפט?',
+    a: ['כדי להאיץ את העיבוד', 'כדי שה-AI ישנה את הפנים', 'כדי שהתמונה תישאר נאמנה לאדם המצולם', 'כדי להקטין את הקובץ'],
+    correct: 2
+  }
+];
+
+let quizCurrent = 0;
+let quizScore = 0;
+
+function initQuiz() {
+  const progress = document.getElementById('quizProgress');
+  progress.innerHTML = quizQuestions.map((_, i) => `<div class="quiz-dot" id="qd${i}"></div>`).join('');
+  renderQuestion();
+}
+
+function renderQuestion() {
+  const body = document.getElementById('quizBody');
+  const q = quizQuestions[quizCurrent];
+  document.getElementById('qd' + quizCurrent).classList.add('active');
+  body.innerHTML = `
+    <div class="quiz-question">${q.q}</div>
+    <div class="quiz-answers">
+      ${q.a.map((a, i) => `<button class="quiz-answer" onclick="checkAnswer(${i})">${a}</button>`).join('')}
+    </div>`;
+}
+
+function checkAnswer(idx) {
+  const q = quizQuestions[quizCurrent];
+  const answers = document.querySelectorAll('.quiz-answer');
+  answers.forEach((a, i) => {
+    a.classList.add('disabled');
+    if (i === q.correct) a.classList.add('correct');
+    else if (i === idx) a.classList.add('wrong');
+  });
+  const dot = document.getElementById('qd' + quizCurrent);
+  dot.classList.remove('active');
+  if (idx === q.correct) {
+    quizScore++;
+    dot.classList.add('correct');
+    playPop();
+  } else {
+    dot.classList.add('wrong');
+    playWrong();
+  }
+  setTimeout(() => {
+    quizCurrent++;
+    if (quizCurrent < quizQuestions.length) {
+      renderQuestion();
+    } else {
+      showResult();
+    }
+  }, 1200);
+}
+
+function showResult() {
+  const body = document.getElementById('quizBody');
+  let msg = quizScore === 5 ? 'מושלם! אתם מומחי צילום!' :
+            quizScore >= 3 ? 'כל הכבוד! יש לכם ידע טוב!' :
+            'לא נורא - עכשיו אתם יודעים יותר!';
+  body.innerHTML = `
+    <div class="quiz-result">
+      <div class="quiz-score">${quizScore}/${quizQuestions.length}</div>
+      <div class="quiz-message">${msg}</div>
+      <button class="btn-primary" onclick="resetQuiz()">שחק שוב</button>
+    </div>`;
+  if (quizScore === 5) { launchConfetti(); playSuccess(); }
+}
+
+function resetQuiz() {
+  quizCurrent = 0;
+  quizScore = 0;
+  initQuiz();
+}
+
+/* ─── CONFETTI ─── */
+function launchConfetti() {
+  const colors = ['#C8973A','#E5B660','#FFD700','#fff','#FF6B35','#28CA41'];
+  for (let i = 0; i < 60; i++) {
+    const el = document.createElement('div');
+    el.className = 'confetti';
+    el.style.left = Math.random() * 100 + 'vw';
+    el.style.top = '-10px';
+    el.style.background = colors[Math.floor(Math.random() * colors.length)];
+    el.style.borderRadius = Math.random() > 0.5 ? '50%' : '0';
+    el.style.setProperty('--rot', (Math.random() * 1080) + 'deg');
+    el.style.animationDelay = (Math.random() * 0.8) + 's';
+    document.body.appendChild(el);
+    setTimeout(() => el.remove(), 4000);
+  }
+}
+
+/* ─── CURSOR SPARKLE (desktop only) ─── */
+if (!('ontouchstart' in window)) {
+  let lastSparkle = 0;
+  document.addEventListener('mousemove', e => {
+    const now = Date.now();
+    if (now - lastSparkle < 120) return;
+    lastSparkle = now;
+    const sparkle = document.createElement('div');
+    sparkle.className = 'sparkle';
+    sparkle.textContent = ['✨','💫','⚡'][Math.floor(Math.random()*3)];
+    sparkle.style.left = e.clientX + 'px';
+    sparkle.style.top = e.clientY + 'px';
+    document.body.appendChild(sparkle);
+    setTimeout(() => sparkle.remove(), 1000);
+  });
+}
+
+/* ─── SOUND ENGINE (WAV generation) ─── */
+let soundOn = false;
+
+function generateWav(freq, duration, volume) {
+  const sampleRate = 22050;
+  const samples = Math.floor(sampleRate * duration);
+  const buffer = new ArrayBuffer(44 + samples * 2);
+  const view = new DataView(buffer);
+  const writeStr = (o, s) => { for (let i = 0; i < s.length; i++) view.setUint8(o + i, s.charCodeAt(i)); };
+  writeStr(0, 'RIFF');
+  view.setUint32(4, 36 + samples * 2, true);
+  writeStr(8, 'WAVE');
+  writeStr(12, 'fmt ');
+  view.setUint32(16, 16, true);
+  view.setUint16(20, 1, true);
+  view.setUint16(22, 1, true);
+  view.setUint32(24, sampleRate, true);
+  view.setUint32(28, sampleRate * 2, true);
+  view.setUint16(32, 2, true);
+  view.setUint16(34, 16, true);
+  writeStr(36, 'data');
+  view.setUint32(40, samples * 2, true);
+  for (let i = 0; i < samples; i++) {
+    const t = i / sampleRate;
+    const env = Math.max(0, 1 - t / duration) * volume;
+    const val = Math.sin(2 * Math.PI * freq * t) * env * 32767;
+    view.setInt16(44 + i * 2, val, true);
+  }
+  return URL.createObjectURL(new Blob([buffer], { type: 'audio/wav' }));
+}
+
+const sounds = {
+  click: generateWav(800, 0.1, 0.5),
+  pop: generateWav(1200, 0.12, 0.6),
+  success: [
+    generateWav(523, 0.15, 0.5),
+    generateWav(659, 0.15, 0.5),
+    generateWav(784, 0.15, 0.5),
+    generateWav(1047, 0.2, 0.6),
+  ],
+  wrong: generateWav(220, 0.25, 0.4),
+};
+
+function playSound(url) {
+  if (!soundOn) return;
+  try { new Audio(url).play(); } catch(e) {}
+}
+
+function playClick() { playSound(sounds.click); }
+function playPop() { playSound(sounds.pop); }
+
+function playSuccess() {
+  if (!soundOn) return;
+  sounds.success.forEach((url, i) => setTimeout(() => playSound(url), i * 120));
+}
+
+function playWrong() { playSound(sounds.wrong); }
+
+/* ─── BACKGROUND MUSIC ─── */
+const bgMusic = new Audio('lexin_music-cinematic-documentary-115669.mp3');
+bgMusic.loop = true;
+bgMusic.volume = 0.3;
+let musicStarted = false;
+
+function toggleSound() {
+  if (!musicStarted) {
+    bgMusic.play().then(() => { musicStarted = true; }).catch(() => {});
+    soundOn = true;
+  } else {
+    soundOn = !soundOn;
+    if (soundOn) {
+      bgMusic.play();
+    } else {
+      bgMusic.pause();
+    }
+  }
+  const btn = document.getElementById('soundBtn');
+  btn.textContent = soundOn ? '🔊' : '🔇';
+  btn.setAttribute('aria-pressed', soundOn);
+  btn.classList.remove('pulse');
+  const prompt = document.getElementById('musicPrompt');
+  if (prompt) prompt.remove();
+}
+
+// Start music on first real user gesture
+function startMusic() {
+  if (musicStarted) return;
+  bgMusic.play().then(() => {
+    musicStarted = true;
+    soundOn = true;
+    document.getElementById('soundBtn').textContent = '🔊';
+    document.getElementById('soundBtn').setAttribute('aria-pressed', 'true');
+    document.getElementById('soundBtn').classList.remove('pulse');
+    const prompt = document.getElementById('musicPrompt');
+    if (prompt) prompt.remove();
+  }).catch(() => {});
+}
+['click','touchstart','keydown'].forEach(e =>
+  document.addEventListener(e, function handler() {
+    startMusic();
+    document.removeEventListener(e, handler);
+  })
+);
+
+/* ─── LIGHT/DARK MODE ─── */
+function toggleLight() {
+  document.body.classList.toggle('light');
+  const isLight = document.body.classList.contains('light');
+  const btn = document.getElementById('darkBtn');
+  btn.textContent = isLight ? '☀️' : '🌙';
+  btn.setAttribute('aria-pressed', isLight);
+  localStorage.setItem('hypershot-light', isLight ? '1' : '0');
+}
+if (localStorage.getItem('hypershot-light') === '1') {
+  document.body.classList.add('light');
+  document.getElementById('darkBtn').textContent = '☀️';
+}
+
+/* ─── KEYBOARD SHORTCUT HINT ─── */
+document.addEventListener('keydown', e => {
+  if ((e.ctrlKey || e.metaKey) && e.key === 'c' && !window.getSelection().toString()) {
+    showToast('💡 לחצו על "העתק פרומפט" לעותק מלא');
+  }
+});
+
+/* ─── SCROLL PROGRESS BAR ─── */
+const progressBar = document.getElementById('scrollProgress');
+window.addEventListener('scroll', () => {
+  const scrollTop = window.scrollY;
+  const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+  progressBar.style.width = (scrollTop / docHeight * 100) + '%';
+}, { passive: true });
+
+/* ─── ANIMATED COUNTER ─── */
+function animateCounters() {
+  document.querySelectorAll('.stat-num[data-target]').forEach(el => {
+    const target = parseInt(el.dataset.target);
+    const duration = 2000;
+    const step = target / (duration / 16);
+    let current = 0;
+    const timer = setInterval(() => {
+      current += step;
+      if (current >= target) {
+        current = target;
+        clearInterval(timer);
+      }
+      el.textContent = target >= 100 ? Math.floor(current).toLocaleString() + '+' : Math.floor(current);
+    }, 16);
+  });
+}
+// Trigger counter when hero is visible
+const heroObserver = new IntersectionObserver((entries) => {
+  entries.forEach(e => {
+    if (e.isIntersecting) {
+      animateCounters();
+      heroObserver.disconnect();
+    }
+  });
+}, { threshold: 0.3 });
+heroObserver.observe(document.querySelector('.hero-stats'));
+
+/* ─── INIT ─── */
+initQuiz();
+</script>
+</body>
+</html>
