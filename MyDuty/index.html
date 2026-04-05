@@ -1,0 +1,746 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>מיצוי זכויות מילואים בלי ניחושים</title>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/react/18.2.0/umd/react.production.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/react-dom/18.2.0/umd/react-dom.production.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/7.23.9/babel.min.js"></script>
+<script src="data.js"></script>
+<script src="faq.js"></script>
+<link href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;600;700;800&display=swap" rel="stylesheet"/>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'Heebo',sans-serif;background:#f5f0e8;color:#1a1a1a;direction:rtl}
+.loader{display:flex;justify-content:center;align-items:center;height:100vh;flex-direction:column;gap:16px}
+.loader .spinner{width:40px;height:40px;border:4px solid #e5e7eb;border-top-color:#166534;border-radius:50%;animation:spin 1s linear infinite}
+@keyframes spin{to{transform:rotate(360deg)}}
+.container{max-width:720px;margin:0 auto;padding:16px}
+.header{text-align:center;padding:24px 16px 8px;background:linear-gradient(135deg,#f0fdf4,#dcfce7)}
+.header h1{font-size:1.6rem;font-weight:800;color:#166534;display:flex;align-items:center;justify-content:center;gap:8px}
+.header p{color:#555;font-size:0.9rem;margin-top:6px}
+.progress-bar{height:6px;background:#e5e7eb;border-radius:3px;margin:12px 24px;overflow:hidden}
+.progress-fill{height:100%;background:#166534;border-radius:3px;transition:width .4s ease}
+.step-label{text-align:center;color:#888;font-size:0.85rem;margin-bottom:16px}
+.card{background:#fff;border-radius:16px;padding:24px;margin-bottom:16px;box-shadow:0 1px 4px rgba(0,0,0,.06)}
+.card-header{text-align:center;margin-bottom:20px}
+.card-header .icon{font-size:2rem;margin-bottom:8px}
+.card-header h2{font-size:1.3rem;font-weight:700}
+.card-header p{color:#777;font-size:0.85rem;margin-top:4px;white-space:pre-line}
+.question-card{background:#fff;border:1px solid #e5e7eb;border-radius:12px;padding:20px;margin-bottom:12px}
+.question-card h3{font-size:0.95rem;font-weight:600;text-align:center;display:flex;align-items:center;justify-content:center;gap:6px}
+.question-card .helper{color:#888;font-size:0.8rem;text-align:center;margin-top:4px}
+.btn-group{display:flex;gap:8px;justify-content:center;margin-top:12px;flex-wrap:wrap}
+.btn-option{padding:10px 20px;border:2px solid #e5e7eb;border-radius:10px;background:#fff;cursor:pointer;font-size:0.9rem;font-weight:500;font-family:'Heebo',sans-serif;transition:all .2s;min-width:70px}
+.btn-option:hover{border-color:#166534;background:#f0fdf4}
+.btn-option.selected{background:#166534;color:#fff;border-color:#166534}
+.input-field{width:100%;max-width:280px;margin:12px auto 0;display:block;padding:12px 16px;border:2px solid #e5e7eb;border-radius:10px;font-size:1rem;text-align:center;font-family:'Heebo',sans-serif;direction:ltr}
+.input-field:focus{outline:none;border-color:#166534}
+.nav-buttons{display:flex;justify-content:space-between;margin-top:16px;padding:0 4px}
+.btn-primary{background:#166534;color:#fff;border:none;padding:12px 32px;border-radius:10px;font-size:1rem;font-weight:600;cursor:pointer;font-family:'Heebo',sans-serif;display:flex;align-items:center;gap:6px;transition:background .2s}
+.btn-primary:hover{background:#14532d}
+.btn-primary:disabled{opacity:.5;cursor:not-allowed}
+.btn-secondary{background:#fff;color:#666;border:1px solid #ddd;padding:12px 32px;border-radius:10px;font-size:1rem;cursor:pointer;font-family:'Heebo',sans-serif;display:flex;align-items:center;gap:6px}
+.results-category{font-size:1.2rem;font-weight:700;text-align:right;margin:20px 0 12px;display:flex;align-items:center;gap:8px}
+.benefit-card{background:#fff;border-radius:12px;padding:20px;margin-bottom:12px;border:1px solid #e5e7eb;cursor:pointer;transition:box-shadow .2s}
+.benefit-card:hover{box-shadow:0 2px 8px rgba(0,0,0,.08)}
+.benefit-card .name{font-size:1rem;font-weight:600;text-align:center;display:flex;align-items:center;justify-content:center;gap:6px}
+.benefit-card .amount{font-size:1.5rem;font-weight:800;color:#166534;text-align:center;margin:8px 0}
+.benefit-card .amount span{font-size:0.9rem;font-weight:400;color:#888}
+.benefit-card .date-badge{display:inline-block;background:#e0f2fe;color:#0369a1;padding:3px 10px;border-radius:6px;font-size:0.75rem;margin:4px 0}
+.benefit-card .calc-detail{color:#888;font-size:0.8rem;text-align:center;margin-top:4px}
+.benefit-card .expand-content{margin-top:12px;padding-top:12px;border-top:1px solid #eee;color:#555;font-size:0.85rem;line-height:1.6}
+.total-banner{background:#fff0f0;border:1px solid #fecaca;border-radius:12px;padding:16px 20px;display:flex;justify-content:space-between;align-items:center;margin:16px 0;flex-wrap:wrap;gap:8px}
+.total-banner .label{color:#b91c1c;font-weight:600;display:flex;align-items:center;gap:6px}
+.total-banner .total-amount{color:#b91c1c;font-size:1.4rem;font-weight:800}
+.filter-tabs{display:flex;gap:8px;justify-content:center;margin:16px 0;flex-wrap:wrap}
+.filter-tab{padding:8px 16px;border-radius:20px;border:1px solid #ddd;background:#fff;cursor:pointer;font-size:0.85rem;font-family:'Heebo',sans-serif;transition:all .2s}
+.filter-tab.active{background:#166534;color:#fff;border-color:#166534}
+.faq-section{margin-top:24px}
+.faq-section h2{text-align:center;font-size:1.2rem;font-weight:700;margin-bottom:16px;display:flex;align-items:center;justify-content:center;gap:8px}
+.faq-item{background:#fff;border-radius:10px;margin-bottom:6px;overflow:hidden;border:1px solid #e5e7eb}
+.faq-question{padding:14px 18px;cursor:pointer;display:flex;justify-content:space-between;align-items:center;font-weight:500;font-size:0.9rem}
+.faq-question:hover{background:#f9fafb}
+.faq-answer{padding:0 18px 14px;color:#555;font-size:0.85rem;line-height:1.7}
+.chart-container{background:#fff;border-radius:16px;padding:24px;margin:20px 0;text-align:center;border:1px solid #e5e7eb}
+.chart-container h3{font-weight:700;margin-bottom:20px;color:#166534;font-size:1.1rem}
+.pie-legend{display:grid;grid-template-columns:1fr 1fr;gap:0;margin-top:16px;border:1px solid #e5e7eb;border-radius:12px;overflow:hidden}
+.pie-legend-item{display:flex;align-items:center;justify-content:space-between;gap:8px;font-size:0.85rem;padding:12px 16px;border-bottom:1px solid #f0f0f0;border-left:1px solid #f0f0f0;direction:rtl}
+.pie-legend-item:nth-last-child(-n+2){border-bottom:none}
+.pie-legend-item .legend-right{display:flex;align-items:center;gap:8px}
+.pie-legend-dot{width:10px;height:10px;border-radius:50%;flex-shrink:0}
+.pie-tooltip{position:absolute;background:rgba(30,30,30,.9);color:#fff;padding:8px 14px;border-radius:8px;font-size:0.85rem;pointer-events:none;white-space:nowrap;transform:translate(-50%,-120%);z-index:10}
+.footer{text-align:center;padding:24px;color:#888;font-size:0.8rem;line-height:1.7}
+.blue-card{background:linear-gradient(135deg,#06b6d4,#3b82f6);border-radius:16px;padding:20px;color:#fff;margin-bottom:12px;text-align:center}
+.red-card{background:linear-gradient(135deg,#7f1d1d,#991b1b);border-radius:16px;padding:20px;color:#fff;margin-bottom:12px;text-align:center}
+.highlight-card{background:linear-gradient(135deg,#c084fc,#ec4899);border-radius:16px;padding:20px;color:#fff;margin-bottom:12px;text-align:center}
+.help-btn{display:inline-block;padding:4px 12px;border:1px solid #ddd;border-radius:6px;font-size:0.75rem;color:#666;cursor:pointer;background:#fff}
+.help-modal-overlay{position:fixed;top:0;left:0;right:0;bottom:0;background:rgba(0,0,0,.5);z-index:1000;display:flex;align-items:center;justify-content:center;padding:16px}
+.help-modal{background:#fff;border-radius:16px;padding:24px;max-width:400px;width:100%;position:relative;direction:rtl;text-align:center}
+.help-modal h3{color:#166534;margin:0 0 16px;font-size:1.1rem}
+.help-modal p{margin:4px 0;font-size:0.9rem;color:#333;line-height:1.6}
+.help-modal .help-note{margin-top:16px;font-size:0.75rem;color:#666;line-height:1.5}
+.help-modal-close{position:absolute;top:12px;left:12px;width:28px;height:28px;border-radius:50%;border:1px solid #ddd;background:#fff;cursor:pointer;font-size:1rem;display:flex;align-items:center;justify-content:center;color:#666}
+.export-btn{padding:8px 16px;border-radius:20px;border:1px solid #166534;background:#fff;color:#166534;cursor:pointer;font-size:0.85rem;font-family:'Heebo',sans-serif;display:flex;align-items:center;gap:4px}
+.share-fab{position:fixed;bottom:20px;left:20px;width:48px;height:48px;border-radius:50%;background:#166534;color:#fff;border:none;font-size:1.3rem;cursor:pointer;box-shadow:0 2px 10px rgba(0,0,0,.25);z-index:100;display:flex;align-items:center;justify-content:center}
+@media(max-width:600px){.container{padding:8px}.card{padding:16px}.btn-group{flex-wrap:wrap}.btn-option{min-width:60px;padding:8px 14px;font-size:0.85rem}.total-banner{flex-direction:column;text-align:center}}
+</style>
+</head>
+<body>
+<div id="root"><div class="loader"><div class="spinner"></div><div>טוען מחשבון...</div></div></div>
+
+<script type="text/babel">
+const { useState, useEffect, useMemo, Fragment } = React;
+
+// ============ ICON MAP ============
+const ICONS = {
+  shield: "\u{1F6E1}\uFE0F", heart: "\u2764\uFE0F", star: "\u2B50", calendar: "\u{1F4C5}",
+  gear: "\u2699\uFE0F", people: "\u{1F468}\u200D\u{1F469}\u200D\u{1F467}", graduation: "\u{1F393}",
+  home: "\u{1F3E0}", vacation: "\u{1F334}", document: "\u{1F4CB}", law: "\u2696\uFE0F",
+  family: "\u{1F468}\u200D\u{1F469}\u200D\u{1F467}", "₪": "₪"
+};
+function getIcon(key) { return ICONS[key] || key || ""; }
+
+// ============ CALCULATION ENGINE (reads from JSON data) ============
+function getHitargnutDays(table, level, days2026) {
+  const rows = table[level];
+  if (!rows || days2026 < 1) return 0;
+  for (const row of rows) {
+    if (days2026 >= row.min && days2026 <= row.max) return row.days;
+  }
+  return 0;
+}
+
+function checkThreshold(threshold, data) {
+  if (!threshold || Object.keys(threshold).length === 0) return true;
+  const { days2025, days2026, activityLevel, commandRole } = data;
+  const totalDays = (days2025 || 0) + (days2026 || 0);
+
+  if (threshold.totalDays && totalDays <= threshold.totalDays) return false;
+  if (threshold.totalDaysMin && totalDays < threshold.totalDaysMin) return false;
+  if (threshold.days2026Min && (days2026 || 0) < threshold.days2026Min) return false;
+  if (threshold.days2025Min && (days2025 || 0) < threshold.days2025Min) return false;
+  if (threshold.levelsOnly && !threshold.levelsOnly.includes(activityLevel)) return false;
+  if (threshold.commandRoles && !threshold.commandRoles.includes(commandRole)) return false;
+  return true;
+}
+
+function checkConditions(conditions, data) {
+  if (!conditions) return true;
+  if (conditions.isParent === true && !data.isParent) return false;
+  if (conditions.isStudent === true && !data.isStudent) return false;
+  if (conditions.hasChildren === true && data.childrenCount === "0") return false;
+  return true;
+}
+
+function calculateBenefit(benefit, data, rates, hitargnutTable) {
+  const Z = data.activityLevel;
+  const re = data.days2025 || 0;
+  const de = data.days2026 || 0;
+  const Kt = re + de;
+
+  if (!checkThreshold(benefit.threshold, data)) return null;
+  if (!checkConditions(benefit.conditions, data)) return null;
+
+  const rateTable = benefit.rateTable ? rates[benefit.rateTable] : null;
+  const rate = rateTable ? (rateTable[Z] || 0) : 0;
+  let amount = null;
+  let displayAmount = benefit.displayAmount || null;
+  let calcDetail = "";
+
+  switch (benefit.calcType) {
+    case "perDay_above_threshold": {
+      const threshold = benefit.threshold.totalDays || 0;
+      let eligibleDays = 0;
+      if (re >= threshold) eligibleDays = de;
+      else eligibleDays = Math.max(0, re + de - threshold);
+      if (eligibleDays <= 0) return null;
+      amount = eligibleDays * rate;
+      calcDetail = `${eligibleDays} \u05D9\u05DE\u05D9\u05DD (\u05D1-2026) \u00D7 ${rate}\u20AA = ${amount.toLocaleString()}\u20AA (\u05DE\u05D3\u05E8\u05D2 ${Z})`;
+      break;
+    }
+    case "fixed_by_level":
+      amount = rate;
+      calcDetail = benefit.conditions?.isParent
+        ? `\u05DE\u05E2\u05E0\u05E7 \u05E2\u05D1\u05D5\u05E8 \u05DE\u05D3\u05E8\u05D2 ${Z}`
+        : benefit.threshold?.totalDays
+          ? `\u05DE\u05E2\u05E0\u05E7 \u05DE\u05D5\u05D2\u05D3\u05DC \u05E2\u05DC ${benefit.threshold.totalDays}+ \u05D9\u05DE\u05D9\u05DD \u05D1-2026 (\u05DE\u05D3\u05E8\u05D2 ${Z})`
+          : benefit.threshold?.days2026Min
+            ? `\u05DE\u05E2\u05E0\u05E7 \u05E2\u05DC \u05D1\u05E1\u05D9\u05E1 ${de}+ \u05D9\u05DE\u05D9\u05DD \u05D1-2026 (\u05DE\u05D3\u05E8\u05D2 ${Z})`
+            : `\u05DE\u05D1\u05D5\u05E1\u05E1 \u05E2\u05DC ${de} \u05D9\u05DE\u05D9 \u05DE\u05D9\u05DC\u05D5\u05D0\u05D9\u05DD \u05D1\u05E9\u05E0\u05EA 2026`;
+      break;
+    case "perDay_all2026":
+      amount = Math.round(de * rate);
+      calcDetail = `${de} \u05D9\u05DE\u05D9\u05DD \u00D7 ${rate}\u20AA = ${amount.toLocaleString()}\u20AA (\u05DE\u05D3\u05E8\u05D2 ${Z})`;
+      break;
+    case "tax_credit": {
+      const creditVal = rates.taxCreditValuePerPoint || 2904;
+      const points = 0.5;
+      amount = Math.round(de * creditVal * points / 30);
+      calcDetail = `${points} \u05E0\u05E7\u05D5\u05D3\u05D5\u05EA \u00D7 ${creditVal}\u20AA = \u05D6\u05D9\u05DB\u05D5\u05D9 \u05D1\u05DE\u05E1 \u05D4\u05DB\u05E0\u05E1\u05D4 \u05E2\u05DC ${de} \u05D9\u05DE\u05D9 \u05E9\u05D9\u05E8\u05D5\u05EA \u05D1-2026`;
+      break;
+    }
+    case "coins_by_level": {
+      const coins = rate;
+      displayAmount = `${coins.toLocaleString()} \u05DE\u05D8\u05D1\u05E2\u05D5\u05EA`;
+      calcDetail = `\u05E6\u05D1\u05D9\u05E8\u05EA 50+ \u05D9\u05DE\u05D9 \u05DE\u05D9\u05DC\u05D5\u05D0\u05D9\u05DD \u05DE\u05E6\u05D8\u05D1\u05E8\u05D9\u05DD (\u05E0\u05D5\u05DB\u05D7\u05D9: ${Kt} \u05D9\u05DE\u05D9\u05DD, \u05DE\u05D3\u05E8\u05D2 ${Z})`;
+      break;
+    }
+    case "babysitter": {
+      const yearCap = rates.babysitterYearCap?.[Z] || 0;
+      const dailyRate = rates.babysitterDaily?.[Z] || 0;
+      const monthCap = rates.babysitterMonthCap?.[Z] || 0;
+      amount = yearCap;
+      displayAmount = `\u05E2\u05D3 ${yearCap.toLocaleString()} \u20AA`;
+      calcDetail = `\u05DE\u05D3\u05E8\u05D2 ${Z}: ${dailyRate}\u20AA \u05DC\u05D9\u05D5\u05DD | \u05EA\u05E7\u05E8\u05D4 \u05D7\u05D5\u05D3\u05E9\u05D9\u05EA ${monthCap.toLocaleString()}\u20AA | \u05EA\u05E7\u05E8\u05D4 \u05E9\u05E0\u05EA\u05D9\u05EA ${yearCap.toLocaleString()}\u20AA`;
+      break;
+    }
+    case "camp_funding": {
+      const numKids = data.childrenCount === "4 \u05D5\u05DE\u05E2\u05DC\u05D4" || data.childrenCount === "4+" ? 4 : (data.childrenCount === "1-3" ? 1 : 0);
+      if (numKids === 0) return null;
+      const base = benefit.campBaseAmount || 500;
+      const extra = benefit.campExtraPerKid || 250;
+      const max = benefit.campMaxAmount || 2000;
+      amount = Math.min(base + (numKids > 1 ? (numKids - 1) * extra : 0), max);
+      calcDetail = `\u05DE\u05D3\u05E8\u05D2 ${Z}, ${numKids} \u05D9\u05DC\u05D3\u05D9\u05DD. ${base}\u20AA \u05DC\u05D9\u05DC\u05D3 \u05E8\u05D0\u05E9\u05D5\u05DF + ${extra}\u20AA \u05DC\u05DB\u05DC \u05D9\u05DC\u05D3 \u05E0\u05D5\u05E1\u05E3 (\u05EA\u05E7\u05E8\u05D4 ${max.toLocaleString()}\u20AA)`;
+      break;
+    }
+    case "treatments_by_days2025": {
+      const divisor = benefit.treatmentsDivisor || 3;
+      const maxT = benefit.treatmentsMax || 22;
+      const treatments = Math.min(maxT, Math.floor(re / divisor));
+      displayAmount = `${treatments} \u05D8\u05D9\u05E4\u05D5\u05DC\u05D9\u05DD`;
+      calcDetail = `${treatments} \u05D8\u05D9\u05E4\u05D5\u05DC\u05D9\u05DD \u05DE\u05D8\u05E4\u05DC\u05D9\u05DD \u05DE\u05D5\u05E1\u05DE\u05DB\u05D9\u05DD - \u05DE\u05E2\u05E8\u05DA \u05DC\u05D5\u05D7\u05DD \u05E9\u05E2\u05E9\u05D4 60+ \u05D9\u05DE\u05D9\u05DD \u05D1-2025`;
+      break;
+    }
+    case "hitargnut": {
+      const hitDays = getHitargnutDays(hitargnutTable, Z, de);
+      if (hitDays <= 0) return null;
+      displayAmount = `${hitDays} \u05D9\u05DE\u05D9\u05DD`;
+      calcDetail = `${de} \u05D9\u05DE\u05D9\u05DD \u05D1-2026 (\u05DE\u05D3\u05E8\u05D2 ${Z}) \u2192 ${hitDays} \u05D9\u05DE\u05D9 \u05D4\u05EA\u05D0\u05E8\u05D2\u05E0\u05D5\u05EA`;
+      break;
+    }
+    case "fixed_amount":
+      amount = benefit.fixedAmount || 0;
+      calcDetail = benefit.description || "";
+      break;
+    case "info_only":
+      calcDetail = benefit.description || "";
+      break;
+    default:
+      calcDetail = benefit.description || "";
+  }
+
+  return {
+    id: benefit.id,
+    name: benefit.name,
+    category: benefit.category,
+    icon: getIcon(benefit.icon),
+    amount,
+    displayAmount,
+    calcDetail,
+    receivingDate: benefit.receivingDate || null,
+    description: benefit.description || null,
+    videoUrl: benefit.videoUrl || null,
+    highlight: benefit.highlight || false,
+    highlightColor: benefit.highlightColor || null,
+  };
+}
+
+// ============ UI COMPONENTS ============
+function ProgressBar({ step, total }) {
+  return (
+    <div>
+      <div className="progress-bar">
+        <div className="progress-fill" style={{ width: `${(step / total) * 100}%` }} />
+      </div>
+      <div className="step-label">{`\u05E9\u05DC\u05D1 ${step} \u05DE\u05EA\u05D5\u05DA ${total}`}</div>
+    </div>
+  );
+}
+
+function QuestionCard({ icon, question, helper, helpButton, helpContent, children }) {
+  const [showHelp, setShowHelp] = React.useState(false);
+  return (
+    <div className="question-card">
+      <h3>{icon && <span>{icon}</span>} {question}</h3>
+      {helper && <div className="helper">{helper}</div>}
+      {helpButton && <div style={{textAlign:'center',margin:'6px 0'}}><span className="help-btn" onClick={() => setShowHelp(true)}>{helpButton}</span></div>}
+      {children}
+      {showHelp && helpContent && (
+        <div className="help-modal-overlay" onClick={() => setShowHelp(false)}>
+          <div className="help-modal" onClick={e => e.stopPropagation()}>
+            <button className="help-modal-close" onClick={() => setShowHelp(false)}>&times;</button>
+            <h3>{helpButton}</h3>
+            {helpContent.split('\n').map((line, i) => {
+              if (line.startsWith('*') || line === '') return null;
+              if (line.includes('*')) return <p key={i} className="help-note">{line.replace('*','')}</p>;
+              return <p key={i}>{line}</p>;
+            })}
+          </div>
+        </div>
+      )}
+    </div>
+  );
+}
+
+function ButtonGroup({ options, value, onChange }) {
+  return (
+    <div className="btn-group">
+      {options.map(opt => (
+        <button key={opt} className={`btn-option ${value === opt ? 'selected' : ''}`} onClick={() => onChange(opt)}>{opt}</button>
+      ))}
+    </div>
+  );
+}
+
+function NumberInput({ value, onChange, placeholder }) {
+  return (
+    <input type="number" className="input-field" value={value != null ? value : ''} onChange={e => { const v = e.target.value; onChange(v === '' ? null : parseInt(v) || 0); }} placeholder={placeholder || "\u05D4\u05DB\u05E0\u05E1 \u05DE\u05E1\u05E4\u05E8"} min="0" />
+  );
+}
+
+function FAQItem({ question, answer }) {
+  const [open, setOpen] = useState(false);
+  return (
+    <div className="faq-item">
+      <div className="faq-question" onClick={() => setOpen(!open)}>
+        <span>{question}</span>
+        <span style={{transform: open ? 'rotate(180deg)' : '', transition: 'transform .2s'}}>{"\u25BC"}</span>
+      </div>
+      {open && <div className="faq-answer">{answer}</div>}
+    </div>
+  );
+}
+
+function BenefitCard({ benefit }) {
+  const [expanded, setExpanded] = useState(false);
+
+  if (benefit.highlight && benefit.highlightColor === "blue") {
+    return (
+      <div className="blue-card">
+        <div style={{fontSize:'0.9rem',fontWeight:600}}>{benefit.icon} {benefit.name}</div>
+        <div style={{fontSize:'1.3rem',fontWeight:800,margin:'8px 0'}}>{benefit.displayAmount || `${benefit.amount?.toLocaleString()} \u20AA`}</div>
+        <div style={{fontSize:'0.8rem',opacity:.9}}>{benefit.calcDetail}</div>
+      </div>
+    );
+  }
+  if (benefit.highlight && benefit.highlightColor === "red") {
+    return (
+      <div className="red-card">
+        <div style={{fontSize:'0.75rem',background:'rgba(255,255,255,.15)',display:'inline-block',padding:'2px 10px',borderRadius:6,marginBottom:8}}>{"\u05D7\u05D5\u05E7 \u05E0\u05E4\u05D2\u05E2\u05D9 \u05D8\u05E8\u05D5\u05E8 \u05D4\u05EA\u05E9\u05E4\"\u05D3"}</div>
+        <div style={{fontWeight:700,fontSize:'1rem'}}>{benefit.name}</div>
+        <div style={{fontSize:'1.5rem',fontWeight:800,margin:'8px 0',color:'#fbbf24'}}>{benefit.displayAmount || `${benefit.amount?.toLocaleString()} \u20AA`}</div>
+        <div style={{fontSize:'0.8rem',opacity:.9}}>{benefit.calcDetail}</div>
+      </div>
+    );
+  }
+  if (benefit.highlight) {
+    return (
+      <div className="highlight-card">
+        <div style={{fontSize:'0.9rem',fontWeight:600}}>{benefit.icon} {benefit.name}</div>
+        <div style={{fontSize:'1.8rem',fontWeight:800,margin:'8px 0'}}>{benefit.displayAmount || `${benefit.amount?.toLocaleString()} \u20AA`}</div>
+        <div style={{fontSize:'0.8rem',opacity:.9}}>{benefit.calcDetail}</div>
+      </div>
+    );
+  }
+
+  return (
+    <div className="benefit-card" onClick={() => setExpanded(!expanded)}>
+      <div className="name">{benefit.icon} {benefit.name} <span style={{fontSize:'0.7rem',color:'#999'}}>{expanded ? '\u25B2' : '\u25BC'}</span></div>
+      <div className="amount">
+        {benefit.amount != null ? (<>{benefit.amount.toLocaleString()} <span>{"\u20AA"}</span></>) : (
+          <span style={{fontSize:'1.1rem',fontWeight:600,color:'#166534'}}>{benefit.displayAmount}</span>
+        )}
+      </div>
+      {benefit.receivingDate && (
+        <div style={{textAlign:'center'}}><span className="date-badge">{"\u23F0"} {"\u05DE\u05D5\u05E2\u05D3 \u05E7\u05D1\u05DC\u05D4:"} {benefit.receivingDate}</span></div>
+      )}
+      <div className="calc-detail">{benefit.calcDetail}</div>
+      {benefit.videoUrl && (
+        <div style={{marginTop:8,textAlign:'center'}}>
+          <a href={benefit.videoUrl} target="_blank" rel="noopener noreferrer" onClick={e => e.stopPropagation()} style={{color:'#2563eb',textDecoration:'none',fontSize:'0.85rem',display:'inline-flex',alignItems:'center',justifyContent:'center',gap:4}}>{"\uD83D\uDD17"} {"\u05DC\u05E6\u05E4\u05D9\u05D9\u05D4 \u05D1\u05E1\u05E8\u05D8\u05D5\u05DF \u05D4\u05E1\u05D1\u05E8"}</a>
+        </div>
+      )}
+      {expanded && (
+        <div className="expand-content">{benefit.description || "\u05DC\u05E4\u05E8\u05D8\u05D9\u05DD \u05E0\u05D5\u05E1\u05E4\u05D9\u05DD \u05E0\u05D9\u05EA\u05DF \u05DC\u05E4\u05E0\u05D5\u05EA \u05DC\u05E7\u05E8\u05DF \u05D4\u05E1\u05D9\u05D5\u05E2 \u05D0\u05D5 \u05DC\u05DE\u05D5\u05E7\u05D3 \u05DE\u05D9\u05DC\u05D5\u05D0\u05D9\u05DD 360."}</div>
+      )}
+    </div>
+  );
+}
+
+function PieChart({ benefits }) {
+  const [hover, setHover] = useState(null);
+  const directBenefits = benefits.filter(b => b.category === "\u05D9\u05E9\u05D9\u05E8\u05D5\u05EA \u05DC\u05D7\u05E9\u05D1\u05D5\u05DF" && b.amount > 0);
+  const total = directBenefits.reduce((s, b) => s + b.amount, 0);
+  if (total === 0) return null;
+  const colors = ['#ec4899','#22c55e','#3b82f6','#f97316','#a855f7','#eab308','#06b6d4','#ef4444'];
+  const R = 90, r = 55, cx = 100, cy = 100;
+  let currentAngle = -90;
+  const segments = directBenefits.map((b, i) => {
+    const pct = b.amount / total;
+    const startAngle = currentAngle;
+    const endAngle = currentAngle + pct * 360;
+    currentAngle = endAngle;
+    const sR = startAngle * Math.PI / 180;
+    const eR = endAngle * Math.PI / 180;
+    const largeArc = pct > 0.5 ? 1 : 0;
+    const path = [
+      `M ${cx+R*Math.cos(sR)} ${cy+R*Math.sin(sR)}`,
+      `A ${R} ${R} 0 ${largeArc} 1 ${cx+R*Math.cos(eR)} ${cy+R*Math.sin(eR)}`,
+      `L ${cx+r*Math.cos(eR)} ${cy+r*Math.sin(eR)}`,
+      `A ${r} ${r} 0 ${largeArc} 0 ${cx+r*Math.cos(sR)} ${cy+r*Math.sin(sR)}`,
+      'Z'
+    ].join(' ');
+    const midR = ((startAngle + endAngle) / 2) * Math.PI / 180;
+    const labelR = (R + r) / 2;
+    return { path, color: colors[i % colors.length], name: b.name, amount: b.amount,
+      midX: cx + labelR * Math.cos(midR), midY: cy + labelR * Math.sin(midR) };
+  });
+  return (
+    <div className="chart-container">
+      <h3>$ {"\u05E1\u05D4\"\u05DB \u05DB\u05DC \u05DE\u05D4 \u05E9\u05E0\u05DB\u05E0\u05E1 \u05D9\u05E9\u05D9\u05E8\u05D5\u05EA \u05DC\u05D7\u05E9\u05D1\u05D5\u05DF"}</h3>
+      <div style={{position:'relative',width:220,margin:'0 auto'}}>
+        <svg viewBox="0 0 200 200" width="220" height="220" style={{display:'block'}}>
+          {segments.map((s, i) => (
+            <path key={i} d={s.path} fill={s.color} stroke="#fff" strokeWidth="2"
+              style={{transition:'transform .2s',transformOrigin:'100px 100px',transform:hover===i?'scale(1.05)':''}}
+              onMouseEnter={() => setHover(i)} onMouseLeave={() => setHover(null)} />
+          ))}
+          <circle cx={cx} cy={cy} r={r-1} fill="#fff" />
+          <text x={cx} y={cy-8} textAnchor="middle" fill="#888" fontSize="11">{"\u05E1\u05D4\"\u05DB"}</text>
+          <text x={cx} y={cy+14} textAnchor="middle" fill="#166534" fontSize="16" fontWeight="800">{total.toLocaleString()}{"\u20AA"}</text>
+        </svg>
+        {hover !== null && (
+          <div className="pie-tooltip" style={{left:segments[hover].midX*(220/200),top:segments[hover].midY*(220/200)}}>
+            {segments[hover].name}{" "}{segments[hover].amount.toLocaleString()}{"\u20AA"}
+          </div>
+        )}
+      </div>
+      <div className="pie-legend">
+        {segments.map((s, i) => (
+          <div key={i} className="pie-legend-item" onMouseEnter={() => setHover(i)} onMouseLeave={() => setHover(null)}
+            style={{background:hover===i?'#f0fdf4':''}}>
+            <div className="legend-right">
+              <div className="pie-legend-dot" style={{background: s.color}} />
+              <span>{s.name}</span>
+            </div>
+            <strong>{s.amount.toLocaleString()}{"\u20AA"}</strong>
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+}
+
+// ============ MAIN APP ============
+function App() {
+  const [data, setData] = useState(null);
+  const [error, setError] = useState(null);
+  const [step, setStep] = useState(1);
+  const [showResults, setShowResults] = useState(false);
+  const [filter, setFilter] = useState("all");
+
+  const [formData, setFormData] = useState({
+    outlineSelection: "\u05DE\u05EA\u05D5\u05D5\u05D4 2026",
+    activityLevel: "", commandRole: "",
+    days2025: 0, days2026: 0,
+    isParent: null, childrenCount: "", isStudent: null,
+  });
+
+  // Load data from script-tag globals (works with file:// protocol)
+  useEffect(() => {
+    if (window.CALC_DATA) {
+      setData(window.CALC_DATA);
+    } else {
+      setError('לא נמצא קובץ data.js – ודא שהקבצים data.js ו-faq.js נמצאים באותה תיקייה');
+    }
+  }, []);
+
+  const updateField = (field, value) => setFormData(prev => ({...prev, [field]: value}));
+
+  // Calculate benefits from JSON definitions
+  const benefits = useMemo(() => {
+    if (!showResults || !data) return [];
+    return data.benefits
+      .map(b => calculateBenefit(b, formData, data.rates, data.hitargnutTable))
+      .filter(Boolean);
+  }, [showResults, formData, data]);
+
+  const directTotal = benefits.filter(b => b.category === "\u05D9\u05E9\u05D9\u05E8\u05D5\u05EA \u05DC\u05D7\u05E9\u05D1\u05D5\u05DF" && b.amount > 0).reduce((s, b) => s + b.amount, 0);
+
+  const filteredBenefits = filter === "all" ? benefits :
+    filter === "direct" ? benefits.filter(b => b.category === "\u05D9\u05E9\u05D9\u05E8\u05D5\u05EA \u05DC\u05D7\u05E9\u05D1\u05D5\u05DF") :
+    benefits.filter(b => b.category === "\u05D4\u05D8\u05D1\u05D5\u05EA \u05DC\u05DE\u05D9\u05DE\u05D5\u05E9");
+
+  const handleExportExcel = () => {
+    if (benefits.length === 0) return;
+    const direct = benefits.filter(b => b.category === "\u05D9\u05E9\u05D9\u05E8\u05D5\u05EA \u05DC\u05D7\u05E9\u05D1\u05D5\u05DF");
+    const redeem = benefits.filter(b => b.category === "\u05D4\u05D8\u05D1\u05D5\u05EA \u05DC\u05DE\u05D9\u05DE\u05D5\u05E9");
+    const dTotal = direct.filter(b=>b.amount>0).reduce((s,b)=>s+b.amount,0);
+
+    // Build pie chart SVG as base64
+    const pieColors = ['#ec4899','#22c55e','#3b82f6','#f97316','#a855f7','#eab308','#06b6d4','#ef4444'];
+    const pieItems = direct.filter(b=>b.amount>0);
+    const pieTotal = pieItems.reduce((s,b)=>s+b.amount,0);
+    let ang = -90;
+    let pieSvg = '<svg xmlns="http://www.w3.org/2000/svg" width="400" height="420" viewBox="0 0 400 420">';
+    pieSvg += '<rect width="400" height="420" fill="#fff"/>';
+    if (pieTotal > 0) {
+      const cx=200,cy=180,R=140,r=85;
+      pieItems.forEach((b,i) => {
+        const pct=b.amount/pieTotal, sa=ang, ea=ang+pct*360; ang=ea;
+        const sR=sa*Math.PI/180, eR=ea*Math.PI/180, la=pct>.5?1:0;
+        pieSvg += '<path d="M'+(cx+R*Math.cos(sR))+' '+(cy+R*Math.sin(sR))+' A '+R+' '+R+' 0 '+la+' 1 '+(cx+R*Math.cos(eR))+' '+(cy+R*Math.sin(eR))+' L '+(cx+r*Math.cos(eR))+' '+(cy+r*Math.sin(eR))+' A '+r+' '+r+' 0 '+la+' 0 '+(cx+r*Math.cos(sR))+' '+(cy+r*Math.sin(sR))+' Z" fill="'+pieColors[i%pieColors.length]+'" stroke="#fff" stroke-width="2"/>';
+      });
+      pieSvg += '<circle cx="'+cx+'" cy="'+cy+'" r="'+(r-2)+'" fill="#fff"/>';
+      pieSvg += '<text x="'+cx+'" y="'+(cy+8)+'" text-anchor="middle" fill="#166534" font-size="22" font-weight="800" font-family="Arial">'+pieTotal.toLocaleString()+' \u20AA</text>';
+      // Legend
+      let ly = 340;
+      pieItems.forEach((b,i) => {
+        const lx = (i%2===0) ? 380 : 180;
+        if (i%2===0 && i>0) ly+=20;
+        pieSvg += '<circle cx="'+lx+'" cy="'+(ly-4)+'" r="5" fill="'+pieColors[i%pieColors.length]+'"/>';
+        pieSvg += '<text x="'+(lx-10)+'" y="'+ly+'" text-anchor="end" font-size="11" font-family="Arial" fill="#333">'+b.name+' '+b.amount.toLocaleString()+'\u20AA</text>';
+      });
+      if (pieItems.length%2===1) ly+=20;
+    }
+    pieSvg += '</svg>';
+    const pieB64 = btoa(unescape(encodeURIComponent(pieSvg)));
+
+    const esc = s => String(s||'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+    const cs = 'style="border:1px solid #ccc;padding:6px 10px;font-size:12px;font-family:Arial,sans-serif;"';
+    const hdrStyle = 'style="background:#166534;color:#fff;font-weight:bold;padding:8px 10px;border:1px solid #0d5226;font-size:13px;text-align:center;"';
+    const secDirect = 'style="background:#d4edda;color:#155724;font-weight:bold;padding:6px 10px;border:1px solid #ccc;font-size:12px;"';
+    const secRedeem = 'style="background:#fff3cd;color:#856404;font-weight:bold;padding:6px 10px;border:1px solid #ccc;font-size:12px;"';
+
+    let html = '<html xmlns:o="urn:schemas-microsoft-com:office:office" xmlns:x="urn:schemas-microsoft-com:office:excel"><head><meta charset="utf-8"/>';
+    html += '<style>td,th{mso-number-format:"\\@";}</style></head><body>';
+    html += '<table dir="rtl" style="border-collapse:collapse;direction:rtl;width:100%">';
+
+    // Title
+    html += '<tr><td colspan="5" style="background:#166534;color:#fff;font-size:18px;font-weight:bold;text-align:center;padding:12px;border:1px solid #0d5226;">\u05E1\u05D9\u05DB\u05D5\u05DD \u05D6\u05DB\u05D5\u05D9\u05D5\u05EA \u05DE\u05D9\u05DC\u05D5\u05D0\u05D9\u05DD - \u05DE\u05EA\u05D5\u05D5\u05D4 2026</td></tr>';
+
+    // User details
+    html += '<tr><td '+cs+' colspan="2" style="background:#f8f9fa;border:1px solid #ccc;padding:6px 10px;font-weight:bold;">\u05DE\u05D3\u05E8\u05D2 \u05E4\u05E2\u05D9\u05DC\u05D5\u05EA</td><td '+cs+'>'+esc(formData.activityLevel)+'</td>';
+    html += '<td '+cs+' style="background:#f8f9fa;border:1px solid #ccc;padding:6px 10px;font-weight:bold;">\u05EA\u05E4\u05E7\u05D9\u05D3</td><td '+cs+'>'+esc(formData.commandRole || '\u05DC\u05DC\u05D0')+'</td></tr>';
+    html += '<tr><td '+cs+' colspan="2" style="background:#f8f9fa;border:1px solid #ccc;padding:6px 10px;font-weight:bold;">\u05D9\u05DE\u05D9 \u05E9\u05D9\u05E8\u05D5\u05EA 2025</td><td '+cs+'>'+(formData.days2025||0)+'</td>';
+    html += '<td '+cs+' style="background:#f8f9fa;border:1px solid #ccc;padding:6px 10px;font-weight:bold;">\u05D9\u05DE\u05D9 \u05E9\u05D9\u05E8\u05D5\u05EA 2026</td><td '+cs+'>'+(formData.days2026||0)+'</td></tr>';
+    html += '<tr><td '+cs+' colspan="2" style="background:#f8f9fa;border:1px solid #ccc;padding:6px 10px;font-weight:bold;">\u05E1\u05D4\"\u05DB \u05D9\u05DE\u05D9\u05DD</td><td '+cs+'>'+ ((formData.days2025||0)+(formData.days2026||0)) +'</td>';
+    html += '<td '+cs+' colspan="2"></td></tr>';
+    html += '<tr><td colspan="5" '+cs+' style="border:none;padding:4px;"></td></tr>';
+
+    // Headers
+    html += '<tr><td '+hdrStyle+'>#</td><td '+hdrStyle+'>\u05E9\u05DD \u05D4\u05D4\u05D8\u05D1\u05D4</td><td '+hdrStyle+'>\u05E1\u05DB\u05D5\u05DD</td><td '+hdrStyle+'>\u05DE\u05D5\u05E2\u05D3 \u05E7\u05D1\u05DC\u05D4</td><td '+hdrStyle+'>\u05E4\u05D9\u05E8\u05D5\u05D8</td></tr>';
+
+    // Direct benefits section
+    if (direct.length > 0) {
+      html += '<tr><td colspan="5" '+secDirect+'>\u{1F4B0} \u05D9\u05E9\u05D9\u05E8\u05D5\u05EA \u05DC\u05D7\u05E9\u05D1\u05D5\u05DF</td></tr>';
+      direct.forEach((b,i) => {
+        const bg = i%2===0 ? '#fff' : '#f8fdf8';
+        const rs = 'style="border:1px solid #ccc;padding:6px 10px;font-size:12px;font-family:Arial,sans-serif;background:'+bg+';"';
+        html += '<tr><td '+rs+' style="text-align:center;border:1px solid #ccc;padding:6px;background:'+bg+';">'+(i+1)+'</td>';
+        html += '<td '+rs+'>'+esc(b.name)+'</td>';
+        html += '<td '+rs+' style="text-align:center;font-weight:bold;color:#166534;border:1px solid #ccc;padding:6px;background:'+bg+';">'+(b.amount!=null ? b.amount.toLocaleString()+' \u20AA' : esc(b.displayAmount))+'</td>';
+        html += '<td '+rs+'>'+esc(b.receivingDate)+'</td>';
+        html += '<td '+rs+'>'+esc(b.calcDetail)+'</td></tr>';
+      });
+      // Direct total row
+      html += '<tr><td colspan="2" style="background:#e8f5e9;font-weight:bold;text-align:center;border:1px solid #ccc;padding:8px;font-size:13px;color:#166534;">\u05E1\u05D4\"\u05DB \u05D9\u05E9\u05D9\u05E8\u05D5\u05EA \u05DC\u05D7\u05E9\u05D1\u05D5\u05DF</td>';
+      html += '<td style="background:#e8f5e9;font-weight:bold;text-align:center;border:1px solid #ccc;padding:8px;font-size:14px;color:#166534;">'+dTotal.toLocaleString()+' \u20AA</td>';
+      html += '<td colspan="2" style="background:#e8f5e9;border:1px solid #ccc;"></td></tr>';
+    }
+
+    // Spacer
+    html += '<tr><td colspan="5" style="border:none;padding:4px;"></td></tr>';
+
+    // Redeem benefits section
+    if (redeem.length > 0) {
+      html += '<tr><td colspan="5" '+secRedeem+'>\u2699\uFE0F \u05D4\u05D8\u05D1\u05D5\u05EA \u05DC\u05DE\u05D9\u05DE\u05D5\u05E9</td></tr>';
+      redeem.forEach((b,i) => {
+        const bg = i%2===0 ? '#fff' : '#fffef5';
+        const rs = 'style="border:1px solid #ccc;padding:6px 10px;font-size:12px;font-family:Arial,sans-serif;background:'+bg+';"';
+        html += '<tr><td '+rs+' style="text-align:center;border:1px solid #ccc;padding:6px;background:'+bg+';">'+(i+1)+'</td>';
+        html += '<td '+rs+'>'+esc(b.name)+'</td>';
+        html += '<td '+rs+' style="text-align:center;font-weight:bold;border:1px solid #ccc;padding:6px;background:'+bg+';">'+(b.amount!=null ? b.amount.toLocaleString()+' \u20AA' : esc(b.displayAmount||''))+'</td>';
+        html += '<td '+rs+'>'+esc(b.receivingDate)+'</td>';
+        html += '<td '+rs+'>'+esc(b.calcDetail)+'</td></tr>';
+      });
+    }
+
+    // Spacer + Pie chart
+    html += '<tr><td colspan="5" style="border:none;padding:8px;"></td></tr>';
+    html += '<tr><td colspan="5" style="text-align:center;border:none;padding:8px;"><img src="data:image/svg+xml;base64,'+pieB64+'" width="400" height="420"/></td></tr>';
+
+    html += '</table></body></html>';
+
+    const blob = new Blob(['\uFEFF' + html], { type: 'application/vnd.ms-excel;charset=utf-8;' });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = '\u05E1\u05D9\u05DB\u05D5\u05DD_\u05D6\u05DB\u05D5\u05D9\u05D5\u05EA_\u05DE\u05D9\u05DC\u05D5\u05D0\u05D9\u05DD.xls';
+    a.click();
+    URL.revokeObjectURL(url);
+  };
+
+  const handleSubmit = () => { setShowResults(true); window.scrollTo({top:0,behavior:'smooth'}); };
+  const handleReset = () => {
+    setShowResults(false); setStep(1); setFilter("all");
+    setFormData({ outlineSelection:"\u05DE\u05EA\u05D5\u05D5\u05D4 2026",activityLevel:"",commandRole:"",days2025:0,days2026:0,isParent:null,childrenCount:"",isStudent:null });
+    window.scrollTo({top:0,behavior:'smooth'});
+  };
+
+  if (error) return <div className="loader" style={{color:'#b91c1c'}}>{"\u274C"} {error}<br/><small>{"\u05D5\u05D3\u05D0 \u05E9\u05D4\u05E7\u05D1\u05E6\u05D9\u05DD data.js \u05D5-faq.js \u05E0\u05DE\u05E6\u05D0\u05D9\u05DD \u05D1\u05D0\u05D5\u05EA\u05D4 \u05EA\u05D9\u05E7\u05D9\u05D9\u05D4"}</small></div>;
+  if (!data) return <div className="loader"><div className="spinner"></div><div>{"\u05D8\u05D5\u05E2\u05DF \u05DE\u05D7\u05E9\u05D1\u05D5\u05DF..."}</div></div>;
+
+  const meta = data.meta;
+  const formSteps = data.form.steps;
+  const questions = data.form.questions;
+
+  // ============ RESULTS VIEW ============
+  if (showResults) {
+    const directBenefits = filteredBenefits.filter(b => b.category === "\u05D9\u05E9\u05D9\u05E8\u05D5\u05EA \u05DC\u05D7\u05E9\u05D1\u05D5\u05DF");
+    const redeemBenefits = filteredBenefits.filter(b => b.category === "\u05D4\u05D8\u05D1\u05D5\u05EA \u05DC\u05DE\u05D9\u05DE\u05D5\u05E9");
+    return (
+      <div style={{background:'linear-gradient(180deg,#f0fdf4 0%,#f5f0e8 30%)'}}>
+        <div className="header">
+          <h1>{"\u{1F6E1}\uFE0F"} {meta.title}</h1>
+          <p>{meta.subtitle}<br/>{"\u05E2\u05D3\u05DB\u05D5\u05DF \u05D0\u05D7\u05E8\u05D5\u05DF:"} {meta.lastUpdated}</p>
+        </div>
+        <div className="container">
+          <div className="filter-tabs">
+            <button className={`filter-tab ${filter==='all'?'active':''}`} onClick={() => setFilter('all')}>{"\u05DB\u05DC \u05D4\u05D4\u05D8\u05D1\u05D5\u05EA"}</button>
+            <button className={`filter-tab ${filter==='direct'?'active':''}`} onClick={() => setFilter('direct')}>{"\u05D9\u05E9\u05D9\u05E8\u05D5\u05EA \u05DC\u05D7\u05E9\u05D1\u05D5\u05DF"}</button>
+            <button className={`filter-tab ${filter==='redeem'?'active':''}`} onClick={() => setFilter('redeem')}>{"\u05D1\u05DE\u05D9\u05DE\u05D5\u05E9"}</button>
+            <button className="export-btn" onClick={handleExportExcel}>{"\u2B07\uFE0F"} {"\u05D9\u05D9\u05E6\u05D5\u05D0 \u05DC\u05D0\u05E7\u05E1\u05DC"}</button>
+          </div>
+
+          {(filter==='all'||filter==='direct') && directBenefits.length > 0 && (
+            <div>
+              <div className="results-category">$ {"\u05D9\u05E9\u05D9\u05E8\u05D5\u05EA \u05DC\u05D7\u05E9\u05D1\u05D5\u05DF"}</div>
+              {directBenefits.map((b,i) => <BenefitCard key={b.id||i} benefit={b} />)}
+              <div className="total-banner">
+                <div className="label">{"\u{1F4C5}"} {"\u05E1\u05D4\"\u05DB \u05E0\u05DB\u05E0\u05E1 \u05DC\u05D7\u05E9\u05D1\u05D5\u05DF \u05D1-1.5.27"}</div>
+                <div className="total-amount">{directTotal.toLocaleString()} {"\u20AA"}</div>
+              </div>
+            </div>
+          )}
+
+          {(filter==='all'||filter==='redeem') && redeemBenefits.length > 0 && (
+            <div>
+              <div className="results-category">{"\u2699\uFE0F"} {"\u05D4\u05D8\u05D1\u05D5\u05EA \u05DC\u05DE\u05D9\u05DE\u05D5\u05E9"}</div>
+              {redeemBenefits.map((b,i) => <BenefitCard key={b.id||i} benefit={b} />)}
+            </div>
+          )}
+
+          {filter==='all' && <PieChart benefits={benefits} />}
+
+          <div className="faq-section">
+            <h2>{"\u2753"} {"\u05E9\u05D0\u05DC\u05D5\u05EA \u05E0\u05E4\u05D5\u05E6\u05D5\u05EA"}</h2>
+            {(window.FAQ_DATA || []).map((f,i) => <FAQItem key={i} question={f.question} answer={f.answer} />)}
+          </div>
+
+          <div style={{textAlign:'center',margin:'24px 0'}}>
+            <button className="btn-primary" onClick={handleReset} style={{margin:'0 auto'}}>{"\u2190"} {"\u05D1\u05D3\u05D9\u05E7\u05D4 \u05D7\u05D3\u05E9\u05D4"}</button>
+          </div>
+
+          <div className="footer">
+            <div style={{fontWeight:600,marginBottom:8}}>{"\u05E9\u05D9\u05DE\u05D5 \u05DC\u05D1!"}</div>
+            <div>{meta.disclaimer}</div>
+            <div style={{marginTop:8}}>{"\u05D4\u05E9\u05D9\u05DE\u05D5\u05E9 \u05D1\u05DE\u05D7\u05E9\u05D1\u05D5\u05DF \u05D4\u05D5\u05D0 \u05D1\u05D0\u05D7\u05E8\u05D9\u05D5\u05EA \u05D4\u05DE\u05E9\u05EA\u05DE\u05E9 \u05D1\u05DC\u05D1\u05D3, \u05D5\u05D0\u05D9\u05DF \u05DC\u05E8\u05D0\u05D5\u05EA \u05D1\u05D5 \u05EA\u05D7\u05DC\u05D9\u05E3 \u05DC\u05D0\u05D9\u05DE\u05D5\u05EA \u05DE\u05D5\u05DC \u05D4\u05D2\u05D5\u05E8\u05DE\u05D9\u05DD \u05D4\u05DE\u05D5\u05E1\u05DE\u05DB\u05D9\u05DD."}</div>
+            <div style={{marginTop:12}}>{meta.credits}</div>
+          </div>
+        </div>
+        <button className="share-fab" onClick={() => {if(navigator.share) navigator.share({title:meta.title,url:location.href})}}>&#x1F517;</button>
+      </div>
+    );
+  }
+
+  // ============ FORM VIEW ============
+  const currentStepDef = formSteps[step - 1];
+  const stepQuestions = questions.filter(q => q.step === currentStepDef.id);
+
+  function renderQuestion(q) {
+    // Check showIf condition
+    if (q.showIf) {
+      const val = formData[q.showIf.field];
+      if (q.showIf.equalsAny) {
+        if (!q.showIf.equalsAny.includes(val)) return null;
+      } else if (val !== q.showIf.equals) return null;
+    }
+
+    const icon = getIcon(q.icon);
+
+    if (q.type === "choice") {
+      return (
+        <QuestionCard key={q.id} icon={icon} question={q.question} helper={q.helper} helpButton={q.helpButton} helpContent={q.helpContent}>
+          <ButtonGroup options={q.options} value={formData[q.id]} onChange={v => updateField(q.id, v)} />
+        </QuestionCard>
+      );
+    }
+    if (q.type === "number") {
+      return (
+        <QuestionCard key={q.id} icon={icon} question={q.question} helper={q.helper}>
+          <NumberInput value={formData[q.id]} onChange={v => updateField(q.id, v)} placeholder={q.placeholder} />
+        </QuestionCard>
+      );
+    }
+    if (q.type === "boolean") {
+      const val = formData[q.id] === true ? "\u05DB\u05DF" : formData[q.id] === false ? "\u05DC\u05D0" : "";
+      return (
+        <QuestionCard key={q.id} icon={icon} question={q.question} helper={q.helper}>
+          <ButtonGroup options={["\u05DB\u05DF", "\u05DC\u05D0"]} value={val} onChange={v => updateField(q.id, v === "\u05DB\u05DF")} />
+        </QuestionCard>
+      );
+    }
+    return null;
+  }
+
+  const canProceed = step === 1 ? !!formData.activityLevel : true;
+
+  return (
+    <div style={{background:'linear-gradient(180deg,#f0fdf4 0%,#f5f0e8 30%)'}}>
+      <div className="header">
+        <h1>{"\u{1F6E1}\uFE0F"} {meta.title}</h1>
+        <p>{meta.subtitle}<br/>{"\u05E2\u05D3\u05DB\u05D5\u05DF \u05D0\u05D7\u05E8\u05D5\u05DF:"} {meta.lastUpdated}</p>
+      </div>
+      <div className="container">
+        <ProgressBar step={step} total={formSteps.length} />
+
+        <div className="card">
+          <div className="card-header">
+            <div className="icon">{getIcon(currentStepDef.icon)}</div>
+            <h2>{currentStepDef.title}</h2>
+            <p>{currentStepDef.subtitle}</p>
+          </div>
+          {stepQuestions.map(renderQuestion)}
+        </div>
+
+        <div className="nav-buttons">
+          {step < formSteps.length ? (
+            <button className="btn-primary" disabled={!canProceed} onClick={() => { setStep(step+1); window.scrollTo({top:0,behavior:'smooth'}); }}>
+              {"\u05D4\u05DE\u05E9\u05DA"} {"\u276E"}
+            </button>
+          ) : (
+            <button className="btn-primary" onClick={handleSubmit}>
+              {"\u{1F4CB}"} {"\u05D7\u05E9\u05D1 \u05D4\u05EA\u05D5\u05E6\u05D0\u05D5\u05EA"}
+            </button>
+          )}
+          {step > 1 ? (
+            <button className="btn-secondary" onClick={() => { setStep(step-1); window.scrollTo({top:0,behavior:'smooth'}); }}>
+              {"\u05D7\u05D6\u05D5\u05E8"} {"\u276F"}
+            </button>
+          ) : <div></div>}
+        </div>
+      </div>
+
+      <div className="footer">{meta.credits}</div>
+    </div>
+  );
+}
+
+ReactDOM.createRoot(document.getElementById('root')).render(<App />);
+</script>
+</body>
+</html>
