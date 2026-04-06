@@ -1,0 +1,1000 @@
+<!-- https://sagi-ba.github.io/AI/landing-pages/iris-baron/feminine-empowering.html -->
+<!-- https://l5k.me/xNud5 -->
+
+ <!-- http://127.0.0.1:8080/landing-pages/iris-baron/feminine-empowering.html -->
+<!DOCTYPE html>
+<html dir="rtl" lang="he">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>מפגש נשי מעצים ומאיר | ד"ר איריס בר-און</title>
+    <meta name="description" content="מפגש נשי מעצים ומאיר עם ד״ר איריס בר-און - איך לדייק את חייך! ידע על תהליכים רגשיים ופיזיים, כלים מעשיים ואווירה מחבקת.">
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="מפגש נשי מעצים ומאיר | ד״ר איריס בר-און">
+    <meta property="og:description" content="איך לדייק את חייך! מפגש על תהליכים רגשיים ופיזיים, כלים מעשיים ואווירה מחבקת. יום ראשון 19/4 בכפר סבא.">
+    <meta property="og:image" content="iris.jpg">
+    <meta property="og:type" content="website">
+    <meta property="og:locale" content="he_IL">
+
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-XSH19K5LBZ"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-XSH19K5LBZ');
+    </script>
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;700&family=Cormorant+Garamond:wght@400;600;700&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <style>
+        :root {
+            --bg: #FDF6EE;
+            --bg-dark: #F5EDE3;
+            --bg-intro: #F0E6D6;
+            --text: #1a1a1a;
+            --text-light: #4a4a4a;
+            --text-muted: #7a7a7a;
+            --gold: #C4A265;
+            --gold-light: #D4B87A;
+            --gold-glow: rgba(196, 162, 101, 0.3);
+            --petal-1: #E8C4B8;
+            --petal-2: #D4B87A;
+            --petal-3: #E0C9A6;
+            --petal-4: #C9A88A;
+            --whatsapp: #25D366;
+            --black: #1a1a1a;
+            --white: #FFFFFF;
+            --shadow: 0 2px 20px rgba(0,0,0,0.06);
+            --shadow-hover: 0 8px 30px rgba(0,0,0,0.1);
+            --radius: 16px;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Heebo', system-ui, sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            direction: rtl;
+            line-height: 1.7;
+            overflow-x: hidden;
+        }
+
+        /* ===== CINEMATIC INTRO ===== */
+        .intro-overlay {
+            position: fixed;
+            inset: 0;
+            z-index: 9999;
+            background: radial-gradient(ellipse at 50% 50%, #FDF6EE 0%, #F0E6D6 50%, #E8DCC8 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            transition: opacity 0.8s ease-out;
+        }
+
+        .intro-overlay.dismissed {
+            opacity: 0;
+            pointer-events: none;
+        }
+
+        .lotus-container {
+            position: relative;
+            width: 220px;
+            height: 220px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .lotus-center {
+            width: 28px;
+            height: 28px;
+            background: radial-gradient(circle, var(--gold) 0%, var(--gold-light) 100%);
+            border-radius: 50%;
+            z-index: 2;
+            opacity: 0;
+            transform: scale(0);
+            transition: opacity 0.5s ease-out, transform 0.5s ease-out;
+        }
+
+        .lotus-center.show {
+            opacity: 1;
+            transform: scale(1);
+        }
+
+        .petal {
+            position: absolute;
+            width: 36px;
+            height: 80px;
+            border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
+            top: 50%;
+            left: 50%;
+            margin-left: -18px;
+            margin-top: -70px;
+            transform-origin: 50% 87%;
+            opacity: 0;
+            transform: rotate(0deg) scale(0.3);
+            transition: opacity 0.8s ease-out, transform 1.2s cubic-bezier(0.34, 1.56, 0.64, 1);
+        }
+
+        .petal.bloom {
+            opacity: 0.85;
+        }
+
+        /* Inner petals - smaller, more upright */
+        .petal-inner {
+            width: 28px;
+            height: 65px;
+            margin-left: -14px;
+            margin-top: -56px;
+            border-radius: 50% 50% 45% 45% / 65% 65% 35% 35%;
+        }
+
+        .petal:nth-child(1)  { background: linear-gradient(180deg, var(--petal-1), var(--petal-3)); }
+        .petal:nth-child(2)  { background: linear-gradient(180deg, var(--petal-2), var(--petal-4)); }
+        .petal:nth-child(3)  { background: linear-gradient(180deg, var(--petal-3), var(--petal-1)); }
+        .petal:nth-child(4)  { background: linear-gradient(180deg, var(--petal-4), var(--petal-2)); }
+        .petal:nth-child(5)  { background: linear-gradient(180deg, var(--petal-1), var(--petal-4)); }
+        .petal:nth-child(6)  { background: linear-gradient(180deg, var(--petal-2), var(--petal-3)); }
+        .petal:nth-child(7)  { background: linear-gradient(180deg, var(--petal-3), var(--petal-2)); }
+        .petal:nth-child(8)  { background: linear-gradient(180deg, var(--petal-4), var(--petal-1)); }
+        .petal:nth-child(9)  { background: linear-gradient(180deg, var(--petal-1), var(--petal-2)); }
+        .petal:nth-child(10) { background: linear-gradient(180deg, var(--petal-2), var(--petal-4)); }
+        .petal:nth-child(11) { background: linear-gradient(180deg, var(--petal-3), var(--petal-4)); }
+        .petal:nth-child(12) { background: linear-gradient(180deg, var(--petal-4), var(--petal-3)); }
+
+        .lotus-glow {
+            position: absolute;
+            width: 180px;
+            height: 180px;
+            border-radius: 50%;
+            background: radial-gradient(circle, var(--gold-glow) 0%, transparent 70%);
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%) scale(0);
+            transition: transform 1s ease-out;
+            z-index: 0;
+        }
+
+        .lotus-glow.show {
+            transform: translate(-50%, -50%) scale(1.5);
+        }
+
+        .intro-text-container {
+            text-align: center;
+            margin-top: 40px;
+        }
+
+        .intro-title {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: clamp(1.5rem, 4vw, 2.2rem);
+            font-weight: 600;
+            color: var(--text);
+            opacity: 0;
+            transform: translateY(15px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        }
+
+        .intro-title.show {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .intro-line {
+            width: 0;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, var(--gold), transparent);
+            margin: 16px auto;
+            transition: width 0.6s ease-out;
+        }
+
+        .intro-line.show {
+            width: 200px;
+        }
+
+        .intro-subtitle {
+            font-family: 'Heebo', sans-serif;
+            font-size: clamp(1rem, 2.5vw, 1.3rem);
+            font-weight: 300;
+            color: var(--text-light);
+            opacity: 0;
+            transform: translateY(10px);
+            transition: opacity 0.5s ease-out, transform 0.5s ease-out;
+        }
+
+        .intro-subtitle.show {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* ===== MAIN CONTENT ===== */
+        .main-content {
+            opacity: 0;
+            transition: opacity 0.6s ease-out;
+        }
+
+        .main-content.visible {
+            opacity: 1;
+        }
+
+        /* ===== HERO ===== */
+        .hero {
+            min-height: 90vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 60px 20px;
+            background: linear-gradient(180deg, var(--bg) 0%, var(--bg-dark) 100%);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -20%;
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, var(--gold-glow) 0%, transparent 70%);
+            opacity: 0.4;
+            pointer-events: none;
+        }
+
+        .hero-inner {
+            max-width: 700px;
+            text-align: center;
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero-image {
+            width: 180px;
+            height: 180px;
+            border-radius: 50%;
+            object-fit: cover;
+            object-position: center 20%;
+            border: 3px solid var(--gold);
+            box-shadow: 0 0 0 8px rgba(196, 162, 101, 0.15), var(--shadow);
+            margin-bottom: 30px;
+        }
+
+        .hero-badge {
+            display: inline-block;
+            font-size: 0.85rem;
+            font-weight: 500;
+            color: var(--gold);
+            letter-spacing: 2px;
+            margin-bottom: 12px;
+        }
+
+        .hero h1 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: clamp(2rem, 5vw, 3rem);
+            font-weight: 700;
+            color: var(--text);
+            line-height: 1.3;
+            margin-bottom: 8px;
+        }
+
+        .hero h2 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: clamp(1.4rem, 3.5vw, 2rem);
+            font-weight: 600;
+            color: var(--gold);
+            margin-bottom: 20px;
+        }
+
+        .hero-divider {
+            width: 80px;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, var(--gold), transparent);
+            margin: 0 auto 20px;
+        }
+
+        .hero p {
+            font-size: clamp(1rem, 2.2vw, 1.15rem);
+            color: var(--text-light);
+            font-weight: 300;
+            line-height: 1.8;
+            max-width: 550px;
+            margin: 0 auto 35px;
+        }
+
+        /* ===== BUTTONS ===== */
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 16px 40px;
+            border-radius: 999px;
+            font-family: 'Heebo', sans-serif;
+            font-size: 1.05rem;
+            font-weight: 500;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            border: none;
+        }
+
+        .btn-primary {
+            background: var(--black);
+            color: var(--bg);
+        }
+
+        .btn-primary:hover {
+            background: #333;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+        }
+
+        .btn-whatsapp {
+            background: var(--whatsapp);
+            color: white;
+        }
+
+        .btn-whatsapp:hover {
+            background: #1fb855;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(37, 211, 102, 0.3);
+        }
+
+        .btn-outline {
+            background: transparent;
+            color: var(--text);
+            border: 2px solid var(--gold);
+        }
+
+        .btn-outline:hover {
+            background: var(--gold);
+            color: white;
+            transform: translateY(-2px);
+        }
+
+        .btn i {
+            font-size: 1.2rem;
+        }
+
+        /* ===== SECTION COMMON ===== */
+        section {
+            padding: 80px 20px;
+        }
+
+        .section-title {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: clamp(1.6rem, 4vw, 2.2rem);
+            font-weight: 700;
+            text-align: center;
+            color: var(--text);
+            margin-bottom: 50px;
+        }
+
+        .section-title span {
+            color: var(--gold);
+        }
+
+        .gold-line {
+            width: 60px;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, var(--gold), transparent);
+            margin: 0 auto 50px;
+        }
+
+        /* ===== CARDS ===== */
+        .cards-section {
+            background: var(--bg-dark);
+        }
+
+        .cards-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 24px;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .card {
+            background: var(--white);
+            border-radius: var(--radius);
+            padding: 35px 25px;
+            text-align: center;
+            box-shadow: var(--shadow);
+            border: 1px solid transparent;
+            transition: all 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-hover);
+            border-color: var(--gold-light);
+        }
+
+        .card-icon {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--bg), var(--bg-dark));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 18px;
+            font-size: 1.4rem;
+            color: var(--gold);
+        }
+
+        .card h3 {
+            font-family: 'Heebo', sans-serif;
+            font-size: 1.1rem;
+            font-weight: 500;
+            color: var(--text);
+            margin-bottom: 8px;
+        }
+
+        .card p {
+            font-size: 0.92rem;
+            color: var(--text-light);
+            font-weight: 300;
+        }
+
+        /* ===== EVENT DETAILS ===== */
+        .details-section {
+            background: var(--bg);
+        }
+
+        .details-card {
+            max-width: 500px;
+            margin: 0 auto;
+            background: linear-gradient(135deg, var(--bg-dark), #EDE5D8);
+            border-radius: var(--radius);
+            padding: 45px 35px;
+            text-align: center;
+            border: 1px solid rgba(196, 162, 101, 0.2);
+            box-shadow: var(--shadow);
+        }
+
+        .details-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            margin-top: 30px;
+        }
+
+        .detail-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .detail-item i {
+            font-size: 1.3rem;
+            color: var(--gold);
+        }
+
+        .detail-item .detail-label {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            font-weight: 300;
+        }
+
+        .detail-item .detail-value {
+            font-size: 1.1rem;
+            font-weight: 500;
+            color: var(--text);
+        }
+
+        .details-divider {
+            width: 60px;
+            height: 1px;
+            background: var(--gold);
+            margin: 30px auto;
+            opacity: 0.4;
+        }
+
+        .details-price {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 2.2rem;
+            font-weight: 700;
+            color: var(--text);
+        }
+
+        .details-price span {
+            font-size: 1rem;
+            font-weight: 400;
+            color: var(--text-muted);
+        }
+
+        /* ===== CTA SECTION ===== */
+        .cta-section {
+            background: var(--black);
+            text-align: center;
+            padding: 70px 20px;
+        }
+
+        .cta-section h2 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: clamp(1.5rem, 4vw, 2rem);
+            color: var(--bg);
+            margin-bottom: 10px;
+        }
+
+        .cta-section p {
+            color: #b0a898;
+            font-weight: 300;
+            margin-bottom: 30px;
+            font-size: 1.05rem;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 16px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .cta-section .btn-whatsapp {
+            padding: 18px 45px;
+            font-size: 1.1rem;
+        }
+
+        .cta-section .btn-outline {
+            border-color: rgba(196, 162, 101, 0.5);
+            color: var(--bg);
+        }
+
+        .cta-section .btn-outline:hover {
+            background: var(--gold);
+            border-color: var(--gold);
+            color: white;
+        }
+
+        /* ===== FOOTER ===== */
+        footer {
+            background: var(--bg-dark);
+            text-align: center;
+            padding: 30px 20px;
+            font-size: 0.85rem;
+            color: var(--text-muted);
+        }
+
+        footer a {
+            color: var(--gold);
+            text-decoration: none;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+
+        /* ===== FLOATING BUTTONS ===== */
+        .float-whatsapp {
+            position: fixed;
+            bottom: 25px;
+            left: 25px;
+            width: 56px;
+            height: 56px;
+            background: var(--whatsapp);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.6rem;
+            text-decoration: none;
+            box-shadow: 0 4px 15px rgba(37, 211, 102, 0.4);
+            z-index: 100;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .float-whatsapp:hover {
+            transform: scale(1.1);
+            box-shadow: 0 6px 20px rgba(37, 211, 102, 0.5);
+        }
+
+        .sound-btn {
+            position: fixed;
+            bottom: 24px;
+            right: 24px;
+            width: 52px;
+            height: 52px;
+            border-radius: 50%;
+            background: var(--white);
+            border: 2px solid var(--gold);
+            font-size: 22px;
+            cursor: pointer;
+            box-shadow: 0 4px 20px rgba(196, 162, 101, 0.2);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 100;
+            transition: all 0.2s;
+        }
+
+        .sound-btn:hover {
+            background: var(--gold);
+            transform: scale(1.1);
+        }
+
+        .sound-btn.pulse {
+            animation: soundPulse 1.5s ease-in-out infinite;
+        }
+
+        @keyframes soundPulse {
+            0%, 100% { box-shadow: 0 0 0 0 rgba(196, 162, 101, 0.5); }
+            50% { box-shadow: 0 0 0 14px rgba(196, 162, 101, 0); }
+        }
+
+        .music-prompt {
+            position: fixed;
+            bottom: 82px;
+            right: 10px;
+            background: var(--gold);
+            color: var(--white);
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 13px;
+            font-weight: 700;
+            z-index: 100;
+            animation: promptBounce 1.5s ease-in-out infinite;
+            white-space: nowrap;
+            box-shadow: 0 4px 15px rgba(196, 162, 101, 0.3);
+        }
+
+        .music-prompt::after {
+            content: '';
+            position: absolute;
+            bottom: -6px;
+            right: 24px;
+            width: 12px;
+            height: 12px;
+            background: var(--gold);
+            transform: rotate(45deg);
+        }
+
+        @keyframes promptBounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-5px); }
+        }
+
+        /* ===== RESPONSIVE ===== */
+        @media (max-width: 768px) {
+            .hero {
+                min-height: auto;
+                padding: 50px 20px;
+            }
+
+            .hero-image {
+                width: 150px;
+                height: 150px;
+            }
+
+            .details-grid {
+                grid-template-columns: 1fr 1fr;
+                gap: 20px;
+            }
+
+            .cards-grid {
+                grid-template-columns: 1fr 1fr;
+                gap: 16px;
+            }
+
+            .card {
+                padding: 25px 18px;
+            }
+
+            .cta-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .lotus-container {
+                width: 180px;
+                height: 180px;
+            }
+
+            .petal {
+                width: 30px;
+                height: 65px;
+                margin-left: -15px;
+                margin-top: -56px;
+            }
+
+            .petal-inner {
+                width: 22px;
+                height: 52px;
+                margin-left: -11px;
+                margin-top: -44px;
+            }
+
+            section {
+                padding: 60px 20px;
+            }
+        }
+
+        @media (max-width: 380px) {
+            .cards-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .details-grid {
+                grid-template-columns: 1fr;
+                gap: 18px;
+            }
+
+            .btn {
+                padding: 14px 30px;
+                font-size: 0.95rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- ===== CINEMATIC INTRO ===== -->
+    <div class="intro-overlay" id="intro" aria-hidden="true" role="presentation">
+        <div class="lotus-container">
+            <div class="lotus-glow"></div>
+            <!-- Outer petals -->
+            <div class="petal" data-angle="-30"></div>
+            <div class="petal" data-angle="30"></div>
+            <div class="petal" data-angle="90"></div>
+            <div class="petal" data-angle="150"></div>
+            <div class="petal" data-angle="210"></div>
+            <div class="petal" data-angle="270"></div>
+            <!-- Inner petals -->
+            <div class="petal petal-inner" data-angle="0"></div>
+            <div class="petal petal-inner" data-angle="60"></div>
+            <div class="petal petal-inner" data-angle="120"></div>
+            <div class="petal petal-inner" data-angle="180"></div>
+            <div class="petal petal-inner" data-angle="240"></div>
+            <div class="petal petal-inner" data-angle="300"></div>
+            <!-- Center -->
+            <div class="lotus-center"></div>
+        </div>
+        <div class="intro-text-container">
+            <div class="intro-title">מפגש נשי, מעצים ומאיר</div>
+            <div class="intro-line"></div>
+            <div class="intro-subtitle">ד"ר איריס בר-און</div>
+        </div>
+    </div>
+
+    <!-- ===== MAIN CONTENT ===== -->
+    <div class="main-content" id="mainContent">
+
+        <!-- Sound Toggle -->
+        <button class="sound-btn pulse" id="soundBtn" onclick="toggleSound()" title="הפעל/כבה מוסיקה" aria-pressed="false" aria-label="מוסיקה">🔇</button>
+        <!-- Music Prompt -->
+        <div class="music-prompt" id="musicPrompt">🎵 לחצי להפעלת מוזיקה!</div>
+
+        <!-- Hero -->
+        <section class="hero">
+            <div class="hero-inner">
+                <img src="iris.jpg" alt="ד״ר איריס בר-און" class="hero-image">
+                <div class="hero-badge">ד"ר איריס בר-און מזמינה אותך</div>
+                <h1>מפגש נשי, מעצים ומאיר</h1>
+                <h2>איך לדייק את חייך!</h2>
+                <div class="hero-divider"></div>
+                <p>שבו ננגיש ידע חשוב על תהליכים רגשיים ופיזיים המשפיעים על הבחירות שלנו, על התשוקה ועל איכות החיים</p>
+                <a href="https://wa.me/972545555699?text=%D7%94%D7%99%D7%99%20%D7%90%D7%99%D7%E8%D7%99%D7%A1%2C%20%D7%90%D7%A9%D7%9E%D7%97%20%D7%9C%D7%A9%D7%9E%D7%95%D7%A2%20%D7%A4%D7%A8%D7%98%D7%99%D7%9D%20%D7%A2%D7%9C%20%D7%94%D7%9E%D7%A4%D7%92%D7%A9" target="_blank" class="btn btn-primary">
+                    <i class="fa-brands fa-whatsapp"></i>
+                    לפרטים והרשמה
+                </a>
+            </div>
+        </section>
+
+        <!-- What We'll Get -->
+        <section class="cards-section">
+            <h2 class="section-title">מה מחכה לנו <span>במפגש</span></h2>
+            <div class="gold-line"></div>
+            <div class="cards-grid">
+                <div class="card">
+                    <div class="card-icon"><i class="fa-solid fa-scale-balanced"></i></div>
+                    <h3>איזון אמיתי</h3>
+                    <p>נלמד איך ליצור איזון אמיתי בין כל תחומי החיים</p>
+                </div>
+                <div class="card">
+                    <div class="card-icon"><i class="fa-solid fa-heart"></i></div>
+                    <h3>מה מניע אותנו</h3>
+                    <p>נבין מה מניע אותנו מבפנים ומשפיע על הבחירות שלנו</p>
+                </div>
+                <div class="card">
+                    <div class="card-icon"><i class="fa-solid fa-compass"></i></div>
+                    <h3>כלים לדיוק</h3>
+                    <p>נקבל כלים מעשיים לדייק את חיינו ולחיות בשלמות</p>
+                </div>
+                <div class="card">
+                    <div class="card-icon"><i class="fa-solid fa-mug-hot"></i></div>
+                    <h3>אווירה מחבקת</h3>
+                    <p>על כוסות קפה ואפה באווירה נעימה ומחבקת</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Event Details -->
+        <section class="details-section">
+            <h2 class="section-title">פרטי <span>המפגש</span></h2>
+            <div class="gold-line"></div>
+            <div class="details-card">
+                <div class="details-grid">
+                    <div class="detail-item">
+                        <i class="fa-regular fa-calendar"></i>
+                        <span class="detail-label">תאריך</span>
+                        <span class="detail-value">יום ראשון, 19.4.26</span>
+                    </div>
+                    <div class="detail-item">
+                        <i class="fa-regular fa-clock"></i>
+                        <span class="detail-label">שעה</span>
+                        <span class="detail-value">19:30</span>
+                    </div>
+                    <div class="detail-item">
+                        <i class="fa-solid fa-location-dot"></i>
+                        <span class="detail-label">מיקום</span>
+                        <span class="detail-value">כפר סבא</span>
+                    </div>
+                    <div class="detail-item">
+                        <i class="fa-solid fa-tag"></i>
+                        <span class="detail-label">עלות</span>
+                        <span class="detail-value">100 &#8362;</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA -->
+        <section class="cta-section">
+            <h2>המקומות מוגבלים</h2>
+            <p>לפרטים נוספים ולהרשמה סמסי עכשיו</p>
+            <div class="cta-buttons">
+                <a href="https://wa.me/972545555699?text=%D7%94%D7%99%D7%99%20%D7%90%D7%99%D7%E8%D7%99%D7%A1%2C%20%D7%90%D7%A9%D7%9E%D7%97%20%D7%9C%D7%A9%D7%9E%D7%95%D7%A2%20%D7%A4%D7%A8%D7%98%D7%99%D7%9D%20%D7%A2%D7%9C%20%D7%94%D7%9E%D7%A4%D7%92%D7%A9" target="_blank" class="btn btn-whatsapp">
+                    <i class="fa-brands fa-whatsapp"></i>
+                    סמסי לפרטים
+                </a>
+                <a href="https://irisbaron.co.il/" target="_blank" class="btn btn-outline">
+                    <i class="fa-solid fa-globe"></i>
+                    לאתר ד"ר איריס בר-און
+                </a>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer>
+            <p>&copy; 2026 <a href="https://irisbaron.co.il/" target="_blank">ד"ר איריס בר-און</a> | כל הזכויות שמורות</p>
+        </footer>
+
+        <!-- Floating WhatsApp -->
+        <a href="https://wa.me/972545555699?text=%D7%94%D7%99%D7%99%20%D7%90%D7%99%D7%E8%D7%99%D7%A1%2C%20%D7%90%D7%A9%D7%9E%D7%97%20%D7%9C%D7%A9%D7%9E%D7%95%D7%A2%20%D7%A4%D7%A8%D7%98%D7%99%D7%9D%20%D7%A2%D7%9C%20%D7%94%D7%9E%D7%A4%D7%92%D7%A9" target="_blank" class="float-whatsapp" aria-label="שלחי הודעה בוואטסאפ">
+            <i class="fa-brands fa-whatsapp"></i>
+        </a>
+
+    </div>
+
+    <!-- Audio -->
+    <audio id="bgMusic" loop preload="auto">
+        <source src="atlasaudio-ambient-atmosphere-511882.mp3" type="audio/mpeg">
+    </audio>
+
+    <script>
+        // ===== CINEMATIC INTRO =====
+        (function() {
+            var intro = document.getElementById('intro');
+            var petals = intro.querySelectorAll('.petal');
+            var center = intro.querySelector('.lotus-center');
+            var glow = intro.querySelector('.lotus-glow');
+            var title = intro.querySelector('.intro-title');
+            var line = intro.querySelector('.intro-line');
+            var subtitle = intro.querySelector('.intro-subtitle');
+            var mainContent = document.getElementById('mainContent');
+
+            document.body.style.overflow = 'hidden';
+
+            // Set initial petal positions (closed - pointing up)
+            petals.forEach(function(petal) {
+                var angle = parseInt(petal.getAttribute('data-angle'));
+                petal.style.transform = 'rotate(' + angle + 'deg) scale(0.3)';
+            });
+
+            // Step 1: Show center (300ms)
+            setTimeout(function() {
+                center.classList.add('show');
+                glow.classList.add('show');
+            }, 300);
+
+            // Step 2: Bloom petals (500ms, staggered)
+            setTimeout(function() {
+                petals.forEach(function(petal, i) {
+                    var angle = parseInt(petal.getAttribute('data-angle'));
+                    var spread = petal.classList.contains('petal-inner') ? 0.85 : 1;
+                    setTimeout(function() {
+                        petal.classList.add('bloom');
+                        petal.style.transform = 'rotate(' + angle + 'deg) scale(' + spread + ')';
+                    }, i * 100);
+                });
+            }, 500);
+
+            // Step 3: Show title (1800ms)
+            setTimeout(function() {
+                title.classList.add('show');
+            }, 1800);
+
+            // Step 4: Expand line (2200ms)
+            setTimeout(function() {
+                line.classList.add('show');
+            }, 2200);
+
+            // Step 5: Show subtitle (2600ms)
+            setTimeout(function() {
+                subtitle.classList.add('show');
+            }, 2600);
+
+            // Step 6: Fade out intro (3800ms)
+            setTimeout(function() {
+                intro.classList.add('dismissed');
+                mainContent.classList.add('visible');
+                document.body.style.overflow = '';
+            }, 3800);
+
+            // Step 7: Remove from DOM (4800ms)
+            setTimeout(function() {
+                intro.remove();
+            }, 4800);
+        })();
+
+        // ===== BACKGROUND MUSIC (hypershot style) =====
+        var bgMusic = document.getElementById('bgMusic');
+        bgMusic.loop = true;
+        bgMusic.volume = 0.3;
+        var musicStarted = false;
+        var soundOn = false;
+
+        function toggleSound() {
+            if (!musicStarted) {
+                bgMusic.play().then(function() { musicStarted = true; }).catch(function() {});
+                soundOn = true;
+            } else {
+                soundOn = !soundOn;
+                if (soundOn) {
+                    bgMusic.play();
+                } else {
+                    bgMusic.pause();
+                }
+            }
+            var btn = document.getElementById('soundBtn');
+            btn.textContent = soundOn ? '🔊' : '🔇';
+            btn.setAttribute('aria-pressed', soundOn);
+            btn.classList.remove('pulse');
+            var prompt = document.getElementById('musicPrompt');
+            if (prompt) prompt.remove();
+        }
+
+        // Start music on first real user gesture
+        function startMusic() {
+            if (musicStarted) return;
+            bgMusic.play().then(function() {
+                musicStarted = true;
+                soundOn = true;
+                document.getElementById('soundBtn').textContent = '🔊';
+                document.getElementById('soundBtn').setAttribute('aria-pressed', 'true');
+                document.getElementById('soundBtn').classList.remove('pulse');
+                var prompt = document.getElementById('musicPrompt');
+                if (prompt) prompt.remove();
+            }).catch(function() {});
+        }
+        ['click','touchstart','keydown'].forEach(function(e) {
+            document.addEventListener(e, function handler() {
+                startMusic();
+                document.removeEventListener(e, handler);
+            });
+        });
+    </script>
+
+</body>
+</html>

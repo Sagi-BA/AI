@@ -1,0 +1,9 @@
+﻿id,step,question,type,icon,helper,helpButton,helpContent,options,default,required,placeholder,showIf_field,showIf_equalsAny
+outlineSelection,service,באיזה מתווה תרצה לחשב?,choice,gear,,,,מתווה 2026;מתווה 2025,מתווה 2026,,,,
+activityLevel,service,לאיזה מדרג פעילות אתה משוייך?,choice,shield,בחר את מדרג הפעילות שלך,איזה מדרג אני?,"מדרג א+ - גדודים לוחמים ומקביליהם\nמדרג א׳ - חטיבות ומקבילותיהן\nמדרג ב׳ - אוגדות ומקבילותיהן\nמדרג ג׳ - הגמ״ר\nמדרג ד׳ - יחידות הדרכה ואבטחה\nמדרג ה׳ - פיקודים ומטות\n\nהחלוקה למדרגים מובאת לצורך המחשה עקרונית בלבד,*\nואינה מהווה חלוקה מחייבת. לבירור המדרג ניתן לפנות\n.למוקד המילואים בטלפון 1111 שלוחה 4 ואז שלוחה 1",א+;א;ב;ג;ד;ה,,TRUE,,,
+commandRole,service,מה התפקיד שלך?,choice,star,,,,"ללא תפקיד פיקודי;מג""ד;סמג""ד;מ""פ;סמ""פ;מ""מ",,,,activityLevel,א+;א
+days2025,service,כמה ימי מילואים ביצעת מתחילת המלחמה ועד סוף 2025?,number,calendar,,,,,,,הכנס מספר,,
+days2026,service,כמה ימי מילואים ביצעת בשנת 2026?,number,calendar,,,,,,,הכנס מספר,,
+isParent,personal,האם אתה הורה לילד עד גיל 14?,boolean,heart,הורים לילדים צעירים זכאים למענקי משפחה,,,,,,,,
+childrenCount,personal,כמה ילדים יש לך עד גיל 18?,choice,people,בחר את מספר הילדים עד גיל 18,,,0;1-3;4 ומעלה,,,,,
+isStudent,personal,"האם אתה סטודנט בשנת הלימודים תשפ""ו?",boolean,graduation,סטודנטים עשויים להיות זכאים להחזרים וסיוע כלכלי,,,,,,,,

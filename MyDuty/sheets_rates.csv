@@ -1,0 +1,16 @@
+﻿rateTable,type,א+,א,ב,ג,ד,ה
+hotzaotIshiot,perLevel,46,39,31,31,18,11
+mishpacha,perLevel,83,71,60,60,33,21
+kalkalatBayit,perLevel,1250,1065,815,500,500,400
+kalkalatBayitMugdal,perLevel,133,113,86,60,40,30
+tagmulMeyuchad,perLevel,3990,3400,2700,1200,1200,900
+maanakKalendari,perLevel,145.2,125,100,45,45,35
+rishonLeMai,perLevel,45,40,30,,,
+tagmulNosafMai,perLevel,120,100,80,,,
+amitCoins,perLevel,12000,10000,8000,4000,4000,3000
+mefakdim,perLevel,2630,2200,1700,,,
+babysitterDaily,perLevel,100,90,80,60,60,50
+babysitterMonthCap,perLevel,2000,1800,1500,1000,1000,800
+babysitterYearCap,perLevel,8000,7000,6000,4000,4000,3500
+movingCosts,perLevel,2500,2200,2000,1500,1500,1200
+taxCreditValuePerPoint,single,2904,,,,,

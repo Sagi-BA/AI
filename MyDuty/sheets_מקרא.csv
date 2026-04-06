@@ -1,0 +1,70 @@
+﻿טאב,עמודה,תרגום לעברית,הסבר ודוגמה
+,,== טאב: benefits (הטבות) ==,
+benefits,id,מזהה,"מזהה ייחודי באנגלית, למשל: hotzaot_ishiot"
+benefits,name,שם ההטבה,"השם שמוצג למשתמש, למשל: מענק הוצאות אישיות מוגדל"
+benefits,category,קטגוריה,ישירות לחשבון או הטבות למימוש
+benefits,icon,אייקון,"סמל: ₪, heart, star, calendar, home, graduation, gear, vacation, law, family"
+benefits,calcType,סוג חישוב,perDay_above_threshold = ליום מעל סף | fixed_by_level = סכום קבוע לפי מדרג | perDay_all2026 = ליום על כל 2026 | info_only = מידע בלבד | tax_credit = נקודות זיכוי | coins_by_level = מטבעות | babysitter = בייביסיטר | camp_funding = קייטנות | fixed_amount = סכום קבוע | treatments_by_days2025 = טיפולים | hitargnut = התארגנות
+benefits,rateTable,טבלת תעריפים,"שם הטבלה מטאב rates, למשל: hotzaotIshiot"
+benefits,basedOn,מבוסס על,השדה שעליו מבוסס החישוב: days2026 או days2025
+benefits,fixedAmount,סכום קבוע,"סכום קבוע בש״ח (רק כש-calcType=fixed_amount), למשל: 193"
+benefits,displayAmount,טקסט תצוגה,"טקסט שמוצג במקום סכום מספרי, למשל: מגוון הטבות, עד 5% הנחה"
+benefits,campBaseAmount,סכום בסיס קייטנה,"סכום לילד ראשון (רק לקייטנות), למשל: 500"
+benefits,campExtraPerKid,תוספת לילד,"תוספת לכל ילד נוסף, למשל: 250"
+benefits,campMaxAmount,תקרת קייטנה,"סכום מקסימלי, למשל: 2000"
+benefits,treatmentsDivisor,מחלק טיפולים,"ימי שירות חלקי מספר זה = כמות טיפולים, למשל: 3"
+benefits,treatmentsMax,מקסימום טיפולים,"מספר טיפולים מקסימלי, למשל: 22"
+benefits,threshold_totalDays,סף ימים מצטברים,"מינימום ימים מצטברים (2025+2026) לזכאות, למשל: 40"
+benefits,threshold_totalDaysMin,סף ימים מצטברים מינימלי,"סף מינימלי לימים מצטברים, למשל: 20"
+benefits,threshold_days2026Min,סף ימים 2026,"מינימום ימים ב-2026 לזכאות, למשל: 10"
+benefits,threshold_days2025Min,סף ימים 2025,"מינימום ימים ב-2025 לזכאות, למשל: 60"
+benefits,threshold_levelsOnly,מדרגים מותרים,"רק מדרגים אלו זכאים (מופרדים ב-;), למשל: א+;א;ב"
+benefits,threshold_commandRoles,תפקידים פיקודיים,"רק תפקידים אלו זכאים (מופרדים ב-;), למשל: מג""ד;סמג""ד;מ""פ"
+benefits,conditions_isParent,תנאי: הורה,TRUE = רק להורים לילד עד גיל 14. ריק = לכולם
+benefits,conditions_isStudent,תנאי: סטודנט,TRUE = רק לסטודנטים. ריק = לכולם
+benefits,conditions_hasChildren,תנאי: יש ילדים,TRUE = רק למי שיש ילדים. ריק = לכולם
+benefits,receivingDate,מועד קבלה,"מתי מקבלים את ההטבה, למשל: 1/5/27, בכל 1 לחודש, אוטומטי"
+benefits,description,תיאור,הסבר מפורט על ההטבה שמוצג כשפותחים את הכרטיס
+benefits,videoUrl,קישור לסרטון,"לינק לסרטון הסבר (יוטיוב, אינסטגרם וכו')"
+benefits,highlight,הדגשה,TRUE = הכרטיס מוצג בצבע מודגש. ריק = רגיל
+benefits,highlightColor,צבע הדגשה,"blue = כחול, red = אדום (רק כש-highlight=TRUE)"
+,,== טאב: rates (תעריפים) ==,
+rates,rateTable,שם הטבלה,"מזהה באנגלית, למשל: hotzaotIshiot, kalkalatBayit"
+rates,type,סוג,perLevel = תעריף לכל מדרג | single = ערך יחיד (כמו taxCreditValuePerPoint)
+rates,א+,מדרג א+,הסכום עבור מדרג א+
+rates,א,מדרג א,הסכום עבור מדרג א
+rates,ב,מדרג ב,הסכום עבור מדרג ב
+rates,ג,מדרג ג,הסכום עבור מדרג ג
+rates,ד,מדרג ד,הסכום עבור מדרג ד
+rates,ה,מדרג ה,הסכום עבור מדרג ה
+,,== טאב: questions (שאלות הטופס) ==,
+questions,id,מזהה,"מזהה ייחודי, למשל: activityLevel, days2025"
+questions,step,שלב,service = פרטי שירות | personal = פרטים אישיים
+questions,question,שאלה,הטקסט של השאלה שמוצג למשתמש
+questions,type,סוג שדה,choice = בחירה | number = מספר | boolean = כן/לא
+questions,icon,אייקון,"סמל: shield, heart, star, calendar, gear, people, graduation"
+questions,helper,טקסט עזרה,טקסט קטן מתחת לשאלה
+questions,helpButton,כפתור עזרה,"טקסט הכפתור, למשל: איזה מדרג אני?"
+questions,helpContent,תוכן עזרה,טקסט שמופיע בחלון העזרה. שורות מופרדות ב-\n
+questions,options,אפשרויות,רשימת אפשרויות מופרדות ב-; למשל: א+;א;ב;ג;ד;ה
+questions,default,ברירת מחדל,"ערך ברירת מחדל, למשל: מתווה 2026"
+questions,required,שדה חובה,TRUE = חובה למלא
+questions,placeholder,טקסט רמז,"טקסט שמופיע בשדה ריק, למשל: הכנס מספר"
+questions,showIf_field,תנאי תצוגה - שדה,"שם השדה שצריך לבדוק, למשל: activityLevel"
+questions,showIf_equalsAny,תנאי תצוגה - ערכים,"הערכים שבהם השאלה מוצגת (מופרדים ב-;), למשל: א+;א"
+,,== טאב: meta (מטא-דאטא) ==,
+meta,key,מפתח,"שם השדה: title, subtitle, lastUpdated, disclaimer, credits"
+meta,value,ערך,הערך של השדה
+,,== טאב: steps (שלבי טופס) ==,
+steps,id,מזהה,service או personal
+steps,title,כותרת,כותרת השלב
+steps,subtitle,תת-כותרת,תיאור השלב
+steps,icon,אייקון,סמל השלב
+,,== טאב: hitargnutTable (טבלת התארגנות) ==,
+hitargnutTable,level,מדרג,"מדרג הפעילות: א+, א, ב, ג, ד, ה"
+hitargnutTable,min,מינימום ימים,תחילת טווח ימי שירות
+hitargnutTable,max,מקסימום ימים,סוף טווח ימי שירות
+hitargnutTable,days,ימי התארגנות,כמות ימי ההתארגנות שמקבלים
+,,== טאב: faq (שאלות נפוצות) ==,
+faq,question,שאלה,השאלה שמוצגת למשתמש
+faq,answer,תשובה,התשובה לשאלה
