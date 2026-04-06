@@ -570,7 +570,7 @@
         footer {
             background: var(--bg-dark);
             text-align: center;
-            padding: 30px 20px;
+            padding: 30px 20px 0;
             font-size: 0.85rem;
             color: var(--text-muted);
         }
@@ -581,6 +581,60 @@
         }
 
         footer a:hover {
+            text-decoration: underline;
+        }
+
+        /* ===== FOOTER PROMO ===== */
+        .footer-promo {
+            background: #EDE5D8;
+            text-align: center;
+            padding: 28px 20px 24px;
+            border-top: 1px solid rgba(196, 162, 101, 0.15);
+        }
+
+        .footer-promo-text {
+            font-size: 0.95rem;
+            color: var(--text-light);
+            margin-bottom: 12px;
+        }
+
+        .footer-promo-cta {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 10px 24px;
+            background: transparent;
+            border: 1.5px solid var(--gold);
+            border-radius: 999px;
+            color: var(--gold);
+            font-family: 'Heebo', sans-serif;
+            font-size: 0.9rem;
+            font-weight: 500;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            margin-bottom: 14px;
+        }
+
+        .footer-promo-cta:hover {
+            background: var(--gold);
+            color: white;
+            transform: translateY(-2px);
+            text-decoration: none;
+        }
+
+        .footer-promo-credit {
+            font-size: 0.75rem;
+            color: var(--text-muted);
+            font-weight: 300;
+        }
+
+        .footer-promo-credit a {
+            color: var(--gold);
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .footer-promo-credit a:hover {
             text-decoration: underline;
         }
 
@@ -878,6 +932,16 @@
         <footer>
             <p>&copy; 2026 <a href="https://irisbaron.co.il/" target="_blank">ד"ר איריס בר-און</a> | כל הזכויות שמורות</p>
         </footer>
+
+        <!-- Footer Promo -->
+        <div class="footer-promo">
+            <p class="footer-promo-text">גם את רוצה דף נחיתה מעוצב כזה?</p>
+            <a href="https://wa.me/972549995050?text=%D7%94%D7%99%D7%99%20%D7%A9%D7%92%D7%99%D7%90%2C%20%D7%90%D7%A9%D7%9E%D7%97%20%D7%9C%D7%A9%D7%9E%D7%95%D7%A2%20%D7%A2%D7%9C%20%D7%93%D7%A3%20%D7%A0%D7%97%D7%99%D7%AA%D7%94" target="_blank" class="footer-promo-cta">
+                <i class="fa-brands fa-whatsapp"></i>
+                דברי איתי
+            </a>
+            <p class="footer-promo-credit">נבנה ב-❤️ ע"י <a href="https://sagiai.co.il" target="_blank">SagiAI</a> · שגיא בר-און</p>
+        </div>
 
         <!-- Floating WhatsApp -->
         <a href="https://wa.me/972545555699?text=%D7%94%D7%99%D7%99%20%D7%90%D7%99%D7%A8%D7%99%D7%A1%2C%20%D7%90%D7%A9%D7%9E%D7%97%20%D7%9C%D7%A9%D7%9E%D7%95%D7%A2%20%D7%A4%D7%A8%D7%98%D7%99%D7%9D%20%D7%A2%D7%9C%20%D7%94%D7%9E%D7%A4%D7%92%D7%A9" target="_blank" class="float-whatsapp" aria-label="שלחי הודעה בוואטסאפ">
