@@ -1,9 +1,37 @@
+<!-- https://sagi-ba.github.io/AI/IDF/miztuy-zchuyot/webinar/index.html -->
+
+ <!-- http://localhost:41002/IDF/miztuy-zchuyot/webinar/ -->
+ <!-- https://analytics.google.com/analytics/web/#/a351596902p494681343/realtime/overview?params=_u..nav%3Dmaui -->
+
 <!DOCTYPE html>
 <html lang="he" dir="rtl">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>מיצוי זכויות — חיילי המחוז</title>
+<title>מיצוי זכויות - חיילי המחוז</title>
+<meta name="description" content="חמ״ל מיצוי זכויות לחיילי המחוז ומשפחותיהם. זמנו פגישת ייעוץ אישית עם יועצים מקצועיים בנושאי מס, ביטוח לאומי, כלכלת בית ועוד.">
+<!-- Open Graph / WhatsApp -->
+<meta property="og:title" content="מיצוי זכויות - חיילי המחוז">
+<meta property="og:description" content="חמ״ל מיצוי זכויות לחיילי המחוז ומשפחותיהם. זמנו פגישת ייעוץ אישית עם יועצים מקצועיים.">
+<meta property="og:image" content="https://sagi-ba.github.io/AI/images/shaagat-hari-logo.webp">
+<meta property="og:image:width" content="600">
+<meta property="og:image:height" content="600">
+<meta property="og:url" content="https://sagi-ba.github.io/AI/IDF/miztuy-zchuyot/webinar/index.html">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="he_IL">
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="מיצוי זכויות - חיילי המחוז">
+<meta name="twitter:description" content="חמ״ל מיצוי זכויות לחיילי המחוז ומשפחותיהם. זמנו פגישת ייעוץ אישית עם יועצים מקצועיים.">
+<meta name="twitter:image" content="https://sagi-ba.github.io/AI/images/shaagat-hari-logo.webp">
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-XSH19K5LBZ"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-XSH19K5LBZ');
+</script>
 <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;600;700;900&display=swap" rel="stylesheet">
 <style>
   :root {
@@ -54,6 +82,160 @@
       );
     pointer-events: none;
     z-index: 0;
+  }
+
+  /* ===== CINEMATIC INTRO ===== */
+  .intro-overlay {
+    position: fixed;
+    inset: 0;
+    z-index: 9999;
+    background: radial-gradient(ellipse at 50% 60%, #1a2010 0%, #0d1508 50%, #0a0e05 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: opacity 0.8s ease-out;
+  }
+
+  .intro-overlay.dismissed {
+    opacity: 0;
+    pointer-events: none;
+  }
+
+  .shield-wall {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 52%;
+    overflow: hidden;
+    transition: transform 1.5s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .shield-wall-left {
+    left: 0;
+    background: linear-gradient(135deg, #1a2010 0%, #2e3d1e 25%, #3a4d28 50%, #4a6030 75%, #2e3d1e 100%);
+  }
+
+  .shield-wall-right {
+    right: 0;
+    background: linear-gradient(225deg, #1a2010 0%, #2e3d1e 25%, #3a4d28 50%, #4a6030 75%, #2e3d1e 100%);
+  }
+
+  .shield-wall .camo-layer {
+    position: absolute;
+    inset: 0;
+    background-image:
+      radial-gradient(circle 3px, rgba(201,168,76,0.15) 100%, transparent 100%),
+      radial-gradient(circle 2px, rgba(201,168,76,0.1) 100%, transparent 100%);
+    background-size: 80px 60px, 55px 75px;
+    background-position: 10px 10px, 35px 30px;
+    pointer-events: none;
+  }
+
+  .intro-overlay.parting .shield-wall-left {
+    transform: translateX(-105%);
+  }
+
+  .intro-overlay.parting .shield-wall-right {
+    transform: translateX(105%);
+  }
+
+  .shield-wall-left::after,
+  .shield-wall-right::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 60px;
+    background:
+      radial-gradient(ellipse 30px 20px at 30px 30px, rgba(201,168,76,0.15) 0%, transparent 100%),
+      radial-gradient(ellipse 25px 15px at 25px 80px, rgba(201,168,76,0.1) 0%, transparent 100%);
+    background-repeat: repeat-y;
+    background-size: 60px 160px;
+  }
+
+  .shield-wall-left::after { left: calc(100% - 30px); }
+  .shield-wall-right::after { right: calc(100% - 30px); }
+
+  .intro-quote {
+    text-align: center;
+    z-index: 10001;
+    width: 90%;
+    max-width: 600px;
+  }
+
+  .intro-quote-text {
+    font-family: 'Heebo', sans-serif;
+    font-size: clamp(1.2rem, 3.5vw, 1.7rem);
+    font-weight: 700;
+    color: var(--gold);
+    line-height: 1.8;
+    opacity: 0;
+    text-shadow: 0 0 30px rgba(201,168,76,0.5);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+    transform: translateY(10px);
+  }
+
+  .intro-quote-text.show {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  .intro-line {
+    width: 0;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, var(--gold), transparent);
+    margin: 16px auto;
+    transition: width 0.5s ease-out;
+  }
+
+  .intro-line.show {
+    width: 200px;
+  }
+
+  .intro-subtitle {
+    font-size: 1rem;
+    font-weight: 500;
+    color: var(--khaki);
+    letter-spacing: 3px;
+    opacity: 0;
+    transition: opacity 0.5s ease-out, transform 0.5s ease-out;
+    transform: translateY(10px);
+  }
+
+  .intro-subtitle.show {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* ===== LOGO STRIP ===== */
+  .logo-strip {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 24px;
+    margin-bottom: 20px;
+    opacity: 0;
+    animation: fadeUp 0.5s ease forwards 0.2s;
+  }
+
+  .logo-strip img {
+    width: 60px;
+    height: auto;
+    border-radius: 10px;
+    background: #fff;
+    padding: 5px;
+    border: 2px solid var(--gold);
+    box-shadow: 0 0 8px rgba(201,168,76,0.3);
+  }
+
+  .logo-strip .emblem-logo {
+    width: 75px;
+  }
+
+  @media (max-width: 600px) {
+    .logo-strip img { width: 50px; }
+    .logo-strip .emblem-logo { width: 60px; }
+    .logo-strip { gap: 16px; }
   }
 
   /* TOP BANNER */
@@ -170,112 +352,135 @@
     width: 100%;
   }
 
-  /* CARD */
+  /* CARD - Instagram Style */
   .card {
     background: var(--bg-card);
     border: 1px solid var(--border);
-    border-right: 4px solid var(--gold);
-    padding: 30px 26px;
+    padding: 0;
     transition: all 0.3s ease;
     cursor: pointer;
     position: relative;
     overflow: hidden;
-  }
-
-  .card::before {
-    content: '';
-    position: absolute;
-    top: 0; left: 0; right: 0;
-    height: 1px;
-    background: linear-gradient(90deg, transparent, var(--gold), transparent);
-    opacity: 0;
-    transition: opacity 0.3s;
+    text-align: center;
+    border-radius: 16px;
   }
 
   .card:hover {
-    background: var(--bg-card-hover);
-    border-right-color: var(--gold-light);
-    transform: translateY(-3px);
-    box-shadow: var(--shadow);
+    transform: translateY(-5px);
+    box-shadow: var(--shadow), 0 0 30px rgba(201,168,76,0.15);
   }
 
-  .card:hover::before {
+  .card:hover .card-photo-wrapper::after {
     opacity: 1;
   }
 
-  .card-icon {
-    font-size: 36px;
-    margin-bottom: 14px;
+  /* Instagram story-style gradient ring */
+  .card-photo-wrapper {
+    width: 140px;
+    height: 140px;
+    border-radius: 50%;
+    padding: 4px;
+    background: linear-gradient(135deg, var(--gold), #e8c96a, #f0d078, var(--gold));
+    margin: 28px auto 0;
+    position: relative;
+  }
+
+  .card-photo-wrapper::after {
+    content: '';
+    position: absolute;
+    inset: -4px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #c9a84c, #f5d98a, #b8943f, #e8c96a);
+    z-index: -1;
+    opacity: 0;
+    transition: opacity 0.3s;
+    filter: blur(8px);
+  }
+
+  .card-photo {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    object-fit: cover;
+    object-position: center 20%;
+    border: 3px solid var(--bg-card);
     display: block;
   }
 
+  /* Card top bar - like IG post header */
+  .card-profile {
+    padding: 18px 20px 14px;
+  }
+
+  .card-consultant-name {
+    font-size: 17px;
+    font-weight: 700;
+    color: var(--text-primary);
+    margin-bottom: 2px;
+  }
+
+  .card-consultant-role {
+    font-size: 12px;
+    color: var(--gold);
+    font-weight: 600;
+    letter-spacing: 0.5px;
+  }
+
+  .card-divider {
+    display: none;
+  }
+
+  /* Card body */
+  .card-body {
+    padding: 0 22px;
+    border-top: 1px solid var(--border);
+    padding-top: 18px;
+  }
+
   .card-title {
-    font-size: 22px;
+    font-size: 20px;
     font-weight: 800;
     color: var(--text-primary);
-    margin-bottom: 10px;
+    margin-bottom: 8px;
   }
 
   .card-desc {
-    font-size: 14px;
+    font-size: 13px;
     color: var(--khaki);
     line-height: 1.7;
     margin-bottom: 20px;
     font-weight: 300;
-    min-height: 44px;
-  }
-
-  .card-waiting {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    font-size: 13px;
-    color: var(--text-muted);
-    margin-bottom: 20px;
-    padding: 8px 12px;
-    background: rgba(255,255,255,0.03);
-    border-right: 2px solid var(--green-mid);
-  }
-
-  .card-waiting .dot {
-    width: 8px;
-    height: 8px;
-    border-radius: 50%;
-    background: #5a9e4a;
-    animation: blink 1.5s ease-in-out infinite;
-    flex-shrink: 0;
-  }
-
-  @keyframes blink {
-    0%, 100% { opacity: 1; }
-    50%       { opacity: 0.3; }
+    min-height: 40px;
   }
 
   .card-btn {
     display: block;
-    width: 100%;
-    padding: 14px 20px;
-    background: var(--gold);
-    color: #1a1a0a;
+    width: calc(100% - 44px);
+    margin: 0 auto 22px;
+    padding: 12px 20px;
+    background: transparent;
+    color: var(--gold);
     font-family: 'Heebo', sans-serif;
-    font-size: 15px;
-    font-weight: 800;
+    font-size: 14px;
+    font-weight: 700;
     text-align: center;
     text-decoration: none;
-    border: none;
+    border: 2px solid var(--gold);
     cursor: pointer;
     transition: all 0.2s ease;
     letter-spacing: 0.5px;
+    border-radius: 10px;
   }
 
   .card-btn:hover {
-    background: var(--gold-light);
+    background: var(--gold);
+    color: #1a1a0a;
     transform: translateY(-1px);
     box-shadow: 0 4px 20px rgba(201,168,76,0.4);
   }
 
-  .card-btn::after {
-    content: ' ←';
+  .card-btn::before {
+    content: '\01F4C5  ';
   }
 
   /* HOW IT WORKS */
@@ -400,6 +605,18 @@
 </head>
 <body>
 
+<!-- ===== CINEMATIC INTRO ===== -->
+<div class="intro-overlay" id="intro">
+  <div class="shield-wall shield-wall-left"><div class="camo-layer"></div></div>
+  <div class="shield-wall shield-wall-right"><div class="camo-layer"></div></div>
+  <div class="intro-quote">
+    <p class="intro-quote-text">מי שמגן על המדינה</p>
+    <p class="intro-quote-text">מגיע לו שידאגו לזכויות שלו</p>
+    <div class="intro-line"></div>
+    <p class="intro-subtitle">חמ"ל מיצוי זכויות - חיילי המחוז</p>
+  </div>
+</div>
+
 <!-- TOP BANNER -->
 <div class="top-banner">
   ⚔️ &nbsp; האירוע מיועד לחיילי המחוז ומשפחותיהם בלבד &nbsp; ⚔️
@@ -407,81 +624,106 @@
 
 <!-- HEADER -->
 <header>
+  <div class="logo-strip">
+    <img src="../../../images/maganim-center.webp" alt="לוגו מרכז מגנים">
+    <img src="../../../images/shaagat-hari-logo.webp" alt="סמל שאגת הארי" class="emblem-logo">
+    <img src="../../../images/oref-haifa.webp" alt="לוגו עורף חיפה">
+  </div>
   <div class="header-emblem">🛡️</div>
   <div class="header-badge">חמ"ל מיצוי זכויות</div>
   <h1>מיצוי זכויות<br><span>חיילי המחוז</span></h1>
   <p class="subtitle">
-    בחר את הנושא הרלוונטי אליך — הירשם לתור וקבל הודעת WhatsApp כשיגיע תורך
+    בחר את הנושא הרלוונטי אליך - זמן פגישה ישירות ביומן של היועץ
   </p>
   <div class="time-badge">
-    ⏱️ &nbsp; זמן המתנה משוער: 15–20 דקות לכל פגישה
+    ⏱️ &nbsp; משך פגישה: 15–20 דקות
   </div>
 </header>
 
 <!-- MAIN -->
 <main>
-  <p class="section-label">בחר חדר ייעוץ</p>
+  <p class="section-label">בחר יועץ וזמן פגישה</p>
 
   <div class="cards-grid">
 
     <!-- Card 1 -->
     <div class="card">
-      <span class="card-icon">💼</span>
-      <div class="card-title">עצמאים</div>
-      <div class="card-desc">מס הכנסה, עוסק פטור ומורשה, החזרי מס, דו"חות שנתיים</div>
-      <div class="card-waiting">
-        <span class="dot"></span>
-        <span>ממתינים כרגע: <strong>—</strong></span>
+      <div class="card-photo-wrapper">
+        <img class="card-photo" src="images/orna_avikzar.webp" alt="אורנה אביקזר">
       </div>
-      <a class="card-btn" href="#" target="_blank">הירשם לתור</a>
+      <div class="card-profile">
+        <div class="card-consultant-name">אורנה אביקזר</div>
+        <div class="card-consultant-role">מיצוי זכויות</div>
+      </div>
+      <div class="card-body">
+        <div class="card-title">עצמאים</div>
+        <div class="card-desc">מס הכנסה, עוסק פטור ומורשה, החזרי מס, דו"חות שנתיים</div>
+        <a class="card-btn" href="https://calendar.app.google/qDYF2FnpzEtit8Ww6" target="_blank">לזימון פגישה</a>
+      </div>
     </div>
 
     <!-- Card 2 -->
     <div class="card">
-      <span class="card-icon">👔</span>
-      <div class="card-title">שכירים</div>
-      <div class="card-desc">זכויות עובד, תלושי שכר, החזרי מס, פיצויים וקרנות</div>
-      <div class="card-waiting">
-        <span class="dot"></span>
-        <span>ממתינים כרגע: <strong>—</strong></span>
+      <div class="card-photo-wrapper">
+        <img class="card-photo" src="images/kohav_avshalom.webp" alt="כוכב אבשלום">
       </div>
-      <a class="card-btn" href="#" target="_blank">הירשם לתור</a>
+      <div class="card-profile">
+        <div class="card-consultant-name">כוכב אבשלום</div>
+        <div class="card-consultant-role">רואת חשבון</div>
+      </div>
+      <div class="card-body">
+        <div class="card-title">שכירים</div>
+        <div class="card-desc">זכויות עובד, תלושי שכר, החזרי מס, פיצויים וקרנות</div>
+        <a class="card-btn" href="https://calendar.app.google/qDYF2FnpzEtit8Ww6" target="_blank">לזימון פגישה</a>
+      </div>
     </div>
 
     <!-- Card 3 -->
     <div class="card">
-      <span class="card-icon">🏠</span>
-      <div class="card-title">כלכלת בית</div>
-      <div class="card-desc">ייעוץ כלכלי, מענקים, הלוואות וסיוע למשפחות מגויסים</div>
-      <div class="card-waiting">
-        <span class="dot"></span>
-        <span>ממתינים כרגע: <strong>—</strong></span>
+      <div class="card-photo-wrapper">
+        <img class="card-photo" src="images/yaki_keinan.webp" alt="יקי קינן">
       </div>
-      <a class="card-btn" href="#" target="_blank">הירשם לתור</a>
+      <div class="card-profile">
+        <div class="card-consultant-name">יקי קינן</div>
+        <div class="card-consultant-role">רואה חשבון</div>
+      </div>
+      <div class="card-body">
+        <div class="card-title">כלכלת בית</div>
+        <div class="card-desc">ייעוץ כלכלי, מענקים, הלוואות וסיוע למשפחות מגויסים</div>
+        <a class="card-btn" href="https://calendar.app.google/qDYF2FnpzEtit8Ww6" target="_blank">לזימון פגישה</a>
+      </div>
     </div>
 
     <!-- Card 4 -->
     <div class="card">
-      <span class="card-icon">🛡️</span>
-      <div class="card-title">ביטוח לאומי</div>
-      <div class="card-desc">קצבאות, דמי פגיעה, נכות, זכויות מגויסים ומשפחותיהם</div>
-      <div class="card-waiting">
-        <span class="dot"></span>
-        <span>ממתינים כרגע: <strong>—</strong></span>
+      <div class="card-photo-wrapper">
+        <img class="card-photo" src="images/lilach_avisror.webp" alt="לילך אביצור">
       </div>
-      <a class="card-btn" href="#" target="_blank">הירשם לתור</a>
+      <div class="card-profile">
+        <div class="card-consultant-name">לילך אביצור</div>
+        <div class="card-consultant-role">ביטוח לאומי</div>
+      </div>
+      <div class="card-body">
+        <div class="card-title">ביטוח לאומי</div>
+        <div class="card-desc">קצבאות, דמי פגיעה, נכות, זכויות מגויסים ומשפחותיהם</div>
+        <a class="card-btn" href="https://calendar.app.google/qDYF2FnpzEtit8Ww6" target="_blank">לזימון פגישה</a>
+      </div>
     </div>
 
     <!-- Card 5 -->
     <div class="card">
-      <span class="card-icon">🦁</span>
-      <div class="card-title">שאגת הארי</div>
-      <div class="card-desc">מערכת הקדשות אישיות לחיילי המילואים — מהמשפחה אליך</div>
-      <div class="card-waiting">
-        <span class="dot"></span>
-        <span>ממתינים כרגע: <strong>—</strong></span>
+      <div class="card-photo-wrapper">
+        <img class="card-photo" src="images/sagi_baron.webp" alt="שגיא בר און">
       </div>
-      <a class="card-btn" href="#" target="_blank">הירשם לתור</a>
+      <div class="card-profile">
+        <div class="card-consultant-name">שגיא בר און</div>
+        <div class="card-consultant-role">יועץ AI</div>
+      </div>
+      <div class="card-body">
+        <div class="card-title">שאגת הארי</div>
+        <div class="card-desc">מערכת הקדשות אישיות לחיילי המילואים - מהמשפחה אליך</div>
+        <a class="card-btn" href="https://calendar.app.google/qDYF2FnpzEtit8Ww6" target="_blank">לזימון פגישה</a>
+      </div>
     </div>
 
   </div>
@@ -496,15 +738,15 @@
       </div>
       <div class="step">
         <div class="step-num">2</div>
-        <div class="step-text">מלא את טופס הרישום עם שמך ומספר הטלפון</div>
+        <div class="step-text">לחץ "לזימון פגישה" - יפתח לך היומן של היועץ</div>
       </div>
       <div class="step">
         <div class="step-num">3</div>
-        <div class="step-text">המשך לצפות בהרצאה בזמן שאתה ממתין</div>
+        <div class="step-text">בחר שעה פנויה ואשר את הפגישה</div>
       </div>
       <div class="step">
         <div class="step-num">4</div>
-        <div class="step-text">קבל הודעת WhatsApp כשיגיע תורך עם קישור לחדר</div>
+        <div class="step-text">קבל אישור עם קישור לפגישה ישירות למייל</div>
       </div>
     </div>
   </div>
@@ -513,9 +755,60 @@
 
 <!-- FOOTER -->
 <footer>
-  <p><strong>מיצוי זכויות — חיילי המחוז</strong></p>
+  <p><strong>מיצוי זכויות - חיילי המחוז</strong></p>
   <p>מערכת זו פותחה לסיוע לחיילי המילואים ומשפחותיהם</p>
 </footer>
+
+<script>
+// ===== CINEMATIC INTRO SEQUENCE =====
+(function() {
+  var intro = document.getElementById('intro');
+  if (!intro) return;
+
+  var texts = intro.querySelectorAll('.intro-quote-text');
+  var line = intro.querySelector('.intro-line');
+  var subtitle = intro.querySelector('.intro-subtitle');
+
+  // Lock scroll during intro
+  document.body.style.overflow = 'hidden';
+
+  // Step 1: Show first quote line
+  setTimeout(function() {
+    if (texts[0]) texts[0].classList.add('show');
+  }, 300);
+
+  // Step 2: Show second quote line
+  setTimeout(function() {
+    if (texts[1]) texts[1].classList.add('show');
+  }, 700);
+
+  // Step 3: Expand golden line
+  setTimeout(function() {
+    if (line) line.classList.add('show');
+  }, 1100);
+
+  // Step 4: Show subtitle
+  setTimeout(function() {
+    if (subtitle) subtitle.classList.add('show');
+  }, 1400);
+
+  // Step 5: Part the shields!
+  setTimeout(function() {
+    intro.classList.add('parting');
+  }, 2000);
+
+  // Step 6: Dismiss overlay
+  setTimeout(function() {
+    intro.classList.add('dismissed');
+    document.body.style.overflow = '';
+  }, 3500);
+
+  // Step 7: Remove from DOM
+  setTimeout(function() {
+    intro.remove();
+  }, 4500);
+})();
+</script>
 
 </body>
 </html>
