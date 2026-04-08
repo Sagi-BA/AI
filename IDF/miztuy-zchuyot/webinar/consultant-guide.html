@@ -1,0 +1,925 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>הנחיות ליועץ - מיצוי זכויות חיילי המחוז</title>
+<link href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;600;700;900&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #f7f5f0;
+    --white: #ffffff;
+    --dark: #1a1a14;
+    --gold: #c9a84c;
+    --gold-light: #f0d97a;
+    --green-mil: #3b4a2f;
+    --green-mid: #5a7040;
+    --text: #2a2a20;
+    --muted: #7a7a6a;
+    --border: #e0ddd5;
+    --step-bg: #f0ede6;
+    --gcal-blue: #1a73e8;
+    --gcal-bg: #f8f9fa;
+    --gcal-border: #dadce0;
+    --gcal-text: #202124;
+    --gcal-muted: #5f6368;
+    --gcal-green: #0f9d58;
+    --gcal-red: #d93025;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'Heebo', sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    direction: rtl;
+  }
+
+  /* HEADER */
+  .page-header {
+    background: var(--green-mil);
+    color: #f0ead8;
+    padding: 40px 20px 36px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .page-header::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image: repeating-linear-gradient(
+      45deg, transparent, transparent 30px,
+      rgba(255,255,255,0.03) 30px, rgba(255,255,255,0.03) 31px
+    );
+  }
+
+  .page-header .badge {
+    display: inline-block;
+    border: 1px solid var(--gold);
+    color: var(--gold);
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 3px;
+    padding: 4px 16px;
+    margin-bottom: 16px;
+    position: relative;
+  }
+
+  .page-header h1 {
+    font-size: clamp(22px, 5vw, 36px);
+    font-weight: 900;
+    margin-bottom: 10px;
+    position: relative;
+  }
+
+  .page-header h1 span { color: var(--gold); }
+
+  .page-header p {
+    font-size: 15px;
+    color: #a09880;
+    font-weight: 300;
+    position: relative;
+  }
+
+  /* MAIN */
+  .container {
+    max-width: 820px;
+    margin: 0 auto;
+    padding: 50px 20px 80px;
+  }
+
+  /* INTRO BOX */
+  .intro-box {
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-right: 4px solid var(--gold);
+    padding: 20px 24px;
+    margin-bottom: 50px;
+    display: flex;
+    align-items: flex-start;
+    gap: 16px;
+  }
+
+  .intro-box .icon { font-size: 28px; flex-shrink: 0; margin-top: 2px; }
+
+  .intro-box h3 {
+    font-size: 15px;
+    font-weight: 700;
+    margin-bottom: 6px;
+    color: var(--dark);
+  }
+
+  .intro-box p {
+    font-size: 14px;
+    color: var(--muted);
+    line-height: 1.7;
+  }
+
+  /* STEP */
+  .step-wrapper {
+    margin-bottom: 60px;
+    opacity: 0;
+    transform: translateY(24px);
+    animation: fadeUp 0.5s ease forwards;
+  }
+
+  .step-wrapper:nth-child(1) { animation-delay: 0.05s; }
+  .step-wrapper:nth-child(2) { animation-delay: 0.15s; }
+  .step-wrapper:nth-child(3) { animation-delay: 0.25s; }
+  .step-wrapper:nth-child(4) { animation-delay: 0.35s; }
+  .step-wrapper:nth-child(5) { animation-delay: 0.45s; }
+  .step-wrapper:nth-child(6) { animation-delay: 0.55s; }
+
+  @keyframes fadeUp {
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .step-header {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin-bottom: 16px;
+  }
+
+  .step-num {
+    width: 40px;
+    height: 40px;
+    background: var(--green-mil);
+    color: var(--gold);
+    font-size: 18px;
+    font-weight: 900;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+
+  .step-title {
+    font-size: 20px;
+    font-weight: 800;
+    color: var(--dark);
+  }
+
+  .step-subtitle {
+    font-size: 14px;
+    color: var(--muted);
+    margin-top: 2px;
+    font-weight: 400;
+  }
+
+  .step-instruction {
+    background: var(--step-bg);
+    border-right: 3px solid var(--green-mid);
+    padding: 14px 18px;
+    font-size: 14px;
+    line-height: 1.8;
+    color: var(--text);
+    margin-bottom: 16px;
+  }
+
+  .step-instruction strong { color: var(--green-mil); font-weight: 700; }
+
+  /* GCAL MOCKUP */
+  .mockup {
+    background: var(--gcal-bg);
+    border: 1px solid var(--gcal-border);
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+  }
+
+  .mockup-bar {
+    background: var(--white);
+    border-bottom: 1px solid var(--gcal-border);
+    padding: 10px 16px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .mockup-dots { display: flex; gap: 5px; }
+  .mockup-dot {
+    width: 10px; height: 10px; border-radius: 50%;
+    background: var(--gcal-border);
+  }
+
+  .mockup-url {
+    flex: 1;
+    background: var(--gcal-bg);
+    border: 1px solid var(--gcal-border);
+    border-radius: 20px;
+    padding: 4px 14px;
+    font-size: 11px;
+    color: var(--gcal-muted);
+    direction: ltr;
+    text-align: left;
+  }
+
+  .mockup-body { padding: 20px; }
+
+  /* Step 1 mockup - Google Calendar main view */
+  .gcal-top-bar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 16px;
+  }
+
+  .gcal-logo {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 18px;
+    color: var(--gcal-muted);
+    font-weight: 300;
+    letter-spacing: -0.5px;
+  }
+
+  .gcal-logo .cal-icon {
+    width: 32px;
+    height: 32px;
+    background: var(--white);
+    border: 2px solid var(--gcal-blue);
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--gcal-blue);
+    direction: ltr;
+  }
+
+  .gcal-create-btn {
+    background: var(--white);
+    border: 1px solid var(--gcal-border);
+    border-radius: 20px;
+    padding: 8px 20px;
+    font-size: 13px;
+    color: var(--gcal-text);
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    cursor: default;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.08);
+  }
+
+  .gcal-create-btn .plus {
+    width: 22px; height: 22px;
+    background: var(--gcal-blue);
+    border-radius: 50%;
+    color: white;
+    font-size: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 300;
+  }
+
+  .gcal-dropdown {
+    background: var(--white);
+    border: 1px solid var(--gcal-border);
+    border-radius: 4px;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.12);
+    width: 200px;
+    margin-right: 20px;
+    overflow: hidden;
+  }
+
+  .gcal-dropdown-item {
+    padding: 10px 16px;
+    font-size: 13px;
+    color: var(--gcal-text);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    border-bottom: 1px solid var(--gcal-border);
+    cursor: default;
+  }
+
+  .gcal-dropdown-item:last-child { border-bottom: none; }
+
+  .gcal-dropdown-item.highlighted {
+    background: #e8f0fe;
+    color: var(--gcal-blue);
+    font-weight: 600;
+  }
+
+  .gcal-dropdown-item .dot {
+    width: 8px; height: 8px; border-radius: 50%;
+    background: var(--gcal-blue);
+    flex-shrink: 0;
+  }
+
+  /* Step 2 - Form mockup */
+  .gcal-form { direction: ltr; }
+
+  .gcal-form-header {
+    font-size: 20px;
+    font-weight: 400;
+    color: var(--gcal-text);
+    margin-bottom: 20px;
+    padding-bottom: 16px;
+    border-bottom: 1px solid var(--gcal-border);
+  }
+
+  .gcal-field {
+    margin-bottom: 16px;
+  }
+
+  .gcal-label {
+    font-size: 11px;
+    color: var(--gcal-muted);
+    margin-bottom: 4px;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+  }
+
+  .gcal-input {
+    width: 100%;
+    border: none;
+    border-bottom: 2px solid var(--gcal-blue);
+    padding: 6px 0;
+    font-size: 14px;
+    color: var(--gcal-text);
+    background: transparent;
+    font-family: inherit;
+    outline: none;
+  }
+
+  .gcal-input.filled { color: var(--gcal-text); border-bottom-color: var(--gcal-blue); }
+
+  .duration-pills {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+  }
+
+  .duration-pill {
+    padding: 6px 16px;
+    border: 1px solid var(--gcal-border);
+    border-radius: 20px;
+    font-size: 13px;
+    color: var(--gcal-muted);
+    cursor: default;
+  }
+
+  .duration-pill.selected {
+    background: #e8f0fe;
+    border-color: var(--gcal-blue);
+    color: var(--gcal-blue);
+    font-weight: 600;
+  }
+
+  /* Step 3 - Date/time */
+  .gcal-calendar-mini {
+    direction: ltr;
+  }
+
+  .gcal-month-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 8px;
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--gcal-text);
+  }
+
+  .gcal-days-grid {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 2px;
+    text-align: center;
+    font-size: 12px;
+  }
+
+  .gcal-day-label {
+    color: var(--gcal-muted);
+    padding: 4px 0;
+    font-size: 11px;
+  }
+
+  .gcal-day {
+    padding: 6px 4px;
+    border-radius: 50%;
+    color: var(--gcal-text);
+    cursor: default;
+    width: 28px;
+    height: 28px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto;
+  }
+
+  .gcal-day.disabled { color: var(--gcal-border); }
+  .gcal-day.today { background: var(--gcal-blue); color: white; font-weight: 700; }
+  .gcal-day.selected { background: #e8f0fe; color: var(--gcal-blue); font-weight: 600; border: 1px solid var(--gcal-blue); border-radius: 50%; }
+
+  .time-slots {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 12px;
+    direction: ltr;
+  }
+
+  .time-slot {
+    padding: 6px 14px;
+    border: 1px solid var(--gcal-border);
+    border-radius: 4px;
+    font-size: 13px;
+    color: var(--gcal-text);
+    cursor: default;
+  }
+
+  .time-slot.selected {
+    background: var(--gcal-blue);
+    border-color: var(--gcal-blue);
+    color: white;
+    font-weight: 600;
+  }
+
+  .time-slot.full {
+    background: var(--gcal-bg);
+    color: var(--gcal-border);
+    text-decoration: line-through;
+    cursor: not-allowed;
+  }
+
+  /* Step 4 - Settings */
+  .settings-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 12px 0;
+    border-bottom: 1px solid var(--gcal-border);
+    direction: ltr;
+  }
+
+  .settings-row:last-child { border-bottom: none; }
+
+  .settings-label { font-size: 13px; color: var(--gcal-text); }
+  .settings-sub { font-size: 11px; color: var(--gcal-muted); margin-top: 2px; }
+
+  .toggle {
+    width: 36px; height: 20px;
+    background: var(--gcal-blue);
+    border-radius: 10px;
+    position: relative;
+    flex-shrink: 0;
+  }
+
+  .toggle::after {
+    content: '';
+    position: absolute;
+    width: 16px; height: 16px;
+    background: white;
+    border-radius: 50%;
+    top: 2px; right: 2px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.2);
+  }
+
+  .toggle.off { background: var(--gcal-border); }
+  .toggle.off::after { right: auto; left: 2px; }
+
+  /* Step 5 - Share link */
+  .share-box {
+    background: var(--white);
+    border: 1px solid var(--gcal-border);
+    border-radius: 8px;
+    padding: 16px;
+    direction: ltr;
+  }
+
+  .share-url {
+    background: var(--gcal-bg);
+    border: 1px solid var(--gcal-border);
+    border-radius: 4px;
+    padding: 10px 14px;
+    font-size: 12px;
+    color: var(--gcal-blue);
+    word-break: break-all;
+    margin-bottom: 12px;
+    font-family: monospace;
+  }
+
+  .share-btns { display: flex; gap: 8px; }
+
+  .share-btn {
+    padding: 8px 16px;
+    border-radius: 4px;
+    font-size: 13px;
+    cursor: default;
+    font-weight: 500;
+  }
+
+  .share-btn.primary {
+    background: var(--gcal-blue);
+    color: white;
+    border: none;
+  }
+
+  .share-btn.secondary {
+    background: var(--white);
+    border: 1px solid var(--gcal-border);
+    color: var(--gcal-text);
+  }
+
+  /* ZOOM tip */
+  .zoom-tip {
+    background: #e8f4fd;
+    border: 1px solid #bee3f8;
+    border-radius: 6px;
+    padding: 12px 16px;
+    font-size: 13px;
+    color: #2b6cb0;
+    margin-top: 12px;
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    direction: rtl;
+  }
+
+  /* FINAL TIP BOX */
+  .final-box {
+    background: var(--green-mil);
+    color: #f0ead8;
+    padding: 30px;
+    margin-top: 20px;
+    text-align: center;
+  }
+
+  .final-box h3 {
+    font-size: 18px;
+    font-weight: 800;
+    color: var(--gold);
+    margin-bottom: 12px;
+  }
+
+  .final-box p {
+    font-size: 14px;
+    color: #a09880;
+    margin-bottom: 6px;
+    font-weight: 300;
+  }
+
+  .final-box .phone {
+    font-size: 22px;
+    font-weight: 900;
+    color: var(--gold-light);
+    margin-top: 12px;
+    letter-spacing: 2px;
+  }
+
+  /* PRINT */
+  @media print {
+    body { background: white; }
+    .page-header { background: #2e3d1e !important; -webkit-print-color-adjust: exact; }
+    .step-wrapper { opacity: 1 !important; transform: none !important; }
+    .mockup { box-shadow: none; }
+  }
+
+  @media (max-width: 600px) {
+    .gcal-dropdown { width: 160px; }
+    .duration-pills { gap: 6px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<div class="page-header">
+  <div class="badge">מדריך ליועץ</div>
+  <h1>הגדרת <span>יומן פגישות</span> - Google Calendar</h1>
+  <p>5 שלבים פשוטים | זמן הגדרה: כ-5 דקות</p>
+</div>
+
+<div class="container">
+
+  <!-- INTRO -->
+  <div class="intro-box">
+    <div class="icon">📋</div>
+    <div>
+      <h3>מה עושים כאן?</h3>
+      <p>מגדירים לוח זמנים לפגישות ביומן Google - כך שחיילים יוכלו לשריין פגישה עצמאית עם כפתור אחד.
+      אחרי ההגדרה שולחים את הקישור לסגי, והוא מוסיף אותו לדף הנחיתה של האירוע.</p>
+    </div>
+  </div>
+
+  <!-- STEP 1 -->
+  <div class="step-wrapper">
+    <div class="step-header">
+      <div class="step-num">1</div>
+      <div>
+        <div class="step-title">פתח Google Calendar ולחץ על "+ צור"</div>
+        <div class="step-subtitle"></a><a href="https://calendar.google.com/calendar/u/0/r/appointment" target="_blank">calendar.google.com</a> ← כפתור כחול בצד שמאל למעלה</div>
+      </div>
+    </div>
+    <div class="step-instruction">
+      כנס ל-<strong>calendar.google.com</strong> עם חשבון Google שלך.
+      לחץ על הכפתור הכחול <strong>"+ צור"</strong> ובחר <strong>"שעות קבלה"</strong> מהתפריט שנפתח.
+    </div>
+    <div class="mockup">
+      <div class="mockup-bar">
+        <div class="mockup-dots">
+          <div class="mockup-dot" style="background:#ff5f57"></div>
+          <div class="mockup-dot" style="background:#ffbd2e"></div>
+          <div class="mockup-dot" style="background:#28c940"></div>
+        </div>
+        <div class="mockup-url"><a href="https://calendar.google.com/calendar/u/0/r/appointment" target="_blank">calendar.google.com</a></div>
+      </div>
+      <div class="mockup-body">
+        <div class="gcal-top-bar">
+          <div class="gcal-logo">
+            <div class="cal-icon">9</div>
+            Google Calendar
+          </div>
+          <div class="gcal-create-btn">
+            <div class="plus">+</div>
+            צור
+          </div>
+        </div>
+        <div style="display:flex; gap:16px; align-items:flex-start;">
+          <div class="gcal-dropdown">
+            <div class="gcal-dropdown-item">
+              <div class="dot" style="background:#5f6368"></div>
+              אירוע
+            </div>
+            <div class="gcal-dropdown-item">
+              <div class="dot" style="background:#5f6368"></div>
+              משימה
+            </div>
+            <div class="gcal-dropdown-item highlighted">
+              <div class="dot"></div>
+              ✓ שעות קבלה
+            </div>
+            <div class="gcal-dropdown-item">
+              <div class="dot" style="background:#5f6368"></div>
+              תזכורת
+            </div>
+          </div>
+          <div style="font-size:12px; color:#5f6368; padding-top:8px; line-height:1.8;">
+            ← בחר <strong style="color:var(--gcal-blue)">"שעות קבלה"</strong>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- STEP 2 -->
+  <div class="step-wrapper">
+    <div class="step-header">
+      <div class="step-num">2</div>
+      <div>
+        <div class="step-title">מלא את פרטי הפגישה</div>
+        <div class="step-subtitle">שם, משך פגישה וקישור זום</div>
+      </div>
+    </div>
+    <div class="step-instruction">
+      מלא את <strong>שם הפגישה</strong> כך: "ייעוץ [נושא] - מיצוי זכויות חיילי המחוז".
+      בחר <strong>משך פגישה</strong> לפי מה שנקבע (15/20/30 דקות).
+      בשדה <strong>מיקום</strong> - בחר Google Meet Video Conferencing.
+    </div>
+    <div class="mockup">
+      <div class="mockup-bar">
+        <div class="mockup-dots">
+          <div class="mockup-dot" style="background:#ff5f57"></div>
+          <div class="mockup-dot" style="background:#ffbd2e"></div>
+          <div class="mockup-dot" style="background:#28c940"></div>
+        </div>
+        <div class="mockup-url"><a href="https://calendar.google.com/calendar/u/0/r/appointment" target="_blank">calendar.google.com/calendar/r/appointments/new</a></div>
+      </div>
+      <div class="mockup-body">
+        <div class="gcal-form">
+          <div class="gcal-form-header">לוח זמנים חדש לפגישות</div>
+          <div class="gcal-field">
+            <div class="gcal-label">שם לוח הזמנים</div>
+            <input class="gcal-input filled" value='ייעוץ עצמאים - מיצוי זכויות חיילי המחוז' readonly style="direction:rtl; text-align:right;">
+          </div>
+          <div class="gcal-field">
+            <div class="gcal-label">משך פגישה</div>
+            <div class="duration-pills">
+              <div class="duration-pill">15 דקות</div>
+              <div class="duration-pill selected">20 דקות</div>
+              <div class="duration-pill">30 דקות</div>
+              <div class="duration-pill">45 דקות</div>
+              <div class="duration-pill">שעה</div>
+            </div>
+          </div>
+          <div class="gcal-field">
+            <div class="gcal-label">מיקום / קישור</div>
+            <input class="gcal-input filled" value="Google Meet Video Conferencing" readonly style="direction:ltr; color:var(--gcal-blue);">
+          </div>
+        </div>
+        <div class="zoom-tip">
+          💡 בחר Google Meet Video Conferencing - קישור ייחודי ייווצר אוטומטית לכל פגישה
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- STEP 3 -->
+  <div class="step-wrapper">
+    <div class="step-header">
+      <div class="step-num">3</div>
+      <div>
+        <div class="step-title">הגדר תאריך ושעות זמינות</div>
+        <div class="step-subtitle">יום האירוע בלבד - לא ימים נוספים!</div>
+      </div>
+    </div>
+    <div class="step-instruction">
+      בחר <strong>רק את יום האירוע</strong> בלוח השנה. הגדר את <strong>שעות הפתיחה והסגירה</strong> שלך באותו יום.
+      ⚠️ <strong>אל תפעיל ימים נוספים</strong> - החיילים יזמינו רק ביום האירוע.
+    </div>
+    <div class="mockup">
+      <div class="mockup-bar">
+        <div class="mockup-dots">
+          <div class="mockup-dot" style="background:#ff5f57"></div>
+          <div class="mockup-dot" style="background:#ffbd2e"></div>
+          <div class="mockup-dot" style="background:#28c940"></div>
+        </div>
+        <div class="mockup-url">calendar.google.com/calendar/r/appointments/new</div>
+      </div>
+      <div class="mockup-body">
+        <div style="display:grid; grid-template-columns:1fr 1fr; gap:20px; align-items:start;">
+          <div class="gcal-calendar-mini">
+            <div class="gcal-month-header">
+              <span>‹</span>
+              <span>יוני 2025</span>
+              <span>›</span>
+            </div>
+            <div class="gcal-days-grid">
+              <div class="gcal-day-label">S</div>
+              <div class="gcal-day-label">M</div>
+              <div class="gcal-day-label">T</div>
+              <div class="gcal-day-label">W</div>
+              <div class="gcal-day-label">T</div>
+              <div class="gcal-day-label">F</div>
+              <div class="gcal-day-label">S</div>
+              <div class="gcal-day disabled">1</div>
+              <div class="gcal-day disabled">2</div>
+              <div class="gcal-day disabled">3</div>
+              <div class="gcal-day disabled">4</div>
+              <div class="gcal-day disabled">5</div>
+              <div class="gcal-day disabled">6</div>
+              <div class="gcal-day disabled">7</div>
+              <div class="gcal-day disabled">8</div>
+              <div class="gcal-day selected">9</div>
+              <div class="gcal-day disabled">10</div>
+              <div class="gcal-day disabled">11</div>
+              <div class="gcal-day disabled">12</div>
+              <div class="gcal-day disabled">13</div>
+              <div class="gcal-day disabled">14</div>
+              <div class="gcal-day disabled">15</div>
+              <div class="gcal-day disabled">16</div>
+              <div class="gcal-day disabled">17</div>
+              <div class="gcal-day disabled">18</div>
+              <div class="gcal-day disabled">19</div>
+              <div class="gcal-day disabled">20</div>
+              <div class="gcal-day disabled">21</div>
+            </div>
+            <div style="font-size:11px; color:var(--gcal-blue); margin-top:8px; text-align:center;">✓ נבחר: יום ג' 9 ביוני</div>
+          </div>
+          <div>
+            <div style="font-size:12px; color:var(--gcal-muted); margin-bottom:8px;">שעות זמינות - 9 ביוני:</div>
+            <div style="display:flex; gap:8px; margin-bottom:8px; direction:ltr;">
+              <div style="font-size:13px; border:1px solid var(--gcal-border); border-radius:4px; padding:6px 10px; color:var(--gcal-text);">09:00</div>
+              <div style="font-size:13px; color:var(--gcal-muted); padding:6px 4px;">עד</div>
+              <div style="font-size:13px; border:1px solid var(--gcal-blue); border-radius:4px; padding:6px 10px; color:var(--gcal-blue); font-weight:600;">13:00</div>
+            </div>
+            <div style="font-size:11px; color:var(--gcal-muted); margin-bottom:12px; direction:rtl;">= 12 פגישות של 20 דקות</div>
+            <div class="time-slots">
+              <div class="time-slot selected">09:00</div>
+              <div class="time-slot">09:20</div>
+              <div class="time-slot">09:40</div>
+              <div class="time-slot">10:00</div>
+              <div class="time-slot">10:20</div>
+              <div class="time-slot">10:40</div>
+              <div class="time-slot full">11:00</div>
+              <div class="time-slot">11:20</div>
+              <div class="time-slot">11:40</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- STEP 4 -->
+  <div class="step-wrapper">
+    <div class="step-header">
+      <div class="step-num">4</div>
+      <div>
+        <div class="step-title">הגדר אישורים ותזכורות</div>
+        <div class="step-subtitle">Google שולח הכל אוטומטית - אתה לא צריך לעשות כלום</div>
+      </div>
+    </div>
+    <div class="step-instruction">
+      ב"הגדרות נוספות" - ודא שה-checkboxes הבאים מסומנים:
+      <strong>אישור במייל לנרשם</strong> ו<strong>תזכורת שעה לפני הפגישה</strong>.
+      גם הגדר <strong>מינימום זמן הזמנה מראש</strong> של 60 דקות.
+    </div>
+    <div class="mockup">
+      <div class="mockup-bar">
+        <div class="mockup-dots">
+          <div class="mockup-dot" style="background:#ff5f57"></div>
+          <div class="mockup-dot" style="background:#ffbd2e"></div>
+          <div class="mockup-dot" style="background:#28c940"></div>
+        </div>
+        <div class="mockup-url">calendar.google.com/calendar/r/appointments/new</div>
+      </div>
+      <div class="mockup-body">
+        <div style="font-size:13px; font-weight:600; color:var(--gcal-text); margin-bottom:12px;">הגדרות נוספות</div>
+        <div class="settings-row">
+          <div>
+            <div class="settings-label">אישור פגישה במייל</div>
+            <div class="settings-sub">הנרשם מקבל מייל אוטומטי עם פרטי הפגישה</div>
+          </div>
+          <div class="toggle"></div>
+        </div>
+        <div class="settings-row">
+          <div>
+            <div class="settings-label">תזכורת לפני הפגישה</div>
+            <div class="settings-sub">שעה לפני - מייל + התראת לוח שנה</div>
+          </div>
+          <div class="toggle"></div>
+        </div>
+        <div class="settings-row">
+          <div>
+            <div class="settings-label">מינימום זמן הזמנה מראש</div>
+            <div class="settings-sub">כדי שלא יזמינו ברגע האחרון</div>
+          </div>
+          <div style="border:1px solid var(--gcal-border); border-radius:4px; padding:5px 10px; font-size:13px; color:var(--gcal-blue); font-weight:600;">60 דקות</div>
+        </div>
+        <div class="settings-row">
+          <div>
+            <div class="settings-label">הוסף לאירוע ב-Google Calendar של הנרשם</div>
+            <div class="settings-sub">הפגישה מופיעה אוטומטית בדיארי שלו</div>
+          </div>
+          <div class="toggle"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- STEP 5 -->
+  <div class="step-wrapper">
+    <div class="step-header">
+      <div class="step-num">5</div>
+      <div>
+        <div class="step-title">שמור וקבל את הקישור לשיתוף</div>
+        <div class="step-subtitle">שלח את הקישור לסגי - הוא מוסיף אותו לדף הנחיתה</div>
+      </div>
+    </div>
+    <div class="step-instruction">
+      לחץ <strong>"שמור"</strong>. Google יציג דף אישור עם <strong>קישור ייחודי לשיתוף</strong>.
+      העתק את הקישור ושלח אותו ל-<strong>שגיא בר און: 054-9995050</strong>.
+    </div>
+    <div class="mockup">
+      <div class="mockup-bar">
+        <div class="mockup-dots">
+          <div class="mockup-dot" style="background:#ff5f57"></div>
+          <div class="mockup-dot" style="background:#ffbd2e"></div>
+          <div class="mockup-dot" style="background:#28c940"></div>
+        </div>
+        <div class="mockup-url">calendar.google.com/calendar/appointments/schedules/...</div>
+      </div>
+      <div class="mockup-body">
+        <div style="display:flex; align-items:center; gap:10px; margin-bottom:16px;">
+          <div style="width:32px; height:32px; background:#e6f4ea; border-radius:50%; display:flex; align-items:center; justify-content:center; font-size:16px;">✓</div>
+          <div>
+            <div style="font-size:14px; font-weight:600; color:var(--gcal-text);">לוח הזמנים נשמר בהצלחה</div>
+            <div style="font-size:12px; color:var(--gcal-muted);">ייעוץ עצמאים - מיצוי זכויות חיילי המחוז</div>
+          </div>
+        </div>
+        <div class="share-box">
+          <div style="font-size:12px; color:var(--gcal-muted); margin-bottom:8px;">קישור לשיתוף עם לקוחות:</div>
+          <div class="share-url">https://calendar.google.com/calendar/appointments/schedules/AcZss...</div>
+          <div class="share-btns">
+            <button class="share-btn primary">העתק קישור</button>
+            <button class="share-btn secondary">פתח דף הזמנות</button>
+          </div>
+        </div>
+        <div class="zoom-tip" style="margin-top:16px;">
+          📲 שלח את הקישור לשגיא בר און: <strong>054-9995050</strong> - והוא יוסיף אותו לדף הנחיתה
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- FINAL -->
+  <div class="final-box">
+    <h3>שאלות? צריך עזרה בהגדרה?</h3>
+    <p>שגיא בר און זמין לכל שאלה</p>
+    <p>WhatsApp / טלפון</p>
+    <div class="phone">054-9995050</div>
+  </div>
+
+</div>
+</body>
+</html>

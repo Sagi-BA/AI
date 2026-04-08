@@ -1,0 +1,521 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>מיצוי זכויות — חיילי המחוז</title>
+<link href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;600;700;900&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg-deep:     #1a2010;
+    --bg-card:     #232d18;
+    --bg-card-hover: #2a361d;
+    --green-dark:  #2e3d1e;
+    --green-mid:   #4a6030;
+    --gold:        #c9a84c;
+    --gold-light:  #e8c96a;
+    --khaki:       #9b8c6a;
+    --text-primary:#f0ead8;
+    --text-muted:  #8a8070;
+    --border:      rgba(201,168,76,0.25);
+    --shadow:      0 8px 40px rgba(0,0,0,0.5);
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'Heebo', sans-serif;
+    background-color: var(--bg-deep);
+    color: var(--text-primary);
+    direction: rtl;
+    min-height: 100vh;
+    overflow-x: hidden;
+  }
+
+  /* Background texture */
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background-image:
+      repeating-linear-gradient(
+        45deg,
+        transparent,
+        transparent 40px,
+        rgba(255,255,255,0.012) 40px,
+        rgba(255,255,255,0.012) 41px
+      ),
+      repeating-linear-gradient(
+        -45deg,
+        transparent,
+        transparent 40px,
+        rgba(255,255,255,0.012) 40px,
+        rgba(255,255,255,0.012) 41px
+      );
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  /* TOP BANNER */
+  .top-banner {
+    background: var(--gold);
+    color: #1a1a0a;
+    text-align: center;
+    padding: 8px 20px;
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    position: relative;
+    z-index: 10;
+  }
+
+  /* HEADER */
+  header {
+    position: relative;
+    z-index: 10;
+    padding: 60px 20px 50px;
+    text-align: center;
+    border-bottom: 1px solid var(--border);
+    background: linear-gradient(180deg, rgba(46,61,30,0.6) 0%, transparent 100%);
+  }
+
+  .header-emblem {
+    font-size: 52px;
+    margin-bottom: 16px;
+    filter: drop-shadow(0 0 20px rgba(201,168,76,0.4));
+    animation: pulse-glow 3s ease-in-out infinite;
+  }
+
+  @keyframes pulse-glow {
+    0%, 100% { filter: drop-shadow(0 0 20px rgba(201,168,76,0.3)); }
+    50%       { filter: drop-shadow(0 0 35px rgba(201,168,76,0.7)); }
+  }
+
+  .header-badge {
+    display: inline-block;
+    border: 1px solid var(--gold);
+    color: var(--gold);
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 3px;
+    padding: 4px 16px;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+  }
+
+  header h1 {
+    font-size: clamp(28px, 6vw, 52px);
+    font-weight: 900;
+    line-height: 1.15;
+    color: var(--text-primary);
+    margin-bottom: 16px;
+    text-shadow: 0 2px 20px rgba(0,0,0,0.5);
+  }
+
+  header h1 span {
+    color: var(--gold);
+  }
+
+  header p.subtitle {
+    font-size: clamp(14px, 2.5vw, 18px);
+    color: var(--khaki);
+    max-width: 600px;
+    margin: 0 auto 24px;
+    line-height: 1.7;
+    font-weight: 300;
+  }
+
+  .time-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: rgba(201,168,76,0.1);
+    border: 1px solid var(--border);
+    padding: 10px 24px;
+    font-size: 14px;
+    color: var(--gold-light);
+    font-weight: 600;
+  }
+
+  /* MAIN */
+  main {
+    position: relative;
+    z-index: 10;
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 60px 20px 80px;
+  }
+
+  .section-label {
+    text-align: center;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 4px;
+    color: var(--text-muted);
+    margin-bottom: 40px;
+    text-transform: uppercase;
+  }
+
+  /* CARDS GRID */
+  .cards-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+  }
+
+  .card:last-child:nth-child(odd) {
+    grid-column: 1 / -1;
+    max-width: 520px;
+    margin: 0 auto;
+    width: 100%;
+  }
+
+  /* CARD */
+  .card {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-right: 4px solid var(--gold);
+    padding: 30px 26px;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--gold), transparent);
+    opacity: 0;
+    transition: opacity 0.3s;
+  }
+
+  .card:hover {
+    background: var(--bg-card-hover);
+    border-right-color: var(--gold-light);
+    transform: translateY(-3px);
+    box-shadow: var(--shadow);
+  }
+
+  .card:hover::before {
+    opacity: 1;
+  }
+
+  .card-icon {
+    font-size: 36px;
+    margin-bottom: 14px;
+    display: block;
+  }
+
+  .card-title {
+    font-size: 22px;
+    font-weight: 800;
+    color: var(--text-primary);
+    margin-bottom: 10px;
+  }
+
+  .card-desc {
+    font-size: 14px;
+    color: var(--khaki);
+    line-height: 1.7;
+    margin-bottom: 20px;
+    font-weight: 300;
+    min-height: 44px;
+  }
+
+  .card-waiting {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 13px;
+    color: var(--text-muted);
+    margin-bottom: 20px;
+    padding: 8px 12px;
+    background: rgba(255,255,255,0.03);
+    border-right: 2px solid var(--green-mid);
+  }
+
+  .card-waiting .dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: #5a9e4a;
+    animation: blink 1.5s ease-in-out infinite;
+    flex-shrink: 0;
+  }
+
+  @keyframes blink {
+    0%, 100% { opacity: 1; }
+    50%       { opacity: 0.3; }
+  }
+
+  .card-btn {
+    display: block;
+    width: 100%;
+    padding: 14px 20px;
+    background: var(--gold);
+    color: #1a1a0a;
+    font-family: 'Heebo', sans-serif;
+    font-size: 15px;
+    font-weight: 800;
+    text-align: center;
+    text-decoration: none;
+    border: none;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    letter-spacing: 0.5px;
+  }
+
+  .card-btn:hover {
+    background: var(--gold-light);
+    transform: translateY(-1px);
+    box-shadow: 0 4px 20px rgba(201,168,76,0.4);
+  }
+
+  .card-btn::after {
+    content: ' ←';
+  }
+
+  /* HOW IT WORKS */
+  .how-section {
+    margin-top: 70px;
+    padding-top: 50px;
+    border-top: 1px solid var(--border);
+  }
+
+  .how-section h2 {
+    text-align: center;
+    font-size: 20px;
+    font-weight: 700;
+    color: var(--gold);
+    letter-spacing: 2px;
+    margin-bottom: 40px;
+  }
+
+  .steps {
+    display: flex;
+    justify-content: center;
+    gap: 0;
+    flex-wrap: wrap;
+  }
+
+  .step {
+    flex: 1;
+    min-width: 160px;
+    max-width: 220px;
+    text-align: center;
+    padding: 0 20px;
+    position: relative;
+  }
+
+  .step:not(:last-child)::before {
+    content: '←';
+    position: absolute;
+    left: -10px;
+    top: 20px;
+    color: var(--text-muted);
+    font-size: 18px;
+  }
+
+  .step-num {
+    width: 44px;
+    height: 44px;
+    border: 2px solid var(--gold);
+    color: var(--gold);
+    font-size: 18px;
+    font-weight: 800;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 14px;
+  }
+
+  .step-text {
+    font-size: 14px;
+    color: var(--khaki);
+    line-height: 1.6;
+    font-weight: 400;
+  }
+
+  /* FOOTER */
+  footer {
+    position: relative;
+    z-index: 10;
+    border-top: 1px solid var(--border);
+    padding: 30px 20px;
+    text-align: center;
+  }
+
+  footer p {
+    font-size: 13px;
+    color: var(--text-muted);
+    margin-bottom: 4px;
+  }
+
+  footer p strong {
+    color: var(--khaki);
+  }
+
+  /* MOBILE */
+  @media (max-width: 600px) {
+    .cards-grid {
+      grid-template-columns: 1fr;
+    }
+    .card:last-child:nth-child(odd) {
+      grid-column: auto;
+      max-width: 100%;
+    }
+    .steps {
+      flex-direction: column;
+      align-items: center;
+      gap: 30px;
+    }
+    .step:not(:last-child)::before {
+      content: '↓';
+      left: 50%;
+      top: auto;
+      bottom: -24px;
+    }
+    header { padding: 40px 20px 36px; }
+  }
+
+  /* Entry animation */
+  .card {
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeUp 0.5s ease forwards;
+  }
+  .card:nth-child(1) { animation-delay: 0.1s; }
+  .card:nth-child(2) { animation-delay: 0.2s; }
+  .card:nth-child(3) { animation-delay: 0.3s; }
+  .card:nth-child(4) { animation-delay: 0.4s; }
+  .card:nth-child(5) { animation-delay: 0.5s; }
+
+  @keyframes fadeUp {
+    to { opacity: 1; transform: translateY(0); }
+  }
+</style>
+</head>
+<body>
+
+<!-- TOP BANNER -->
+<div class="top-banner">
+  ⚔️ &nbsp; האירוע מיועד לחיילי המחוז ומשפחותיהם בלבד &nbsp; ⚔️
+</div>
+
+<!-- HEADER -->
+<header>
+  <div class="header-emblem">🛡️</div>
+  <div class="header-badge">חמ"ל מיצוי זכויות</div>
+  <h1>מיצוי זכויות<br><span>חיילי המחוז</span></h1>
+  <p class="subtitle">
+    בחר את הנושא הרלוונטי אליך — הירשם לתור וקבל הודעת WhatsApp כשיגיע תורך
+  </p>
+  <div class="time-badge">
+    ⏱️ &nbsp; זמן המתנה משוער: 15–20 דקות לכל פגישה
+  </div>
+</header>
+
+<!-- MAIN -->
+<main>
+  <p class="section-label">בחר חדר ייעוץ</p>
+
+  <div class="cards-grid">
+
+    <!-- Card 1 -->
+    <div class="card">
+      <span class="card-icon">💼</span>
+      <div class="card-title">עצמאים</div>
+      <div class="card-desc">מס הכנסה, עוסק פטור ומורשה, החזרי מס, דו"חות שנתיים</div>
+      <div class="card-waiting">
+        <span class="dot"></span>
+        <span>ממתינים כרגע: <strong>—</strong></span>
+      </div>
+      <a class="card-btn" href="#" target="_blank">הירשם לתור</a>
+    </div>
+
+    <!-- Card 2 -->
+    <div class="card">
+      <span class="card-icon">👔</span>
+      <div class="card-title">שכירים</div>
+      <div class="card-desc">זכויות עובד, תלושי שכר, החזרי מס, פיצויים וקרנות</div>
+      <div class="card-waiting">
+        <span class="dot"></span>
+        <span>ממתינים כרגע: <strong>—</strong></span>
+      </div>
+      <a class="card-btn" href="#" target="_blank">הירשם לתור</a>
+    </div>
+
+    <!-- Card 3 -->
+    <div class="card">
+      <span class="card-icon">🏠</span>
+      <div class="card-title">כלכלת בית</div>
+      <div class="card-desc">ייעוץ כלכלי, מענקים, הלוואות וסיוע למשפחות מגויסים</div>
+      <div class="card-waiting">
+        <span class="dot"></span>
+        <span>ממתינים כרגע: <strong>—</strong></span>
+      </div>
+      <a class="card-btn" href="#" target="_blank">הירשם לתור</a>
+    </div>
+
+    <!-- Card 4 -->
+    <div class="card">
+      <span class="card-icon">🛡️</span>
+      <div class="card-title">ביטוח לאומי</div>
+      <div class="card-desc">קצבאות, דמי פגיעה, נכות, זכויות מגויסים ומשפחותיהם</div>
+      <div class="card-waiting">
+        <span class="dot"></span>
+        <span>ממתינים כרגע: <strong>—</strong></span>
+      </div>
+      <a class="card-btn" href="#" target="_blank">הירשם לתור</a>
+    </div>
+
+    <!-- Card 5 -->
+    <div class="card">
+      <span class="card-icon">🦁</span>
+      <div class="card-title">שאגת הארי</div>
+      <div class="card-desc">מערכת הקדשות אישיות לחיילי המילואים — מהמשפחה אליך</div>
+      <div class="card-waiting">
+        <span class="dot"></span>
+        <span>ממתינים כרגע: <strong>—</strong></span>
+      </div>
+      <a class="card-btn" href="#" target="_blank">הירשם לתור</a>
+    </div>
+
+  </div>
+
+  <!-- HOW IT WORKS -->
+  <div class="how-section">
+    <h2>איך זה עובד?</h2>
+    <div class="steps">
+      <div class="step">
+        <div class="step-num">1</div>
+        <div class="step-text">בחר את נושא הייעוץ הרלוונטי אליך</div>
+      </div>
+      <div class="step">
+        <div class="step-num">2</div>
+        <div class="step-text">מלא את טופס הרישום עם שמך ומספר הטלפון</div>
+      </div>
+      <div class="step">
+        <div class="step-num">3</div>
+        <div class="step-text">המשך לצפות בהרצאה בזמן שאתה ממתין</div>
+      </div>
+      <div class="step">
+        <div class="step-num">4</div>
+        <div class="step-text">קבל הודעת WhatsApp כשיגיע תורך עם קישור לחדר</div>
+      </div>
+    </div>
+  </div>
+
+</main>
+
+<!-- FOOTER -->
+<footer>
+  <p><strong>מיצוי זכויות — חיילי המחוז</strong></p>
+  <p>מערכת זו פותחה לסיוע לחיילי המילואים ומשפחותיהם</p>
+</footer>
+
+</body>
+</html>
