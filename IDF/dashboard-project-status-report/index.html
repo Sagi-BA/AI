@@ -4,6 +4,9 @@
     <meta charset="UTF-8">
     <title>דשבורד פרויקט - מגן לעורף</title>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/themes/material_blue.css">
     <link href="https://fonts.googleapis.com/css2?family=Assistant:wght@300;400;700&display=swap" rel="stylesheet">
     <style>
         body { font-family: 'Assistant', sans-serif; background-color: #f4f7f6; margin: 0; padding: 20px; color: #333; }
@@ -43,8 +46,8 @@
         /* Date filter */
         .date-filter-row { background: white; padding: 14px 20px; border-radius: 12px; display: flex; gap: 12px; align-items: center; margin-bottom: 20px; flex-wrap: wrap; }
         .date-filter-row label { font-size: 13px; color: #555; font-weight: 700; }
-        .date-filter-row input[type="date"] { padding: 7px 10px; border-radius: 6px; border: 1px solid #ddd; font-family: inherit; font-size: 13px; }
-        .date-filter-row input[type="date"]:focus { outline: none; border-color: #3498db; box-shadow: 0 0 0 3px rgba(52,152,219,0.1); }
+        .date-filter-row input.date-input { padding: 7px 10px; border-radius: 6px; border: 1px solid #ddd; font-family: inherit; font-size: 13px; width: 110px; text-align: center; direction: ltr; }
+        .date-filter-row input.date-input:focus { outline: none; border-color: #3498db; box-shadow: 0 0 0 3px rgba(52,152,219,0.1); }
         .quick-btns { display: flex; gap: 6px; flex-wrap: wrap; }
         .quick-btn { padding: 6px 14px; border-radius: 20px; border: 1px solid #ddd; background: white; cursor: pointer; font-family: inherit; font-size: 12px; font-weight: 600; color: #555; transition: all 0.2s; }
         .quick-btn:hover { background: #f1f8ff; border-color: #3498db; color: #3498db; }
@@ -204,14 +207,14 @@
 
     <div class="filter-section">
         <strong>סינון:</strong>
-        <input type="text" id="search-input" class="search-input" placeholder="חיפוש חופשי..." oninput="renderTable()">
-        <select id="filter-owner" onchange="renderTable()">
+        <input type="text" id="search-input" class="search-input" placeholder="חיפוש חופשי..." oninput="refreshFiltered()">
+        <select id="filter-owner" onchange="refreshFiltered()">
             <option value="all">כל האחראים</option>
         </select>
-        <select id="filter-status" onchange="renderTable()">
+        <select id="filter-status" onchange="refreshFiltered()">
             <option value="all">כל הסטטוסים</option>
         </select>
-        <select id="filter-milestone" onchange="renderTable()">
+        <select id="filter-milestone" onchange="refreshFiltered()">
             <option value="all">כל אבני הדרך</option>
         </select>
         <span class="result-count" id="resultCount"></span>
@@ -220,16 +223,17 @@
     <div class="date-filter-row">
         <label>טווח תאריכים:</label>
         <div class="quick-btns">
-            <button class="quick-btn active" onclick="setDateRange('all')">הכל</button>
+            <button class="quick-btn active" onclick="setDateRange('today')">היום</button>
             <button class="quick-btn" onclick="setDateRange('week')">השבוע</button>
             <button class="quick-btn" onclick="setDateRange('month')">החודש</button>
             <button class="quick-btn" onclick="setDateRange('overdue')">באיחור</button>
+            <button class="quick-btn" onclick="setDateRange('all')">הכל</button>
         </div>
         <span class="date-separator">|</span>
         <label>מתאריך</label>
-        <input type="date" id="date-from" onchange="setDateRange('custom')">
+        <input type="text" id="date-from" class="date-input" placeholder="dd/mm/yyyy">
         <label>עד תאריך</label>
-        <input type="date" id="date-to" onchange="setDateRange('custom')">
+        <input type="text" id="date-to" class="date-input" placeholder="dd/mm/yyyy">
     </div>
 
     <div class="charts-grid">
@@ -301,8 +305,8 @@
         'טרם הכל': '#e74c3c'
     };
 
-    const WEB_APP_URL = "https://script.google.com/macros/s/AKfycbxJnJhS6ikn_giXK_J7dSotW6zYFQa50NPfm9mxBKjh7KMjlKIjUoNtPtR7opmosBXw/exec";
-    const DEV_API_KEY = "SagiShlomiSecret2026"; // המפתח שהמצאת
+    const WEB_APP_URL = "https://script.google.com/macros/s/AKfycbzbdP8bv7b4m5H6xqY-e2bQulUXjJ1gu7TRXPBu4JGCAVCZuPqDUO_na4Ah07TBROpI/exec";
+    const DEV_API_KEY = "SagiShlomiSecret"; // המפתח שהמצאת
 
     // ── Skeleton Loading ──
     function showSkeletons() {
@@ -386,11 +390,17 @@
         }
     }
 
+    let firstLoad = true;
+
     function updateUI() {
         hideSkeletons();
         const now = new Date();
         document.getElementById('last-update').innerText = `עדכון אחרון: ${now.toLocaleDateString('he-IL')} ${now.toLocaleTimeString('he-IL')}`;
         populateFilters();
+        if (firstLoad) {
+            setDateRange('today');
+            firstLoad = false;
+        }
         renderTable();
         updateKPIs();
         renderStatusChart();
@@ -455,48 +465,71 @@
     }
 
     // ── Date Range Filter ──
-    let activeDateRange = 'all';
+    let activeDateRange = 'today';
+
+    function setFpDate(picker, fallbackInputId, date) {
+        if (picker) {
+            picker.setDate(date || null, false); // false = don't trigger onChange
+        } else {
+            document.getElementById(fallbackInputId).value = date ? toHebrewDate(date) : '';
+        }
+    }
 
     function setDateRange(mode) {
         activeDateRange = mode;
-        const fromInput = document.getElementById('date-from');
-        const toInput = document.getElementById('date-to');
         const today = new Date();
 
         // Update quick button styles
         document.querySelectorAll('.quick-btn').forEach(btn => btn.classList.remove('active'));
 
-        if (mode === 'all') {
-            fromInput.value = '';
-            toInput.value = '';
+        if (mode === 'today') {
+            setFpDate(fpFrom, 'date-from', today);
+            setFpDate(fpTo, 'date-to', today);
+            document.querySelector('.quick-btn[onclick*="today"]').classList.add('active');
+        } else if (mode === 'all') {
+            setFpDate(fpFrom, 'date-from', null);
+            setFpDate(fpTo, 'date-to', null);
             document.querySelector('.quick-btn[onclick*="all"]').classList.add('active');
         } else if (mode === 'week') {
             const startOfWeek = new Date(today);
             startOfWeek.setDate(today.getDate() - today.getDay());
             const endOfWeek = new Date(startOfWeek);
             endOfWeek.setDate(startOfWeek.getDate() + 6);
-            fromInput.value = toISODate(startOfWeek);
-            toInput.value = toISODate(endOfWeek);
+            setFpDate(fpFrom, 'date-from', startOfWeek);
+            setFpDate(fpTo, 'date-to', endOfWeek);
             document.querySelector('.quick-btn[onclick*="week"]').classList.add('active');
         } else if (mode === 'month') {
             const startOfMonth = new Date(today.getFullYear(), today.getMonth(), 1);
             const endOfMonth = new Date(today.getFullYear(), today.getMonth() + 1, 0);
-            fromInput.value = toISODate(startOfMonth);
-            toInput.value = toISODate(endOfMonth);
+            setFpDate(fpFrom, 'date-from', startOfMonth);
+            setFpDate(fpTo, 'date-to', endOfMonth);
             document.querySelector('.quick-btn[onclick*="month"]').classList.add('active');
         } else if (mode === 'overdue') {
-            fromInput.value = '';
-            toInput.value = toISODate(new Date(today.getTime() - 86400000));
+            setFpDate(fpFrom, 'date-from', null);
+            setFpDate(fpTo, 'date-to', new Date(today.getTime() - 86400000));
             document.querySelector('.quick-btn[onclick*="overdue"]').classList.add('active');
         } else if (mode === 'custom') {
             // Custom dates from inputs - no quick button active
         }
 
+        refreshFiltered();
+    }
+
+    function refreshFiltered() {
         renderTable();
+        updateKPIs();
+        renderStatusChart();
+        renderMilestoneChart();
+        renderOwnerChart();
+        renderTimeline();
     }
 
     function toISODate(d) {
         return d.getFullYear() + '-' + String(d.getMonth()+1).padStart(2,'0') + '-' + String(d.getDate()).padStart(2,'0');
+    }
+
+    function toHebrewDate(d) {
+        return String(d.getDate()).padStart(2,'0') + '/' + String(d.getMonth()+1).padStart(2,'0') + '/' + d.getFullYear();
     }
 
     function getFilteredTasks() {
@@ -504,8 +537,9 @@
         const statusFilter = document.getElementById('filter-status').value;
         const milestoneFilter = document.getElementById('filter-milestone').value;
         const search = document.getElementById('search-input').value.toLowerCase().trim();
-        const dateFrom = document.getElementById('date-from').value ? new Date(document.getElementById('date-from').value) : null;
-        const dateTo = document.getElementById('date-to').value ? new Date(document.getElementById('date-to').value + 'T23:59:59') : null;
+        const dateFrom = parseDate(document.getElementById('date-from').value);
+        const dateTo = parseDate(document.getElementById('date-to').value);
+        if (dateTo) dateTo.setHours(23, 59, 59, 999);
 
         return allTasks.filter(t => {
             const matchOwner = ownerFilter === 'all' || t['באחריות'] === ownerFilter;
@@ -595,6 +629,12 @@
         return 'status-todo';
     }
 
+    function linkify(text) {
+        if (!text) return '';
+        const urlRegex = /(https?:\/\/[^\s<]+)/g;
+        return String(text).replace(urlRegex, url => `<a href="${url}" target="_blank" style="color:#3498db; word-break:break-all;">${url}</a>`);
+    }
+
     function getProgressColor(pct) {
         if (pct >= 100) return '#27ae60';
         if (pct >= 70) return '#2ecc71';
@@ -650,12 +690,13 @@
 
     // ── KPIs ──
     function updateKPIs() {
-        const total = allTasks.length;
-        const completed = allTasks.filter(t => t['סטטוס שלב'] === 'הסתיים').length;
-        const inProgress = allTasks.filter(t => t['סטטוס שלב'] === 'בעבודה').length;
-        const notStarted = allTasks.filter(t => t['סטטוס שלב'] === 'טרם החל' || t['סטטוס שלב'] === 'טרם הכל').length;
-        const overdueCount = allTasks.filter(t => isOverdue(t)).length;
-        const avgProgress = total > 0 ? (allTasks.reduce((acc, t) => acc + (Number(t['% התקדמות']) || 0), 0) / total) : 0;
+        const filtered = getFilteredTasks();
+        const total = filtered.length;
+        const completed = filtered.filter(t => t['סטטוס שלב'] === 'הסתיים').length;
+        const inProgress = filtered.filter(t => t['סטטוס שלב'] === 'בעבודה').length;
+        const notStarted = filtered.filter(t => t['סטטוס שלב'] === 'טרם החל' || t['סטטוס שלב'] === 'טרם הכל').length;
+        const overdueCount = filtered.filter(t => isOverdue(t)).length;
+        const avgProgress = total > 0 ? (filtered.reduce((acc, t) => acc + (Number(t['% התקדמות']) || 0), 0) / total) : 0;
 
         document.getElementById('kpi-total').innerText = total;
         document.getElementById('kpi-completed').innerText = completed;
@@ -667,8 +708,9 @@
 
     // ── Charts ──
     function renderStatusChart() {
+        const filtered = getFilteredTasks();
         const counts = {};
-        allTasks.forEach(t => {
+        filtered.forEach(t => {
             const status = t['סטטוס שלב'] || 'לא ידוע';
             counts[status] = (counts[status] || 0) + 1;
         });
@@ -685,8 +727,9 @@
     }
 
     function renderMilestoneChart() {
+        const filtered = getFilteredTasks();
         const milestones = {};
-        allTasks.forEach(t => {
+        filtered.forEach(t => {
             const ms = t['אבן דרך'] || 'אחר';
             if (!milestones[ms]) milestones[ms] = { total: 0, done: 0 };
             milestones[ms].total++;
@@ -714,8 +757,9 @@
     }
 
     function renderOwnerChart() {
+        const filtered = getFilteredTasks();
         const owners = {};
-        allTasks.forEach(t => {
+        filtered.forEach(t => {
             const owner = t['באחריות'] || 'לא משויך';
             if (!owners[owner]) owners[owner] = { total: 0, done: 0 };
             owners[owner].total++;
@@ -747,7 +791,8 @@
 
     // ── Timeline / Gantt ──
     function renderTimeline() {
-        const tasksWithDates = allTasks.filter(t => parseDate(t['תאריך התחלה']));
+        const filtered = getFilteredTasks();
+        const tasksWithDates = filtered.filter(t => parseDate(t['תאריך התחלה']));
         if (tasksWithDates.length === 0) {
             document.getElementById('timelineSection').style.display = 'none';
             return;
@@ -833,11 +878,11 @@
             </div>
             <div class="modal-section">
                 <div class="modal-section-title">פירוט הדרישה</div>
-                <div class="modal-section-body">${t['פירוט הדרישה'] || 'אין פירוט'}</div>
+                <div class="modal-section-body">${linkify(t['פירוט הדרישה']) || 'אין פירוט'}</div>
             </div>
             ${t['הערות'] ? `<div class="modal-section">
                 <div class="modal-section-title">הערות</div>
-                <div class="modal-section-body">${t['הערות']}</div>
+                <div class="modal-section-body">${linkify(t['הערות'])}</div>
             </div>` : ''}
             <div class="modal-section">
                 <div class="modal-section-title">התקדמות</div>
@@ -866,7 +911,31 @@
 
     document.addEventListener('keydown', e => { if (e.key === 'Escape') closeModal(); });
 
-    window.onload = loadData;
+    // ── Flatpickr date pickers ──
+    let fpFrom = null;
+    let fpTo = null;
+
+    function initDatePickers() {
+        const commonOpts = {
+            dateFormat: 'd/m/Y',
+            allowInput: true,
+            disableMobile: true,
+            locale: {
+                firstDayOfWeek: 0,
+                weekdays: { shorthand: ['א','ב','ג','ד','ה','ו','ש'], longhand: ['ראשון','שני','שלישי','רביעי','חמישי','שישי','שבת'] },
+                months: { shorthand: ['ינו','פבר','מרץ','אפר','מאי','יונ','יול','אוג','ספט','אוק','נוב','דצמ'],
+                          longhand: ['ינואר','פברואר','מרץ','אפריל','מאי','יוני','יולי','אוגוסט','ספטמבר','אוקטובר','נובמבר','דצמבר'] }
+            },
+            onChange: function() { setDateRange('custom'); }
+        };
+        fpFrom = flatpickr('#date-from', commonOpts);
+        fpTo = flatpickr('#date-to', commonOpts);
+    }
+
+    window.onload = function() {
+        initDatePickers();
+        loadData();
+    };
 </script>
 </body>
 </html>
