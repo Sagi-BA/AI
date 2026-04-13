@@ -567,7 +567,26 @@
         });
     }
 
-    // ── Data Loading ──
+    // ── Data Loading (Stale-While-Revalidate) ──
+    const CACHE_KEY = 'tasks_cache_v1';
+    const CACHE_MAX_AGE_MS = 30 * 60 * 1000; // 30 דקות - מעבר לזה לא מציגים ישן אפילו בהתחלה
+
+    function loadCachedData() {
+        try {
+            const raw = localStorage.getItem(CACHE_KEY);
+            if (!raw) return null;
+            const parsed = JSON.parse(raw);
+            if (!parsed || !parsed.data || !parsed.timestamp) return null;
+            return parsed;
+        } catch(e) { return null; }
+    }
+
+    function saveCachedData(data) {
+        try {
+            localStorage.setItem(CACHE_KEY, JSON.stringify({ data, timestamp: Date.now() }));
+        } catch(e) {}
+    }
+
     async function loadData() {
         // בודק אם כבר הזנו סיסמה בסשן הנוכחי
         let pwd = sessionStorage.getItem('tasks_pwd');
@@ -578,12 +597,40 @@
             sessionStorage.setItem('tasks_pwd', pwd);
         }
 
-        document.getElementById('last-update').innerText = "מאמת סיסמה וטוען נתונים...";
-        showSkeletons();
+        // ── שלב 1: הצגה מיידית של נתונים ישנים מ-localStorage (אם יש ולא ישנים מדי) ──
+        const cached = loadCachedData();
+        const cacheAge = cached ? Date.now() - cached.timestamp : Infinity;
+        const hasUsableCache = cached && cacheAge < CACHE_MAX_AGE_MS;
 
+        if (hasUsableCache) {
+            allTasks = cached.data;
+            lastUpdateTime = new Date(cached.timestamp);
+            hideSkeletons();
+            populateFilters();
+            if (firstLoad) {
+                const fromURL = loadFiltersFromURL();
+                if (!fromURL) {
+                    const restored = loadFilters();
+                    if (!restored) setDateRange('today');
+                }
+                firstLoad = false;
+            }
+            renderAlerts();
+            renderTable();
+            updateKPIs();
+            renderStatusChart();
+            renderMilestoneChart();
+            renderOwnerChart();
+            renderTimeline();
+            document.getElementById('last-update').innerText = `עדכון אחרון: ${timeAgoText(lastUpdateTime)} · מרענן ברקע...`;
+        } else {
+            document.getElementById('last-update').innerText = "מאמת סיסמה וטוען נתונים...";
+            showSkeletons();
+        }
+
+        // ── שלב 2: פנייה ברקע לנתונים טריים ──
         const url = `${WEB_APP_URL}?action=getData&pwd=${encodeURIComponent(pwd)}`;
 
-        // פנייה לנתונים (מתאים גם ל-Localhost וגם לשרת)
         fetch(url, { redirect: 'follow' })
             .then(res => res.json())
             .then(data => {
@@ -594,15 +641,19 @@
                     return;
                 }
                 allTasks = data;
+                saveCachedData(data);
                 updateUI();
             })
             .catch(err => {
-                // כל כשל (כולל סיסמה שגויה שמחזירה תגובה לא-JSON) → ננקה את הסיסמה
-                // כדי שהמשתמש יתבקש להזין אותה שוב בלחיצה על "נסה שוב"
                 sessionStorage.removeItem('tasks_pwd');
-                hideSkeletons();
-                document.getElementById('last-update').innerText = "שגיאה בטעינת נתונים";
-                document.getElementById('tableBody').innerHTML = '<tr><td colspan="9" class="error-msg">לא ניתן לטעון נתונים. <button onclick="loadData()" style="margin-right:10px; padding:6px 16px; border-radius:6px; border:none; background:#3498db; color:white; font-weight:bold; cursor:pointer;">נסה שוב</button></td></tr>';
+                // אם יש נתוני cache נציגם ולא נחרים את המסך
+                if (hasUsableCache) {
+                    document.getElementById('last-update').innerText = `עדכון אחרון: ${timeAgoText(lastUpdateTime)} · שגיאה ברענון`;
+                } else {
+                    hideSkeletons();
+                    document.getElementById('last-update').innerText = "שגיאה בטעינת נתונים";
+                    document.getElementById('tableBody').innerHTML = '<tr><td colspan="9" class="error-msg">לא ניתן לטעון נתונים. <button onclick="loadData()" style="margin-right:10px; padding:6px 16px; border-radius:6px; border:none; background:#3498db; color:white; font-weight:bold; cursor:pointer;">נסה שוב</button></td></tr>';
+                }
                 console.error('Error:', err);
             });
     }

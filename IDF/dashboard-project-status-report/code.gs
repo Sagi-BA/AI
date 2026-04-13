@@ -29,6 +29,14 @@ function doGet(e) {
 // הבדיקה נעשית בתוך ה-doGet או בקריאה הישירה
 
 function getTasksData() {
+  // ── Cache: חוסך את עלות ה-read מהגיליון עבור בקשות עוקבות ──
+  const cache = CacheService.getScriptCache();
+  const CACHE_KEY = 'tasks_data_v1';
+  const cached = cache.get(CACHE_KEY);
+  if (cached) {
+    try { return JSON.parse(cached); } catch (e) { /* fallthrough */ }
+  }
+
   const ss = SpreadsheetApp.getActiveSpreadsheet();
   const sheet = ss.getSheets()[1]; // הגיליון הראשון
   const range = sheet.getDataRange();
@@ -66,7 +74,15 @@ function getTasksData() {
     result.push(obj);
   }
 
+  // שמירה ב-cache למשך 60 שניות - הבקשה הבאה תהיה כמעט מיידית
+  try { cache.put(CACHE_KEY, JSON.stringify(result), 60); } catch (e) {}
+
   return result;
+}
+
+// פונקציה עזר ניתנת לקריאה ידנית מ-Apps Script (למשל אחרי עדכון ידני בגיליון)
+function clearTasksCache() {
+  CacheService.getScriptCache().remove('tasks_data_v1');
 }
 
 function extractUrlsFromRichText(richText) {
