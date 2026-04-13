@@ -9,8 +9,62 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/themes/material_blue.css">
     <link href="https://fonts.googleapis.com/css2?family=Assistant:wght@300;400;700&display=swap" rel="stylesheet">
     <style>
-        body { font-family: 'Assistant', sans-serif; background-color: #f4f7f6; margin: 0; padding: 20px; color: #333; }
+        /* Theme variables (light/dark) */
+        :root {
+            --bg: #f4f7f6;
+            --card-bg: white;
+            --text: #333;
+            --text-muted: #7f8c8d;
+            --border: #ddd;
+            --border-light: #edf2f7;
+            --header-color: #2c3e50;
+            --hover-bg: #f1f8ff;
+            --row-alt: #f8f9fa;
+            --shadow: 0 4px 6px rgba(0,0,0,0.05);
+        }
+        html[data-theme="dark"] {
+            --bg: #1a1d23;
+            --card-bg: #252930;
+            --text: #e4e6eb;
+            --text-muted: #9ca3af;
+            --border: #3a3f47;
+            --border-light: #2d323a;
+            --header-color: #e4e6eb;
+            --hover-bg: #2d3742;
+            --row-alt: #2d323a;
+            --shadow: 0 4px 6px rgba(0,0,0,0.3);
+        }
+        html[data-theme="dark"] .kbd-hint { background: #3a3f47; color: #e4e6eb; }
+        html[data-theme="dark"] .modal-content { background: #252930; color: #e4e6eb; }
+        html[data-theme="dark"] .modal-close { background: #3a3f47; color: #e4e6eb; }
+        html[data-theme="dark"] .quick-btn { background: #252930; color: #e4e6eb; border-color: #3a3f47; }
+        html[data-theme="dark"] select, html[data-theme="dark"] .search-input, html[data-theme="dark"] .date-filter-row input.date-input, html[data-theme="dark"] .multi-select-btn { background: #252930; color: #e4e6eb; border-color: #3a3f47; }
+        html[data-theme="dark"] .multi-select-panel { background: #252930; border-color: #3a3f47; }
+        html[data-theme="dark"] .multi-select-panel label { border-bottom-color: #3a3f47; }
+        html[data-theme="dark"] .btn-outline { background: #252930; color: #e4e6eb; border-color: #3a3f47; }
+        html[data-theme="dark"] .btn-outline:hover { background: #2d323a; }
+
+        body { font-family: 'Assistant', sans-serif; background-color: var(--bg); margin: 0; padding: 20px; color: var(--text); transition: background 0.2s, color 0.2s; }
         .container { max-width: 1400px; margin: auto; }
+        .card, .chart-section, .filter-section, .date-filter-row, .table-container, .timeline-section { background: var(--card-bg); color: var(--text); box-shadow: var(--shadow); }
+        h1, .timeline-title, .modal-title { color: var(--header-color); }
+        th { background-color: var(--row-alt); color: var(--text); border-bottom-color: var(--border-light); }
+        td { color: var(--text); border-bottom-color: var(--border-light); }
+        tr:hover { background-color: var(--hover-bg); }
+
+        /* Alerts Bar */
+        .alerts-bar { background: linear-gradient(90deg, #fff5e6, #ffeddb); border-right: 4px solid #f39c12; padding: 14px 20px; border-radius: 10px; margin-bottom: 20px; display: flex; gap: 20px; flex-wrap: wrap; align-items: center; }
+        html[data-theme="dark"] .alerts-bar { background: linear-gradient(90deg, #3d2e1a, #4a3a1f); }
+        .alert-item { display: flex; align-items: center; gap: 6px; font-size: 13px; color: #8a5a00; font-weight: 600; cursor: pointer; padding: 4px 10px; border-radius: 6px; transition: background 0.2s; }
+        html[data-theme="dark"] .alert-item { color: #fbbf24; }
+        .alert-item:hover { background: rgba(243,156,18,0.15); }
+        .alert-icon { font-size: 16px; }
+
+        /* Warning icon for invalid tasks */
+        .task-warning { color: #e67e22; font-size: 14px; cursor: help; margin-left: 4px; }
+
+        /* Keyboard shortcut hint */
+        .kbd-hint { display: inline-block; background: #f1f3f5; color: #555; padding: 1px 6px; border-radius: 4px; font-family: monospace; font-size: 11px; border: 1px solid #ddd; }
         header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 30px; flex-wrap: wrap; gap: 10px; }
         h1 { color: #2c3e50; margin: 0; }
         .header-actions { display: flex; gap: 10px; align-items: center; flex-wrap: wrap; }
@@ -42,6 +96,26 @@
         .search-input { min-width: 200px; }
         .search-input:focus { outline: none; border-color: #3498db; box-shadow: 0 0 0 3px rgba(52,152,219,0.1); }
         .result-count { font-size: 13px; color: #7f8c8d; margin-right: auto; }
+
+        /* Multi-select dropdown */
+        .multi-select { position: relative; display: inline-block; }
+        .multi-select-btn { padding: 8px 28px 8px 12px; border-radius: 6px; border: 1px solid #ddd; background: white; font-family: inherit; font-size: 13px; cursor: pointer; min-width: 140px; text-align: right; position: relative; }
+        .multi-select-btn::after { content: '▾'; position: absolute; left: 10px; top: 50%; transform: translateY(-50%); color: #7f8c8d; font-size: 10px; }
+        .multi-select-btn:hover { border-color: #3498db; }
+        .multi-select-panel {
+            display: none; position: absolute; top: calc(100% + 4px); right: 0; z-index: 100;
+            background: white; border: 1px solid #ddd; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            max-height: 260px; overflow-y: auto; min-width: 200px;
+        }
+        .multi-select.open .multi-select-panel { display: block; }
+        .multi-select-panel label {
+            display: flex; align-items: center; gap: 8px; padding: 8px 12px; cursor: pointer; font-size: 13px;
+            border-bottom: 1px solid #f1f3f5;
+        }
+        .multi-select-panel label:last-child { border-bottom: none; }
+        .multi-select-panel label:hover { background: #f1f8ff; }
+        .multi-select-panel input[type="checkbox"] { cursor: pointer; }
+        .multi-select-panel .ms-header { background: #f8f9fa; position: sticky; top: 0; font-weight: 700; color: #3498db; }
 
         /* Date filter */
         .date-filter-row { background: white; padding: 14px 20px; border-radius: 12px; display: flex; gap: 12px; align-items: center; margin-bottom: 20px; flex-wrap: wrap; }
@@ -189,6 +263,8 @@
                 <div class="auto-refresh-dot"></div>
                 <span>רענון אוטומטי כל 5 דק'</span>
             </div>
+            <button onclick="toggleMyTasks()" class="btn btn-outline" id="myTasksBtn" title="הצג רק את המשימות שלי">👤 המשימות שלי</button>
+            <button onclick="toggleDarkMode()" class="btn btn-outline" id="darkModeBtn" title="החלפת ערכת נושא">🌙</button>
             <button onclick="toggleAutoRefresh()" class="btn btn-outline" id="autoRefreshBtn">הפעל רענון אוטומטי</button>
             <button onclick="exportCSV()" class="btn btn-success">ייצוא CSV</button>
             <button onclick="window.print()" class="btn btn-outline">הדפסה</button>
@@ -205,18 +281,22 @@
         <div class="card"><h3>אחוז התקדמות פרויקט</h3><p id="kpi-progress">-</p></div>
     </div>
 
+    <div class="alerts-bar" id="alertsBar" style="display:none;"></div>
+
     <div class="filter-section">
         <strong>סינון:</strong>
         <input type="text" id="search-input" class="search-input" placeholder="חיפוש חופשי..." oninput="refreshFiltered()">
-        <select id="filter-owner" onchange="refreshFiltered()">
-            <option value="all">כל האחראים</option>
-        </select>
+        <div class="multi-select" id="filter-owner-wrap">
+            <button type="button" class="multi-select-btn" id="filter-owner-btn" onclick="toggleOwnerDropdown(event)">כל האחראים</button>
+            <div class="multi-select-panel" id="filter-owner-panel"></div>
+        </div>
         <select id="filter-status" onchange="refreshFiltered()">
             <option value="all">כל הסטטוסים</option>
         </select>
-        <select id="filter-milestone" onchange="refreshFiltered()">
-            <option value="all">כל אבני הדרך</option>
-        </select>
+        <div class="multi-select" id="filter-milestone-wrap">
+            <button type="button" class="multi-select-btn" id="filter-milestone-btn" onclick="toggleMilestoneDropdown(event)">כל אבני הדרך</button>
+            <div class="multi-select-panel" id="filter-milestone-panel"></div>
+        </div>
         <span class="result-count" id="resultCount"></span>
     </div>
 
@@ -305,7 +385,7 @@
         'טרם הכל': '#e74c3c'
     };
 
-    const WEB_APP_URL = "https://script.google.com/macros/s/AKfycbzbdP8bv7b4m5H6xqY-e2bQulUXjJ1gu7TRXPBu4JGCAVCZuPqDUO_na4Ah07TBROpI/exec";
+    const WEB_APP_URL = "https://script.google.com/macros/s/AKfycbwNjpdTE1aPTQpCR9rXBsB2TyHp2IOmFV4DkUCDQVPrl_LsfQ1XC9wb9_cY6rxoybOa/exec";
     const DEV_API_KEY = "SagiShlomiSecret"; // המפתח שהמצאת
 
     // ── Skeleton Loading ──
@@ -350,57 +430,64 @@
     }
 
     // ── Data Loading ──
-    function loadData() {
-        document.getElementById('last-update').innerText = "טוען נתונים...";
+    async function loadData() {
+        // בודק אם כבר הזנו סיסמה בסשן הנוכחי
+        let pwd = sessionStorage.getItem('tasks_pwd');
+
+        if (!pwd) {
+            pwd = prompt("שלום! אנא הזן סיסמה לצפייה בדשבורד:");
+            if (!pwd) return; // המשתמש לחץ ביטול
+            sessionStorage.setItem('tasks_pwd', pwd);
+        }
+
+        document.getElementById('last-update').innerText = "מאמת סיסמה וטוען נתונים...";
         showSkeletons();
 
-        if (window.location.hostname === "127.0.0.1" || window.location.hostname === "localhost") {
-            // עבודה מקומית - מוסיפים את מפתח האבטחה ל-URL
-            const urlWithKey = `${WEB_APP_URL}?action=getData&key=${DEV_API_KEY}`;
-            
-            fetch(urlWithKey, {
-                method: 'GET',
-                redirect: 'follow' // חשוב מאוד לעבודה מול Google Script
+        const url = `${WEB_APP_URL}?action=getData&pwd=${encodeURIComponent(pwd)}`;
+
+        // פנייה לנתונים (מתאים גם ל-Localhost וגם לשרת)
+        fetch(url, { redirect: 'follow' })
+            .then(res => res.json())
+            .then(data => {
+                if (data.error) {
+                    alert("סיסמה שגויה!");
+                    sessionStorage.removeItem('tasks_pwd');
+                    location.reload();
+                    return;
+                }
+                allTasks = data;
+                updateUI();
             })
-                .then(res => {
-                    if (!res.ok) throw new Error('Network response was not ok');
-                    return res.json();
-                })
-                .then(data => { 
-                    allTasks = data; 
-                    updateUI(); 
-                })
-                .catch(err => {
-                    hideSkeletons();
-                    document.getElementById('last-update').innerText = "שגיאה בטעינת נתונים";
-                    document.getElementById('tableBody').innerHTML = '<tr><td colspan="9" class="error-msg">לא ניתן לטעון נתונים מה-API. וודא שהפריסה (Deploy) מוגדרת כ-Anyone.</td></tr>';
-                    console.error('Fetch error:', err);
-                });
-        } else {
-            // עבודה בתוך גוגל (הדשבורד שנטאלי רואה) - כאן גוגל מזהה את המייל אוטומטית
-            google.script.run.withSuccessHandler(data => { 
-                allTasks = data; 
-                updateUI(); 
-            })
-            .withFailureHandler(err => {
+            .catch(err => {
+                // כל כשל (כולל סיסמה שגויה שמחזירה תגובה לא-JSON) → ננקה את הסיסמה
+                // כדי שהמשתמש יתבקש להזין אותה שוב בלחיצה על "נסה שוב"
+                sessionStorage.removeItem('tasks_pwd');
                 hideSkeletons();
                 document.getElementById('last-update').innerText = "שגיאה בטעינת נתונים";
-                console.error('Google Script error:', err);
-            }).getTasksData();
-        }
+                document.getElementById('tableBody').innerHTML = '<tr><td colspan="9" class="error-msg">לא ניתן לטעון נתונים. <button onclick="loadData()" style="margin-right:10px; padding:6px 16px; border-radius:6px; border:none; background:#3498db; color:white; font-weight:bold; cursor:pointer;">נסה שוב</button></td></tr>';
+                console.error('Error:', err);
+            });
     }
 
     let firstLoad = true;
 
     function updateUI() {
         hideSkeletons();
-        const now = new Date();
-        document.getElementById('last-update').innerText = `עדכון אחרון: ${now.toLocaleDateString('he-IL')} ${now.toLocaleTimeString('he-IL')}`;
+        lastUpdateTime = new Date();
+        document.getElementById('last-update').innerText = `עדכון אחרון: הרגע`;
         populateFilters();
         if (firstLoad) {
-            setDateRange('today');
+            // סדר עדיפויות: URL params → localStorage → ברירת מחדל "היום"
+            const fromURL = loadFiltersFromURL();
+            if (!fromURL) {
+                const restored = loadFilters();
+                if (!restored) {
+                    setDateRange('today');
+                }
+            }
             firstLoad = false;
         }
+        renderAlerts();
         renderTable();
         updateKPIs();
         renderStatusChart();
@@ -443,25 +530,107 @@
     }
 
     // ── Filters ──
+    let selectedOwners = new Set(); // empty = "all"
+
+    function splitOwners(value) {
+        if (!value) return [];
+        return String(value).split(/[,،;\/]/).map(s => s.trim().replace(/^["']|["']$/g, '')).filter(Boolean);
+    }
+
+    function toggleOwnerDropdown(e) {
+        e.stopPropagation();
+        document.getElementById('filter-owner-wrap').classList.toggle('open');
+    }
+
+    // Close dropdown when clicking outside
+    document.addEventListener('click', e => {
+        const wrap = document.getElementById('filter-owner-wrap');
+        if (wrap && !wrap.contains(e.target)) wrap.classList.remove('open');
+    });
+
+    function updateOwnerBtnLabel() {
+        const btn = document.getElementById('filter-owner-btn');
+        if (selectedOwners.size === 0) {
+            btn.innerText = 'כל האחראים';
+        } else if (selectedOwners.size === 1) {
+            btn.innerText = [...selectedOwners][0];
+        } else {
+            btn.innerText = `${selectedOwners.size} נבחרו`;
+        }
+    }
+
+    function onOwnerToggle(ownerName, checked) {
+        if (checked) selectedOwners.add(ownerName);
+        else selectedOwners.delete(ownerName);
+        updateOwnerBtnLabel();
+        refreshFiltered();
+    }
+
+    // ── Milestone multi-select ──
+    let selectedMilestones = new Set(); // empty = "all"
+
+    function toggleMilestoneDropdown(e) {
+        e.stopPropagation();
+        document.getElementById('filter-milestone-wrap').classList.toggle('open');
+    }
+
+    // Close milestone dropdown when clicking outside
+    document.addEventListener('click', e => {
+        const wrap = document.getElementById('filter-milestone-wrap');
+        if (wrap && !wrap.contains(e.target)) wrap.classList.remove('open');
+    });
+
+    function updateMilestoneBtnLabel() {
+        const btn = document.getElementById('filter-milestone-btn');
+        if (selectedMilestones.size === 0) {
+            btn.innerText = 'כל אבני הדרך';
+        } else if (selectedMilestones.size === 1) {
+            btn.innerText = [...selectedMilestones][0];
+        } else {
+            btn.innerText = `${selectedMilestones.size} נבחרו`;
+        }
+    }
+
+    function onMilestoneToggle(milestoneName, checked) {
+        if (checked) selectedMilestones.add(milestoneName);
+        else selectedMilestones.delete(milestoneName);
+        updateMilestoneBtnLabel();
+        refreshFiltered();
+    }
+
     function populateFilters() {
-        const owners = [...new Set(allTasks.map(t => t['באחריות']))].filter(o => o);
+        // פיצול שמות מרובים (למשל "שגיא, נטאלי") לערכים נפרדים
+        const ownersSet = new Set();
+        allTasks.forEach(t => splitOwners(t['באחריות']).forEach(o => ownersSet.add(o)));
+        const owners = [...ownersSet].sort((a, b) => a.localeCompare(b, 'he'));
+
         const statuses = [...new Set(allTasks.map(t => t['סטטוס שלב']))].filter(s => s);
         const milestones = [...new Set(allTasks.map(t => t['אבן דרך']))].filter(m => m);
 
-        const ownerSelect = document.getElementById('filter-owner');
-        const currentOwner = ownerSelect.value;
-        ownerSelect.innerHTML = '<option value="all">כל האחראים</option>';
-        owners.forEach(o => { ownerSelect.innerHTML += `<option value="${o}" ${o===currentOwner?'selected':''}>${o}</option>`; });
+        const ownerPanel = document.getElementById('filter-owner-panel');
+        let ownerHtml = '';
+        owners.forEach(o => {
+            const checked = selectedOwners.has(o) ? 'checked' : '';
+            const escapedO = o.replace(/"/g, '&quot;');
+            ownerHtml += `<label><input type="checkbox" value="${escapedO}" ${checked} onchange="onOwnerToggle(this.value, this.checked)">${o}</label>`;
+        });
+        ownerPanel.innerHTML = ownerHtml;
+        updateOwnerBtnLabel();
 
         const statusSelect = document.getElementById('filter-status');
         const currentStatus = statusSelect.value;
         statusSelect.innerHTML = '<option value="all">כל הסטטוסים</option>';
         statuses.forEach(s => { statusSelect.innerHTML += `<option value="${s}" ${s===currentStatus?'selected':''}>${s}</option>`; });
 
-        const milestoneSelect = document.getElementById('filter-milestone');
-        const currentMilestone = milestoneSelect.value;
-        milestoneSelect.innerHTML = '<option value="all">כל אבני הדרך</option>';
-        milestones.forEach(m => { milestoneSelect.innerHTML += `<option value="${m}" ${m===currentMilestone?'selected':''}>${m}</option>`; });
+        const milestonePanel = document.getElementById('filter-milestone-panel');
+        let msHtml = '';
+        milestones.forEach(m => {
+            const checked = selectedMilestones.has(m) ? 'checked' : '';
+            const escapedM = m.replace(/"/g, '&quot;');
+            msHtml += `<label><input type="checkbox" value="${escapedM}" ${checked} onchange="onMilestoneToggle(this.value, this.checked)">${m}</label>`;
+        });
+        milestonePanel.innerHTML = msHtml;
+        updateMilestoneBtnLabel();
     }
 
     // ── Date Range Filter ──
@@ -515,7 +684,67 @@
         refreshFiltered();
     }
 
+    // ── Persist filter state to localStorage ──
+    const FILTERS_STORAGE_KEY = 'dashboard_filters_v1';
+
+    function saveFilters() {
+        const state = {
+            owners: [...selectedOwners],
+            milestones: [...selectedMilestones],
+            status: document.getElementById('filter-status').value,
+            search: document.getElementById('search-input').value,
+            dateRange: activeDateRange,
+            dateFrom: document.getElementById('date-from').value,
+            dateTo: document.getElementById('date-to').value,
+            sortColumn: sortColumn,
+            sortDirection: sortDirection
+        };
+        try { localStorage.setItem(FILTERS_STORAGE_KEY, JSON.stringify(state)); } catch(e) {}
+    }
+
+    function loadFilters() {
+        try {
+            const raw = localStorage.getItem(FILTERS_STORAGE_KEY);
+            if (!raw) return false;
+            const state = JSON.parse(raw);
+
+            // Restore multi-select selections
+            if (Array.isArray(state.owners)) selectedOwners = new Set(state.owners);
+            if (Array.isArray(state.milestones)) selectedMilestones = new Set(state.milestones);
+            if (Array.isArray(state.owners) || Array.isArray(state.milestones)) {
+                populateFilters(); // re-render panels to reflect restored selection
+            }
+            if (state.status) document.getElementById('filter-status').value = state.status;
+            if (state.search) document.getElementById('search-input').value = state.search;
+
+            // Restore sort
+            sortColumn = state.sortColumn || null;
+            sortDirection = state.sortDirection || 'asc';
+            if (sortColumn) {
+                const th = document.querySelector(`th[data-sort="${sortColumn}"]`);
+                if (th) th.classList.add('sorted');
+            }
+
+            // Restore date range
+            if (state.dateRange === 'custom' && (state.dateFrom || state.dateTo)) {
+                activeDateRange = 'custom';
+                document.querySelectorAll('.quick-btn').forEach(btn => btn.classList.remove('active'));
+                if (state.dateFrom) setFpDate(fpFrom, 'date-from', parseDate(state.dateFrom));
+                if (state.dateTo) setFpDate(fpTo, 'date-to', parseDate(state.dateTo));
+            } else if (state.dateRange) {
+                setDateRange(state.dateRange);
+                return true; // setDateRange already calls refreshFiltered
+            }
+
+            return true;
+        } catch(e) {
+            return false;
+        }
+    }
+
     function refreshFiltered() {
+        saveFilters();
+        syncFiltersToURL();
         renderTable();
         updateKPIs();
         renderStatusChart();
@@ -533,18 +762,23 @@
     }
 
     function getFilteredTasks() {
-        const ownerFilter = document.getElementById('filter-owner').value;
         const statusFilter = document.getElementById('filter-status').value;
-        const milestoneFilter = document.getElementById('filter-milestone').value;
         const search = document.getElementById('search-input').value.toLowerCase().trim();
         const dateFrom = parseDate(document.getElementById('date-from').value);
         const dateTo = parseDate(document.getElementById('date-to').value);
         if (dateTo) dateTo.setHours(23, 59, 59, 999);
 
         return allTasks.filter(t => {
-            const matchOwner = ownerFilter === 'all' || t['באחריות'] === ownerFilter;
+            // Multi-select owner match: task owner may be composite like "שגיא, נטאלי"
+            let matchOwner;
+            if (selectedOwners.size === 0) {
+                matchOwner = true;
+            } else {
+                const taskOwners = splitOwners(t['באחריות']);
+                matchOwner = taskOwners.some(o => selectedOwners.has(o));
+            }
             const matchStatus = statusFilter === 'all' || t['סטטוס שלב'] === statusFilter;
-            const matchMilestone = milestoneFilter === 'all' || t['אבן דרך'] === milestoneFilter;
+            const matchMilestone = selectedMilestones.size === 0 || selectedMilestones.has(t['אבן דרך']);
             let matchSearch = true;
             if (search) {
                 const searchable = [t['משימה'], t['פירוט הדרישה'], t['באחריות'], t['אבן דרך'], t['הערות'], t['סטטוס שלב']].join(' ').toLowerCase();
@@ -558,7 +792,26 @@
                 const taskEnd = parseDate(t['תאריך סיום']);
                 const taskDate = taskEnd || taskStart;
 
-                if (!taskDate) {
+                // "היום" = Operational Today: active today + overdue + starting today, excluding completed
+                if (activeDateRange === 'today') {
+                    if (t['סטטוס שלב'] === 'הסתיים') {
+                        matchDate = false;
+                    } else if (!taskStart && !taskEnd) {
+                        matchDate = false; // משימות ללא תאריכים לא רלוונטיות ל"היום"
+                    } else {
+                        const todayStart = new Date(); todayStart.setHours(0, 0, 0, 0);
+                        const todayEnd = new Date(); todayEnd.setHours(23, 59, 59, 999);
+                        // פעיל היום: start ≤ היום ≤ end
+                        const activeToday = taskStart && taskEnd && taskStart <= todayEnd && taskEnd >= todayStart;
+                        // באיחור: end < היום
+                        const isOverdueTask = taskEnd && taskEnd < todayStart;
+                        // מתחיל היום (אין תאריך סיום)
+                        const startsToday = taskStart && !taskEnd && taskStart.toDateString() === todayStart.toDateString();
+                        // יש רק תאריך סיום והוא היום או אחרי
+                        const dueTodayOrLater = !taskStart && taskEnd && taskEnd >= todayStart;
+                        matchDate = activeToday || isOverdueTask || startsToday || dueTodayOrLater;
+                    }
+                } else if (!taskDate) {
                     // For "overdue" mode, skip tasks with no dates; for others, include them
                     matchDate = activeDateRange !== 'overdue';
                 } else {
@@ -617,6 +870,7 @@
         }
         document.querySelectorAll('th').forEach(h => h.classList.remove('sorted'));
         th.classList.add('sorted');
+        saveFilters();
         renderTable();
     });
 
@@ -662,9 +916,12 @@
             const priority = Number(t['תעדוף']) || 0;
             const priorityClass = priority === 1 ? 'priority-high' : priority ? 'priority-medium' : '';
 
+            const warnings = getTaskWarnings(t);
+            const warningIcon = warnings.length > 0 ? `<span class="task-warning" title="${warnings.join(' | ').replace(/"/g, '&quot;')}">⚠</span>` : '';
+
             html += `<tr class="${overdue ? 'overdue' : ''}">
                 <td class="${priorityClass ? 'priority-cell' : ''}">${priorityClass ? `<div class="priority-indicator ${priorityClass}"></div>` : ''}<span class="milestone-badge">${milestone}</span></td>
-                <td>${t['משימה'] || '-'}</td>
+                <td>${t['משימה'] || '-'}${warningIcon}</td>
                 <td style="max-width: 300px;">
                     ${detail ? `<span class="detail-link" onclick='openDetail(${JSON.stringify(JSON.stringify(t))})'>
                         ${detail.length > 50 ? detail.substring(0, 50) + '...' : detail}
@@ -932,7 +1189,213 @@
         fpTo = flatpickr('#date-to', commonOpts);
     }
 
+    // ══════════════════════════════════════════════════════
+    // ── Dark Mode ──
+    // ══════════════════════════════════════════════════════
+    function applyTheme(theme) {
+        document.documentElement.setAttribute('data-theme', theme);
+        const btn = document.getElementById('darkModeBtn');
+        if (btn) btn.innerText = theme === 'dark' ? '☀️' : '🌙';
+        localStorage.setItem('dashboard_theme', theme);
+    }
+
+    function toggleDarkMode() {
+        const current = document.documentElement.getAttribute('data-theme') || 'light';
+        applyTheme(current === 'dark' ? 'light' : 'dark');
+    }
+
+    // ══════════════════════════════════════════════════════
+    // ── "My Tasks" Quick Filter ──
+    // ══════════════════════════════════════════════════════
+    function toggleMyTasks() {
+        let myName = localStorage.getItem('dashboard_my_name');
+        if (!myName) {
+            myName = prompt('מה השם שלך? (כפי שמופיע בעמודת "באחריות")', '');
+            if (!myName) return;
+            localStorage.setItem('dashboard_my_name', myName.trim());
+        }
+        // Clear existing selection and select only my name
+        selectedOwners = new Set([myName.trim()]);
+        populateFilters();
+        refreshFiltered();
+    }
+
+    // ══════════════════════════════════════════════════════
+    // ── Smart Alerts ──
+    // ══════════════════════════════════════════════════════
+    function computeAlerts() {
+        const alerts = [];
+        const today = new Date(); today.setHours(0,0,0,0);
+        const in2days = new Date(today); in2days.setDate(today.getDate() + 2);
+        const in7days = new Date(today); in7days.setDate(today.getDate() + 7);
+
+        // Tasks becoming overdue in 2 days
+        const soonOverdue = allTasks.filter(t => {
+            if (t['סטטוס שלב'] === 'הסתיים') return false;
+            const end = parseDate(t['תאריך סיום']);
+            return end && end >= today && end <= in2days;
+        });
+
+        // Already overdue
+        const nowOverdue = allTasks.filter(t => {
+            if (t['סטטוס שלב'] === 'הסתיים') return false;
+            const end = parseDate(t['תאריך סיום']);
+            return end && end < today;
+        });
+
+        // Tasks with no end date and not completed
+        const noEndDate = allTasks.filter(t => {
+            if (t['סטטוס שלב'] === 'הסתיים') return false;
+            return !t['תאריך סיום'];
+        });
+
+        // This week deadlines
+        const weekDeadlines = allTasks.filter(t => {
+            if (t['סטטוס שלב'] === 'הסתיים') return false;
+            const end = parseDate(t['תאריך סיום']);
+            return end && end >= today && end <= in7days;
+        });
+
+        if (nowOverdue.length > 0) alerts.push({ icon: '🔴', text: `${nowOverdue.length} משימות באיחור`, action: () => setDateRange('overdue') });
+        if (soonOverdue.length > 0) alerts.push({ icon: '⚠️', text: `${soonOverdue.length} משימות יהפכו לבאיחור ביומיים הקרובים`, action: () => { sortColumn = 'תאריך סיום'; sortDirection = 'asc'; refreshFiltered(); } });
+        if (weekDeadlines.length > 0) alerts.push({ icon: '📅', text: `${weekDeadlines.length} דדליינים השבוע`, action: () => setDateRange('week') });
+        if (noEndDate.length > 0) alerts.push({ icon: '❓', text: `${noEndDate.length} משימות ללא תאריך סיום`, action: null });
+
+        return alerts;
+    }
+
+    function renderAlerts() {
+        const bar = document.getElementById('alertsBar');
+        const alerts = computeAlerts();
+        if (alerts.length === 0) { bar.style.display = 'none'; return; }
+        bar.style.display = 'flex';
+        bar.innerHTML = alerts.map((a, i) => `<div class="alert-item" data-alert="${i}"><span class="alert-icon">${a.icon}</span>${a.text}</div>`).join('');
+        bar.querySelectorAll('.alert-item').forEach((el, i) => {
+            if (alerts[i].action) el.addEventListener('click', alerts[i].action);
+            else el.style.cursor = 'default';
+        });
+    }
+
+    // ══════════════════════════════════════════════════════
+    // ── Deep Linking (URL sync) ──
+    // ══════════════════════════════════════════════════════
+    function syncFiltersToURL() {
+        const params = new URLSearchParams();
+        if (selectedOwners.size > 0) params.set('owners', [...selectedOwners].join('|'));
+        if (selectedMilestones.size > 0) params.set('milestones', [...selectedMilestones].join('|'));
+        const status = document.getElementById('filter-status').value;
+        if (status && status !== 'all') params.set('status', status);
+        const search = document.getElementById('search-input').value;
+        if (search) params.set('q', search);
+        if (activeDateRange && activeDateRange !== 'today') params.set('range', activeDateRange);
+        if (sortColumn) params.set('sort', sortColumn + ':' + sortDirection);
+
+        const newUrl = window.location.pathname + (params.toString() ? '?' + params.toString() : '');
+        window.history.replaceState({}, '', newUrl);
+    }
+
+    function loadFiltersFromURL() {
+        const params = new URLSearchParams(window.location.search);
+        if (params.toString() === '') return false;
+
+        const owners = params.get('owners');
+        if (owners) selectedOwners = new Set(owners.split('|'));
+
+        const milestones = params.get('milestones');
+        if (milestones) selectedMilestones = new Set(milestones.split('|'));
+
+        const status = params.get('status');
+        if (status) document.getElementById('filter-status').value = status;
+
+        const q = params.get('q');
+        if (q) document.getElementById('search-input').value = q;
+
+        const sort = params.get('sort');
+        if (sort) {
+            const [col, dir] = sort.split(':');
+            sortColumn = col;
+            sortDirection = dir || 'asc';
+            const th = document.querySelector(`th[data-sort="${col}"]`);
+            if (th) th.classList.add('sorted');
+        }
+
+        populateFilters();
+
+        const range = params.get('range');
+        if (range) setDateRange(range);
+
+        return true;
+    }
+
+    // ══════════════════════════════════════════════════════
+    // ── Validation Warnings ──
+    // ══════════════════════════════════════════════════════
+    function getTaskWarnings(t) {
+        const warnings = [];
+        const start = parseDate(t['תאריך התחלה']);
+        const end = parseDate(t['תאריך סיום']);
+        const progress = Number(t['% התקדמות']) || 0;
+        const status = t['סטטוס שלב'];
+
+        if (start && end && end < start) warnings.push('תאריך סיום לפני תאריך התחלה');
+        if (status === 'הסתיים' && progress < 100) warnings.push('סטטוס "הסתיים" אבל התקדמות < 100%');
+        if (status !== 'הסתיים' && progress === 100) warnings.push('התקדמות 100% אבל הסטטוס לא "הסתיים"');
+        if (!t['באחריות']) warnings.push('אין אחראי משויך');
+        if (!t['תאריך סיום'] && status !== 'הסתיים') warnings.push('חסר תאריך סיום');
+
+        return warnings;
+    }
+
+    // ══════════════════════════════════════════════════════
+    // ── Keyboard Shortcuts ──
+    // ══════════════════════════════════════════════════════
+    document.addEventListener('keydown', e => {
+        // Don't trigger if user is typing in an input
+        const tag = (e.target.tagName || '').toLowerCase();
+        if (tag === 'input' || tag === 'textarea' || tag === 'select') return;
+        if (e.ctrlKey || e.metaKey || e.altKey) return;
+
+        const key = e.key.toLowerCase();
+        if (key === '/') { e.preventDefault(); document.getElementById('search-input').focus(); }
+        else if (key === 'r') loadData();
+        else if (key === 't') setDateRange('today');
+        else if (key === 'w') setDateRange('week');
+        else if (key === 'm') setDateRange('month');
+        else if (key === 'o') setDateRange('overdue');
+        else if (key === 'a') setDateRange('all');
+        else if (key === 'd') toggleDarkMode();
+    });
+
+    // ══════════════════════════════════════════════════════
+    // ── "Time Ago" Indicator ──
+    // ══════════════════════════════════════════════════════
+    let lastUpdateTime = null;
+
+    function timeAgoText(date) {
+        const seconds = Math.floor((new Date() - date) / 1000);
+        if (seconds < 10) return 'הרגע';
+        if (seconds < 60) return `לפני ${seconds} שניות`;
+        const minutes = Math.floor(seconds / 60);
+        if (minutes < 60) return `לפני ${minutes} דקות`;
+        const hours = Math.floor(minutes / 60);
+        if (hours < 24) return `לפני ${hours} שעות`;
+        const days = Math.floor(hours / 24);
+        return `לפני ${days} ימים`;
+    }
+
+    function updateTimeAgo() {
+        if (!lastUpdateTime) return;
+        const el = document.getElementById('last-update');
+        if (el && !el.innerText.startsWith('טוען') && !el.innerText.startsWith('שגיאה') && !el.innerText.startsWith('מאמת')) {
+            el.innerText = `עדכון אחרון: ${timeAgoText(lastUpdateTime)}`;
+        }
+    }
+    setInterval(updateTimeAgo, 30000); // כל 30 שניות
+
     window.onload = function() {
+        // Apply saved theme before anything renders
+        const savedTheme = localStorage.getItem('dashboard_theme') || 'light';
+        applyTheme(savedTheme);
         initDatePickers();
         loadData();
     };

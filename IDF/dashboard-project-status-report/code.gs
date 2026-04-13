@@ -1,24 +1,32 @@
-const DEV_API_KEY = "SagiShlomiSecret2026"; // תמציא סיסמה חזקה משלך
-const ALLOWED_USERS = ['Silverstyle10@gmail.com', 'shlomi.a82@gmail.com', 'sagi.baron76@gmail.com', 'gyhbrwn@gmail.com'];
+const DASHBOARD_PASSWORD = "bonbon123"; 
 
 function doGet(e) {
-  const userEmail = Session.getActiveUser().getEmail();
+  // אם הבקשה מגיעה מה-Localhost שלך (עם ה-API KEY הישן) - נאשר לו גישה ישירה
   const providedKey = e.parameter.key;
+  const providedPwd = e.parameter.pwd; // סיסמה שתגיע מהדשבורד
 
-  // בדיקת הרשאה: או שהמפתח נכון (לפיתוח מקומי) או שהמייל מורשה (לנטאלי)
-  if (providedKey !== DEV_API_KEY && ALLOWED_USERS.indexOf(userEmail) === -1) {
-    return ContentService.createTextOutput("Access Denied").setMimeType(ContentService.MimeType.TEXT);
+  // לוגיקת החזרת הנתונים (עבור ה-fetch ב-VS Code או הקריאה מהדשבורד)
+  if (e.parameter && e.parameter.action === 'getData') {
+    // בודק אם המפתח נכון (עבורך) או אם הסיסמה נכונה (עבור נטאלי/שלומי)
+    if (providedKey === DASHBOARD_PASSWORD || providedPwd === DASHBOARD_PASSWORD) {
+        const data = getTasksData();
+        return ContentService.createTextOutput(JSON.stringify(data))
+          .setMimeType(ContentService.MimeType.JSON);
+    } else {
+        return ContentService.createTextOutput(JSON.stringify({error: "Wrong Password"}))
+          .setMimeType(ContentService.MimeType.JSON);
+    }
   }
 
-  // לוגיקת החזרת הנתונים (כמו קודם)
-  if (e.parameter.action === 'getData') {
-    const data = getTasksData();
-    return ContentService.createTextOutput(JSON.stringify(data))
-      .setMimeType(ContentService.MimeType.JSON);
-  }
-
-  return HtmlService.createTemplateFromFile('Dashboard').evaluate();
+  // הצגת הדף עצמו לכל מי שיש לו את הלינק
+  return HtmlService.createTemplateFromFile('Dashboard')
+      .evaluate()
+      .setTitle('ניהול משימות - צוות תקשוב')
+      .setXFrameOptionsMode(HtmlService.XFrameOptionsMode.ALLOWALL);
 }
+
+// שים לב: שינינו את getTasksData כך שלא תצטרך לקבל פרמטרים פנימיים, 
+// הבדיקה נעשית בתוך ה-doGet או בקריאה הישירה
 
 function getTasksData() {
   const ss = SpreadsheetApp.getActiveSpreadsheet();
