@@ -65,6 +65,19 @@
 
         /* Keyboard shortcut hint */
         .kbd-hint { display: inline-block; background: #f1f3f5; color: #555; padding: 1px 6px; border-radius: 4px; font-family: monospace; font-size: 11px; border: 1px solid #ddd; }
+
+        /* Grouping view */
+        tr.group-header { background: linear-gradient(90deg, #eef2ff, #e0e7ff); cursor: pointer; user-select: none; }
+        tr.group-header:hover { background: linear-gradient(90deg, #e0e7ff, #c7d2fe); }
+        html[data-theme="dark"] tr.group-header { background: linear-gradient(90deg, #2d3748, #374151); }
+        html[data-theme="dark"] tr.group-header:hover { background: linear-gradient(90deg, #374151, #4b5563); }
+        tr.group-header td { font-weight: 700; font-size: 14px; color: #4338ca; padding: 14px 12px; }
+        html[data-theme="dark"] tr.group-header td { color: #a5b4fc; }
+        tr.group-header .group-arrow { display: inline-block; transition: transform 0.2s; margin-left: 6px; }
+        tr.group-header.collapsed .group-arrow { transform: rotate(-90deg); }
+        tr.group-header .group-count { background: #4338ca; color: white; padding: 2px 10px; border-radius: 12px; font-size: 12px; margin-right: 10px; font-weight: 600; }
+        tr.group-header .group-stats { float: left; font-size: 12px; font-weight: 400; color: #6b7280; }
+        html[data-theme="dark"] tr.group-header .group-stats { color: #9ca3af; }
         header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 30px; flex-wrap: wrap; gap: 10px; }
         h1 { color: #2c3e50; margin: 0; }
         .header-actions { display: flex; gap: 10px; align-items: center; flex-wrap: wrap; }
@@ -243,10 +256,127 @@
         }
 
         @media (max-width: 768px) {
-            .charts-grid { grid-template-columns: 1fr; }
-            .kpi-container { grid-template-columns: repeat(2, 1fr); }
-            .filter-section { flex-direction: column; align-items: stretch; }
-            .timeline-label { width: 100px; min-width: 100px; }
+            body { padding: 10px; }
+            .container { max-width: 100%; }
+
+            /* Header */
+            header { flex-direction: column; align-items: stretch; }
+            .header-actions { width: 100%; justify-content: flex-start; gap: 6px; }
+            .header-actions .btn { padding: 8px 12px; font-size: 12px; flex: 1 0 auto; }
+
+            /* KPIs - 2 columns */
+            .kpi-container { grid-template-columns: repeat(2, 1fr); gap: 10px; }
+            .card { padding: 14px; }
+            .card p { font-size: 22px; }
+
+            /* Charts stack */
+            .charts-grid { grid-template-columns: 1fr; gap: 12px; }
+            .chart-section { padding: 12px; }
+            .chart-section canvas { max-height: 220px; }
+
+            /* Filters */
+            .filter-section { flex-direction: column; align-items: stretch; padding: 14px; }
+            .filter-section .search-input { width: 100%; min-width: auto; }
+            .filter-section select, .filter-section .multi-select { width: 100%; }
+            .multi-select-btn { width: 100%; min-width: auto; }
+            .multi-select-panel { left: 0; right: 0; min-width: auto; max-height: 50vh; }
+            .result-count { width: 100%; text-align: center; padding-top: 8px; }
+
+            /* Date filter row */
+            .date-filter-row { flex-direction: column; align-items: stretch; gap: 10px; padding: 14px; }
+            .date-filter-row .quick-btns { width: 100%; justify-content: stretch; }
+            .date-filter-row .quick-btn { flex: 1; padding: 8px 4px; font-size: 11px; }
+            .date-separator { display: none; }
+            .date-filter-row input.date-input { width: 100%; }
+
+            /* Timeline - hide on mobile (doesn't fit) */
+            .timeline-section { display: none; }
+
+            /* === TABLE → CARDS transformation === */
+            .table-container { overflow-x: visible; padding: 4px; background: transparent; box-shadow: none; }
+            table, thead, tbody, tr, td { display: block; }
+            thead { display: none; }
+
+            tbody tr {
+                background: var(--card-bg);
+                border: 1px solid var(--border-light);
+                border-radius: 12px;
+                margin-bottom: 12px;
+                padding: 14px;
+                box-shadow: var(--shadow);
+                position: relative;
+            }
+            tbody tr.overdue { border-right: 4px solid #e74c3c; }
+            tbody tr:hover { background: var(--card-bg); } /* disable hover on touch */
+
+            tbody td {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                padding: 6px 0;
+                border: none;
+                text-align: right;
+                gap: 10px;
+            }
+            tbody td::before {
+                content: attr(data-label);
+                font-weight: 700;
+                color: var(--text-muted);
+                font-size: 11px;
+                flex-shrink: 0;
+                text-transform: uppercase;
+                letter-spacing: 0.5px;
+            }
+
+            /* Task name (2nd column) - heading style */
+            tbody td[data-label="משימה"] {
+                font-size: 16px;
+                font-weight: 700;
+                border-bottom: 1px solid var(--border-light);
+                padding-bottom: 10px;
+                margin-bottom: 6px;
+                display: block;
+                text-align: right;
+            }
+            tbody td[data-label="משימה"]::before { display: none; }
+
+            /* Milestone (1st column) */
+            tbody td[data-label="אבן דרך"] { padding-right: 0; }
+
+            /* Detail (3rd) - allow wrap below label */
+            tbody td[data-label="פירוט הדרישה"] {
+                display: block;
+                max-width: 100% !important;
+            }
+            tbody td[data-label="פירוט הדרישה"]::before { display: block; margin-bottom: 4px; }
+            tbody td[data-label="פירוט הדרישה"] .detail-link { font-size: 13px; }
+
+            /* Progress bar - full width */
+            tbody td[data-label="התקדמות"] { display: block; }
+            tbody td[data-label="התקדמות"]::before { display: block; margin-bottom: 6px; }
+
+            /* Group header in card mode */
+            tbody tr.group-header {
+                background: linear-gradient(90deg, #eef2ff, #e0e7ff);
+                padding: 12px 14px;
+                cursor: pointer;
+            }
+            tbody tr.group-header td {
+                display: block;
+                padding: 0;
+            }
+            tbody tr.group-header td::before { content: none; }
+            tbody tr.group-header .group-stats { float: none; display: block; margin-top: 4px; }
+
+            /* Alerts bar - mobile */
+            .alerts-bar { padding: 10px 14px; gap: 8px; }
+            .alert-item { font-size: 12px; padding: 4px 8px; }
+        }
+
+        @media (max-width: 380px) {
+            .kpi-container { grid-template-columns: 1fr 1fr; }
+            .card p { font-size: 18px; }
+            .header-actions .btn { font-size: 11px; padding: 7px 10px; }
         }
     </style>
 </head>
@@ -297,6 +427,12 @@
             <button type="button" class="multi-select-btn" id="filter-milestone-btn" onclick="toggleMilestoneDropdown(event)">כל אבני הדרך</button>
             <div class="multi-select-panel" id="filter-milestone-panel"></div>
         </div>
+        <select id="group-by" onchange="onGroupByChange()">
+            <option value="">בלי קיבוץ</option>
+            <option value="אבן דרך">קבץ לפי אבן דרך</option>
+            <option value="באחריות">קבץ לפי אחראי</option>
+            <option value="סטטוס שלב">קבץ לפי סטטוס</option>
+        </select>
         <span class="result-count" id="resultCount"></span>
     </div>
 
@@ -377,6 +513,8 @@
     let autoRefreshInterval = null;
     let sortColumn = null;
     let sortDirection = 'asc';
+    let groupBy = ''; // '', 'אבן דרך', 'באחריות', 'סטטוס שלב'
+    let collapsedGroups = new Set();
 
     const STATUS_COLORS = {
         'הסתיים': '#27ae60',
@@ -385,7 +523,7 @@
         'טרם הכל': '#e74c3c'
     };
 
-    const WEB_APP_URL = "https://script.google.com/macros/s/AKfycbwNjpdTE1aPTQpCR9rXBsB2TyHp2IOmFV4DkUCDQVPrl_LsfQ1XC9wb9_cY6rxoybOa/exec";
+    const WEB_APP_URL = "https://script.google.com/macros/s/AKfycbxXU54lm2MBcVoV1Y5Z4mjtrR4xJkrrxAIxlUXS9q-FI0hjEgdrlOdDtUtSqYk_89nD/exec";
     const DEV_API_KEY = "SagiShlomiSecret"; // המפתח שהמצאת
 
     // ── Skeleton Loading ──
@@ -563,6 +701,20 @@
         if (checked) selectedOwners.add(ownerName);
         else selectedOwners.delete(ownerName);
         updateOwnerBtnLabel();
+        populateFilters();
+        refreshFiltered();
+    }
+
+    function onOwnerSelectAll(checked) {
+        if (checked) {
+            const ownersSet = new Set();
+            allTasks.forEach(t => splitOwners(t['באחריות']).forEach(o => ownersSet.add(o)));
+            selectedOwners = ownersSet;
+        } else {
+            selectedOwners = new Set();
+        }
+        updateOwnerBtnLabel();
+        populateFilters();
         refreshFiltered();
     }
 
@@ -595,6 +747,20 @@
         if (checked) selectedMilestones.add(milestoneName);
         else selectedMilestones.delete(milestoneName);
         updateMilestoneBtnLabel();
+        populateFilters();
+        refreshFiltered();
+    }
+
+    function onMilestoneSelectAll(checked) {
+        if (checked) {
+            const msSet = new Set();
+            allTasks.forEach(t => { if (t['אבן דרך']) msSet.add(t['אבן דרך']); });
+            selectedMilestones = msSet;
+        } else {
+            selectedMilestones = new Set();
+        }
+        updateMilestoneBtnLabel();
+        populateFilters();
         refreshFiltered();
     }
 
@@ -608,7 +774,8 @@
         const milestones = [...new Set(allTasks.map(t => t['אבן דרך']))].filter(m => m);
 
         const ownerPanel = document.getElementById('filter-owner-panel');
-        let ownerHtml = '';
+        const allOwnersChecked = owners.length > 0 && owners.every(o => selectedOwners.has(o));
+        let ownerHtml = `<label class="ms-header"><input type="checkbox" ${allOwnersChecked ? 'checked' : ''} onchange="onOwnerSelectAll(this.checked)"><strong>כולם</strong></label>`;
         owners.forEach(o => {
             const checked = selectedOwners.has(o) ? 'checked' : '';
             const escapedO = o.replace(/"/g, '&quot;');
@@ -623,7 +790,8 @@
         statuses.forEach(s => { statusSelect.innerHTML += `<option value="${s}" ${s===currentStatus?'selected':''}>${s}</option>`; });
 
         const milestonePanel = document.getElementById('filter-milestone-panel');
-        let msHtml = '';
+        const allMsChecked = milestones.length > 0 && milestones.every(m => selectedMilestones.has(m));
+        let msHtml = `<label class="ms-header"><input type="checkbox" ${allMsChecked ? 'checked' : ''} onchange="onMilestoneSelectAll(this.checked)"><strong>כולם</strong></label>`;
         milestones.forEach(m => {
             const checked = selectedMilestones.has(m) ? 'checked' : '';
             const escapedM = m.replace(/"/g, '&quot;');
@@ -697,7 +865,8 @@
             dateFrom: document.getElementById('date-from').value,
             dateTo: document.getElementById('date-to').value,
             sortColumn: sortColumn,
-            sortDirection: sortDirection
+            sortDirection: sortDirection,
+            groupBy: groupBy
         };
         try { localStorage.setItem(FILTERS_STORAGE_KEY, JSON.stringify(state)); } catch(e) {}
     }
@@ -716,6 +885,11 @@
             }
             if (state.status) document.getElementById('filter-status').value = state.status;
             if (state.search) document.getElementById('search-input').value = state.search;
+
+            // Restore grouping
+            groupBy = state.groupBy || '';
+            const gbSelect = document.getElementById('group-by');
+            if (gbSelect) gbSelect.value = groupBy;
 
             // Restore sort
             sortColumn = state.sortColumn || null;
@@ -896,6 +1070,58 @@
         return '#e74c3c';
     }
 
+    // ── Grouping ──
+    function onGroupByChange() {
+        groupBy = document.getElementById('group-by').value;
+        collapsedGroups.clear();
+        saveFilters();
+        renderTable();
+    }
+
+    function toggleGroup(groupKey) {
+        if (collapsedGroups.has(groupKey)) collapsedGroups.delete(groupKey);
+        else collapsedGroups.add(groupKey);
+        renderTable();
+    }
+
+    function renderTaskRow(t) {
+        const statusClass = getStatusClass(t['סטטוס שלב']);
+        const progress = Number(t['% התקדמות']) || 0;
+        const progressColor = getProgressColor(progress);
+        const startDate = t['תאריך התחלה'] || '-';
+        const endDate = t['תאריך סיום'] || '-';
+        const milestone = t['אבן דרך'] || '';
+        const detail = t['פירוט הדרישה'] || '';
+        const overdue = isOverdue(t);
+        const priority = Number(t['תעדוף']) || 0;
+        const priorityClass = priority === 1 ? 'priority-high' : priority ? 'priority-medium' : '';
+        const warnings = getTaskWarnings(t);
+        const warningIcon = warnings.length > 0 ? `<span class="task-warning" title="${warnings.join(' | ').replace(/"/g, '&quot;')}">⚠</span>` : '';
+
+        return `<tr class="${overdue ? 'overdue' : ''}">
+            <td data-label="אבן דרך" class="${priorityClass ? 'priority-cell' : ''}">${priorityClass ? `<div class="priority-indicator ${priorityClass}"></div>` : ''}<span class="milestone-badge">${milestone}</span></td>
+            <td data-label="משימה">${t['משימה'] || '-'}${warningIcon}</td>
+            <td data-label="פירוט הדרישה" style="max-width: 300px;">
+                ${detail ? `<span class="detail-link" onclick='openDetail(${JSON.stringify(JSON.stringify(t))})'>
+                    ${detail.length > 50 ? detail.substring(0, 50) + '...' : detail}
+                </span>` : '-'}
+            </td>
+            <td data-label="אחראי">${t['באחריות'] || '-'}</td>
+            <td data-label="סטטוס">
+                <span class="status-pill ${statusClass}">${t['סטטוס שלב'] || '-'}</span>
+                ${overdue ? '<span class="overdue-badge">באיחור</span>' : ''}
+            </td>
+            <td data-label="התקדמות">
+                <div class="progress-bar-container">
+                    <div class="progress-bar" style="width: ${progress}%; background: ${progressColor};">${progress}%</div>
+                </div>
+            </td>
+            <td data-label="תאריך התחלה">${startDate}</td>
+            <td data-label="תאריך סיום">${endDate}</td>
+            <td data-label="תוצר">${t['לינק לתוצר'] ? `<a href="${t['לינק לתוצר']}" target="_blank">🔗</a>` : '-'}</td>
+        </tr>`;
+    }
+
     // ── Table ──
     function renderTable() {
         const filtered = getFilteredTasks();
@@ -903,45 +1129,49 @@
 
         document.getElementById('resultCount').innerText = `מציג ${sorted.length} מתוך ${allTasks.length} משימות`;
 
+        // Sync the group-by select (for URL/localStorage restoration)
+        const gbSelect = document.getElementById('group-by');
+        if (gbSelect && gbSelect.value !== groupBy) gbSelect.value = groupBy;
+
+        // Grouping mode
+        if (groupBy) {
+            const groups = {};
+            sorted.forEach(t => {
+                const key = t[groupBy] || '(ריק)';
+                if (!groups[key]) groups[key] = [];
+                groups[key].push(t);
+            });
+
+            let html = '';
+            Object.keys(groups).forEach(key => {
+                const groupTasks = groups[key];
+                const done = groupTasks.filter(t => t['סטטוס שלב'] === 'הסתיים').length;
+                const overdueCount = groupTasks.filter(t => isOverdue(t)).length;
+                const avgProgress = Math.round(groupTasks.reduce((a,t) => a + (Number(t['% התקדמות'])||0), 0) / groupTasks.length);
+                const isCollapsed = collapsedGroups.has(key);
+                const safeKey = key.replace(/"/g, '&quot;').replace(/'/g, "\\'");
+
+                html += `<tr class="group-header ${isCollapsed ? 'collapsed' : ''}" onclick="toggleGroup('${safeKey}')">
+                    <td colspan="9">
+                        <span class="group-arrow">▼</span>
+                        <span class="group-count">${groupTasks.length}</span>
+                        ${key}
+                        <span class="group-stats">הושלמו: ${done}/${groupTasks.length} · התקדמות ממוצעת: ${avgProgress}% ${overdueCount > 0 ? '· באיחור: ' + overdueCount : ''}</span>
+                    </td>
+                </tr>`;
+
+                if (!isCollapsed) {
+                    groupTasks.forEach(t => { html += renderTaskRow(t); });
+                }
+            });
+
+            document.getElementById('tableBody').innerHTML = html || '<tr><td colspan="9" style="text-align:center; padding:20px; color:#95a5a6;">לא נמצאו משימות</td></tr>';
+            return;
+        }
+
+        // Non-grouped mode
         let html = '';
-        sorted.forEach(t => {
-            const statusClass = getStatusClass(t['סטטוס שלב']);
-            const progress = Number(t['% התקדמות']) || 0;
-            const progressColor = getProgressColor(progress);
-            const startDate = t['תאריך התחלה'] || '-';
-            const endDate = t['תאריך סיום'] || '-';
-            const milestone = t['אבן דרך'] || '';
-            const detail = t['פירוט הדרישה'] || '';
-            const overdue = isOverdue(t);
-            const priority = Number(t['תעדוף']) || 0;
-            const priorityClass = priority === 1 ? 'priority-high' : priority ? 'priority-medium' : '';
-
-            const warnings = getTaskWarnings(t);
-            const warningIcon = warnings.length > 0 ? `<span class="task-warning" title="${warnings.join(' | ').replace(/"/g, '&quot;')}">⚠</span>` : '';
-
-            html += `<tr class="${overdue ? 'overdue' : ''}">
-                <td class="${priorityClass ? 'priority-cell' : ''}">${priorityClass ? `<div class="priority-indicator ${priorityClass}"></div>` : ''}<span class="milestone-badge">${milestone}</span></td>
-                <td>${t['משימה'] || '-'}${warningIcon}</td>
-                <td style="max-width: 300px;">
-                    ${detail ? `<span class="detail-link" onclick='openDetail(${JSON.stringify(JSON.stringify(t))})'>
-                        ${detail.length > 50 ? detail.substring(0, 50) + '...' : detail}
-                    </span>` : '-'}
-                </td>
-                <td>${t['באחריות'] || '-'}</td>
-                <td>
-                    <span class="status-pill ${statusClass}">${t['סטטוס שלב'] || '-'}</span>
-                    ${overdue ? '<span class="overdue-badge">באיחור</span>' : ''}
-                </td>
-                <td>
-                    <div class="progress-bar-container">
-                        <div class="progress-bar" style="width: ${progress}%; background: ${progressColor};">${progress}%</div>
-                    </div>
-                </td>
-                <td>${startDate}</td>
-                <td>${endDate}</td>
-                <td>${t['לינק לתוצר'] ? `<a href="${t['לינק לתוצר']}" target="_blank">🔗</a>` : '-'}</td>
-            </tr>`;
-        });
+        sorted.forEach(t => { html += renderTaskRow(t); });
         document.getElementById('tableBody').innerHTML = html || '<tr><td colspan="9" style="text-align:center; padding:20px; color:#95a5a6;">לא נמצאו משימות</td></tr>';
     }
 
@@ -1289,6 +1519,7 @@
         if (search) params.set('q', search);
         if (activeDateRange && activeDateRange !== 'today') params.set('range', activeDateRange);
         if (sortColumn) params.set('sort', sortColumn + ':' + sortDirection);
+        if (groupBy) params.set('groupBy', groupBy);
 
         const newUrl = window.location.pathname + (params.toString() ? '?' + params.toString() : '');
         window.history.replaceState({}, '', newUrl);
@@ -1309,6 +1540,13 @@
 
         const q = params.get('q');
         if (q) document.getElementById('search-input').value = q;
+
+        const gb = params.get('groupBy');
+        if (gb) {
+            groupBy = gb;
+            const gbSelect = document.getElementById('group-by');
+            if (gbSelect) gbSelect.value = gb;
+        }
 
         const sort = params.get('sort');
         if (sort) {
