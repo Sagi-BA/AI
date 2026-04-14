@@ -63,9 +63,13 @@ function getTasksData() {
       const urls = extractUrlsFromRichText(richCell);
 
       if (urls.length > 0) {
-        // מוסיפים את הלינקים לטקסט כך שה-linkify בצד ה-HTML יהפוך אותם ללחיצים
-        const urlsText = urls.join(' ');
-        val = val ? (val + ' ' + urlsText) : urlsText;
+        // מוסיפים רק URLs שלא כבר מופיעים בטקסט (כדי למנוע כפילות כשהטקסט הוא בעצמו ה-URL)
+        const existingText = val ? String(val) : '';
+        const newUrls = urls.filter(u => existingText.indexOf(u) === -1);
+        if (newUrls.length > 0) {
+          const urlsText = newUrls.join(' ');
+          val = existingText ? (existingText + ' ' + urlsText) : urlsText;
+        }
       }
 
       obj[header] = val;

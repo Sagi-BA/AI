@@ -290,6 +290,61 @@
         .btn-spinner { display: inline-block; animation: spin 0.8s linear infinite; }
         .btn:disabled { opacity: 0.7; cursor: wait; }
 
+        /* Task selection action bar */
+        .action-bar {
+            position: sticky; top: 10px; z-index: 50;
+            background: #3498db; color: white;
+            padding: 12px 20px; border-radius: 10px;
+            display: none; justify-content: space-between; align-items: center;
+            box-shadow: 0 4px 12px rgba(52,152,219,0.35);
+            margin-bottom: 15px;
+            animation: fadeIn 0.25s ease;
+            flex-wrap: wrap; gap: 10px;
+        }
+        .action-bar.visible { display: flex; }
+        .action-bar .btn-light { background: white; color: #3498db; }
+        .action-bar .btn-light:hover { background: #f1f8ff; }
+
+        .task-select-checkbox { width: 18px; height: 18px; cursor: pointer; accent-color: #3498db; }
+        td.select-cell { text-align: center; padding: 12px 8px; }
+        tr.selected { background: #e8f4fd; }
+        tr.selected:hover { background: #d4ebfa; }
+        html[data-theme="dark"] tr.selected { background: #1e3a5f; }
+        html[data-theme="dark"] tr.selected:hover { background: #25476b; }
+
+        /* WhatsApp modal */
+        .wa-recipient-card {
+            border: 1px solid var(--border-light); border-radius: 10px;
+            padding: 14px; margin-bottom: 14px; background: var(--card-bg);
+        }
+        .wa-recipient-card h3 {
+            margin: 0 0 10px; font-size: 15px; color: var(--header-color);
+            display: flex; align-items: center; gap: 8px;
+        }
+        .wa-recipient-card .task-count {
+            background: #eef2ff; color: #4338ca;
+            padding: 2px 8px; border-radius: 10px;
+            font-size: 11px; font-weight: 600;
+        }
+        html[data-theme="dark"] .wa-recipient-card .task-count { background: #2d3748; color: #a5b4fc; }
+        .wa-message-textarea {
+            width: 100%; min-height: 140px; padding: 12px;
+            border-radius: 8px; border: 1px solid var(--border);
+            font-family: inherit; font-size: 13px; direction: rtl;
+            resize: vertical; box-sizing: border-box;
+            background: var(--card-bg); color: var(--text);
+        }
+        .wa-copy-btn {
+            margin-top: 8px; padding: 8px 16px;
+            background: #25D366; color: white; border: none;
+            border-radius: 6px; cursor: pointer; font-weight: 700;
+            font-family: inherit; font-size: 13px;
+            display: inline-flex; align-items: center; gap: 6px;
+            transition: background 0.2s;
+        }
+        .wa-copy-btn:hover { background: #1fb858; }
+        .wa-copy-btn.copied { background: #27ae60; }
+
         /* Print */
         @media print {
             body { background: white; padding: 10px; font-size: 11px; }
@@ -537,10 +592,33 @@
         </div>
     </div>
 
+    <div class="action-bar" id="actionBar">
+        <span><strong id="selectedCount">0</strong> משימות נבחרו</span>
+        <div style="display:flex; gap:10px; flex-wrap:wrap;">
+            <button class="btn btn-light" onclick="openWhatsAppModal()">💬 יצירת הודעה לשליחה</button>
+            <button class="btn btn-light" onclick="clearSelection()">נקה בחירה</button>
+        </div>
+    </div>
+
+    <div id="whatsappModal" class="modal-overlay" onclick="if(event.target===this)closeWhatsAppModal()">
+        <div class="modal-content" style="max-width:720px;">
+            <button class="modal-close" onclick="closeWhatsAppModal()">&times;</button>
+            <h2 class="modal-title">📋 הודעות לשליחה</h2>
+            <p style="color:var(--text-muted); font-size:13px; margin:0 0 16px; padding-left:40px;">
+                לחץ "העתק" ליד כל נמען, עבור ל-WhatsApp והדבק בצ'אט המתאים.
+            </p>
+            <div id="waRecipientsList"></div>
+            <div style="display:flex; gap:10px; justify-content:flex-start; margin-top:16px;">
+                <button class="btn btn-outline" onclick="closeWhatsAppModal()">סגור</button>
+            </div>
+        </div>
+    </div>
+
     <div class="table-container">
         <table id="tasksTable">
             <thead>
                 <tr>
+                    <th style="width:30px;"><input type="checkbox" id="selectAllCheckbox" onchange="toggleSelectAllRows(this.checked)" title="בחר הכל"></th>
                     <th data-sort="UID">מספר <span class="sort-icon">&#9650;&#9660;</span></th>
                     <th data-sort="אבן דרך">אבן דרך <span class="sort-icon">&#9650;&#9660;</span></th>
                     <th data-sort="משימה">משימה <span class="sort-icon">&#9650;&#9660;</span></th>
@@ -569,6 +647,7 @@
     let sortDirection = 'asc';
     let groupBy = ''; // '', 'אבן דרך', 'באחריות', 'סטטוס שלב'
     let collapsedGroups = new Set();
+    let selectedTaskIds = new Set(); // UIDs of selected tasks (as strings)
 
     const STATUS_COLORS = {
         'הסתיים': '#27ae60',
@@ -577,7 +656,7 @@
         'טרם הכל': '#e74c3c'
     };
 
-    const WEB_APP_URL = "https://script.google.com/macros/s/AKfycbxXU54lm2MBcVoV1Y5Z4mjtrR4xJkrrxAIxlUXS9q-FI0hjEgdrlOdDtUtSqYk_89nD/exec";
+    const WEB_APP_URL = "https://script.google.com/macros/s/AKfycbw_WQhwBPJiuHa-mt85WZhXrkHHsGZr6AfbbFLOs-Ps5_kQg-NdkF021a3s6d31QChu/exec";
     const DEV_API_KEY = "SagiShlomiSecret"; // המפתח שהמצאת
 
     // ── Skeleton Loading ──
@@ -597,6 +676,7 @@
         let skeletonRows = '';
         for (let i = 0; i < 8; i++) {
             skeletonRows += `<tr class="skeleton-row">
+                <td><div class="skeleton skeleton-text" style="width:18px; height:18px"></div></td>
                 <td><div class="skeleton skeleton-text" style="width:30px"></div></td>
                 <td><div class="skeleton skeleton-badge"></div></td>
                 <td><div class="skeleton skeleton-text" style="width:${70+Math.random()*30}%"></div></td>
@@ -759,7 +839,7 @@
                 } else {
                     hideSkeletons();
                     document.getElementById('last-update').innerText = "שגיאה בטעינת נתונים";
-                    document.getElementById('tableBody').innerHTML = '<tr><td colspan="10" class="error-msg">לא ניתן לטעון נתונים. <button onclick="loadData()" style="margin-right:10px; padding:6px 16px; border-radius:6px; border:none; background:#3498db; color:white; font-weight:bold; cursor:pointer;">נסה שוב</button></td></tr>';
+                    document.getElementById('tableBody').innerHTML = '<tr><td colspan="11" class="error-msg">לא ניתן לטעון נתונים. <button onclick="loadData()" style="margin-right:10px; padding:6px 16px; border-radius:6px; border:none; background:#3498db; color:white; font-weight:bold; cursor:pointer;">נסה שוב</button></td></tr>';
                 }
                 console.error('Error:', err);
             });
@@ -1307,7 +1387,9 @@
         const warnings = getTaskWarnings(t);
         const warningIcon = warnings.length > 0 ? `<span class="task-warning" title="${warnings.join(' | ').replace(/"/g, '&quot;')}">⚠</span>` : '';
 
-        return `<tr class="${overdue ? 'overdue' : ''}">
+        const isSelected = selectedTaskIds.has(String(t['UID']));
+        return `<tr class="${overdue ? 'overdue' : ''}${isSelected ? ' selected' : ''}" data-uid="${t['UID']}">
+            <td data-label="בחר" class="select-cell"><input type="checkbox" class="task-select-checkbox" ${isSelected ? 'checked' : ''} onchange="toggleTaskSelection('${t['UID']}', this.checked)" onclick="event.stopPropagation()"></td>
             <td data-label="מספר" style="font-weight:700; color:var(--text-muted); text-align:center;">${t['UID'] || '-'}</td>
             <td data-label="אבן דרך" class="${priorityClass ? 'priority-cell' : ''}">${priorityClass ? `<div class="priority-indicator ${priorityClass}"></div>` : ''}<span class="milestone-badge">${milestone}</span></td>
             <td data-label="משימה">${t['משימה'] || '-'}${warningIcon}</td>
@@ -1328,7 +1410,14 @@
             </td>
             <td data-label="תאריך התחלה">${startDate}</td>
             <td data-label="תאריך סיום">${endDate}</td>
-            <td data-label="תוצר">${t['לינק לתוצר'] ? `<a href="${t['לינק לתוצר']}" target="_blank">🔗</a>` : '-'}</td>
+            <td data-label="תוצר">${(() => {
+                const raw = t['לינק לתוצר'];
+                if (!raw) return '-';
+                // Extract first URL and dedupe (server may have doubled it)
+                const match = String(raw).match(/https?:\/\/[^\s]+/);
+                const url = match ? match[0] : String(raw).split(/\s+/)[0];
+                return `<a href="${url}" target="_blank">🔗</a>`;
+            })()}</td>
         </tr>`;
     }
 
@@ -1362,7 +1451,7 @@
                 const safeKey = key.replace(/"/g, '&quot;').replace(/'/g, "\\'");
 
                 html += `<tr class="group-header ${isCollapsed ? 'collapsed' : ''}" onclick="toggleGroup('${safeKey}')">
-                    <td colspan="10">
+                    <td colspan="11">
                         <span class="group-arrow">▼</span>
                         <span class="group-count">${groupTasks.length}</span>
                         ${key}
@@ -1375,14 +1464,14 @@
                 }
             });
 
-            document.getElementById('tableBody').innerHTML = html || '<tr><td colspan="10" style="text-align:center; padding:20px; color:#95a5a6;">לא נמצאו משימות</td></tr>';
+            document.getElementById('tableBody').innerHTML = html || '<tr><td colspan="11" style="text-align:center; padding:20px; color:#95a5a6;">לא נמצאו משימות</td></tr>';
             return;
         }
 
         // Non-grouped mode
         let html = '';
         sorted.forEach(t => { html += renderTaskRow(t); });
-        document.getElementById('tableBody').innerHTML = html || '<tr><td colspan="10" style="text-align:center; padding:20px; color:#95a5a6;">לא נמצאו משימות</td></tr>';
+        document.getElementById('tableBody').innerHTML = html || '<tr><td colspan="11" style="text-align:center; padding:20px; color:#95a5a6;">לא נמצאו משימות</td></tr>';
     }
 
     // ── KPIs ──
@@ -1943,6 +2032,131 @@
         }
     }
     setInterval(updateTimeAgo, 30000); // כל 30 שניות
+
+    // ══════════════════════════════════════════════════════
+    // ── Task Selection + WhatsApp Message ──
+    // ══════════════════════════════════════════════════════
+    function toggleTaskSelection(uid, checked) {
+        uid = String(uid);
+        if (checked) selectedTaskIds.add(uid);
+        else selectedTaskIds.delete(uid);
+        updateActionBar();
+        const row = document.querySelector(`tr[data-uid="${uid}"]`);
+        if (row) row.classList.toggle('selected', checked);
+    }
+
+    function clearSelection() {
+        selectedTaskIds.clear();
+        document.querySelectorAll('.task-select-checkbox').forEach(cb => cb.checked = false);
+        document.querySelectorAll('tr.selected').forEach(r => r.classList.remove('selected'));
+        const selAll = document.getElementById('selectAllCheckbox');
+        if (selAll) selAll.checked = false;
+        updateActionBar();
+    }
+
+    function toggleSelectAllRows(checked) {
+        const visible = sortTasks(getFilteredTasks());
+        visible.forEach(t => {
+            const uid = String(t['UID']);
+            if (checked) selectedTaskIds.add(uid);
+            else selectedTaskIds.delete(uid);
+        });
+        renderTable();
+        updateActionBar();
+    }
+
+    function updateActionBar() {
+        const bar = document.getElementById('actionBar');
+        const count = document.getElementById('selectedCount');
+        if (count) count.innerText = selectedTaskIds.size;
+        if (bar) bar.classList.toggle('visible', selectedTaskIds.size > 0);
+    }
+
+    function formatTaskLine(t) {
+        const num = t['UID'] ? `#${t['UID']} - ` : '';
+        let line = `${num}${t['משימה'] || ''}`;
+        const details = [];
+        if (t['סטטוס שלב']) details.push('סטטוס: ' + t['סטטוס שלב']);
+        if (t['תאריך סיום']) details.push('דדליין: ' + t['תאריך סיום']);
+        const pct = Number(t['% התקדמות']);
+        if (pct) details.push(pct + '%');
+        if (details.length) line += '\n   ' + details.join(' · ');
+        return line;
+    }
+
+    const DASHBOARD_URL = 'https://sagiai.short.gy/idf-WorkPlan';
+
+    function buildMessageFor(name, tasks) {
+        const senderName = (localStorage.getItem('dashboard_my_name') || '').trim();
+        let msg = `שלום ${name} 👋\n\nלהלן המשימות שאתה אחראי עליהן:\n\n`;
+        msg += tasks.map(t => formatTaskLine(t)).join('\n\n');
+        msg += '\n\n';
+        msg += `🔗 לדשבורד המלא:\n${DASHBOARD_URL}`;
+        if (senderName) msg += `\n\nבברכה,\n${senderName}`;
+        return msg.trim();
+    }
+
+    function openWhatsAppModal() {
+        const selected = allTasks.filter(t => selectedTaskIds.has(String(t['UID'])));
+        if (selected.length === 0) return;
+
+        // Group by recipient (split composite owners like "שגיא, נטאלי")
+        const byRecipient = new Map();
+        selected.forEach(t => {
+            const owners = splitOwners(t['באחריות']);
+            if (owners.length === 0) owners.push('(ללא אחראי)');
+            owners.forEach(o => {
+                if (!byRecipient.has(o)) byRecipient.set(o, []);
+                byRecipient.get(o).push(t);
+            });
+        });
+
+        const escapeHtml = s => String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+
+        let html = '';
+        [...byRecipient.entries()].forEach(([name, tasks], idx) => {
+            const msg = buildMessageFor(name, tasks);
+            html += `
+                <div class="wa-recipient-card">
+                    <h3>👤 ${escapeHtml(name)} <span class="task-count">${tasks.length} משימות</span></h3>
+                    <textarea class="wa-message-textarea" id="waMsg${idx}">${escapeHtml(msg)}</textarea>
+                    <button class="wa-copy-btn" onclick="copyWhatsAppMessage(${idx}, '${name.replace(/\\/g, '\\\\').replace(/'/g, "\\'")}')">📋 העתק ללוח</button>
+                </div>`;
+        });
+
+        document.getElementById('waRecipientsList').innerHTML = html;
+        document.getElementById('whatsappModal').classList.add('active');
+        document.body.style.overflow = 'hidden';
+    }
+
+    function closeWhatsAppModal() {
+        document.getElementById('whatsappModal').classList.remove('active');
+        document.body.style.overflow = '';
+    }
+
+    async function copyWhatsAppMessage(idx, name) {
+        const textarea = document.getElementById('waMsg' + idx);
+        if (!textarea) return;
+        const text = textarea.value;
+        try {
+            await navigator.clipboard.writeText(text);
+        } catch (e) {
+            // Fallback for older browsers / non-https
+            textarea.select();
+            try { document.execCommand('copy'); } catch (e2) {}
+        }
+        const btn = textarea.nextElementSibling;
+        if (btn) {
+            const originalText = btn.innerHTML;
+            btn.classList.add('copied');
+            btn.innerHTML = '✓ הועתק!';
+            setTimeout(() => {
+                btn.classList.remove('copied');
+                btn.innerHTML = originalText;
+            }, 1800);
+        }
+        showToast(`הודעה עבור ${name} הועתקה ללוח`);
+    }
 
     window.onload = function() {
         // Apply saved theme before anything renders
