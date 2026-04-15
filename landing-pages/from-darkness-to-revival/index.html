@@ -11,8 +11,8 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>מזיכרון לתקומה | ערב יום העצמאות — סיפור של תקומה מתמונה אחת בעזרת AI</title>
-<meta name="description" content="מזיכרון לתקומה — מחווה לערב יום העצמאות. סיפור של תקומה שנבנה בעזרת AI מתמונה אחת בלבד. התהליך המלא, עם כל הפרומפטים, התמונות והסרטונים.">
+<title>מזיכרון לתקומה | ערב יום העצמאות - סיפור של תקומה מתמונה אחת בעזרת AI</title>
+<meta name="description" content="מזיכרון לתקומה - מחווה לערב יום העצמאות. סיפור של תקומה שנבנה בעזרת AI מתמונה אחת בלבד. התהליך המלא, עם כל הפרומפטים, התמונות והסרטונים.">
 <meta name="author" content="Sagi Bar-On">
 <meta name="keywords" content="יום העצמאות, יום הזיכרון, תקומת המדינה, AI, בינה מלאכותית, סרטון רגשי, Freepik, Kling, Suno, Canva">
 <meta name="theme-color" content="#0a0e1a">
@@ -20,22 +20,22 @@
 
 <!-- Open Graph (Facebook, WhatsApp, LinkedIn) -->
 <meta property="og:site_name" content="מזיכרון לתקומה">
-<meta property="og:title" content="מזיכרון לתקומה — ערב יום העצמאות">
-<meta property="og:description" content="סיפור של עם שקם מהאפר. נבנה בעזרת AI מתמונה אחת בלבד — כמחווה שקטה לרגע המעבר מיום הזיכרון ליום העצמאות.">
+<meta property="og:title" content="מזיכרון לתקומה - ערב יום העצמאות">
+<meta property="og:description" content="סיפור של עם שקם מהאפר. נבנה בעזרת AI מתמונה אחת בלבד - כמחווה שקטה לרגע המעבר מיום הזיכרון ליום העצמאות.">
 <meta property="og:type" content="website">
 <meta property="og:locale" content="he_IL">
 <meta property="og:url" content="https://sagi-ba.github.io/AI/landing-pages/from-darkness-to-revival/">
 <meta property="og:image" content="https://sagi-ba.github.io/AI/landing-pages/from-darkness-to-revival/images/image7.png">
 <meta property="og:image:secure_url" content="https://sagi-ba.github.io/AI/landing-pages/from-darkness-to-revival/images/image7.png">
 <meta property="og:image:type" content="image/png">
-<meta property="og:image:alt" content="מזיכרון לתקומה — הרגע של שקיעה ותקווה">
+<meta property="og:image:alt" content="מזיכרון לתקומה - הרגע של שקיעה ותקווה">
 
 <!-- Twitter / X Card -->
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="מזיכרון לתקומה — ערב יום העצמאות">
-<meta name="twitter:description" content="סיפור של עם שקם מהאפר. נבנה בעזרת AI מתמונה אחת בלבד — כמחווה שקטה לרגע המעבר מיום הזיכרון ליום העצמאות.">
+<meta name="twitter:title" content="מזיכרון לתקומה - ערב יום העצמאות">
+<meta name="twitter:description" content="סיפור של עם שקם מהאפר. נבנה בעזרת AI מתמונה אחת בלבד - כמחווה שקטה לרגע המעבר מיום הזיכרון ליום העצמאות.">
 <meta name="twitter:image" content="https://sagi-ba.github.io/AI/landing-pages/from-darkness-to-revival/images/image7.png">
-<meta name="twitter:image:alt" content="מזיכרון לתקומה — הרגע של שקיעה ותקווה">
+<meta name="twitter:image:alt" content="מזיכרון לתקומה - הרגע של שקיעה ותקווה">
 
 <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-XSH19K5LBZ"></script>
@@ -149,6 +149,124 @@ section{padding:72px 0}
 .btn-secondary{background:transparent;color:var(--text);border:1.5px solid var(--text)}
 .btn-secondary:hover{background:var(--text);color:#fff}
 
+/* Reading progress bar */
+.progress-bar{
+  position:fixed;top:0;left:0;right:0;height:3px;z-index:200;
+  background:linear-gradient(90deg,var(--gold) 0%,var(--gold-soft) 50%,var(--blue) 100%);
+  transform:scaleX(0);transform-origin:left center;
+  transition:transform .1s linear;
+  pointer-events:none;
+}
+
+/* Hero title word reveal + shimmer */
+.hero h1{overflow:hidden}
+.hero h1 .word{
+  display:inline-block;opacity:0;transform:translateY(40px);
+  transition:opacity .9s ease-out, transform .9s cubic-bezier(.22,.61,.36,1);
+}
+.hero h1 .word.visible{opacity:1;transform:none}
+.hero h1 .word:nth-child(2){transition-delay:.4s}
+.hero h1 strong{
+  background:linear-gradient(90deg,var(--gold) 0%,var(--gold-soft) 30%,#fff 50%,var(--gold-soft) 70%,var(--gold) 100%);
+  background-size:200% 100%;
+  -webkit-background-clip:text;background-clip:text;color:transparent;
+  animation:shimmerText 4s ease-in-out 1.5s infinite;
+}
+@keyframes shimmerText{
+  0%,100%{background-position:200% 0}
+  50%    {background-position:-200% 0}
+}
+
+/* Back to top */
+.back-top{
+  position:fixed;bottom:24px;inset-inline-end:24px;z-index:100;
+  width:52px;height:52px;border-radius:50%;border:none;cursor:pointer;
+  background:var(--bg-dark);color:#fff;
+  box-shadow:0 8px 24px rgba(0,0,0,.25);
+  display:flex;align-items:center;justify-content:center;
+  font-size:22px;font-weight:900;
+  opacity:0;transform:translateY(20px);pointer-events:none;
+  transition:opacity .3s, transform .3s, background .15s;
+}
+.back-top.show{opacity:1;transform:none;pointer-events:auto}
+.back-top:hover{background:var(--blue)}
+
+/* Before/After slider */
+.ba-slider{
+  position:relative;direction:ltr;--pos:50%;
+  aspect-ratio:16/10;border-radius:var(--radius);overflow:hidden;
+  cursor:ew-resize;user-select:none;box-shadow:var(--shadow);
+  margin-top:36px;touch-action:none;background:#000;
+}
+.ba-layer{position:absolute;inset:0}
+.ba-layer img,.ba-layer video{width:100%;height:100%;object-fit:cover;display:block}
+.ba-after{clip-path:inset(0 0 0 var(--pos))}
+.ba-handle{
+  position:absolute;top:0;bottom:0;left:var(--pos);width:3px;
+  background:#fff;box-shadow:0 0 12px rgba(0,0,0,.5);
+  transform:translateX(-50%);pointer-events:none;
+}
+.ba-handle::before{
+  content:"";position:absolute;top:50%;left:50%;
+  transform:translate(-50%,-50%);
+  width:48px;height:48px;background:#fff;border-radius:50%;
+  box-shadow:0 4px 20px rgba(0,0,0,.4);
+}
+.ba-handle::after{
+  content:"⇆";position:absolute;top:50%;left:50%;
+  transform:translate(-50%,-50%);
+  color:var(--text);font-weight:900;font-size:22px;
+}
+.ba-label{
+  position:absolute;top:14px;
+  background:rgba(0,0,0,.75);color:#fff;
+  padding:6px 14px;border-radius:999px;
+  font-size:12px;font-weight:700;z-index:2;
+  font-family:'Heebo';
+}
+.ba-label-before{left:14px}
+.ba-label-after{right:14px}
+.ba-hint{
+  position:absolute;bottom:14px;left:50%;transform:translateX(-50%);
+  background:rgba(0,0,0,.75);color:#fff;padding:6px 14px;border-radius:999px;
+  font-size:12px;font-weight:600;font-family:'Heebo';
+  pointer-events:none;z-index:2;
+  animation:baHintPulse 2.5s ease-in-out infinite;
+}
+@keyframes baHintPulse{0%,100%{opacity:.6}50%{opacity:1}}
+
+/* Ken Burns effect */
+.ken-burns{overflow:hidden}
+.ken-burns img{
+  width:100%;height:100%;object-fit:cover;
+  animation:kenBurns 22s ease-in-out infinite alternate;
+}
+@keyframes kenBurns{
+  0%  {transform:scale(1) translate(0,0)}
+  100%{transform:scale(1.08) translate(-1%,-1.5%)}
+}
+
+/* Counter */
+.counter-num{
+  display:inline-block;font-family:'Heebo';font-weight:900;
+  color:var(--blue);font-size:1.3em;
+}
+
+/* Scroll reveal */
+.reveal{opacity:0;transform:translateY(32px);transition:opacity .8s ease-out, transform .8s cubic-bezier(.22,.61,.36,1)}
+.reveal.visible{opacity:1;transform:none}
+.reveal-stagger > *{opacity:0;transform:translateY(24px);transition:opacity .7s ease-out, transform .7s cubic-bezier(.22,.61,.36,1)}
+.reveal-stagger.visible > *{opacity:1;transform:none}
+.reveal-stagger.visible > *:nth-child(1){transition-delay:.05s}
+.reveal-stagger.visible > *:nth-child(2){transition-delay:.15s}
+.reveal-stagger.visible > *:nth-child(3){transition-delay:.25s}
+.reveal-stagger.visible > *:nth-child(4){transition-delay:.35s}
+.reveal-stagger.visible > *:nth-child(5){transition-delay:.45s}
+.reveal-stagger.visible > *:nth-child(6){transition-delay:.55s}
+@media (prefers-reduced-motion: reduce){
+  .reveal,.reveal-stagger>*{transition:none;opacity:1;transform:none}
+}
+
 /* Timeline */
 .timeline-section{
   background:var(--bg-dark);
@@ -164,8 +282,22 @@ section{padding:72px 0}
 .timeline::before{
   content:"";position:absolute;top:28px;left:6%;right:6%;height:2px;
   background:linear-gradient(90deg,rgba(255,255,255,.15) 0%,rgba(201,162,74,.6) 50%,rgba(0,56,184,.8) 100%);
+  transform:scaleX(0);transform-origin:left center;
+  transition:transform 2.2s cubic-bezier(.65,.05,.36,1);
 }
-.tl-point{text-align:center;position:relative;z-index:1}
+.timeline.animate::before{transform:scaleX(1)}
+
+.tl-point{
+  text-align:center;position:relative;z-index:1;
+  opacity:0;transform:translateY(14px) scale(.6);
+  transition:opacity .55s ease-out, transform .55s cubic-bezier(.34,1.56,.64,1);
+}
+.timeline.animate .tl-point{opacity:1;transform:none}
+.timeline.animate .tl-point:nth-child(1){transition-delay:.15s}
+.timeline.animate .tl-point:nth-child(2){transition-delay:.7s}
+.timeline.animate .tl-point:nth-child(3){transition-delay:1.25s}
+.timeline.animate .tl-point:nth-child(4){transition-delay:1.8s}
+
 .tl-dot{
   width:14px;height:14px;border-radius:50%;
   background:#fff;margin:22px auto 10px;
@@ -176,12 +308,30 @@ section{padding:72px 0}
 .tl-point:nth-child(2) .tl-dot{background:var(--gold-soft)}
 .tl-point:nth-child(3) .tl-dot{background:var(--gold)}
 .tl-point:nth-child(4) .tl-dot{background:var(--blue);box-shadow:0 0 0 2px rgba(0,56,184,.4),0 0 20px rgba(0,56,184,.5)}
+
+@keyframes tlFlash{
+  0%  {box-shadow:0 0 0 2px rgba(0,56,184,.4),0 0 20px rgba(0,56,184,.5);transform:scale(1)}
+  35% {box-shadow:0 0 0 10px rgba(201,162,74,.55),0 0 50px rgba(201,162,74,.95);transform:scale(1.35)}
+  100%{box-shadow:0 0 0 2px rgba(0,56,184,.4),0 0 20px rgba(0,56,184,.5);transform:scale(1)}
+}
+@keyframes tlPulse{
+  0%,100%{box-shadow:0 0 0 2px rgba(0,56,184,.4),0 0 20px rgba(0,56,184,.5)}
+  50%    {box-shadow:0 0 0 5px rgba(0,56,184,.55),0 0 34px rgba(0,56,184,.85)}
+}
+.timeline.animate .tl-point:nth-child(4) .tl-dot{
+  animation: tlFlash .9s ease-out 1.95s both, tlPulse 2.8s ease-in-out 3s infinite;
+}
+
 .tl-year{font-family:'Heebo';font-weight:900;font-size:22px;color:#fff}
 .tl-label{font-size:13px;color:#a8acb8;margin-top:4px;direction:rtl}
 @media (max-width:640px){
   .timeline{gap:4px}
   .tl-year{font-size:17px}
   .tl-label{font-size:11px}
+}
+@media (prefers-reduced-motion: reduce){
+  .timeline::before,.tl-point{transition:none}
+  .timeline.animate .tl-point:nth-child(4) .tl-dot{animation:none}
 }
 
 /* Quote section */
@@ -473,6 +623,8 @@ footer strong{color:var(--text)}
 </head>
 <body>
 
+<div class="progress-bar" id="progressBar"></div>
+
 <nav class="nav">
   <div class="nav-inner">
     <div class="brand">מזיכרון <span>לתקומה</span></div>
@@ -483,9 +635,9 @@ footer strong{color:var(--text)}
 <!-- HERO -->
 <header class="hero">
   <div class="container">
-    <span class="eyebrow">ערב תקומת המדינה · מיום הזיכרון ליום העצמאות</span>
-    <h1><strong>מזיכרון לתקומה</strong></h1>
-    <p class="sub">סיפור של עם שקם מהאפר. נבנה בעזרת AI מתמונה אחת בלבד — כמחווה שקטה לרגע המעבר מהיום הקדוש ביותר ליום השמח ביותר.</p>
+    <span class="eyebrow">ד׳ באייר ה׳תשפ״ו · ערב יום העצמאות ה־78 למדינת ישראל</span>
+    <h1><span class="word">מזיכרון</span> <span class="word"><strong>לתקומה</strong></span></h1>
+    <p class="sub">סיפור של עם שקם מהאפר. נבנה בעזרת AI מתמונה אחת בלבד - כמחווה שקטה לרגע המעבר מהיום הקדוש ביותר ליום השמח ביותר.</p>
     <div class="cta-row">
       <a href="#hero-video" class="btn btn-primary">לצפייה בסרטון</a>
       <a href="#process" class="btn btn-secondary">איך זה נבנה</a>
@@ -531,7 +683,7 @@ footer strong{color:var(--text)}
     <h2>מה ראית כאן בעצם?</h2>
     <p class="lead">הסרטון שראית לא צולם במצלמה. הוא נבנה מתמונה אחת בלבד, שהפכה בהדרגה לרצף של רגעים, ואז לסיפור ויזואלי שלם.</p>
     <p class="lead">במקום ליצור סרטון בדרך הרגילה, יצרנו תמונת בסיס אחת, סדרת פריימים שנבנו ממנה, אנימציה עדינה לכל פריים, חיבור מדויק בין הקטעים וסאונד שמוסיף עומק רגשי.</p>
-    <p class="lead"><strong>במילים פשוטות: לקחנו תמונה אחת — והפכנו אותה לסרטון.</strong></p>
+    <p class="lead"><strong>במילים פשוטות: לקחנו תמונה אחת - והפכנו אותה לסרטון.</strong></p>
   </div>
 </section>
 
@@ -540,16 +692,18 @@ footer strong{color:var(--text)}
   <div class="container">
     <span class="eyebrow">לפני / אחרי</span>
     <h2>מתמונה אחת לסיפור שלם</h2>
-    <p class="lead">כאן התחיל הכל — מתמונה אחת בודדת. ומכאן נבנה סרטון שלם עם שינוי באור, אווירה, קצב ורגש.</p>
-    <div class="ba-grid">
-      <div class="ba-card">
-        <span class="tag">תמונת המקור</span>
+    <p class="lead">כאן התחיל הכל - מתמונה אחת בודדת. ומכאן נבנה סרטון שלם עם שינוי באור, אווירה, קצב ורגש.</p>
+    <div class="ba-slider" id="baSlider">
+      <div class="ba-layer ba-before">
         <img src="images/reference-image.png" alt="תמונת המקור">
       </div>
-      <div class="ba-card">
-        <span class="tag">הסרטון הסופי</span>
+      <div class="ba-layer ba-after">
         <video data-src="videos/finall-result.mp4" poster="images/image7.png" muted loop playsinline preload="none" class="lazyvid"></video>
       </div>
+      <span class="ba-label ba-label-before">תמונת המקור</span>
+      <span class="ba-label ba-label-after">הסרטון הסופי</span>
+      <div class="ba-handle"></div>
+      <span class="ba-hint">⇆ גררו כדי להשוות</span>
     </div>
     <p class="mini">תמונה אחת. כמה רגעים. סיפור אחד.</p>
   </div>
@@ -560,7 +714,7 @@ footer strong{color:var(--text)}
   <div class="container">
     <span class="eyebrow">התהליך</span>
     <h2>איך יצרנו את זה שלב אחר שלב</h2>
-    <p class="lead">הסוד כאן הוא לא "כלי קסם", אלא תהליך מדויק. כשמפרקים אותו נכון, מבינים שכל שלב עושה עבודה אחת ברורה — וביחד נוצר הסיפור.</p>
+    <p class="lead">הסוד כאן הוא לא "כלי קסם", אלא תהליך מדויק. כשמפרקים אותו נכון, מבינים שכל שלב עושה עבודה אחת ברורה - וביחד נוצר הסיפור.</p>
 
     <div class="steps">
 
@@ -578,7 +732,7 @@ footer strong{color:var(--text)}
           </ul>
           <p>ככל שתמונת הבסיס נקייה ומדויקת יותר, כך קל יותר לשמור על אותה זהות לאורך כל הפריימים.</p>
         </div>
-        <div class="step-media">
+        <div class="step-media ken-burns">
           <img src="images/reference-image.png" alt="תמונת הבסיס">
         </div>
       </div>
@@ -588,8 +742,8 @@ footer strong{color:var(--text)}
         <div>
           <div class="step-num">2</div>
           <h3>בונים את הסיפור תמונה אחרי תמונה</h3>
-          <p>במקום לנסות לייצר סרטון שלם בבת אחת, יצרנו קודם שבע תמונות שונות של אותה דמות — כל אחת מייצגת רגע אחר במסע: חושך, תקריב רגשי, מגע סמלי, תחילת אור, עמידה חזקה, תקווה ברקע וסיום רגוע.</p>
-          <p><strong>הדבר הקריטי:</strong> לשמור על אותה זהות, זווית מצלמה ופריים — שינוי עדין בלבד בין תמונה לתמונה.</p>
+          <p>במקום לנסות לייצר סרטון שלם בבת אחת, יצרנו קודם שבע תמונות שונות של אותה דמות - כל אחת מייצגת רגע אחר במסע: חושך, תקריב רגשי, מגע סמלי, תחילת אור, עמידה חזקה, תקווה ברקע וסיום רגוע.</p>
+          <p><strong>הדבר הקריטי:</strong> לשמור על אותה זהות, זווית מצלמה ופריים - שינוי עדין בלבד בין תמונה לתמונה.</p>
         </div>
         <div class="step-media" style="aspect-ratio:1/1;background:transparent;box-shadow:none">
           <div class="frames" style="margin:0;grid-template-columns:repeat(3,1fr)">
@@ -621,7 +775,7 @@ footer strong{color:var(--text)}
     <!-- Prompts accordion for images -->
     <details class="acc" style="margin-top:36px">
       <summary>רוצים לראות איך נראו הפרומפטים לתמונות?</summary>
-      <div class="prompt-label">פרומפט לתמונה 1 — חושך מוחלט</div>
+      <div class="prompt-label">פרומפט לתמונה 1 - חושך מוחלט</div>
       <div class="prompt-block">Use the uploaded reference image as the exact identity reference.
 STRICT IDENTITY LOCK: preserve 100% facial features, proportions, eyes, nose, mouth, and expression.
 Same person in all images. No changes in identity across frames.
@@ -631,8 +785,8 @@ Ultra-realistic, cinematic lighting, 35mm lens, high detail, natural skin textur
 Medium shot, centered subject, same framing and same camera angle in all images, eye-level camera.
 
 A man standing completely alone in deep darkness, barely visible. Only a very faint soft light from above partially reveals his face. Heavy emotional atmosphere, subtle fog, black background, cinematic shadows, quiet and respectful Holocaust remembrance tone, minimal environment, no objects, no text, no additional elements.</div>
-      <p class="prompt-caption"><strong>מה רואים בפועל?</strong> זה הפריים שפתח את הסיפור. הרעיון היה ליצור תחושה של בדידות, חושך ואיפוק — בלי דרמה מוגזמת ובלי אובייקטים שמסיחים את העין.</p>
-      <p class="prompt-caption">👇 <strong><a href="#gallery" style="color:var(--gold)">לכל 7 הפרומפטים המלאים + כפתור העתקה — ראו את טאב "פרומפטים" בגלריה למטה</a></strong></p>
+      <p class="prompt-caption"><strong>מה רואים בפועל?</strong> זה הפריים שפתח את הסיפור. הרעיון היה ליצור תחושה של בדידות, חושך ואיפוק - בלי דרמה מוגזמת ובלי אובייקטים שמסיחים את העין.</p>
+      <p class="prompt-caption">👇 <strong><a href="#gallery" style="color:var(--gold)">לכל 7 הפרומפטים המלאים + כפתור העתקה - ראו את טאב "פרומפטים" בגלריה למטה</a></strong></p>
     </details>
 
     <div class="steps" style="margin-top:72px">
@@ -649,7 +803,7 @@ A man standing completely alone in deep darkness, barely visible. Only a very fa
             <li>סטטיות כמעט מלאה</li>
             <li>תחושה שהפריים "חי", אבל לא מתאמץ</li>
           </ul>
-          <p>המטרה הייתה לגרום לפריים להרגיש אמיתי — לא "מונפש".</p>
+          <p>המטרה הייתה לגרום לפריים להרגיש אמיתי - לא "מונפש".</p>
         </div>
         <div class="step-media" style="aspect-ratio:1/1;background:transparent;box-shadow:none">
           <div class="vgrid" style="margin:0;grid-template-columns:1fr 1fr;gap:10px">
@@ -695,7 +849,7 @@ Soft shadows, minimal fog, quiet and respectful atmosphere.
 
 No dramatic motion, no sudden changes, no exaggerated effects.</div>
       <p class="prompt-caption">כאן כבר רואים את אחד העקרונות הכי חשובים בתהליך: <strong>לא "להכניס וידאו", אלא להכניס רק מספיק חיים כדי שהפריים לא ירגיש קפוא.</strong></p>
-      <p class="prompt-caption">👇 <strong><a href="#gallery" style="color:var(--gold)">לכל 7 הפרומפטים המלאים להנפשה + כפתור העתקה — ראו את טאב "פרומפטים" בגלריה למטה</a></strong></p>
+      <p class="prompt-caption">👇 <strong><a href="#gallery" style="color:var(--gold)">לכל 7 הפרומפטים המלאים להנפשה + כפתור העתקה - ראו את טאב "פרומפטים" בגלריה למטה</a></strong></p>
     </details>
 
     <div class="steps" style="margin-top:72px">
@@ -753,7 +907,7 @@ No dramatic motion, no sudden changes, no exaggerated effects.</div>
         </div>
         <div class="step-media" style="aspect-ratio:4/5;background:#000;display:flex;align-items:center;justify-content:center;flex-direction:column;gap:30px;padding:30px">
           <div style="text-align:center;color:#fff">
-            <div style="color:var(--gold);font-size:14px;letter-spacing:3px">— 1947 —</div>
+            <div style="color:var(--gold);font-size:14px;letter-spacing:3px">- 1947 -</div>
             <div style="font-family:'Heebo';font-size:22px;margin-top:10px;letter-spacing:1px">Silence before the storm</div>
           </div>
           <div style="width:60%;height:1px;background:var(--gold);opacity:.5"></div>
@@ -772,7 +926,7 @@ No dramatic motion, no sudden changes, no exaggerated effects.</div>
   <div class="inner">
     <div class="quote-mark">״</div>
     <div class="quote-text">עוד לא אבדה תקוותנו,<br>התקווה בת שנות אלפיים.</div>
-    <div class="quote-attr">— התקווה</div>
+    <div class="quote-attr">- התקווה</div>
   </div>
 </section>
 
@@ -781,7 +935,7 @@ No dramatic motion, no sudden changes, no exaggerated effects.</div>
   <div class="container">
     <span class="eyebrow">גלריה</span>
     <h2>דוגמאות אמיתיות מתוך התהליך</h2>
-    <p class="lead">כאן אפשר לראות את חומרי הגלם עצמם — לא רק את התוצאה.</p>
+    <p class="lead">כאן אפשר לראות את חומרי הגלם עצמם - לא רק את התוצאה.</p>
 
     <div class="tabs">
       <button class="tab-btn active" data-tab="t-images">תמונות</button>
@@ -820,7 +974,7 @@ No dramatic motion, no sudden changes, no exaggerated effects.</div>
       <div class="sound-card">
         <div class="ico">♪</div>
         <div style="flex:1 1 260px">
-          <div style="font-weight:700;margin-bottom:6px">Silent Tides — הפסקול הסופי</div>
+          <div style="font-weight:700;margin-bottom:6px">Silent Tides - הפסקול הסופי</div>
           <audio src="sound/Silent Tides.mp3" controls></audio>
         </div>
       </div>
@@ -831,9 +985,9 @@ No dramatic motion, no sudden changes, no exaggerated effects.</div>
         <strong>כל הפרומפטים המלאים.</strong> 7 פרומפטים ליצירת התמונות ב־Freepik AI, ועוד 7 פרומפטים להנפשת כל פריים ב־Kling. אפשר להעתיק כל פרומפט בלחיצה אחת ולהשתמש בו כבסיס לסיפור משלכם. המפתח: שמירה על <strong>Identity Lock</strong> ומעבר מדורג מחושך לאור.
       </div>
 
-      <div class="prompts-group-title">— פרומפטים לתמונות (Freepik AI) —</div>
+      <div class="prompts-group-title">- פרומפטים לתמונות (Freepik AI) -</div>
 
-      <div class="prompt-label"><span>פרומפט 1 — חושך מוחלט</span><span class="tiny">image1.png</span></div>
+      <div class="prompt-label"><span>פרומפט 1 - חושך מוחלט</span><span class="tiny">image1.png</span></div>
       <div class="prompt-wrap"><button class="copy-btn">העתק</button><div class="prompt-block">Use the uploaded reference image as the exact identity reference.
 STRICT IDENTITY LOCK: preserve 100% facial features, proportions, eyes, nose, mouth, and expression.
 Same person in all images. No changes in identity across frames.
@@ -844,7 +998,7 @@ Medium shot, centered subject, same framing and same camera angle in all images,
 
 A man standing completely alone in deep darkness, barely visible. Only a very faint soft light from above partially reveals his face. Heavy emotional atmosphere, subtle fog, black background, cinematic shadows, quiet and respectful Holocaust remembrance tone, minimal environment, no objects, no text, no additional elements.</div></div>
 
-      <div class="prompt-label"><span>פרומפט 2 — תקריב רגשי</span><span class="tiny">image2.png</span></div>
+      <div class="prompt-label"><span>פרומפט 2 - תקריב רגשי</span><span class="tiny">image2.png</span></div>
       <div class="prompt-wrap"><button class="copy-btn">העתק</button><div class="prompt-block">Use the uploaded reference image as the exact identity reference.
 STRICT IDENTITY LOCK: preserve 100% facial features, proportions, eyes, nose, mouth, and expression.
 Same person in all images. No changes in identity across frames.
@@ -855,7 +1009,7 @@ Medium shot, centered subject, same framing and same camera angle as previous im
 
 A slightly closer emotional portrait of the same man, maintaining the exact same pose and position. His expression is sorrowful and reflective, eyes slightly moist but not exaggerated. Soft directional light from the side reveals more of his face than before, while the background remains deep black. Subtle increase in visibility compared to the previous frame, maintaining a quiet, respectful and restrained emotional tone.</div></div>
 
-      <div class="prompt-label"><span>פרומפט 3 — מגע בגדר התיל</span><span class="tiny">image3.png</span></div>
+      <div class="prompt-label"><span>פרומפט 3 - מגע בגדר התיל</span><span class="tiny">image3.png</span></div>
       <div class="prompt-wrap"><button class="copy-btn">העתק</button><div class="prompt-block">Use the uploaded reference image(s) as the exact identity reference.
 STRICT IDENTITY LOCK: preserve 100% facial features, proportions, eyes, nose, mouth, and expression.
 Same person in all images. No changes in identity across frames.
@@ -870,7 +1024,7 @@ The barbed wire appears in the foreground only, slightly out of focus, while the
 
 Respectful, symbolic scene, no violence, no dramatic action, no additional elements.</div></div>
 
-      <div class="prompt-label"><span>פרומפט 4 — תחילת אור</span><span class="tiny">image4.png</span></div>
+      <div class="prompt-label"><span>פרומפט 4 - תחילת אור</span><span class="tiny">image4.png</span></div>
       <div class="prompt-wrap"><button class="copy-btn">העתק</button><div class="prompt-block">Use the uploaded reference image(s) as the exact identity reference.
 STRICT IDENTITY LOCK: preserve 100% facial features, proportions, eyes, nose, mouth, and expression.
 Same person in all images. No changes in identity across frames.
@@ -887,7 +1041,7 @@ His expression remains serious and reflective, but slightly calmer than before. 
 
 Quiet, respectful, symbolic transition from darkness to light. No dramatic change, no strong sunlight, no additional elements.</div></div>
 
-      <div class="prompt-label"><span>פרומפט 5 — עמידה חזקה</span><span class="tiny">image5.png</span></div>
+      <div class="prompt-label"><span>פרומפט 5 - עמידה חזקה</span><span class="tiny">image5.png</span></div>
       <div class="prompt-wrap"><button class="copy-btn">העתק</button><div class="prompt-block">Use the uploaded reference image(s) as the exact identity reference.
 STRICT IDENTITY LOCK: preserve 100% facial features, proportions, eyes, nose, mouth, and expression.
 Same person in all images. No changes in identity across frames.
@@ -904,7 +1058,7 @@ His expression is calm, serious, and determined, without a smile. Background rem
 
 Cinematic, respectful, emotional progression toward resilience and inner strength.</div></div>
 
-      <div class="prompt-label"><span>פרומפט 6 — דגל ברקע</span><span class="tiny">image6.png</span></div>
+      <div class="prompt-label"><span>פרומפט 6 - דגל ברקע</span><span class="tiny">image6.png</span></div>
       <div class="prompt-wrap"><button class="copy-btn">העתק</button><div class="prompt-block">Use the uploaded reference image(s) as the exact identity reference.
 STRICT IDENTITY LOCK: preserve 100% facial features, proportions, eyes, nose, mouth, and expression.
 Same person in all images. No changes in identity across frames.
@@ -921,7 +1075,7 @@ Warm natural lighting, soft golden tones. His expression remains calm, serious, 
 
 Respectful, symbolic, and restrained atmosphere. No dramatic motion, no strong wind, no additional elements.</div></div>
 
-      <div class="prompt-label"><span>פרומפט 7 — סיום בשקיעה</span><span class="tiny">image7.png</span></div>
+      <div class="prompt-label"><span>פרומפט 7 - סיום בשקיעה</span><span class="tiny">image7.png</span></div>
       <div class="prompt-wrap"><button class="copy-btn">העתק</button><div class="prompt-block">Use the uploaded reference image(s) as the exact identity reference.
 STRICT IDENTITY LOCK: preserve 100% facial features, proportions, eyes, nose, mouth, and expression.
 Same person in all images. No changes in identity across frames.
@@ -938,9 +1092,9 @@ Background remains clean and softly lit, no strong elements, no distractions.
 
 Cinematic, emotional closure. A quiet sense of hope, continuity, and life. No dramatic effect, no exaggeration.</div></div>
 
-      <div class="prompts-group-title">— פרומפטים להנפשה (Kling) —</div>
+      <div class="prompts-group-title">- פרומפטים להנפשה (Kling) -</div>
 
-      <div class="prompt-label"><span>וידאו 1 — חושך מוחלט</span><span class="tiny">video1.mp4</span></div>
+      <div class="prompt-label"><span>וידאו 1 - חושך מוחלט</span><span class="tiny">video1.mp4</span></div>
       <div class="prompt-wrap"><button class="copy-btn">העתק</button><div class="prompt-block">Ultra-realistic cinematic scene. Preserve the exact identity of the person with no changes.
 
 STRICT IDENTITY LOCK: no face change, no identity drift, no distortion.
@@ -957,7 +1111,7 @@ Soft shadows, minimal fog, quiet and respectful atmosphere.
 
 No dramatic motion, no sudden changes, no exaggerated effects.</div></div>
 
-      <div class="prompt-label"><span>וידאו 2 — תקריב רגשי</span><span class="tiny">video2.mp4</span></div>
+      <div class="prompt-label"><span>וידאו 2 - תקריב רגשי</span><span class="tiny">video2.mp4</span></div>
       <div class="prompt-wrap"><button class="copy-btn">העתק</button><div class="prompt-block">Ultra-realistic cinematic scene. Preserve the exact identity of the person with no changes.
 
 STRICT IDENTITY LOCK: no face change, no identity drift, no distortion.
@@ -974,7 +1128,7 @@ Camera is static. No zoom, no pan.
 
 Quiet, emotional, and respectful tone. No dramatic effects.</div></div>
 
-      <div class="prompt-label"><span>וידאו 3 — מגע בגדר התיל</span><span class="tiny">video3.mp4</span></div>
+      <div class="prompt-label"><span>וידאו 3 - מגע בגדר התיל</span><span class="tiny">video3.mp4</span></div>
       <div class="prompt-wrap"><button class="copy-btn">העתק</button><div class="prompt-block">Ultra-realistic cinematic scene. Preserve the exact identity of the person with no changes.
 
 STRICT IDENTITY LOCK: no face change, no identity drift, no distortion.
@@ -993,7 +1147,7 @@ Camera is static. No motion.
 
 Respectful, symbolic atmosphere. No drama, no action.</div></div>
 
-      <div class="prompt-label"><span>וידאו 4 — תחילת אור</span><span class="tiny">video4.mp4</span></div>
+      <div class="prompt-label"><span>וידאו 4 - תחילת אור</span><span class="tiny">video4.mp4</span></div>
       <div class="prompt-wrap"><button class="copy-btn">העתק</button><div class="prompt-block">Ultra-realistic cinematic scene. Preserve the exact identity of the person with no changes.
 
 STRICT IDENTITY LOCK: no face change, no identity drift, no distortion.
@@ -1012,7 +1166,7 @@ Camera is completely static.
 
 Quiet, symbolic shift from darkness to light. No dramatic change.</div></div>
 
-      <div class="prompt-label"><span>וידאו 5 — עמידה חזקה</span><span class="tiny">video5.mp4</span></div>
+      <div class="prompt-label"><span>וידאו 5 - עמידה חזקה</span><span class="tiny">video5.mp4</span></div>
       <div class="prompt-wrap"><button class="copy-btn">העתק</button><div class="prompt-block">Ultra-realistic cinematic scene. Preserve the exact identity of the person with no changes.
 
 STRICT IDENTITY LOCK: no face change, no identity drift, no distortion.
@@ -1029,7 +1183,7 @@ Camera remains static.
 
 Calm, grounded, and strong presence. No dramatic effect.</div></div>
 
-      <div class="prompt-label"><span>וידאו 6 — דגל ברקע</span><span class="tiny">video6.mp4</span></div>
+      <div class="prompt-label"><span>וידאו 6 - דגל ברקע</span><span class="tiny">video6.mp4</span></div>
       <div class="prompt-wrap"><button class="copy-btn">העתק</button><div class="prompt-block">Ultra-realistic cinematic scene. Preserve the exact identity of the person with no changes.
 
 STRICT IDENTITY LOCK: no face change, no identity drift, no distortion.
@@ -1048,7 +1202,7 @@ Camera is static.
 
 Respectful, quiet, and symbolic scene. No strong motion, no dramatic elements.</div></div>
 
-      <div class="prompt-label"><span>וידאו 7 — סיום בשקיעה</span><span class="tiny">video7.mp4</span></div>
+      <div class="prompt-label"><span>וידאו 7 - סיום בשקיעה</span><span class="tiny">video7.mp4</span></div>
       <div class="prompt-wrap"><button class="copy-btn">העתק</button><div class="prompt-block">Ultra-realistic cinematic scene. Preserve the exact identity of the person with no changes.
 
 STRICT IDENTITY LOCK: no face change, no identity drift, no distortion.
@@ -1073,7 +1227,7 @@ Peaceful, quiet ending. No dramatic movement, no exaggeration.</div></div>
   <div class="container">
     <span class="eyebrow">למה זה עובד</span>
     <h2>למה התוצאה מרגישה אחרת</h2>
-    <p class="lead">יש הרבה תוכן AI שנראה מרשים, אבל לא באמת נוגע. כאן קרה משהו אחר — כי הטכנולוגיה לא הייתה המטרה. היא הייתה רק הכלי.</p>
+    <p class="lead">יש הרבה תוכן AI שנראה מרשים, אבל לא באמת נוגע. כאן קרה משהו אחר - כי הטכנולוגיה לא הייתה המטרה. היא הייתה רק הכלי.</p>
     <div class="why">
       <div class="card"><h4>פנים מוכרות</h4><p>הזהות נשמרה לאורך כל הפריימים ויצרה חיבור רגשי.</p></div>
       <div class="card"><h4>שינויים עדינים</h4><p>המעברים בין הפריימים היו דקים, ולא קופצניים.</p></div>
@@ -1141,9 +1295,9 @@ Peaceful, quiet ending. No dramatic movement, no exaggeration.</div></div>
     <div class="inner">
       <span class="eyebrow">למה הסיפור הזה, ולמה עכשיו</span>
       <h2 style="color:var(--blue-deep);margin-bottom:24px">זיכרון שדורש דרכים חדשות</h2>
-      <p>77 שנה לתקומת המדינה. דור העצמאות עוזב אותנו לאט־לאט, והסיפורים שלהם חייבים דרכים חדשות להיזכר ולהיראות.</p>
-      <p>AI הוא כלי חדש — והרגע הזה, בין יום הזיכרון ליום העצמאות, הוא המקום הנכון להראות איך אפשר להשתמש בו <strong>בכבוד, בשקט, ובאיפוק</strong>. לא להחליף זיכרון, אלא להעביר אותו הלאה.</p>
-      <p class="signature">— יהי זכרם ברוך. ויהי יום עצמאותנו שמח.</p>
+      <p><span class="counter-num" data-counter="78">0</span> שנה לתקומת המדינה. דור העצמאות עוזב אותנו לאט־לאט, והסיפורים שלהם חייבים דרכים חדשות להיזכר ולהיראות.</p>
+      <p>AI הוא כלי חדש - והרגע הזה, בין יום הזיכרון ליום העצמאות, הוא המקום הנכון להראות איך אפשר להשתמש בו <strong>בכבוד, בשקט, ובאיפוק</strong>. לא להחליף זיכרון, אלא להעביר אותו הלאה.</p>
+      <p class="signature">- יהי זכרם ברוך. ויהי יום עצמאותנו שמח.</p>
     </div>
   </div>
 </section>
@@ -1152,7 +1306,7 @@ Peaceful, quiet ending. No dramatic movement, no exaggeration.</div></div>
 <section id="cta" style="background:var(--bg-soft);padding-top:60px;padding-bottom:60px">
   <div class="container" style="text-align:center">
     <span class="eyebrow">שתפו את הסיפור</span>
-    <h2>אם הסרטון נגע בכם — העבירו אותו הלאה</h2>
+    <h2>אם הסרטון נגע בכם - העבירו אותו הלאה</h2>
     <p class="lead" style="margin:0 auto 28px">בערב תקומת המדינה, זיכרון שמשותף הוא זיכרון שממשיך לחיות.</p>
     <div class="share-row">
       <a class="share-btn share-whatsapp" href="#" data-share="whatsapp">
@@ -1177,7 +1331,7 @@ Peaceful, quiet ending. No dramatic movement, no exaggeration.</div></div>
     <div class="cta-section">
       <span class="eyebrow" style="color:var(--gold-soft)">רוצים משהו דומה?</span>
       <h2>לבנות סרטון כזה לסיפור שלכם</h2>
-      <p>אפשר לקחת את אותו עיקרון ולהתאים אותו להרצאה, לטקס, למוצר, לקמפיין או לסיפור אישי — באותה רמת כבוד ואיפוק.</p>
+      <p>אפשר לקחת את אותו עיקרון ולהתאים אותו להרצאה, לטקס, למוצר, לקמפיין או לסיפור אישי - באותה רמת כבוד ואיפוק.</p>
       <div class="cta-row" style="justify-content:center">
         <a href="https://wa.me/972508667895" class="btn btn-primary">דברו איתי</a>
       </div>
@@ -1202,7 +1356,7 @@ Peaceful, quiet ending. No dramatic movement, no exaggeration.</div></div>
       <strong>מוקדש לזוכרים. ולתקומה שהם אפשרו.</strong>
     </div>
     <div style="color:var(--blue-deep);font-weight:700;margin-bottom:14px">
-      ערב יום העצמאות ה־77 למדינת ישראל
+      ערב יום העצמאות ה־78 למדינת ישראל
     </div>
     <div style="font-size:13px;color:var(--muted)">
       מזיכרון לתקומה · נבנה בעזרת AI · נוצר כדי להרגיש אנושי
@@ -1216,6 +1370,9 @@ Peaceful, quiet ending. No dramatic movement, no exaggeration.</div></div>
   <div class="bars"><span></span><span></span><span></span><span></span></div>
 </button>
 <div class="music-label" id="musicLabel">🎵 לחצו להפעלת מוסיקת רקע</div>
+
+<!-- Back to top -->
+<button class="back-top" id="backTop" aria-label="חזרה לראש העמוד" title="חזרה לראש העמוד">↑</button>
 
 <script>
 // Background music control
@@ -1266,6 +1423,160 @@ Peaceful, quiet ending. No dramatic movement, no exaggeration.</div></div>
   setTimeout(()=>label.classList.remove('show'),9500);
 })();
 
+// Reading progress bar
+(function(){
+  const bar=document.getElementById('progressBar');
+  if(!bar)return;
+  const update=()=>{
+    const h=document.documentElement;
+    const max=h.scrollHeight-window.innerHeight;
+    const pct=max>0?h.scrollTop/max:0;
+    bar.style.transform='scaleX('+pct+')';
+  };
+  window.addEventListener('scroll',update,{passive:true});
+  window.addEventListener('resize',update);
+  update();
+})();
+
+// Hero title word-by-word reveal
+(function(){
+  const words=document.querySelectorAll('.hero h1 .word');
+  if(!words.length)return;
+  setTimeout(()=>words.forEach(w=>w.classList.add('visible')),200);
+})();
+
+// Back to top
+(function(){
+  const btn=document.getElementById('backTop');
+  if(!btn)return;
+  const toggle=()=>{
+    if(window.scrollY>window.innerHeight*0.8)btn.classList.add('show');
+    else btn.classList.remove('show');
+  };
+  window.addEventListener('scroll',toggle,{passive:true});
+  btn.addEventListener('click',()=>{
+    window.scrollTo({top:0,behavior:'smooth'});
+    if(typeof gtag==='function')gtag('event','back_to_top');
+  });
+  toggle();
+})();
+
+// Before/After slider
+(function(){
+  const s=document.getElementById('baSlider');
+  if(!s)return;
+  let dragging=false;
+  const setPos=(clientX)=>{
+    const r=s.getBoundingClientRect();
+    let p=((clientX-r.left)/r.width)*100;
+    p=Math.max(2,Math.min(98,p));
+    s.style.setProperty('--pos',p+'%');
+  };
+  s.addEventListener('pointerdown',(e)=>{
+    dragging=true;
+    s.setPointerCapture(e.pointerId);
+    setPos(e.clientX);
+    const hint=s.querySelector('.ba-hint');
+    if(hint)hint.style.display='none';
+  });
+  s.addEventListener('pointermove',(e)=>{if(dragging)setPos(e.clientX)});
+  const stop=()=>dragging=false;
+  s.addEventListener('pointerup',stop);
+  s.addEventListener('pointercancel',stop);
+  // Subtle auto-hint animation on first view
+  const io=new IntersectionObserver((entries,obs)=>{
+    entries.forEach(e=>{
+      if(e.isIntersecting){
+        let p=50,dir=1,steps=0;
+        const tick=()=>{
+          if(dragging||steps>60)return;
+          p+=dir*.8;
+          if(p>62){dir=-1}
+          if(p<38){dir=1}
+          s.style.setProperty('--pos',p+'%');
+          steps++;
+          if(steps<60)requestAnimationFrame(tick);
+          else s.style.setProperty('--pos','50%');
+        };
+        setTimeout(()=>requestAnimationFrame(tick),800);
+        obs.disconnect();
+      }
+    });
+  },{threshold:0.4});
+  io.observe(s);
+})();
+
+// Counter animation
+(function(){
+  const nums=document.querySelectorAll('[data-counter]');
+  if(!nums.length)return;
+  const animate=(el)=>{
+    const target=parseInt(el.dataset.counter,10);
+    const duration=1400;
+    const start=performance.now();
+    const step=(now)=>{
+      const t=Math.min(1,(now-start)/duration);
+      const eased=1-Math.pow(1-t,3);
+      el.textContent=Math.round(target*eased);
+      if(t<1)requestAnimationFrame(step);
+    };
+    requestAnimationFrame(step);
+  };
+  if(!('IntersectionObserver' in window)){nums.forEach(n=>n.textContent=n.dataset.counter);return;}
+  const io=new IntersectionObserver((entries,obs)=>{
+    entries.forEach(e=>{
+      if(e.isIntersecting){animate(e.target);obs.unobserve(e.target);}
+    });
+  },{threshold:0.6});
+  nums.forEach(n=>io.observe(n));
+})();
+
+// Scroll reveal for all sections (except the hero)
+(function(){
+  const reduced=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if(reduced)return;
+  const sections=document.querySelectorAll('section, footer');
+  sections.forEach(s=>s.classList.add('reveal'));
+  // Stagger grids that have multiple visible cards
+  document.querySelectorAll('.why, .tools, .tips, .frames, .vgrid, .share-row').forEach(g=>{
+    g.classList.add('reveal-stagger');
+  });
+  const targets=document.querySelectorAll('.reveal, .reveal-stagger');
+  if(!('IntersectionObserver' in window)){
+    targets.forEach(t=>t.classList.add('visible'));
+    return;
+  }
+  const io=new IntersectionObserver((entries,obs)=>{
+    entries.forEach(e=>{
+      if(e.isIntersecting){
+        requestAnimationFrame(()=>requestAnimationFrame(()=>e.target.classList.add('visible')));
+        obs.unobserve(e.target);
+      }
+    });
+  },{threshold:0.12,rootMargin:'0px 0px -60px 0px'});
+  targets.forEach(t=>io.observe(t));
+})();
+
+// Timeline reveal animation on scroll into view
+(function(){
+  const tl=document.querySelector('.timeline');
+  if(!tl)return;
+  const trigger=()=>{
+    // Force the browser to paint the initial (hidden) state first,
+    // then add the class on the next frame so the transition actually runs.
+    requestAnimationFrame(()=>requestAnimationFrame(()=>tl.classList.add('animate')));
+  };
+  if(!('IntersectionObserver' in window)){trigger();return;}
+  const io=new IntersectionObserver((entries,obs)=>{
+    entries.forEach(e=>{
+      if(e.isIntersecting){trigger();obs.disconnect();}
+    });
+  },{threshold:0.25});
+  io.observe(tl);
+  // Safety fallback: if for any reason the observer never fires, animate after 3s
+  setTimeout(()=>{if(!tl.classList.contains('animate'))trigger();},3000);
+})();
+
 // Lazy load & play videos when they enter the viewport
 (function(){
   const lazyVideos=document.querySelectorAll('video.lazyvid');
@@ -1313,7 +1624,7 @@ function trackEvent(name,params){
 
 // Share buttons
 (function(){
-  const shareText='מזיכרון לתקומה — סיפור של תקומה שנבנה בעזרת AI מתמונה אחת בלבד. לכבוד ערב יום העצמאות.';
+  const shareText='מזיכרון לתקומה - סיפור של תקומה שנבנה בעזרת AI מתמונה אחת בלבד. לכבוד ערב יום העצמאות.';
   const shareUrl=location.href;
   document.querySelectorAll('[data-share]').forEach(el=>{
     el.addEventListener('click',async(e)=>{
