@@ -1,0 +1,1140 @@
+<!-- https://sagi-ba.github.io/AI/landing-pages/yourpage -->
+
+ <!-- http://127.0.0.1:8080/landing-pages/yourpage -->
+
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>בונים לכם דף נחיתה שמוכר באמת | שגיא בר און</title>
+    <meta name="description" content="ענו על כמה שאלות קצרות — ואני אבנה לכם דף נחיתה שמוכר. תהליך קצר, ברור ומותאם אישית.">
+
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-XSH19K5LBZ"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-XSH19K5LBZ');
+    </script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Alef:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* ===== CINEMATIC INTRO ===== */
+        .intro-overlay {
+            position: fixed;
+            inset: 0;
+            z-index: 9999;
+            background: radial-gradient(ellipse at 50% 50%, #fff3e6 0%, #ffd9b3 55%, #ff8f3f 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            transition: opacity 0.8s ease-out;
+            overflow: hidden;
+        }
+
+        .intro-overlay.dismissed {
+            opacity: 0;
+            pointer-events: none;
+        }
+
+        .intro-orb {
+            position: relative;
+            width: 140px;
+            height: 140px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 36px;
+        }
+
+        .intro-orb-core {
+            width: 90px;
+            height: 90px;
+            border-radius: 50%;
+            background: radial-gradient(circle, #ffb673 0%, #ff6b00 70%);
+            box-shadow: 0 0 60px rgba(255, 107, 0, 0.6), 0 0 120px rgba(255, 107, 0, 0.3);
+            opacity: 0;
+            transform: scale(0.2);
+            transition: opacity 0.6s ease-out, transform 0.8s cubic-bezier(0.34, 1.56, 0.64, 1);
+        }
+
+        .intro-orb-core.show {
+            opacity: 1;
+            transform: scale(1);
+        }
+
+        .intro-ring {
+            position: absolute;
+            inset: 0;
+            border-radius: 50%;
+            border: 2px solid rgba(255, 107, 0, 0.35);
+            opacity: 0;
+            transform: scale(0.5);
+            transition: opacity 0.8s ease-out, transform 1.2s ease-out;
+        }
+
+        .intro-ring.r2 { inset: -30px; border-color: rgba(255, 107, 0, 0.2); }
+        .intro-ring.r3 { inset: -60px; border-color: rgba(255, 107, 0, 0.1); }
+
+        .intro-ring.show {
+            opacity: 1;
+            transform: scale(1);
+        }
+
+        .intro-text-container {
+            text-align: center;
+            padding: 0 24px;
+        }
+
+        .intro-title {
+            font-family: 'Alef', sans-serif;
+            font-size: clamp(1.8rem, 5vw, 2.8rem);
+            font-weight: 700;
+            color: #1a1a1a;
+            opacity: 0;
+            transform: translateY(16px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        }
+
+        .intro-title.show {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .intro-line {
+            width: 0;
+            height: 3px;
+            background: linear-gradient(90deg, transparent, #ff6b00, transparent);
+            margin: 18px auto;
+            transition: width 0.7s ease-out;
+        }
+
+        .intro-line.show { width: 220px; }
+
+        .intro-subtitle {
+            font-family: 'Alef', sans-serif;
+            font-size: clamp(1rem, 2.5vw, 1.2rem);
+            color: #555;
+            opacity: 0;
+            transform: translateY(10px);
+            transition: opacity 0.5s ease-out, transform 0.5s ease-out;
+        }
+
+        .intro-subtitle.show {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .intro-skip {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            background: rgba(255, 255, 255, 0.7);
+            color: #1a1a1a;
+            border: none;
+            padding: 8px 18px;
+            border-radius: 999px;
+            font-family: 'Alef', sans-serif;
+            font-size: 0.9rem;
+            font-weight: 700;
+            cursor: pointer;
+            opacity: 0;
+            transition: opacity 0.4s ease-out, background 0.2s;
+        }
+
+        .intro-skip.show { opacity: 1; }
+        .intro-skip:hover { background: rgba(255, 255, 255, 0.95); }
+
+        .main-content {
+            opacity: 0;
+            transition: opacity 0.6s ease-out;
+        }
+
+        .main-content.visible { opacity: 1; }
+
+        :root {
+            --bg: #fafafa;
+            --text: #1a1a1a;
+            --text-light: #555;
+            --accent: #ff6b00;
+            --accent-dark: #e55a00;
+            --accent-light: #fff3e6;
+            --border: #e0e0e0;
+            --white: #ffffff;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Alef', sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.8;
+            font-size: 18px;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        /* Sticky Header */
+        .top-header {
+            background: linear-gradient(135deg, #ff6b00 0%, #ff8f3f 50%, #ffab6b 100%);
+            color: var(--white);
+            padding: 16px 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
+        }
+
+        .header-inner {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 0 24px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 16px;
+        }
+
+        .header-actions {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .header-wa {
+            color: var(--white);
+            text-decoration: none;
+            font-size: 0.95rem;
+            font-weight: 700;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            opacity: 0.95;
+            transition: opacity 0.2s;
+        }
+
+        .header-wa:hover {
+            opacity: 1;
+        }
+
+        .logo {
+            font-size: 1.3rem;
+            font-weight: 700;
+            letter-spacing: 0.3px;
+        }
+
+        .header-cta {
+            background: var(--white);
+            color: var(--accent);
+            text-decoration: none;
+            padding: 10px 22px;
+            border-radius: 999px;
+            font-weight: 700;
+            font-size: 0.95rem;
+            transition: transform 0.2s, box-shadow 0.2s;
+            white-space: nowrap;
+        }
+
+        .header-cta:hover {
+            transform: translateY(-1px);
+            box-shadow: 0 6px 18px rgba(0, 0, 0, 0.15);
+        }
+
+        /* Hero */
+        .hero {
+            background: linear-gradient(180deg, #fff9f0 0%, #fff5e6 50%, var(--bg) 100%);
+            padding: 80px 0 70px;
+            animation: fadeIn 0.8s ease-out;
+        }
+
+        .hero-grid {
+            display: grid;
+            grid-template-columns: 1.2fr 1fr;
+            gap: 56px;
+            align-items: center;
+        }
+
+        .hero-text {
+            text-align: right;
+        }
+
+        .hero-image-col {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .hero-image-wrapper {
+            width: 100%;
+            max-width: 340px;
+            aspect-ratio: 4 / 5;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 16px 44px rgba(0, 0, 0, 0.15);
+            background: var(--accent-light);
+        }
+
+        .hero-image-wrapper img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        .personal-note {
+            margin-top: 18px;
+            font-size: 1rem;
+            color: var(--text-light);
+            text-align: center;
+            max-width: 340px;
+            line-height: 1.6;
+            font-style: italic;
+        }
+
+        .hero-title {
+            font-size: clamp(2rem, 5vw, 3rem);
+            font-weight: 700;
+            margin-bottom: 24px;
+            line-height: 1.3;
+            color: var(--text);
+        }
+
+        .hero-title .highlight {
+            color: var(--accent);
+        }
+
+        .hero-subtitle {
+            font-size: clamp(1.05rem, 2.2vw, 1.2rem);
+            color: var(--text-light);
+            margin: 0 0 36px;
+            line-height: 1.8;
+        }
+
+        .cta-group {
+            display: flex;
+            gap: 14px;
+            flex-wrap: wrap;
+            margin-bottom: 14px;
+        }
+
+        .cta-button {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            text-decoration: none;
+            padding: 18px 36px;
+            font-size: 1.15rem;
+            font-weight: 700;
+            border-radius: 999px;
+            transition: transform 0.2s, box-shadow 0.2s, background 0.2s;
+            border: none;
+            cursor: pointer;
+            font-family: inherit;
+        }
+
+        .cta-primary {
+            background: var(--accent);
+            color: var(--white);
+            box-shadow: 0 12px 32px rgba(255, 107, 0, 0.4);
+        }
+
+        .cta-primary:hover {
+            background: var(--accent-dark);
+            transform: translateY(-2px);
+            box-shadow: 0 16px 38px rgba(255, 107, 0, 0.5);
+        }
+
+        .cta-secondary {
+            background: var(--white);
+            color: var(--accent);
+            border: 2px solid var(--accent);
+        }
+
+        .cta-secondary:hover {
+            background: var(--accent-light);
+            transform: translateY(-2px);
+        }
+
+        .cta-whatsapp {
+            background: #25d366;
+            color: var(--white);
+            box-shadow: 0 10px 26px rgba(37, 211, 102, 0.35);
+        }
+
+        .cta-whatsapp:hover {
+            background: #1ebe5a;
+            transform: translateY(-2px);
+            box-shadow: 0 14px 32px rgba(37, 211, 102, 0.45);
+        }
+
+        .cta-hint {
+            font-size: 0.95rem;
+            color: var(--text-light);
+            margin-top: 6px;
+        }
+
+        /* Benefits */
+        .benefits {
+            padding: 70px 0 60px;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: clamp(1.6rem, 3.5vw, 2.2rem);
+            font-weight: 700;
+            margin-bottom: 48px;
+            color: var(--text);
+        }
+
+        .section-title .highlight {
+            color: var(--accent);
+        }
+
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 24px;
+        }
+
+        .benefit-card {
+            background: var(--white);
+            border-radius: 16px;
+            padding: 32px 24px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
+            border: 1px solid var(--border);
+            text-align: center;
+            transition: transform 0.2s, box-shadow 0.2s;
+            animation: fadeInUp 0.6s ease-out both;
+        }
+
+        .benefit-card:nth-child(1) { animation-delay: 0.05s; }
+        .benefit-card:nth-child(2) { animation-delay: 0.15s; }
+        .benefit-card:nth-child(3) { animation-delay: 0.25s; }
+        .benefit-card:nth-child(4) { animation-delay: 0.35s; }
+
+        .benefit-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 32px rgba(0, 0, 0, 0.1);
+        }
+
+        .benefit-icon {
+            width: 64px;
+            height: 64px;
+            margin: 0 auto 18px;
+            background: var(--accent-light);
+            color: var(--accent);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.8rem;
+            font-weight: 700;
+        }
+
+        .benefit-title {
+            font-size: 1.15rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+            color: var(--text);
+        }
+
+        .benefit-text {
+            font-size: 0.98rem;
+            color: var(--text-light);
+            line-height: 1.6;
+        }
+
+        /* Examples / Portfolio */
+        .examples {
+            padding: 70px 0 60px;
+            background: var(--white);
+            border-top: 1px solid var(--border);
+        }
+
+        .examples-intro {
+            text-align: center;
+            font-size: 1.05rem;
+            color: var(--text-light);
+            max-width: 640px;
+            margin: -24px auto 40px;
+            line-height: 1.7;
+        }
+
+        .examples-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 24px;
+        }
+
+        .example-card {
+            background: var(--white);
+            border-radius: 16px;
+            overflow: hidden;
+            border: 1px solid var(--border);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
+            display: flex;
+            flex-direction: column;
+            transition: transform 0.25s, box-shadow 0.25s;
+            text-decoration: none;
+            color: inherit;
+        }
+
+        .example-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 14px 34px rgba(0, 0, 0, 0.12);
+        }
+
+        .example-thumb {
+            width: 100%;
+            aspect-ratio: 16 / 10;
+            background: linear-gradient(135deg, #fff3e6 0%, #ffd9b3 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+            overflow: hidden;
+        }
+
+        .example-thumb img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        .example-body {
+            padding: 20px 22px 22px;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .example-title {
+            font-size: 1.1rem;
+            font-weight: 700;
+            margin-bottom: 8px;
+            color: var(--text);
+            line-height: 1.4;
+        }
+
+        .example-desc {
+            font-size: 0.95rem;
+            color: var(--text-light);
+            line-height: 1.6;
+            margin-bottom: 16px;
+            flex: 1;
+        }
+
+        .example-link {
+            font-size: 0.95rem;
+            font-weight: 700;
+            color: var(--accent);
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .example-card:hover .example-link {
+            color: var(--accent-dark);
+        }
+
+        /* Form Section */
+        .form-section {
+            padding: 70px 0 90px;
+            background: linear-gradient(180deg, var(--bg) 0%, #fff5e6 100%);
+        }
+
+        .form-intro {
+            text-align: center;
+            font-size: 1.1rem;
+            color: var(--text-light);
+            max-width: 640px;
+            margin: 0 auto 40px;
+            line-height: 1.8;
+        }
+
+        .form-wrapper {
+            background: var(--white);
+            border-radius: 20px;
+            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.08);
+            border: 1px solid var(--border);
+            overflow: hidden;
+            position: relative;
+            min-height: 600px;
+        }
+
+        .form-loading {
+            position: absolute;
+            inset: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 16px;
+            color: var(--text-light);
+            font-size: 1rem;
+            pointer-events: none;
+            transition: opacity 0.3s;
+        }
+
+        .form-loading.hidden {
+            opacity: 0;
+        }
+
+        .spinner {
+            width: 42px;
+            height: 42px;
+            border: 4px solid var(--accent-light);
+            border-top-color: var(--accent);
+            border-radius: 50%;
+            animation: spin 0.9s linear infinite;
+        }
+
+        .form-wrapper iframe {
+            display: block;
+            width: 100%;
+            height: 1200px;
+            border: 0;
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Floating Chat Button */
+        .floating-chat {
+            position: fixed;
+            bottom: 24px;
+            left: 24px;
+            background: var(--accent);
+            color: var(--white);
+            text-decoration: none;
+            padding: 14px 22px;
+            border-radius: 999px;
+            font-weight: 700;
+            font-size: 0.98rem;
+            box-shadow: 0 10px 28px rgba(255, 107, 0, 0.45);
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            z-index: 90;
+            transition: transform 0.2s, box-shadow 0.2s, background 0.2s;
+            animation: fadeIn 0.8s ease-out 0.6s both;
+        }
+
+        .floating-chat:hover {
+            background: var(--accent-dark);
+            transform: translateY(-2px);
+            box-shadow: 0 14px 34px rgba(255, 107, 0, 0.55);
+        }
+
+        .floating-wa {
+            position: fixed;
+            bottom: 24px;
+            right: 24px;
+            background: #25d366;
+            color: var(--white);
+            text-decoration: none;
+            width: 58px;
+            height: 58px;
+            border-radius: 50%;
+            font-size: 1.7rem;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 10px 28px rgba(37, 211, 102, 0.5);
+            z-index: 90;
+            transition: transform 0.2s, box-shadow 0.2s;
+            animation: fadeIn 0.8s ease-out 0.6s both;
+        }
+
+        .floating-wa:hover {
+            transform: translateY(-2px) scale(1.05);
+            box-shadow: 0 14px 34px rgba(37, 211, 102, 0.6);
+        }
+
+        @media (max-width: 480px) {
+            .floating-chat {
+                bottom: 16px;
+                left: 16px;
+                padding: 12px 18px;
+                font-size: 0.9rem;
+            }
+
+            .floating-wa {
+                bottom: 16px;
+                right: 16px;
+                width: 52px;
+                height: 52px;
+                font-size: 1.5rem;
+            }
+
+            .header-wa span + * {
+                display: none;
+            }
+        }
+
+        /* Footer */
+        .footer {
+            text-align: center;
+            padding: 24px;
+            color: var(--text-light);
+            font-size: 0.9rem;
+            border-top: 1px solid var(--border);
+            background: var(--white);
+        }
+
+        /* Footer Promo */
+        .footer-promo {
+            background: linear-gradient(180deg, #fff5e6 0%, #ffe6cc 100%);
+            text-align: center;
+            padding: 48px 24px;
+            border-top: 1px solid var(--border);
+        }
+
+        .footer-promo-text {
+            font-size: 1.1rem;
+            color: var(--text);
+            font-weight: 700;
+            margin-bottom: 20px;
+        }
+
+        .footer-promo-cta {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background: var(--accent);
+            color: var(--white);
+            text-decoration: none;
+            padding: 14px 34px;
+            border-radius: 999px;
+            font-weight: 700;
+            font-size: 1.05rem;
+            box-shadow: 0 10px 26px rgba(255, 107, 0, 0.35);
+            transition: transform 0.2s, box-shadow 0.2s, background 0.2s;
+            margin-bottom: 22px;
+        }
+
+        .footer-promo-cta:hover {
+            background: var(--accent-dark);
+            transform: translateY(-2px);
+            box-shadow: 0 14px 32px rgba(255, 107, 0, 0.45);
+        }
+
+        .footer-promo-credit {
+            font-size: 0.85rem;
+            color: var(--text-light);
+        }
+
+        .footer-promo-credit a {
+            color: var(--accent);
+            text-decoration: none;
+            font-weight: 700;
+        }
+
+        .footer-promo-credit a:hover {
+            text-decoration: underline;
+        }
+
+        /* Animations */
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+
+        /* Mobile */
+        @media (max-width: 768px) {
+            body {
+                font-size: 17px;
+            }
+
+            .hero {
+                padding: 50px 0 50px;
+            }
+
+            .hero-grid {
+                grid-template-columns: 1fr;
+                gap: 32px;
+            }
+
+            .hero-text {
+                text-align: center;
+            }
+
+            .hero-image-col {
+                order: -1;
+            }
+
+            .hero-image-wrapper {
+                max-width: 240px;
+            }
+
+            .cta-group {
+                justify-content: center;
+            }
+
+            .benefits {
+                padding: 50px 0 40px;
+            }
+
+            .form-section {
+                padding: 50px 0 70px;
+            }
+
+            .header-inner {
+                padding: 0 16px;
+            }
+
+            .logo {
+                font-size: 1.1rem;
+            }
+
+            .header-cta {
+                padding: 9px 18px;
+                font-size: 0.88rem;
+            }
+
+            .container {
+                padding: 0 16px;
+            }
+
+            .cta-group {
+                flex-direction: column;
+                align-items: stretch;
+                gap: 12px;
+            }
+
+            .cta-button {
+                padding: 16px 24px;
+                font-size: 1.05rem;
+                width: 100%;
+            }
+
+            .benefit-card {
+                padding: 26px 20px;
+            }
+
+            .form-wrapper iframe {
+                height: 1400px;
+            }
+        }
+
+        @media (max-width: 380px) {
+            .hero-title {
+                font-size: 1.75rem;
+            }
+
+            .logo span {
+                display: none;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- ===== CINEMATIC INTRO ===== -->
+    <div class="intro-overlay" id="intro" aria-hidden="true" role="presentation">
+        <button class="intro-skip" id="introSkip" type="button">דלגו ←</button>
+        <div class="intro-orb">
+            <div class="intro-ring r3"></div>
+            <div class="intro-ring r2"></div>
+            <div class="intro-ring r1"></div>
+            <div class="intro-orb-core"></div>
+        </div>
+        <div class="intro-text-container">
+            <div class="intro-title">דף נחיתה שמוכר באמת</div>
+            <div class="intro-line"></div>
+            <div class="intro-subtitle">שגיא בר און</div>
+        </div>
+    </div>
+
+    <div class="main-content" id="mainContent">
+
+    <header class="top-header">
+        <div class="header-inner">
+            <div class="logo">דף נחיתה שמוכר</div>
+            <div class="header-actions">
+                <a href="https://wa.me/972549995050?text=שלום%20שגיא,%20אשמח%20לבנות%20דף%20נחיתה" target="_blank" rel="noopener noreferrer" class="header-wa">
+                    <span aria-hidden="true">💬</span> 054-9995050
+                </a>
+                <a href="#form" class="header-cta">התחילו עכשיו</a>
+            </div>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="container">
+            <div class="hero-grid">
+                <div class="hero-text">
+                    <h1 class="hero-title">
+                        בואו נבנה לכם <span class="highlight">דף נחיתה שמוכר</span> באמת
+                    </h1>
+                    <p class="hero-subtitle">
+                        ענו על כמה שאלות קצרות — ואני כבר אבנה לכם את הדף.<br>
+                        בלי כאבי ראש, בלי לכתוב שיווק, בלי סיבוכים.
+                    </p>
+                    <div class="cta-group">
+                        <a href="https://chatgpt.com/g/g-69dfce7083888191b3057af3faa650fa-bv-nbnh-dp-nkhyth-ykhd" target="_blank" rel="noopener noreferrer" class="cta-button cta-primary">
+                            <span aria-hidden="true">🤖</span> בוא נבנה את זה יחד (צ'אט חכם)
+                        </a>
+                        <a href="#form" class="cta-button cta-secondary">
+                            אני רוצה למלא שאלון קצר
+                        </a>
+                        <a href="https://wa.me/972549995050?text=שלום%20שגיא,%20אשמח%20לבנות%20דף%20נחיתה" target="_blank" rel="noopener noreferrer" class="cta-button cta-whatsapp">
+                            <span aria-hidden="true">💬</span> דברוו איתי בוואטסאפ
+                        </a>
+                    </div>
+                    <p class="cta-hint">לא בטוחים איך לענות? הצ'אט החכם ילווה אתכם שלב-שלב</p>
+                </div>
+                <div class="hero-image-col">
+                    <div class="hero-image-wrapper">
+                        <img src="sagi.webp" alt="שגיא בר און" loading="eager">
+                    </div>
+                    <p class="personal-note">
+                        הייתי בדיוק במקום שלכם — מבולבל מכל הכלים האלה
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="benefits">
+        <div class="container">
+            <h2 class="section-title">למה <span class="highlight">איתי?</span></h2>
+            <div class="benefits-grid">
+                <div class="benefit-card">
+                    <div class="benefit-icon">✓</div>
+                    <h3 class="benefit-title">בלי כאב ראש</h3>
+                    <p class="benefit-text">אתם עונים על שאלות פשוטות — ואני עושה את כל השאר.</p>
+                </div>
+                <div class="benefit-card">
+                    <div class="benefit-icon">✍</div>
+                    <h3 class="benefit-title">בלי לכתוב שיווק</h3>
+                    <p class="benefit-text">את כל הניסוחים, הכותרות והטקסטים — אני מנסח עבורכם.</p>
+                </div>
+                <div class="benefit-card">
+                    <div class="benefit-icon">⚡</div>
+                    <h3 class="benefit-title">תהליך קצר וברור</h3>
+                    <p class="benefit-text">ממילוי השאלון ועד דף מוכן — תהליך מהיר בלי התרוצצויות.</p>
+                </div>
+                <div class="benefit-card">
+                    <div class="benefit-icon">★</div>
+                    <h3 class="benefit-title">מותאם אישית</h3>
+                    <p class="benefit-text">כל דף נבנה סביב העסק, הקהל והמטרה הספציפית שלכם.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="examples">
+        <div class="container">
+            <h2 class="section-title">דפים ש<span class="highlight">בניתי</span></h2>
+            <p class="examples-intro">
+                כמה דוגמאות מהפרויקטים האחרונים — לקוחות אמיתיים, מוצרים, וקמפיינים.
+            </p>
+            <div class="examples-grid">
+
+                <a href="https://sagi-ba.github.io/AI/landing-pages/iris-baron/feminine-empowering.html" target="_blank" rel="noopener noreferrer" class="example-card">
+                    <div class="example-thumb">
+                        <img src="images/iris-baron.jpg" alt="דף מפגש נשי - ד״ר איריס בר-און" loading="lazy" onerror="this.style.display='none';this.parentElement.innerHTML='🌸';">
+                    </div>
+                    <div class="example-body">
+                        <h3 class="example-title">מפגש נשי מעצים</h3>
+                        <p class="example-desc">דף נחיתה לאירוע של ד"ר איריס בר-און — עיצוב נשי ורגוע עם intro קולנועי.</p>
+                        <span class="example-link">צפו בדף ←</span>
+                    </div>
+                </a>
+
+                <a href="https://sagi-ba.github.io/AI/landing-pages/from-darkness-to-revival/" target="_blank" rel="noopener noreferrer" class="example-card">
+                    <div class="example-thumb">
+                        <img src="images/from-darkness.jpg" alt="מזיכרון לתקומה" loading="lazy" onerror="this.style.display='none';this.parentElement.innerHTML='🕯️';">
+                    </div>
+                    <div class="example-body">
+                        <h3 class="example-title">מזיכרון לתקומה</h3>
+                        <p class="example-desc">דף חוויתי ליום העצמאות — סיפור של תקומה מתמונה אחת בעזרת AI.</p>
+                        <span class="example-link">צפו בדף ←</span>
+                    </div>
+                </a>
+
+                <a href="https://sagi-ba.github.io/AI/landing-pages/hypershot/" target="_blank" rel="noopener noreferrer" class="example-card">
+                    <div class="example-thumb">
+                        <img src="images/hypershot.jpg" alt="HyperShot" loading="lazy" onerror="this.style.display='none';this.parentElement.innerHTML='📸';">
+                    </div>
+                    <div class="example-body">
+                        <h3 class="example-title">HyperShot</h3>
+                        <p class="example-desc">דף מוצר לשדרוג תמונות לאיכות סטודיו — עם before/after אינטראקטיבי.</p>
+                        <span class="example-link">צפו בדף ←</span>
+                    </div>
+                </a>
+
+                <a href="https://sagi-ba.github.io/AI/landing-pages/Expertise2Bot-Landing.html" target="_blank" rel="noopener noreferrer" class="example-card">
+                    <div class="example-thumb">
+                        <img src="images/expertise2bot.jpg" alt="Expertise2Bot" loading="lazy" onerror="this.style.display='none';this.parentElement.innerHTML='🤖';">
+                    </div>
+                    <div class="example-body">
+                        <h3 class="example-title">Expertise2Bot</h3>
+                        <p class="example-desc">דף מכירה למוצר שהופך מומחיות אישית למוצר דיגיטלי חכם.</p>
+                        <span class="example-link">צפו בדף ←</span>
+                    </div>
+                </a>
+
+                <a href="https://sagi-ba.github.io/AI/landing-pages/chirut-digitalit.html" target="_blank" rel="noopener noreferrer" class="example-card">
+                    <div class="example-thumb">
+                        <img src="images/chirut-digitalit.jpg" alt="חירות דיגיטלית" loading="lazy" onerror="this.style.display='none';this.parentElement.innerHTML='🗝️';">
+                    </div>
+                    <div class="example-body">
+                        <h3 class="example-title">חירות דיגיטלית</h3>
+                        <p class="example-desc">10 כלי AI כנגד עשר המכות — דף קמפיין תימטי לפסח.</p>
+                        <span class="example-link">צפו בדף ←</span>
+                    </div>
+                </a>
+
+                <a href="https://sagi-ba.github.io/AI/games/my-rabbit/" target="_blank" rel="noopener noreferrer" class="example-card">
+                    <div class="example-thumb">
+                        <img src="images/my-rabbit.jpg" alt="ארנב שלי" loading="lazy" onerror="this.style.display='none';this.parentElement.innerHTML='🐰';">
+                    </div>
+                    <div class="example-body">
+                        <h3 class="example-title">ארנב שלי</h3>
+                        <p class="example-desc">אתר-עולם אינטראקטיבי על ארנבים ננסיים — פרויקט אישי צבעוני.</p>
+                        <span class="example-link">צפו בדף ←</span>
+                    </div>
+                </a>
+
+                <a href="https://sagi-ba.github.io/AI/landing-pages/shaagat-hari-pesach.html" target="_blank" rel="noopener noreferrer" class="example-card">
+                    <div class="example-thumb">
+                        <img src="images/shaagat-hari.jpg" alt="שאגת הארי" loading="lazy" onerror="this.style.display='none';this.parentElement.innerHTML='🎵';">
+                    </div>
+                    <div class="example-body">
+                        <h3 class="example-title">שאגת הארי</h3>
+                        <p class="example-desc">פסקול ושירי הקדשה לחיילי מילואים — דף תוכן עם אודיו.</p>
+                        <span class="example-link">צפו בדף ←</span>
+                    </div>
+                </a>
+
+            </div>
+        </div>
+    </section>
+
+    <section class="form-section" id="form">
+        <div class="container">
+            <h2 class="section-title">מלאו את <span class="highlight">השאלון</span></h2>
+            <p class="form-intro">
+                זה לוקח רק כמה דקות. ברגע שתסיימו — אחזור אליכם עם דף ראשוני שמותאם לעסק שלכם.
+            </p>
+            <div class="form-wrapper">
+                <div class="form-loading" id="form-loading">
+                    <div class="spinner"></div>
+                    <div>טוען את השאלון…</div>
+                </div>
+                <iframe
+                    src="https://docs.google.com/forms/d/e/1FAIpQLSfHxL33JNxxeOA__DEwbR0633GjE0tBKGInxGEfjgUPsVcugg/viewform?embedded=true"
+                    title="שאלון בניית דף נחיתה"
+                    loading="lazy"
+                    onload="document.getElementById('form-loading').classList.add('hidden')">
+                    טוען…
+                </iframe>
+            </div>
+        </div>
+    </section>
+
+    <a href="https://chatgpt.com/g/g-69dfce7083888191b3057af3faa650fa-bv-nbnh-dp-nkhyth-ykhd" target="_blank" rel="noopener noreferrer" class="floating-chat" aria-label="פתח צ'אט חכם">
+        <span aria-hidden="true">🤖</span> צריכים עזרה? דברו איתי
+    </a>
+
+    <a href="https://wa.me/972549995050?text=שלום%20שגיא,%20אשמח%20לבנות%20דף%20נחיתה" target="_blank" rel="noopener noreferrer" class="floating-wa" aria-label="שלחו הודעת וואטסאפ">
+        <span aria-hidden="true">💬</span>
+    </a>
+
+    <div class="footer-promo">
+        <p class="footer-promo-text">גם אתם רוצים דף נחיתה מעוצב כזה?</p>
+        <a href="https://wa.me/972549995050?text=שלום%20שגיא,%20אשמח%20לשמוע%20על%20דף%20נחיתה" target="_blank" rel="noopener noreferrer" class="footer-promo-cta">
+            <span aria-hidden="true">💬</span> דברו איתי
+        </a>
+        <p class="footer-promo-credit">נבנה ב-❤️ ע"י <a href="https://sagiai.co.il" target="_blank" rel="noopener noreferrer">SagiAI</a> · שגיא בר און</p>
+    </div>
+
+    <footer class="footer">
+        © שגיא בר און · כל הזכויות שמורות
+    </footer>
+
+    </div><!-- /main-content -->
+
+    <script>
+        (function () {
+            var intro = document.getElementById('intro');
+            var core = intro.querySelector('.intro-orb-core');
+            var rings = intro.querySelectorAll('.intro-ring');
+            var title = intro.querySelector('.intro-title');
+            var line = intro.querySelector('.intro-line');
+            var subtitle = intro.querySelector('.intro-subtitle');
+            var skipBtn = document.getElementById('introSkip');
+            var mainContent = document.getElementById('mainContent');
+
+            document.body.style.overflow = 'hidden';
+            var dismissed = false;
+
+            setTimeout(function () { core.classList.add('show'); }, 250);
+            setTimeout(function () {
+                rings.forEach(function (r, i) {
+                    setTimeout(function () { r.classList.add('show'); }, i * 180);
+                });
+            }, 500);
+            setTimeout(function () { title.classList.add('show'); }, 1500);
+            setTimeout(function () { line.classList.add('show'); }, 1900);
+            setTimeout(function () { subtitle.classList.add('show'); }, 2300);
+            setTimeout(function () { skipBtn.classList.add('show'); }, 400);
+            setTimeout(dismissIntro, 3600);
+
+            function dismissIntro() {
+                if (dismissed) return;
+                dismissed = true;
+                intro.classList.add('dismissed');
+                mainContent.classList.add('visible');
+                document.body.style.overflow = '';
+                setTimeout(function () { intro.remove(); }, 900);
+                if (typeof gtag === 'function') {
+                    gtag('event', 'intro_complete', { event_category: 'engagement' });
+                }
+            }
+
+            skipBtn.addEventListener('click', function () {
+                dismissIntro();
+                if (typeof gtag === 'function') {
+                    gtag('event', 'intro_skip', { event_category: 'engagement' });
+                }
+            });
+        })();
+    </script>
+
+</body>
+
+</html>
