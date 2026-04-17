@@ -814,7 +814,7 @@ footer strong{color:var(--text)}
     <h2>מה ראית כאן בעצם?</h2>
     <p class="lead">הסרטון שראית לא צולם במצלמה. הוא נבנה מתמונה אחת בלבד, שהפכה בהדרגה לרצף של רגעים, ואז לסיפור ויזואלי שלם.</p>
     <p class="lead">במקום ליצור סרטון בדרך הרגילה, יצרתי תמונת בסיס אחת, סדרת פריימים שנבנו ממנה, אנימציה עדינה לכל פריים, חיבור מדויק בין הקטעים וסאונד שמוסיף עומק רגשי.</p>
-    <p class="lead"><strong>במילים פשוטות: לקחנו תמונה אחת - והפכנו אותה לסרטון.</strong></p>
+    <p class="lead"><strong>במילים פשוטות: לקחתי תמונה אחת - והפכתי אותה לסרטון.</strong></p>
   </div>
 </section>
 
@@ -853,6 +853,36 @@ footer strong{color:var(--text)}
       <div class="step">
         <div>
           <div class="step-num">1</div>
+          <h3>מגדירים את הקונספט עם מודל שפה</h3>
+          <p>לפני שנוגעים בכלי כלשהו, השלב הראשון הוא לייצר את הקונספט - איך הסרטון יראה, מה הסיפור, ומה כל פריים צריך לשדר.</p>
+          <p>לשם כך השתמשתי ב<strong>מודל שפה (LLM)</strong>. יש היום כמה אפשרויות מעולות:</p>
+          <ul>
+            <li><strong>ChatGPT</strong> (OpenAI)</li>
+            <li><strong>Claude</strong> (Anthropic)</li>
+            <li><strong>Gemini</strong> (Google)</li>
+            <li><strong>Copilot</strong> (Microsoft)</li>
+          </ul>
+          <p>אני בחרתי לעבוד עם <strong>ChatGPT</strong>. יחד בנינו את הפרומפט של כל אחת מהתמונות ואת תסריטי הווידאו - שלב אחרי שלב, בדיאלוג. באותה הקלות יכולתי להשתמש גם ב-<strong>Gemini</strong> או בכל מודל שפה אחר.</p>
+          <p><strong>הנקודה החשובה:</strong> מודל השפה הוא השותף היצירתי שלכם בשלב הזה. הוא עוזר לחדד את הרעיון, לבנות פרומפטים מדויקים ולשמור על עקביות לאורך כל התהליך.</p>
+        </div>
+        <div class="step-media" style="aspect-ratio:4/5;background:linear-gradient(135deg,#1c1c22,#0e0e10);display:flex;align-items:center;justify-content:center">
+          <div style="text-align:center;color:#fff;padding:30px">
+            <div style="font-size:48px;margin-bottom:16px">💬</div>
+            <div style="font-family:'Heebo';font-weight:800;font-size:22px">קונספט + פרומפטים</div>
+            <div style="color:#b8b8c2;font-size:14px;margin-top:8px">בשיתוף עם מודל שפה</div>
+            <div style="margin-top:20px;display:flex;gap:12px;justify-content:center;flex-wrap:wrap">
+              <span style="background:var(--gold);color:#000;padding:4px 14px;border-radius:20px;font-size:13px;font-weight:700">ChatGPT</span>
+              <span style="background:rgba(255,255,255,.1);color:#fff;padding:4px 14px;border-radius:20px;font-size:13px">Claude</span>
+              <span style="background:rgba(255,255,255,.1);color:#fff;padding:4px 14px;border-radius:20px;font-size:13px">Gemini</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- STEP 2 -->
+      <div class="step">
+        <div>
+          <div class="step-num">2</div>
           <h3>מתחילים מתמונה אחת נכונה</h3>
           <p>הצעד הראשון היה לבחור תמונה שתהיה בסיס יציב לכל הסיפור. כדי שזה יעבוד טוב, התמונה צריכה להיות:</p>
           <ul>
@@ -868,10 +898,10 @@ footer strong{color:var(--text)}
         </div>
       </div>
 
-      <!-- STEP 2 -->
+      <!-- STEP 3 -->
       <div class="step">
         <div>
-          <div class="step-num">2</div>
+          <div class="step-num">3</div>
           <h3>בונים את הסיפור תמונה אחרי תמונה</h3>
           <p>במקום לנסות לייצר סרטון שלם בבת אחת, יצרתי קודם שבע תמונות שונות של אותה דמות - כל אחת מייצגת רגע אחר במסע: חושך, תקריב רגשי, מגע סמלי, תחילת אור, עמידה חזקה, תקווה ברקע וסיום רגוע.</p>
           <p><strong>הדבר הקריטי:</strong> לשמור על אותה זהות, זווית מצלמה ופריים - שינוי עדין בלבד בין תמונה לתמונה.</p>
@@ -922,12 +952,12 @@ A man standing completely alone in deep darkness, barely visible. Only a very fa
 
     <div class="steps" style="margin-top:72px">
 
-      <!-- STEP 3 -->
+      <!-- STEP 4 -->
       <div class="step">
         <div>
-          <div class="step-num">3</div>
+          <div class="step-num">4</div>
           <h3>נותנים לכל תמונה תנועה מינימלית</h3>
-          <p>אחרי שהיו לנו כל התמונות, לא חיברנו אותן מיד. בשלב הבא לקחנו כל תמונה בנפרד והפכנו אותה לקליפ קצר. אבל כאן הייתה החלטה חשובה: <strong>לא לייצר תנועה מוגזמת</strong>, אלא תנועה כמעט בלתי מורגשת.</p>
+          <p>אחרי שהיו לי כל התמונות, לא חיברתי אותן מיד. בשלב הבא לקחתי כל תמונה בנפרד והפכתי אותה לקליפ קצר. אבל כאן הייתה החלטה חשובה: <strong>לא לייצר תנועה מוגזמת</strong>, אלא תנועה כמעט בלתי מורגשת.</p>
           <ul>
             <li>נשימה עדינה</li>
             <li>שינוי קל באור</li>
@@ -985,26 +1015,26 @@ No dramatic motion, no sudden changes, no exaggerated effects.</div>
 
     <div class="steps" style="margin-top:72px">
 
-      <!-- STEP 4 -->
+      <!-- STEP 5 -->
       <div class="step">
         <div>
-          <div class="step-num">4</div>
+          <div class="step-num">5</div>
           <h3>מחברים את הכל לסרטון אחד</h3>
-          <p>אחרי שכל תמונה הפכה לקליפ קצר, חיברנו אותם יחד לעמוד שדרה אחד ברור. בשלב הזה בחרנו קטעים קצרים מכל וידאו, מעברי Dissolve עדינים, טקסט מינימלי וקצב איטי ומדויק.</p>
+          <p>אחרי שכל תמונה הפכה לקליפ קצר, חיברתי אותם יחד לעמוד שדרה אחד ברור. בשלב הזה בחרתי קטעים קצרים מכל וידאו, מעברי Dissolve עדינים, טקסט מינימלי וקצב איטי ומדויק.</p>
           <p>המטרה לא הייתה לייצר "קליפ", אלא תחושה של התקדמות רגשית: מחושך, דרך רגעי ביניים, אל סיום שקט יותר.</p>
-          <p><strong>למה זה עבד?</strong> כי לא ניסינו להרשים באפקטים. ניסינו לשמור על רצף.</p>
+          <p><strong>למה זה עבד?</strong> כי לא ניסיתי להרשים באפקטים. ניסיתי לשמור על רצף.</p>
         </div>
         <div class="step-media">
           <video data-src="videos/finall-result.mp4" poster="images/image7.png" muted loop playsinline preload="none" class="lazyvid"></video>
         </div>
       </div>
 
-      <!-- STEP 5 -->
+      <!-- STEP 6 -->
       <div class="step">
         <div>
-          <div class="step-num">5</div>
+          <div class="step-num">6</div>
           <h3>מוסיפים סאונד שמחזיק את הרגש</h3>
-          <p>גם כשהווידאו נראה טוב, בלי סאונד נכון הוא נשאר רק "יפה". לכן בחרנו בפסקול עדין מאוד:</p>
+          <p>גם כשהווידאו נראה טוב, בלי סאונד נכון הוא נשאר רק "יפה". לכן בחרתי בפסקול עדין מאוד:</p>
           <ul>
             <li>בלי מילים</li>
             <li>בלי ביט דומיננטי</li>
@@ -1028,12 +1058,12 @@ No dramatic motion, no sudden changes, no exaggerated effects.</div>
         </div>
       </div>
 
-      <!-- STEP 6 -->
+      <!-- STEP 7 -->
       <div class="step">
         <div>
-          <div class="step-num">6</div>
+          <div class="step-num">7</div>
           <h3>כותבים מעט, כדי שהתמונה תדבר</h3>
-          <p>אחת ההחלטות הכי חשובות בתהליך הייתה לא להסביר יותר מדי. במקום למלא את הסרטון בטקסט, שמנו רק מילים בודדות: פתיח קצר ומסר סיום קצר.</p>
+          <p>אחת ההחלטות הכי חשובות בתהליך הייתה לא להסביר יותר מדי. במקום למלא את הסרטון בטקסט, שמתי רק מילים בודדות: פתיח קצר ומסר סיום קצר.</p>
           <p>ככל שיש פחות מילים, התמונה מקבלת יותר מקום לעבוד.</p>
         </div>
         <div class="step-media" style="aspect-ratio:4/5;background:#000;display:flex;align-items:center;justify-content:center;flex-direction:column;gap:30px;padding:30px">
@@ -1070,7 +1100,7 @@ No dramatic motion, no sudden changes, no exaggerated effects.</div>
 
     <div class="tabs">
       <button class="tab-btn active" data-tab="t-images">תמונות</button>
-      <button class="tab-btn" data-tab="t-videos">וידאוים</button>
+      <button class="tab-btn" data-tab="t-videos">סִרְטוֹנֵי וִידֵאוֹ</button>
       <button class="tab-btn" data-tab="t-sound">סאונד</button>
       <button class="tab-btn" data-tab="t-prompts">פרומפטים</button>
     </div>
@@ -1374,9 +1404,10 @@ Peaceful, quiet ending. No dramatic movement, no exaggeration.</div></div>
 <section style="background:var(--bg-soft)">
   <div class="container">
     <span class="eyebrow">ערכת הכלים</span>
-    <h2>הכלים שבהם השתמשנו בפועל</h2>
+    <h2>הכלים שבהם השתמשתי בפועל</h2>
     <p class="lead">כל התהליך נבנה עם כלים זמינים יחסית, בלי אולפן ובלי צוות צילום.</p>
     <div class="tools">
+      <div class="tool"><div class="name">ChatGPT</div><div class="desc">בניית קונספט, כתיבת פרומפטים ותסריטי וידאו</div></div>
       <div class="tool"><div class="name">Freepik AI</div><div class="desc">ליצירת 7 הפריימים מתוך תמונת רפרנס</div></div>
       <div class="tool"><div class="name">Kling</div><div class="desc">להפוך כל פריים לקליפ קצר עם תנועה עדינה</div></div>
       <div class="tool"><div class="name">Canva</div><div class="desc">חיבור, עריכה, מעברים, טקסטים וסידור סופי</div></div>
