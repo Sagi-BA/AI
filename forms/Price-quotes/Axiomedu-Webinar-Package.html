@@ -1,0 +1,2340 @@
+<!--
+  Live:  https://sagi-ba.github.io/AI/forms/Price-quotes/Axiomedu-Webinar-Package.html
+  Local: http://127.0.0.1:8080/forms/Price-quotes/Axiomedu-Webinar-Package.html
+  GA:    https://analytics.google.com/analytics/web/#/a351596902p494681343/reports/reportinghub
+  QUOTE: SBO-2026-014 — Axiomedu Webinar Package (monthly commitment tiers) — 20/04/2026
+-->
+
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>הצעת מחיר | שגיא בר און AI — חבילת וובינרי AI בהתחייבות חודשית</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Alef:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    :root {
+      --bg: #fafafa;
+      --text: #1a1a1a;
+      --text-light: #555;
+      --text-muted: #888;
+      --accent: #ff6b00;
+      --accent-dark: #e55a00;
+      --accent-light: #fff3e6;
+      --green: #4caf50;
+      --green-light: #e8f5e9;
+      --purple: #9c27b0;
+      --purple-light: #f3e5f5;
+      --cyan: #00bcd4;
+      --cyan-light: #e0f7fa;
+      --border: #e0e0e0;
+      --white: #ffffff;
+      --shadow: 0 2px 16px rgba(0, 0, 0, 0.06);
+      --shadow-hover: 0 4px 24px rgba(0, 0, 0, 0.1);
+      --radius: 12px;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Alef', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.8;
+      font-size: 16px;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .page-container {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 0 24px 40px;
+      position: relative;
+    }
+
+    /* ======================== Watermark ======================== */
+    .page-container::after {
+      content: 'ש.ב. ידע וטכנולוגיה';
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%) rotate(-45deg);
+      font-size: 5rem;
+      font-weight: 700;
+      color: rgba(0, 0, 0, 0.04);
+      white-space: nowrap;
+      pointer-events: none;
+      z-index: 0;
+      letter-spacing: 4px;
+    }
+
+    /* ======================== PDF Download Link ======================== */
+    .pdf-download-link {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      margin-top: 20px;
+      background: var(--accent);
+      color: var(--white);
+      text-decoration: none;
+      font-size: 0.95rem;
+      font-weight: 700;
+      padding: 10px 28px;
+      border-radius: 25px;
+      transition: all 0.3s ease;
+      box-shadow: 0 2px 12px rgba(255, 107, 0, 0.25);
+      -webkit-tap-highlight-color: transparent;
+      touch-action: manipulation;
+      user-select: none;
+    }
+
+    .pdf-download-link:hover {
+      background: var(--accent-dark);
+      transform: translateY(-2px);
+      box-shadow: 0 4px 18px rgba(255, 107, 0, 0.35);
+    }
+
+    .pdf-download-link i {
+      font-size: 1.1rem;
+    }
+
+    /* ======================== Header Banner ======================== */
+    .quote-header {
+      background: linear-gradient(135deg, #ff6b00 0%, #ff8f3f 50%, #ffab6b 100%);
+      color: var(--white);
+      padding: 36px 0 32px;
+      margin-bottom: 32px;
+    }
+
+    .header-inner {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 0 24px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+
+    .logo {
+      font-size: 1.6rem;
+      font-weight: 700;
+      letter-spacing: 0.5px;
+    }
+
+    .logo span {
+      opacity: 0.85;
+      font-size: 1rem;
+      font-weight: 400;
+      margin-right: 8px;
+    }
+
+    .header-contact {
+      display: flex;
+      align-items: center;
+      gap: 24px;
+      font-size: 0.9rem;
+      opacity: 0.95;
+    }
+
+    .header-contact a {
+      color: var(--white);
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      transition: opacity 0.2s;
+    }
+
+    .header-contact a:hover {
+      opacity: 0.8;
+    }
+
+    /* ======================== Section Cards ======================== */
+    .section-card {
+      background: var(--white);
+      border-radius: var(--radius);
+      padding: 32px;
+      margin-bottom: 24px;
+      box-shadow: var(--shadow);
+    }
+
+    .section-title {
+      font-size: 1.4rem;
+      font-weight: 700;
+      color: var(--text);
+      margin-bottom: 20px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .section-title i {
+      color: var(--accent);
+      font-size: 1.2rem;
+    }
+
+    .title-decoration {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 24px;
+    }
+
+    .title-decoration .line {
+      flex: 1;
+      height: 2px;
+      background: linear-gradient(to left, var(--accent), transparent);
+    }
+
+    .title-decoration .dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--accent);
+    }
+
+    /* ======================== Quote Title ======================== */
+    .quote-title-section {
+      text-align: center;
+      padding: 40px 32px;
+    }
+
+    .quote-title-section h1 {
+      font-size: 1.8rem;
+      color: var(--accent);
+      margin-bottom: 4px;
+      line-height: 1.4;
+    }
+
+    .quote-title-section .subtitle {
+      font-size: 1.3rem;
+      color: var(--text);
+      margin-bottom: 24px;
+      font-weight: 700;
+    }
+
+    .quote-meta {
+      display: flex;
+      justify-content: center;
+      gap: 40px;
+      font-size: 1rem;
+      color: var(--text-light);
+      flex-wrap: wrap;
+    }
+
+    .quote-meta span {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    /* ======================== Introduction ======================== */
+    .intro-section p {
+      font-size: 1.05rem;
+      line-height: 2;
+      color: var(--text-light);
+    }
+
+    .intro-section .section-title {
+      color: var(--accent);
+    }
+
+    /* ======================== Profile Section ======================== */
+    .profile-top {
+      display: flex;
+      gap: 28px;
+      align-items: flex-start;
+      margin-bottom: 28px;
+    }
+
+    .profile-image {
+      width: 140px;
+      height: 140px;
+      border-radius: 50%;
+      object-fit: cover;
+      object-position: center top;
+      border: 4px solid var(--accent-light);
+      box-shadow: 0 4px 20px rgba(255, 107, 0, 0.15);
+      flex-shrink: 0;
+    }
+
+    .profile-text h2 {
+      font-size: 1.3rem;
+      margin-bottom: 8px;
+      color: var(--text);
+    }
+
+    .profile-text p {
+      font-size: 0.95rem;
+      line-height: 1.9;
+      color: var(--text-light);
+    }
+
+    /* Highlight Badges */
+    .badges-row {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 12px;
+      margin-bottom: 28px;
+    }
+
+    .badge {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      padding: 16px 8px;
+      background: var(--accent-light);
+      border-radius: 10px;
+      gap: 8px;
+    }
+
+    .badge i {
+      font-size: 1.4rem;
+      color: var(--accent);
+    }
+
+    .badge span {
+      font-size: 0.88rem;
+      font-weight: 700;
+      color: var(--text);
+      line-height: 1.4;
+    }
+
+    /* Experience Details */
+    .experience-block {
+      margin-bottom: 20px;
+    }
+
+    .experience-block h3 {
+      font-size: 1.05rem;
+      color: var(--accent);
+      margin-bottom: 8px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .experience-block h3 i {
+      font-size: 0.9rem;
+    }
+
+    .experience-block p,
+    .experience-block li {
+      font-size: 0.95rem;
+      color: var(--text-light);
+      line-height: 1.9;
+    }
+
+    .experience-block ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    .experience-block ul li {
+      padding: 4px 0;
+      padding-right: 20px;
+      position: relative;
+    }
+
+    .experience-block ul li::before {
+      content: '';
+      position: absolute;
+      right: 0;
+      top: 14px;
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--accent);
+    }
+
+    /* ROI Box */
+    .roi-box {
+      background: linear-gradient(135deg, var(--accent-light) 0%, #fff8f0 100%);
+      border-right: 4px solid var(--accent);
+      border-radius: 8px;
+      padding: 20px 24px;
+      margin-top: 16px;
+    }
+
+    .roi-box h3 {
+      font-size: 1.05rem;
+      color: var(--accent-dark);
+      margin-bottom: 6px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .roi-box p {
+      font-size: 0.95rem;
+      color: var(--text-light);
+      line-height: 1.8;
+    }
+
+    /* ======================== Course Table ======================== */
+    .format-info {
+      display: flex;
+      gap: 24px;
+      margin-bottom: 20px;
+      flex-wrap: wrap;
+    }
+
+    .format-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: var(--accent-light);
+      color: var(--accent-dark);
+      padding: 6px 16px;
+      border-radius: 20px;
+      font-size: 0.9rem;
+      font-weight: 700;
+    }
+
+    .table-wrapper {
+      overflow-x: auto;
+      margin: 0 -8px;
+      padding: 0 8px;
+    }
+
+    .course-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.9rem;
+    }
+
+    .course-table thead th {
+      background: var(--accent);
+      color: var(--white);
+      padding: 14px 16px;
+      text-align: right;
+      font-weight: 700;
+      font-size: 0.95rem;
+    }
+
+    .course-table thead th:first-child {
+      border-radius: 0 8px 0 0;
+      width: 70px;
+      text-align: center;
+    }
+
+    .course-table thead th:last-child {
+      border-radius: 8px 0 0 0;
+    }
+
+    .course-table tbody td {
+      padding: 14px 16px;
+      border-bottom: 1px solid var(--border);
+      vertical-align: top;
+      line-height: 1.8;
+    }
+
+    .course-table tbody tr:nth-child(even) {
+      background: var(--accent-light);
+    }
+
+    .course-table tbody tr:last-child td {
+      border-bottom: none;
+    }
+
+    .meeting-num {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      background: var(--accent);
+      color: var(--white);
+      font-weight: 700;
+      font-size: 0.9rem;
+    }
+
+    .course-table td:first-child {
+      text-align: center;
+    }
+
+    .course-table td:nth-child(2) {
+      font-weight: 700;
+      width: 30%;
+    }
+
+    /* ======================== Course Cards ======================== */
+    .course-cards {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .course-card {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-right: 4px solid var(--accent);
+      border-radius: 10px;
+      padding: 20px;
+      transition: box-shadow 0.3s ease;
+    }
+
+    .course-card:hover {
+      box-shadow: var(--shadow-hover);
+    }
+
+    .course-card-header {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      margin-bottom: 12px;
+    }
+
+    .course-card-header h4 {
+      font-size: 1.05rem;
+      color: var(--text);
+      margin: 0;
+    }
+
+    .course-card-body {
+      font-size: 0.95rem;
+      color: var(--text-light);
+      line-height: 1.8;
+      padding-right: 46px;
+    }
+
+    .course-card-deliverables {
+      margin-top: 10px;
+      padding: 10px 16px;
+      padding-right: 46px;
+      background: var(--green-light);
+      border-radius: 8px;
+      font-size: 0.88rem;
+      color: var(--text-light);
+      line-height: 1.8;
+    }
+
+    .course-card-deliverables strong {
+      color: var(--green);
+    }
+
+    .course-card-deliverables i {
+      margin-left: 4px;
+    }
+
+    /* ======================== Tools Grid ======================== */
+    .tools-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+      gap: 12px;
+      margin-top: 16px;
+    }
+
+    .tool-badge {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      padding: 16px 12px;
+      background: var(--accent-light);
+      border-radius: 10px;
+      gap: 8px;
+      transition: box-shadow 0.3s ease;
+    }
+
+    .tool-badge:hover {
+      box-shadow: var(--shadow-hover);
+    }
+
+    .tool-badge i {
+      font-size: 1.4rem;
+      color: var(--accent);
+    }
+
+    .tool-badge span {
+      font-size: 0.85rem;
+      font-weight: 700;
+      color: var(--text);
+      line-height: 1.4;
+    }
+
+    /* ======================== Summary Grid ======================== */
+    .summary-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+      gap: 12px;
+      margin-top: 16px;
+    }
+
+    .summary-item {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 14px 16px;
+      background: var(--bg);
+      border-radius: 10px;
+      border: 1px solid var(--border);
+    }
+
+    .summary-item i {
+      font-size: 1.1rem;
+      color: var(--accent);
+      flex-shrink: 0;
+    }
+
+    .summary-item span {
+      font-size: 0.88rem;
+      color: var(--text);
+      font-weight: 700;
+      line-height: 1.4;
+    }
+
+    /* ======================== Core Principles ======================== */
+    .principles-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 16px;
+    }
+
+    .principle-card {
+      display: flex;
+      align-items: flex-start;
+      gap: 14px;
+      padding: 20px;
+      border-radius: 10px;
+      background: var(--white);
+      border: 1px solid var(--border);
+      transition: box-shadow 0.3s ease;
+    }
+
+    .principle-card:hover {
+      box-shadow: var(--shadow-hover);
+    }
+
+    .principle-icon {
+      width: 48px;
+      height: 48px;
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      font-size: 1.2rem;
+    }
+
+    .principle-icon.purple {
+      background: var(--purple-light);
+      color: var(--purple);
+    }
+
+    .principle-icon.cyan {
+      background: var(--cyan-light);
+      color: var(--cyan);
+    }
+
+    .principle-icon.orange {
+      background: var(--accent-light);
+      color: var(--accent);
+    }
+
+    .principle-icon.green {
+      background: var(--green-light);
+      color: var(--green);
+    }
+
+    .principle-content h4 {
+      font-size: 0.95rem;
+      margin-bottom: 4px;
+      color: var(--text);
+    }
+
+    .principle-content p {
+      font-size: 0.85rem;
+      color: var(--text-light);
+      line-height: 1.7;
+    }
+
+    /* ======================== Pricing Table ======================== */
+    .pricing-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.95rem;
+    }
+
+    .pricing-table thead th {
+      background: var(--accent);
+      color: var(--white);
+      padding: 14px 16px;
+      text-align: right;
+      font-weight: 700;
+    }
+
+    .pricing-table thead th:first-child {
+      border-radius: 0 8px 0 0;
+    }
+
+    .pricing-table thead th:last-child {
+      border-radius: 8px 0 0 0;
+      text-align: center;
+    }
+
+    .pricing-table tbody td {
+      padding: 14px 16px;
+      border-bottom: 1px solid var(--border);
+      vertical-align: top;
+    }
+
+    .pricing-table tbody td:last-child {
+      text-align: center;
+      font-weight: 700;
+      white-space: nowrap;
+    }
+
+    .pricing-table .discount-row {
+      background: var(--green-light);
+    }
+
+    .pricing-table .discount-row td {
+      color: var(--green);
+      font-weight: 700;
+    }
+
+    .pricing-table .included-row td:last-child {
+      color: var(--green);
+    }
+
+    .pricing-table .total-row {
+      background: var(--accent-light);
+    }
+
+    .pricing-table .total-row td {
+      border-top: 3px solid var(--accent);
+      border-bottom: none;
+      font-size: 1.15rem;
+      font-weight: 700;
+      padding: 18px 16px;
+      color: var(--accent-dark);
+    }
+
+    .pricing-table .recommended-row {
+      background: var(--accent-light);
+      border-right: 4px solid var(--accent);
+    }
+
+    .pricing-table .recommended-row td {
+      font-weight: 700;
+    }
+
+    /* ======================== Selectable Pricing + Client Fields ======================== */
+    .pricing-checkbox {
+      width: 22px;
+      height: 22px;
+      cursor: pointer;
+      accent-color: var(--accent);
+      margin: 0;
+      vertical-align: middle;
+    }
+
+    .selectable-pricing tbody tr {
+      transition: background 0.15s ease;
+    }
+
+    .selectable-pricing tbody tr:hover {
+      background: var(--accent-light);
+    }
+
+    .client-fillable-fields {
+      margin-top: 18px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+    }
+
+    .fillable-field {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      padding: 14px 16px;
+      background: var(--white);
+      border: 2px dashed var(--border);
+      border-radius: 10px;
+    }
+
+    .fillable-field label {
+      font-weight: 700;
+      color: var(--text);
+      font-size: 0.92rem;
+    }
+
+    .client-input {
+      padding: 10px 14px;
+      border: 2px solid var(--border);
+      border-radius: 8px;
+      font-size: 0.95rem;
+      font-family: 'Alef', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      direction: rtl;
+      text-align: right;
+      transition: border-color 0.15s ease, background 0.15s ease;
+    }
+
+    .client-input:focus {
+      outline: none;
+      border-color: var(--accent);
+      background: var(--white);
+    }
+
+    .field-hint {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+    }
+
+    @media (max-width: 768px) {
+      .client-fillable-fields {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    /* ======================== Commercial Terms ======================== */
+    .terms-list {
+      counter-reset: terms;
+      list-style: none;
+      padding: 0;
+    }
+
+    .terms-list > li {
+      padding: 14px 0;
+      border-bottom: 1px solid var(--border);
+      font-size: 0.95rem;
+      line-height: 1.9;
+      color: var(--text-light);
+    }
+
+    .terms-list > li:last-child {
+      border-bottom: none;
+    }
+
+    .terms-list > li strong {
+      color: var(--text);
+    }
+
+    .terms-subtitle {
+      font-weight: 700;
+      color: var(--text);
+      margin-bottom: 4px;
+      display: block;
+    }
+
+    .terms-sub-list {
+      list-style: none;
+      padding: 0;
+      margin-top: 8px;
+    }
+
+    .terms-sub-list li {
+      padding: 6px 0;
+      padding-right: 18px;
+      position: relative;
+      font-size: 0.92rem;
+    }
+
+    .terms-sub-list li::before {
+      content: '\2022';
+      position: absolute;
+      right: 0;
+      color: var(--accent);
+      font-weight: 700;
+    }
+
+    /* ======================== Testimonials ======================== */
+    .testimonials-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+    }
+
+    .testimonial-card {
+      background: var(--bg);
+      border-radius: 12px;
+      padding: 20px;
+      border-right: 4px solid var(--accent);
+      position: relative;
+    }
+
+    .testimonial-card::before {
+      content: '\201D';
+      font-size: 3rem;
+      color: var(--accent-light);
+      position: absolute;
+      top: 8px;
+      left: 16px;
+      line-height: 1;
+      font-family: serif;
+    }
+
+    .testimonial-text {
+      font-size: 0.95rem;
+      color: var(--text-light);
+      line-height: 1.7;
+      margin-bottom: 12px;
+      font-style: italic;
+    }
+
+    .testimonial-author {
+      font-size: 0.88rem;
+      color: var(--text);
+      font-weight: 700;
+    }
+
+    .testimonial-role {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+    }
+
+    @media (max-width: 768px) {
+      .testimonials-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    /* ======================== Signature Block ======================== */
+    .signature-block {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 40px;
+      padding: 32px;
+    }
+
+    .signature-side {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .signature-side h3 {
+      font-size: 1rem;
+      color: var(--accent);
+      margin-bottom: 4px;
+      padding-bottom: 8px;
+      border-bottom: 2px solid var(--accent);
+    }
+
+    .signature-line {
+      display: flex;
+      align-items: baseline;
+      gap: 8px;
+      font-size: 0.9rem;
+      color: var(--text-light);
+    }
+
+    .signature-line label {
+      white-space: nowrap;
+      font-weight: 700;
+      color: var(--text);
+      min-width: 70px;
+    }
+
+    .signature-line .sign-field {
+      flex: 1;
+      border-bottom: 1px solid var(--border);
+      min-height: 24px;
+    }
+
+    .signature-side .contact-line {
+      font-size: 0.9rem;
+      color: var(--text-light);
+      display: flex;
+      gap: 16px;
+      flex-wrap: wrap;
+      margin-top: 4px;
+    }
+
+    .signature-side .contact-line a {
+      color: var(--accent);
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    @media (max-width: 768px) {
+      .signature-block {
+        grid-template-columns: 1fr;
+        gap: 28px;
+      }
+    }
+
+    /* ======================== Footer ======================== */
+    .quote-footer {
+      border-top: 3px solid var(--accent);
+      padding: 20px 24px;
+      text-align: center;
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    .quote-footer a {
+      color: var(--accent);
+      text-decoration: none;
+      font-weight: 700;
+    }
+
+    .footer-links {
+      display: flex;
+      justify-content: center;
+      gap: 24px;
+      flex-wrap: wrap;
+    }
+
+    .footer-links span {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    /* ======================== Dark Mode ======================== */
+    .darkmode-toggle {
+      position: fixed;
+      bottom: 84px;
+      left: 24px;
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      background: var(--white);
+      border: 1px solid var(--border);
+      cursor: pointer;
+      font-size: 1.2rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: var(--shadow);
+      z-index: 1000;
+      transition: all 0.3s ease;
+      -webkit-tap-highlight-color: transparent;
+      touch-action: manipulation;
+    }
+
+    .darkmode-toggle:hover {
+      transform: scale(1.08);
+      box-shadow: var(--shadow-hover);
+    }
+
+    body.dark-mode {
+      --bg: #121212;
+      --text: #e0e0e0;
+      --text-light: #bbb;
+      --text-muted: #888;
+      --white: #1e1e1e;
+      --border: #333;
+      --accent-light: #332200;
+      --green-light: #1b2e1b;
+      --purple-light: #2a1a2e;
+      --cyan-light: #1a2a2e;
+    }
+
+    body.dark-mode .quote-header {
+      background: linear-gradient(135deg, #cc5500 0%, #994400 100%);
+    }
+
+    body.dark-mode .darkmode-toggle {
+      background: #333;
+      border-color: #555;
+    }
+
+    /* ======================== Responsive ======================== */
+    @media (max-width: 768px) {
+      .header-inner {
+        flex-direction: column;
+        text-align: center;
+      }
+
+      .header-contact {
+        flex-direction: column;
+        gap: 8px;
+      }
+
+      .profile-top {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+      }
+
+      .badges-row {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .principles-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .quote-meta {
+        flex-direction: column;
+        gap: 8px;
+        align-items: center;
+      }
+
+      .section-card {
+        padding: 24px 18px;
+      }
+
+      .quote-title-section h1 {
+        font-size: 1.4rem;
+      }
+
+      .format-info {
+        flex-direction: column;
+        gap: 8px;
+      }
+
+    }
+
+    @media (max-width: 380px) {
+      .badges-row {
+        grid-template-columns: 1fr;
+      }
+
+      .page-container {
+        padding: 0 12px 24px;
+      }
+    }
+
+    /* ======================== Video Embed ======================== */
+    .video-block {
+      margin-top: 24px;
+    }
+
+    .video-block h3 {
+      font-size: 0.95rem;
+      margin-bottom: 12px;
+      color: var(--text);
+    }
+
+    .video-wrapper {
+      position: relative;
+      padding-bottom: 56.25%;
+      height: 0;
+      overflow: hidden;
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+    }
+
+    .video-wrapper iframe {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      border: none;
+      border-radius: var(--radius);
+    }
+
+    /* ======================== Accessibility Widget ======================== */
+    .a11y-toggle {
+      position: fixed;
+      bottom: 24px;
+      left: 24px;
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      background: #1565c0;
+      color: var(--white);
+      border: none;
+      cursor: pointer;
+      font-size: 1.4rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 2px 12px rgba(21, 101, 192, 0.4);
+      z-index: 1000;
+      transition: all 0.3s ease;
+      -webkit-tap-highlight-color: transparent;
+      touch-action: manipulation;
+    }
+
+    .a11y-toggle:hover {
+      background: #0d47a1;
+      transform: scale(1.08);
+    }
+
+    .a11y-panel {
+      position: fixed;
+      bottom: 84px;
+      left: 24px;
+      background: var(--white);
+      border-radius: var(--radius);
+      box-shadow: 0 4px 24px rgba(0, 0, 0, 0.15);
+      padding: 20px;
+      z-index: 1000;
+      width: 240px;
+      display: none;
+      direction: rtl;
+    }
+
+    .a11y-panel.open {
+      display: block;
+    }
+
+    .a11y-panel h3 {
+      font-size: 0.95rem;
+      margin-bottom: 14px;
+      color: #1565c0;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .a11y-option {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 10px 0;
+      border-bottom: 1px solid var(--border);
+      font-size: 0.88rem;
+      color: var(--text);
+      cursor: pointer;
+      user-select: none;
+    }
+
+    .a11y-option:last-child {
+      border-bottom: none;
+    }
+
+    .a11y-option-label {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .a11y-option-label i {
+      width: 20px;
+      text-align: center;
+      color: #1565c0;
+    }
+
+    .a11y-btn {
+      background: none;
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      width: 32px;
+      height: 32px;
+      cursor: pointer;
+      font-size: 0.85rem;
+      color: var(--text);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.2s;
+    }
+
+    .a11y-btn:hover {
+      background: var(--bg);
+      border-color: #1565c0;
+      color: #1565c0;
+    }
+
+    .a11y-btn-group {
+      display: flex;
+      gap: 4px;
+    }
+
+    .a11y-toggle-switch {
+      position: relative;
+      width: 40px;
+      height: 22px;
+      background: var(--border);
+      border-radius: 11px;
+      cursor: pointer;
+      transition: background 0.3s;
+      border: none;
+      padding: 0;
+    }
+
+    .a11y-toggle-switch.active {
+      background: #1565c0;
+    }
+
+    .a11y-toggle-switch::after {
+      content: '';
+      position: absolute;
+      top: 2px;
+      left: 2px;
+      width: 18px;
+      height: 18px;
+      background: var(--white);
+      border-radius: 50%;
+      transition: transform 0.3s;
+    }
+
+    .a11y-toggle-switch.active::after {
+      transform: translateX(18px);
+    }
+
+    .a11y-reset {
+      margin-top: 12px;
+      width: 100%;
+      padding: 8px;
+      background: none;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      cursor: pointer;
+      font-family: 'Alef', sans-serif;
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      transition: all 0.2s;
+    }
+
+    .a11y-reset:hover {
+      border-color: #c62828;
+      color: #c62828;
+    }
+
+    /* Accessibility active states */
+    body.a11y-high-contrast {
+      --bg: #000 !important;
+      --text: #fff !important;
+      --text-light: #e0e0e0 !important;
+      --text-muted: #bbb !important;
+      --white: #1a1a1a !important;
+      --border: #555 !important;
+      --accent-light: #332200 !important;
+    }
+
+    body.a11y-high-contrast .quote-header {
+      background: #000 !important;
+      border-bottom: 2px solid var(--accent);
+    }
+
+    body.a11y-high-contrast .a11y-panel {
+      background: #1a1a1a;
+      border: 1px solid #555;
+    }
+
+    body.a11y-highlight-links a {
+      outline: 2px solid #1565c0 !important;
+      outline-offset: 2px;
+      text-decoration: underline !important;
+    }
+
+    /* ======================== Print Styles ======================== */
+    @page {
+      margin: 10mm 10mm 16mm 10mm;
+
+      @bottom-center {
+        content: "עמוד " counter(page) " מתוך " counter(pages);
+        font-family: 'Alef', sans-serif;
+        font-size: 8px;
+        color: #888;
+      }
+    }
+
+    @media print {
+      * {
+        -webkit-print-color-adjust: exact !important;
+        print-color-adjust: exact !important;
+      }
+
+      body {
+        background: var(--white);
+        font-size: 13px;
+        padding-bottom: 50px;
+      }
+
+      .pdf-download-link,
+      .darkmode-toggle,
+      .a11y-toggle,
+      .a11y-panel,
+      .video-block {
+        display: none !important;
+      }
+
+      .page-container {
+        max-width: 100%;
+        padding: 0 16px;
+      }
+
+      .page-container::after {
+        position: fixed;
+        color: rgba(0, 0, 0, 0.06);
+        font-size: 4rem;
+      }
+
+      .section-card {
+        box-shadow: none;
+        border: 1px solid var(--border);
+      }
+
+      .quote-header {
+        padding: 20px 0;
+      }
+
+      /* Profile & signature start on a new page */
+      .profile-section,
+      .signature-block {
+        page-break-before: always;
+      }
+
+      /* Allow large sections to break across pages */
+      .profile-section,
+      .course-table-section {
+        page-break-inside: auto;
+      }
+
+      /* Keep smaller sections together */
+      .pricing-section,
+      .quote-title-section,
+      .intro-section,
+      .tools-section,
+      .signature-block {
+        page-break-inside: avoid;
+      }
+
+      /* Keep individual elements together */
+      .testimonial-card {
+        page-break-inside: avoid;
+      }
+
+      .principle-card {
+        page-break-inside: avoid;
+      }
+
+      .course-card {
+        page-break-inside: avoid;
+        box-shadow: none;
+        border: 1px solid var(--border);
+        border-right: 4px solid var(--accent);
+      }
+
+      .course-card:hover {
+        box-shadow: none;
+      }
+
+      /* Ensure checkboxes and client fields print clearly */
+      .pricing-checkbox {
+        width: 18px;
+        height: 18px;
+        border: 2px solid var(--text);
+      }
+
+      .client-fillable-fields {
+        gap: 10px;
+      }
+
+      .fillable-field {
+        background: var(--white);
+        border: 2px solid var(--text);
+      }
+
+      .client-input {
+        background: var(--white);
+        border: 1.5px solid var(--text-light);
+      }
+
+      .pricing-table tr {
+        page-break-inside: avoid;
+      }
+
+      .experience-block {
+        page-break-inside: avoid;
+      }
+
+      .roi-box {
+        page-break-inside: avoid;
+      }
+
+      .badges-row {
+        page-break-inside: avoid;
+      }
+
+      .terms-list > li {
+        page-break-inside: avoid;
+      }
+
+      /* Don't orphan titles */
+      .section-title {
+        page-break-after: avoid;
+      }
+
+      h3 {
+        page-break-after: avoid;
+      }
+
+      /* Add breathing room before sections for cleaner breaks */
+      .section-card {
+        margin-bottom: 16px;
+      }
+
+      /* Footer on every page */
+      .quote-footer {
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        background: var(--white);
+        border-top: 2px solid var(--accent);
+        padding: 3px 24px;
+        font-size: 0.65rem;
+        margin: 0;
+        max-width: 100%;
+      }
+
+      .principle-card:hover {
+        box-shadow: none;
+      }
+
+      a {
+        color: inherit !important;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ======================== Header Banner ======================== -->
+  <header class="quote-header">
+    <div class="header-inner">
+      <div class="logo">
+        שגיא בר און AI
+        <span>לעסקים</span>
+      </div>
+      <div class="header-contact">
+        <a href="https://api.whatsapp.com/send?phone=972549995050" target="_blank">
+          <i class="fa-brands fa-whatsapp"></i> 054-9995050
+        </a>
+        <a href="https://sagiai.co.il/" target="_blank">
+          <i class="fa-solid fa-globe"></i> sagiai.co.il
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <main class="page-container">
+
+    <!-- ======================== Quote Title ======================== -->
+    <section class="section-card quote-title-section">
+      <h1>הצעת מחיר</h1>
+      <div class="subtitle">וובינרי הדרכה מקוונים — עד שעה | ללא הגבלת משתתפים | מדרגות הנחה בהתחייבות חודשית</div>
+      <div class="title-decoration">
+        <div class="line"></div>
+        <div class="dot"></div>
+        <div class="line"></div>
+      </div>
+      <div class="quote-meta">
+        <span><i class="fa-solid fa-building"></i> לכבוד: אורלי | אקסיומה הישגים בהשכלה</span>
+        <span><i class="fa-solid fa-phone"></i> 050-681-6213</span>
+        <span><i class="fa-solid fa-user"></i> מוגש על ידי: שגיא בר און</span>
+      </div>
+      <div class="quote-meta" style="margin-top: 12px;">
+        <span><i class="fa-solid fa-calendar"></i> תאריך: 20/04/2026</span>
+        <span><i class="fa-solid fa-hashtag"></i> מספר הצעה: SBO-2026-014</span>
+        <span><a href="https://api.whatsapp.com/send?phone=972549995050" target="_blank" style="color:inherit;text-decoration:none;"><i class="fa-brands fa-whatsapp"></i> 054-9995050</a></span>
+      </div>
+      <a href="Axiomedu-Webinar-Package.pdf" download class="pdf-download-link">
+        <i class="fa-solid fa-file-pdf"></i> הורדת הצעת המחיר כ-PDF
+      </a>
+    </section>
+
+    <!-- ======================== Introduction ======================== -->
+    <section class="section-card intro-section">
+      <h2 class="section-title">
+        <i class="fa-solid fa-tower-broadcast"></i>
+        על חבילת הוובינרים
+      </h2>
+      <p>
+        וובינרים חיים ומקצועיים <strong>עד שעה</strong>, מועברים ב-Zoom Webinar או Teams Live Event, <strong>ללא הגבלת משתתפים</strong> — פתרון אידיאלי לחברות הדרכה כמו אקסיומה שרוצות להביא תוכן AI עדכני ואיכותי לקהלים גדולים. כל וובינר כולל הקלטה, שאלות ותשובות (Q&amp;A) בשידור חי, וחומרי עזר דיגיטליים להפצה למשתתפים.
+      </p>
+      <p style="margin-top: 12px;">
+        <strong>מבנה תמחור מתגמל:</strong> ככל שאקסיומה מתחייבת ליותר וובינרים בחודש — המחיר לוובינר יורד (עד 15% הנחה). מבנה זה מאפשר תכנון חודשי, הכנסה צפויה לשני הצדדים, ובניית תוכנית הדרכות קבועה ללקוחות אקסיומה.
+      </p>
+    </section>
+
+    <!-- ======================== Professional Profile ======================== -->
+    <section class="section-card profile-section">
+      <div class="profile-top">
+        <img src="https://sagiai.co.il/assets/sagi-face-BM8CcVRz.webp" alt="שגיא בר און" class="profile-image">
+        <div class="profile-text">
+          <h2>שגיא בר און</h2>
+          <p>
+            אני מביא עמי מעל 25 שנות ניסיון בתעשיית ההיי-טק והתמחות ספציפית בהנגשת טכנולוגיה מורכבת לדרגים ניהוליים. הגישה שלי הופכת את ה-AI מטרנד לכלי עבודה שמוטמע בהצלחה בארגונים.
+          </p>
+        </div>
+      </div>
+
+      <!-- Highlight Badges -->
+      <div class="badges-row">
+        <div class="badge">
+          <i class="fa-solid fa-medal"></i>
+          <span>25+ שנות ניסיון בהייטק</span>
+        </div>
+        <div class="badge">
+          <i class="fa-solid fa-chart-line"></i>
+          <span>חיסכון 20%-30% בזמן</span>
+        </div>
+        <div class="badge">
+          <i class="fa-solid fa-graduation-cap"></i>
+          <span>MBA, B.Sc, NLP Master</span>
+        </div>
+        <div class="badge">
+          <i class="fa-solid fa-building-columns"></i>
+          <span>כנסת ישראל, הכשרות לממשלה, רייכמן ועוד...</span>
+        </div>
+      </div>
+
+      <!-- Experience Details -->
+      <div class="experience-block">
+        <h3><i class="fa-solid fa-star"></i> הניסיון מדבר:</h3>
+        <ul>
+          <li><strong>רקע מקצועי:</strong> חוקר ויועץ בתחום הבינה המלאכותית, המשלב ידע טכנולוגי עמוק (פיתוח, אוטומציה ואסטרטגיה) עם הבנה של המשתמש.</li>
+          <li><strong>הכשרה אקדמית ומוסמכת:</strong> בעל תואר שני (MBA) במנהל עסקים בהתמחות ב-AI וייעוץ אסטרטגי עסקי, תואר ראשון (B.Sc) בהנדסת תוכנה, הנדסאי תוכנה, ומוסמך NLP MASTER.</li>
+          <li><strong>איפה כבר פגשו את שגיא:</strong> כנסת ישראל, הכשרות לממשלה, הנהלת בתי המשפט, אוניברסיטת רייכמן, אוניברסיטת אריאל, מה"ט, משרד החינוך וארגונים נוספים בישראל.</li>
+        </ul>
+      </div>
+
+      <div class="experience-block">
+        <h3><i class="fa-solid fa-hands"></i> הגישה הפרקטית:</h3>
+        <p>
+          אני חי את השטח. במקום ללמד תיאוריות, אני מעניק למשתתפים מתודולוגיות עבודה מוכחות שמטרתן לפשט את עולמות ה-AI, לנטרל את ה"בלגן" ולהביא ל:
+        </p>
+        <ul>
+          <li><strong>תוצאה מיידית:</strong> מתן ביטחון טכנולוגי וחיסכון אדיר בזמן.</li>
+          <li><strong>התאמה אישית:</strong> התוכן מעודכן ומותאם אישית לצרכים הספציפיים של המשתתפים, ללא קוד ובצורה פשוטה וברורה.</li>
+        </ul>
+      </div>
+
+      <!-- Video Embed -->
+      <div class="video-block">
+        <h3><i class="fa-solid fa-play-circle"></i> צפו בי מרצה בכנסת ישראל</h3>
+        <div class="video-wrapper">
+          <iframe
+            src="https://www.youtube.com/embed/Dk0NAi3Xmww?autoplay=1&mute=1&rel=0&loop=1&vq=hd2160&playlist=Dk0NAi3Xmww"
+            title="שגיא בר און מרצה בכנסת ישראל על בינה מלאכותית"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen
+            loading="lazy">
+          </iframe>
+        </div>
+      </div>
+
+      <!-- ROI Box -->
+      <div class="roi-box">
+        <h3><i class="fa-solid fa-arrow-trend-up"></i> בשורה התחתונה - החזר השקעה (ROI):</h3>
+        <p>הניסיון שלי מוכיח כי ליווי נכון הופך את ה-AI לכלי עבודה שחוסך בפועל בין <strong>20% ל-30%</strong> מהזמן המושקע במשימות יומיומיות ואדמיניסטרטיביות.</p>
+      </div>
+    </section>
+
+    <!-- ======================== Webinar Format & Topics ======================== -->
+    <section class="section-card course-table-section">
+      <h2 class="section-title">
+        <i class="fa-solid fa-tower-broadcast"></i>
+        פורמט הוובינר ונושאים לבחירה
+      </h2>
+
+      <div class="format-info">
+        <span class="format-tag">
+          <i class="fa-solid fa-clock"></i>
+          עד 60 דקות כל וובינר
+        </span>
+        <span class="format-tag">
+          <i class="fa-solid fa-video"></i>
+          Zoom Webinar / Teams Live Event
+        </span>
+        <span class="format-tag">
+          <i class="fa-solid fa-users-rectangle"></i>
+          ללא הגבלת משתתפים
+        </span>
+        <span class="format-tag">
+          <i class="fa-solid fa-circle-play"></i>
+          הקלטה + Q&amp;A חי
+        </span>
+      </div>
+
+      <p style="font-size: 0.9rem; color: var(--text); margin-bottom: 8px;">
+        <strong>כך זה עובד:</strong> לכל חודש אקסיומה בוחרת נושאים מתוך <strong>תפריט הוובינרים הפופולריים</strong> (להלן) או מזמינה נושא מותאם. תוכן כל וובינר מאושר סופית עד <strong>10 ימים מראש</strong>, עם הכנה מלאה של מצגת, הדגמות וחומרי עזר.
+      </p>
+
+      <p style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 20px;">* המועדים ייקבעו בתיאום הדדי. ניתן לקיים וובינר פומבי (קהל רחב פתוח) או סגור (ארגוני/ללקוחות אקסיומה).</p>
+
+      <!-- Popular Webinar Topics -->
+      <h3 style="font-size: 1.05rem; color: var(--accent-dark); margin: 8px 0 16px; padding-right: 12px; border-right: 4px solid var(--accent);">
+        <i class="fa-solid fa-list-check"></i> נושאי וובינר פופולריים לבחירה
+      </h3>
+
+      <div class="course-cards">
+
+        <!-- Topic 1: AI 101 -->
+        <div class="course-card">
+          <div class="course-card-header">
+            <h4><i class="fa-solid fa-circle-play" style="color: var(--accent); margin-left: 8px;"></i> AI 101 — מבוא ל-AI לעסקים ולפרט</h4>
+          </div>
+          <div class="course-card-body">
+            מה זה AI, איך הוא עובד, מהם ההבדלים בין הכלים המובילים, איך להתחיל נכון ולהימנע מטעויות נפוצות. מושלם לקהל מתחילים.
+          </div>
+        </div>
+
+        <!-- Topic 2: Prompt Engineering -->
+        <div class="course-card">
+          <div class="course-card-header">
+            <h4><i class="fa-solid fa-wand-magic-sparkles" style="color: var(--cyan); margin-left: 8px;"></i> פרומפט Engineering — מיסודות למומחיות</h4>
+          </div>
+          <div class="course-card-body">
+            כתיבת פרומפטים אפקטיביים (הקשר, תפקיד, פורמט, מגבלות). טכניקות מתקדמות: Chain-of-Thought, Few-Shot, פרומפטים מובנים לשימוש חוזר. ישים בכל כלי AI.
+          </div>
+        </div>
+
+        <!-- Topic 3: Gemini -->
+        <div class="course-card">
+          <div class="course-card-header">
+            <h4><i class="fa-solid fa-gem" style="color: var(--accent); margin-left: 8px;"></i> Gemini — עבודה חכמה עם Google Workspace</h4>
+          </div>
+          <div class="course-card-body">
+            שימוש ב-Gemini ב-Docs, Sheets, Gmail, Slides ו-Drive. Deep Research, Canvas, Gems (סוכנים מותאמים). איך להוציא את המקסימום מ-Google AI.
+          </div>
+        </div>
+
+        <!-- Topic 4: NotebookLM -->
+        <div class="course-card">
+          <div class="course-card-header">
+            <h4><i class="fa-solid fa-book" style="color: var(--purple); margin-left: 8px;"></i> NotebookLM — Research חכם ולמידה פעילה</h4>
+          </div>
+          <div class="course-card-body">
+            בניית Notebook, העלאת מקורות, Audio Overviews, Q&amp;A על קורפוס. הכלי שמשנה את חווית המחקר והלמידה — מיוחד לעולם החינוך וההשכלה.
+          </div>
+        </div>
+
+        <!-- Topic 5: ChatGPT -->
+        <div class="course-card">
+          <div class="course-card-header">
+            <h4><i class="fa-solid fa-comment-dots" style="color: var(--green); margin-left: 8px;"></i> ChatGPT — פרודוקטיביות יומיומית</h4>
+          </div>
+          <div class="course-card-body">
+            שימוש מעשי ב-ChatGPT: כתיבה, סיכומים, תרגום, ניתוח מסמכים. GPTs מותאמים אישית. עבודה עם Projects. הכלי הפופולרי שחייבים להכיר.
+          </div>
+        </div>
+
+        <!-- Topic 6: Claude -->
+        <div class="course-card">
+          <div class="course-card-header">
+            <h4><i class="fa-solid fa-brain" style="color: var(--purple); margin-left: 8px;"></i> Claude — יכולות מתקדמות ו-Deep Research</h4>
+          </div>
+          <div class="course-card-body">
+            Projects, Artifacts, Computer Use, Deep Research. יכולות ייחודיות של Claude שלא קיימות בכלים אחרים. כלי עוצמתי לאנליסטים ויוצרי תוכן.
+          </div>
+        </div>
+
+        <!-- Topic 7: Copilot -->
+        <div class="course-card">
+          <div class="course-card-header">
+            <h4><i class="fa-brands fa-microsoft" style="color: var(--cyan); margin-left: 8px;"></i> Microsoft Copilot — AI לעובדי M365</h4>
+          </div>
+          <div class="course-card-body">
+            שימוש ב-Copilot ב-Word, Excel, PowerPoint, Outlook, Teams. Custom Agents. התייעלות יומיומית בסביבת העבודה של Microsoft 365.
+          </div>
+        </div>
+
+        <!-- Topic 8: AI in Education -->
+        <div class="course-card">
+          <div class="course-card-header">
+            <h4><i class="fa-solid fa-graduation-cap" style="color: var(--accent); margin-left: 8px;"></i> AI בחינוך ובהשכלה</h4>
+          </div>
+          <div class="course-card-body">
+            מותאם מיוחד לקהלי אקסיומה: איך AI משנה את עולם הלימוד וההוראה. בניית יחידות לימוד, הערכה ומשוב, למידה מותאמת אישית. דילמות ואתיקה.
+          </div>
+        </div>
+
+        <!-- Topic 9: AI for Marketing -->
+        <div class="course-card">
+          <div class="course-card-header">
+            <h4><i class="fa-solid fa-bullhorn" style="color: var(--green); margin-left: 8px;"></i> AI לשיווק ויצירת תוכן</h4>
+          </div>
+          <div class="course-card-body">
+            בניית אסטרטגיית תוכן, כתיבת פוסטים, יצירת תמונות ווידאו עם AI, SEO חכם, אוטומציה של שיווק דיגיטלי. תוצאות מקצועיות בזמן קצר.
+          </div>
+        </div>
+
+        <!-- Topic 10: Hands-on -->
+        <div class="course-card">
+          <div class="course-card-header">
+            <h4><i class="fa-solid fa-hands-holding-circle" style="color: var(--accent); margin-left: 8px;"></i> "הביאו משימה אמיתית" — Hands-on Live</h4>
+          </div>
+          <div class="course-card-body">
+            וובינר פתוח: המשתתפים שולחים מראש משימה אמיתית ואני פותר אותה בשידור חי עם הכלים המתאימים. פורמט מעורר מעורבות גבוהה של הקהל.
+          </div>
+        </div>
+
+      </div>
+
+      <p style="font-size: 0.85rem; color: var(--text-muted); margin-top: 16px; padding: 10px; background: var(--accent-light); border-radius: 8px;">
+        <i class="fa-solid fa-lightbulb" style="color: var(--accent);"></i>
+        <strong>נושא מותאם לפי דרישה:</strong> אם יש לאקסיומה קהל יעד מסוים או נושא ספציפי — ניתן לבנות וובינר מותאם במקום נושא מהרשימה, בתיאום מראש. שילוב 2 נושאים באותו וובינר אפשרי בהסכמה.
+      </p>
+    </section>
+
+    <!-- ======================== Tools Covered ======================== -->
+    <section class="section-card tools-section">
+      <h2 class="section-title">
+        <i class="fa-solid fa-toolbox"></i>
+        כלים אפשריים בוובינרים (בהתאם לנושא הנבחר)
+      </h2>
+      <div class="tools-grid">
+        <div class="tool-badge">
+          <i class="fa-solid fa-comments"></i>
+          <span>Microsoft Copilot</span>
+        </div>
+        <div class="tool-badge">
+          <i class="fa-solid fa-brain"></i>
+          <span>Claude</span>
+        </div>
+        <div class="tool-badge">
+          <i class="fa-solid fa-comment-dots"></i>
+          <span>ChatGPT</span>
+        </div>
+        <div class="tool-badge">
+          <i class="fa-solid fa-star"></i>
+          <span>Gemini</span>
+        </div>
+        <div class="tool-badge">
+          <i class="fa-solid fa-book-open"></i>
+          <span>NotebookLM</span>
+        </div>
+        <div class="tool-badge">
+          <i class="fa-solid fa-magnifying-glass-chart"></i>
+          <span>Deep Research</span>
+        </div>
+        <div class="tool-badge">
+          <i class="fa-solid fa-file-word"></i>
+          <span>Word</span>
+        </div>
+        <div class="tool-badge">
+          <i class="fa-solid fa-file-excel"></i>
+          <span>Excel</span>
+        </div>
+        <div class="tool-badge">
+          <i class="fa-solid fa-file-powerpoint"></i>
+          <span>PowerPoint</span>
+        </div>
+        <div class="tool-badge">
+          <i class="fa-solid fa-envelope"></i>
+          <span>Outlook & Teams</span>
+        </div>
+        <div class="tool-badge">
+          <i class="fa-solid fa-wand-magic-sparkles"></i>
+          <span>Prompt Engineering</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ======================== Core Principles ======================== -->
+    <section class="section-card">
+      <h2 class="section-title">
+        <i class="fa-solid fa-gem"></i>
+        עקרונות הליבה של התוכנית
+      </h2>
+      <div class="principles-grid">
+        <div class="principle-card">
+          <div class="principle-icon purple">
+            <i class="fa-solid fa-shield-halved"></i>
+          </div>
+          <div class="principle-content">
+            <h4>אבטחת מידע ופרטיות</h4>
+            <p>עבודה אך ורק בכלים ובסביבות מאובטחות; דגש על הבנת ההבדלים בין גרסאות ארגוניות לחינמיות ועל הימנעות מחשיפת מידע ארגוני רגיש.</p>
+          </div>
+        </div>
+        <div class="principle-card">
+          <div class="principle-icon cyan">
+            <i class="fa-solid fa-wand-magic-sparkles"></i>
+          </div>
+          <div class="principle-content">
+            <h4>פשטות יישומית</h4>
+            <p>ללא קוד – הרצאות קצרות, הדגמות מבוססות מקרי בוחן רלוונטיים, וצ'ק-ליסט ליישום מיידי.</p>
+          </div>
+        </div>
+        <div class="principle-card">
+          <div class="principle-icon orange">
+            <i class="fa-solid fa-bolt"></i>
+          </div>
+          <div class="principle-content">
+            <h4>תוצאה מיידית</h4>
+            <p>כל מפגש מסתיים בתוצר מוחשי או יכולת חדשה שאפשר ליישם כבר למחרת – לא תאוריה, כלים שעובדים.</p>
+          </div>
+        </div>
+        <div class="principle-card">
+          <div class="principle-icon green">
+            <i class="fa-brands fa-whatsapp"></i>
+          </div>
+          <div class="principle-content">
+            <h4>ליווי רציף</h4>
+            <p>פורום תמיכה בין מפגשים, הקלטות, דפי עזר, צ'קליסטים וספריית פרומפטים לשימוש חוזר.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ======================== Course Summary ======================== -->
+    <section class="section-card">
+      <h2 class="section-title">
+        <i class="fa-solid fa-table-list"></i>
+        סיכום הסדנה במבט-על
+      </h2>
+      <div class="summary-grid">
+        <div class="summary-item">
+          <i class="fa-solid fa-clock"></i>
+          <span>עד 60 דקות כל וובינר</span>
+        </div>
+        <div class="summary-item">
+          <i class="fa-solid fa-users-rectangle"></i>
+          <span>ללא הגבלת משתתפים</span>
+        </div>
+        <div class="summary-item">
+          <i class="fa-solid fa-circle-play"></i>
+          <span>הקלטה וחומרי עזר</span>
+        </div>
+        <div class="summary-item">
+          <i class="fa-solid fa-comments"></i>
+          <span>Q&amp;A חי בשידור</span>
+        </div>
+        <div class="summary-item">
+          <i class="fa-solid fa-percent"></i>
+          <span>עד 15% הנחה בחבילה</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ======================== Pricing Table ======================== -->
+    <section class="section-card pricing-section">
+      <h2 class="section-title">
+        <i class="fa-solid fa-file-invoice-dollar"></i>
+        השקעה נדרשת
+      </h2>
+      <p style="font-size: 0.95rem; color: var(--text-light); margin-bottom: 16px;">
+        מבנה תמחור <strong>מותנה בהתחייבות חודשית</strong>: ככל שאקסיומה מזמינה יותר וובינרים בחודש — המחיר לוובינר יורד. המחירים תקפים עבור התחייבות של 3 חודשים רציפים לפחות.
+      </p>
+      <div class="table-wrapper">
+        <table class="pricing-table selectable-pricing">
+          <thead>
+            <tr>
+              <th style="width: 60px; text-align: center;">בחירה</th>
+              <th>התחייבות חודשית</th>
+              <th style="text-align: center;">הנחה</th>
+              <th style="text-align: center;">מחיר לוובינר</th>
+              <th>סה"כ חודשי</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td style="text-align: center;"><input type="checkbox" name="commitment-tier" value="single" class="pricing-checkbox" aria-label="וובינר בודד ללא התחייבות"></td>
+              <td><strong>וובינר בודד</strong><br><span style="font-size: 0.82rem; color: var(--text-muted);">ללא התחייבות</span></td>
+              <td style="text-align: center; color: var(--text-muted);">—</td>
+              <td style="text-align: center;">5,000 &#8362;</td>
+              <td>5,000 &#8362; + מע"מ</td>
+            </tr>
+            <tr>
+              <td style="text-align: center;"><input type="checkbox" name="commitment-tier" value="two-monthly" class="pricing-checkbox" aria-label="התחייבות 2 וובינרים בחודש"></td>
+              <td><strong>2 וובינרים / חודש</strong></td>
+              <td style="text-align: center; color: var(--green); font-weight: 700;">5%</td>
+              <td style="text-align: center;">4,750 &#8362;</td>
+              <td>9,500 &#8362; + מע"מ</td>
+            </tr>
+            <tr>
+              <td style="text-align: center;"><input type="checkbox" name="commitment-tier" value="three-monthly" class="pricing-checkbox" aria-label="התחייבות 3 וובינרים בחודש"></td>
+              <td><strong>3 וובינרים / חודש</strong></td>
+              <td style="text-align: center; color: var(--green); font-weight: 700;">10%</td>
+              <td style="text-align: center;">4,500 &#8362;</td>
+              <td>13,500 &#8362; + מע"מ</td>
+            </tr>
+            <tr>
+              <td style="text-align: center;"><input type="checkbox" name="commitment-tier" value="four-plus-monthly" class="pricing-checkbox" aria-label="התחייבות 4 וובינרים ומעלה בחודש"></td>
+              <td><strong>4 וובינרים ומעלה / חודש</strong></td>
+              <td style="text-align: center; color: var(--green); font-weight: 700;">15%</td>
+              <td style="text-align: center;">4,250 &#8362;</td>
+              <td>17,000 &#8362; + מע"מ</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- Client fill-in fields -->
+      <div class="client-fillable-fields">
+        <div class="fillable-field">
+          <label for="webinars-count"><i class="fa-solid fa-tower-broadcast" style="color: var(--accent);"></i> כמות וובינרים חודשית מתוכננת:</label>
+          <input type="text" id="webinars-count" name="webinars-count" placeholder="לדוגמה: 3 וובינרים" class="client-input">
+        </div>
+        <div class="fillable-field">
+          <label for="commitment-period"><i class="fa-solid fa-calendar-days" style="color: var(--cyan);"></i> תקופת ההתחייבות (מינ' 3 חודשים):</label>
+          <input type="text" id="commitment-period" name="commitment-period" placeholder="לדוגמה: 6 חודשים" class="client-input">
+          <span class="field-hint">* ההתחייבות המינימלית לקבלת ההנחה: 3 חודשים רציפים</span>
+        </div>
+      </div>
+
+      <!-- Favorite topics field (full width) -->
+      <div class="client-fillable-fields" style="grid-template-columns: 1fr; margin-top: 12px;">
+        <div class="fillable-field">
+          <label for="preferred-topics"><i class="fa-solid fa-star" style="color: var(--accent);"></i> נושאי וובינר מועדפים / חודש ראשון:</label>
+          <input type="text" id="preferred-topics" name="preferred-topics" placeholder="לדוגמה: AI 101, NotebookLM, פרומפט Engineering" class="client-input">
+          <span class="field-hint">* ניתן לבחור מרשימת הנושאים הפופולריים לעיל, או לציין נושא מותאם</span>
+        </div>
+      </div>
+
+      <!-- VAT notice banner -->
+      <div style="margin-top: 12px; padding: 10px 16px; background: var(--accent-light); border-right: 4px solid var(--accent); border-radius: 8px; font-size: 0.92rem; color: var(--text);">
+        <i class="fa-solid fa-circle-info" style="color: var(--accent); margin-left: 6px;"></i>
+        <strong>שימו לב:</strong> למחירים הנקובים לעיל יתווסף מע"מ כחוק. חשבונית מס תונפק עם קבלת כל תשלום.
+      </div>
+
+      <!-- What's included -->
+      <div style="margin-top: 20px; padding: 16px 20px; background: var(--green-light); border-radius: 10px;">
+        <h3 style="font-size: 0.95rem; color: var(--green); margin-bottom: 8px;">
+          <i class="fa-solid fa-gift"></i> מה כלול בכל וובינר:
+        </h3>
+        <ul style="list-style: none; padding: 0; font-size: 0.9rem; color: var(--text-light); line-height: 2;">
+          <li style="padding-right: 18px; position: relative;"><span style="position: absolute; right: 0; color: var(--green);">&#10003;</span> וובינר חי עד 60 דקות, ללא הגבלת משתתפים</li>
+          <li style="padding-right: 18px; position: relative;"><span style="position: absolute; right: 0; color: var(--green);">&#10003;</span> הקלטת הוובינר (לשימוש פנימי של אקסיומה ולקוחותיה)</li>
+          <li style="padding-right: 18px; position: relative;"><span style="position: absolute; right: 0; color: var(--green);">&#10003;</span> דפי עזר דיגיטליים (Handout PDF) להפצה למשתתפים</li>
+          <li style="padding-right: 18px; position: relative;"><span style="position: absolute; right: 0; color: var(--green);">&#10003;</span> שאלות ותשובות חיות (Q&amp;A) בשידור</li>
+          <li style="padding-right: 18px; position: relative;"><span style="position: absolute; right: 0; color: var(--green);">&#10003;</span> ספריית פרומפטים רלוונטית לנושא</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ======================== Rules & Commitment ======================== -->
+    <section class="section-card" style="border-right: 4px solid var(--purple);">
+      <h2 class="section-title">
+        <i class="fa-solid fa-handshake-simple" style="color: var(--purple);"></i>
+        כללים והתחייבות (חשוב לקרוא)
+      </h2>
+      <div style="padding: 16px 20px; background: var(--purple-light); border-radius: 10px;">
+        <ul style="list-style: none; padding: 0; font-size: 0.93rem; color: var(--text); line-height: 2;">
+          <li style="padding-right: 24px; position: relative; margin-bottom: 6px;">
+            <span style="position: absolute; right: 0; color: var(--purple);"><i class="fa-solid fa-1"></i></span>
+            <strong>התחייבות מינימלית:</strong> כדי ליהנות ממדרגות ההנחה, יש להתחייב ל-<strong>3 חודשים רציפים</strong> לפחות. התחייבות ל-ad-hoc או לתקופה קצרה יותר = וובינר בודד (5,000 ₪) ללא הנחה.
+          </li>
+          <li style="padding-right: 24px; position: relative; margin-bottom: 6px;">
+            <span style="position: absolute; right: 0; color: var(--purple);"><i class="fa-solid fa-2"></i></span>
+            <strong>Use it or lose it:</strong> כמות וובינרים שהוזמנה חודשית ולא בוצעה — לא מתגלגלת לחודש הבא ולא מוחזרת. ניתן לתאם דחייה בהתאם לכללי הדחייה להלן.
+          </li>
+          <li style="padding-right: 24px; position: relative; margin-bottom: 6px;">
+            <span style="position: absolute; right: 0; color: var(--purple);"><i class="fa-solid fa-3"></i></span>
+            <strong>דחיית וובינר:</strong> דחייה בתיאום <strong>7 ימים מראש</strong> — ללא חיוב; מועד חלופי ייקבע תוך 30 יום. דחייה בפחות מ-7 ימים — חיוב מלא.
+          </li>
+          <li style="padding-right: 24px; position: relative; margin-bottom: 6px;">
+            <span style="position: absolute; right: 0; color: var(--purple);"><i class="fa-solid fa-4"></i></span>
+            <strong>סגירת תוכן:</strong> נושא ומבנה כל וובינר נקבעים סופית <strong>10 ימים לפני המועד</strong>, כדי לאפשר הכנה מקצועית. שינויים לאחר מכן — לשיקול דעת.
+          </li>
+          <li style="padding-right: 24px; position: relative; margin-bottom: 6px;">
+            <span style="position: absolute; right: 0; color: var(--purple);"><i class="fa-solid fa-5"></i></span>
+            <strong>פלטפורמה ותמיכה טכנית:</strong> אקסיומה אחראית על רישיון הפלטפורמה (Zoom Webinar / Teams Live) ועל הזמנת משתתפים. שגיא מעביר את התוכן ומנהל את ה-Q&amp;A.
+          </li>
+          <li style="padding-right: 24px; position: relative;">
+            <span style="position: absolute; right: 0; color: var(--purple);"><i class="fa-solid fa-6"></i></span>
+            <strong>הקלטה ושימוש:</strong> ההקלטה שייכת לאקסיומה לשימוש פנימי ולהפצה ללקוחותיה. ש.ב. ידע וטכנולוגיה שומרת לעצמה את הזכות להשתמש ב-30 שניות מתוך ההקלטה לצרכי שיווק (ללא חשיפת מידע סודי).
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ======================== Testimonials ======================== -->
+    <section class="section-card testimonials-section">
+      <h2 class="section-title">
+        <i class="fa-solid fa-comments"></i>
+        מה אומרים עליי
+      </h2>
+      <div class="testimonials-grid">
+        <div class="testimonial-card">
+          <p class="testimonial-text">חייבת להגיד תודה גדולה לשגיא על הסדנה! היה מרתק, מעשיר ידע וכיפי. הסבלנות שלך והידע שלך ממש חוצים גבולות וזכינו בך. נשאר טעם של עוד ואני אישית אשמח ללמוד תכנים נוספים.</p>
+          <div class="testimonial-author">מיטל בן יעקב</div>
+          <div class="testimonial-role">מרכז סליקה בנקאי</div>
+        </div>
+        <div class="testimonial-card">
+          <p class="testimonial-text">רב תודות על ההרצאה המאלפת. בתודה ובברכה.</p>
+          <div class="testimonial-author">ד"ר נתן תירוש</div>
+          <div class="testimonial-role">המכללה האקדמית צפת</div>
+        </div>
+        <div class="testimonial-card">
+          <p class="testimonial-text">תודה ענקית שהגעת, היה פשוט מעולה!</p>
+          <div class="testimonial-author">ד"ר מאור אלימלך</div>
+          <div class="testimonial-role">אוניברסיטת אריאל</div>
+        </div>
+        <div class="testimonial-card">
+          <p class="testimonial-text">הסדנה הייתה מעולה! נתעדכן על ההכשרות הבאות.</p>
+          <div class="testimonial-author">סובחייה</div>
+          <div class="testimonial-role">אוניברסיטת רייכמן</div>
+        </div>
+      </div>
+
+      <div style="margin-top: 24px; padding: 16px 20px; background: var(--bg); border-radius: 10px;">
+        <h3 style="font-size: 0.9rem; color: var(--accent); margin-bottom: 12px;"><i class="fa-solid fa-phone"></i> ממליצים - ניתן ליצור קשר:</h3>
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 8px 24px; font-size: 0.85rem; color: var(--text-light);">
+          <span><strong>סובחייה</strong> – הכשרות הממשלה ב-AI | 054-678-8713</span>
+          <span><strong>ד"ר מאור אלימלך</strong> – אוניברסיטת אריאל | 052-869-0298</span>
+          <span><strong>נועה נוריאל</strong> – המדרשה הלאומית | 050-626-6695</span>
+          <span><strong>ד"ר יובב עשת</strong> – המכללה האקדמית צפת | 054-480-7491</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ======================== Commercial Terms ======================== -->
+    <section class="section-card terms-section">
+      <h2 class="section-title">
+        <i class="fa-solid fa-handshake"></i>
+        תנאים מסחריים ותנאי תשלום
+      </h2>
+      <ol class="terms-list">
+        <li>
+          <span class="terms-subtitle">תוקף ההצעה:</span>
+          הצעת המחיר תקפה למשך <strong>15 יום</strong> מיום הוצאתה.
+        </li>
+        <li>
+          <span class="terms-subtitle">תנאי תשלום:</span>
+          <ul class="terms-sub-list">
+            <li><strong>וובינר בודד (ללא התחייבות):</strong> 100% מסכום הוובינר ישולם <strong>לפני מועד השידור</strong>, כתנאי לביצוע.</li>
+            <li><strong>בהתחייבות חודשית (3+ חודשים):</strong> תשלום חודשי <strong>מראש, בתחילת כל חודש</strong>, עבור הוובינרים שתוכננו לאותו חודש. לחלופין, ניתן לסגור 50% בחתימה על כל תקופת ההתחייבות + יתרה בתנאי שוטף + 45 יום בכל סוף חודש קלנדרי.</li>
+            <li>התשלום יבוצע בהעברה בנקאית (פרטי חשבון יישלחו עם חשבונית המס) או בכל אמצעי תשלום אחר שיוסכם מראש.</li>
+            <li>חשבונית מס/קבלה תונפק עם קבלת כל תשלום.</li>
+          </ul>
+        </li>
+        <li>
+          <span class="terms-subtitle">ביטול התחייבות חודשית (מוקדם):</span>
+          <ul class="terms-sub-list">
+            <li><strong>ביטול לפני סיום תקופת ההתחייבות המינימלית (3 חודשים):</strong> המחיר לוובינרים שכבר בוצעו מתוקן ל-<strong>5,000 ₪ לוובינר</strong> (ללא הנחה), וההפרש יחויב במעמד הביטול.</li>
+            <li><strong>הודעת סיום רגילה:</strong> בתום התקופה המינימלית, ניתן לסיים את ההתקשרות ב-<strong>הודעה מראש של 30 יום</strong>.</li>
+          </ul>
+        </li>
+        <li>
+          <span class="terms-subtitle">כללי:</span>
+          <ul class="terms-sub-list">
+            <li><strong>זכויות יוצרים ושימוש בהקלטה:</strong> מוסדרים בסעיף "כללים והתחייבות" לעיל (סעיפים 6).</li>
+            <li><strong>סודיות:</strong> שמירה על סודיות הדדית לגבי כל מידע עסקי רגיש שייחשף במהלך ההתקשרות.</li>
+            <li><strong>פלטפורמה ותמיכה:</strong> הוובינרים מתקיימים ב-Zoom Webinar או Teams Live Event (לבחירת אקסיומה). הלקוח אחראי לרישיון הפלטפורמה ולהזמנת המשתתפים. שגיא מעביר את התוכן ומנהל את ה-Q&amp;A.</li>
+          </ul>
+        </li>
+      </ol>
+    </section>
+
+    <!-- ======================== Signature Block ======================== -->
+    <section class="section-card signature-block">
+      <div class="signature-side">
+        <h3><i class="fa-solid fa-pen-nib"></i> הספק</h3>
+        <div class="signature-line">
+          <label>שם:</label>
+          <span>ש.ב. ידע וטכנולוגיה</span>
+        </div>
+        <div class="signature-line">
+          <label>ח.פ.:</label>
+          <span>037565348</span>
+        </div>
+        <div class="signature-line">
+          <label>חתימה:</label>
+          <span class="sign-field"></span>
+        </div>
+        <div class="signature-line">
+          <label>תאריך:</label>
+          <span class="sign-field"></span>
+        </div>
+        <div class="contact-line">
+          <a href="https://api.whatsapp.com/send?phone=972549995050" target="_blank">
+            <i class="fa-brands fa-whatsapp"></i> 054-9995050
+          </a>
+          <a href="https://sagiai.co.il/" target="_blank">
+            <i class="fa-solid fa-globe"></i> sagiai.co.il
+          </a>
+        </div>
+      </div>
+      <div class="signature-side">
+        <h3><i class="fa-solid fa-building"></i> הלקוח</h3>
+        <div class="signature-line">
+          <label>שם החברה:</label>
+          <span>אקסיומה הישגים בהשכלה</span>
+        </div>
+        <div class="signature-line">
+          <label>שם החותם/ת:</label>
+          <span class="sign-field">אורלי</span>
+        </div>
+        <div class="signature-line">
+          <label>תפקיד:</label>
+          <span class="sign-field"></span>
+        </div>
+        <div class="signature-line">
+          <label>חתימה:</label>
+          <span class="sign-field"></span>
+        </div>
+        <div class="signature-line">
+          <label>תאריך:</label>
+          <span class="sign-field"></span>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ======================== Footer ======================== -->
+  <footer class="quote-footer">
+    <div class="footer-links">
+      <span>
+        <i class="fa-solid fa-globe"></i>
+        <a href="https://sagiai.co.il/" target="_blank">sagiai.co.il</a>
+      </span>
+      <span>
+        <a href="https://api.whatsapp.com/send?phone=972549995050" target="_blank" style="color:inherit;text-decoration:none;">
+          <i class="fa-brands fa-whatsapp"></i> 054-9995050
+        </a>
+      </span>
+      <span>&copy; ש.ב. ידע וטכנולוגיה | ח.פ.: 037565348</span>
+    </div>
+  </footer>
+
+  <!-- ======================== Dark Mode Toggle ======================== -->
+  <button class="darkmode-toggle" aria-label="מצב כהה" title="מצב כהה / בהיר" onclick="toggleDarkMode()">
+    &#127769;
+  </button>
+
+  <!-- ======================== Accessibility Widget ======================== -->
+  <button class="a11y-toggle" aria-label="תפריט נגישות" title="נגישות" onclick="document.querySelector('.a11y-panel').classList.toggle('open')">
+    <i class="fa-solid fa-universal-access"></i>
+  </button>
+
+  <div class="a11y-panel" role="dialog" aria-label="אפשרויות נגישות">
+    <h3><i class="fa-solid fa-universal-access"></i> נגישות</h3>
+
+    <div class="a11y-option">
+      <span class="a11y-option-label"><i class="fa-solid fa-text-height"></i> גודל גופן</span>
+      <div class="a11y-btn-group">
+        <button class="a11y-btn" onclick="a11yFontSize(-1)" aria-label="הקטנת גופן">א-</button>
+        <button class="a11y-btn" onclick="a11yFontSize(1)" aria-label="הגדלת גופן">א+</button>
+      </div>
+    </div>
+
+    <div class="a11y-option" onclick="a11yToggle('high-contrast', this)">
+      <span class="a11y-option-label"><i class="fa-solid fa-circle-half-stroke"></i> ניגודיות גבוהה</span>
+      <button class="a11y-toggle-switch" aria-label="ניגודיות גבוהה"></button>
+    </div>
+
+    <div class="a11y-option" onclick="a11yToggle('highlight-links', this)">
+      <span class="a11y-option-label"><i class="fa-solid fa-link"></i> הדגשת קישורים</span>
+      <button class="a11y-toggle-switch" aria-label="הדגשת קישורים"></button>
+    </div>
+
+    <button class="a11y-reset" onclick="a11yReset()">
+      <i class="fa-solid fa-rotate-left"></i> איפוס נגישות
+    </button>
+  </div>
+
+  <script>
+    let a11yFontLevel = 0;
+
+    function a11yFontSize(dir) {
+      a11yFontLevel = Math.max(-2, Math.min(4, a11yFontLevel + dir));
+      document.documentElement.style.fontSize = (16 + a11yFontLevel * 2) + 'px';
+    }
+
+    function a11yToggle(feature, el) {
+      document.body.classList.toggle('a11y-' + feature);
+      var sw = el.querySelector('.a11y-toggle-switch');
+      if (sw) sw.classList.toggle('active');
+    }
+
+    function a11yReset() {
+      var wasDark = document.body.classList.contains('dark-mode');
+      document.body.className = '';
+      if (wasDark) document.body.classList.add('dark-mode');
+      document.documentElement.style.fontSize = '';
+      a11yFontLevel = 0;
+      document.querySelectorAll('.a11y-toggle-switch').forEach(function(s) { s.classList.remove('active'); });
+    }
+
+    // Close panel on outside click
+    document.addEventListener('click', function(e) {
+      var panel = document.querySelector('.a11y-panel');
+      var toggle = document.querySelector('.a11y-toggle');
+      if (!panel.contains(e.target) && !toggle.contains(e.target)) {
+        panel.classList.remove('open');
+      }
+    });
+  </script>
+
+  <script>
+    // Dark Mode
+    function toggleDarkMode() {
+      document.body.classList.toggle('dark-mode');
+      var isDark = document.body.classList.contains('dark-mode');
+      document.querySelector('.darkmode-toggle').innerHTML = isDark ? '&#9728;&#65039;' : '&#127769;';
+      localStorage.setItem('darkMode', isDark ? 'on' : 'off');
+    }
+
+    // Restore dark mode preference
+    if (localStorage.getItem('darkMode') === 'on') {
+      document.body.classList.add('dark-mode');
+      document.querySelector('.darkmode-toggle').innerHTML = '&#9728;&#65039;';
+    }
+  </script>
+
+</body>
+</html>
+
+<!--
+================================================================================
+  EMAIL TEMPLATE — לשליחת ההצעה במייל לאורלי, אקסיומה (העתק/הדבק)
+================================================================================
+
+  SUBJECT LINE (נושא המייל):
+  ---------------------------------------------------------------------------
+  הצעת מחיר – חבילת וובינרי AI בהתחייבות חודשית | אקסיומה | SBO-2026-014
+
+  BODY (גוף המייל, עברית, ענייני וקצר):
+  ---------------------------------------------------------------------------
+  שלום אורלי,
+
+  נעים להכיר, ותודה על הפנייה.
+
+  מצורפת הצעת מחיר לחבילת וובינרי AI עבור אקסיומה
+  (מס' הצעה SBO-2026-014, תוקף 15 יום).
+
+  עיקרי ההצעה:
+  • וובינר חי עד 60 דקות, ללא הגבלת משתתפים (Zoom/Teams)
+  • הקלטה, חומרי עזר דיגיטליים ו-Q&A חי כלולים בכל וובינר
+  • מגוון נושאים לבחירה: Gemini, NotebookLM, ChatGPT, Claude, Copilot,
+    פרומפט Engineering, AI בחינוך ועוד (10 נושאים פופולריים בהצעה)
+
+  *** מבנה תמחור מתגמל — התחייבות חודשית: ***
+  • וובינר בודד (ad-hoc): 5,000 ₪ + מע"מ
+  • 2 וובינרים/חודש: 4,750 ₪ לוובינר (5% הנחה) = 9,500 ₪ חודשי
+  • 3 וובינרים/חודש: 4,500 ₪ לוובינר (10% הנחה) = 13,500 ₪ חודשי
+  • 4+ וובינרים/חודש: 4,250 ₪ לוובינר (15% הנחה) = 17,000 ₪+ חודשי
+  • התחייבות מינימלית לקבלת ההנחה: 3 חודשים רציפים
+
+  *** היתרון לאקסיומה: *** תוכנית וובינרים קבועה, תוכן איכותי וטרי כל
+  חודש, ויכולת להציע ללקוחות שלכם ערך מוסף עקבי — במחיר יחידה שיורד
+  ככל שאתם מרחיבים את התוכנית.
+
+  אשמח לשיחה קצרה (15 דק') כדי לסגור תדירות, תקופת התחייבות ונושאי חודש
+  ראשון. מתי נוח לך השבוע?
+
+  זמין בוואטסאפ: 054-9995050
+  או בהחזרת מייל — מענה באותו יום עסקים.
+
+  בברכה,
+  שגיא בר און
+  ש.ב. ידע וטכנולוגיה | AI לעסקים
+  sagiai.co.il | 054-9995050
+
+  ---------------------------------------------------------------------------
+  ATTACHMENT SUGGESTED NAME:
+  הצעת-מחיר-וובינרים-אקסיומה-SBO-2026-014.pdf
+  (Ctrl+P → Save as PDF מדף ה-HTML הזה)
+
+  FOLLOW-UP:
+  אם אין תגובה תוך 3 ימי עסקים — שלח תזכורת קצרה
+  ("רק לוודא שההצעה הגיעה ושהכל ברור, אשמח לעזור בשאלות").
+================================================================================
+-->
