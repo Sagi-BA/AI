@@ -1,7 +1,8 @@
 <!--
-  Live:  https://sagi-ba.github.io/AI/forms/Price-quotes/Hashomer-Hadash.html
-  Local: http://127.0.0.1:8080/forms/Price-quotes/Hashomer-Hadash.html
+  Live:  https://sagi-ba.github.io/AI/forms/Price-quotes/Hashomer-Hadash-v2.html
+  Local: http://127.0.0.1:8080/forms/Price-quotes/Hashomer-Hadash-v2.html
   GA:    https://analytics.google.com/analytics/web/#/a351596902p494681343/reports/reportinghub
+  NOTE:  Updated payment terms (50/50) — SBO-2026-012-A, 20/04/2026
 -->
 
 <!DOCTYPE html>
@@ -9,7 +10,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>הצעת מחיר | שגיא בר און AI - הכשרת AI CHAMPIONS בסביבת Copilot</title>
+  <title>הצעת מחיר | שגיא בר און AI - חבילת הדרכות AI מעשיות לארגון</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Alef:wght@400;700&display=swap" rel="stylesheet">
@@ -735,6 +736,77 @@
       font-weight: 700;
     }
 
+    /* ======================== Selectable Pricing + Client Fields ======================== */
+    .pricing-checkbox {
+      width: 22px;
+      height: 22px;
+      cursor: pointer;
+      accent-color: var(--accent);
+      margin: 0;
+      vertical-align: middle;
+    }
+
+    .selectable-pricing tbody tr {
+      transition: background 0.15s ease;
+    }
+
+    .selectable-pricing tbody tr:hover {
+      background: var(--accent-light);
+    }
+
+    .client-fillable-fields {
+      margin-top: 18px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+    }
+
+    .fillable-field {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      padding: 14px 16px;
+      background: var(--white);
+      border: 2px dashed var(--border);
+      border-radius: 10px;
+    }
+
+    .fillable-field label {
+      font-weight: 700;
+      color: var(--text);
+      font-size: 0.92rem;
+    }
+
+    .client-input {
+      padding: 10px 14px;
+      border: 2px solid var(--border);
+      border-radius: 8px;
+      font-size: 0.95rem;
+      font-family: 'Alef', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      direction: rtl;
+      text-align: right;
+      transition: border-color 0.15s ease, background 0.15s ease;
+    }
+
+    .client-input:focus {
+      outline: none;
+      border-color: var(--accent);
+      background: var(--white);
+    }
+
+    .field-hint {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+    }
+
+    @media (max-width: 768px) {
+      .client-fillable-fields {
+        grid-template-columns: 1fr;
+      }
+    }
+
     /* ======================== Commercial Terms ======================== */
     .terms-list {
       counter-reset: terms;
@@ -1350,6 +1422,27 @@
         box-shadow: none;
       }
 
+      /* Ensure checkboxes and client fields print clearly */
+      .pricing-checkbox {
+        width: 18px;
+        height: 18px;
+        border: 2px solid var(--text);
+      }
+
+      .client-fillable-fields {
+        gap: 10px;
+      }
+
+      .fillable-field {
+        background: var(--white);
+        border: 2px solid var(--text);
+      }
+
+      .client-input {
+        background: var(--white);
+        border: 1.5px solid var(--text-light);
+      }
+
       .pricing-table tr {
         page-break-inside: avoid;
       }
@@ -1433,7 +1526,7 @@
     <!-- ======================== Quote Title ======================== -->
     <section class="section-card quote-title-section">
       <h1>הצעת מחיר</h1>
-      <div class="subtitle">הכשרת AI CHAMPIONS בסביבת Copilot – הטמעה ארגונית חכמה וייעול תהליכי עבודה</div>
+      <div class="subtitle">חבילת הדרכות AI מעשיות – התאמה אישית לצרכי הארגון ולכלים הרלוונטיים</div>
       <div class="title-decoration">
         <div class="line"></div>
         <div class="dot"></div>
@@ -1445,10 +1538,10 @@
         <span><a href="https://api.whatsapp.com/send?phone=972549995050" target="_blank" style="color:inherit;text-decoration:none;"><i class="fa-brands fa-whatsapp"></i> 054-9995050</a></span>
       </div>
       <div class="quote-meta" style="margin-top: 12px;">
-        <span><i class="fa-solid fa-calendar"></i> תאריך: 02/03/2026</span>
-        <span><i class="fa-solid fa-hashtag"></i> מספר הצעה: SBO-2026-012</span>
+        <span><i class="fa-solid fa-calendar"></i> תאריך: 20/04/2026</span>
+        <span><i class="fa-solid fa-hashtag"></i> מספר הצעה: SBO-2026-012-A</span>
       </div>
-      <a href="Hashomer-Hadash.pdf" download class="pdf-download-link">
+      <a href="Hashomer-Hadash-v2.pdf" download class="pdf-download-link">
         <i class="fa-solid fa-file-pdf"></i> הורדת הצעת המחיר כ-PDF
       </a>
     </section>
@@ -1460,10 +1553,10 @@
         על הסדנה
       </h2>
       <p>
-        סדנה מעשית וממוקדת של 5 מפגשים מקוונים, שמטרתה להקנות לעובדי ומנהלי הארגון שליטה מלאה ב-<strong>Microsoft Copilot</strong>. הקורס הופך את ה-AI משפה תיאורטית לכלי עבודה יומיומי שחוסך שעות של בירוקרטיה, ניסוח דוחות וניהול תקשורת. המפגשים מותאמים לצרכי הארגון המודרני – דגש על פשטות, נגישות ותוצאות מהירות גם למשתמשים שאינם טכנולוגיים.
+        חבילת הדרכות AI מעשיות לצוותי הארגון, המתבססת על <strong>התאמה אישית לצרכים המשתנים</strong> ולכלים הרלוונטיים לעבודה השוטפת. המפגשים הופכים את ה-AI משפה תיאורטית לכלי עבודה יומיומי שחוסך שעות של בירוקרטיה, ניסוח דוחות, חיפוש מידע וניהול תקשורת.
       </p>
       <p style="margin-top: 12px;">
-        התוכנית מלווה את המשתתפים בחמישה מפגשים מעשיים, כל אחד ממוקד באפליקציה אחרת של Microsoft 365, עם דגש על תוצרים מוחשיים, מקרי בוחן רלוונטיים וצ'ק-ליסטים ליישום מיידי.
+        <strong>המסגרת קבועה, התוכן גמיש:</strong> כמות מפגשים ומשך מפגש נקבעים בהצעה זו. התוכן של כל מפגש נבחר מתוך תפריט מודולים זמינים (ראו להלן) ומותאם אישית בתיאום עם הלקוח עד 7 ימים לפני המפגש – כך שההדרכה תמיד רלוונטית למשימות ולכלים שהצוות נדרש להם כרגע.
       </p>
     </section>
 
@@ -1541,115 +1634,148 @@
       </div>
     </section>
 
-    <!-- ======================== Course Structure ======================== -->
+    <!-- ======================== Package Structure ======================== -->
     <section class="section-card course-table-section">
       <h2 class="section-title">
-        <i class="fa-solid fa-list-check"></i>
-        תוכנית המפגשים (5 מפגשים מקוונים)
+        <i class="fa-solid fa-box-archive"></i>
+        מבנה חבילת ההדרכה
       </h2>
 
       <div class="format-info">
         <span class="format-tag">
           <i class="fa-solid fa-clock"></i>
-          5 מפגשים x 60 דקות כל מפגש
+          4 מפגשים x 90 דקות כל מפגש
         </span>
         <span class="format-tag">
           <i class="fa-solid fa-video"></i>
-          אונליין (Zoom/Teams)
+          אונליין (Teams/Zoom)
         </span>
         <span class="format-tag">
           <i class="fa-solid fa-users"></i>
           עד 15 משתתפים במפגש
         </span>
+        <span class="format-tag">
+          <i class="fa-solid fa-sliders"></i>
+          תוכן גמיש – נבחר לפני כל מפגש
+        </span>
       </div>
 
-      <p style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 16px;">* המפגשים מתקיימים בתדירות שבועית. קבוצות קטנות לאפשר למידה איכותית ומענה אישי. המועדים ייקבעו בתיאום הדדי.</p>
+      <p style="font-size: 0.9rem; color: var(--text); margin-bottom: 8px;">
+        <strong>כך זה עובד:</strong> הלקוח בוחר מתוך <strong>תפריט המודולים הזמינים</strong> (ראו להלן) את הנושאים הרלוונטיים לצוות — 4 מודולים לחבילה, לפי סדר ותמהיל לבחירתו. תוכן כל מפגש מאושר סופית בתיאום עד <strong>7 ימים מראש</strong>, כדי לאפשר התאמה מדויקת למשימות הארגון באותו רגע.
+      </p>
+
+      <p style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 20px;">* המפגשים מתקיימים בתדירות שבועית/דו-שבועית. קבוצות קטנות לאפשר למידה איכותית ומענה אישי. המועדים ייקבעו בתיאום הדדי.</p>
+
+      <!-- Menu of Available Modules -->
+      <h3 style="font-size: 1.05rem; color: var(--accent-dark); margin: 8px 0 16px; padding-right: 12px; border-right: 4px solid var(--accent);">
+        <i class="fa-solid fa-list-check"></i> תפריט מודולים זמינים לבחירה
+      </h3>
 
       <div class="course-cards">
 
-        <!-- Meeting 1 -->
+        <!-- Module: Copilot Documents -->
         <div class="course-card">
           <div class="course-card-header">
-            <span class="meeting-num">1</span>
-            <h4>"מעבר לצ'אט" – יסודות הפרומפטינג ושימוש ב-Copilot Notebooks</h4>
+            <h4><i class="fa-solid fa-file-word" style="color: var(--accent); margin-left: 8px;"></i> Copilot: מסמכים וסיכומים</h4>
           </div>
           <div class="course-card-body">
-            <strong>מטרה:</strong> שבירת קרח עם הכלי, הבנת ה"שפה" החדשה, ויצירת תוצר משמעותי ראשון.<br>
-            <strong>תכנים:</strong> יישור קו לגבי יכולות Copilot בדגש על אבטחת מידע ופרטיות, העמקה טכנולוגית ומילון מושגים, כתיבת פרומפטים אפקטיביים (הקשר, תפקיד, פורמט ומגבלות), וביצוע מחקר עומק וסיעור מוחות.
-          </div>
-          <div class="course-card-deliverables">
-            <strong><i class="fa-solid fa-box-open"></i> תוצרים:</strong> פרומפט מובנה לדיווחים ארגוניים | מילון מושגי AI מעשי לשימוש יומיומי בארגון
+            בניית מסמכים, נהלים וטיוטות ב-Word; סיכום מסמכים ארוכים, דוחות וסרוקים; סיכום שרשורי מיילים ב-Outlook וכתיבת תשובות מנומקות בשניות.
           </div>
         </div>
 
-        <!-- Meeting 2 -->
+        <!-- Module: Copilot Presentations -->
         <div class="course-card">
           <div class="course-card-header">
-            <span class="meeting-num">2</span>
-            <h4>לנצח את ה-Inbox והיומן (Outlook & Teams)</h4>
+            <h4><i class="fa-solid fa-file-powerpoint" style="color: var(--accent); margin-left: 8px;"></i> Copilot: מצגות חכמות</h4>
           </div>
           <div class="course-card-body">
-            <strong>מטרה:</strong> שליטה בתקשורת הארגונית וחיסכון בזמן קריאת מיילים וניהול פגישות.<br>
-            <strong>תכנים:</strong> סיכום שרשורי מיילים ארוכים (Catch up) וכתיבת תשובות מנומקות בשניות, הקלטה וסיכום פגישות – מה נאמר, מה הוחלט ומי מבצע מה, חיפוש מידע ארגוני (Graph) באמצעות AI.
-          </div>
-          <div class="course-card-deliverables">
-            <strong><i class="fa-solid fa-box-open"></i> תוצרים:</strong> תבנית עבודה לסיכום פגישות צוות והפצת משימות | ספריית תשובות מוכנות (Shortcuts) למיילים נפוצים
+            הפיכת דוח Word/מסמך למצגת מעוצבת; הוספת דימויים ויזואליים ב-AI בהתאמה לרוח הארגון; עריכה ושכתוב של שקפים קיימים כך שיהיו ברורים ומניעים לפעולה.
           </div>
         </div>
 
-        <!-- Meeting 3 -->
+        <!-- Module: Copilot Data -->
         <div class="course-card">
           <div class="course-card-header">
-            <span class="meeting-num">3</span>
-            <h4>התייעלות מבוססת נתונים (Excel & Word)</h4>
+            <h4><i class="fa-solid fa-chart-column" style="color: var(--accent); margin-left: 8px;"></i> Copilot: ניתוח נתונים בשפה טבעית</h4>
           </div>
           <div class="course-card-body">
-            <strong>מטרה:</strong> הפיכת נתונים גולמיים ממסמכים מפוזרים לתוצרים מקצועיים ומאורגנים.<br>
-            <strong>תכנים:</strong> יצירת נהלים, איחוד מסמכים ושינוי טון כתיבה לסטנדרט הארגוני (Word), ניתוח טבלאות נתונים ללא נוסחאות בשפה טבעית (Excel), וטכניקות להמרת דוחות סרוקים למידע ערוך (PDF).
-          </div>
-          <div class="course-card-deliverables">
-            <strong><i class="fa-solid fa-box-open"></i> תוצרים:</strong> דוח ניתוח נתונים ראשון שהופק ללא נוסחאות אקסל | טיוטת נוהל עבודה חדש שנבנתה על בסיס מסמכים קיימים
+            עבודה עם Excel ללא נוסחאות — שאילת שאלות על טבלאות בשפה טבעית; המרת דוחות סרוקים ו-PDF-ים למידע ערוך; ניתוח מגמות והפקת דוחות מהירים.
           </div>
         </div>
 
-        <!-- Meeting 4 -->
+        <!-- Module: Copilot Inbox -->
         <div class="course-card">
           <div class="course-card-header">
-            <span class="meeting-num">4</span>
-            <h4>ויזואליזציה והצגת העשייה (PowerPoint)</h4>
+            <h4><i class="fa-solid fa-envelope-open-text" style="color: var(--accent); margin-left: 8px;"></i> Copilot: ניהול Inbox ופגישות</h4>
           </div>
           <div class="course-card-body">
-            <strong>מטרה:</strong> הצגת פעילות הארגון בצורה מרשימה ומהירה להנהלה ולשותפים חיצוניים.<br>
-            <strong>תכנים:</strong> הפיכת דוח וורד ארוך למצגת מעוצבת בלחיצת כפתור, הוספת דימויים ויזואליים ב-AI שמתאימים לרוח הארגון, ועריכת שקפים קיימים והפיכתם לברורים ומניעים לפעולה.
-          </div>
-          <div class="course-card-deliverables">
-            <strong><i class="fa-solid fa-box-open"></i> תוצרים:</strong> מצגת "סיכום פעילות" מעוצבת (5 שקפים) המבוססת על דוח משרדי/שטח
+            שליטה בתקשורת הארגונית (Outlook & Teams): סיכום שרשורי מיילים (Catch up), הקלטה וסיכום פגישות (מה הוחלט ומי אחראי), חיפוש מידע ארגוני ב-Graph.
           </div>
         </div>
 
-        <!-- Meeting 5 -->
+        <!-- Module: Claude Projects -->
         <div class="course-card">
           <div class="course-card-header">
-            <span class="meeting-num">5</span>
-            <h4>סוכנים חכמים (Agents) ואוטומציה אישית</h4>
+            <h4><i class="fa-solid fa-brain" style="color: var(--purple); margin-left: 8px;"></i> Claude: יכולות מתקדמות ו-Projects</h4>
           </div>
           <div class="course-card-body">
-            <strong>מטרה:</strong> מעבר משימוש פרומפטים להקמת "עוזרים דיגיטליים" קבועים לביצוע משימות חוזרות.<br>
-            <strong>תכנים:</strong> הקמת סוכנים אישיים (Custom Agents) המכירים את המידע הארגוני, "אילוף" סוכן על בסיס קבצים ונהלים (Knowledge Base), חיבור ה-Copilot לתהליכי עבודה (Workflows), וסיכום הסדנה.
+            הקמת Projects מותאמים ושמירת קונטקסט ארוך-טווח; עבודה עם קבצים, תמונות ומסמכים מורכבים; ניצול יכולות ייחודיות של Claude שלא קיימות בכלים אחרים.
           </div>
-          <div class="course-card-deliverables">
-            <strong><i class="fa-solid fa-box-open"></i> תוצרים:</strong> סוכן חכם אישי (Prototype) שכל משתתף בנה לעצמו | צ'ק-ליסט להטמעת הסוכן
+        </div>
+
+        <!-- Module: Claude Deep Research -->
+        <div class="course-card">
+          <div class="course-card-header">
+            <h4><i class="fa-solid fa-magnifying-glass-chart" style="color: var(--purple); margin-left: 8px;"></i> Claude: Deep Research וחיפוש עמוק</h4>
+          </div>
+          <div class="course-card-body">
+            שימוש ב-Deep Research לסקרי שוק, מחקרי רקע ומסמכי עמדה; סינתזה אוטומטית ממקורות מרובים; בניית שאילתות חקר שמחזירות תוצאות עמוקות ומדויקות.
+          </div>
+        </div>
+
+        <!-- Module: Prompt Engineering -->
+        <div class="course-card">
+          <div class="course-card-header">
+            <h4><i class="fa-solid fa-wand-magic-sparkles" style="color: var(--cyan); margin-left: 8px;"></i> פרומפט Engineering – מיסודות למומחיות</h4>
+          </div>
+          <div class="course-card-body">
+            כתיבת פרומפטים אפקטיביים: הקשר, תפקיד, פורמט ומגבלות. טכניקות מתקדמות: Chain-of-Thought, Few-Shot, פרומפטים מובנים לשימוש חוזר. יסודות מעבר לכל כלי AI.
+          </div>
+        </div>
+
+        <!-- Module: Free Tools -->
+        <div class="course-card">
+          <div class="course-card-header">
+            <h4><i class="fa-solid fa-gift" style="color: var(--green); margin-left: 8px;"></i> כלים חינמיים — ChatGPT Free / Gemini / NotebookLM</h4>
+          </div>
+          <div class="course-card-body">
+            השוואה מעשית של הכלים החינמיים: מתי ולמה משתמשים בכל אחד; יתרונות ומגבלות; דוגמאות מעשיות לעבודה יומיומית ללא עלות.
+          </div>
+        </div>
+
+        <!-- Module: Hands-on -->
+        <div class="course-card">
+          <div class="course-card-header">
+            <h4><i class="fa-solid fa-hands-holding-circle" style="color: var(--accent); margin-left: 8px;"></i> סדנת "משימה אמיתית" — Hands-on</h4>
+          </div>
+          <div class="course-card-body">
+            מפגש פתוח: המשתתפים מביאים משימה אמיתית מהשוטף — מייל מורכב, דוח, מצגת, או מחקר — ועובדים עליה יחד איתי בזמן אמת, בבניית פרומפט ובליווי עד לתוצר.
           </div>
         </div>
 
       </div>
+
+      <p style="font-size: 0.85rem; color: var(--text-muted); margin-top: 16px; padding: 10px; background: var(--accent-light); border-radius: 8px;">
+        <i class="fa-solid fa-lightbulb" style="color: var(--accent);"></i>
+        <strong>גמישות נוספת:</strong> מודולים שאינם ברשימה לעיל ייבחנו לפי צורך. שילוב של שני מודולים באותו מפגש אפשרי בתיאום. החלפת מודול בין מפגשים אפשרית עד 7 ימים לפני מועד המפגש.
+      </p>
     </section>
 
-    <!-- ======================== Tools Learned ======================== -->
+    <!-- ======================== Tools Covered ======================== -->
     <section class="section-card tools-section">
       <h2 class="section-title">
-        <i class="fa-brands fa-microsoft"></i>
-        כלים שיילמדו בסדנה
+        <i class="fa-solid fa-toolbox"></i>
+        כלים אפשריים בהדרכות (בהתאם למודולים הנבחרים)
       </h2>
       <div class="tools-grid">
         <div class="tool-badge">
@@ -1657,20 +1783,24 @@
           <span>Microsoft Copilot</span>
         </div>
         <div class="tool-badge">
-          <i class="fa-solid fa-globe"></i>
-          <span>Web Chat</span>
+          <i class="fa-solid fa-brain"></i>
+          <span>Claude</span>
         </div>
         <div class="tool-badge">
-          <i class="fa-solid fa-envelope"></i>
-          <span>Outlook</span>
+          <i class="fa-solid fa-comment-dots"></i>
+          <span>ChatGPT</span>
         </div>
         <div class="tool-badge">
-          <i class="fa-solid fa-users"></i>
-          <span>Teams</span>
+          <i class="fa-solid fa-star"></i>
+          <span>Gemini</span>
         </div>
         <div class="tool-badge">
-          <i class="fa-solid fa-diagram-project"></i>
-          <span>Graph</span>
+          <i class="fa-solid fa-book-open"></i>
+          <span>NotebookLM</span>
+        </div>
+        <div class="tool-badge">
+          <i class="fa-solid fa-magnifying-glass-chart"></i>
+          <span>Deep Research</span>
         </div>
         <div class="tool-badge">
           <i class="fa-solid fa-file-word"></i>
@@ -1685,16 +1815,12 @@
           <span>PowerPoint</span>
         </div>
         <div class="tool-badge">
-          <i class="fa-solid fa-robot"></i>
-          <span>Agents</span>
+          <i class="fa-solid fa-envelope"></i>
+          <span>Outlook & Teams</span>
         </div>
         <div class="tool-badge">
-          <i class="fa-solid fa-database"></i>
-          <span>Knowledge Base</span>
-        </div>
-        <div class="tool-badge">
-          <i class="fa-solid fa-gears"></i>
-          <span>Workflows</span>
+          <i class="fa-solid fa-wand-magic-sparkles"></i>
+          <span>Prompt Engineering</span>
         </div>
       </div>
     </section>
@@ -1712,7 +1838,7 @@
           </div>
           <div class="principle-content">
             <h4>אבטחת מידע ופרטיות</h4>
-            <p>Copilot פועל בתוך סביבת Microsoft 365 המאובטחת – דגש על עבודה בטוחה ללא חשיפת מידע ארגוני.</p>
+            <p>עבודה אך ורק בכלים ובסביבות מאובטחות; דגש על הבנת ההבדלים בין גרסאות ארגוניות לחינמיות ועל הימנעות מחשיפת מידע ארגוני רגיש.</p>
           </div>
         </div>
         <div class="principle-card">
@@ -1730,7 +1856,7 @@
           </div>
           <div class="principle-content">
             <h4>תוצאה מיידית</h4>
-            <p>כל מפגש מסתיים בתוצר מוחשי – מדוח נתונים ועד אב-טיפוס סוכן חכם.</p>
+            <p>כל מפגש מסתיים בתוצר מוחשי או יכולת חדשה שאפשר ליישם כבר למחרת – לא תאוריה, כלים שעובדים.</p>
           </div>
         </div>
         <div class="principle-card">
@@ -1739,7 +1865,7 @@
           </div>
           <div class="principle-content">
             <h4>ליווי רציף</h4>
-            <p>פורום תמיכה בין מפגשים, הקלטות, דפי עזר, צ'קליסטים וספריית פרומפטים בלעדית ל-Champions.</p>
+            <p>פורום תמיכה בין מפגשים, הקלטות, דפי עזר, צ'קליסטים וספריית פרומפטים לשימוש חוזר.</p>
           </div>
         </div>
       </div>
@@ -1761,8 +1887,8 @@
           <span>עד 15 איש במפגש</span>
         </div>
         <div class="summary-item">
-          <i class="fa-solid fa-robot"></i>
-          <span>בניית סוכנים אישיים</span>
+          <i class="fa-solid fa-sliders"></i>
+          <span>תוכן מותאם לכל מפגש</span>
         </div>
         <div class="summary-item">
           <i class="fa-solid fa-briefcase"></i>
@@ -1782,35 +1908,58 @@
         השקעה נדרשת
       </h2>
       <p style="font-size: 0.95rem; color: var(--text-light); margin-bottom: 16px;">
-        המחיר משקף את המומחיות הטכנולוגית, חומרי ההדרכה הייחודיים והערך הכלכלי הישיר לארגון (ROI). המחיר הוא עבור <strong>סדרת הכשרה מלאה (5 מפגשים)</strong> לקבוצה של עד 15 משתתפים.
+        המחיר משקף את המומחיות המקצועית, חומרי ההדרכה הייחודיים והערך הכלכלי הישיר לארגון (ROI). המחיר הוא עבור <strong>חבילת הדרכה מלאה (4 מפגשים × 90 דקות)</strong> לקבוצה של עד 15 משתתפים, כולל התאמת תוכן אישית לפני כל מפגש.
       </p>
       <div class="table-wrapper">
-        <table class="pricing-table">
+        <table class="pricing-table selectable-pricing">
           <thead>
             <tr>
+              <th style="width: 60px; text-align: center;">בחירה</th>
               <th>כמות קבוצות</th>
-              <th>מחיר למפגש בודד (לכל הקבוצה)</th>
-              <th>סה"כ לסדרה (5 מפגשים לקבוצה)</th>
+              <th>מחיר למפגש (לכל הקבוצה)</th>
+              <th>סה"כ לחבילה (4 מפגשים × 90 דק')</th>
             </tr>
           </thead>
           <tbody>
             <tr>
+              <td style="text-align: center;"><input type="checkbox" name="pricing-tier" value="single" class="pricing-checkbox" aria-label="בחירת חבילת קבוצה בודדת"></td>
               <td><strong>קבוצה בודדת</strong></td>
-              <td style="text-align: center;">3,800 &#8362;</td>
-              <td>19,500 &#8362; + מע"מ</td>
+              <td style="text-align: center;">5,500 &#8362;</td>
+              <td>22,000 &#8362; + מע"מ</td>
             </tr>
             <tr>
+              <td style="text-align: center;"><input type="checkbox" name="pricing-tier" value="two-plus" class="pricing-checkbox" aria-label="בחירת חבילה ל-2 קבוצות ומעלה"></td>
+              <td><strong>2 קבוצות ומעלה</strong></td>
+              <td style="text-align: center;">4,500 &#8362;</td>
+              <td>18,000 &#8362; + מע"מ</td>
+            </tr>
+            <tr>
+              <td style="text-align: center;"><input type="checkbox" name="pricing-tier" value="three-plus" class="pricing-checkbox" aria-label="בחירת חבילה ל-3 קבוצות ומעלה"></td>
               <td><strong>3 קבוצות ומעלה</strong></td>
-              <td style="text-align: center;">3,300 &#8362;</td>
-              <td>16,500 &#8362; + מע"מ</td>
-            </tr>
-            <tr>
-              <td><strong>5 קבוצות ומעלה</strong></td>
-              <td style="text-align: center;">2,800 &#8362;</td>
-              <td>14,000 &#8362; + מע"מ</td>
+              <td style="text-align: center;">3,750 &#8362;</td>
+              <td>15,000 &#8362; + מע"מ</td>
             </tr>
           </tbody>
         </table>
+      </div>
+
+      <!-- Client fill-in fields -->
+      <div class="client-fillable-fields">
+        <div class="fillable-field">
+          <label for="groups-count"><i class="fa-solid fa-layer-group" style="color: var(--accent);"></i> כמות קבוצות סופית:</label>
+          <input type="text" id="groups-count" name="groups-count" placeholder="לדוגמה: 2 קבוצות" class="client-input">
+        </div>
+        <div class="fillable-field">
+          <label for="participants-count"><i class="fa-solid fa-user-group" style="color: var(--cyan);"></i> כמות משתתפים מוערכת בקבוצה:</label>
+          <input type="text" id="participants-count" name="participants-count" placeholder="לדוגמה: 12 משתתפים" class="client-input">
+          <span class="field-hint">* עד 15 משתתפים לקבוצה לצורך למידה איכותית</span>
+        </div>
+      </div>
+
+      <!-- VAT notice banner -->
+      <div style="margin-top: 12px; padding: 10px 16px; background: var(--accent-light); border-right: 4px solid var(--accent); border-radius: 8px; font-size: 0.92rem; color: var(--text);">
+        <i class="fa-solid fa-circle-info" style="color: var(--accent); margin-left: 6px;"></i>
+        <strong>שימו לב:</strong> למחירים הנקובים לעיל יתווסף מע"מ כחוק. חשבונית מס תונפק עם קבלת כל תשלום.
       </div>
 
       <!-- What's included -->
@@ -1822,7 +1971,7 @@
           <li style="padding-right: 18px; position: relative;"><span style="position: absolute; right: 0; color: var(--green);">&#10003;</span> ליווי ותמיכה מקצועית בפורום ייעודי בין המפגשים</li>
           <li style="padding-right: 18px; position: relative;"><span style="position: absolute; right: 0; color: var(--green);">&#10003;</span> הקלטות המפגשים</li>
           <li style="padding-right: 18px; position: relative;"><span style="position: absolute; right: 0; color: var(--green);">&#10003;</span> דפי עזר, צ'ק-ליסטים ליישום מיידי</li>
-          <li style="padding-right: 18px; position: relative;"><span style="position: absolute; right: 0; color: var(--green);">&#10003;</span> ספריית פרומפטים בלעדית ל-Champions</li>
+          <li style="padding-right: 18px; position: relative;"><span style="position: absolute; right: 0; color: var(--green);">&#10003;</span> ספריית פרומפטים לשימוש חוזר</li>
         </ul>
       </div>
     </section>
@@ -1879,28 +2028,26 @@
           הצעת המחיר תקפה למשך <strong>15 יום</strong> מיום הוצאתה.
         </li>
         <li>
-          <span class="terms-subtitle">תנאי תשלום:</span>
-          התשלום יבוצע בהעברה בנקאית או בכל אמצעי תשלום אחר שיוסכם, עד <strong>שוטף + 45 יום</strong> ממועד חתימה על הסכם זה.
-        </li>
-        <li>
-          <span class="terms-subtitle">מקדמה ואישור הזמנה:</span>
+          <span class="terms-subtitle">תנאי תשלום (50/50):</span>
           <ul class="terms-sub-list">
-            <li>נדרשת מקדמה בסך <strong>20%</strong> מסך הצעת המחיר לאישור סופי של ההזמנה ושיריון תאריכי הסדנה.</li>
-            <li>תשלום המקדמה מהווה אישור מחייב להזמנת הסדנה.</li>
+            <li><strong>50% עם חתימה על הצעה זו ולפני מועד הפעילות הראשון</strong> — מהווה אישור מחייב להזמנה ושיריון תאריכי הסדנה.</li>
+            <li><strong>50% יתרה בתנאי שוטף + 45 יום ממועד תחילת העבודה</strong> (קרי, מועד המפגש הראשון).</li>
+            <li>התשלום יבוצע בהעברה בנקאית (פרטי חשבון יישלחו עם חשבונית המס) או בכל אמצעי תשלום אחר שיוסכם מראש.</li>
+            <li>חשבונית מס/קבלה תונפק עם קבלת כל תשלום.</li>
           </ul>
         </li>
         <li>
-          <span class="terms-subtitle">מדיניות ביטולים ודחיית מועד:</span>
+          <span class="terms-subtitle">מדיניות ביטולים ודחיית מועד (מתואם למבנה 50/50):</span>
           <ul class="terms-sub-list">
-            <li><strong>ביטול עד 14 ימי עסקים</strong> לפני מועד הפעילות הראשון: ישולם סכום השווה ל-<strong>50%</strong> מעלות ההכשרה הכוללת, כדמי טיפול ושיריון זמן.</li>
-            <li><strong>ביטול בטווח של 48 שעות</strong> לפני מועד הפעילות הראשון: הלקוח יחויב בתשלום מלא של <strong>100%</strong> מעלות ההכשרה הכוללת.</li>
-            <li><strong>דחיית מועד:</strong> דחיית מועד הסדנה שתתבצע בתיאום של 14 ימי עסקים מראש, לא תחויב בדמי ביטול. דחייה שמתבצעת פחות מ-14 ימי עסקים מראש עשויה להיות כרוכה בעלות נוספת או תחויב בהתאם לסעיף הביטול של 50%, בהתאם לנסיבות.</li>
+            <li><strong>ביטול עד 14 ימי עסקים</strong> לפני מועד הפעילות הראשון: המקדמה (50%) תוחזר ללקוח <strong>בניכוי 15%</strong> דמי טיפול ושיריון זמן.</li>
+            <li><strong>ביטול בטווח של פחות מ-14 ימי עסקים ועד 7 ימי עסקים</strong> לפני הפעילות הראשונה: המקדמה (50%) תישמר במלואה, ללא חיוב נוסף.</li>
+            <li><strong>ביטול בטווח של פחות מ-48 שעות</strong> לפני מועד הפעילות הראשון: הלקוח יחויב בתשלום מלא של <strong>100%</strong> מעלות ההכשרה הכוללת.</li>
+            <li><strong>דחיית מועד בתיאום של 14 ימי עסקים מראש</strong> — ללא חיוב; מועד חלופי ייקבע בהסכמה תוך 60 יום. דחייה בהתראה קצרה יותר עשויה להיות כרוכה בעלות נוספת או תחויב בהתאם לסעיפי הביטול לעיל.</li>
           </ul>
         </li>
         <li>
           <span class="terms-subtitle">כללי:</span>
           <ul class="terms-sub-list">
-            <li><strong>מע"מ:</strong> המחירים הנקובים בהצעת המחיר אינם כוללים מע"מ כחוק.</li>
             <li><strong>זכויות יוצרים:</strong> כל חומרי ההדרכה והתכנים שיועברו בסדנה הם קניינו הרוחני הבלעדי של ש.ב. ידע וטכנולוגיה. חל איסור מוחלט על העתקה, שכפול או הפצה שלהם ללא אישור מפורש ובכתב.</li>
             <li><strong>סודיות:</strong> שמירה על סודיות מוחלטת לגבי כל מידע ארגוני שייחשף במהלך הסדנה, בהתאם לעקרונות אבטחת המידע המפורטים בהצעה.</li>
             <li><strong>פלטפורמה:</strong> המפגשים מתקיימים באופן מקוון ב-Zoom או Teams. קישור ייישלח לפני כל מפגש. הלקוח אחראי לוודא חיבור אינטרנט תקין מצד המשתתפים.</li>
@@ -2064,3 +2211,56 @@
 
 </body>
 </html>
+
+<!--
+================================================================================
+  EMAIL TEMPLATE — לשליחת ההצעה במייל ללקוח (העתק/הדבק)
+================================================================================
+
+  SUBJECT LINE (נושא המייל):
+  ---------------------------------------------------------------------------
+  הצעת מחיר – חבילת הדרכות AI מעשיות | השומר החדש | SBO-2026-012-A
+
+  BODY (גוף המייל, עברית, ענייני וקצר):
+  ---------------------------------------------------------------------------
+  שלום דפנה וניתאי,
+
+  תודה על ההתייחסות והשאלות — הן בדיוק הסיבה שבניתי את ההצעה הזו
+  במבנה גמיש, כדי שתתאים לצרכים המשתנים של הצוות.
+
+  מצורפת הצעת מחיר מעודכנת (SBO-2026-012-A, תוקף 15 יום):
+
+  • חבילת הדרכה: 4 מפגשי Teams × 90 דקות, עד 15 משתתפים בקבוצה
+  • מחיר לקבוצה בודדת: 22,000 ₪ + מע"מ (הנחות לכמות קבוצות — בהצעה)
+  • תנאי תשלום: 50% עם חתימה ותחילת עבודה | 50% שוטף+45 ממועד המפגש הראשון
+
+  *** הגמישות שביקשתם נמצאת בליבת ההצעה: ***
+  התוכן נבחר מתוך תפריט מודולים זמינים (Copilot למסמכים/מצגות/מיילים,
+  Claude ליכולות מתקדמות ו-Deep Research, כלים חינמיים, פרומפט Engineering,
+  ועוד) — ומותאם לכל מפגש 7 ימים מראש. כך שהשאלות שלכם על Copilot-מסמכים
+  ו-Claude-מתקדם נענות ישירות בתוך אותה חבילה.
+
+  זמינות: אחרי חתימה על ההצעה + קבלת המקדמה (50%) אנחנו מתחילים לתאם
+  מועדים. יש לי זמינות למפגש ראשון תוך 7-10 ימי עסקים מרגע החתימה.
+
+  אשמח לשיחה קצרה (15 דק') כדי לסגור מספר קבוצות, תאריכים ומודולים.
+  מתי נוח לכם השבוע?
+
+  זמין בוואטסאפ: 054-9995050
+  או בהחזרת מייל — מענה באותו יום עסקים.
+
+  בברכה,
+  שגיא בר און
+  ש.ב. ידע וטכנולוגיה | AI לעסקים
+  sagiai.co.il | 054-9995050
+
+  ---------------------------------------------------------------------------
+  ATTACHMENT SUGGESTED NAME:
+  הצעת-מחיר-הדרכות-AI-השומר-החדש-SBO-2026-012-A.pdf
+  (Ctrl+P → Save as PDF מדף ה-HTML הזה)
+
+  FOLLOW-UP:
+  אם אין תגובה תוך 3 ימי עסקים — שלח תזכורת קצרה
+  ("רק לוודא שההצעה הגיעה ושהכל ברור, אשמח לעזור בשאלות").
+================================================================================
+-->
