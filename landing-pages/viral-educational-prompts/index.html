@@ -35,28 +35,6 @@
     --border: #3d3527;
     --prompt-bg: #fffaf0;
   }
-  body[data-theme="chalk"] {
-    --cream: #1f2420;
-    --paper: #2a2f2b;
-    --ink: #f0ead6;
-    --accent: #f2c94c;
-    --accent-dark: #ffdf7a;
-    --red: #ff8a7a;
-    --border: #d4c89a;
-    --prompt-bg: #151a16;
-  }
-  body[data-theme="chalk"] {
-    background-image:
-      radial-gradient(circle at 20% 10%, rgba(242,201,76,0.08) 0%, transparent 50%),
-      radial-gradient(circle at 80% 60%, rgba(255,223,122,0.05) 0%, transparent 50%),
-      repeating-linear-gradient(45deg, transparent 0 2px, rgba(255,255,255,0.012) 2px 3px);
-  }
-  body[data-theme="chalk"] .prompt-box,
-  body[data-theme="chalk"] .prompt-box[data-lang="he"] {
-    background: var(--prompt-bg);
-    color: var(--ink);
-    border-color: var(--border);
-  }
   * { box-sizing: border-box; margin: 0; padding: 0; }
   html { scroll-behavior: smooth; }
   body {
@@ -242,11 +220,6 @@
     font-size: 13px;
     color: #6b5d45;
     letter-spacing: 1px;
-  }
-  body[data-theme="chalk"] .promo-banner {
-    background:
-      linear-gradient(135deg, rgba(31,36,32,0.8) 0%, rgba(42,47,43,0.9) 100%),
-      repeating-linear-gradient(45deg, transparent 0 40px, rgba(242,201,76,0.04) 40px 41px);
   }
   @media (max-width: 640px) {
     .promo-banner { padding: 35px 22px; margin: 40px 0; }
@@ -547,7 +520,7 @@
   /* Unified sticky footer bar — ALL screen sizes */
   .mobile-bar {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(3, 1fr);
     position: fixed;
     left: 0; right: 0;
     bottom: 0;
@@ -583,40 +556,14 @@
   .mobile-bar .mb-wa .mb-icon { color: #25D366; }
   .mobile-bar .mb-share .mb-icon { color: var(--accent); }
   .mobile-bar .mb-site .mb-icon { color: #d4a017; }
-  /* Hide floating buttons + theme toggle + header CTA links (replaced by sticky footer) */
-  .wa-float, .share-float, .theme-toggle { display: none !important; }
+  /* Hide floating buttons + header CTA links (replaced by sticky footer) */
+  .wa-float, .share-float { display: none !important; }
   .sticky-cta a { display: none; }
   @media (max-width: 640px) {
     .mobile-bar { padding: 4px 2px calc(6px + env(safe-area-inset-bottom, 0px)); }
     .mobile-bar button, .mobile-bar a { font-size: 11px; padding: 8px 4px; gap: 3px; }
     .mobile-bar .mb-icon { font-size: 22px; }
     body { padding-bottom: 72px; }
-  }
-  /* Theme toggle */
-  .theme-toggle {
-    position: fixed;
-    top: 70px; right: 20px;
-    background: var(--ink);
-    color: var(--cream);
-    border: 2px solid var(--accent);
-    border-radius: 50px;
-    padding: 10px 16px;
-    font-family: inherit;
-    font-weight: 700;
-    font-size: 13px;
-    cursor: pointer;
-    z-index: 998;
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
-    transition: all 0.3s;
-  }
-  .theme-toggle:hover { transform: scale(1.05); }
-  body[data-theme="chalk"] .theme-toggle {
-    background: var(--accent);
-    color: #1a1a1a;
-    border-color: var(--ink);
   }
   /* Interactive Master Builder */
   .master-builder {
@@ -626,7 +573,6 @@
     padding: 20px;
     margin: 20px 0;
   }
-  body[data-theme="chalk"] .master-builder { background: rgba(255,255,255,0.05); }
   .master-builder-title {
     font-weight: 700;
     font-size: 14px;
@@ -661,11 +607,6 @@
     background: #fff;
     color: var(--ink);
     font-weight: 600;
-  }
-  body[data-theme="chalk"] .builder-field input,
-  body[data-theme="chalk"] .builder-field select {
-    background: #151a16;
-    color: var(--ink);
   }
   .builder-field input:focus, .builder-field select:focus {
     outline: none;
@@ -1023,19 +964,12 @@
 </head>
 <body>
 
-<button class="theme-toggle" id="themeToggle" aria-label="החלף מצב עיצוב">
-  <span id="themeIcon">🌙</span><span id="themeLabel">מצב לוח גיר</span>
-</button>
-
 <nav class="mobile-bar" id="mobileBar" aria-label="פעולות מהירות">
   <a href="https://wa.me/972549995050" target="_blank" rel="noopener" class="mb-wa">
     <span class="mb-icon">💬</span><span>וואטסאפ</span>
   </a>
   <button class="mb-share" id="mbShare">
     <span class="mb-icon">✦</span><span>שיתוף</span>
-  </button>
-  <button class="mb-theme" id="mbTheme">
-    <span class="mb-icon" id="mbThemeIcon">🌙</span><span id="mbThemeLabel">לוח גיר</span>
   </button>
   <a href="https://sagiai.co.il" target="_blank" rel="noopener" class="mb-site">
     <span class="mb-icon">🎤</span><span>SagiAI</span>
@@ -1851,40 +1785,6 @@ Leader lines, English annotations, Latin italic. Deep-sea ink wash shadows, biol
       closeShare();
     });
   });
-
-  // Theme toggle (Chalkboard mode)
-  const themeToggle = document.getElementById('themeToggle');
-  const themeIcon = document.getElementById('themeIcon');
-  const themeLabel = document.getElementById('themeLabel');
-  const mbThemeIcon = document.getElementById('mbThemeIcon');
-  const mbThemeLabel = document.getElementById('mbThemeLabel');
-  function applyTheme(mode) {
-    if (mode === 'chalk') {
-      document.body.dataset.theme = 'chalk';
-      themeIcon.textContent = '📜';
-      themeLabel.textContent = 'מצב נייר';
-      if (mbThemeIcon) mbThemeIcon.textContent = '📜';
-      if (mbThemeLabel) mbThemeLabel.textContent = 'מצב נייר';
-    } else {
-      document.body.removeAttribute('data-theme');
-      themeIcon.textContent = '🌙';
-      themeLabel.textContent = 'מצב לוח גיר';
-      if (mbThemeIcon) mbThemeIcon.textContent = '🌙';
-      if (mbThemeLabel) mbThemeLabel.textContent = 'לוח גיר';
-    }
-    try { localStorage.setItem('theme', mode); } catch(e) {}
-  }
-  function toggleTheme() {
-    const current = document.body.dataset.theme === 'chalk' ? 'paper' : 'chalk';
-    applyTheme(current);
-  }
-  themeToggle.addEventListener('click', toggleTheme);
-  const mbTheme = document.getElementById('mbTheme');
-  if (mbTheme) mbTheme.addEventListener('click', toggleTheme);
-  try {
-    const saved = localStorage.getItem('theme');
-    if (saved === 'chalk') applyTheme('chalk');
-  } catch(e) {}
 
   // Interactive Master Template Builder
   const builderType = document.getElementById('builder-type');
