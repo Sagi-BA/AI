@@ -1,3 +1,9 @@
+<!--
+  Live:  https://sagi-ba.github.io/AI/landing-pages/viral-educational-prompts
+  Local: http://127.0.0.1:8080/landing-pages/viral-educational-prompts
+  GA:    https://analytics.google.com/analytics/web/#/a351596902p494681343/reports/reportinghub  
+-->
+
 <!DOCTYPE html>
 <html lang="he" dir="rtl">
 <head>
@@ -114,6 +120,128 @@
     margin-top: 10px;
   }
   .hero-cta:hover { transform: translateY(-3px); box-shadow: 0 12px 35px rgba(184,134,11,0.6); }
+  /* Encyclopedia Promo Banner */
+  .promo-banner {
+    margin: 60px 0;
+    padding: 50px 40px;
+    background:
+      linear-gradient(135deg, rgba(245,239,224,0.5) 0%, rgba(237,227,204,0.8) 100%),
+      repeating-linear-gradient(45deg, transparent 0 40px, rgba(184,134,11,0.03) 40px 41px);
+    border: 3px double var(--border);
+    border-radius: 20px;
+    position: relative;
+    text-align: center;
+    overflow: hidden;
+    box-shadow: 0 10px 40px rgba(43,37,25,0.15), inset 0 0 60px rgba(184,134,11,0.05);
+  }
+  .promo-banner::before,
+  .promo-banner::after {
+    content: "❦";
+    position: absolute;
+    font-size: 28px;
+    color: var(--accent-dark);
+    opacity: 0.6;
+  }
+  .promo-banner::before { top: 14px; left: 20px; }
+  .promo-banner::after { bottom: 14px; right: 20px; transform: rotate(180deg); }
+  .promo-stamp {
+    display: inline-block;
+    padding: 4px 16px;
+    border: 2px solid var(--red);
+    color: var(--red);
+    font-weight: 700;
+    font-size: 12px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    border-radius: 3px;
+    margin-bottom: 20px;
+    transform: rotate(-2deg);
+    background: rgba(192,57,43,0.04);
+  }
+  .promo-banner h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(28px, 4vw, 42px);
+    font-weight: 900;
+    color: var(--ink);
+    margin-bottom: 8px;
+    line-height: 1.15;
+    border: none;
+    padding: 0;
+    letter-spacing: 0;
+    text-transform: none;
+  }
+  .promo-banner .promo-sub {
+    font-style: italic;
+    color: var(--accent-dark);
+    font-size: 16px;
+    margin-bottom: 20px;
+    letter-spacing: 2px;
+  }
+  .promo-banner p.promo-desc {
+    font-size: 18px;
+    max-width: 580px;
+    margin: 0 auto 30px;
+    color: #4a4030;
+    line-height: 1.6;
+  }
+  .promo-divider {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 14px;
+    margin: 22px auto;
+    max-width: 380px;
+    color: var(--accent-dark);
+  }
+  .promo-divider::before,
+  .promo-divider::after {
+    content: "";
+    flex: 1;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--accent-dark), transparent);
+  }
+  .promo-divider span { font-size: 20px; }
+  .promo-cta {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    background: var(--ink);
+    color: var(--cream);
+    padding: 16px 36px;
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 17px;
+    border: 2px solid var(--accent);
+    box-shadow: 0 6px 20px rgba(43,37,25,0.25);
+    transition: all 0.3s;
+  }
+  .promo-cta:hover {
+    transform: translateY(-3px) scale(1.02);
+    background: var(--accent-dark);
+    box-shadow: 0 10px 30px rgba(184,134,11,0.4);
+  }
+  .promo-cta .promo-arrow {
+    transition: transform 0.3s;
+  }
+  .promo-cta:hover .promo-arrow { transform: translateX(-6px); }
+  .promo-meta {
+    margin-top: 18px;
+    font-size: 13px;
+    color: #6b5d45;
+    letter-spacing: 1px;
+  }
+  body[data-theme="chalk"] .promo-banner {
+    background:
+      linear-gradient(135deg, rgba(31,36,32,0.8) 0%, rgba(42,47,43,0.9) 100%),
+      repeating-linear-gradient(45deg, transparent 0 40px, rgba(242,201,76,0.04) 40px 41px);
+  }
+  @media (max-width: 640px) {
+    .promo-banner { padding: 35px 22px; margin: 40px 0; }
+    .promo-banner::before, .promo-banner::after { font-size: 20px; }
+    .promo-banner p.promo-desc { font-size: 15px; }
+    .promo-cta { padding: 14px 26px; font-size: 15px; }
+  }
   /* Hero banner image */
   .hero-banner {
     max-width: 900px;
@@ -1488,6 +1616,24 @@ Leader lines, English annotations, Latin italic. Deep-sea ink wash shadows, biol
       </div>
     </div>
 
+  </section>
+
+  <!-- Promo Banner: nanobananai.site -->
+  <section class="promo-banner" aria-label="קידום אתר Nano-Banana AI Art">
+    <span class="promo-stamp">Collection Extended · ספריית האם</span>
+    <h2>Nano-Banana AI Art</h2>
+    <div class="promo-sub">— An Illustrated Catalog of Prompts —</div>
+    <p class="promo-desc">
+      אוסף פרומפטים חינמי ל-AI Art עם דוגמאות חזותיות. מאות פרומפטים מוכנים ל-ChatGPT, Gemini ו-Grok — מקוטלגים, מתורגמים ל-11 שפות, וניתנים להעתקה בלחיצה.
+    </p>
+    <div class="promo-divider">
+      <span>✦</span>
+    </div>
+    <a href="https://www.nanobananai.site/" target="_blank" rel="noopener" class="promo-cta">
+      <span>גלו עוד פרומפטים</span>
+      <span class="promo-arrow">←</span>
+    </a>
+    <div class="promo-meta">nanobananai.site · Free AI Art Prompt Library</div>
   </section>
 
   <!-- Final CTA -->
