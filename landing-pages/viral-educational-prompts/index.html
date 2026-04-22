@@ -1,0 +1,1857 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>פרומפטים ויראליים לתוכן חינוכי | GPT Image + Grok | SagiAI</title>
+<meta name="description" content="אוסף פרומפטים מדויקים ליצירת אינפוגרפיקות מדעיות בסגנון אנציקלופדיה וינטג'. העתק, הדבק ב-GPT Image או Grok וצור תוכן חינוכי ויראלי.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Alef:wght@400;700&family=Playfair+Display:wght@700;900&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --cream: #f5efe0;
+    --paper: #ede3cc;
+    --ink: #2b2519;
+    --accent: #b8860b;
+    --accent-dark: #8b6508;
+    --red: #c0392b;
+    --border: #3d3527;
+    --prompt-bg: #fffaf0;
+  }
+  body[data-theme="chalk"] {
+    --cream: #1f2420;
+    --paper: #2a2f2b;
+    --ink: #f0ead6;
+    --accent: #f2c94c;
+    --accent-dark: #ffdf7a;
+    --red: #ff8a7a;
+    --border: #d4c89a;
+    --prompt-bg: #151a16;
+  }
+  body[data-theme="chalk"] {
+    background-image:
+      radial-gradient(circle at 20% 10%, rgba(242,201,76,0.08) 0%, transparent 50%),
+      radial-gradient(circle at 80% 60%, rgba(255,223,122,0.05) 0%, transparent 50%),
+      repeating-linear-gradient(45deg, transparent 0 2px, rgba(255,255,255,0.012) 2px 3px);
+  }
+  body[data-theme="chalk"] .prompt-box,
+  body[data-theme="chalk"] .prompt-box[data-lang="he"] {
+    background: var(--prompt-bg);
+    color: var(--ink);
+    border-color: var(--border);
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: 'Alef', system-ui, sans-serif;
+    background: var(--cream);
+    background-image:
+      radial-gradient(circle at 20% 10%, rgba(184, 134, 11, 0.08) 0%, transparent 50%),
+      radial-gradient(circle at 80% 60%, rgba(139, 101, 8, 0.06) 0%, transparent 50%);
+    color: var(--ink);
+    line-height: 1.7;
+    min-height: 100vh;
+  }
+  /* Sticky CTA */
+  .sticky-cta {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    background: linear-gradient(135deg, #c0392b 0%, #8b1f13 100%);
+    color: white;
+    text-align: center;
+    padding: 12px 20px;
+    z-index: 1000;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+    font-weight: 700;
+    font-size: 15px;
+  }
+  .sticky-cta a { display: none; }
+  .container { max-width: 1100px; margin: 0 auto; padding: 80px 24px 40px; }
+  /* Hero */
+  .hero {
+    text-align: center;
+    padding: 60px 20px 40px;
+    border-bottom: 3px double var(--border);
+    margin-bottom: 40px;
+    position: relative;
+  }
+  .hero::before {
+    content: "📜 Illustrated Scientific Encyclopedia";
+    display: block;
+    font-size: 13px;
+    letter-spacing: 4px;
+    color: var(--accent-dark);
+    margin-bottom: 20px;
+    font-weight: 700;
+  }
+  .hero h1 {
+    font-family: 'Playfair Display', 'Alef', serif;
+    font-size: clamp(32px, 5vw, 54px);
+    font-weight: 900;
+    line-height: 1.15;
+    margin-bottom: 20px;
+    color: var(--ink);
+  }
+  .hero h1 span { color: var(--accent-dark); font-style: italic; }
+  .hero p.lead {
+    font-size: clamp(17px, 2vw, 21px);
+    max-width: 780px;
+    margin: 0 auto 30px;
+    color: #4a4030;
+  }
+  .hero-cta {
+    display: inline-block;
+    background: linear-gradient(135deg, var(--accent) 0%, var(--accent-dark) 100%);
+    color: white;
+    padding: 16px 40px;
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 18px;
+    box-shadow: 0 8px 25px rgba(184,134,11,0.4);
+    transition: all 0.3s;
+    margin-top: 10px;
+  }
+  .hero-cta:hover { transform: translateY(-3px); box-shadow: 0 12px 35px rgba(184,134,11,0.6); }
+  /* Hero banner image */
+  .hero-banner {
+    max-width: 900px;
+    margin: 40px auto 10px;
+    padding: 0 10px;
+    position: relative;
+  }
+  .hero-banner img {
+    width: 100%;
+    height: auto;
+    border-radius: 16px;
+    box-shadow: 0 20px 50px rgba(43,37,25,0.25), 0 0 0 1px rgba(184,134,11,0.2);
+    display: block;
+  }
+  .hero-banner::before {
+    content: "";
+    position: absolute;
+    inset: -15px;
+    background: radial-gradient(ellipse at center, rgba(184,134,11,0.15) 0%, transparent 70%);
+    z-index: -1;
+    border-radius: 30px;
+  }
+  /* Section */
+  .section { margin: 60px 0; }
+  .section h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 32px;
+    font-weight: 900;
+    border-bottom: 2px solid var(--border);
+    padding-bottom: 10px;
+    margin-bottom: 30px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+  }
+  .section h2 .num {
+    display: inline-block;
+    background: var(--ink);
+    color: var(--cream);
+    width: 40px; height: 40px;
+    text-align: center; line-height: 40px;
+    border-radius: 50%;
+    margin-left: 12px;
+    font-size: 20px;
+  }
+  /* Alert box */
+  .alert {
+    background: #fef6e4;
+    border-right: 5px solid var(--accent);
+    padding: 20px 24px;
+    border-radius: 8px;
+    margin: 30px 0;
+    font-size: 15px;
+  }
+  .alert strong { color: var(--accent-dark); }
+  /* Prompt card */
+  .prompt-card {
+    background: var(--paper);
+    border: 2px solid var(--border);
+    border-radius: 12px;
+    padding: 30px;
+    margin-bottom: 30px;
+    box-shadow: 0 8px 25px rgba(43,37,25,0.1);
+    position: relative;
+  }
+  .prompt-card h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 26px;
+    font-weight: 900;
+    margin-bottom: 8px;
+    color: var(--ink);
+  }
+  .prompt-card .subtitle {
+    font-style: italic;
+    color: var(--accent-dark);
+    margin-bottom: 20px;
+    font-size: 15px;
+  }
+  .tabs {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 15px;
+    border-bottom: 1px solid rgba(61,53,39,0.2);
+  }
+  .tab-btn {
+    padding: 10px 20px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    font-family: inherit;
+    font-size: 15px;
+    font-weight: 700;
+    color: #6b5d45;
+    border-bottom: 3px solid transparent;
+    transition: all 0.2s;
+  }
+  .tab-btn.active {
+    color: var(--accent-dark);
+    border-bottom-color: var(--accent);
+  }
+  .tab-content { display: none; }
+  .tab-content.active { display: block; }
+  .prompt-box {
+    background: #fffaf0;
+    border: 1px dashed var(--border);
+    padding: 20px;
+    border-radius: 8px;
+    font-family: 'Courier New', monospace;
+    font-size: 13.5px;
+    line-height: 1.65;
+    max-height: 380px;
+    overflow-y: auto;
+    white-space: pre-wrap;
+    direction: ltr;
+    text-align: left;
+  }
+  .prompt-box[data-lang="he"] { direction: rtl; text-align: right; font-family: 'Alef', sans-serif; font-size: 14.5px; }
+  .card-actions {
+    display: flex;
+    gap: 12px;
+    margin-top: 16px;
+    flex-wrap: wrap;
+  }
+  .btn {
+    padding: 12px 22px;
+    border-radius: 8px;
+    border: none;
+    font-family: inherit;
+    font-weight: 700;
+    font-size: 14px;
+    cursor: pointer;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    transition: all 0.2s;
+  }
+  .btn-copy {
+    background: var(--ink);
+    color: var(--cream);
+  }
+  .btn-copy:hover { background: var(--accent-dark); transform: translateY(-2px); }
+  .btn-copy.copied { background: #2e7d32; }
+  .btn-tool {
+    background: transparent;
+    color: var(--ink);
+    border: 2px solid var(--border);
+  }
+  .btn-tool:hover { background: var(--ink); color: var(--cream); }
+  /* Inline CTA */
+  .inline-cta {
+    background: linear-gradient(135deg, #2b2519 0%, #3d3527 100%);
+    color: var(--cream);
+    padding: 30px;
+    border-radius: 12px;
+    text-align: center;
+    margin: 40px 0;
+    border: 3px solid var(--accent);
+  }
+  .inline-cta h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 26px;
+    color: var(--accent);
+    margin-bottom: 10px;
+  }
+  .inline-cta p { margin-bottom: 20px; font-size: 16px; }
+  .inline-cta .hero-cta {
+    background: linear-gradient(135deg, #d4a017 0%, var(--accent) 100%);
+  }
+  /* Master template */
+  .master {
+    background: linear-gradient(135deg, #fef6e4 0%, #fdeabd 100%);
+    border: 3px solid var(--accent);
+    border-radius: 16px;
+    padding: 35px;
+    margin: 40px 0;
+    position: relative;
+  }
+  .master::before {
+    content: "⭐ TEMPLATE";
+    position: absolute;
+    top: -14px; right: 30px;
+    background: var(--accent-dark);
+    color: white;
+    padding: 5px 15px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 2px;
+  }
+  .master h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 28px;
+    margin-bottom: 12px;
+  }
+  /* How-to steps */
+  .steps {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+    margin: 30px 0;
+  }
+  .step {
+    background: var(--paper);
+    padding: 24px;
+    border-radius: 12px;
+    border-top: 4px solid var(--accent);
+  }
+  .step .step-num {
+    display: inline-block;
+    background: var(--accent);
+    color: white;
+    width: 32px; height: 32px;
+    border-radius: 50%;
+    text-align: center;
+    line-height: 32px;
+    font-weight: 700;
+    margin-bottom: 12px;
+  }
+  .step h4 { font-size: 18px; margin-bottom: 8px; }
+  /* Proof gallery */
+  .proof-gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+    gap: 24px;
+    margin: 30px 0;
+  }
+  .proof-item {
+    background: var(--paper);
+    border: 2px solid var(--border);
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 8px 25px rgba(43,37,25,0.12);
+    cursor: zoom-in;
+    transition: transform 0.3s;
+  }
+  .proof-item:hover { transform: translateY(-4px); }
+  .proof-item img {
+    width: 100%;
+    height: auto;
+    display: block;
+    background: #fff;
+  }
+  .proof-caption {
+    padding: 14px 18px;
+    background: var(--ink);
+    color: var(--cream);
+    font-weight: 700;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 14px;
+  }
+  .proof-caption .tool-badge {
+    background: var(--accent);
+    padding: 3px 10px;
+    border-radius: 12px;
+    font-size: 12px;
+  }
+  /* Lightbox */
+  .lightbox {
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.92);
+    display: none;
+    align-items: center;
+    justify-content: center;
+    z-index: 3000;
+    padding: 20px;
+    cursor: zoom-out;
+  }
+  .lightbox.show { display: flex; }
+  .lightbox img {
+    max-width: 100%;
+    max-height: 95vh;
+    object-fit: contain;
+    border-radius: 8px;
+    box-shadow: 0 0 60px rgba(184,134,11,0.3);
+  }
+  .lightbox-close {
+    position: absolute;
+    top: 20px; right: 20px;
+    background: white;
+    color: var(--ink);
+    border: none;
+    width: 44px; height: 44px;
+    border-radius: 50%;
+    font-size: 22px;
+    cursor: pointer;
+    font-weight: 700;
+  }
+  /* Unified sticky footer bar — ALL screen sizes */
+  .mobile-bar {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    position: fixed;
+    left: 0; right: 0;
+    bottom: 0;
+    background: linear-gradient(135deg, #2b2519 0%, #3d3527 100%);
+    border-top: 2px solid var(--accent);
+    z-index: 1001;
+    padding: 6px 4px calc(6px + env(safe-area-inset-bottom, 0px));
+    gap: 4px;
+    box-shadow: 0 -6px 20px rgba(0,0,0,0.3);
+  }
+  body { padding-bottom: 80px; }
+  .mobile-bar button, .mobile-bar a {
+    background: transparent;
+    border: none;
+    color: #f5efe0;
+    font-family: inherit;
+    font-weight: 700;
+    font-size: 13px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 4px;
+    padding: 10px 6px;
+    text-decoration: none;
+    cursor: pointer;
+    border-radius: 8px;
+    transition: background 0.2s;
+  }
+  .mobile-bar button:hover, .mobile-bar a:hover,
+  .mobile-bar button:active, .mobile-bar a:active { background: rgba(255,255,255,0.1); }
+  .mobile-bar .mb-icon { font-size: 24px; line-height: 1; }
+  .mobile-bar .mb-wa .mb-icon { color: #25D366; }
+  .mobile-bar .mb-share .mb-icon { color: var(--accent); }
+  .mobile-bar .mb-site .mb-icon { color: #d4a017; }
+  /* Hide floating buttons + theme toggle + header CTA links (replaced by sticky footer) */
+  .wa-float, .share-float, .theme-toggle { display: none !important; }
+  .sticky-cta a { display: none; }
+  @media (max-width: 640px) {
+    .mobile-bar { padding: 4px 2px calc(6px + env(safe-area-inset-bottom, 0px)); }
+    .mobile-bar button, .mobile-bar a { font-size: 11px; padding: 8px 4px; gap: 3px; }
+    .mobile-bar .mb-icon { font-size: 22px; }
+    body { padding-bottom: 72px; }
+  }
+  /* Theme toggle */
+  .theme-toggle {
+    position: fixed;
+    top: 70px; right: 20px;
+    background: var(--ink);
+    color: var(--cream);
+    border: 2px solid var(--accent);
+    border-radius: 50px;
+    padding: 10px 16px;
+    font-family: inherit;
+    font-weight: 700;
+    font-size: 13px;
+    cursor: pointer;
+    z-index: 998;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+    transition: all 0.3s;
+  }
+  .theme-toggle:hover { transform: scale(1.05); }
+  body[data-theme="chalk"] .theme-toggle {
+    background: var(--accent);
+    color: #1a1a1a;
+    border-color: var(--ink);
+  }
+  /* Interactive Master Builder */
+  .master-builder {
+    background: rgba(255,255,255,0.6);
+    border: 2px dashed var(--accent-dark);
+    border-radius: 12px;
+    padding: 20px;
+    margin: 20px 0;
+  }
+  body[data-theme="chalk"] .master-builder { background: rgba(255,255,255,0.05); }
+  .master-builder-title {
+    font-weight: 700;
+    font-size: 14px;
+    color: var(--accent-dark);
+    margin-bottom: 14px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+  }
+  .builder-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr auto;
+    gap: 10px;
+  }
+  @media (max-width: 720px) { .builder-grid { grid-template-columns: 1fr; } }
+  .builder-field {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+  }
+  .builder-field label {
+    font-size: 12px;
+    font-weight: 700;
+    color: var(--ink);
+    opacity: 0.75;
+  }
+  .builder-field input, .builder-field select {
+    padding: 10px 12px;
+    border: 2px solid var(--border);
+    border-radius: 8px;
+    font-family: inherit;
+    font-size: 14px;
+    background: #fff;
+    color: var(--ink);
+    font-weight: 600;
+  }
+  body[data-theme="chalk"] .builder-field input,
+  body[data-theme="chalk"] .builder-field select {
+    background: #151a16;
+    color: var(--ink);
+  }
+  .builder-field input:focus, .builder-field select:focus {
+    outline: none;
+    border-color: var(--accent);
+    box-shadow: 0 0 0 3px rgba(184,134,11,0.2);
+  }
+  .btn-surprise {
+    align-self: flex-end;
+    background: linear-gradient(135deg, #c0392b 0%, #8b1f13 100%);
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 8px;
+    font-family: inherit;
+    font-weight: 700;
+    font-size: 14px;
+    cursor: pointer;
+    white-space: nowrap;
+    transition: all 0.2s;
+  }
+  .btn-surprise:hover { transform: scale(1.05) rotate(-2deg); }
+  .token-highlight {
+    background: rgba(242,201,76,0.4);
+    padding: 1px 4px;
+    border-radius: 3px;
+    font-weight: 700;
+    animation: tokenPulse 0.6s ease;
+  }
+  @keyframes tokenPulse {
+    0% { background: rgba(242,201,76,0.9); }
+    100% { background: rgba(242,201,76,0.4); }
+  }
+  /* Before/After Slider */
+  .compare-wrap {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 14px;
+    margin: 14px 0 22px;
+  }
+  .compare-slider {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 4 / 5;
+    border-radius: 12px;
+    overflow: hidden;
+    border: 2px solid var(--border);
+    box-shadow: 0 10px 30px rgba(43,37,25,0.2);
+    cursor: ew-resize;
+    user-select: none;
+    touch-action: none;
+    background: #000;
+  }
+  .compare-slider img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    pointer-events: none;
+    -webkit-user-drag: none;
+  }
+  .compare-top-wrap {
+    position: absolute;
+    inset: 0;
+    clip-path: inset(0 50% 0 0);
+    will-change: clip-path;
+  }
+  .compare-handle {
+    position: absolute;
+    top: 0; bottom: 0;
+    width: 4px;
+    background: white;
+    left: 50%;
+    transform: translateX(-50%);
+    pointer-events: none;
+    box-shadow: 0 0 0 1px rgba(0,0,0,0.3), 0 0 20px rgba(0,0,0,0.5);
+    will-change: left;
+  }
+  .compare-handle::after {
+    content: "⇔";
+    position: absolute;
+    top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+    background: white;
+    color: var(--ink);
+    width: 44px; height: 44px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 22px;
+    font-weight: 700;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.4);
+  }
+  .compare-label {
+    position: absolute;
+    bottom: 14px;
+    background: rgba(0,0,0,0.75);
+    color: white;
+    padding: 6px 14px;
+    border-radius: 20px;
+    font-weight: 700;
+    font-size: 13px;
+    backdrop-filter: blur(6px);
+    pointer-events: none;
+    transition: opacity 0.25s ease, transform 0.25s ease;
+  }
+  .compare-label-left { left: 14px; }
+  .compare-label-right { right: 14px; }
+  .compare-label.hidden {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  .compare-caption {
+    text-align: center;
+    font-weight: 700;
+    font-size: 14px;
+    color: var(--ink);
+    opacity: 0.7;
+  }
+  .compare-zoom {
+    position: absolute;
+    top: 12px; right: 12px;
+    background: rgba(0,0,0,0.6);
+    color: white;
+    border: none;
+    width: 38px; height: 38px;
+    border-radius: 50%;
+    cursor: zoom-in;
+    font-size: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 2;
+  }
+  .compare-zoom:hover { background: rgba(0,0,0,0.85); }
+  /* Share floating button + menu */
+  .share-float {
+    position: fixed;
+    bottom: 24px;
+    right: 24px;
+    z-index: 999;
+  }
+  .share-trigger {
+    width: 62px;
+    height: 62px;
+    background: linear-gradient(135deg, var(--accent) 0%, var(--accent-dark) 100%);
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 8px 25px rgba(184,134,11,0.5);
+    transition: all 0.3s;
+    color: white;
+    font-size: 26px;
+  }
+  .share-trigger:hover { transform: scale(1.1) rotate(15deg); }
+  .share-float.open .share-trigger { transform: rotate(45deg); }
+  .share-menu {
+    position: absolute;
+    bottom: 78px;
+    right: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    opacity: 0;
+    pointer-events: none;
+    transform: translateY(10px) scale(0.9);
+    transition: all 0.25s ease;
+    transform-origin: bottom right;
+  }
+  .share-float.open .share-menu {
+    opacity: 1;
+    pointer-events: auto;
+    transform: translateY(0) scale(1);
+  }
+  .share-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    background: white;
+    color: var(--ink);
+    padding: 10px 16px;
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 14px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+    border: none;
+    cursor: pointer;
+    font-family: inherit;
+    white-space: nowrap;
+    transition: all 0.2s;
+  }
+  .share-item:hover { transform: translateX(-4px); box-shadow: 0 6px 20px rgba(0,0,0,0.3); }
+  .share-item .ico {
+    width: 28px; height: 28px;
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    color: white;
+    font-size: 14px;
+  }
+  .share-item.wa .ico { background: #25D366; }
+  .share-item.tw .ico { background: #000; }
+  .share-item.li .ico { background: #0A66C2; }
+  .share-item.fb .ico { background: #1877F2; }
+  .share-item.tg .ico { background: #229ED9; }
+  .share-item.link .ico { background: var(--ink); }
+  @media (max-width: 640px) {
+    .share-float { bottom: 16px; right: 16px; }
+    .share-trigger { width: 56px; height: 56px; font-size: 22px; }
+  }
+  /* WhatsApp floating button */
+  .wa-float {
+    position: fixed;
+    bottom: 24px;
+    left: 24px;
+    width: 62px;
+    height: 62px;
+    background: #25D366;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 8px 25px rgba(37,211,102,0.5);
+    z-index: 999;
+    text-decoration: none;
+    transition: all 0.3s;
+    animation: wa-pulse 2s infinite;
+  }
+  .wa-float:hover { transform: scale(1.1); }
+  .wa-float svg { width: 34px; height: 34px; fill: white; }
+  @keyframes wa-pulse {
+    0%, 100% { box-shadow: 0 8px 25px rgba(37,211,102,0.5); }
+    50% { box-shadow: 0 8px 25px rgba(37,211,102,0.9), 0 0 0 12px rgba(37,211,102,0.15); }
+  }
+  .wa-float-label {
+    position: absolute;
+    right: 72px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: #2b2519;
+    color: white;
+    padding: 8px 14px;
+    border-radius: 20px;
+    font-size: 13px;
+    font-weight: 700;
+    white-space: nowrap;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s;
+  }
+  .wa-float:hover .wa-float-label { opacity: 1; }
+  /* WhatsApp CTA button */
+  .btn-wa {
+    background: #25D366 !important;
+    color: white !important;
+  }
+  .btn-wa:hover { background: #1ebe5d !important; }
+  @media (max-width: 640px) {
+    .wa-float { bottom: 16px; left: 16px; width: 56px; height: 56px; }
+    .wa-float svg { width: 30px; height: 30px; }
+  }
+  /* Footer */
+  footer {
+    text-align: center;
+    padding: 50px 20px 30px;
+    border-top: 3px double var(--border);
+    margin-top: 60px;
+    color: #6b5d45;
+  }
+  footer a { color: var(--accent-dark); text-decoration: none; font-weight: 700; }
+  /* Toast */
+  .toast {
+    position: fixed;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%) translateY(100px);
+    background: #2e7d32;
+    color: white;
+    padding: 14px 28px;
+    border-radius: 50px;
+    font-weight: 700;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.3);
+    opacity: 0;
+    transition: all 0.4s;
+    z-index: 2000;
+  }
+  .toast.show {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0);
+  }
+  @media (max-width: 640px) {
+    .container { padding: 130px 14px 30px; }
+    .sticky-cta {
+      font-size: 12px;
+      padding: 8px 10px;
+      line-height: 1.4;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      align-items: center;
+      gap: 6px;
+    }
+    .sticky-cta a {
+      margin: 0;
+      padding: 4px 10px;
+      font-size: 12px;
+      display: inline-block;
+    }
+    .hero { padding: 30px 10px 30px; }
+    .hero::before { font-size: 11px; letter-spacing: 2px; margin-bottom: 12px; }
+    .hero-cta { padding: 12px 28px; font-size: 15px; }
+    .section { margin: 40px 0; }
+    .section h2 { font-size: 22px; letter-spacing: 1px; }
+    .section h2 .num { width: 32px; height: 32px; line-height: 32px; font-size: 16px; }
+    .prompt-card { padding: 18px; }
+    .prompt-card h3 { font-size: 20px; }
+    .master { padding: 22px 18px; }
+    .master-builder { padding: 14px; }
+    .prompt-box { font-size: 12.5px; max-height: 300px; padding: 14px; }
+    .prompt-box[data-lang="he"] { font-size: 13px; }
+    .card-actions { gap: 8px; }
+    .card-actions .btn { padding: 10px 14px; font-size: 13px; }
+    .tab-btn { padding: 8px 14px; font-size: 13px; }
+    .inline-cta { padding: 22px 16px; }
+    .inline-cta h3 { font-size: 22px; }
+    .inline-cta p { font-size: 14px; }
+    .compare-handle::after { width: 38px; height: 38px; font-size: 18px; }
+    .compare-label { font-size: 11px; padding: 4px 10px; bottom: 10px; }
+    .compare-label-left { left: 8px; }
+    .compare-label-right { right: 8px; }
+    .compare-zoom { width: 34px; height: 34px; font-size: 14px; top: 8px; right: 8px; }
+    .toast {
+      bottom: 90px;
+      font-size: 13px;
+      padding: 12px 20px;
+      max-width: calc(100vw - 32px);
+    }
+    /* Stagger floating buttons to avoid overlap on tiny screens */
+    .wa-float { bottom: calc(16px + env(safe-area-inset-bottom, 0px)); }
+    .share-float { bottom: calc(16px + env(safe-area-inset-bottom, 0px)); }
+    .share-menu { bottom: 70px; }
+    .share-item { font-size: 13px; padding: 8px 14px; }
+  }
+  @media (max-width: 380px) {
+    .wa-float { width: 50px; height: 50px; }
+    .wa-float svg { width: 26px; height: 26px; }
+    .share-trigger { width: 50px; height: 50px; font-size: 20px; }
+    .hero h1 { font-size: 26px; }
+  }
+</style>
+</head>
+<body>
+
+<button class="theme-toggle" id="themeToggle" aria-label="החלף מצב עיצוב">
+  <span id="themeIcon">🌙</span><span id="themeLabel">מצב לוח גיר</span>
+</button>
+
+<nav class="mobile-bar" id="mobileBar" aria-label="פעולות מהירות">
+  <a href="https://wa.me/972549995050" target="_blank" rel="noopener" class="mb-wa">
+    <span class="mb-icon">💬</span><span>וואטסאפ</span>
+  </a>
+  <button class="mb-share" id="mbShare">
+    <span class="mb-icon">✦</span><span>שיתוף</span>
+  </button>
+  <button class="mb-theme" id="mbTheme">
+    <span class="mb-icon" id="mbThemeIcon">🌙</span><span id="mbThemeLabel">לוח גיר</span>
+  </button>
+  <a href="https://sagiai.co.il" target="_blank" rel="noopener" class="mb-site">
+    <span class="mb-icon">🎤</span><span>SagiAI</span>
+  </a>
+</nav>
+
+<div class="sticky-cta">
+  🎤 סדנאות · הרצאות · ייעוץ AI לארגונים — גלול מטה לפרטים ↓
+</div>
+
+<div class="container">
+
+  <section class="hero">
+    <h1>צור תוכן חינוכי <span>ויראלי</span><br>עם GPT Image + Grok</h1>
+    <p class="lead">
+      אוסף פרומפטים מקצועי ליצירת אינפוגרפיקות בסגנון אנציקלופדיה מדעית וינטג' — עם אפקט פופ-אאוט תלת-ממדי של הסובייקט המרכזי, 8 מודולים של ידע, רשת חיבורים מדעית ו-anotations מפורטים. פשוט העתק, הדבק ב-ChatGPT/Grok, וקבל תמונה ויראלית.
+    </p>
+    <a href="#master" class="hero-cta">⬇ התחל עם ה-Master Template</a>
+  </section>
+
+  <div class="hero-banner">
+    <img src="images/sagi-bar-on.webp" alt="GPT 2 Image + Grok — יצירת תוכן חינוכי ויראלי" loading="eager" fetchpriority="high">
+  </div>
+
+  <div class="alert">
+    <strong>💡 הערה חשובה על עברית בתמונה:</strong>
+    מודלים כמו GPT Image ו-Gemini עדיין לא מושלמים ברנדור טקסט עברי — האותיות לעיתים יוצאות מעוותות.
+    <strong>המלצה:</strong> השתמש בגרסה האנגלית לאיכות מקסימלית ואיכות טקסט אופטימלית, או בעברית אם אתה מוכן לערוך את התמונה אחר כך. כל פרומפט כאן זמין בשתי השפות.
+  </div>
+
+  <!-- HOW TO -->
+  <section class="section" id="how">
+    <h2><span class="num">1</span>איך זה עובד</h2>
+    <div class="steps">
+      <div class="step">
+        <span class="step-num">1</span>
+        <h4>בחר פרומפט</h4>
+        <p>בחר מהדוגמאות למטה, או השתמש ב-Master Template ושנה 3 שורות בלבד.</p>
+      </div>
+      <div class="step">
+        <span class="step-num">2</span>
+        <h4>העתק לכלי AI</h4>
+        <p>הדבק ב-ChatGPT (GPT-4o Image), Grok, או Gemini. כפתור "פתח בכלי" מוביל ישירות.</p>
+      </div>
+      <div class="step">
+        <span class="step-num">3</span>
+        <h4>פרסם ויראלית</h4>
+        <p>התוצאה: אינפוגרפיקה בסגנון אנציקלופדיה — אידיאלית ל-Twitter, LinkedIn, Instagram.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROOF GALLERY -->
+  <section class="section" id="proof">
+    <h2><span class="num">★</span>תוצאות אמיתיות — הוכחה חזותית</h2>
+    <p style="margin-bottom:20px; font-size:17px;">
+      שתי התמונות האלה נוצרו עם ה-Master Template למטה על נושא <strong>דבורת הדבש</strong>. לחץ על תמונה להגדלה.
+    </p>
+    <div class="compare-wrap">
+      <div class="compare-slider" data-left="images/master-chatgpt.webp" data-right="images/master-gemini.webp">
+        <img class="compare-bottom" src="images/master-gemini.webp" alt="דבורת הדבש ב-Gemini">
+        <div class="compare-top-wrap"><img src="images/master-chatgpt.webp" alt="דבורת הדבש ב-ChatGPT"></div>
+        <div class="compare-handle"></div>
+        <span class="compare-label compare-label-left">🟢 ChatGPT</span>
+        <span class="compare-label compare-label-right">🔷 Gemini</span>
+        <button class="compare-zoom" aria-label="הגדל">⛶</button>
+      </div>
+      <div class="compare-caption">↔ גרור את הידית להשוואה בין ChatGPT ל-Gemini · דבורת הדבש (Apis mellifera)</div>
+    </div>
+  </section>
+
+  <!-- MASTER TEMPLATE -->
+  <section class="section" id="master">
+    <h2><span class="num">2</span>Master Template — הבסיס</h2>
+    <p style="margin-bottom:20px; font-size:17px;">
+      זהו התבנית הראשית. ערוך רק <strong>3 שורות</strong>: Subject Type, Subject Name, Scientific Name. המודל יבנה אוטומטית את 8 המודולים הרלוונטיים לנושא שלך.
+    </p>
+    <div class="master prompt-card">
+      <h3>🎯 Universal Illustrated Encyclopedia Infographic</h3>
+      <p class="subtitle">עבוד עם כל נושא — בעל חיים, צמח, אדם, או מושג</p>
+
+      <div class="master-builder">
+        <div class="master-builder-title">✨ בונה פרומפט חי — ערוך את 3 השדות והפרומפט יתעדכן</div>
+        <div class="builder-grid">
+          <div class="builder-field">
+            <label>סוג נושא</label>
+            <select id="builder-type">
+              <option value="ANIMAL">ANIMAL (בעל חיים)</option>
+              <option value="PLANT">PLANT (צמח)</option>
+              <option value="PERSON">PERSON (אדם)</option>
+              <option value="OBJECT">OBJECT (חפץ)</option>
+              <option value="CONCEPT">CONCEPT (מושג)</option>
+            </select>
+          </div>
+          <div class="builder-field">
+            <label>שם הנושא</label>
+            <input id="builder-name" type="text" placeholder="The Honeybee" value="The Honeybee">
+          </div>
+          <div class="builder-field">
+            <label>שם מדעי</label>
+            <input id="builder-sci" type="text" placeholder="Apis mellifera" value="Apis mellifera">
+          </div>
+          <button class="btn-surprise" id="btn-surprise" type="button">🎲 הפתע אותי</button>
+        </div>
+      </div>
+
+      <div class="tabs">
+        <button class="tab-btn active" data-target="master-en">🇬🇧 English (מומלץ)</button>
+        <button class="tab-btn" data-target="master-he">🇮🇱 עברית</button>
+      </div>
+      <div class="tab-content active" id="master-en">
+        <div class="prompt-box" data-lang="en" id="prompt-master-en" data-template="en">Role: World-class Scientific Encyclopedia Illustrator & Knowledge Graph Architect.
+Task: Generate a highly detailed, extremely intricate, and visually stunning "Universal Illustrated Encyclopedia Science Infographic" in a classic, unbranded (NO logos) scientific encyclopedia style.
+
+Subject Type: {{TYPE}}
+Subject Name: {{NAME}}
+Scientific Name (if applicable): {{SCI}}
+
+Style: Fine, detailed scientific illustration on a retro, aged beige/cream paper background. Delicate ink linework with a vintage naturalist field journal aesthetic. Inspired by 18th–19th century natural history plates (Ernst Haeckel / Audubon style), structured like a modern academic knowledge graph. Intricately complex and professionally composed.
+
+KEY VISUAL REQUIREMENTS:
+1. Lifelike 3D Pop-Out Central Subject: The central subject must be rendered with extraordinary realism — bursting forward from the flat paper toward the viewer with dramatic depth, shadow, and foreshortening. Powerful anamorphic 3D pop-out effect.
+2. Layout & White Space: Central Subject dominates the center with strategic white space immediately around it. Fill left, right, top, bottom, and corners with 8 distinct, tightly organized knowledge modules. Each with clearly ruled border, bold serif header, and dense illustrated content.
+3. Connection Network: Complex web of fine leader lines, arrows, dotted lines, brackets, and pointer marks connecting the central subject to all modules, cross-linking modules to each other.
+4. Text & Annotation: Main Title in large beautifully hand-lettered serif + scientific/Latin name in elegant italic below. All 8 module headers in bold uppercase serif. Every detail annotated with precise leader lines in clear English. Latin/scientific terms in italic. Scientist's handwritten field notes style in margins.
+5. Modules: Generate 8 highly relevant, information-dense knowledge modules specific to the subject. Each must contain internal illustrations, diagrams, charts, or sub-panels — not just text. Every element labeled.
+
+OVERALL COMPOSITION: Ultra-dense information in 8 structured modules, balanced with strategic empty space around the central figure. Hard-core academic, professional, visually dramatic. NO branding or logos. All annotations in clear English. Serif typography for titles; italic for scientific names; neat cursive for margin notes.
+
+Aspect Ratio: 4:5</div>
+      </div>
+      <div class="tab-content" id="master-he">
+        <div class="prompt-box" data-lang="he" id="prompt-master-he" data-template="he">תפקיד: מאייר אנציקלופדיה מדעית ברמה עולמית וארכיטקט של מפות ידע.
+משימה: צור "אינפוגרפיקה אנציקלופדית מדעית אוניברסלית" מפורטת, עשירה ומרהיבה, בסגנון אנציקלופדיה מדעית קלאסית ללא לוגואים.
+
+סוג הנושא: {{TYPE_HE}}
+שם הנושא: {{NAME}}
+שם מדעי (אם רלוונטי): {{SCI}}
+
+סגנון: איור מדעי עדין ומפורט על רקע נייר קרם/בז' מיושן. קווי דיו דקים באסתטיקה של יומן שדה של חוקר טבע וינטג'. בהשראת לוחות היסטוריה טבעית מהמאה ה-18–19 (Haeckel / Audubon), בנוי כמו גרף ידע אקדמי מודרני. מורכב ומקצועי.
+
+דרישות ויזואליות מרכזיות:
+1. סובייקט מרכזי תלת-ממדי פופ-אאוט ריאליסטי: הסובייקט במרכז חייב להיות מעובד בריאליזם יוצא דופן — מזנק קדימה מהנייר השטוח אל הצופה עם עומק דרמטי, צל וקיצור פרספקטיבי. אפקט פופ-אאוט אנמורפי עוצמתי.
+2. פריסה ומרחב לבן: הסובייקט המרכזי שולט במרכז עם מרחב לבן אסטרטגי סביבו. מלא את השמאל, ימין, למעלה, למטה והפינות ב-8 מודולי ידע מאורגנים בצפיפות. כל אחד עם גבול ברור, כותרת מודגשת ותוכן מאויר צפוף.
+3. רשת חיבורים: רשת מורכבת של קווים דקים, חיצים, קווים מקווקווים, סוגריים וסימני מצביע המחברים את הסובייקט המרכזי לכל המודולים ומקשרים בין המודולים.
+4. טקסט וסימונים: כותרת ראשית בגופן serif מעוצב + שם מדעי/לטיני באיטליקה אלגנטית למטה. כל 8 כותרות המודולים ב-serif מודגש באותיות גדולות. כל פרט מסומן בקווים עדינים בעברית ברורה וקריאה. מונחים מדעיים באיטליקה. סגנון הערות שדה בכתב יד של מדען בשוליים.
+5. מודולים: צור 8 מודולי ידע רלוונטיים ועשירים במידע ספציפיים לנושא. כל מודול חייב לכלול איורים, דיאגרמות, טבלאות או תת-לוחות פנימיים — לא רק טקסט. כל אלמנט מסומן.
+
+קומפוזיציה כוללת: מידע צפוף ב-8 מודולים, מאוזן עם מרחב לבן אסטרטגי סביב הדמות המרכזית. אקדמי, מקצועי ודרמטי ויזואלית. ללא מיתוג או לוגואים. כל הסימונים בעברית ברורה. גופן serif לכותרות; איטליקה לשמות מדעיים; כתב יד מסודר להערות שוליים.
+
+יחס גובה-רוחב: 4:5</div>
+      </div>
+      <div class="card-actions">
+        <button class="btn btn-copy" data-copy-target="master">📋 העתק פרומפט</button>
+        <button class="btn btn-tool btn-run" data-tool="chatgpt">🟢 הרץ ב-ChatGPT</button>
+        <button class="btn btn-tool btn-run" data-tool="grok">⚫ הרץ ב-Grok</button>
+        <button class="btn btn-tool btn-run" data-tool="gemini">🔷 הרץ ב-Gemini</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Inline CTA -->
+  <div class="inline-cta">
+    <h3>רוצה להביא את זה לארגון שלך?</h3>
+    <p>סדנאות AI מעשיות, הרצאות מעוררות השראה וייעוץ אסטרטגי — SagiAI מלמד צוותים וארגונים איך להטמיע AI בעבודה היומיומית.</p>
+    <div style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap;">
+      <a href="https://sagiai.co.il" target="_blank" rel="noopener" class="hero-cta">🎤 הזמן סדנה / הרצאה</a>
+      <a href="https://wa.me/972549995050" target="_blank" rel="noopener" class="hero-cta" style="background:linear-gradient(135deg,#25D366 0%,#128C7E 100%);">💬 וואטסאפ מיידי</a>
+    </div>
+  </div>
+
+  <!-- EXAMPLES -->
+  <section class="section" id="examples">
+    <h2><span class="num">3</span>6 דוגמאות מוכנות להעתקה</h2>
+    <p style="margin-bottom:30px; font-size:17px;">כל פרומפט מוכן מראש עם 8 מודולים מפורטים. שתי שפות — בחר לפי הצורך.</p>
+
+    <!-- Example 1: Honeybee -->
+    <div class="prompt-card" id="case-honeybee">
+      <h3>🐝 The Honeybee</h3>
+      <p class="subtitle">Apis mellifera — דבורת הדבש</p>
+      <div class="compare-wrap">
+        <div class="compare-slider" data-left="images/honeybee-chatgpt.webp" data-right="images/honeybee-gemini.webp">
+          <img class="compare-bottom" src="images/honeybee-gemini.webp" alt="דבורה ב-Gemini">
+          <div class="compare-top-wrap"><img src="images/honeybee-chatgpt.webp" alt="דבורה ב-ChatGPT"></div>
+          <div class="compare-handle"></div>
+          <span class="compare-label compare-label-left">🟢 ChatGPT</span>
+          <span class="compare-label compare-label-right">🔷 Gemini</span>
+          <button class="compare-zoom" aria-label="הגדל">⛶</button>
+        </div>
+      </div>
+      <div class="tabs">
+        <button class="tab-btn active" data-target="bee-en">🇬🇧 English</button>
+        <button class="tab-btn" data-target="bee-he">🇮🇱 עברית</button>
+      </div>
+      <div class="tab-content active" id="bee-en">
+        <div class="prompt-box" data-lang="en" id="prompt-bee-en">Role: World-class Scientific Encyclopedia Illustrator & Knowledge Graph Architect.
+Task: Generate a highly detailed Universal Illustrated Encyclopedia Science Infographic, classic unbranded encyclopedia style.
+Subject: Animal — The Honeybee (Apis mellifera)
+Style: Fine scientific illustration on aged beige/cream paper. Vintage naturalist field journal aesthetic. Haeckel/Audubon inspired, structured as academic knowledge graph.
+
+3D POP-OUT CENTRAL SUBJECT: Photorealistic honeybee — wings fully spread, body angled forward, bursting out of the page. Body hairs, compound eyes, wing venation, pollen baskets in ultra-high detail. Anamorphic 3D effect.
+
+LAYOUT: Central bee dominates with strategic white space. 8 knowledge modules fill the surroundings with clearly ruled borders, bold serif headers, dense illustrated content. Complex web of leader lines, arrows, brackets connecting everything.
+
+TITLE: "THE HONEYBEE" in hand-lettered serif, "Apis mellifera" in italic below.
+
+8 MODULES:
+1. EXTERNAL ANATOMY & MORPHOLOGY — dorsal/lateral diagrams, magnified insets of compound eye, wing venation, antenna, pollen basket (corbicula), stinger barbs.
+2. INTERNAL SYSTEMS — cutaway showing honey stomach/crop, proventriculus, midgut, nervous ganglia, queen vs worker reproductive organs, hemolymph flow.
+3. LIFECYCLE & METAMORPHOSIS — Egg→Larva→Pupa→Adult flowchart in days, Queen/Worker/Drone tracks side-by-side, comb cell cross-sections.
+4. COLONY HIERARCHY — Queen, Workers (forager/nurse/guard/cleaner), Drone. Population ratios, honeycomb cross-section with cell types labeled.
+5. WAGGLE DANCE & COMMUNICATION — figure-eight pattern, angle/duration encoding distance+direction, compass rose, sun indicator.
+6. POLLINATION & ECOLOGICAL ROLE — cross-pollination mechanics with flower anatomy, world map of pollination dependency, key crops (almonds, apples, avocados).
+7. HONEY PRODUCTION — Nectar→Regurgitation→Enzymatic breakdown→Evaporation→Wax capping→Honey. Molecular diagram sucrose→fructose/glucose.
+8. CONSERVATION STATUS — Varroa mites, neonicotinoid pesticides, habitat loss, Colony Collapse Disorder, climate change. IUCN context + decline chart.
+
+Every element labeled with leader lines in clear English. Latin terms in italic. Handwritten field notes in margins. Serif titles, cursive notes. NO logos. Aspect Ratio: 3:4</div>
+      </div>
+      <div class="tab-content" id="bee-he">
+        <div class="prompt-box" data-lang="he" id="prompt-bee-he">תפקיד: מאייר אנציקלופדיה מדעית ברמה עולמית וארכיטקט של גרפי ידע.
+משימה: צור אינפוגרפיקה אנציקלופדית מדעית מפורטת, בסגנון אנציקלופדיה קלאסית ללא לוגואים.
+נושא: בעל חיים — דבורת הדבש (Apis mellifera)
+סגנון: איור מדעי עדין על נייר בז'/קרם מיושן. אסתטיקה של יומן שדה וינטג'. בהשראת Haeckel/Audubon, בנוי כגרף ידע אקדמי.
+
+סובייקט מרכזי תלת-ממדי: דבורה פוטוריאליסטית — כנפיים פרושות לחלוטין, גוף מוטה קדימה, מתפרצת מהדף. שערות הגוף, העיניים המורכבות, עורקי הכנפיים, סלסלות האבקה בפירוט אולטרה-גבוה. אפקט תלת-ממד אנמורפי.
+
+פריסה: הדבורה המרכזית שולטת עם מרחב לבן אסטרטגי. 8 מודולי ידע ממלאים את הסביבה עם גבולות ברורים, כותרות serif מודגשות, תוכן מאויר צפוף. רשת מורכבת של קווי הובלה, חיצים וסוגריים המחברים הכל.
+
+כותרת: "דבורת הדבש" בכתב יד serif, "Apis mellifera" באיטליקה למטה.
+
+8 מודולים:
+1. אנטומיה חיצונית ומורפולוגיה — דיאגרמות גב/צד, זום על עין מורכבת, עורקי כנף, מחוש, סלסלת אבקה (corbicula), חודי עוקץ.
+2. מערכות פנימיות — חתך רוחב המראה את קיבת הדבש, פרובנטריקולוס, מעי אמצעי, גנגליונים עצביים, איברי רבייה מלכה מול פועלת, זרימת המוליימפה.
+3. מחזור חיים ומטמורפוזה — ביצה→זחל→גולם→בוגר בימים, מסלולים של מלכה/פועלת/זכר זה לצד זה, חתכי תאי חלת דבש.
+4. היררכיית מושבה — מלכה, פועלות (לקטת/אחות/שומרת/מנקה), זכר. יחסי אוכלוסייה, חתך חלת דבש עם סוגי תאים מסומנים.
+5. ריקוד הנענוע ותקשורת — דפוס שמינייה, זווית ומשך מקודדים מרחק+כיוון, שושנת רוחות, מחוון שמש.
+6. האבקה ותפקיד אקולוגי — מנגנוני האבקה צולבת עם אנטומיית פרח, מפת תלות האבקה עולמית, יבולים מרכזיים (שקדים, תפוחים, אבוקדו).
+7. ייצור דבש — צוף→רגורגיטציה→פירוק אנזימטי→התאדות→סגירה בשעווה→דבש. דיאגרמה מולקולרית סוכרוז→פרוקטוז/גלוקוז.
+8. סטטוס שימור — קרדית ורואה, קוטלי חרקים, אובדן בית גידול, תסמונת קריסת המושבות (CCD), שינויי אקלים. הקשר IUCN + גרף ירידה.
+
+כל אלמנט מסומן בקווי הובלה בעברית ברורה. מונחים לטיניים באיטליקה. הערות שדה בכתב יד בשוליים. כותרות serif, הערות בכתב רץ. ללא לוגואים. יחס תמונה: 3:4</div>
+      </div>
+      <div class="card-actions">
+        <button class="btn btn-copy" data-copy-target="bee">📋 העתק</button>
+        <button class="btn btn-tool btn-run" data-tool="chatgpt">🟢 הרץ ב-ChatGPT</button>
+        <button class="btn btn-tool btn-run" data-tool="grok">⚫ פתח Grok</button>
+        <button class="btn btn-tool btn-run" data-tool="gemini">🔷 פתח Gemini</button>
+      </div>
+    </div>
+
+    <!-- Example 2: Mantis Shrimp -->
+    <div class="prompt-card">
+      <h3>🦐 The Mantis Shrimp</h3>
+      <p class="subtitle">Odontodactylus scyllarus — שרימפ גומלן</p>
+      <div class="compare-wrap">
+        <div class="compare-slider" data-left="images/mantis-chatgpt.webp" data-right="images/mantis-gemini.webp">
+          <img class="compare-bottom" src="images/mantis-gemini.webp" alt="שרימפ ב-Gemini">
+          <div class="compare-top-wrap"><img src="images/mantis-chatgpt.webp" alt="שרימפ ב-ChatGPT"></div>
+          <div class="compare-handle"></div>
+          <span class="compare-label compare-label-left">🟢 ChatGPT</span>
+          <span class="compare-label compare-label-right">🔷 Gemini</span>
+          <button class="compare-zoom" aria-label="הגדל">⛶</button>
+        </div>
+      </div>
+      <div class="tabs">
+        <button class="tab-btn active" data-target="mantis-en">🇬🇧 English</button>
+        <button class="tab-btn" data-target="mantis-he">🇮🇱 עברית</button>
+      </div>
+      <div class="tab-content active" id="mantis-en">
+        <div class="prompt-box" data-lang="en" id="prompt-mantis-en">Role: World-class Scientific Encyclopedia Illustrator & Knowledge Graph Architect.
+Task: Generate a highly detailed Universal Illustrated Encyclopedia Science Infographic, classic unbranded style.
+Subject: Animal — The Mantis Shrimp (Odontodactylus scyllarus)
+Style: Fine scientific illustration on aged beige/cream paper. Vintage naturalist aesthetic, 18th-19th century plates, knowledge graph structure.
+
+3D POP-OUT: Central mantis shrimp bursts forward in full strike posture — raptorial appendages cocked and extended, vibrant iridescent colors with extraordinary detail. Compound eyes facing viewer, segmented exoskeleton with ultra-fine texture. Anamorphic 3D effect.
+
+TITLE: "THE MANTIS SHRIMP" serif + "Odontodactylus scyllarus" italic below.
+
+8 MODULES:
+1. EXTERNAL ANATOMY — dorsal/lateral diagrams, insets for compound eye (16 photoreceptors), raptorial appendage tip, telson plate, pleopod, dactyl club micro-texture.
+2. STRIKE MECHANISM — saddle spring-latch biomechanical diagram. Force load, release sequence, impact dynamics. Peak acceleration 10,000g, strike speed 23 m/s, cavitation bubble formation/collapse. Force-time graph.
+3. VISUAL SYSTEM — compound eye with 16 spectral receptors, UV+polarized detection. Compare to human vision (3 receptors). Mid-band scanning row, independent eye movement. Spectrum chart.
+4. LIFECYCLE & REPRODUCTION — Egg mass (female brooded)→pelagic larva→juvenile→adult timeline in weeks. Mating ritual diagram, monogamous pair bond notation.
+5. HUNTING BEHAVIOR — ambush sequence: Detect→Stalk→Strike→Dismember. Smasher vs spearer split. Prey diagrams (mollusks, crabs, fish), shell/bone fracture on impact.
+6. HABITAT & DISTRIBUTION — Indo-Pacific world map. Burrow construction (U vs O shaped), substrate types, depth 1-40m, reef zone, territorial radius.
+7. EXOSKELETON ENGINEERING — dactyl club cross-section, helicoidal fiber layers (biomimicry inspiration). Compare to engineered composites. Periodic/impact regions. Helmet/armor design applications.
+8. CONSERVATION — aquarium trade pressure, reef degradation, bycatch. IUCN status, reef health decline chart, bio-inspiration research notes.
+
+Connection network of leader lines, arrows, brackets. Annotations in clear English. Latin italic. Handwritten margin notes. NO logos. Aspect Ratio: 4:5</div>
+      </div>
+      <div class="tab-content" id="mantis-he">
+        <div class="prompt-box" data-lang="he" id="prompt-mantis-he">תפקיד: מאייר אנציקלופדיה מדעית ברמה עולמית.
+משימה: אינפוגרפיקה אנציקלופדית מדעית מפורטת, סגנון קלאסי ללא לוגואים.
+נושא: בעל חיים — שרימפ גומלן (Odontodactylus scyllarus)
+סגנון: איור מדעי עדין על נייר בז' מיושן. אסתטיקה נטורליסטית וינטג', לוחות מהמאה ה-18-19, מבנה של גרף ידע.
+
+פופ-אאוט תלת-ממד: שרימפ הגומלן המרכזי מתפרץ קדימה בתנוחת תקיפה מלאה — גפיים טורפניות דרוכות ומתוחות, צבעים אירידסנטים תוססים בפירוט יוצא דופן. עיניים מורכבות פונות לצופה, שלד חיצוני מקוטע במרקם עדין. אפקט תלת-ממד אנמורפי.
+
+כותרת: "שרימפ הגומלן" serif + "Odontodactylus scyllarus" באיטליקה למטה.
+
+8 מודולים:
+1. אנטומיה חיצונית — דיאגרמות גב/צד, זום על עין מורכבת (16 פוטורצפטורים), קצה הגפה הטורפנית, לוח טלסון, פליאופוד, מרקם מיקרו של אגרוף דקטיל.
+2. מנגנון המכה — דיאגרמה ביומכנית של מנגנון ספרינג-לאצ'. עומס כוח, רצף שחרור, דינמיקת פגיעה. תאוצת שיא 10,000g, מהירות 23 מ/ש, היווצרות בועת קוויטציה וקריסתה. גרף כוח-זמן.
+3. מערכת ראייה — עין מורכבת עם 16 קולטני ספקטרום, זיהוי UV ואור מקוטב. השוואה לראייה אנושית (3 קולטנים). שורת סריקה אמצעית, תנועת עיניים עצמאית. טבלת ספקטרום.
+4. מחזור חיים ורבייה — מסת ביצים (נקבה דוגרת)→זחל פלגי→צעיר→בוגר בשבועות. דיאגרמת טקס חיזור, הערת זוגיות מונוגמית.
+5. התנהגות ציד — רצף מארב: איתור→מעקב→מכה→פירוק. מפצחים מול דוקרים. דיאגרמות טרף (רכיכות, סרטנים, דגים), שבירת קונכייה/עצם בפגיעה.
+6. בית גידול ותפוצה — מפת עולם הודו-פסיפי. בניית מחילה (צורת U מול O), סוגי מצע, עומק 1-40מ', אזור שונית, רדיוס טריטוריאלי.
+7. הנדסת שלד חיצוני — חתך אגרוף דקטיל, שכבות סיבים הליקואידליות (השראה לביומימטיקה). השוואה לקומפוזיטים הנדסיים. אזורים מחזוריים/פגיעה. יישומים בעיצוב קסדה/שריון.
+8. שימור — לחץ סחר אקווריומים, הידרדרות שוניות, תפיסה נלווית. סטטוס IUCN, גרף ירידת בריאות שוניות, הערות מחקר ביו-השראה.
+
+רשת קווי הובלה, חיצים, סוגריים. סימונים בעברית ברורה. לטינית באיטליקה. הערות שוליים בכתב יד. ללא לוגואים. יחס: 4:5</div>
+      </div>
+      <div class="card-actions">
+        <button class="btn btn-copy" data-copy-target="mantis">📋 העתק</button>
+        <button class="btn btn-tool btn-run" data-tool="chatgpt">🟢 הרץ ב-ChatGPT</button>
+        <button class="btn btn-tool btn-run" data-tool="grok">⚫ פתח Grok</button>
+        <button class="btn btn-tool btn-run" data-tool="gemini">🔷 פתח Gemini</button>
+      </div>
+    </div>
+
+    <!-- Example 3: Einstein -->
+    <div class="prompt-card">
+      <h3>🧠 Albert Einstein</h3>
+      <p class="subtitle">1879–1955 — אלברט איינשטיין</p>
+      <div class="compare-wrap">
+        <div class="compare-slider" data-left="images/einstein-chatgpt.webp" data-right="images/einstein-gemini.webp">
+          <img class="compare-bottom" src="images/einstein-gemini.webp" alt="איינשטיין ב-Gemini">
+          <div class="compare-top-wrap"><img src="images/einstein-chatgpt.webp" alt="איינשטיין ב-ChatGPT"></div>
+          <div class="compare-handle"></div>
+          <span class="compare-label compare-label-left">🟢 ChatGPT</span>
+          <span class="compare-label compare-label-right">🔷 Gemini</span>
+          <button class="compare-zoom" aria-label="הגדל">⛶</button>
+        </div>
+      </div>
+      <div class="tabs">
+        <button class="tab-btn active" data-target="einstein-en">🇬🇧 English</button>
+        <button class="tab-btn" data-target="einstein-he">🇮🇱 עברית</button>
+      </div>
+      <div class="tab-content active" id="einstein-en">
+        <div class="prompt-box" data-lang="en" id="prompt-einstein-en">Role: World-class Scientific Encyclopedia Illustrator & Knowledge Graph Architect.
+Subject: Person — Albert Einstein (1879–1955)
+Style: Fine scientific illustration on aged beige/cream paper. Portrait engraving tradition + blueprint-style diagrams. Vintage academic journal aesthetic.
+
+3D POP-OUT: Masterfully engraved Einstein portrait — wild white hair, expressive eyes, chalk-dusted hands — stepping out of chalkboard frame, surrounded by floating equations. Coat motion-blurred, eyes intense. Anamorphic 3D effect.
+
+TITLE: "ALBERT EINSTEIN" serif + "Theoretical Physicist · Nobel Laureate 1921" italic below.
+
+8 MODULES:
+1. BIOGRAPHICAL TIMELINE — 1879 Born Ulm → 1905 Annus Mirabilis → 1915 General Relativity → 1921 Nobel → 1933 Fled Nazi Germany → 1939 Einstein-Szilard Letter → 1955 Death Princeton. Portrait sketches at milestones.
+2. SPECIAL RELATIVITY (1905) — time dilation, length contraction, relativity of simultaneity. Moving train light thought experiment. E=mc² with variable definitions. Lorentz transformation equations.
+3. GENERAL RELATIVITY (1915) — spacetime curvature diagram, sun warping fabric, Earth's curved geodesic. Gravitational time dilation, gravitational lensing (1919 eclipse), gravitational waves prediction.
+4. ANNUS MIRABILIS — 4 PAPERS OF 1905: ① Photoelectric Effect (Nobel basis) ② Brownian Motion (atoms proof) ③ Special Relativity ④ Mass-Energy Equivalence E=mc². Each with mini diagram.
+5. QUANTUM DEBATES — Bose-Einstein Condensate prediction. Early quantum vs philosophical opposition ("God does not play dice"). EPR Paradox → quantum entanglement legacy. Bohr debate timeline.
+6. BRAIN & COGNITION — preserved brain diagram — enlarged parietal lobes (spatial/math), extra prefrontal folds, missing parietal operculum. Visual-kinesthetic thought experiments over verbal reasoning.
+7. GLOBAL LEGACY MAP — birthplace Germany, Swiss Patent Office, Princeton IAS, Manhattan Project (indirect). Predictions confirmed posthumously: gravitational waves (LIGO 2015), black hole photo (EHT 2019).
+8. CULTURAL IMPACT — violinist, pacifism, Zionism, quotes in elegant script, correspondence with Freud, TIME Person of Century (1999), "genius" archetype. Portrait age 26 vs age 70.
+
+Leader lines throughout. English annotations. Equations in italic. Chalk-cursive margin notes. NO logos. Aspect: 4:5</div>
+      </div>
+      <div class="tab-content" id="einstein-he">
+        <div class="prompt-box" data-lang="he" id="prompt-einstein-he">תפקיד: מאייר אנציקלופדיה מדעית ברמה עולמית.
+נושא: אדם — אלברט איינשטיין (1879–1955)
+סגנון: איור מדעי עדין על נייר בז' מיושן. מסורת חריטת פורטרט + דיאגרמות בסגנון שרטוט. אסתטיקה של כתב עת אקדמי וינטג'.
+
+פופ-אאוט תלת-ממד: פורטרט של איינשטיין בחריטה מופתית — שיער לבן פרוע, עיניים אקספרסיביות, ידיים מאובקות גיר — יוצא ממסגרת לוח גיר, מוקף משוואות מרחפות. מעיל במעין תזוזה, עיניים עזות. אפקט תלת-ממד אנמורפי.
+
+כותרת: "אלברט איינשטיין" serif + "פיזיקאי תיאורטי · חתן פרס נובל 1921" באיטליקה למטה.
+
+8 מודולים:
+1. ציר זמן ביוגרפי — 1879 נולד באולם → 1905 שנת הפלאים → 1915 יחסות כללית → 1921 נובל → 1933 נמלט מגרמניה הנאצית → 1939 מכתב איינשטיין-סילארד → 1955 מותו בפרינסטון. סקיצות דיוקן באבני דרך.
+2. יחסות פרטית (1905) — הארכת זמן, כיווץ אורך, יחסיות הסימולטניות. ניסוי מחשבה של אור ברכבת נעה. E=mc² עם הגדרת משתנים. משוואות טרנספורמציה של לורנץ.
+3. יחסות כללית (1915) — דיאגרמת עקמומיות מרחב-זמן, השמש מעוותת את המרקם, גאודזי מעוקל של כדור הארץ. הארכת זמן גרביטציונית, עדשות גרביטציונית (ליקוי 1919), ניבוי גלי כבידה.
+4. שנת הפלאים — 4 מאמרים של 1905: ① אפקט פוטואלקטרי (בסיס לנובל) ② תנועה בראונית (הוכחת אטומים) ③ יחסות פרטית ④ שקילות מסה-אנרגיה E=mc². כל אחד עם דיאגרמה.
+5. ויכוחים קוונטיים — ניבוי עיבוי בוז-איינשטיין. קוונטים מוקדם מול התנגדות פילוסופית ("אלוהים לא משחק בקוביות"). פרדוקס EPR → מורשת השזירה הקוונטית. ציר זמן הוויכוח עם בוהר.
+6. מוח וקוגניציה — דיאגרמת מוח משומר — אונות פריאטליות מוגדלות (מרחבי/מתמטי), קפלים פרה-פרונטליים נוספים, היעדר אופרקולום פריאטלי. ניסויי מחשבה ויזואליים-קינסתטיים.
+7. מפת מורשת גלובלית — מקום הולדת גרמניה, משרד הפטנטים השווייצרי, פרינסטון IAS, פרויקט מנהטן (עקיף). ניבויים שאושרו לאחר מותו: גלי כבידה (LIGO 2015), תצלום חור שחור (EHT 2019).
+8. השפעה תרבותית — כנר, פציפיזם, ציונות, ציטוטים בכתב אלגנטי, התכתבות עם פרויד, איש המאה של TIME (1999), אב-טיפוס ה"גאון". דיוקן בגיל 26 מול גיל 70.
+
+קווי הובלה בכל. סימונים בעברית. משוואות באיטליקה. הערות שוליים בכתב גיר. ללא לוגואים. יחס: 4:5</div>
+      </div>
+      <div class="card-actions">
+        <button class="btn btn-copy" data-copy-target="einstein">📋 העתק</button>
+        <button class="btn btn-tool btn-run" data-tool="chatgpt">🟢 הרץ ב-ChatGPT</button>
+        <button class="btn btn-tool btn-run" data-tool="grok">⚫ פתח Grok</button>
+        <button class="btn btn-tool btn-run" data-tool="gemini">🔷 פתח Gemini</button>
+      </div>
+    </div>
+
+    <!-- Example 4: Venus Flytrap -->
+    <div class="prompt-card">
+      <h3>🌿 The Venus Flytrap</h3>
+      <p class="subtitle">Dionaea muscipula — צמח בולען</p>
+      <div class="compare-wrap">
+        <div class="compare-slider" data-left="images/venus-chatgpt.webp" data-right="images/venus-gemini.webp">
+          <img class="compare-bottom" src="images/venus-gemini.webp" alt="בולען ב-Gemini">
+          <div class="compare-top-wrap"><img src="images/venus-chatgpt.webp" alt="בולען ב-ChatGPT"></div>
+          <div class="compare-handle"></div>
+          <span class="compare-label compare-label-left">🟢 ChatGPT</span>
+          <span class="compare-label compare-label-right">🔷 Gemini</span>
+          <button class="compare-zoom" aria-label="הגדל">⛶</button>
+        </div>
+      </div>
+      <div class="tabs">
+        <button class="tab-btn active" data-target="venus-en">🇬🇧 English</button>
+        <button class="tab-btn" data-target="venus-he">🇮🇱 עברית</button>
+      </div>
+      <div class="tab-content active" id="venus-en">
+        <div class="prompt-box" data-lang="en" id="prompt-venus-en">Role: World-class Scientific Encyclopedia Illustrator & Knowledge Graph Architect.
+Subject: Plant — The Venus Flytrap (Dionaea muscipula)
+Style: Fine illustration on aged beige paper, vintage botanical plate aesthetic, 18-19th century, knowledge graph structure.
+
+3D POP-OUT: Central Venus Flytrap lunges forward — one trap snapping shut mid-action around an insect, other trap open and waiting. Cilia teeth, trigger hairs, red inner lining in extraordinary botanical realism. Dynamic menacing energy.
+
+TITLE: "THE VENUS FLYTRAP" + "Dionaea muscipula" italic.
+
+8 MODULES:
+1. FULL PLANT ANATOMY — rhizome, roots, petiole, trap leaf (lamina), cilia (marginal teeth), trigger hairs (trichomes), midrib hinge. Insets: trigger hair base cross-section, digestive gland surface, cilia tip.
+2. TRAP TRIGGER MECHANISM — action sequence: open → 1st trigger touch (no action) → 2nd touch within 20s → snap shut (<100ms). Action potential propagation, turgor pressure, hydraulic cell expansion.
+3. DIGESTION — Trap seals airtight → enzymes (protease, esterase) → prey dissolved 5-12 days → N,P absorbed → reopens. Molecular enzyme-protein breakdown. Gland types labeled.
+4. PHOTOSYNTHESIS + CARNIVORY — photosynthesis (chlorophyll, CO₂, H₂O → glucose) vs carnivory (insect prey → N, P). Poor soil drives evolution. Nutrient pie chart.
+5. CELLULAR STRUCTURE — trap lobe cross-section, upper/lower epidermis, mesophyll, vascular bundle, motor cells. Action potential ion channels (Ca²⁺, H⁺).
+6. HABITAT & DISTRIBUTION — North/South Carolina coastal plain map. Bog habitat: acidic soil pH 3.5-5, full sun, fire ecology. Native vs introduced range.
+7. EVOLUTION & RELATIVES — Droseraceae tree: Sundew (Drosera), Waterwheel (Aldrovanda). Carnivory evolution ~65M years. Convergent evolution.
+8. CONSERVATION — poaching, fire suppression, drainage, invasives. IUCN Vulnerable. Remaining wild sites chart. Cultivation, tissue culture, soft robotics biomimicry.
+
+Leader lines, English annotations, Latin italic, botanist handwriting margins. NO logos. Aspect: 4:5</div>
+      </div>
+      <div class="tab-content" id="venus-he">
+        <div class="prompt-box" data-lang="he" id="prompt-venus-he">תפקיד: מאייר אנציקלופדיה מדעית.
+נושא: צמח — הבולען הוונוסי (Dionaea muscipula)
+סגנון: איור עדין על נייר בז' מיושן, לוח בוטני וינטג', מאה 18-19, מבנה גרף ידע.
+
+פופ-אאוט תלת-ממד: הבולען המרכזי זונק קדימה — מלכודת אחת נסגרת באמצע פעולה סביב חרק, השנייה פתוחה וממתינה. שיני cilia, שערות טריגר, רירית פנימית אדומה בריאליזם בוטני יוצא דופן. אנרגיה דינמית ומאיימת.
+
+כותרת: "הבולען הוונוסי" + "Dionaea muscipula" באיטליקה.
+
+8 מודולים:
+1. אנטומיית צמח מלאה — קנה שורש, שורשים, פטיול, עלה המלכודת (lamina), cilia (שיני שוליים), שערות טריגר (trichomes), ציר האמצע. זום: חתך בסיס שערת טריגר, משטח בלוטה עיכולית, קצה cilia.
+2. מנגנון הפעלת מלכודת — רצף פעולה: פתוח → מגע טריגר ראשון (ללא פעולה) → מגע שני תוך 20 שניות → סגירה (<100ms). התפשטות פוטנציאל פעולה, לחץ טורגור, התרחבות תא הידראולית.
+3. עיכול — המלכודת נאטמת → אנזימים (פרוטאז, אסטראז) → טרף מתמוסס 5-12 ימים → N,P נספגים → נפתחת מחדש. פירוק אנזים-חלבון מולקולרי. סוגי בלוטות.
+4. פוטוסינתזה + טורפנות — פוטוסינתזה (כלורופיל, CO₂, H₂O → גלוקוז) מול טורפנות (חרק → N, P). קרקע עניה מניעה אבולוציה. גרף פיי של נוטריינטים.
+5. מבנה תאי — חתך אונת מלכודת, אפידרמיס עליון/תחתון, מזופיל, צרור כלי דם, תאים מוטוריים. תעלות יונים של פוטנציאל פעולה (Ca²⁺, H⁺).
+6. בית גידול ותפוצה — מפת מישור החוף של צפון/דרום קרוליינה. בית גידול ביצה: קרקע חומצית pH 3.5-5, שמש מלאה, אקולוגיית אש. טווח ילידי מול מוכנס.
+7. אבולוציה וקרובים — עץ Droseraceae: טל-עלה (Drosera), גלגל המים (Aldrovanda). אבולוציית טורפנות ~65 מיליון שנה. אבולוציה מתכנסת.
+8. שימור — ציד, דיכוי אש, ניקוז, פולשים. IUCN פגיע. גרף אתרי בר נותרים. גידול, תרבית רקמה, ביומימטיקה של רובוטיקה רכה.
+
+קווי הובלה, סימונים בעברית, לטינית באיטליקה, כתב יד בוטנאי בשוליים. ללא לוגואים. יחס: 4:5</div>
+      </div>
+      <div class="card-actions">
+        <button class="btn btn-copy" data-copy-target="venus">📋 העתק</button>
+        <button class="btn btn-tool btn-run" data-tool="chatgpt">🟢 הרץ ב-ChatGPT</button>
+        <button class="btn btn-tool btn-run" data-tool="grok">⚫ פתח Grok</button>
+        <button class="btn btn-tool btn-run" data-tool="gemini">🔷 פתח Gemini</button>
+      </div>
+    </div>
+
+    <!-- Example 5: Pikachu -->
+    <div class="prompt-card">
+      <h3>⚡ Pikachu</h3>
+      <p class="subtitle">Mus electrica — Pokémon No. 025</p>
+      <div class="compare-wrap">
+        <div class="compare-slider" data-left="images/pikachu-chatgpt.webp" data-right="images/pikachu-gemini.webp">
+          <img class="compare-bottom" src="images/pikachu-gemini.webp" alt="פיקאצ'ו ב-Gemini">
+          <div class="compare-top-wrap"><img src="images/pikachu-chatgpt.webp" alt="פיקאצ'ו ב-ChatGPT"></div>
+          <div class="compare-handle"></div>
+          <span class="compare-label compare-label-left">🟢 ChatGPT</span>
+          <span class="compare-label compare-label-right">🔷 Gemini</span>
+          <button class="compare-zoom" aria-label="הגדל">⛶</button>
+        </div>
+      </div>
+      <div class="tabs">
+        <button class="tab-btn active" data-target="pika-en">🇬🇧 English</button>
+        <button class="tab-btn" data-target="pika-he">🇮🇱 עברית</button>
+      </div>
+      <div class="tab-content active" id="pika-en">
+        <div class="prompt-box" data-lang="en" id="prompt-pika-en">Role: World-class Scientific Encyclopedia Illustrator.
+Subject: Creature — Pikachu (Electric Mouse Pokémon, No. 025)
+Style: Fine scientific illustration on aged beige paper — as if a 19th-century zoologist catalogued Pikachu as a real species. Treat as real living creature.
+
+3D POP-OUT: Pikachu bursts forward mid-thunderbolt — cheeks sparking, tail crackling, fur standing on end with static. Visible fur texture, glowing red cheek pouches, claws gripping. Electrical arc lighting. Anamorphic 3D.
+
+TITLE: "PIKACHU" + "Mus electrica — Electric Mouse Pokémon, No. 025" italic.
+
+8 MODULES:
+1. EXTERNAL ANATOMY — dorsal/lateral diagrams. Insets: cheek pouch electroreceptor cells, tail lightning-bolt cross-section, ear tip (black band sensory), paw claws, fur static charge distribution. Height 0.4m, weight 6kg scale bar.
+2. BIOELECTRIC SYSTEM — analogous to electric eel electrocytes. Stacked electrocyte cells in cheek organs generating up to 100,000V. Charge storage, discharge trigger, grounding via tail, sleep recharge. Voltage output diagram.
+3. EVOLUTIONARY LINE — Pichu (baby, uncontrolled) → Pikachu → Raichu (Thunder Stone) → Alolan Raichu variant. Body change comparison, regional variants as subspecies.
+4. BEHAVIORAL ECOLOGY — forest foraging (berries), social colonies, threat response (Thunderbolt), grooming (ear-cleaning with tail), sleep recharging. Communication via electric pulses. Colony social map.
+5. MOVE SET & COMBAT — ① Thunderbolt (arc from cheeks) ② Quick Attack (burst sprint) ③ Iron Tail (tail hardening) ④ Volt Tackle (full-body charge) ⑤ Thunder (atmospheric). Each with biomechanical diagram.
+6. HABITAT & DISTRIBUTION — Pokémon world map: Viridian Forest (Kanto), Safari Zone, Alola, all regions. Habitat: dense forest, near power lines. Diet (berries, ketchup — field observation).
+7. TYPE MATCHUP — Electric: strong vs Water/Flying; weak vs Ground (immune), Rock, Dragon. Defensive/offensive branching. Base stats radar: HP, Attack, Defense, Sp.Atk, Sp.Def, Speed.
+8. CULTURAL LEGACY — 1996 Game Boy Red/Green → 1997 Anime → 1998 Global → 2016 Pokémon GO → today. Japan's 2014 FIFA World Cup mascot. Highest-grossing franchise of all time.
+
+Pseudo-Latin Italic throughout (treated as real biology). Naturalist cursive margins. Electrical arc decorative borders. NO Pokémon logos. Aspect: 4:5</div>
+      </div>
+      <div class="tab-content" id="pika-he">
+        <div class="prompt-box" data-lang="he" id="prompt-pika-he">תפקיד: מאייר אנציקלופדיה מדעית.
+נושא: יצור — פיקאצ'ו (פוקימון עכבר חשמלי, מספר 025)
+סגנון: איור מדעי עדין על נייר בז' מיושן — כאילו זואולוג מהמאה ה-19 קטלג את פיקאצ'ו כמין אמיתי. טופל כיצור חי אמיתי.
+
+פופ-אאוט תלת-ממד: פיקאצ'ו מתפרץ באמצע ברק — לחיים מבריקות, זנב מתפצפץ, פרווה זקופה בסטטי. מרקם פרווה נראה, כיסי לחיים אדומים זוהרים, טפרים נצמדים. תאורת קשת חשמלית. תלת-ממד אנמורפי.
+
+כותרת: "פיקאצ'ו" + "Mus electrica — פוקימון עכבר חשמלי, מס' 025" באיטליקה.
+
+8 מודולים:
+1. אנטומיה חיצונית — דיאגרמות גב/צד. זום: תאי אלקטרורצפטור של כיס הלחי, חתך זנב-ברק, קצה אוזן (פס שחור חישה), טפרי כף, פיזור מטען סטטי בפרווה. גובה 0.4 מ', משקל 6 ק"ג.
+2. מערכת ביו-אלקטרית — מקבילה לאלקטרוציטים של צלופח חשמלי. תאי אלקטרוציט מוערמים באיברי הלחי המייצרים עד 100,000 וולט. אחסון מטען, טריגר פריקה, הארקה דרך הזנב, טעינה בשינה. דיאגרמת מתח.
+3. קו אבולוציוני — פיצ'ו (תינוק, לא נשלט) → פיקאצ'ו → רייצ'ו (אבן רעם) → וריאנט רייצ'ו אלולני. השוואת שינויי גוף, וריאנטים אזוריים כתת-מינים.
+4. אקולוגיה התנהגותית — לקט ביער (פירות יער), מושבות חברתיות, תגובת איום (ברק), ניקוי עצמי (ניקוי אוזניים בזנב), טעינה בשינה. תקשורת בפולסים חשמליים. מפת מושבה חברתית.
+5. מערך מהלכים וקרב — ① ברק (קשת מהלחיים) ② התקפה מהירה (ספרינט) ③ זנב ברזל (התקשות זנב) ④ מתקפת וולט (טעינת גוף מלא) ⑤ רעם (אטמוספרי). כל אחד עם דיאגרמה ביומכנית.
+6. בית גידול ותפוצה — מפת עולם פוקימון: יער וירידיאן (קאנטו), אזור ספארי, אלולה, כל האזורים. בית גידול: יער צפוף, קרוב לקווי חשמל. תזונה (פירות יער, קטשופ — תצפית שדה).
+7. התאמת סוגים — חשמלי: חזק נגד מים/מעופף; חלש נגד קרקע (חסין), סלע, דרקון. ענף הגנתי/התקפי. רדאר סטטים: HP, התקפה, הגנה, התקפה מיוחדת, הגנה מיוחדת, מהירות.
+8. מורשת תרבותית — 1996 גיים בוי אדום/ירוק → 1997 אנימה → 1998 גלובלי → 2016 פוקימון GO → היום. קמע יפן למונדיאל 2014. הזיכיון הרווחי ביותר בהיסטוריה.
+
+פסאודו-לטינית באיטליקה (כביולוגיה אמיתית). כתב יד נטורליסט בשוליים. גבולות דקורטיביים של קשתות חשמליות. ללא לוגואי פוקימון. יחס: 4:5</div>
+      </div>
+      <div class="card-actions">
+        <button class="btn btn-copy" data-copy-target="pika">📋 העתק</button>
+        <button class="btn btn-tool btn-run" data-tool="chatgpt">🟢 הרץ ב-ChatGPT</button>
+        <button class="btn btn-tool btn-run" data-tool="grok">⚫ פתח Grok</button>
+        <button class="btn btn-tool btn-run" data-tool="gemini">🔷 פתח Gemini</button>
+      </div>
+    </div>
+
+    <!-- Example 6: Giant Squid -->
+    <div class="prompt-card">
+      <h3>🦑 The Giant Squid</h3>
+      <p class="subtitle">Architeuthis dux — דיונון ענק</p>
+      <div class="compare-wrap">
+        <div class="compare-slider" data-left="images/squid-chatgpt.webp" data-right="images/squid-gemini.webp">
+          <img class="compare-bottom" src="images/squid-gemini.webp" alt="דיונון ב-Gemini">
+          <div class="compare-top-wrap"><img src="images/squid-chatgpt.webp" alt="דיונון ב-ChatGPT"></div>
+          <div class="compare-handle"></div>
+          <span class="compare-label compare-label-left">🟢 ChatGPT</span>
+          <span class="compare-label compare-label-right">🔷 Gemini</span>
+          <button class="compare-zoom" aria-label="הגדל">⛶</button>
+        </div>
+      </div>
+      <div class="tabs">
+        <button class="tab-btn active" data-target="squid-en">🇬🇧 English</button>
+        <button class="tab-btn" data-target="squid-he">🇮🇱 עברית</button>
+      </div>
+      <div class="tab-content active" id="squid-en">
+        <div class="prompt-box" data-lang="en" id="prompt-squid-en">Role: World-class Scientific Encyclopedia Illustrator.
+Subject: Animal — The Giant Squid (Architeuthis dux)
+Style: Fine illustration on aged beige paper, deep-sea naturalist expedition journal aesthetic. Dramatic chiaroscuro evoking pitch-black deep ocean. 19th-century cephalopod plates.
+
+3D POP-OUT: Central giant squid surges forward — massive tentacles reaching toward viewer, chromatophores pulsing across mantle, dinner-plate eyes locked on viewer. Full body: mantle, fins, 8 arms, 2 long tentacles with sucker-ringed clubs, siphon, beak. Deep-ocean dramatic lighting.
+
+TITLE: "THE GIANT SQUID" + "Architeuthis dux" italic.
+
+8 MODULES:
+1. EXTERNAL ANATOMY — dorsal/side views. Insets: sucker ring teeth (serrated), tentacle club cross-section, eye anatomy (largest in animal kingdom, up to 30cm), chromatophore skin cell, beak (upper/lower mandible). Length scale bar up to 13m.
+2. INTERNAL ANATOMY — cutaway: three hearts (systemic + 2 branchial), copper-based hemocyanin blood (blue), donut-shaped brain around esophagus, ink sac, digestive gland, spermatophore vs ovary, statocysts.
+3. DEEP-SEA HABITAT — world map with deep-ocean zones (all major oceans, 200-1000m). Depth profile: sunlight → twilight → midnight zone. Mesopelagic/bathypelagic boundary. Pressure 100 atm, 2-4°C, bioluminescent environment.
+4. HUNTING & DIET — detect prey (bioluminescent lure?) → jet propulsion → tentacle strike → sucker grip → beak bite → radula rasp. Prey: deep-sea fish, other squid. Tentacle strike force, sucker ring penetration.
+5. THE GIANT EYE — largest eye in animal kingdom. Cornea, iris, lens, retina, massive optic lobe. Size vs human eye. Detecting sperm whale bioluminescent counter-illumination. Deep-sea visual acuity.
+6. PREDATOR-PREY — SPERM WHALE — battle diagram: Physeter macrocephalus vs giant squid. Sucker scar rings on whale skin, squid beaks in whale stomachs. Size: squid 13m vs whale 20m. Echolocation detection. Largest predator-prey battle on Earth.
+7. REPRODUCTION — mating (male injects spermatophores into female arms) → egg mass (millions, gelatinous) → planktonic paralarvae → juvenile → adult. Lifespan 3-5 years. Possibly fastest growth of any large organism. Live mating never observed.
+8. DISCOVERY & MYTHOLOGY — Kraken mythology → 1857 first description (Steenstrup) → 1870s strandings → 2004 first live photos (Kubodera, Japan) → 2012 first live video. Norse Kraken illustration. Confirmed specimens count.
+
+Leader lines, English annotations, Latin italic. Deep-sea ink wash shadows, bioluminescent accents in borders. NO logos. Aspect: 4:5</div>
+      </div>
+      <div class="tab-content" id="squid-he">
+        <div class="prompt-box" data-lang="he" id="prompt-squid-he">תפקיד: מאייר אנציקלופדיה מדעית.
+נושא: בעל חיים — הדיונון הענק (Architeuthis dux)
+סגנון: איור עדין על נייר בז' מיושן, אסתטיקה של יומן משלחת נטורליסטית במצולות. קיארוסקורו דרמטי מעורר את האוקיינוס החשוך. לוחות ראשיים מהמאה ה-19.
+
+פופ-אאוט תלת-ממד: הדיונון הענק שואג קדימה — זרועות מסיביות מושטות לצופה, כרומטופורים פועמים לאורך המעטפת, עיניים בגודל צלחת נעולות על הצופה. גוף מלא: מעטפת, סנפירים, 8 זרועות, 2 זרועות ארוכות עם אלות טבעות יניקה, סיפון, מקור. תאורה דרמטית של מצולות.
+
+כותרת: "הדיונון הענק" + "Architeuthis dux" באיטליקה.
+
+8 מודולים:
+1. אנטומיה חיצונית — תצוגת גב/צד. זום: שיני טבעות יניקה (משוננות), חתך אלת זרוע, אנטומיית עין (הגדולה בממלכת החי, עד 30 ס"מ), תא עור כרומטופור, מקור (לסת עליונה/תחתונה). סרגל אורך עד 13 מ'.
+2. אנטומיה פנימית — חתך רוחב: שלושה לבבות (מערכתי + 2 זימיים), דם המוציאנין מבוסס נחושת (כחול), מוח בצורת סופגנייה סביב הוושט, שק דיו, בלוטה עיכולית, ספרמטופור מול שחלה, סטאטוציסטים.
+3. בית גידול מצולות — מפת עולם עם אזורי מצולות (כל האוקיינוסים הראשיים, 200-1000 מ'). פרופיל עומק: אור שמש → דמדומים → חצות. גבול mesopelagic/bathypelagic. לחץ 100 אטמוספרות, 2-4°C, סביבה ביו-לומינסצנטית.
+4. ציד ותזונה — איתור טרף (פיתיון ביו-לומינסצנטי?) → הנעת סילון → מכת זרוע → אחיזת יניקה → נשיכת מקור → גירוד רדולה. טרף: דגי מצולות, דיונונים אחרים. כוח מכת זרוע, חדירת טבעת יניקה.
+5. העין הענקית — העין הגדולה בממלכת החי. קרנית, קשתית, עדשה, רשתית, אונה אופטית מסיבית. גודל מול עין אנושית. גילוי הארה-נגדית ביו-לומינסצנטית של לוויתן זרע. חדות ראייה במצולות.
+6. טורף-טרף — לוויתן זרע — דיאגרמת קרב: Physeter macrocephalus מול דיונון ענק. טבעות צלקת יניקה על עור הלוויתן, מקורי דיונון בקיבות לוויתנים. גודל: דיונון 13 מ' מול לוויתן 20 מ'. גילוי אקולוקציה. הקרב הגדול ביותר בין טורף לטרף על פני כדור הארץ.
+7. רבייה — זיווג (זכר מזריק ספרמטופורים לזרועות הנקבה) → מסת ביצים (מיליונים, ג'לטיני) → פרלארווה פלנקטונית → צעיר → בוגר. תוחלת חיים 3-5 שנים. אולי הצמיחה המהירה ביותר של אורגניזם גדול כלשהו. זיווג חי מעולם לא נצפה.
+8. גילוי ומיתולוגיה — מיתולוגיית קראקן → 1857 תיאור ראשון (שטינסטרופ) → 1870 התפלגויות חוף → 2004 תצלומים חיים ראשונים (קובודרה, יפן) → 2012 וידאו חי ראשון. איור קראקן נורדי. ספירת דגימות מאושרות.
+
+קווי הובלה, סימונים בעברית, לטינית באיטליקה. צללי שטיפת דיו של מצולות, דגשים ביו-לומינסצנטיים בגבולות. ללא לוגואים. יחס: 4:5</div>
+      </div>
+      <div class="card-actions">
+        <button class="btn btn-copy" data-copy-target="squid">📋 העתק</button>
+        <button class="btn btn-tool btn-run" data-tool="chatgpt">🟢 הרץ ב-ChatGPT</button>
+        <button class="btn btn-tool btn-run" data-tool="grok">⚫ פתח Grok</button>
+        <button class="btn btn-tool btn-run" data-tool="gemini">🔷 פתח Gemini</button>
+      </div>
+    </div>
+
+  </section>
+
+  <!-- Final CTA -->
+  <div class="inline-cta">
+    <h3>🎯 מעוניין בסדנת AI לצוות?</h3>
+    <p>אני מעביר סדנאות והרצאות AI מעשיות לארגונים בישראל — כולל עבודה פרקטית עם פרומפטים כמו אלה שראית כאן. בואו נתאם שיחה.</p>
+    <div style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap;">
+      <a href="https://sagiai.co.il" target="_blank" rel="noopener" class="hero-cta">📅 תאם פגישת היכרות</a>
+      <a href="https://wa.me/972549995050" target="_blank" rel="noopener" class="hero-cta" style="background:linear-gradient(135deg,#25D366 0%,#128C7E 100%);">💬 שלח וואטסאפ</a>
+    </div>
+  </div>
+
+  <footer>
+    <p>אוסף פרומפטים לקהילת ה-AI הישראלית · סדנאות, הרצאות וייעוץ AI לארגונים ב-<a href="https://sagiai.co.il" target="_blank" rel="noopener">SagiAI.co.il</a></p>
+    <p style="margin-top:8px; font-size:13px;">Master Template מקורי מ-Substack · עיבוד, תרגום ועיצוב: SagiAI</p>
+  </footer>
+
+</div>
+
+<a href="https://wa.me/972549995050?text=%D7%94%D7%99%D7%99%20%D7%A9%D7%92%D7%99%2C%20%D7%A8%D7%90%D7%99%D7%AA%D7%99%20%D7%90%D7%AA%20%D7%94%D7%9C%D7%A0%D7%93%D7%99%D7%A0%D7%92%20%D7%A9%D7%9C%20%D7%94%D7%A4%D7%A8%D7%95%D7%9E%D7%A4%D7%98%D7%99%D7%9D%20%E2%80%94%20%D7%90%D7%A9%D7%9E%D7%97%20%D7%9C%D7%A9%D7%9E%D7%95%D7%A2%20%D7%A2%D7%9C%20%D7%A1%D7%93%D7%A0%D7%90%D7%95%D7%AA%20%D7%95%D7%94%D7%A8%D7%A6%D7%90%D7%95%D7%AA%20AI%20%F0%9F%8E%A4" target="_blank" rel="noopener" class="wa-float" aria-label="שלח הודעת וואטסאפ">
+  <span class="wa-float-label">סדנאות והרצאות AI</span>
+  <svg viewBox="0 0 24 24"><path d="M17.6 6.32A7.85 7.85 0 0 0 12.05 4c-4.38 0-7.93 3.55-7.93 7.93 0 1.4.36 2.76 1.06 3.95L4 20l4.24-1.11a7.92 7.92 0 0 0 3.79.97h.01c4.37 0 7.93-3.56 7.93-7.93 0-2.12-.82-4.11-2.37-5.61zM12.04 18.5h-.01a6.6 6.6 0 0 1-3.35-.92l-.24-.14-2.5.65.67-2.44-.16-.25a6.55 6.55 0 0 1-1.01-3.51c0-3.63 2.96-6.58 6.6-6.58 1.76 0 3.42.69 4.66 1.93a6.56 6.56 0 0 1 1.93 4.66c0 3.63-2.96 6.6-6.59 6.6zm3.61-4.93c-.2-.1-1.17-.58-1.35-.64-.18-.07-.31-.1-.44.1-.13.2-.51.64-.62.77-.11.13-.23.15-.43.05-.2-.1-.84-.31-1.6-.99-.59-.53-.99-1.18-1.11-1.38-.11-.2-.01-.31.09-.41.09-.09.2-.23.3-.35.1-.12.13-.2.2-.33.07-.13.03-.25-.02-.35-.05-.1-.44-1.07-.61-1.46-.16-.38-.33-.33-.44-.34H9.16c-.14 0-.35.05-.54.25-.18.2-.71.69-.71 1.69 0 1 .73 1.96.83 2.09.1.13 1.44 2.2 3.49 3.08.49.21.87.34 1.17.43.49.16.94.13 1.29.08.39-.06 1.2-.49 1.37-.97.17-.48.17-.89.12-.98-.05-.08-.18-.13-.38-.23z"/></svg>
+</a>
+
+<div class="share-float" id="shareFloat">
+  <div class="share-menu" id="shareMenu">
+    <button class="share-item link" data-share="copy"><span class="ico">🔗</span>העתק קישור</button>
+    <button class="share-item wa" data-share="whatsapp"><span class="ico">💬</span>שתף בוואטסאפ</button>
+    <button class="share-item tw" data-share="twitter"><span class="ico">𝕏</span>שתף ב-X</button>
+    <button class="share-item li" data-share="linkedin"><span class="ico">in</span>שתף ב-LinkedIn</button>
+    <button class="share-item fb" data-share="facebook"><span class="ico">f</span>שתף בפייסבוק</button>
+    <button class="share-item tg" data-share="telegram"><span class="ico">✈</span>שתף בטלגרם</button>
+  </div>
+  <button class="share-trigger" id="shareTrigger" aria-label="שתף את העמוד">✦</button>
+</div>
+
+<div class="toast" id="toast">✅ הפרומפט הועתק!</div>
+
+<div class="lightbox" id="lightbox">
+  <button class="lightbox-close" aria-label="סגור">✕</button>
+  <img src="" alt="" id="lightbox-img">
+</div>
+
+<script>
+  // Tabs
+  document.querySelectorAll('.tab-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const target = btn.dataset.target;
+      const tabs = btn.parentElement;
+      const card = tabs.parentElement;
+      tabs.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+      card.querySelectorAll('.tab-content').forEach(t => t.classList.remove('active'));
+      btn.classList.add('active');
+      document.getElementById(target).classList.add('active');
+    });
+  });
+
+  // Helper: get active prompt text from a card
+  function getActivePrompt(card) {
+    return card.querySelector('.tab-content.active .prompt-box').innerText;
+  }
+
+  // Helper: show toast
+  function showToast(message) {
+    const toast = document.getElementById('toast');
+    toast.innerText = message;
+    toast.classList.add('show');
+    setTimeout(() => toast.classList.remove('show'), 2500);
+  }
+
+  // Copy button
+  document.querySelectorAll('.btn-copy').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const card = btn.closest('.prompt-card');
+      const text = getActivePrompt(card);
+      navigator.clipboard.writeText(text).then(() => {
+        btn.classList.add('copied');
+        const original = btn.innerHTML;
+        btn.innerHTML = '✅ הועתק!';
+        showToast('✅ הפרומפט הועתק!');
+        setTimeout(() => {
+          btn.innerHTML = original;
+          btn.classList.remove('copied');
+        }, 2000);
+      });
+    });
+  });
+
+  // Run button — copies prompt + opens tool (auto-submits on ChatGPT)
+  document.querySelectorAll('.btn-run').forEach(btn => {
+    btn.addEventListener('click', async () => {
+      const card = btn.closest('.prompt-card');
+      const text = getActivePrompt(card);
+      const tool = btn.dataset.tool;
+
+      // ALWAYS copy to clipboard first — before opening anything
+      let copied = false;
+      try {
+        await navigator.clipboard.writeText(text);
+        copied = true;
+      } catch(e) {
+        // Fallback for older browsers / non-secure contexts
+        try {
+          const ta = document.createElement('textarea');
+          ta.value = text;
+          ta.style.position = 'fixed';
+          ta.style.top = '-9999px';
+          document.body.appendChild(ta);
+          ta.select();
+          document.execCommand('copy');
+          document.body.removeChild(ta);
+          copied = true;
+        } catch(e2) {}
+      }
+
+      // Flash the copy button on this card to give visual feedback
+      const copyBtn = card.querySelector('.btn-copy');
+      if (copyBtn && copied) {
+        copyBtn.classList.add('copied');
+        setTimeout(() => copyBtn.classList.remove('copied'), 1500);
+      }
+
+      let url;
+      const encoded = encodeURIComponent(text);
+      const prefix = copied ? '✅ הפרומפט הועתק ללוח!' : '⚠️ העתקה נכשלה —';
+      let message = '';
+
+      if (tool === 'chatgpt') {
+        const candidate = 'https://chatgpt.com/?q=' + encoded;
+        if (candidate.length < 7500) {
+          url = candidate;
+          message = `${prefix} פותח ChatGPT ומריץ אוטומטית... (אם לא רץ — Ctrl+V ו-Enter)`;
+        } else {
+          url = 'https://chatgpt.com/';
+          message = `${prefix} ChatGPT נפתח — הדבק עם Ctrl+V ולחץ Enter`;
+        }
+      } else if (tool === 'grok') {
+        url = 'https://grok.com/';
+        message = `${prefix} Grok נפתח — הדבק עם Ctrl+V ולחץ Enter`;
+      } else if (tool === 'gemini') {
+        url = 'https://gemini.google.com/app';
+        message = `${prefix} Gemini נפתח — הדבק עם Ctrl+V ולחץ Enter`;
+      }
+
+      showToast(message);
+      window.open(url, '_blank', 'noopener');
+    });
+  });
+
+  // Share button
+  const shareFloat = document.getElementById('shareFloat');
+  const shareTrigger = document.getElementById('shareTrigger');
+  const shareTitle = 'פרומפטים ויראליים ליצירת תוכן חינוכי עם GPT Image + Grok';
+  const shareText = 'צור אינפוגרפיקות מדעיות מהממות בסגנון אנציקלופדיה וינטג\' — אוסף פרומפטים מוכנים בעברית ובאנגלית 🦁';
+  async function triggerShare() {
+    if (navigator.share) {
+      try {
+        await navigator.share({ title: shareTitle, text: shareText, url: location.href });
+        return;
+      } catch(e) {}
+    }
+    // Float is hidden everywhere now — show it as a popup menu anchored above the footer
+    shareFloat.classList.add('open');
+    shareFloat.style.display = 'block';
+    shareFloat.style.bottom = '90px';
+    shareFloat.style.right = '20px';
+    const t = shareFloat.querySelector('.share-trigger');
+    if (t) t.style.display = 'none';
+  }
+  if (shareTrigger) shareTrigger.addEventListener('click', triggerShare);
+  const mbShare = document.getElementById('mbShare');
+  if (mbShare) mbShare.addEventListener('click', triggerShare);
+  function closeShare() {
+    shareFloat.classList.remove('open');
+    shareFloat.style.display = '';
+    shareFloat.style.bottom = '';
+    shareFloat.style.right = '';
+    const t = shareFloat.querySelector('.share-trigger');
+    if (t) t.style.display = '';
+  }
+  document.addEventListener('click', e => {
+    if (!shareFloat.contains(e.target) && !e.target.closest('#mbShare')) closeShare();
+  });
+  document.querySelectorAll('.share-item').forEach(btn => {
+    btn.addEventListener('click', async e => {
+      e.stopPropagation();
+      const type = btn.dataset.share;
+      const u = encodeURIComponent(location.href);
+      const t = encodeURIComponent(shareText + ' ' + location.href);
+      const titleEnc = encodeURIComponent(shareTitle);
+      let url;
+      if (type === 'copy') {
+        try { await navigator.clipboard.writeText(location.href); } catch(e) {}
+        showToast('🔗 הקישור הועתק! הדבק בכל מקום');
+        closeShare();
+        return;
+      } else if (type === 'whatsapp') url = `https://wa.me/?text=${t}`;
+      else if (type === 'twitter')   url = `https://twitter.com/intent/tweet?text=${encodeURIComponent(shareText)}&url=${u}`;
+      else if (type === 'linkedin')  url = `https://www.linkedin.com/sharing/share-offsite/?url=${u}`;
+      else if (type === 'facebook')  url = `https://www.facebook.com/sharer/sharer.php?u=${u}`;
+      else if (type === 'telegram')  url = `https://t.me/share/url?url=${u}&text=${encodeURIComponent(shareText)}`;
+      window.open(url, '_blank', 'noopener,width=600,height=500');
+      closeShare();
+    });
+  });
+
+  // Theme toggle (Chalkboard mode)
+  const themeToggle = document.getElementById('themeToggle');
+  const themeIcon = document.getElementById('themeIcon');
+  const themeLabel = document.getElementById('themeLabel');
+  const mbThemeIcon = document.getElementById('mbThemeIcon');
+  const mbThemeLabel = document.getElementById('mbThemeLabel');
+  function applyTheme(mode) {
+    if (mode === 'chalk') {
+      document.body.dataset.theme = 'chalk';
+      themeIcon.textContent = '📜';
+      themeLabel.textContent = 'מצב נייר';
+      if (mbThemeIcon) mbThemeIcon.textContent = '📜';
+      if (mbThemeLabel) mbThemeLabel.textContent = 'מצב נייר';
+    } else {
+      document.body.removeAttribute('data-theme');
+      themeIcon.textContent = '🌙';
+      themeLabel.textContent = 'מצב לוח גיר';
+      if (mbThemeIcon) mbThemeIcon.textContent = '🌙';
+      if (mbThemeLabel) mbThemeLabel.textContent = 'לוח גיר';
+    }
+    try { localStorage.setItem('theme', mode); } catch(e) {}
+  }
+  function toggleTheme() {
+    const current = document.body.dataset.theme === 'chalk' ? 'paper' : 'chalk';
+    applyTheme(current);
+  }
+  themeToggle.addEventListener('click', toggleTheme);
+  const mbTheme = document.getElementById('mbTheme');
+  if (mbTheme) mbTheme.addEventListener('click', toggleTheme);
+  try {
+    const saved = localStorage.getItem('theme');
+    if (saved === 'chalk') applyTheme('chalk');
+  } catch(e) {}
+
+  // Interactive Master Template Builder
+  const builderType = document.getElementById('builder-type');
+  const builderName = document.getElementById('builder-name');
+  const builderSci = document.getElementById('builder-sci');
+  const btnSurprise = document.getElementById('btn-surprise');
+  const masterEnEl = document.getElementById('prompt-master-en');
+  const masterHeEl = document.getElementById('prompt-master-he');
+  const masterEnTemplate = masterEnEl.innerText;
+  const masterHeTemplate = masterHeEl.innerText;
+  const typeHeMap = { ANIMAL: 'בעל חיים', PLANT: 'צמח', PERSON: 'אדם', OBJECT: 'חפץ', CONCEPT: 'מושג' };
+
+  function updateMasterPrompt() {
+    const type = builderType.value;
+    const name = builderName.value || '[SUBJECT NAME]';
+    const sci = builderSci.value || '[leave blank if n/a]';
+    masterEnEl.innerText = masterEnTemplate
+      .replace('{{TYPE}}', type)
+      .replace('{{NAME}}', name)
+      .replace('{{SCI}}', sci);
+    masterHeEl.innerText = masterHeTemplate
+      .replace('{{TYPE_HE}}', typeHeMap[type] || type)
+      .replace('{{NAME}}', name)
+      .replace('{{SCI}}', sci);
+  }
+  [builderType, builderName, builderSci].forEach(el =>
+    el.addEventListener('input', updateMasterPrompt)
+  );
+  updateMasterPrompt();
+
+  const surprisePool = [
+    { type: 'ANIMAL', name: 'The Great White Shark', sci: 'Carcharodon carcharias' },
+    { type: 'ANIMAL', name: 'The Bottlenose Dolphin', sci: 'Tursiops truncatus' },
+    { type: 'ANIMAL', name: 'The Bengal Tiger', sci: 'Panthera tigris tigris' },
+    { type: 'ANIMAL', name: 'The Emperor Penguin', sci: 'Aptenodytes forsteri' },
+    { type: 'PLANT', name: 'The Baobab Tree', sci: 'Adansonia digitata' },
+    { type: 'PLANT', name: 'The Giant Sequoia', sci: 'Sequoiadendron giganteum' },
+    { type: 'PLANT', name: 'The Corpse Flower', sci: 'Amorphophallus titanum' },
+    { type: 'PERSON', name: 'Marie Curie', sci: '1867–1934 · Nobel Physics & Chemistry' },
+    { type: 'PERSON', name: 'Nikola Tesla', sci: '1856–1943 · Inventor & Electrical Engineer' },
+    { type: 'PERSON', name: 'Leonardo da Vinci', sci: '1452–1519 · Polymath of the Renaissance' },
+    { type: 'PERSON', name: 'Ada Lovelace', sci: '1815–1852 · First Computer Programmer' },
+    { type: 'OBJECT', name: 'The Human Heart', sci: 'Cor humanum' },
+    { type: 'OBJECT', name: 'The Atom', sci: 'Fundamental Unit of Matter' },
+    { type: 'CONCEPT', name: 'Black Holes', sci: 'Gravitational Singularities' },
+    { type: 'CONCEPT', name: 'DNA', sci: 'Deoxyribonucleic Acid' },
+  ];
+  btnSurprise.addEventListener('click', () => {
+    const pick = surprisePool[Math.floor(Math.random() * surprisePool.length)];
+    builderType.value = pick.type;
+    builderName.value = pick.name;
+    builderSci.value = pick.sci;
+    updateMasterPrompt();
+    btnSurprise.style.transform = 'scale(1.1) rotate(-5deg)';
+    setTimeout(() => btnSurprise.style.transform = '', 300);
+  });
+
+  // Before/After Comparison Sliders
+  function initSlider(slider) {
+    const topWrap = slider.querySelector('.compare-top-wrap');
+    const handle = slider.querySelector('.compare-handle');
+    const labelLeft = slider.querySelector('.compare-label-left');
+    const labelRight = slider.querySelector('.compare-label-right');
+    let dragging = false;
+
+    function setPosition(pct) {
+      pct = Math.max(0, Math.min(100, pct));
+      topWrap.style.clipPath = `inset(0 ${100 - pct}% 0 0)`;
+      handle.style.left = pct + '%';
+      // Hide the label of the side that's been (mostly) covered
+      if (labelLeft)  labelLeft.classList.toggle('hidden', pct < 18);
+      if (labelRight) labelRight.classList.toggle('hidden', pct > 82);
+    }
+
+    function onMove(clientX) {
+      const rect = slider.getBoundingClientRect();
+      const pct = ((clientX - rect.left) / rect.width) * 100;
+      setPosition(pct);
+    }
+
+    slider.addEventListener('pointerdown', e => {
+      if (e.target.classList.contains('compare-zoom')) return;
+      dragging = true;
+      slider.setPointerCapture(e.pointerId);
+      onMove(e.clientX);
+    });
+    slider.addEventListener('pointermove', e => { if (dragging) onMove(e.clientX); });
+    slider.addEventListener('pointerup', e => { dragging = false; });
+    slider.addEventListener('pointercancel', () => { dragging = false; });
+
+    setPosition(50);
+  }
+  document.querySelectorAll('.compare-slider').forEach(initSlider);
+
+  // Lightbox (zoom on ⛶ buttons)
+  const lightbox = document.getElementById('lightbox');
+  const lightboxImg = document.getElementById('lightbox-img');
+  let lbIndex = 0, lbImages = [];
+  function openLightbox(src, alt) {
+    lightboxImg.src = src;
+    lightboxImg.alt = alt || '';
+    lightbox.classList.add('show');
+    document.body.style.overflow = 'hidden';
+  }
+  document.querySelectorAll('.compare-zoom').forEach(btn => {
+    btn.addEventListener('pointerdown', e => { e.stopPropagation(); });
+    btn.addEventListener('click', e => {
+      e.stopPropagation();
+      const slider = btn.closest('.compare-slider');
+      const handleLeft = parseFloat(slider.querySelector('.compare-handle').style.left) || 50;
+      const src = handleLeft >= 50 ? slider.dataset.left : slider.dataset.right;
+      openLightbox(src);
+    });
+  });
+  lightbox.addEventListener('click', () => {
+    lightbox.classList.remove('show');
+    document.body.style.overflow = '';
+  });
+  document.addEventListener('keydown', e => {
+    if (e.key === 'Escape') {
+      lightbox.classList.remove('show');
+      document.body.style.overflow = '';
+    }
+  });
+</script>
+
+</body>
+</html>
