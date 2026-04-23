@@ -1,8 +1,22 @@
+<!--
+  Live:  https://sagi-ba.github.io/AI-Dashboards/IDF/dashboard-project-status-report/
+  Local: http://127.0.0.1:8080/IDF/dashboard-project-status-report/
+  GA:    https://analytics.google.com/analytics/web/#/a351596902p494681343/reports/reportinghub
+-->
+
 <!DOCTYPE html>
 <html dir="rtl">
 <head>
     <meta charset="UTF-8">
     <title>דשבורד פרויקט - מגן לעורף</title>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-XSH19K5LBZ"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-XSH19K5LBZ');
+    </script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
@@ -605,7 +619,7 @@
             <button class="modal-close" onclick="closeWhatsAppModal()">&times;</button>
             <h2 class="modal-title">📋 הודעות לשליחה</h2>
             <p style="color:var(--text-muted); font-size:13px; margin:0 0 16px; padding-left:40px;">
-                לחץ "העתק" ליד כל נמען, עבור ל-WhatsApp והדבק בצ'אט המתאים.
+                ההודעות כוללות רק את המשימות שסומנו. לחצו "העתק" ליד כל נמען, עברו ל-WhatsApp והדביקו בצ'אט המתאים.
             </p>
             <div id="waRecipientsList"></div>
             <div style="display:flex; gap:10px; justify-content:flex-start; margin-top:16px;">
@@ -2088,7 +2102,8 @@
 
     function buildMessageFor(name, tasks) {
         const senderName = (localStorage.getItem('dashboard_my_name') || '').trim();
-        let msg = `שלום ${name} 👋\n\nלהלן המשימות שאתה אחראי עליהן:\n\n`;
+        const countLabel = tasks.length === 1 ? 'משימה אחת שסומנה עבורך' : `${tasks.length} משימות שסומנו עבורך`;
+        let msg = `שלום ${name} 👋\n\nלהלן ${countLabel}:\n\n`;
         msg += tasks.map(t => formatTaskLine(t)).join('\n\n');
         msg += '\n\n';
         msg += `🔗 לדשבורד המלא:\n${DASHBOARD_URL}`;
@@ -2097,13 +2112,16 @@
     }
 
     function openWhatsAppModal() {
+        // Include ONLY tasks whose checkbox is currently marked — nothing else.
         const selected = allTasks.filter(t => selectedTaskIds.has(String(t['UID'])));
         if (selected.length === 0) return;
 
-        // Group by recipient (split composite owners like "שגיא, נטאלי")
+        // Group by recipient (split composite owners like "שגיא, נטאלי").
+        // Each selected task is added once per owner; non-selected tasks are never added.
         const byRecipient = new Map();
         selected.forEach(t => {
-            const owners = splitOwners(t['באחריות']);
+            if (!selectedTaskIds.has(String(t['UID']))) return; // belt-and-suspenders
+            const owners = [...new Set(splitOwners(t['באחריות']))];
             if (owners.length === 0) owners.push('(ללא אחראי)');
             owners.forEach(o => {
                 if (!byRecipient.has(o)) byRecipient.set(o, []);
