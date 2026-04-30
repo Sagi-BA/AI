@@ -1,0 +1,4977 @@
+<!--
+  Live:  https://sagi-ba.github.io/AI/landing-pages/gemini-storybook
+  Local: http://127.0.0.1:8080/landing-pages/gemini-storybook/
+  GA:    https://analytics.google.com/analytics/web/#/a351596902p494681343/reports/reportinghub
+-->
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>איך יוצרים ספר ילדים אישי ומאויר עם AI | שגיא בר און</title>
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-XSH19K5LBZ"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-XSH19K5LBZ');
+    </script>
+    <meta name="description" content="מדריך אינטראקטיבי שמראה איך הופכים רעיון, חג או זיכרון משפחתי לספר ילדים אישי ומאויר בעזרת NotebookLM, Gemini Storybook ו־Canvas של Google. כולל דוגמה אמיתית של הסיפור 'משפחת בר און והאש שמחברת'.">
+    <meta name="author" content="Sagi Bar-On">
+    <meta name="keywords" content="ספר ילדים AI, Gemini Storybook, NotebookLM, Canvas של Google, ל״ג בעומר, יצירת ספר ילדים מאויר, AI לילדים, סיפור אישי, שגיא בר און, פרומפט Gemini, ספר אישי במתנה">
+    <meta name="theme-color" content="#4c1d95">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="robots" content="index, follow">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E📖%3C/text%3E%3C/svg%3E">
+    <link rel="apple-touch-icon" href="images/og-image.jpg">
+
+    <link rel="canonical" href="https://sagiai.co.il/">
+
+    <!-- Open Graph (Facebook, WhatsApp, LinkedIn) -->
+    <meta property="og:title" content="איך יוצרים ספר ילדים אישי עם AI">
+    <meta property="og:description" content="הופכים רעיון או זיכרון משפחתי לספר ילדים מאויר בעזרת Gemini Storybook ו־Canvas של Google. עם דוגמה אמיתית של ספר ל״ג בעומר.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://sagiai.co.il/">
+    <meta property="og:site_name" content="שגיא בר און — AI לארגונים">
+    <meta property="og:locale" content="he_IL">
+    <meta property="og:image" content="https://sagiai.co.il/images/og-image.jpg">
+    <meta property="og:image:secure_url" content="https://sagiai.co.il/images/og-image.jpg">
+    <meta property="og:image:type" content="image/jpeg">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:alt" content="משפחה שקוראת ספר ילדים מאויר עם AI מתחת לשמיים מלאי כוכבים">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="איך יוצרים ספר ילדים אישי עם AI">
+    <meta name="twitter:description" content="מדריך אינטראקטיבי + דוגמה אמיתית של ספר שנוצר עם Gemini Storybook ו־Canvas של Google.">
+    <meta name="twitter:image" content="https://sagiai.co.il/images/og-image.jpg">
+    <meta name="twitter:image:alt" content="משפחה שקוראת ספר ילדים מאויר עם AI מתחת לשמיים מלאי כוכבים">
+
+    <!-- Schema.org structured data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Article",
+      "headline": "איך יוצרים ספר ילדים אישי ומאויר עם AI",
+      "description": "מדריך אינטראקטיבי שמראה איך הופכים רעיון, חג או זיכרון משפחתי לספר ילדים אישי ומאויר בעזרת NotebookLM, Gemini Storybook ו־Canvas של Google.",
+      "image": "https://sagiai.co.il/images/og-image.jpg",
+      "author": {
+        "@type": "Person",
+        "name": "שגיא בר און",
+        "url": "https://sagiai.co.il/"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "שגיא בר און — AI לארגונים",
+        "url": "https://sagiai.co.il/"
+      },
+      "inLanguage": "he-IL"
+    }
+    </script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Alef:wght@400;700&family=Heebo:wght@400;500;700;800&family=Fredoka:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --teal: #14b8a6;
+            --teal-deep: #0d9488;
+            --teal-soft: #99f6e4;
+            --orange: #fb923c;
+            --orange-deep: #ea580c;
+            --yellow: #facc15;
+            --yellow-soft: #fef3c7;
+            --purple: #a78bfa;
+            --purple-deep: #7c3aed;
+            --purple-soft: #ddd6fe;
+            --pink: #f9a8d4;
+            --pink-deep: #ec4899;
+            --sky: #7dd3fc;
+            --sky-deep: #0284c7;
+            --cream: #fff8ee;
+            --paper: #fffaf3;
+            --ink: #1f2544;
+            --ink-soft: #475081;
+            --ink-muted: #7a83ad;
+            --line: #f0e6d6;
+            --white: #ffffff;
+            --shadow-sm: 0 4px 12px rgba(31, 37, 68, 0.08);
+            --shadow: 0 14px 40px rgba(31, 37, 68, 0.12);
+            --shadow-lg: 0 30px 80px rgba(31, 37, 68, 0.18);
+            --shadow-glow: 0 20px 60px rgba(251, 146, 60, 0.35);
+            --radius: 18px;
+            --radius-lg: 28px;
+            --radius-xl: 40px;
+            --ease: cubic-bezier(0.22, 1, 0.36, 1);
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+
+        body {
+            font-family: 'Heebo', 'Alef', -apple-system, system-ui, sans-serif;
+            font-size: 18px;
+            line-height: 1.75;
+            color: var(--ink);
+            background: var(--cream);
+            -webkit-font-smoothing: antialiased;
+            overflow-x: hidden;
+        }
+
+        a { color: inherit; text-decoration: none; }
+        img { max-width: 100%; display: block; }
+        button { font-family: inherit; cursor: pointer; border: none; background: none; }
+
+        :focus-visible {
+            outline: 3px solid var(--purple-deep);
+            outline-offset: 3px;
+            border-radius: 6px;
+        }
+
+        .container {
+            max-width: 1180px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        .container-narrow {
+            max-width: 880px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        h1, h2, h3, h4 {
+            font-family: 'Fredoka', 'Heebo', sans-serif;
+            font-weight: 600;
+            line-height: 1.2;
+            color: var(--ink);
+        }
+
+        h1 { font-size: clamp(2rem, 5.5vw, 3.6rem); font-weight: 700; }
+        h2 { font-size: clamp(1.7rem, 4vw, 2.6rem); }
+        h3 { font-size: clamp(1.2rem, 2.5vw, 1.5rem); }
+
+        section { padding: 88px 0; position: relative; }
+
+        .eyebrow {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: var(--white);
+            border: 2px solid var(--teal-soft);
+            color: var(--teal-deep);
+            padding: 8px 18px;
+            border-radius: 999px;
+            font-weight: 700;
+            font-size: 14px;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .section-head {
+            text-align: center;
+            margin-bottom: 56px;
+        }
+
+        .section-head .eyebrow { margin-bottom: 18px; }
+        .section-head p {
+            color: var(--ink-soft);
+            max-width: 640px;
+            margin: 18px auto 0;
+            font-size: 1.05rem;
+        }
+
+        /* ========== Buttons ========== */
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            padding: 14px 28px;
+            border-radius: 999px;
+            font-weight: 700;
+            font-size: 16px;
+            transition: transform 0.25s var(--ease), box-shadow 0.25s var(--ease), background 0.25s var(--ease);
+            white-space: nowrap;
+            border: 2px solid transparent;
+            font-family: inherit;
+            cursor: pointer;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, var(--orange) 0%, var(--orange-deep) 100%);
+            color: var(--white);
+            box-shadow: var(--shadow-glow);
+        }
+        .btn-primary:hover { transform: translateY(-3px) scale(1.02); box-shadow: 0 25px 70px rgba(251, 146, 60, 0.5); }
+
+        .btn-secondary {
+            background: var(--white);
+            color: var(--ink);
+            border-color: var(--line);
+            box-shadow: var(--shadow-sm);
+        }
+        .btn-secondary:hover { transform: translateY(-3px); border-color: var(--purple); color: var(--purple-deep); }
+
+        .btn-teal {
+            background: linear-gradient(135deg, var(--teal) 0%, var(--teal-deep) 100%);
+            color: var(--white);
+            box-shadow: 0 14px 40px rgba(20, 184, 166, 0.35);
+        }
+        .btn-teal:hover { transform: translateY(-3px) scale(1.02); box-shadow: 0 22px 60px rgba(20, 184, 166, 0.5); }
+
+        .btn-purple {
+            background: linear-gradient(135deg, var(--purple) 0%, var(--purple-deep) 100%);
+            color: var(--white);
+            box-shadow: 0 14px 40px rgba(167, 139, 250, 0.4);
+        }
+        .btn-purple:hover { transform: translateY(-3px) scale(1.02); }
+
+        /* ========== HERO ========== */
+        .hero {
+            padding: 100px 0 80px;
+            background:
+                radial-gradient(ellipse at 20% 0%, rgba(167, 139, 250, 0.25) 0%, transparent 50%),
+                radial-gradient(ellipse at 80% 100%, rgba(251, 146, 60, 0.25) 0%, transparent 50%),
+                radial-gradient(ellipse at 50% 50%, rgba(125, 211, 252, 0.18) 0%, transparent 60%),
+                linear-gradient(180deg, #fff5e6 0%, #fff8ee 100%);
+            overflow: hidden;
+            position: relative;
+        }
+
+        .hero-grid {
+            display: grid;
+            grid-template-columns: 1.05fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .hero-content .eyebrow { margin-bottom: 22px; }
+        .hero-content h1 {
+            background: linear-gradient(135deg, var(--ink) 0%, var(--purple-deep) 60%, var(--orange-deep) 100%);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 18px;
+        }
+        .hero-content .lede {
+            font-size: 1.2rem;
+            color: var(--ink-soft);
+            margin-bottom: 14px;
+            font-weight: 500;
+        }
+        .hero-content .small {
+            color: var(--ink-muted);
+            margin-bottom: 32px;
+            font-size: 1rem;
+        }
+        .hero-buttons {
+            display: flex;
+            gap: 14px;
+            flex-wrap: wrap;
+        }
+
+        /* Hero visual */
+        .hero-visual {
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 380px;
+        }
+        .hero-image-frame {
+            position: relative;
+            border-radius: 24px;
+            overflow: hidden;
+            box-shadow:
+                0 20px 60px rgba(124, 58, 237, 0.35),
+                0 8px 24px rgba(31, 37, 68, 0.25);
+            animation: heroFloat 7s ease-in-out infinite;
+            transition: transform 0.5s var(--ease);
+        }
+        .hero-image-frame:hover { transform: scale(1.02); }
+        .hero-image-frame::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(135deg, rgba(251, 191, 36, 0.1), transparent 50%);
+            pointer-events: none;
+            z-index: 1;
+        }
+        .hero-image {
+            display: block;
+            width: 100%;
+            height: auto;
+            border-radius: 24px;
+        }
+        @keyframes heroFloat {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+
+        .magic-book {
+            position: relative;
+            width: 360px;
+            height: 280px;
+            transform: rotate(-3deg);
+            animation: float 6s ease-in-out infinite;
+            filter: drop-shadow(0 30px 50px rgba(124, 58, 237, 0.25));
+        }
+
+        .book-page {
+            position: absolute;
+            top: 0;
+            width: 50%;
+            height: 100%;
+            background: linear-gradient(135deg, #fffdf7 0%, #fff5e0 100%);
+            border: 2px solid #f5e6c8;
+            box-shadow: inset 0 0 30px rgba(180, 130, 50, 0.08);
+        }
+        .book-page.left {
+            right: 50%;
+            border-radius: 8px 2px 2px 8px;
+            transform-origin: left center;
+        }
+        .book-page.right {
+            left: 50%;
+            border-radius: 2px 8px 8px 2px;
+            transform-origin: right center;
+            animation: pageFlip 5s ease-in-out infinite;
+        }
+        .book-page::after {
+            content: '';
+            position: absolute;
+            top: 16px; bottom: 16px;
+            width: 60%;
+            margin: 0 auto;
+            left: 0; right: 0;
+            background:
+                repeating-linear-gradient(180deg, transparent 0 8px, rgba(124, 58, 237, 0.12) 8px 9px);
+            border-radius: 4px;
+        }
+        .book-spine {
+            position: absolute;
+            top: -4px; bottom: -4px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 8px;
+            background: linear-gradient(180deg, var(--purple-deep), var(--purple));
+            border-radius: 4px;
+            box-shadow: 0 0 20px rgba(124, 58, 237, 0.5);
+        }
+
+        @keyframes pageFlip {
+            0%, 70%, 100% { transform: rotateY(0deg); }
+            35% { transform: rotateY(-160deg); }
+        }
+        @keyframes float {
+            0%, 100% { transform: rotate(-3deg) translateY(0); }
+            50% { transform: rotate(-1deg) translateY(-12px); }
+        }
+
+        .sparkle {
+            position: absolute;
+            font-size: 22px;
+            animation: sparkle 3s ease-in-out infinite;
+        }
+        .sparkle:nth-child(1) { top: 8%; left: 18%; animation-delay: 0s; }
+        .sparkle:nth-child(2) { top: 22%; right: 12%; animation-delay: 0.6s; font-size: 28px; }
+        .sparkle:nth-child(3) { bottom: 24%; left: 8%; animation-delay: 1.2s; font-size: 18px; }
+        .sparkle:nth-child(4) { bottom: 8%; right: 22%; animation-delay: 1.8s; font-size: 24px; }
+        .sparkle:nth-child(5) { top: 50%; right: 4%; animation-delay: 2.4s; font-size: 20px; }
+        .sparkle:nth-child(6) { top: 42%; left: 4%; animation-delay: 0.3s; font-size: 18px; }
+
+        @keyframes sparkle {
+            0%, 100% { opacity: 0.3; transform: scale(0.8) rotate(0deg); }
+            50% { opacity: 1; transform: scale(1.2) rotate(180deg); }
+        }
+
+        .cloud {
+            position: absolute;
+            background: var(--white);
+            border-radius: 50%;
+            opacity: 0.7;
+            animation: drift 20s linear infinite;
+        }
+        .cloud-1 { width: 90px; height: 30px; top: 10%; right: -100px; }
+        .cloud-1::before, .cloud-1::after {
+            content: ''; position: absolute; background: var(--white); border-radius: 50%;
+        }
+        .cloud-1::before { width: 40px; height: 40px; top: -18px; right: 15px; }
+        .cloud-1::after { width: 30px; height: 30px; top: -12px; right: 50px; }
+        .cloud-2 {
+            width: 70px; height: 24px; bottom: 15%; right: -80px;
+            animation-delay: -10s; animation-duration: 28s;
+        }
+        .cloud-2::before, .cloud-2::after {
+            content: ''; position: absolute; background: var(--white); border-radius: 50%;
+        }
+        .cloud-2::before { width: 32px; height: 32px; top: -14px; right: 10px; }
+        .cloud-2::after { width: 24px; height: 24px; top: -10px; right: 40px; }
+
+        @keyframes drift {
+            from { transform: translateX(0); }
+            to { transform: translateX(calc(-100vw - 200px)); }
+        }
+
+        /* Fire */
+        .fire {
+            position: absolute;
+            bottom: 40px;
+            left: 30px;
+            width: 60px;
+            height: 80px;
+            display: flex;
+            justify-content: center;
+            align-items: flex-end;
+        }
+        .fire-flame {
+            width: 30px;
+            height: 50px;
+            background: radial-gradient(ellipse at center bottom, #fbbf24, #f97316 50%, #dc2626 100%);
+            border-radius: 50% 50% 20% 20% / 60% 60% 40% 40%;
+            transform-origin: center bottom;
+            animation: flicker 1.2s ease-in-out infinite alternate;
+            filter: blur(0.5px);
+        }
+        .fire-flame.flame-2 {
+            position: absolute;
+            width: 18px;
+            height: 36px;
+            animation-delay: 0.3s;
+            opacity: 0.9;
+        }
+        .fire-base {
+            position: absolute;
+            bottom: 0;
+            width: 50px;
+            height: 8px;
+            background: linear-gradient(90deg, #57534e, #1c1917, #57534e);
+            border-radius: 4px;
+        }
+        @keyframes flicker {
+            0% { transform: scaleY(1) scaleX(1); opacity: 1; }
+            100% { transform: scaleY(1.1) scaleX(0.95); opacity: 0.92; }
+        }
+
+        /* ========== "What you get" cards ========== */
+        .outcome {
+            background: linear-gradient(180deg, var(--cream) 0%, #fff5e6 100%);
+        }
+        .outcome-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 22px;
+        }
+        .outcome-card {
+            background: var(--white);
+            border-radius: var(--radius-lg);
+            padding: 28px 24px;
+            box-shadow: var(--shadow-sm);
+            transition: transform 0.4s var(--ease), box-shadow 0.4s var(--ease);
+            border: 2px solid transparent;
+            position: relative;
+            overflow: hidden;
+        }
+        .outcome-card::before {
+            content: '';
+            position: absolute;
+            top: 0; right: 0;
+            width: 80px; height: 80px;
+            background: var(--gradient, linear-gradient(135deg, var(--teal-soft), transparent));
+            border-radius: 0 var(--radius-lg) 0 100%;
+            opacity: 0.6;
+        }
+        .outcome-card:hover {
+            transform: translateY(-8px) rotate(-0.5deg);
+            box-shadow: var(--shadow);
+            border-color: var(--purple-soft);
+        }
+        .outcome-card .icon {
+            width: 56px; height: 56px;
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 28px;
+            margin-bottom: 16px;
+            position: relative;
+            z-index: 1;
+        }
+        .outcome-card h3 { margin-bottom: 8px; font-size: 1.15rem; }
+        .outcome-card p { color: var(--ink-soft); font-size: 0.95rem; line-height: 1.6; }
+
+        .ic-teal { background: linear-gradient(135deg, var(--teal-soft), var(--teal)); }
+        .ic-orange { background: linear-gradient(135deg, #fed7aa, var(--orange)); }
+        .ic-purple { background: linear-gradient(135deg, var(--purple-soft), var(--purple)); }
+        .ic-pink { background: linear-gradient(135deg, #fce7f3, var(--pink-deep)); color: white; }
+        .ic-yellow { background: linear-gradient(135deg, var(--yellow-soft), var(--yellow)); }
+        .ic-sky { background: linear-gradient(135deg, #e0f2fe, var(--sky)); }
+
+        /* ========== Real example ========== */
+        .example {
+            background:
+                radial-gradient(ellipse at 80% 20%, rgba(251, 146, 60, 0.15), transparent 50%),
+                radial-gradient(ellipse at 20% 80%, rgba(167, 139, 250, 0.18), transparent 50%),
+                linear-gradient(180deg, #fff8ee 0%, #fef0db 100%);
+        }
+        .example-grid {
+            display: grid;
+            grid-template-columns: 1fr 1.05fr;
+            gap: 50px;
+            align-items: center;
+        }
+        .example-text h2 { margin-bottom: 18px; }
+        .example-text .lede {
+            color: var(--ink-soft);
+            font-size: 1.1rem;
+            margin-bottom: 24px;
+        }
+        .example-tag {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            background: var(--orange);
+            color: white;
+            padding: 6px 14px;
+            border-radius: 999px;
+            font-size: 13px;
+            font-weight: 700;
+            margin-bottom: 16px;
+            box-shadow: var(--shadow-sm);
+        }
+        .example-credit {
+            color: var(--ink-muted);
+            font-size: 0.9rem;
+            margin-top: 18px;
+            font-style: italic;
+        }
+        .example-buttons {
+            display: flex;
+            gap: 14px;
+            flex-wrap: wrap;
+            margin-top: 28px;
+        }
+
+        /* Book mockup image */
+        .book-mockup-image {
+            position: relative;
+            border-radius: 22px;
+            overflow: hidden;
+            cursor: pointer;
+            box-shadow:
+                0 24px 60px rgba(180, 80, 30, 0.35),
+                0 8px 20px rgba(31, 37, 68, 0.15);
+            transition: transform 0.4s var(--ease), box-shadow 0.4s var(--ease);
+        }
+        .book-mockup-image img {
+            display: block;
+            width: 100%;
+            height: auto;
+            border-radius: 22px;
+        }
+        .book-mockup-image:hover {
+            transform: translateY(-6px) scale(1.02);
+            box-shadow:
+                0 32px 80px rgba(180, 80, 30, 0.45),
+                0 12px 30px rgba(31, 37, 68, 0.2);
+        }
+        .book-mockup-hint {
+            position: absolute;
+            bottom: 14px; left: 14px;
+            background: rgba(0,0,0,0.65);
+            color: white;
+            font-size: 13px;
+            font-weight: 700;
+            padding: 8px 16px;
+            border-radius: 999px;
+            opacity: 0;
+            transform: translateY(6px);
+            transition: all 0.3s ease;
+            backdrop-filter: blur(6px);
+        }
+        .book-mockup-image:hover .book-mockup-hint { opacity: 1; transform: translateY(0); }
+
+        /* book mockup (legacy CSS) */
+        .book-mockup {
+            position: relative;
+            perspective: 1500px;
+            min-height: 420px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .book-shelf {
+            position: absolute;
+            bottom: 30px;
+            width: 100%;
+            height: 18px;
+            background: linear-gradient(180deg, #d97706, #92400e);
+            border-radius: 6px;
+            box-shadow: 0 12px 30px rgba(0,0,0,0.18);
+        }
+        .book-shelf::after {
+            content: '';
+            position: absolute;
+            bottom: -6px; left: 5%; right: 5%;
+            height: 8px;
+            background: rgba(0,0,0,0.15);
+            border-radius: 50%;
+            filter: blur(6px);
+        }
+        .book-cover {
+            position: relative;
+            width: 280px;
+            height: 360px;
+            background: linear-gradient(135deg, var(--orange) 0%, var(--orange-deep) 50%, #b91c1c 100%);
+            border-radius: 8px 18px 18px 8px;
+            box-shadow:
+                inset -8px 0 20px rgba(0,0,0,0.15),
+                0 30px 60px rgba(180, 80, 30, 0.4);
+            transform: rotateY(-8deg);
+            transition: transform 0.6s var(--ease);
+            padding: 30px 24px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            color: white;
+            text-align: center;
+            overflow: hidden;
+        }
+        .book-cover::before {
+            content: '';
+            position: absolute;
+            top: 0; bottom: 0;
+            right: 8px;
+            width: 4px;
+            background: rgba(0,0,0,0.2);
+        }
+        .book-cover:hover { transform: rotateY(0deg) scale(1.04); }
+        .book-cover .cover-art {
+            font-size: 70px;
+            line-height: 1;
+            margin: 20px 0;
+            filter: drop-shadow(0 4px 10px rgba(0,0,0,0.3));
+        }
+        .book-cover .cover-title {
+            font-family: 'Fredoka', sans-serif;
+            font-size: 1.45rem;
+            font-weight: 700;
+            line-height: 1.3;
+            text-shadow: 0 2px 8px rgba(0,0,0,0.25);
+        }
+        .book-cover .cover-sub {
+            font-size: 0.85rem;
+            opacity: 0.9;
+            margin-top: 6px;
+        }
+        .book-cover .cover-author {
+            font-size: 0.8rem;
+            opacity: 0.85;
+            border-top: 1px solid rgba(255,255,255,0.3);
+            padding-top: 10px;
+        }
+
+        .pages-preview {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 12px;
+            margin-top: 32px;
+        }
+        .page-thumb {
+            background: var(--white);
+            border-radius: 14px;
+            padding: 14px;
+            box-shadow: var(--shadow-sm);
+            font-size: 0.85rem;
+            color: var(--ink-soft);
+            border: 1.5px solid var(--line);
+            transition: transform 0.3s var(--ease);
+        }
+        .page-thumb:hover { transform: translateY(-4px) rotate(-1deg); border-color: var(--orange); }
+        .page-thumb .pt-num {
+            display: inline-block;
+            background: var(--orange);
+            color: white;
+            font-size: 11px;
+            font-weight: 700;
+            padding: 2px 8px;
+            border-radius: 999px;
+            margin-bottom: 6px;
+        }
+        .page-thumb .pt-title { font-weight: 700; color: var(--ink); margin-bottom: 4px; }
+
+        /* ========== How it works ========== */
+        .how {
+            background: var(--white);
+        }
+        .steps-track {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 24px;
+            position: relative;
+        }
+        .step-card {
+            background: linear-gradient(180deg, var(--white) 0%, #fffdf7 100%);
+            border: 2px solid var(--line);
+            border-radius: var(--radius-lg);
+            padding: 26px 22px;
+            position: relative;
+            transition: all 0.4s var(--ease);
+            cursor: pointer;
+        }
+        .step-card:hover {
+            transform: translateY(-6px);
+            border-color: var(--purple);
+            box-shadow: var(--shadow);
+        }
+        .step-num {
+            position: absolute;
+            top: -16px;
+            right: 22px;
+            width: 40px; height: 40px;
+            background: linear-gradient(135deg, var(--purple), var(--purple-deep));
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-family: 'Fredoka', sans-serif;
+            box-shadow: 0 8px 20px rgba(124, 58, 237, 0.35);
+        }
+        .step-card .icon {
+            font-size: 36px;
+            margin-bottom: 10px;
+        }
+        .step-card h3 { margin-bottom: 6px; font-size: 1.1rem; }
+        .step-card p { color: var(--ink-soft); font-size: 0.95rem; line-height: 1.55; }
+        .step-card .highlight {
+            background: var(--yellow-soft);
+            color: var(--orange-deep);
+            padding: 2px 8px;
+            border-radius: 6px;
+            font-weight: 700;
+            font-size: 0.85rem;
+            display: inline-block;
+            margin-top: 8px;
+        }
+
+        /* How-it-works hero */
+        .how-hero {
+            margin: 0 auto 56px;
+            max-width: 980px;
+            border-radius: 24px;
+            overflow: hidden;
+            box-shadow: var(--shadow-lg);
+            transition: transform 0.5s var(--ease);
+        }
+        .how-hero:hover { transform: translateY(-4px); }
+        .how-hero img {
+            display: block;
+            width: 100%;
+            height: auto;
+        }
+
+        /* ========== Flow diagram ========== */
+        .flow {
+            background: linear-gradient(180deg, #fff8ee, #f0e9ff);
+        }
+        .flow-chain {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0;
+            max-width: 520px;
+            margin: 0 auto;
+        }
+        .flow-node {
+            background: var(--white);
+            border: 2.5px solid var(--purple-soft);
+            padding: 16px 28px;
+            border-radius: 999px;
+            font-weight: 700;
+            font-family: 'Fredoka', sans-serif;
+            color: var(--ink);
+            box-shadow: var(--shadow-sm);
+            text-align: center;
+            min-width: 280px;
+            transition: all 0.3s var(--ease);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+        }
+        .flow-node:hover { transform: scale(1.05); border-color: var(--orange); box-shadow: var(--shadow); }
+        .flow-arrow {
+            color: var(--purple-deep);
+            font-size: 28px;
+            line-height: 0.8;
+            margin: 6px 0;
+            animation: bounce 2s ease-in-out infinite;
+        }
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(4px); }
+        }
+        .flow-node.highlight {
+            background: linear-gradient(135deg, var(--orange), var(--orange-deep));
+            color: white;
+            border-color: var(--orange-deep);
+        }
+
+        /* ========== Canvas advantage ========== */
+        .canvas-advantage {
+            background:
+                radial-gradient(ellipse at 80% 0%, rgba(20, 184, 166, 0.15), transparent 50%),
+                radial-gradient(ellipse at 20% 100%, rgba(167, 139, 250, 0.18), transparent 50%),
+                linear-gradient(180deg, #fff8ee 0%, #f0fdfa 100%);
+        }
+        .canvas-grid {
+            display: grid;
+            grid-template-columns: 1fr 1.05fr;
+            gap: 56px;
+            align-items: center;
+        }
+        .canvas-text .eyebrow { margin-bottom: 18px; }
+        .canvas-text h2 {
+            margin-bottom: 16px;
+            background: linear-gradient(135deg, var(--ink) 0%, var(--teal-deep) 100%);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .canvas-text .lede {
+            font-size: 1.1rem;
+            color: var(--ink-soft);
+            margin-bottom: 24px;
+            line-height: 1.7;
+        }
+        .canvas-text .lede strong { color: var(--teal-deep); }
+        .canvas-points {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+        .canvas-points li {
+            display: flex;
+            align-items: flex-start;
+            gap: 14px;
+            padding: 12px 16px;
+            background: var(--white);
+            border-radius: 14px;
+            border-right: 4px solid var(--teal);
+            box-shadow: var(--shadow-sm);
+            transition: all 0.3s var(--ease);
+        }
+        .canvas-points li:hover {
+            transform: translateX(-4px);
+            border-right-color: var(--orange);
+            box-shadow: var(--shadow);
+        }
+        .canvas-points .cp-icon {
+            font-size: 24px;
+            line-height: 1.2;
+            flex-shrink: 0;
+        }
+        .canvas-points strong {
+            color: var(--ink);
+            display: block;
+            margin-bottom: 2px;
+        }
+        .canvas-points li > div {
+            font-size: 0.95rem;
+            color: var(--ink-soft);
+        }
+        .canvas-image {
+            border-radius: 24px;
+            overflow: hidden;
+            box-shadow: var(--shadow-lg);
+            transition: transform 0.5s var(--ease);
+        }
+        .canvas-image:hover { transform: translateY(-6px) rotate(-0.3deg); }
+        .canvas-image img { display: block; width: 100%; height: auto; }
+
+        @media (max-width: 900px) {
+            .canvas-grid { grid-template-columns: 1fr; gap: 36px; }
+
+            .cta { padding: 60px 0 64px; }
+            .cta-bg img {
+                position: relative;
+                top: auto;
+                right: auto;
+                transform: none;
+                width: 100%;
+                height: auto;
+                min-height: 0;
+                min-width: 0;
+                object-fit: cover;
+                object-position: center;
+                aspect-ratio: 16 / 9;
+            }
+            .cta-bg {
+                position: relative;
+                inset: auto;
+                margin-bottom: 30px;
+                border-radius: 18px;
+                margin-left: 18px;
+                margin-right: 18px;
+                box-shadow: 0 14px 40px rgba(0,0,0,0.4);
+            }
+            .cta-bg::after {
+                background: linear-gradient(to top, rgba(31, 37, 68, 0.95) 0%, transparent 50%);
+                border-radius: 18px;
+            }
+            .cta-inner {
+                max-width: none;
+                text-align: center;
+                padding: 0 18px;
+            }
+            .cta-buttons, .cta-share { justify-content: center; }
+        }
+
+        /* ========== Games ========== */
+        .games {
+            background: var(--white);
+        }
+        .game-card {
+            background: linear-gradient(180deg, #fff8ee 0%, var(--white) 100%);
+            border: 3px dashed var(--purple-soft);
+            border-radius: var(--radius-xl);
+            padding: 36px 28px;
+            margin-bottom: 32px;
+            position: relative;
+        }
+        .game-card h3 {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 8px;
+            color: var(--purple-deep);
+        }
+        .game-card .game-num {
+            background: var(--purple-deep);
+            color: white;
+            width: 36px; height: 36px;
+            border-radius: 50%;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1rem;
+            font-weight: 700;
+        }
+        .game-card .game-desc {
+            color: var(--ink-soft);
+            margin-bottom: 22px;
+        }
+        .game-success {
+            margin-top: 18px;
+            padding: 14px 18px;
+            background: linear-gradient(135deg, #ecfccb, #d9f99d);
+            border: 2px solid #84cc16;
+            border-radius: 14px;
+            color: #3f6212;
+            font-weight: 700;
+            text-align: center;
+            opacity: 0;
+            transform: translateY(10px);
+            transition: all 0.4s var(--ease);
+        }
+        .game-success.show { opacity: 1; transform: translateY(0); }
+
+        /* Game 1 - drag & drop */
+        .order-pool, .order-target {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            min-height: 60px;
+            padding: 14px;
+            border-radius: 16px;
+            margin-bottom: 14px;
+        }
+        .order-pool {
+            background: rgba(167, 139, 250, 0.08);
+            border: 2px solid var(--purple-soft);
+        }
+        .order-target {
+            background: rgba(20, 184, 166, 0.08);
+            border: 2px dashed var(--teal);
+            min-height: 70px;
+        }
+        .order-label {
+            font-weight: 700;
+            color: var(--ink-soft);
+            font-size: 0.9rem;
+            margin-bottom: 6px;
+            display: block;
+        }
+        .order-chip {
+            background: var(--white);
+            padding: 10px 16px;
+            border-radius: 999px;
+            border: 2px solid var(--line);
+            cursor: grab;
+            font-weight: 600;
+            color: var(--ink);
+            transition: all 0.25s var(--ease);
+            user-select: none;
+            font-size: 0.95rem;
+        }
+        .order-chip:hover { transform: translateY(-2px); border-color: var(--purple); }
+        .order-chip.dragging { opacity: 0.4; }
+        .order-chip.placed { background: linear-gradient(135deg, var(--teal-soft), var(--teal)); color: white; border-color: var(--teal-deep); }
+        .order-actions {
+            display: flex;
+            gap: 10px;
+            margin-top: 10px;
+        }
+
+        /* Game 2 - matching */
+        .match-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 16px;
+        }
+        .match-col {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+        .match-item {
+            background: var(--white);
+            padding: 12px 18px;
+            border: 2px solid var(--line);
+            border-radius: 14px;
+            cursor: pointer;
+            transition: all 0.25s var(--ease);
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        .match-item:hover { border-color: var(--orange); }
+        .match-item.selected { border-color: var(--purple-deep); background: var(--purple-soft); }
+        .match-item.matched { background: linear-gradient(135deg, var(--teal-soft), var(--teal)); color: white; border-color: var(--teal-deep); cursor: default; }
+        .match-item img {
+            width: 38px; height: 38px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 2px solid white;
+        }
+        .match-item code {
+            background: rgba(0,0,0,0.06);
+            padding: 2px 8px;
+            border-radius: 6px;
+            font-size: 0.85rem;
+            font-family: monospace;
+        }
+        .match-item.matched code { background: rgba(255,255,255,0.25); color: white; }
+
+        /* Game 2 - trivia */
+        .trivia-card {
+            position: relative;
+            overflow: hidden;
+            background: linear-gradient(180deg, #fff8ee 0%, #ffe8d1 100%);
+            border-color: var(--orange);
+        }
+        .trivia-card.shake { animation: cardShake 0.5s ease-in-out; }
+        @keyframes cardShake {
+            0%, 100% { transform: translateX(0); }
+            20% { transform: translateX(-10px); }
+            40% { transform: translateX(10px); }
+            60% { transform: translateX(-6px); }
+            80% { transform: translateX(6px); }
+        }
+        .trivia-card.flash {
+            animation: cardFlash 0.6s ease-out;
+        }
+        @keyframes cardFlash {
+            0% { background: linear-gradient(180deg, #fff8ee 0%, #ffe8d1 100%); }
+            40% { background: linear-gradient(180deg, #d9f99d 0%, #bef264 100%); }
+            100% { background: linear-gradient(180deg, #fff8ee 0%, #ffe8d1 100%); }
+        }
+
+        .trivia-emoji-rain {
+            position: absolute;
+            inset: 0;
+            pointer-events: none;
+            overflow: hidden;
+            z-index: 1;
+        }
+        .rain-emoji {
+            position: absolute;
+            top: -40px;
+            font-size: 28px;
+            animation: rainFall linear forwards;
+            opacity: 0.85;
+        }
+        @keyframes rainFall {
+            to { transform: translateY(120%) rotate(360deg); opacity: 0; }
+        }
+
+        .trivia-stage, .trivia-final { position: relative; z-index: 2; }
+
+        .trivia-header {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            margin-bottom: 24px;
+            flex-wrap: wrap;
+        }
+        .trivia-progress-wrap { flex: 1; min-width: 180px; }
+        .trivia-progress-track {
+            height: 14px;
+            background: rgba(255,255,255,0.7);
+            border-radius: 999px;
+            overflow: hidden;
+            border: 2px solid var(--orange);
+            box-shadow: inset 0 2px 4px rgba(0,0,0,0.1);
+        }
+        .trivia-progress-fill {
+            height: 100%;
+            width: 0%;
+            background: linear-gradient(90deg, var(--yellow), var(--orange), var(--orange-deep));
+            border-radius: 999px;
+            transition: width 0.5s var(--ease);
+            box-shadow: 0 0 16px rgba(251, 146, 60, 0.6);
+        }
+        .trivia-progress-label {
+            font-size: 0.85rem;
+            color: var(--ink-soft);
+            font-weight: 700;
+            margin-top: 6px;
+        }
+        .trivia-score {
+            background: linear-gradient(135deg, var(--yellow), var(--orange));
+            padding: 10px 22px;
+            border-radius: 999px;
+            font-weight: 800;
+            font-family: 'Fredoka', sans-serif;
+            font-size: 1.3rem;
+            color: white;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            box-shadow: 0 6px 20px rgba(251, 146, 60, 0.45);
+            text-shadow: 0 2px 4px rgba(0,0,0,0.2);
+        }
+        .trivia-score-icon {
+            display: inline-block;
+            animation: starSpin 4s linear infinite;
+        }
+        @keyframes starSpin { to { transform: rotate(360deg); } }
+        .trivia-score.bump { animation: scoreBump 0.6s var(--ease); }
+        @keyframes scoreBump {
+            0%, 100% { transform: scale(1); }
+            40% { transform: scale(1.35) rotate(-6deg); }
+            70% { transform: scale(1.1) rotate(4deg); }
+        }
+
+        .trivia-question-wrap {
+            background: var(--white);
+            border-radius: var(--radius-lg);
+            padding: 28px 22px;
+            box-shadow: var(--shadow);
+            text-align: center;
+            border: 3px solid var(--yellow);
+            position: relative;
+            min-height: 280px;
+        }
+        .trivia-emoji {
+            font-size: 64px;
+            line-height: 1;
+            margin-bottom: 12px;
+            display: inline-block;
+            animation: emojiBounce 2s ease-in-out infinite;
+            filter: drop-shadow(0 6px 12px rgba(0,0,0,0.15));
+        }
+        @keyframes emojiBounce {
+            0%, 100% { transform: translateY(0) rotate(-3deg); }
+            50% { transform: translateY(-8px) rotate(3deg); }
+        }
+        .trivia-question {
+            font-family: 'Fredoka', sans-serif;
+            font-size: clamp(1.15rem, 3vw, 1.5rem);
+            font-weight: 600;
+            color: var(--ink);
+            margin-bottom: 22px;
+            line-height: 1.4;
+        }
+        .trivia-options {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
+        }
+        .trivia-opt {
+            background: linear-gradient(135deg, var(--white), #fffbf2);
+            border: 3px solid var(--purple-soft);
+            border-radius: 16px;
+            padding: 16px 18px;
+            font-weight: 700;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: all 0.25s var(--ease);
+            color: var(--ink);
+            font-family: inherit;
+            position: relative;
+            overflow: hidden;
+        }
+        .trivia-opt:hover:not(.disabled) {
+            transform: translateY(-4px) scale(1.03);
+            border-color: var(--orange);
+            box-shadow: 0 10px 24px rgba(251, 146, 60, 0.25);
+        }
+        .trivia-opt.disabled { cursor: default; pointer-events: none; }
+        .trivia-opt.correct {
+            background: linear-gradient(135deg, #84cc16, #65a30d);
+            color: white;
+            border-color: #4d7c0f;
+            transform: scale(1.06);
+            box-shadow: 0 14px 30px rgba(132, 204, 22, 0.5);
+            animation: correctPulse 0.6s ease-out;
+        }
+        @keyframes correctPulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.15); }
+            100% { transform: scale(1.06); }
+        }
+        .trivia-opt.wrong {
+            background: linear-gradient(135deg, #f87171, #dc2626);
+            color: white;
+            border-color: #991b1b;
+            animation: wrongShake 0.5s ease-in-out;
+        }
+        @keyframes wrongShake {
+            0%, 100% { transform: translateX(0); }
+            25% { transform: translateX(-8px); }
+            75% { transform: translateX(8px); }
+        }
+        .trivia-opt.dim { opacity: 0.45; }
+
+        .trivia-feedback {
+            text-align: center;
+            margin-top: 18px;
+            min-height: 30px;
+            font-weight: 700;
+            font-size: 1.05rem;
+            opacity: 0;
+            transform: translateY(8px);
+            transition: all 0.3s var(--ease);
+        }
+        .trivia-feedback.show { opacity: 1; transform: translateY(0); }
+        .trivia-feedback.good { color: #4d7c0f; }
+        .trivia-feedback.bad { color: #b91c1c; }
+
+        .trivia-final {
+            display: none;
+            text-align: center;
+            padding: 20px 10px;
+        }
+        .trivia-final.show { display: block; animation: finalPop 0.6s var(--ease); }
+        @keyframes finalPop {
+            0% { transform: scale(0.7); opacity: 0; }
+            60% { transform: scale(1.1); }
+            100% { transform: scale(1); opacity: 1; }
+        }
+        .trivia-final-emoji {
+            font-size: 90px;
+            margin-bottom: 12px;
+            animation: trophySpin 2s ease-in-out infinite;
+            display: inline-block;
+        }
+        @keyframes trophySpin {
+            0%, 100% { transform: rotate(-8deg) scale(1); }
+            50% { transform: rotate(8deg) scale(1.08); }
+        }
+        .trivia-final-title {
+            font-size: 2rem;
+            margin-bottom: 10px;
+            color: var(--purple-deep);
+        }
+        .trivia-final-text {
+            font-size: 1.2rem;
+            color: var(--ink-soft);
+            margin-bottom: 18px;
+        }
+        .trivia-final-text span {
+            font-family: 'Fredoka', sans-serif;
+            font-size: 1.6rem;
+            font-weight: 700;
+            color: var(--orange-deep);
+        }
+        .trivia-stars {
+            font-size: 38px;
+            margin-bottom: 22px;
+            letter-spacing: 4px;
+        }
+        .trivia-stars span {
+            display: inline-block;
+            animation: starPop 0.5s ease-out backwards;
+        }
+        @keyframes starPop {
+            0% { transform: scale(0) rotate(-180deg); opacity: 0; }
+            70% { transform: scale(1.3) rotate(20deg); }
+            100% { transform: scale(1) rotate(0); opacity: 1; }
+        }
+
+        /* Floating + emoji on correct */
+        .float-plus {
+            position: absolute;
+            font-family: 'Fredoka', sans-serif;
+            font-weight: 700;
+            color: #65a30d;
+            font-size: 28px;
+            pointer-events: none;
+            animation: floatUp 1.2s ease-out forwards;
+            z-index: 10;
+        }
+        @keyframes floatUp {
+            0% { transform: translateY(0) scale(0.5); opacity: 0; }
+            20% { opacity: 1; transform: translateY(-10px) scale(1.2); }
+            100% { transform: translateY(-80px) scale(1); opacity: 0; }
+        }
+
+        /* Firework */
+        .firework {
+            position: fixed;
+            width: 6px; height: 6px;
+            border-radius: 50%;
+            pointer-events: none;
+            z-index: 999;
+            animation: fireworkFly 1s ease-out forwards;
+        }
+        @keyframes fireworkFly {
+            0% { transform: translate(0, 0) scale(1); opacity: 1; }
+            100% { transform: translate(var(--fx), var(--fy)) scale(0); opacity: 0; }
+        }
+
+        /* Game 3 - archery */
+        .archery-card {
+            background: linear-gradient(180deg, #fff8ee 0%, #ffe8d1 100%);
+            border-color: var(--orange-deep);
+        }
+        .archery-stage {
+            position: relative;
+            width: 100%;
+            aspect-ratio: 16 / 10;
+            max-height: 480px;
+            border-radius: 18px;
+            overflow: hidden;
+            background: linear-gradient(180deg, #1a0f3a 0%, #2d1b4e 50%, #4c1d95 80%, #7c3aed 100%);
+            box-shadow: inset 0 0 60px rgba(0,0,0,0.4), var(--shadow);
+            cursor: crosshair;
+            user-select: none;
+            touch-action: none;
+        }
+        #archeryCanvas {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            display: block;
+        }
+        .archery-hud {
+            position: absolute;
+            top: 12px;
+            right: 12px;
+            left: 12px;
+            display: flex;
+            gap: 10px;
+            justify-content: space-between;
+            pointer-events: none;
+            z-index: 5;
+        }
+        .archery-hud-item {
+            background: rgba(0,0,0,0.55);
+            color: white;
+            font-family: 'Fredoka', sans-serif;
+            font-weight: 700;
+            font-size: 1.1rem;
+            padding: 6px 14px;
+            border-radius: 999px;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            backdrop-filter: blur(6px);
+            border: 1.5px solid rgba(255,255,255,0.2);
+            min-width: 60px;
+            justify-content: center;
+        }
+        .archery-hud-item.bump { animation: hudBump 0.4s var(--ease); }
+        @keyframes hudBump {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.25); }
+        }
+
+        /* Fullscreen button */
+        .archery-fs {
+            position: absolute;
+            bottom: 12px;
+            right: 12px;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: rgba(0,0,0,0.55);
+            border: 1.5px solid rgba(255,255,255,0.25);
+            color: white;
+            font-size: 18px;
+            font-weight: 700;
+            cursor: pointer;
+            z-index: 6;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            backdrop-filter: blur(6px);
+            font-family: inherit;
+            transition: all 0.25s var(--ease);
+            line-height: 1;
+        }
+        .archery-fs:hover {
+            background: var(--orange);
+            border-color: var(--orange-deep);
+            transform: scale(1.1);
+        }
+
+        /* Archery stage when fullscreen */
+        .archery-stage:fullscreen {
+            width: 100vw;
+            height: 100vh;
+            max-height: none;
+            aspect-ratio: auto;
+            border-radius: 0;
+        }
+        .archery-stage:-webkit-full-screen {
+            width: 100vw;
+            height: 100vh;
+            max-height: none;
+            border-radius: 0;
+        }
+        .archery-stage:fullscreen .archery-fs,
+        .archery-stage:-webkit-full-screen .archery-fs {
+            width: 48px; height: 48px; font-size: 20px;
+        }
+
+        .archery-overlay, .archery-final {
+            position: absolute;
+            inset: 0;
+            background: rgba(10, 10, 35, 0.85);
+            backdrop-filter: blur(8px);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+            z-index: 10;
+            transition: opacity 0.4s ease;
+            padding: 20px;
+        }
+        .archery-final {
+            display: none;
+            opacity: 0;
+        }
+        .archery-final.show {
+            display: flex;
+            opacity: 1;
+            animation: finalPop 0.6s var(--ease);
+        }
+        .archery-overlay.hidden {
+            opacity: 0;
+            pointer-events: none;
+        }
+        .archery-overlay-inner, .archery-final-inner { max-width: 380px; }
+        .archery-big-emoji {
+            font-size: 80px;
+            line-height: 1;
+            margin-bottom: 10px;
+            display: inline-block;
+            animation: emojiBounce 2s ease-in-out infinite;
+            filter: drop-shadow(0 0 20px rgba(251, 146, 60, 0.6));
+        }
+        .archery-overlay h4, .archery-final h4 {
+            font-family: 'Fredoka', sans-serif;
+            font-size: 1.8rem;
+            margin-bottom: 10px;
+            color: white;
+        }
+        .archery-overlay p, .archery-final p {
+            font-size: 1.05rem;
+            opacity: 0.95;
+            margin-bottom: 22px;
+            line-height: 1.6;
+        }
+        .archery-final p span {
+            font-family: 'Fredoka', sans-serif;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--yellow);
+        }
+        .archery-stars {
+            font-size: 38px;
+            margin-bottom: 22px;
+            letter-spacing: 4px;
+        }
+        .archery-stars span {
+            display: inline-block;
+            animation: starPop 0.5s ease-out backwards;
+        }
+
+        @media (max-width: 600px) {
+            .archery-stage { aspect-ratio: 4 / 5; }
+            .archery-hud-item { font-size: 0.95rem; padding: 5px 12px; min-width: 50px; }
+            .archery-big-emoji { font-size: 60px; }
+            .archery-overlay h4, .archery-final h4 { font-size: 1.4rem; }
+        }
+
+        /* ========== Prompt box ========== */
+        .prompt-section {
+            background: linear-gradient(180deg, #f0e9ff, #fff8ee);
+        }
+        .prompt-box {
+            background: var(--white);
+            border-radius: var(--radius-lg);
+            box-shadow: var(--shadow);
+            padding: 28px;
+            border: 2px solid var(--purple-soft);
+            position: relative;
+        }
+        .prompt-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 14px;
+            margin-bottom: 18px;
+        }
+        .prompt-header h3 {
+            color: var(--purple-deep);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .prompt-actions {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+        .prompt-text {
+            background: #1a1d2e;
+            color: #e2e8f0;
+            border-radius: 16px;
+            padding: 24px;
+            font-family: 'Fira Code', 'Courier New', monospace;
+            font-size: 0.85rem;
+            line-height: 1.7;
+            white-space: pre-wrap;
+            max-height: 380px;
+            overflow-y: auto;
+            direction: ltr;
+            text-align: right;
+            transition: max-height 0.5s var(--ease);
+            scrollbar-width: thin;
+            scrollbar-color: var(--purple) transparent;
+        }
+        .prompt-text.expanded { max-height: 2000px; }
+        .prompt-text::-webkit-scrollbar { width: 8px; }
+        .prompt-text::-webkit-scrollbar-thumb { background: var(--purple); border-radius: 4px; }
+        .copy-toast {
+            position: fixed;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%) translateY(100px);
+            background: var(--ink);
+            color: white;
+            padding: 14px 26px;
+            border-radius: 999px;
+            font-weight: 700;
+            box-shadow: var(--shadow-lg);
+            opacity: 0;
+            transition: all 0.4s var(--ease);
+            z-index: 1000;
+        }
+        .copy-toast.show {
+            transform: translateX(-50%) translateY(0);
+            opacity: 1;
+        }
+
+        /* ========== Prompt Builder ========== */
+        .builder {
+            background:
+                radial-gradient(ellipse at 20% 0%, rgba(20, 184, 166, 0.15) 0%, transparent 50%),
+                radial-gradient(ellipse at 80% 100%, rgba(167, 139, 250, 0.18) 0%, transparent 50%),
+                linear-gradient(180deg, #fff8ee 0%, #f0fdfa 100%);
+        }
+        .builder-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 28px;
+            align-items: start;
+        }
+        .builder-form {
+            background: var(--white);
+            border-radius: var(--radius-lg);
+            padding: 30px 26px;
+            box-shadow: var(--shadow);
+            border: 2px solid var(--teal-soft);
+        }
+        .builder-preview {
+            background: #1a1d2e;
+            border-radius: var(--radius-lg);
+            padding: 24px;
+            box-shadow: var(--shadow);
+            border: 2px solid var(--purple-soft);
+            position: sticky;
+            top: 20px;
+            max-height: calc(100vh - 40px);
+            display: flex;
+            flex-direction: column;
+        }
+        .builder-preview-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 14px;
+            flex-wrap: wrap;
+        }
+        .builder-preview-title {
+            color: white;
+            font-family: 'Fredoka', sans-serif;
+            font-weight: 600;
+            font-size: 1.1rem;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .builder-preview-actions {
+            display: flex;
+            gap: 8px;
+            flex-wrap: wrap;
+        }
+        .builder-preview-actions .btn {
+            padding: 8px 16px;
+            font-size: 13px;
+        }
+        .builder-preview-text {
+            background: rgba(255,255,255,0.04);
+            color: #e2e8f0;
+            border-radius: 12px;
+            padding: 18px;
+            font-family: 'Fira Code', 'Courier New', monospace;
+            font-size: 0.78rem;
+            line-height: 1.7;
+            white-space: pre-wrap;
+            overflow-y: auto;
+            flex: 1;
+            min-height: 320px;
+            max-height: 60vh;
+            border: 1px solid rgba(255,255,255,0.08);
+            direction: ltr;
+            text-align: right;
+            scrollbar-width: thin;
+            scrollbar-color: var(--teal) transparent;
+        }
+        .builder-preview-text::-webkit-scrollbar { width: 8px; }
+        .builder-preview-text::-webkit-scrollbar-thumb { background: var(--teal); border-radius: 4px; }
+
+        .field {
+            margin-bottom: 18px;
+        }
+        .field label {
+            display: block;
+            font-weight: 700;
+            color: var(--ink);
+            margin-bottom: 6px;
+            font-size: 0.95rem;
+        }
+        .field .hint {
+            color: var(--ink-muted);
+            font-size: 0.82rem;
+            margin-bottom: 8px;
+            display: block;
+            font-weight: 400;
+        }
+        .field input[type="text"],
+        .field input[type="number"],
+        .field textarea,
+        .field select {
+            width: 100%;
+            padding: 12px 14px;
+            border-radius: 12px;
+            border: 2px solid var(--line);
+            font-family: inherit;
+            font-size: 1rem;
+            color: var(--ink);
+            background: #fffdf7;
+            transition: all 0.2s var(--ease);
+        }
+        .field input:focus,
+        .field textarea:focus,
+        .field select:focus {
+            outline: none;
+            border-color: var(--teal-deep);
+            background: white;
+            box-shadow: 0 0 0 4px rgba(20, 184, 166, 0.15);
+        }
+        .field textarea { resize: vertical; min-height: 70px; }
+
+        .field-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
+        }
+
+        .style-chips {
+            display: flex;
+            gap: 8px;
+            flex-wrap: wrap;
+        }
+        .style-chip {
+            padding: 8px 16px;
+            border-radius: 999px;
+            border: 2px solid var(--line);
+            background: white;
+            cursor: pointer;
+            font-weight: 600;
+            font-size: 0.9rem;
+            transition: all 0.2s var(--ease);
+            color: var(--ink-soft);
+            font-family: inherit;
+        }
+        .style-chip:hover { border-color: var(--purple); }
+        .style-chip.active {
+            background: linear-gradient(135deg, var(--purple), var(--purple-deep));
+            color: white;
+            border-color: var(--purple-deep);
+            box-shadow: 0 6px 16px rgba(167, 139, 250, 0.35);
+        }
+
+        /* Characters */
+        .characters-list {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            margin-bottom: 10px;
+        }
+        .character-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1.4fr auto;
+            gap: 8px;
+            align-items: center;
+            padding: 10px;
+            background: #fffdf7;
+            border-radius: 12px;
+            border: 1.5px dashed var(--purple-soft);
+        }
+        .character-row input {
+            padding: 8px 10px;
+            font-size: 0.9rem;
+            border: 1.5px solid var(--line);
+            border-radius: 8px;
+            background: white;
+            font-family: inherit;
+        }
+        .character-row input:focus {
+            outline: none;
+            border-color: var(--purple);
+        }
+        .character-remove {
+            width: 32px; height: 32px;
+            border-radius: 50%;
+            background: rgba(220, 38, 38, 0.1);
+            color: #dc2626;
+            border: none;
+            cursor: pointer;
+            font-size: 18px;
+            font-weight: 700;
+            transition: all 0.2s var(--ease);
+        }
+        .character-remove:hover { background: #dc2626; color: white; }
+        .add-character {
+            background: rgba(167, 139, 250, 0.12);
+            color: var(--purple-deep);
+            border: 2px dashed var(--purple);
+            padding: 10px 16px;
+            border-radius: 12px;
+            font-weight: 700;
+            cursor: pointer;
+            font-family: inherit;
+            transition: all 0.2s var(--ease);
+            width: 100%;
+        }
+        .add-character:hover {
+            background: var(--purple);
+            color: white;
+            border-style: solid;
+        }
+
+        @media (max-width: 900px) {
+            .builder-grid { grid-template-columns: 1fr; }
+            .builder-preview { position: static; max-height: none; }
+            .character-row { grid-template-columns: 1fr 1fr 1.5fr auto; }
+        }
+        @media (max-width: 600px) {
+            .character-row { grid-template-columns: 1fr auto; gap: 6px; }
+            .character-row input { width: 100%; grid-column: 1 / -1; }
+            .character-row .character-remove { grid-column: 2; grid-row: 1 / span 3; }
+        }
+
+        /* ========== Tips ========== */
+        .tips {
+            background: var(--white);
+        }
+        .tips-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 18px;
+        }
+        .tip-card {
+            background: linear-gradient(135deg, #fffdf7, var(--white));
+            border-right: 4px solid var(--orange);
+            border-radius: 14px;
+            padding: 20px 22px;
+            box-shadow: var(--shadow-sm);
+            transition: all 0.3s var(--ease);
+        }
+        .tip-card:hover { transform: translateX(-4px); box-shadow: var(--shadow); }
+        .tip-card .tip-icon {
+            font-size: 26px;
+            margin-bottom: 8px;
+        }
+        .tip-card h4 {
+            font-size: 1.05rem;
+            margin-bottom: 6px;
+            color: var(--orange-deep);
+        }
+        .tip-card p { font-size: 0.92rem; color: var(--ink-soft); line-height: 1.55; }
+        .tip-card code {
+            background: var(--cream);
+            padding: 1px 6px;
+            border-radius: 4px;
+            font-size: 0.85rem;
+        }
+
+        .tips-callout {
+            margin-top: 36px;
+            background: linear-gradient(135deg, var(--purple) 0%, var(--purple-deep) 100%);
+            color: white;
+            border-radius: var(--radius-lg);
+            padding: 32px;
+            text-align: center;
+            box-shadow: var(--shadow-lg);
+        }
+        .tips-callout h3 { color: white; margin-bottom: 10px; font-size: 1.4rem; }
+        .tips-callout p { font-size: 1.05rem; opacity: 0.95; line-height: 1.7; }
+        .tips-callout strong { background: rgba(255,255,255,0.18); padding: 2px 10px; border-radius: 6px; }
+
+        /* ========== FAQ ========== */
+        .faq {
+            background: linear-gradient(180deg, #fff8ee, #fff);
+        }
+        .faq-list {
+            max-width: 760px;
+            margin: 0 auto;
+        }
+        .faq-item {
+            background: var(--white);
+            border-radius: 16px;
+            margin-bottom: 12px;
+            border: 2px solid var(--line);
+            overflow: hidden;
+            transition: all 0.3s var(--ease);
+        }
+        .faq-item:hover { border-color: var(--purple-soft); }
+        .faq-item.open { border-color: var(--orange); box-shadow: var(--shadow-sm); }
+        .faq-q {
+            padding: 18px 22px;
+            font-weight: 700;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 1.05rem;
+            color: var(--ink);
+            gap: 12px;
+        }
+        .faq-toggle {
+            width: 28px; height: 28px;
+            background: var(--purple-soft);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            color: var(--purple-deep);
+            transition: transform 0.3s var(--ease);
+            flex-shrink: 0;
+        }
+        .faq-item.open .faq-toggle { transform: rotate(45deg); background: var(--orange); color: white; }
+        .faq-a {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.4s var(--ease);
+            color: var(--ink-soft);
+            line-height: 1.7;
+        }
+        .faq-a-inner { padding: 0 22px 20px; }
+        .faq-item.open .faq-a { max-height: 400px; }
+
+        /* ========== Final CTA ========== */
+        .cta {
+            background: linear-gradient(135deg, #1f2544 0%, #2d1b4e 50%, #4c1d95 100%);
+            color: white;
+            position: relative;
+            overflow: hidden;
+            padding: 120px 0;
+        }
+        .cta-bg {
+            position: absolute;
+            inset: 0;
+            z-index: 0;
+            overflow: hidden;
+        }
+        .cta-bg img {
+            position: absolute;
+            top: 50%;
+            right: 0;
+            transform: translateY(-50%);
+            width: auto;
+            height: 100%;
+            min-height: 100%;
+            min-width: 60%;
+            object-fit: cover;
+            object-position: right center;
+            opacity: 0.95;
+        }
+        .cta-bg::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background:
+                linear-gradient(to left, transparent 0%, transparent 30%, rgba(31, 37, 68, 0.7) 55%, rgba(31, 37, 68, 0.95) 75%, #1f2544 100%);
+        }
+        .cta-inner {
+            position: relative;
+            z-index: 1;
+            max-width: 540px;
+            text-align: right;
+        }
+        .cta-inner .eyebrow { margin-bottom: 18px; }
+        .cta h2 {
+            color: white;
+            margin-bottom: 16px;
+            text-shadow: 0 4px 20px rgba(0,0,0,0.5);
+        }
+        .cta p {
+            font-size: 1.15rem;
+            opacity: 0.95;
+            margin: 0 0 32px;
+            text-shadow: 0 2px 10px rgba(0,0,0,0.4);
+        }
+        .cta-buttons {
+            display: flex;
+            gap: 14px;
+            justify-content: flex-start;
+            flex-wrap: wrap;
+            margin-bottom: 32px;
+        }
+        .cta-share {
+            display: flex;
+            gap: 10px;
+            justify-content: flex-start;
+            align-items: center;
+            font-size: 0.95rem;
+            opacity: 0.95;
+            flex-wrap: wrap;
+        }
+        .share-btn {
+            width: 44px; height: 44px;
+            background: rgba(255,255,255,0.12);
+            border-radius: 50%;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 18px;
+            transition: all 0.3s var(--ease);
+            cursor: pointer;
+            border: 2px solid rgba(255,255,255,0.15);
+        }
+        .share-btn:hover { background: var(--orange); transform: translateY(-3px) scale(1.1); border-color: var(--orange); }
+
+        /* ========== Footer ========== */
+        footer {
+            background: #1a1d2e;
+            color: rgba(255,255,255,0.7);
+            padding: 32px 0;
+            text-align: center;
+            font-size: 0.9rem;
+        }
+        footer a { color: var(--orange); }
+
+        /* ========== Reveal animations ========== */
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s var(--ease), transform 0.8s var(--ease);
+        }
+        .reveal.in {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* ========== Confetti ========== */
+        .confetti-piece {
+            position: fixed;
+            width: 10px; height: 10px;
+            top: -20px;
+            z-index: 999;
+            pointer-events: none;
+            animation: confettiFall 3s ease-in forwards;
+        }
+        @keyframes confettiFall {
+            to { transform: translateY(110vh) rotate(720deg); }
+        }
+
+        /* ========== Responsive ========== */
+        @media (max-width: 900px) {
+            section { padding: 64px 0; }
+            .hero { padding: 60px 0 40px; }
+            .hero-grid { grid-template-columns: 1fr; gap: 32px; }
+            .hero-visual { min-height: 240px; }
+            .example-grid { grid-template-columns: 1fr; gap: 36px; }
+            .book-mockup { min-height: 360px; }
+            .book-cover { width: 220px; height: 290px; padding: 22px 18px; }
+            .book-cover .cover-art { font-size: 56px; }
+            .book-cover .cover-title { font-size: 1.2rem; }
+            .pages-preview { grid-template-columns: 1fr; }
+            .flow-node { min-width: 240px; padding: 14px 22px; font-size: 0.95rem; }
+            .match-grid { grid-template-columns: 1fr; gap: 8px; }
+            .quiz-options { grid-template-columns: 1fr 1fr; }
+            .game-card { padding: 26px 18px; }
+        }
+        @media (max-width: 480px) {
+            body { font-size: 16px; }
+            .container, .container-narrow { padding: 0 18px; }
+            .hero-buttons .btn, .cta-buttons .btn { width: 100%; }
+            .prompt-text { padding: 18px; font-size: 0.78rem; }
+        }
+        /* ========== Gallery ========== */
+        .gallery {
+            background: linear-gradient(180deg, #fef0db 0%, #fff8ee 100%);
+        }
+        .gallery-loader {
+            text-align: center;
+            padding: 40px;
+            color: var(--ink-muted);
+            font-size: 1.05rem;
+        }
+        .gallery-loader-bar {
+            margin: 16px auto 0;
+            width: 240px;
+            height: 8px;
+            background: rgba(0,0,0,0.08);
+            border-radius: 999px;
+            overflow: hidden;
+        }
+        .gallery-loader-fill {
+            height: 100%;
+            width: 0%;
+            background: linear-gradient(90deg, var(--orange), var(--orange-deep));
+            transition: width 0.4s ease;
+            box-shadow: 0 0 12px rgba(251, 146, 60, 0.5);
+        }
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+            gap: 22px;
+        }
+        .gallery-item {
+            background: var(--white);
+            border-radius: var(--radius);
+            overflow: hidden;
+            box-shadow: var(--shadow-sm);
+            cursor: pointer;
+            transition: all 0.4s var(--ease);
+            position: relative;
+            border: 2px solid transparent;
+        }
+        .gallery-item:hover {
+            transform: translateY(-6px) rotate(-0.5deg);
+            box-shadow: var(--shadow-lg);
+            border-color: var(--orange);
+        }
+        .gallery-item canvas, .gallery-item img {
+            width: 100%;
+            height: auto;
+            display: block;
+            background: white;
+        }
+        .gallery-item-num {
+            position: absolute;
+            top: 10px; right: 10px;
+            background: var(--orange);
+            color: white;
+            font-size: 13px;
+            font-weight: 700;
+            padding: 4px 12px;
+            border-radius: 999px;
+            box-shadow: var(--shadow-sm);
+            font-family: 'Fredoka', sans-serif;
+        }
+        .gallery-empty {
+            text-align: center;
+            padding: 30px;
+            color: var(--ink-muted);
+            grid-column: 1 / -1;
+        }
+
+        /* ========== Lightbox ========== */
+        .lightbox {
+            position: fixed;
+            inset: 0;
+            z-index: 9998;
+            background: rgba(10, 10, 35, 0.92);
+            backdrop-filter: blur(8px);
+            display: none;
+            align-items: center;
+            justify-content: center;
+            padding: 30px;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        .lightbox.show { display: flex; opacity: 1; }
+        .lightbox-content {
+            position: relative;
+            width: 100%;
+            max-width: 1000px;
+            height: 100%;
+            max-height: 90vh;
+            background: var(--white);
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            box-shadow: var(--shadow-lg);
+            transform: scale(0.9);
+            transition: transform 0.4s var(--ease);
+            display: flex;
+            flex-direction: column;
+        }
+        .lightbox.show .lightbox-content { transform: scale(1); }
+        .lightbox-header {
+            padding: 14px 20px;
+            background: linear-gradient(135deg, var(--orange), var(--orange-deep));
+            color: white;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 14px;
+            flex-wrap: wrap;
+        }
+        .lightbox-title {
+            font-family: 'Fredoka', sans-serif;
+            font-weight: 600;
+            font-size: 1.1rem;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .lightbox-actions { display: flex; gap: 8px; flex-wrap: wrap; }
+        .lightbox-actions a, .lightbox-close {
+            background: rgba(255,255,255,0.2);
+            color: white;
+            padding: 8px 14px;
+            border-radius: 999px;
+            border: 1.5px solid rgba(255,255,255,0.4);
+            cursor: pointer;
+            font-family: inherit;
+            font-weight: 700;
+            font-size: 13px;
+            transition: all 0.2s var(--ease);
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+        }
+        .lightbox-actions a:hover, .lightbox-close:hover {
+            background: rgba(255,255,255,0.35);
+            transform: translateY(-2px);
+        }
+        .lightbox-close {
+            font-size: 18px;
+            padding: 8px 14px;
+        }
+        .lightbox-iframe {
+            flex: 1;
+            width: 100%;
+            border: none;
+            background: #f5f5f5;
+        }
+        .lightbox-stage {
+            flex: 1;
+            position: relative;
+            background: #f5f5f5;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: auto;
+            padding: 20px;
+        }
+        .lightbox-canvas {
+            max-width: 100%;
+            max-height: 100%;
+            box-shadow: 0 8px 30px rgba(0,0,0,0.25);
+            border-radius: 6px;
+            background: white;
+            display: block;
+        }
+        .lightbox-loading {
+            position: absolute;
+            inset: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--ink-muted);
+            font-weight: 700;
+            background: rgba(245,245,245,0.9);
+            transition: opacity 0.2s ease;
+        }
+        .lightbox-loading.hidden { opacity: 0; pointer-events: none; }
+        .lightbox-nav {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.95);
+            border: none;
+            box-shadow: var(--shadow);
+            cursor: pointer;
+            font-size: 22px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--orange-deep);
+            transition: all 0.25s var(--ease);
+            font-family: inherit;
+            font-weight: 700;
+            z-index: 5;
+        }
+        .lightbox-nav:hover:not(:disabled) {
+            background: var(--orange);
+            color: white;
+            transform: translateY(-50%) scale(1.1);
+        }
+        .lightbox-nav:disabled { opacity: 0.3; cursor: not-allowed; }
+        .lightbox-prev { right: 16px; }
+        .lightbox-next { left: 16px; }
+        .lightbox-counter {
+            position: absolute;
+            bottom: 16px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: rgba(0,0,0,0.6);
+            color: white;
+            padding: 6px 16px;
+            border-radius: 999px;
+            font-size: 13px;
+            font-weight: 700;
+            font-family: 'Fredoka', sans-serif;
+        }
+        .book-cover { cursor: pointer; }
+        .book-cover-hint {
+            position: absolute;
+            bottom: 8px; right: 8px;
+            background: rgba(0,0,0,0.5);
+            color: white;
+            font-size: 11px;
+            padding: 4px 10px;
+            border-radius: 999px;
+            font-weight: 700;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        .book-cover:hover .book-cover-hint { opacity: 1; }
+
+        @media (max-width: 600px) {
+            .lightbox { padding: 10px; }
+            .lightbox-content { max-height: 95vh; }
+            .lightbox-title { font-size: 0.95rem; }
+        }
+
+        /* ========== Print button ========== */
+        .print-btn {
+            position: fixed;
+            bottom: 22px;
+            left: 86px;
+            width: 52px;
+            height: 52px;
+            border-radius: 50%;
+            background: var(--white);
+            border: 2px solid var(--teal-soft);
+            box-shadow: var(--shadow);
+            cursor: pointer;
+            z-index: 100;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 22px;
+            transition: all 0.3s var(--ease);
+            font-family: inherit;
+        }
+        .print-btn:hover {
+            transform: translateY(-3px) scale(1.08);
+            border-color: var(--teal);
+            box-shadow: var(--shadow-lg);
+        }
+
+        @media print {
+            body { background: white !important; }
+            .intro-overlay, .sound-toggle, .print-btn, .copy-toast,
+            .games, .cta, .cta-share, footer, .hero-buttons, .hero-visual,
+            .builder-preview-actions, .prompt-actions, .example-buttons,
+            .cta-buttons, #lightbox, .whatsapp-float { display: none !important; }
+            section { padding: 24px 0 !important; page-break-inside: avoid; break-inside: avoid; }
+            .reveal { opacity: 1 !important; transform: none !important; }
+            .hero-grid { grid-template-columns: 1fr !important; }
+            .prompt-text { max-height: none !important; background: #f5f5f5 !important; color: #1a1d2e !important; font-size: 11px !important; }
+            .prompt-text.expanded, .prompt-text { max-height: none !important; overflow: visible !important; }
+            * { box-shadow: none !important; }
+            a { color: var(--purple-deep) !important; }
+            h1, h2, h3 { page-break-after: avoid; }
+        }
+
+        /* ========== Sound toggle ========== */
+        .sound-toggle {
+            position: fixed;
+            bottom: 22px;
+            left: 22px;
+            width: 52px;
+            height: 52px;
+            border-radius: 50%;
+            background: var(--white);
+            border: 2px solid var(--purple-soft);
+            box-shadow: var(--shadow);
+            cursor: pointer;
+            z-index: 100;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 22px;
+            transition: all 0.3s var(--ease);
+            font-family: inherit;
+        }
+        .sound-toggle:hover {
+            transform: translateY(-3px) scale(1.08);
+            border-color: var(--purple);
+            box-shadow: var(--shadow-lg);
+        }
+        .sound-toggle.muted {
+            background: #f4f4f5;
+            border-color: var(--line);
+            opacity: 0.7;
+        }
+
+        /* ========== CINEMATIC INTRO ========== */
+        .intro-overlay {
+            position: fixed;
+            inset: 0;
+            z-index: 9999;
+            background:
+                radial-gradient(ellipse at 30% 20%, rgba(124, 58, 237, 0.35) 0%, transparent 50%),
+                radial-gradient(ellipse at 70% 80%, rgba(234, 88, 12, 0.25) 0%, transparent 50%),
+                linear-gradient(180deg, #0a0a23 0%, #1a0f3a 50%, #2d1b4e 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            transition: opacity 0.7s ease, visibility 0.7s ease;
+        }
+        .intro-overlay.dismissed {
+            opacity: 0;
+            visibility: hidden;
+            pointer-events: none;
+        }
+        body.intro-active { overflow: hidden; }
+
+        /* Twinkling stars background */
+        .intro-stars {
+            position: absolute;
+            inset: 0;
+            pointer-events: none;
+        }
+        .intro-star {
+            position: absolute;
+            width: 2px; height: 2px;
+            background: white;
+            border-radius: 50%;
+            box-shadow: 0 0 6px white;
+            animation: twinkle 3s ease-in-out infinite;
+            opacity: 0;
+        }
+        @keyframes twinkle {
+            0%, 100% { opacity: 0.3; transform: scale(1); }
+            50% { opacity: 1; transform: scale(1.4); }
+        }
+
+        /* Tiny corner campfire spark */
+        .intro-fire {
+            position: absolute;
+            bottom: 40px;
+            left: 40px;
+            width: 26px; height: 36px;
+            opacity: 0;
+            transition: opacity 0.8s ease 1.2s;
+        }
+        .intro-fire.show { opacity: 0.85; }
+        .intro-fire-flame {
+            position: absolute;
+            bottom: 0; left: 50%;
+            transform: translateX(-50%);
+            width: 18px; height: 28px;
+            background: radial-gradient(ellipse at center bottom, #fbbf24, #f97316 50%, #dc2626 100%);
+            border-radius: 50% 50% 20% 20% / 60% 60% 40% 40%;
+            transform-origin: center bottom;
+            animation: flicker 1s ease-in-out infinite alternate;
+            filter: blur(0.5px);
+        }
+        .intro-fire-base {
+            position: absolute;
+            bottom: 0; left: 50%;
+            transform: translateX(-50%);
+            width: 22px; height: 4px;
+            background: linear-gradient(90deg, #57534e, #1c1917, #57534e);
+            border-radius: 3px;
+        }
+
+        /* Skip button */
+        .intro-skip {
+            position: absolute;
+            top: 24px;
+            left: 24px;
+            padding: 10px 20px;
+            border-radius: 999px;
+            background: rgba(255, 255, 255, 0.12);
+            border: 1.5px solid rgba(255, 255, 255, 0.3);
+            color: rgba(255, 255, 255, 0.9);
+            font-family: inherit;
+            font-weight: 700;
+            font-size: 14px;
+            cursor: pointer;
+            backdrop-filter: blur(10px);
+            opacity: 0;
+            transition: all 0.4s ease;
+            z-index: 10;
+        }
+        .intro-skip.show { opacity: 1; }
+        .intro-skip:hover {
+            background: rgba(255, 255, 255, 0.22);
+            border-color: rgba(255, 255, 255, 0.5);
+            transform: translateY(-2px);
+        }
+
+        /* Stage container */
+        .intro-stage {
+            position: relative;
+            width: 100%;
+            max-width: 600px;
+            height: 480px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        /* Phase 1: spark */
+        .intro-spark {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 8px; height: 8px;
+            border-radius: 50%;
+            background: radial-gradient(circle, #fff8dc 0%, #fbbf24 50%, transparent 80%);
+            box-shadow:
+                0 0 20px #fbbf24,
+                0 0 40px rgba(251, 191, 36, 0.6),
+                0 0 80px rgba(251, 146, 60, 0.4);
+            transform: translate(-50%, -50%) scale(0);
+            animation: sparkGrow 1s ease-out 0.2s forwards;
+        }
+        @keyframes sparkGrow {
+            0% { transform: translate(-50%, -50%) scale(0); opacity: 0; }
+            30% { transform: translate(-50%, -50%) scale(1); opacity: 1; }
+            70% { transform: translate(-50%, -50%) scale(4); opacity: 1; }
+            100% { transform: translate(-50%, -50%) scale(20); opacity: 0; }
+        }
+
+        /* Phase 2: sparkles burst & converge */
+        .intro-sparkles {
+            position: absolute;
+            top: 50%; left: 50%;
+            width: 0; height: 0;
+            opacity: 0;
+            animation: sparkleStage 2.6s ease-in-out 1s forwards;
+        }
+        @keyframes sparkleStage {
+            0% { opacity: 0; }
+            10% { opacity: 1; }
+            100% { opacity: 1; }
+        }
+        .intro-sparkle {
+            position: absolute;
+            font-size: 22px;
+            top: 0; left: 0;
+            transform: translate(var(--burst-x), var(--burst-y)) scale(0);
+            animation: burstAndConverge 2.4s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+            filter: drop-shadow(0 0 6px rgba(251, 191, 36, 0.8));
+        }
+        @keyframes burstAndConverge {
+            0% { transform: translate(0, 0) scale(0) rotate(0deg); opacity: 0; }
+            15% { transform: translate(var(--burst-x), var(--burst-y)) scale(1.3) rotate(180deg); opacity: 1; }
+            55% { transform: translate(var(--burst-x), var(--burst-y)) scale(1) rotate(360deg); opacity: 1; }
+            85% { transform: translate(var(--book-x), var(--book-y)) scale(0.6) rotate(540deg); opacity: 1; }
+            100% { transform: translate(var(--book-x), var(--book-y)) scale(0) rotate(720deg); opacity: 0; }
+        }
+
+        /* Phase 3: Book appears, opens, light bursts */
+        .intro-book {
+            position: relative;
+            width: 240px;
+            height: 180px;
+            opacity: 0;
+            transform: scale(0.3) rotateX(60deg);
+            animation: bookAppear 0.7s cubic-bezier(0.34, 1.56, 0.64, 1) 3.2s forwards;
+        }
+        @keyframes bookAppear {
+            0% { opacity: 0; transform: scale(0.3) rotateX(60deg) translateY(40px); }
+            100% { opacity: 1; transform: scale(1) rotateX(0) translateY(0); }
+        }
+
+        .intro-book-page {
+            position: absolute;
+            top: 0;
+            width: 50%;
+            height: 100%;
+            background: linear-gradient(135deg, #fffdf7 0%, #fff5e0 100%);
+            border: 2px solid #f5e6c8;
+            box-shadow: inset 0 0 30px rgba(180, 130, 50, 0.15);
+        }
+        .intro-book-page.left {
+            right: 50%;
+            border-radius: 6px 2px 2px 6px;
+            transform-origin: right center;
+            animation: leftPageOpen 0.8s ease-out 4s forwards;
+        }
+        .intro-book-page.right {
+            left: 50%;
+            border-radius: 2px 6px 6px 2px;
+            transform-origin: left center;
+            animation: rightPageOpen 0.8s ease-out 4s forwards;
+        }
+        @keyframes leftPageOpen {
+            0% { transform: rotateY(0deg); }
+            100% { transform: rotateY(-25deg); }
+        }
+        @keyframes rightPageOpen {
+            0% { transform: rotateY(0deg); }
+            100% { transform: rotateY(25deg); }
+        }
+        .intro-book-spine {
+            position: absolute;
+            top: -4px; bottom: -4px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 6px;
+            background: linear-gradient(180deg, #ea580c, #b45309);
+            border-radius: 4px;
+            box-shadow: 0 0 25px rgba(251, 146, 60, 0.7);
+            z-index: 2;
+        }
+
+        /* Light burst from book */
+        .intro-light-burst {
+            position: absolute;
+            top: 50%; left: 50%;
+            width: 30px; height: 30px;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(255, 248, 220, 1) 0%, rgba(251, 191, 36, 0.8) 30%, transparent 70%);
+            transform: translate(-50%, -50%) scale(0);
+            opacity: 0;
+            animation: lightBurst 1.2s ease-out 4.1s forwards;
+            pointer-events: none;
+            mix-blend-mode: screen;
+        }
+        @keyframes lightBurst {
+            0% { transform: translate(-50%, -50%) scale(0); opacity: 0; }
+            30% { transform: translate(-50%, -50%) scale(8); opacity: 1; }
+            100% { transform: translate(-50%, -50%) scale(20); opacity: 0; }
+        }
+
+        .intro-light-rays {
+            position: absolute;
+            top: 50%; left: 50%;
+            width: 1px; height: 1px;
+            opacity: 0;
+            animation: raysShow 1.5s ease-out 4.1s forwards;
+        }
+        @keyframes raysShow {
+            0% { opacity: 0; }
+            30% { opacity: 0.7; }
+            100% { opacity: 0; }
+        }
+        .intro-ray {
+            position: absolute;
+            top: 0; left: 0;
+            width: 3px;
+            height: 300px;
+            background: linear-gradient(180deg, rgba(251, 191, 36, 0.8) 0%, transparent 100%);
+            transform-origin: top center;
+            transform: translate(-50%, 0) rotate(var(--ray-angle));
+            filter: blur(1px);
+        }
+
+        /* Title text */
+        .intro-text-wrap {
+            position: absolute;
+            bottom: 60px;
+            left: 0; right: 0;
+            text-align: center;
+            padding: 0 24px;
+        }
+        .intro-title {
+            font-family: 'Fredoka', sans-serif;
+            font-weight: 700;
+            font-size: clamp(1.5rem, 4vw, 2.4rem);
+            color: white;
+            margin-bottom: 14px;
+            letter-spacing: 0.02em;
+            line-height: 1.3;
+            text-shadow: 0 0 20px rgba(251, 191, 36, 0.5), 0 4px 16px rgba(0,0,0,0.4);
+        }
+        .intro-title .letter {
+            display: inline-block;
+            opacity: 0;
+            transform: translateY(20px) scale(0.6);
+            animation: letterIn 0.5s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+        }
+        @keyframes letterIn {
+            to { opacity: 1; transform: translateY(0) scale(1); }
+        }
+
+        .intro-subtitle {
+            font-size: clamp(0.95rem, 2vw, 1.15rem);
+            color: rgba(255, 255, 255, 0.85);
+            font-weight: 500;
+            opacity: 0;
+            transform: translateY(10px);
+            animation: subtitleIn 0.8s ease-out 5.6s forwards;
+            text-shadow: 0 2px 8px rgba(0,0,0,0.4);
+        }
+        @keyframes subtitleIn {
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .intro-line {
+            width: 0;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, #fbbf24, transparent);
+            margin: 0 auto 16px;
+            animation: lineGrow 0.8s ease-out 5.2s forwards;
+        }
+        @keyframes lineGrow { to { width: 200px; } }
+
+        @media (max-width: 600px) {
+            .intro-stage { height: 400px; }
+            .intro-book { width: 180px; height: 140px; }
+            .intro-text-wrap { bottom: 40px; }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            .intro-overlay { transition: opacity 0.3s ease; }
+        }
+
+    </style>
+</head>
+<body class="intro-active">
+
+<!-- ============ CINEMATIC INTRO ============ -->
+<div class="intro-overlay" id="introOverlay" aria-hidden="true" role="presentation">
+    <button type="button" class="intro-skip" id="introSkip">דלג ←</button>
+
+    <div class="intro-stars" id="introStars"></div>
+
+    <div class="intro-fire" id="introFire">
+        <div class="intro-fire-base"></div>
+        <div class="intro-fire-flame"></div>
+    </div>
+
+    <div class="intro-stage">
+        <div class="intro-spark"></div>
+        <div class="intro-sparkles" id="introSparkles"></div>
+
+        <div class="intro-light-burst"></div>
+        <div class="intro-light-rays" id="introRays"></div>
+
+        <div class="intro-book">
+            <div class="intro-book-page left"></div>
+            <div class="intro-book-page right"></div>
+            <div class="intro-book-spine"></div>
+        </div>
+
+        <div class="intro-text-wrap">
+            <div class="intro-title" id="introTitle"></div>
+            <div class="intro-line"></div>
+            <div class="intro-subtitle">סיפור קסום מתחיל כאן ✨</div>
+        </div>
+    </div>
+</div>
+
+<!-- ============ HERO ============ -->
+<section class="hero">
+    <div class="cloud cloud-1"></div>
+    <div class="cloud cloud-2"></div>
+
+    <div class="container">
+        <div class="hero-grid">
+            <div class="hero-content">
+                <span class="eyebrow">✨ מדריך + דוגמה אמיתית</span>
+                <h1>כך יוצרים ספר ילדים אישי ומאויר עם AI</h1>
+                <p class="lede">הופכים רעיון, חג או זיכרון משפחתי לסיפור מאויר בעזרת NotebookLM, Gemini Storybook ו־Canvas של Google.</p>
+                <p class="small">רוצים ליצור ספר ילדים מרגש, אישי ומאויר על המשפחה שלכם? הנה הדרך הכי פשוטה, כיפית וקסומה לעשות את זה — כולל דוגמה אמיתית של ספר שנוצר על ל״ג בעומר.</p>
+                <div class="hero-buttons">
+                    <a href="#example" class="btn btn-primary">📖 לראות את הדוגמה</a>
+                    <a href="#prompt" class="btn btn-secondary">📋 להעתקת הפרומפט</a>
+                    <a href="#how" class="btn btn-secondary">⚙️ איך זה עובד?</a>
+                </div>
+            </div>
+
+            <div class="hero-visual">
+                <span class="sparkle">✨</span>
+                <span class="sparkle">⭐</span>
+                <span class="sparkle">✨</span>
+                <span class="sparkle">💫</span>
+                <div class="hero-image-frame">
+                    <img src="images/Hero.webp" alt="משפחה שקוראת ספר ילדים מאויר עם AI מתחת לשמיים מלאי כוכבים" class="hero-image" loading="eager" fetchpriority="high">
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ============ OUTCOMES ============ -->
+<section class="outcome">
+    <div class="container">
+        <div class="section-head reveal">
+            <span class="eyebrow">🎁 מה יוצא בסוף?</span>
+            <h2>תוצר אישי שאפשר לשמור, לשתף ולהדפיס</h2>
+            <p>בכמה שעות עבודה — ספר ילדים מאויר עם הדמויות שלכם, סיפור שלכם, וסגנון שלכם.</p>
+        </div>
+
+        <div class="outcome-grid">
+            <div class="outcome-card reveal">
+                <div class="icon ic-orange">📚</div>
+                <h3>ספר ילדים אישי</h3>
+                <p>סיפור שכתוב במיוחד עבורכם, על המשפחה שלכם, על החג שלכם או על הזיכרון שאתם רוצים לשמר.</p>
+            </div>
+            <div class="outcome-card reveal">
+                <div class="icon ic-purple">🎨</div>
+                <h3>איורים מותאמים</h3>
+                <p>איורים בסגנון ספר ילדים חם וצבעוני, שנשמרים עקביים לאורך כל העמודים.</p>
+            </div>
+            <div class="outcome-card reveal">
+                <div class="icon ic-pink">👨‍👩‍👧‍👧</div>
+                <h3>דמויות מהתמונות שלכם</h3>
+                <p>הדמויות בספר מבוססות על תמונות אמיתיות שהעליתם — של בני המשפחה, התלמידים או החברים.</p>
+            </div>
+            <div class="outcome-card reveal">
+                <div class="icon ic-teal">🖼️</div>
+                <h3>סדור ב־Canvas של Google</h3>
+                <p>תוצר חי שאפשר להמשיך לערוך, לשנות עמודים, להחליף ניסוחים ולעצב איך שאתם רוצים.</p>
+            </div>
+            <div class="outcome-card reveal">
+                <div class="icon ic-yellow">📄</div>
+                <h3>PDF לשיתוף</h3>
+                <p>קובץ מוכן לשליחה במשפחה, להדפסה ולשמירה לזיכרון.</p>
+            </div>
+            <div class="outcome-card reveal">
+                <div class="icon ic-sky">🎁</div>
+                <h3>תוצר שאפשר להפוך למתנה</h3>
+                <p>ליום הולדת, לחג, לפרידה מגן או סתם כי בא לכם לעשות משהו ממש מיוחד.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ============ REAL EXAMPLE ============ -->
+<section class="example" id="example">
+    <div class="container">
+        <div class="example-grid">
+            <div class="example-text reveal">
+                <span class="example-tag">⭐ דוגמה אמיתית</span>
+                <h2>משפחת בר און והאש שמחברת</h2>
+                <p class="lede">כדי להראות שזה לא רק רעיון יפה על הנייר, הנה דוגמה אמיתית: ספר ילדים אישי על ל״ג בעומר, שבו משפחת בר און יוצאת למסע קטן להבין מהי "אש טובה" — אש של חברות, אחריות, אור וחיבור.</p>
+                <div class="example-buttons">
+                    <a href="https://gemini.google.com/share/b4b56cf88395" target="_blank" rel="noopener" class="btn btn-teal">🎨 לצפייה בסיפור ב־Canvas של Google</a>
+                    <a href="the-story/baron-lag-baomer-story.pdf" target="_blank" rel="noopener" class="btn btn-purple" download="משפחת בר און והאש שמחברת.pdf">⬇️ להורדת ה־PDF</a>
+                </div>
+                <p class="example-credit">נוצר בעזרת Gemini Storybook, סודר ב־Canvas של Google, ויוצא כ־PDF לשיתוף.</p>
+            </div>
+
+            <div class="book-mockup-image reveal" onclick="openLightbox()" role="button" tabindex="0" onkeypress="if(event.key==='Enter')openLightbox()">
+                <img src="images/book-mockup.webp" alt="הספר 'משפחת בר און והאש שמחברת' פתוח עם דוגמאות לעמודים מאוירים" loading="lazy">
+                <div class="book-mockup-hint">👁️ לחצו לצפייה</div>
+            </div>
+        </div>
+
+        <div class="pages-preview">
+            <div class="page-thumb reveal"><span class="pt-num">עמ׳ 1</span><div class="pt-title">ערב חגיגי</div>השמיים נצבעים בכתום, וגאיה ומילי שואלות את אבא שגיא: "למה אנחנו מדליקים מדורות?"</div>
+            <div class="page-thumb reveal"><span class="pt-num">עמ׳ 4</span><div class="pt-title">אש שמאירה</div>שגיא מספר על אש של חברות — אש שמחממת אנשים בלי לשרוף.</div>
+            <div class="page-thumb reveal"><span class="pt-num">עמ׳ 7</span><div class="pt-title">סביב המדורה</div>כל המשפחה יושבת יחד, מור מחלקת מרשמלו, ומילי מגלה שהאור הכי גדול הוא באנשים.</div>
+            <div class="page-thumb reveal"><span class="pt-num">עמ׳ 10</span><div class="pt-title">חיבור</div>הניצוצות עולים לשמיים, וגאיה אומרת: "האש הכי יפה היא האש שמחברת."</div>
+        </div>
+    </div>
+</section>
+
+<!-- ============ GALLERY ============ -->
+<section class="gallery" id="gallery">
+    <div class="container">
+        <div class="section-head reveal">
+            <span class="eyebrow">🖼️ הספר עצמו</span>
+            <h2>גלריה: כל עמודי הסיפור</h2>
+            <p>זה לא mockup — אלו העמודים האמיתיים מתוך ה־PDF. לחצו על עמוד כדי להגדיל.</p>
+        </div>
+
+        <div id="galleryLoader" class="gallery-loader">
+            ✨ טוען עמודים מתוך הסיפור...
+            <div class="gallery-loader-bar"><div class="gallery-loader-fill" id="galleryLoaderFill"></div></div>
+        </div>
+
+        <div class="gallery-grid" id="galleryGrid"></div>
+    </div>
+</section>
+
+<!-- ============ HOW IT WORKS ============ -->
+<section class="how" id="how">
+    <div class="container">
+        <div class="section-head reveal">
+            <span class="eyebrow">⚙️ איך זה עובד?</span>
+            <h2>9 שלבים פשוטים מרעיון לספר</h2>
+            <p>המסלול הקסום שמוביל אתכם משאלה ראשונית — לספר מאויר משלכם.</p>
+        </div>
+
+        <div class="how-hero reveal">
+            <img src="images/how-it-works.webp" alt="תרשים זרימה ויזואלי של תהליך יצירת ספר ילדים: רעיון, חומרים, Gemini, Gems, Storybook, Canvas, PDF" loading="lazy">
+        </div>
+
+        <div class="steps-track">
+            <div class="step-card reveal">
+                <div class="step-num">1</div>
+                <div class="icon">💡</div>
+                <h3>אוספים רעיון</h3>
+                <p>חג, זיכרון משפחתי, סיפור אישי או נושא לימודי. כל דבר שמרגש אתכם.</p>
+            </div>
+            <div class="step-card reveal">
+                <div class="step-num">2</div>
+                <div class="icon">📝</div>
+                <h3>מוסיפים חומרים</h3>
+                <p>אפשר לעבוד עם NotebookLM אם יש הרבה מקורות, או להכניס את החומרים ישירות ל־Gemini.</p>
+            </div>
+            <div class="step-card reveal">
+                <div class="step-num">3</div>
+                <div class="icon">💎</div>
+                <h3>נכנסים ל־Gemini</h3>
+                <p>פותחים את סביבת Gemini ב־<code>gemini.google.com</code>.</p>
+            </div>
+            <div class="step-card reveal">
+                <div class="step-num">4</div>
+                <div class="icon">🗂️</div>
+                <h3>פותחים את מנהל ה־Gems</h3>
+                <p>חשוב להדגיש: Storybook נמצא תחת Gems.</p>
+                <span class="highlight">לא בצ׳אט הרגיל!</span>
+            </div>
+            <div class="step-card reveal">
+                <div class="step-num">5</div>
+                <div class="icon">📖</div>
+                <h3>בוחרים את Storybook</h3>
+                <p>נכנסים ל־Gem הייעודי ליצירת ספרי ילדים מאוירים.</p>
+            </div>
+            <div class="step-card reveal">
+                <div class="step-num">6</div>
+                <div class="icon">🖼️</div>
+                <h3>מעלים תמונות של בני המשפחה</h3>
+                <p>תמונה אחת ברורה לכל דמות. למשל: <code>sagi.png</code>, <code>mor.jpg</code>, <code>gaya.jpg</code>, <code>mili.jpeg</code>.</p>
+            </div>
+            <div class="step-card reveal">
+                <div class="step-num">7</div>
+                <div class="icon">📋</div>
+                <h3>מדביקים את הפרומפט</h3>
+                <p>מבקשים קודם אישור למיפוי הדמויות, אחר כך outline, ורק אז את הספר המלא.</p>
+            </div>
+            <div class="step-card reveal">
+                <div class="step-num">8</div>
+                <div class="icon">🎨</div>
+                <h3>מסדרים ב־Canvas של Google</h3>
+                <p>עורכים, מעצבים, מסדרים את העמודים ומכינים גרסה יפה לשיתוף.</p>
+            </div>
+            <div class="step-card reveal">
+                <div class="step-num">9</div>
+                <div class="icon">📤</div>
+                <h3>מייצאים / משתפים כ־PDF</h3>
+                <p>שומרים, שולחים למשפחה או משתפים בקהילה. גם כקובץ וגם כקישור חי.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ============ FLOW ============ -->
+<section class="flow">
+    <div class="container">
+        <div class="section-head reveal">
+            <span class="eyebrow">🗺️ תרשים זרימה</span>
+            <h2>המסלול בקליק אחד</h2>
+            <p>תמונה אחת ששווה אלף הסברים — כך הרעיון הופך לספר.</p>
+        </div>
+
+        <div class="flow-chain">
+            <div class="flow-node reveal">💡 רעיון / חג / זיכרון</div>
+            <div class="flow-arrow">▼</div>
+            <div class="flow-node reveal">📚 NotebookLM או Gemini</div>
+            <div class="flow-arrow">▼</div>
+            <div class="flow-node reveal highlight">💎 Gemini → Gems → Storybook</div>
+            <div class="flow-arrow">▼</div>
+            <div class="flow-node reveal">🖼️ העלאת תמונות + מיפוי דמויות</div>
+            <div class="flow-arrow">▼</div>
+            <div class="flow-node reveal">📋 פרומפט מלא</div>
+            <div class="flow-arrow">▼</div>
+            <div class="flow-node reveal">📖 ספר ילדים מאויר</div>
+            <div class="flow-arrow">▼</div>
+            <div class="flow-node reveal">🎨 Canvas של Google</div>
+            <div class="flow-arrow">▼</div>
+            <div class="flow-node reveal">📄 PDF לשיתוף</div>
+        </div>
+    </div>
+</section>
+
+<!-- ============ CANVAS ADVANTAGE ============ -->
+<section class="canvas-advantage">
+    <div class="container">
+        <div class="canvas-grid">
+            <div class="canvas-text reveal">
+                <span class="eyebrow">🎨 היתרון של Canvas של Google</span>
+                <h2>זה לא נגמר ביצירה — זה רק מתחיל</h2>
+                <p class="lede">Gemini לא רק כותב ומאייר את הספר — הוא יוצר לכם תוצר שלם בתוך <strong>Canvas של Google</strong>. משם אפשר להמשיך לערוך, לדייק, להזיז, ולשתף.</p>
+
+                <ul class="canvas-points">
+                    <li><span class="cp-icon">✏️</span><div><strong>עורכים בלייב</strong> — טקסטים, סדר עמודים, ניסוחים, עיצוב</div></li>
+                    <li><span class="cp-icon">👥</span><div><strong>משתפים את ה־Canvas עצמו</strong> — לא רק קובץ סגור, אלא תוצר חי</div></li>
+                    <li><span class="cp-icon">💬</span><div><strong>מקבלים פידבק מחברים</strong> — לפני שמייצאים</div></li>
+                    <li><span class="cp-icon">📱</span><div><strong>זמין מכל מכשיר</strong> — מחשב, טאבלט או טלפון</div></li>
+                    <li><span class="cp-icon">📄</span><div><strong>מייצאים ל־PDF רק כשמוכן</strong> — להדפסה, שמירה או שיתוף</div></li>
+                </ul>
+
+                <a href="https://gemini.google.com/share/b4b56cf88395" target="_blank" rel="noopener" class="btn btn-teal" style="margin-top:24px;">🎨 לראות דוגמה ב־Canvas</a>
+            </div>
+
+            <div class="canvas-image reveal">
+                <img src="images/canvas-sharing-advantage.webp" alt="משפחה עורכת ומשתפת את ספר הילדים בתוך Canvas של Google" loading="lazy">
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ============ GAMES ============ -->
+<section class="games">
+    <div class="container-narrow">
+        <div class="section-head reveal">
+            <span class="eyebrow">🎮 משחקים אינטראקטיביים</span>
+            <h2>ועכשיו — תורכם לשחק</h2>
+            <p>שלושה משחקים קטנים שיעזרו לכם להבין את התהליך לפני שאתם יוצאים לדרך.</p>
+        </div>
+
+        <!-- GAME 1: BOW & ARROW -->
+        <div class="game-card archery-card reveal">
+            <h3><span class="game-num">1</span> קשת וחיצים — בנו את המדורה 🏹🔥</h3>
+            <p class="game-desc">המשחק האייקוני של ל"ג בעומר! ירו בענפים שמעופפים — כל פגיעה מגדילה את המדורה. יש לכם 30 שניות.</p>
+
+            <div class="archery-stage" id="archeryStage">
+                <canvas id="archeryCanvas"></canvas>
+
+                <button type="button" class="archery-fs" id="archeryFs" title="מסך מלא" aria-label="מסך מלא">⛶</button>
+
+                <div class="archery-hud">
+                    <div class="archery-hud-item">
+                        <span>⏱️</span>
+                        <span id="archeryTime">30</span>
+                    </div>
+                    <div class="archery-hud-item">
+                        <span>🎯</span>
+                        <span id="archeryHits">0</span>
+                    </div>
+                    <div class="archery-hud-item">
+                        <span>🔥</span>
+                        <span id="archeryFire">0</span>
+                    </div>
+                </div>
+
+                <div class="archery-overlay" id="archeryOverlay">
+                    <div class="archery-overlay-inner">
+                        <div class="archery-big-emoji">🏹</div>
+                        <h4>מוכנים?</h4>
+                        <p>לחצו / נגעו במסך כדי לירות חץ.<br>פגעו בכמה שיותר ענפים והגדילו את המדורה!</p>
+                        <button type="button" class="btn btn-primary" id="archeryStartBtn">התחל משחק 🎯</button>
+                    </div>
+                </div>
+
+                <div class="archery-final" id="archeryFinal">
+                    <div class="archery-final-inner">
+                        <div class="archery-big-emoji" id="archeryFinalEmoji">🔥</div>
+                        <h4 id="archeryFinalTitle">סיימתם!</h4>
+                        <p id="archeryFinalText">פגעתם ב־<span id="archeryFinalHits">0</span> ענפים</p>
+                        <div class="archery-stars" id="archeryStars"></div>
+                        <button type="button" class="btn btn-primary" id="archeryRestartBtn">לשחק שוב 🏹</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- GAME 2: ORDER -->
+        <div class="game-card reveal">
+            <h3><span class="game-num">2</span> סדרו את השלבים</h3>
+            <p class="game-desc">גררו את השלבים מהשורה העליונה אל השורה התחתונה — לפי הסדר הנכון של יצירת הספר.</p>
+
+            <span class="order-label">השלבים (גררו מכאן):</span>
+            <div class="order-pool" id="orderPool"></div>
+
+            <span class="order-label">הסדר הנכון:</span>
+            <div class="order-target" id="orderTarget"></div>
+
+            <div class="order-actions">
+                <button class="btn btn-teal" onclick="checkOrder()">בדיקה</button>
+                <button class="btn btn-secondary" onclick="resetOrder()">איפוס</button>
+            </div>
+            <div class="game-success" id="orderSuccess">🎉 מעולה! עכשיו אתם יודעים את הדרך לספר הראשון שלכם.</div>
+        </div>
+
+        <!-- GAME 3: TRIVIA -->
+        <div class="game-card trivia-card reveal" id="triviaCard">
+            <div class="trivia-emoji-rain" id="triviaRain"></div>
+            <h3><span class="game-num">3</span> טריוויה — מומחים לל"ג בעומר 🔥</h3>
+            <p class="game-desc">10 שאלות כיפיות על ל"ג בעומר. כמה תצליחו לענות נכון?</p>
+
+            <div class="trivia-stage" id="triviaStage">
+                <div class="trivia-header">
+                    <div class="trivia-progress-wrap">
+                        <div class="trivia-progress-track">
+                            <div class="trivia-progress-fill" id="triviaProgress"></div>
+                        </div>
+                        <div class="trivia-progress-label" id="triviaProgressLabel">שאלה 1 מתוך 10</div>
+                    </div>
+                    <div class="trivia-score" id="triviaScore">
+                        <span class="trivia-score-icon">⭐</span>
+                        <span class="trivia-score-num" id="triviaScoreNum">0</span>
+                    </div>
+                </div>
+
+                <div class="trivia-question-wrap">
+                    <div class="trivia-emoji" id="triviaEmoji">🔥</div>
+                    <div class="trivia-question" id="triviaQuestion">טוען...</div>
+                    <div class="trivia-options" id="triviaOptions"></div>
+                </div>
+
+                <div class="trivia-feedback" id="triviaFeedback"></div>
+            </div>
+
+            <div class="trivia-final" id="triviaFinal">
+                <div class="trivia-final-emoji" id="triviaFinalEmoji">🏆</div>
+                <h3 class="trivia-final-title" id="triviaFinalTitle">כל הכבוד!</h3>
+                <p class="trivia-final-text" id="triviaFinalText">צברתם <span id="triviaFinalScore">0</span> מתוך 10!</p>
+                <div class="trivia-stars" id="triviaStars"></div>
+                <button class="btn btn-primary" onclick="resetTrivia()">🔄 לשחק שוב</button>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ============ PROMPT BUILDER ============ -->
+<section class="builder" id="builder">
+    <div class="container">
+        <div class="section-head reveal">
+            <span class="eyebrow">🛠️ בנו פרומפט משלכם</span>
+            <h2>כלי אינטראקטיבי ליצירת פרומפט מותאם אישית</h2>
+            <p>מלאו את הפרטים — שם הספר, הנושא, הדמויות והסגנון — וקבלו פרומפט מותאם אישית להעתקה ישירה ל־Gemini Storybook.</p>
+        </div>
+
+        <div class="builder-grid">
+            <!-- FORM -->
+            <div class="builder-form reveal">
+                <div class="field">
+                    <label for="bld-title">📖 שם הספר</label>
+                    <span class="hint">איך תרצו שייקרא הספר שלכם?</span>
+                    <input type="text" id="bld-title" placeholder="למשל: משפחת כהן והקסם של חנוכה">
+                </div>
+
+                <div class="field">
+                    <label for="bld-topic">🎉 חג / נושא / רעיון</label>
+                    <span class="hint">על מה הסיפור? חג, אירוע, זיכרון או נושא לימודי</span>
+                    <input type="text" id="bld-topic" placeholder="למשל: ל״ג בעומר / יום הולדת / ביקור בחוף הים">
+                </div>
+
+                <div class="field">
+                    <label for="bld-bg">📝 רקע הסיפור (אופציונלי)</label>
+                    <span class="hint">משפט-שניים שמסבירים מה קורה בסיפור</span>
+                    <textarea id="bld-bg" placeholder="למשל: המשפחה יוצאת לטיול ומגלה משהו חדש על אהבה ושיתוף"></textarea>
+                </div>
+
+                <div class="field-row">
+                    <div class="field">
+                        <label for="bld-age-from">👶 גיל מ־</label>
+                        <input type="number" id="bld-age-from" min="2" max="14" value="6">
+                    </div>
+                    <div class="field">
+                        <label for="bld-age-to">👧 גיל עד</label>
+                        <input type="number" id="bld-age-to" min="2" max="14" value="10">
+                    </div>
+                </div>
+
+                <div class="field">
+                    <label for="bld-pages">📚 כמה עמודים?</label>
+                    <input type="number" id="bld-pages" min="4" max="20" value="10">
+                </div>
+
+                <div class="field">
+                    <label>🎨 סגנון הסיפור</label>
+                    <span class="hint">אפשר לבחור כמה</span>
+                    <div class="style-chips" id="bld-styles">
+                        <button type="button" class="style-chip active" data-val="חם ומשפחתי">חם ומשפחתי</button>
+                        <button type="button" class="style-chip" data-val="קסום">קסום</button>
+                        <button type="button" class="style-chip" data-val="מצחיק">מצחיק</button>
+                        <button type="button" class="style-chip" data-val="רגשי">רגשי</button>
+                        <button type="button" class="style-chip" data-val="הרפתקני">הרפתקני</button>
+                        <button type="button" class="style-chip" data-val="לימודי">לימודי</button>
+                        <button type="button" class="style-chip" data-val="ישראלי">ישראלי</button>
+                    </div>
+                </div>
+
+                <div class="field">
+                    <label>👨‍👩‍👧‍👧 דמויות בספר</label>
+                    <span class="hint">שם הדמות, שם קובץ התמונה (לדוגמה <code>noa.jpg</code>) ותיאור קצר</span>
+                    <div class="characters-list" id="bld-characters"></div>
+                    <button type="button" class="add-character" id="bld-add-char">+ הוסיפו דמות</button>
+                </div>
+            </div>
+
+            <!-- PREVIEW -->
+            <div class="builder-preview reveal">
+                <div class="builder-preview-header">
+                    <div class="builder-preview-title">✨ הפרומפט שלכם — חי</div>
+                    <div class="builder-preview-actions">
+                        <button type="button" class="btn btn-primary" onclick="copyBuilder()">📋 העתק</button>
+                        <button type="button" class="btn btn-secondary" onclick="downloadBuilder()">⬇️ TXT</button>
+                    </div>
+                </div>
+                <div class="builder-preview-text" id="bld-output">טוען...</div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ============ PROMPT ============ -->
+<section class="prompt-section" id="prompt">
+    <div class="container">
+        <div class="section-head reveal">
+            <span class="eyebrow">📋 הפרומפט המלא</span>
+            <h2>העתיקו, הדביקו ב־Storybook, צרו ספר</h2>
+            <p>הפרומפט המלא שעובד מצוין עם Gemini Storybook — ערוכו אותו לפי המשפחה והנושא שלכם.</p>
+        </div>
+
+        <div class="prompt-box reveal">
+            <div class="prompt-header">
+                <h3>📋 הפרומפט המלא להעתקה</h3>
+                <div class="prompt-actions">
+                    <button class="btn btn-primary" onclick="copyPrompt()">📋 העתק פרומפט</button>
+                    <button class="btn btn-secondary" onclick="togglePrompt()" id="togglePromptBtn">פתח את הפרומפט המלא ⬇️</button>
+                </div>
+            </div>
+            <div class="prompt-text" id="promptText">צור ספר ילדים מאויר בעברית בן 10 עמודים על ל״ג בעומר בישראל.
+
+שם הספר:
+"משפחת בר און והאש שמחברת"
+
+חשוב מאוד – שימוש בתמונות המצורפות:
+צירפתי 4 תמונות של בני המשפחה, ויש להשתמש בהן כהשראה חזותית ברורה ועקבית עבור הדמויות בספר.
+
+מיפוי התמונות לדמויות הוא:
+sagi.png = שגיא
+mor.jpg = מור
+gaya.jpg = גאיה
+mili.jpeg = מילי
+
+הנחיות חשובות:
+כל קובץ שייך אך ורק לדמות שצוינה לידו.
+אין להחליף בין הדמויות.
+יש לשמור על עקביות מלאה במראה של כל דמות לאורך כל 10 העמודים.
+יש לשמור על דמיון ברור לתמונות המצורפות: תווי פנים, שיער, גיל משוער ואופי כללי.
+האיורים צריכים להיות מאוירים בסגנון ספר ילדים, לא פוטוריאליסטיים, אך עם דמיון ברור, טבעי, חם ומכבד לאנשים שבתמונות.
+
+לפני תחילת הכתיבה:
+כתוב קודם בקצרה את מיפוי הדמויות לפי הקבצים כדי לאשר שהבנת נכון מי היא כל דמות.
+לאחר מכן, הצג רשימת 10 עמודים קצרה עם כותרת ורעיון כללי לכל עמוד.
+ורק לאחר מכן צור את הספר המלא.
+
+הדמויות:
+שגיא – אבא במשפחת בר און, נולד בינואר 1976. סקרן, מצחיק, אוהב להסביר דברים בצורה פשוטה.
+מור – אמא במשפחת בר און, נולדה במרץ 1983. חכמה, רגישה, פרקטית, שומרת על כולם.
+גאיה – הבת הבכורה, נולדה בפברואר 2014. סקרנית, יצירתית, אוהבת לשאול שאלות.
+מילי – הבת הקטנה, נולדה במאי 2017. מתוקה, מצחיקה, מלאת דמיון ואנרגיה.
+
+רקע הסיפור:
+המשפחה מתכוננת לל״ג בעומר בישראל.
+במקום להתמקד רק במדורה, הם יוצאים למסע קטן כדי להבין מהי "אש טובה" — אש של חברות, אור, אחריות, שמחה וחיבור בין אנשים.
+
+סגנון הסיפור:
+סיפור ילדים חם, ישראלי, מצחיק ועדין.
+מתאים לילדים בגילאי 6–10.
+הטקסט צריך להיות פשוט, נעים, ציורי וברור.
+לשלב רגש, הומור קל וחום משפחתי.
+לא להפחיד.
+לא להיות מטיף.
+לא להיות דידקטי מדי.
+לכתוב בעברית טבעית, זורמת ומזמינה.
+
+מסרים מרכזיים:
+ל״ג בעומר הוא חג של אור, שמחה וחיבור.
+אש יכולה להיות יפה, אבל צריך להתייחס אליה באחריות.
+לפעמים האור הכי גדול הוא לא במדורה, אלא באנשים שיושבים סביבה.
+משפחה, חברות ושיתוף פעולה חשובים יותר מגודל המדורה.
+
+מבנה הספר:
+כתוב ספר בן 10 עמודים.
+
+בכל עמוד כלול:
+1. כותרת קצרה
+2. טקסט סיפורי של 2–4 משפטים
+3. תיאור איור מפורט לאותו עמוד
+
+סגנון האיורים:
+איור ילדים חם, ישראלי, צבעוני, קולנועי ועדין.
+אווירת ערב אביבית בישראל.
+אור כתום של שקיעה.
+תחושה משפחתית, שכונתית, נעימה ואותנטית.
+משפחה, טבע, ילדים, שמיים רכים, מדורה בטוחה ומבוקרת.
+האיורים צריכים להיות רכים, חיים, מלאי קסם וחום.
+ללא טקסט בתוך התמונות.
+
+הנחיות חשובות לאיורים:
+השתמש בתמונות המצורפות כדי לשמור על דמיון ברור לדמויות.
+שמור על אותו מראה של כל דמות לאורך כל הספר.
+הדמויות צריכות להיראות כמו בני משפחה אמיתיים, חמים ואוהבים.
+אל תוסיף טקסט בתוך האיורים.
+אל תייצר עומס חזותי מיותר.
+המדורה צריכה להיות בטוחה, מבוקרת ולא מאיימת.
+יש לשמור על מרחק בטוח של הילדים מהאש.
+להימנע מאש מסוכנת, עשן כבד, סמלים פוליטיים או אווירה מלחיצה.
+
+מטרה:
+צור ספר ילדים מאויר, מרגש, אישי, מצחיק ועדין, שירגיש כמו ספר אמיתי של משפחת בר און, עם דמויות שמבוססות באופן ברור על התמונות המצורפות, ועם חוויה משפחתית ישראלית סביב ל״ג בעומר.</div>
+        </div>
+    </div>
+</section>
+
+<!-- ============ TIPS ============ -->
+<section class="tips">
+    <div class="container">
+        <div class="section-head reveal">
+            <span class="eyebrow">💡 טיפים חשובים</span>
+            <h2>הקטנים שעושים את ההבדל הגדול</h2>
+            <p>10 דברים שיחסכו לכם זמן, יבטיחו תוצאה טובה ויוציאו ספר שאתם באמת רוצים להראות.</p>
+        </div>
+
+        <div class="tips-grid">
+            <div class="tip-card reveal">
+                <div class="tip-icon">📸</div>
+                <h4>העלו תמונות ברורות</h4>
+                <p>תמונה אחת טובה לכל דמות תעזור ל־AI לשמור על דמיון ועקביות לאורך הספר.</p>
+            </div>
+            <div class="tip-card reveal">
+                <div class="tip-icon">🏷️</div>
+                <h4>שנו שמות קבצים לשמות הדמויות</h4>
+                <p>לדוגמה: <code>sagi.png</code>, <code>mor.jpg</code>, <code>gaya.jpg</code>, <code>mili.jpeg</code>.</p>
+            </div>
+            <div class="tip-card reveal">
+                <div class="tip-icon">🔗</div>
+                <h4>כתבו מיפוי ברור בין קובץ לדמות</h4>
+                <p>לדוגמה: <code>sagi.png = שגיא</code>. זה מונע בלבול בין הדמויות.</p>
+            </div>
+            <div class="tip-card reveal">
+                <div class="tip-icon">✅</div>
+                <h4>בקשו קודם אישור למיפוי</h4>
+                <p>לפני יצירת הספר, בקשו מ־Gemini לאשר שהוא הבין מי שייך לכל תמונה.</p>
+            </div>
+            <div class="tip-card reveal">
+                <div class="tip-icon">📝</div>
+                <h4>בקשו outline לפני הספר המלא</h4>
+                <p>כך אפשר לבדוק את מבנה הסיפור לפני שמייצרים את כל הספר.</p>
+            </div>
+            <div class="tip-card reveal">
+                <div class="tip-icon">⚠️</div>
+                <h4>אל תכתבו את הבקשה בצ׳אט הרגיל</h4>
+                <p>כדי ליצור ספר מאויר, נכנסים ל־Gemini ← Gems ← Storybook.</p>
+            </div>
+            <div class="tip-card reveal">
+                <div class="tip-icon">🎨</div>
+                <h4>התוצר נוצר בתוך Canvas של Google</h4>
+                <p>יתרון ענק: לא טקסט או תמונות בנפרד, אלא תוצר שלם שאפשר להמשיך לעבוד עליו.</p>
+            </div>
+            <div class="tip-card reveal">
+                <div class="tip-icon">✏️</div>
+                <h4>אפשר להמשיך לערוך ב־Canvas</h4>
+                <p>לשנות טקסטים, להזיז אלמנטים, לדייק עמודים, להחליף ניסוחים ולעצב איך שאתם רוצים.</p>
+            </div>
+            <div class="tip-card reveal">
+                <div class="tip-icon">👥</div>
+                <h4>אפשר לשתף את ה־Canvas עם חברים</h4>
+                <p>לא חייבים לייצא מיד ל־PDF. שתפו את ה־Canvas עצמו וקבלו פידבק חי.</p>
+            </div>
+            <div class="tip-card reveal">
+                <div class="tip-icon">📄</div>
+                <h4>אפשר גם לייצא ל־PDF</h4>
+                <p>כשהספר מוכן, הופכים אותו לקובץ PDF יפה לשליחה, הדפסה או שמירה משפחתית.</p>
+            </div>
+        </div>
+
+        <div class="tips-callout reveal">
+            <h3>✨ היתרון הגדול: זה לא נגמר ביצירה</h3>
+            <p>Gemini לא רק כותב ומאייר את הספר — הוא יוצר לכם תוצר שלם בתוך <strong>Canvas של Google</strong>. משם אפשר להמשיך לערוך, לשנות, לדייק, להזיז, לשתף עם חברים, לקבל פידבק, ורק בסוף להחליט אם לייצא ל־PDF.<br><br>במילים אחרות: <strong>זה לא קובץ סגור — זה ספר חי שאפשר להמשיך לעבוד עליו.</strong></p>
+        </div>
+    </div>
+</section>
+
+<!-- ============ FAQ ============ -->
+<section class="faq">
+    <div class="container">
+        <div class="section-head reveal">
+            <span class="eyebrow">❓ שאלות נפוצות</span>
+            <h2>כל מה שרציתם לשאול לפני שמתחילים</h2>
+        </div>
+
+        <div class="faq-list">
+            <div class="faq-item reveal">
+                <div class="faq-q">האם חייבים להשתמש ב־NotebookLM? <span class="faq-toggle">+</span></div>
+                <div class="faq-a"><div class="faq-a-inner">לא. אפשר להשתמש ב־NotebookLM כשיש הרבה חומרי רקע, אבל אפשר גם לעבוד ישירות ב־Gemini.</div></div>
+            </div>
+            <div class="faq-item reveal">
+                <div class="faq-q">איפה נמצא Storybook? <span class="faq-toggle">+</span></div>
+                <div class="faq-a"><div class="faq-a-inner">Storybook נמצא תחת <strong>Gems</strong> בתוך Gemini, ולא בצ׳אט הרגיל.</div></div>
+            </div>
+            <div class="faq-item reveal">
+                <div class="faq-q">האם אפשר להשתמש בתמונות של בני משפחה? <span class="faq-toggle">+</span></div>
+                <div class="faq-a"><div class="faq-a-inner">כן. מומלץ להעלות תמונה ברורה של כל דמות ולכתוב במפורש איזה קובץ שייך למי.</div></div>
+            </div>
+            <div class="faq-item reveal">
+                <div class="faq-q">איך מוודאים שה־AI לא יתבלבל בין הדמויות? <span class="faq-toggle">+</span></div>
+                <div class="faq-a"><div class="faq-a-inner">כותבים מיפוי ברור: <code>sagi.png = שגיא</code> ומבקשים ממנו לאשר את המיפוי לפני יצירת הספר.</div></div>
+            </div>
+            <div class="faq-item reveal">
+                <div class="faq-q">למה כדאי לבקש קודם outline? <span class="faq-toggle">+</span></div>
+                <div class="faq-a"><div class="faq-a-inner">כדי לבדוק שהסיפור בכיוון הנכון לפני שמייצרים את הספר המלא — חוסך זמן ומאפשר לדייק.</div></div>
+            </div>
+            <div class="faq-item reveal">
+                <div class="faq-q">מה עושים אחרי שהספר נוצר? <span class="faq-toggle">+</span></div>
+                <div class="faq-a"><div class="faq-a-inner">אפשר לסדר את העמודים ב־Canvas של Google, לשמור, לשתף או לייצא כ־PDF.</div></div>
+            </div>
+            <div class="faq-item reveal">
+                <div class="faq-q">האם אפשר להפוך את זה למתנה? <span class="faq-toggle">+</span></div>
+                <div class="faq-a"><div class="faq-a-inner">כן. אפשר להדפיס, לשלוח למשפחה, להעלות לקהילה או ליצור גרסה אישית לכל חג, אירוע או ילד.</div></div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ============ CTA ============ -->
+<section class="cta">
+    <div class="cta-bg" aria-hidden="true">
+        <img src="images/CTA.webp" alt="" loading="lazy">
+    </div>
+    <div class="container">
+        <div class="cta-inner reveal">
+            <span class="eyebrow" style="background:rgba(255,255,255,0.15); border-color:rgba(255,255,255,0.3); color:white;">✨ עכשיו תורכם</span>
+            <h2>עכשיו תורכם ליצור<br>ספר ילדים אישי</h2>
+            <p>בחרו רעיון, העלו תמונות, הדביקו את הפרומפט — ותנו ל־AI להפוך את זה לספר שילדים באמת ירצו לקרוא.</p>
+
+            <div class="cta-buttons">
+                <a href="#prompt" class="btn btn-primary">📋 להעתקת הפרומפט</a>
+                <a href="https://gemini.google.com/share/b4b56cf88395" target="_blank" rel="noopener" class="btn btn-teal">🎨 לצפייה בדוגמה</a>
+                <a href="the-story/baron-lag-baomer-story.pdf" target="_blank" rel="noopener" class="btn btn-purple" download="משפחת בר און והאש שמחברת.pdf">⬇️ להורדת ה־PDF</a>
+            </div>
+
+            <div class="cta-share">
+                <span>שתפו עם חברים:</span>
+                <button class="share-btn" onclick="shareWhatsApp()" title="WhatsApp">📱</button>
+                <button class="share-btn" onclick="shareFacebook()" title="Facebook">📘</button>
+                <button class="share-btn" onclick="copyLink()" title="העתק קישור">🔗</button>
+            </div>
+        </div>
+    </div>
+</section>
+
+<footer>
+    <div class="container">
+        <p>נוצר באהבה על ידי <a href="https://sagiai.co.il/" target="_blank" rel="noopener">שגיא בר און</a> · ל"ג בעומר 2026 ✨</p>
+    </div>
+</footer>
+
+<!-- Lightbox -->
+<div class="lightbox" id="lightbox" onclick="if(event.target===this)closeLightbox()">
+    <div class="lightbox-content">
+        <div class="lightbox-header">
+            <div class="lightbox-title">📖 משפחת בר און והאש שמחברת</div>
+            <div class="lightbox-actions">
+                <a href="the-story/baron-lag-baomer-story.pdf" target="_blank" rel="noopener" download="משפחת בר און והאש שמחברת.pdf">⬇️ הורדה</a>
+                <a href="https://gemini.google.com/share/b4b56cf88395" target="_blank" rel="noopener">🎨 ב־Canvas</a>
+                <button type="button" class="lightbox-close" onclick="closeLightbox()">✕ סגור</button>
+            </div>
+        </div>
+        <div class="lightbox-stage">
+            <button type="button" class="lightbox-nav lightbox-prev" id="lbPrev" onclick="lbNav(-1)" aria-label="עמוד קודם">→</button>
+            <canvas class="lightbox-canvas" id="lbCanvas"></canvas>
+            <button type="button" class="lightbox-nav lightbox-next" id="lbNext" onclick="lbNav(1)" aria-label="עמוד הבא">←</button>
+            <div class="lightbox-counter" id="lbCounter">1 / 1</div>
+            <div class="lightbox-loading" id="lbLoading">טוען עמוד...</div>
+        </div>
+    </div>
+</div>
+
+<div class="copy-toast" id="copyToast">✓ הועתק בהצלחה</div>
+
+<button type="button" class="sound-toggle" id="soundToggle" title="הפעל / השתק צלילים" aria-label="הפעל/השתק צלילים">🔇</button>
+<button type="button" class="print-btn" onclick="printPage()" title="הדפס / שמור כ־PDF" aria-label="הדפס">🖨️</button>
+
+<script>
+// ============ Sound FX ============
+const SFX = (function() {
+    let ctx = null;
+    let muted = localStorage.getItem('storybook-muted') === 'true'; // default UNMUTED
+    const btn = document.getElementById('soundToggle');
+
+    function updateBtn() {
+        btn.textContent = muted ? '🔇' : '🔊';
+        btn.classList.toggle('muted', muted);
+        btn.title = muted ? 'הפעל צלילים' : 'השתק צלילים';
+    }
+    updateBtn();
+
+    btn.addEventListener('click', () => {
+        muted = !muted;
+        localStorage.setItem('storybook-muted', String(muted));
+        updateBtn();
+        if (!muted) {
+            ensureCtx();
+            chime();
+        }
+    });
+
+    function ensureCtx() {
+        if (!ctx) {
+            try { ctx = new (window.AudioContext || window.webkitAudioContext)(); }
+            catch(e) { return null; }
+        }
+        if (ctx.state === 'suspended') ctx.resume();
+        return ctx;
+    }
+
+    function tone({ freq = 440, dur = 0.2, type = 'sine', vol = 0.15, attack = 0.01, decay = 0.1, freqEnd = null, delay = 0 }) {
+        if (muted) return;
+        const c = ensureCtx();
+        if (!c) return;
+        const t0 = c.currentTime + delay;
+        const osc = c.createOscillator();
+        const gain = c.createGain();
+        osc.type = type;
+        osc.frequency.setValueAtTime(freq, t0);
+        if (freqEnd !== null) osc.frequency.exponentialRampToValueAtTime(freqEnd, t0 + dur);
+        gain.gain.setValueAtTime(0, t0);
+        gain.gain.linearRampToValueAtTime(vol, t0 + attack);
+        gain.gain.exponentialRampToValueAtTime(0.0001, t0 + dur);
+        osc.connect(gain).connect(c.destination);
+        osc.start(t0);
+        osc.stop(t0 + dur + 0.05);
+    }
+
+    function noise({ dur = 0.15, vol = 0.1, delay = 0 }) {
+        if (muted) return;
+        const c = ensureCtx();
+        if (!c) return;
+        const t0 = c.currentTime + delay;
+        const buf = c.createBuffer(1, c.sampleRate * dur, c.sampleRate);
+        const data = buf.getChannelData(0);
+        for (let i = 0; i < data.length; i++) data[i] = (Math.random() * 2 - 1) * (1 - i / data.length);
+        const src = c.createBufferSource();
+        const gain = c.createGain();
+        src.buffer = buf;
+        gain.gain.value = vol;
+        src.connect(gain).connect(c.destination);
+        src.start(t0);
+    }
+
+    return {
+        click() { tone({ freq: 600, dur: 0.05, type: 'triangle', vol: 0.05 }); },
+        chime() { tone({ freq: 880, dur: 0.15, type: 'sine', vol: 0.1, freqEnd: 1320 }); },
+        correct() {
+            tone({ freq: 523, dur: 0.12, type: 'sine', vol: 0.12 });
+            tone({ freq: 659, dur: 0.12, type: 'sine', vol: 0.12, delay: 0.1 });
+            tone({ freq: 784, dur: 0.18, type: 'sine', vol: 0.14, delay: 0.2 });
+        },
+        wrong() {
+            tone({ freq: 220, dur: 0.18, type: 'square', vol: 0.08, freqEnd: 110 });
+        },
+        sparkle() {
+            for (let i = 0; i < 5; i++) {
+                tone({ freq: 1200 + Math.random() * 800, dur: 0.08, type: 'sine', vol: 0.05, delay: i * 0.04 });
+            }
+        },
+        page() {
+            noise({ dur: 0.18, vol: 0.06 });
+        },
+        tada() {
+            const notes = [523, 659, 784, 1047];
+            notes.forEach((f, i) => tone({ freq: f, dur: 0.25, type: 'triangle', vol: 0.13, delay: i * 0.08 }));
+            tone({ freq: 1568, dur: 0.5, type: 'sine', vol: 0.1, delay: 0.5 });
+            for (let i = 0; i < 8; i++) {
+                tone({ freq: 1500 + Math.random() * 1000, dur: 0.1, type: 'sine', vol: 0.04, delay: 0.6 + i * 0.05 });
+            }
+        },
+        whoosh() {
+            tone({ freq: 200, dur: 0.4, type: 'sawtooth', vol: 0.05, freqEnd: 800 });
+        }
+    };
+})();
+
+function chime() { SFX.chime(); }
+
+function printPage() {
+    SFX.click();
+    const promptEl = document.getElementById('promptText');
+    if (promptEl) promptEl.classList.add('expanded');
+    setTimeout(() => window.print(), 200);
+}
+
+// ============ Lightbox (PDF.js powered) ============
+let lbPdfDoc = null;
+let lbCurrentPage = 1;
+let lbTotalPages = 1;
+let lbRenderTask = null;
+
+function openLightbox(pdfPage) {
+    const lb = document.getElementById('lightbox');
+    lb.classList.add('show');
+    document.body.style.overflow = 'hidden';
+    SFX.page();
+    lbCurrentPage = pdfPage || 1;
+    ensurePdf().then(() => renderLbPage(lbCurrentPage));
+}
+
+function closeLightbox() {
+    const lb = document.getElementById('lightbox');
+    lb.classList.remove('show');
+    document.body.style.overflow = '';
+    SFX.click();
+}
+
+function ensurePdf() {
+    if (lbPdfDoc) return Promise.resolve(lbPdfDoc);
+    return loadPdfJs().then(pdfjsLib => pdfjsLib.getDocument('the-story/baron-lag-baomer-story.pdf').promise)
+        .then(pdf => {
+            lbPdfDoc = pdf;
+            lbTotalPages = pdf.numPages;
+            return pdf;
+        });
+}
+
+let pdfJsLoader = null;
+function loadPdfJs() {
+    if (pdfJsLoader) return pdfJsLoader;
+    const PDFJS_VERSION = '3.11.174';
+    pdfJsLoader = new Promise((resolve, reject) => {
+        if (window.pdfjsLib) return resolve(window.pdfjsLib);
+        const s = document.createElement('script');
+        s.src = `https://cdnjs.cloudflare.com/ajax/libs/pdf.js/${PDFJS_VERSION}/pdf.min.js`;
+        s.onload = () => {
+            const lib = window['pdfjs-dist/build/pdf'] || window.pdfjsLib;
+            if (!lib) return reject(new Error('pdfjs missing'));
+            lib.GlobalWorkerOptions.workerSrc = `https://cdnjs.cloudflare.com/ajax/libs/pdf.js/${PDFJS_VERSION}/pdf.worker.min.js`;
+            resolve(lib);
+        };
+        s.onerror = reject;
+        document.head.appendChild(s);
+    });
+    return pdfJsLoader;
+}
+
+async function renderLbPage(pageNum) {
+    if (!lbPdfDoc) return;
+    pageNum = Math.max(1, Math.min(lbTotalPages, pageNum));
+    lbCurrentPage = pageNum;
+
+    const loading = document.getElementById('lbLoading');
+    loading.classList.remove('hidden');
+    loading.textContent = 'טוען עמוד ' + pageNum + '...';
+
+    document.getElementById('lbCounter').textContent = `${pageNum} / ${lbTotalPages}`;
+    document.getElementById('lbPrev').disabled = pageNum <= 1;
+    document.getElementById('lbNext').disabled = pageNum >= lbTotalPages;
+
+    try {
+        if (lbRenderTask) { try { lbRenderTask.cancel(); } catch(e){} }
+        const page = await lbPdfDoc.getPage(pageNum);
+        const canvas = document.getElementById('lbCanvas');
+        const ctx = canvas.getContext('2d');
+
+        const stage = canvas.parentElement;
+        const stageW = stage.clientWidth - 40;
+        const stageH = stage.clientHeight - 40;
+        const baseViewport = page.getViewport({ scale: 1 });
+        const scale = Math.min(stageW / baseViewport.width, stageH / baseViewport.height) * (window.devicePixelRatio || 1);
+        const viewport = page.getViewport({ scale });
+
+        canvas.width = viewport.width;
+        canvas.height = viewport.height;
+        canvas.style.width = (viewport.width / (window.devicePixelRatio || 1)) + 'px';
+        canvas.style.height = (viewport.height / (window.devicePixelRatio || 1)) + 'px';
+
+        lbRenderTask = page.render({ canvasContext: ctx, viewport });
+        await lbRenderTask.promise;
+        loading.classList.add('hidden');
+    } catch (err) {
+        if (err && err.name === 'RenderingCancelledException') return;
+        loading.textContent = 'שגיאה בטעינת העמוד';
+        console.warn(err);
+    }
+}
+
+function lbNav(delta) {
+    renderLbPage(lbCurrentPage + delta);
+    SFX.page();
+}
+
+document.addEventListener('keydown', e => {
+    const lb = document.getElementById('lightbox');
+    if (!lb.classList.contains('show')) return;
+    if (e.key === 'Escape') closeLightbox();
+    else if (e.key === 'ArrowLeft') lbNav(1);  // RTL: left = next
+    else if (e.key === 'ArrowRight') lbNav(-1); // RTL: right = prev
+});
+
+window.addEventListener('resize', () => {
+    if (document.getElementById('lightbox').classList.contains('show')) {
+        renderLbPage(lbCurrentPage);
+    }
+});
+
+// ============ PDF Gallery ============
+(function setupGallery() {
+    const loader = document.getElementById('galleryLoader');
+    const fill = document.getElementById('galleryLoaderFill');
+    const grid = document.getElementById('galleryGrid');
+    const PDF_URL = 'the-story/baron-lag-baomer-story.pdf';
+
+    function showFallback() {
+        loader.style.display = 'none';
+        grid.innerHTML = `<div class="gallery-empty">📕 לא הצלחנו לטעון את עמודי הספר כתצוגה מקדימה. <a href="${PDF_URL}" target="_blank" style="color:var(--orange-deep); font-weight:700;">לחצו כאן לפתיחת ה־PDF</a></div>`;
+    }
+
+    const galleryEl = document.getElementById('gallery');
+    const lazyObs = new IntersectionObserver((entries) => {
+        if (entries[0].isIntersecting) {
+            lazyObs.disconnect();
+            startGallery();
+        }
+    }, { rootMargin: '300px' });
+    lazyObs.observe(galleryEl);
+
+    async function startGallery() {
+        try {
+            const pdf = await ensurePdf();
+            const totalPages = pdf.numPages;
+
+            for (let pageNum = 1; pageNum <= totalPages; pageNum++) {
+                const page = await pdf.getPage(pageNum);
+                const baseViewport = page.getViewport({ scale: 1 });
+                const scale = 480 / baseViewport.width;
+                const viewport = page.getViewport({ scale });
+
+                const canvas = document.createElement('canvas');
+                const ctx = canvas.getContext('2d');
+                canvas.width = viewport.width;
+                canvas.height = viewport.height;
+
+                await page.render({ canvasContext: ctx, viewport }).promise;
+
+                const item = document.createElement('div');
+                item.className = 'gallery-item reveal in';
+                item.innerHTML = `<div class="gallery-item-num">עמ׳ ${pageNum}</div>`;
+                item.appendChild(canvas);
+                item.addEventListener('click', () => openLightbox(pageNum));
+                grid.appendChild(item);
+
+                fill.style.width = ((pageNum / totalPages) * 100) + '%';
+            }
+
+            setTimeout(() => loader.style.display = 'none', 300);
+        } catch (err) {
+            console.warn('Gallery load failed:', err);
+            showFallback();
+        }
+    }
+})();
+
+// ============ Cinematic Intro ============
+(function() {
+    const overlay = document.getElementById('introOverlay');
+    const skipBtn = document.getElementById('introSkip');
+    const starsBox = document.getElementById('introStars');
+    const sparklesBox = document.getElementById('introSparkles');
+    const raysBox = document.getElementById('introRays');
+    const titleEl = document.getElementById('introTitle');
+    const fireEl = document.getElementById('introFire');
+
+    // Twinkling stars
+    for (let i = 0; i < 60; i++) {
+        const s = document.createElement('div');
+        s.className = 'intro-star';
+        s.style.top = Math.random() * 100 + '%';
+        s.style.left = Math.random() * 100 + '%';
+        s.style.animationDelay = (Math.random() * 3) + 's';
+        s.style.animationDuration = (2 + Math.random() * 3) + 's';
+        const size = Math.random() * 2 + 1;
+        s.style.width = size + 'px';
+        s.style.height = size + 'px';
+        starsBox.appendChild(s);
+    }
+
+    // Sparkles burst → converge
+    const sparkleEmojis = ['✨', '⭐', '💫', '✦', '✧'];
+    const count = 18;
+    for (let i = 0; i < count; i++) {
+        const sp = document.createElement('div');
+        sp.className = 'intro-sparkle';
+        sp.textContent = sparkleEmojis[i % sparkleEmojis.length];
+        const angle = (i / count) * Math.PI * 2;
+        const dist = 130 + Math.random() * 80;
+        const burstX = Math.cos(angle) * dist;
+        const burstY = Math.sin(angle) * dist;
+        const bookX = Math.cos(angle) * 8;
+        const bookY = Math.sin(angle) * 8;
+        sp.style.setProperty('--burst-x', burstX + 'px');
+        sp.style.setProperty('--burst-y', burstY + 'px');
+        sp.style.setProperty('--book-x', bookX + 'px');
+        sp.style.setProperty('--book-y', bookY + 'px');
+        sp.style.animationDelay = (i * 30) + 'ms';
+        sp.style.fontSize = (16 + Math.random() * 14) + 'px';
+        sparklesBox.appendChild(sp);
+    }
+
+    // Light rays
+    for (let i = 0; i < 12; i++) {
+        const r = document.createElement('div');
+        r.className = 'intro-ray';
+        r.style.setProperty('--ray-angle', (i * 30) + 'deg');
+        raysBox.appendChild(r);
+    }
+
+    // Title typed letter by letter
+    const titleText = 'כך יוצרים ספר ילדים אישי עם AI';
+    titleEl.innerHTML = '';
+    [...titleText].forEach((ch, i) => {
+        const span = document.createElement('span');
+        span.className = 'letter';
+        span.textContent = ch === ' ' ? ' ' : ch;
+        span.style.animationDelay = (4.7 + i * 0.04) + 's';
+        titleEl.appendChild(span);
+    });
+
+    // Show fire & skip
+    requestAnimationFrame(() => {
+        setTimeout(() => fireEl.classList.add('show'), 1000);
+        setTimeout(() => skipBtn.classList.add('show'), 600);
+    });
+
+    // Auto-dismiss after full sequence (~7s)
+    const dismissTimer = setTimeout(dismiss, 7200);
+
+    function dismiss() {
+        clearTimeout(dismissTimer);
+        overlay.classList.add('dismissed');
+        document.body.classList.remove('intro-active');
+        setTimeout(() => overlay.remove(), 800);
+    }
+
+    skipBtn.addEventListener('click', dismiss);
+    overlay.addEventListener('click', (e) => {
+        if (e.target === overlay) dismiss();
+    });
+    document.addEventListener('keydown', function onKey(e) {
+        if (e.key === 'Escape' || e.key === 'Enter' || e.key === ' ') {
+            dismiss();
+            document.removeEventListener('keydown', onKey);
+        }
+    });
+
+    // Respect reduced motion
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+        setTimeout(dismiss, 100);
+    }
+})();
+
+// ============ Reveal on scroll ============
+const revealEls = document.querySelectorAll('.reveal');
+const io = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+            entry.target.classList.add('in');
+            io.unobserve(entry.target);
+        }
+    });
+}, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+revealEls.forEach(el => io.observe(el));
+
+// ============ Toast ============
+function showToast(msg) {
+    const t = document.getElementById('copyToast');
+    t.textContent = '✓ ' + msg;
+    t.classList.add('show');
+    setTimeout(() => t.classList.remove('show'), 2200);
+}
+
+// ============ Prompt copy & toggle ============
+function copyPrompt() {
+    const text = document.getElementById('promptText').innerText;
+    navigator.clipboard.writeText(text).then(() => {
+        showToast('הפרומפט הועתק בהצלחה');
+        confettiBurst();
+        SFX.sparkle();
+    }).catch(() => showToast('בעיה בהעתקה — סמנו ידנית'));
+}
+function togglePrompt() {
+    const box = document.getElementById('promptText');
+    const btn = document.getElementById('togglePromptBtn');
+    box.classList.toggle('expanded');
+    btn.textContent = box.classList.contains('expanded') ? 'סגור פרומפט ⬆️' : 'פתח את הפרומפט המלא ⬇️';
+}
+
+// ============ Prompt Builder ============
+const bldDefaults = [
+    { name: 'שגיא', file: 'sagi.png', desc: 'אבא, סקרן ומצחיק' },
+    { name: 'מור', file: 'mor.jpg', desc: 'אמא, חכמה ורגישה' },
+    { name: 'גאיה', file: 'gaya.jpg', desc: 'הבת הבכורה, יצירתית' },
+    { name: 'מילי', file: 'mili.jpeg', desc: 'הבת הקטנה, מלאת דמיון' }
+];
+let bldCharacters = JSON.parse(JSON.stringify(bldDefaults));
+
+function renderCharacters() {
+    const wrap = document.getElementById('bld-characters');
+    wrap.innerHTML = '';
+    bldCharacters.forEach((c, i) => {
+        const row = document.createElement('div');
+        row.className = 'character-row';
+        row.innerHTML = `
+            <input type="text" placeholder="שם" value="${escapeHtml(c.name)}" data-k="name" data-i="${i}">
+            <input type="text" placeholder="קובץ" value="${escapeHtml(c.file)}" data-k="file" data-i="${i}">
+            <input type="text" placeholder="תיאור קצר" value="${escapeHtml(c.desc)}" data-k="desc" data-i="${i}">
+            <button type="button" class="character-remove" data-rm="${i}" title="מחק">×</button>
+        `;
+        wrap.appendChild(row);
+    });
+    wrap.querySelectorAll('input').forEach(inp => {
+        inp.addEventListener('input', e => {
+            bldCharacters[+inp.dataset.i][inp.dataset.k] = inp.value;
+            updateBuilder();
+        });
+    });
+    wrap.querySelectorAll('[data-rm]').forEach(b => {
+        b.addEventListener('click', () => {
+            bldCharacters.splice(+b.dataset.rm, 1);
+            renderCharacters();
+            updateBuilder();
+        });
+    });
+}
+
+function escapeHtml(s) {
+    return String(s).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+}
+
+document.getElementById('bld-add-char').addEventListener('click', () => {
+    bldCharacters.push({ name: '', file: '', desc: '' });
+    renderCharacters();
+    updateBuilder();
+});
+
+document.querySelectorAll('#bld-styles .style-chip').forEach(chip => {
+    chip.addEventListener('click', () => {
+        chip.classList.toggle('active');
+        updateBuilder();
+    });
+});
+
+['bld-title', 'bld-topic', 'bld-bg', 'bld-age-from', 'bld-age-to', 'bld-pages'].forEach(id => {
+    document.getElementById(id).addEventListener('input', updateBuilder);
+});
+
+function buildPrompt() {
+    const title = document.getElementById('bld-title').value.trim() || '[שם הספר]';
+    const topic = document.getElementById('bld-topic').value.trim() || '[הנושא / החג]';
+    const bg = document.getElementById('bld-bg').value.trim();
+    const ageFrom = document.getElementById('bld-age-from').value || '6';
+    const ageTo = document.getElementById('bld-age-to').value || '10';
+    const pages = document.getElementById('bld-pages').value || '10';
+    const styles = [...document.querySelectorAll('#bld-styles .style-chip.active')].map(c => c.dataset.val);
+    const validChars = bldCharacters.filter(c => c.name.trim());
+
+    const charCount = validChars.length;
+    const charNoun = charCount === 1 ? 'תמונה' : `${charCount} תמונות`;
+
+    let p = `צור ספר ילדים מאויר בעברית בן ${pages} עמודים על ${topic}.\n\n`;
+    p += `שם הספר:\n"${title}"\n\n`;
+
+    if (charCount > 0) {
+        p += `חשוב מאוד – שימוש בתמונות המצורפות:\n`;
+        p += `צירפתי ${charNoun} של הדמויות, ויש להשתמש בהן כהשראה חזותית ברורה ועקבית עבור הדמויות בספר.\n\n`;
+        p += `מיפוי התמונות לדמויות הוא:\n`;
+        validChars.forEach(c => {
+            if (c.file.trim()) p += `${c.file.trim()} = ${c.name.trim()}\n`;
+        });
+        p += `\nהנחיות חשובות:\n`;
+        p += `כל קובץ שייך אך ורק לדמות שצוינה לידו.\n`;
+        p += `אין להחליף בין הדמויות.\n`;
+        p += `יש לשמור על עקביות מלאה במראה של כל דמות לאורך כל ${pages} העמודים.\n`;
+        p += `יש לשמור על דמיון ברור לתמונות המצורפות: תווי פנים, שיער, גיל משוער ואופי כללי.\n`;
+        p += `האיורים צריכים להיות מאוירים בסגנון ספר ילדים, לא פוטוריאליסטיים, אך עם דמיון ברור, טבעי, חם ומכבד לאנשים שבתמונות.\n\n`;
+        p += `לפני תחילת הכתיבה:\n`;
+        p += `כתוב קודם בקצרה את מיפוי הדמויות לפי הקבצים כדי לאשר שהבנת נכון מי היא כל דמות.\n`;
+        p += `לאחר מכן, הצג רשימת ${pages} עמודים קצרה עם כותרת ורעיון כללי לכל עמוד.\n`;
+        p += `ורק לאחר מכן צור את הספר המלא.\n\n`;
+        p += `הדמויות:\n`;
+        validChars.forEach(c => {
+            const desc = c.desc.trim() ? ` – ${c.desc.trim()}` : '';
+            p += `${c.name.trim()}${desc}.\n`;
+        });
+        p += `\n`;
+    }
+
+    if (bg) {
+        p += `רקע הסיפור:\n${bg}\n\n`;
+    }
+
+    p += `סגנון הסיפור:\n`;
+    if (styles.length) p += `סיפור ילדים ${styles.join(', ')}.\n`;
+    p += `מתאים לילדים בגילאי ${ageFrom}–${ageTo}.\n`;
+    p += `הטקסט צריך להיות פשוט, נעים, ציורי וברור.\n`;
+    p += `לשלב רגש, הומור קל וחום.\n`;
+    p += `לא להפחיד. לא להיות מטיף. לא להיות דידקטי מדי.\n`;
+    p += `לכתוב בעברית טבעית, זורמת ומזמינה.\n\n`;
+
+    p += `מבנה הספר:\n`;
+    p += `כתוב ספר בן ${pages} עמודים.\n\n`;
+    p += `בכל עמוד כלול:\n`;
+    p += `1. כותרת קצרה\n`;
+    p += `2. טקסט סיפורי של 2–4 משפטים\n`;
+    p += `3. תיאור איור מפורט לאותו עמוד\n\n`;
+
+    p += `סגנון האיורים:\n`;
+    p += `איור ילדים חם, צבעוני, קולנועי ועדין.\n`;
+    p += `האיורים צריכים להיות רכים, חיים, מלאי קסם וחום.\n`;
+    p += `ללא טקסט בתוך התמונות.\n\n`;
+
+    if (charCount > 0) {
+        p += `הנחיות חשובות לאיורים:\n`;
+        p += `השתמש בתמונות המצורפות כדי לשמור על דמיון ברור לדמויות.\n`;
+        p += `שמור על אותו מראה של כל דמות לאורך כל הספר.\n`;
+        p += `אל תוסיף טקסט בתוך האיורים.\n`;
+        p += `אל תייצר עומס חזותי מיותר.\n\n`;
+    }
+
+    p += `מטרה:\n`;
+    p += `צור ספר ילדים מאויר, מרגש, אישי ועדין, שירגיש כמו ספר אמיתי, עם חוויה משפחתית סביב ${topic}.`;
+
+    return p;
+}
+
+function updateBuilder() {
+    document.getElementById('bld-output').textContent = buildPrompt();
+}
+
+function copyBuilder() {
+    const text = document.getElementById('bld-output').textContent;
+    navigator.clipboard.writeText(text).then(() => {
+        showToast('הפרומפט המותאם אישית הועתק');
+        confettiBurst();
+        SFX.sparkle();
+    }).catch(() => showToast('בעיה בהעתקה'));
+}
+
+function downloadBuilder() {
+    const text = document.getElementById('bld-output').textContent;
+    const title = document.getElementById('bld-title').value.trim() || 'my-storybook-prompt';
+    const blob = new Blob([text], { type: 'text/plain;charset=utf-8' });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = title + '.txt';
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+    URL.revokeObjectURL(url);
+    showToast('הפרומפט הורד כקובץ TXT');
+}
+
+renderCharacters();
+updateBuilder();
+
+// ============ FAQ ============
+document.querySelectorAll('.faq-q').forEach(q => {
+    q.addEventListener('click', () => {
+        q.parentElement.classList.toggle('open');
+        SFX.page();
+    });
+});
+
+// ============ Game 1: Order ============
+const correctOrder = ['רעיון', 'Gemini', 'Gems', 'Storybook', 'תמונות', 'פרומפט', 'Canvas', 'PDF'];
+let scrambledOrder = [...correctOrder].sort(() => Math.random() - 0.5);
+
+function renderOrder() {
+    const pool = document.getElementById('orderPool');
+    const target = document.getElementById('orderTarget');
+    pool.innerHTML = '';
+    target.innerHTML = '';
+    scrambledOrder.forEach(s => {
+        const chip = document.createElement('div');
+        chip.className = 'order-chip';
+        chip.textContent = s;
+        chip.draggable = true;
+        chip.dataset.label = s;
+        chip.addEventListener('dragstart', e => {
+            chip.classList.add('dragging');
+            e.dataTransfer.setData('text/plain', s);
+        });
+        chip.addEventListener('dragend', () => chip.classList.remove('dragging'));
+        chip.addEventListener('click', () => {
+            if (chip.parentElement.id === 'orderPool') target.appendChild(chip);
+            else pool.appendChild(chip);
+        });
+        pool.appendChild(chip);
+    });
+    [pool, target].forEach(zone => {
+        zone.addEventListener('dragover', e => e.preventDefault());
+        zone.addEventListener('drop', e => {
+            e.preventDefault();
+            const dragging = document.querySelector('.order-chip.dragging');
+            if (dragging) zone.appendChild(dragging);
+        });
+    });
+}
+function checkOrder() {
+    const target = document.getElementById('orderTarget');
+    const placed = [...target.querySelectorAll('.order-chip')].map(c => c.dataset.label);
+    const success = document.getElementById('orderSuccess');
+    if (placed.length === correctOrder.length && placed.every((v,i) => v === correctOrder[i])) {
+        success.classList.add('show');
+        target.querySelectorAll('.order-chip').forEach(c => c.classList.add('placed'));
+        confettiBurst();
+    } else {
+        success.classList.remove('show');
+        showToast('כמעט שם — נסו שוב');
+    }
+}
+function resetOrder() {
+    scrambledOrder = [...correctOrder].sort(() => Math.random() - 0.5);
+    renderOrder();
+    document.getElementById('orderSuccess').classList.remove('show');
+}
+renderOrder();
+
+// ============ Game 2: Trivia ============
+const triviaQuestions = [
+    {
+        emoji: '📅',
+        q: 'מתי חוגגים את ל"ג בעומר?',
+        opts: ['ביום ה־33 לספירת העומר', 'ביום הראשון של פסח', 'בסוף החנוכה', 'באמצע סוכות'],
+        correct: 0
+    },
+    {
+        emoji: '🔥',
+        q: 'מה הדבר הכי מפורסם שעושים בל"ג בעומר?',
+        opts: ['מדליקים מדורות', 'אוכלים סופגניות', 'מכינים סוכה', 'אוכלים מצות'],
+        correct: 0
+    },
+    {
+        emoji: '👴',
+        q: 'איזה רב מפורסם קשור לחג ל"ג בעומר?',
+        opts: ['רבי שמעון בר יוחאי', 'רבי עקיבא בלבד', 'הרמב"ם', 'רש"י'],
+        correct: 0
+    },
+    {
+        emoji: '🏔️',
+        q: 'איפה רבי שמעון בר יוחאי הסתתר עם בנו במשך שנים רבות?',
+        opts: ['במערה', 'בארמון', 'באוהל במדבר', 'על ראש הר תבור'],
+        correct: 0
+    },
+    {
+        emoji: '🌳',
+        q: 'איזה עץ נתן להם אוכל ומים במערה?',
+        opts: ['עץ חרובים ומעיין מים', 'עץ תפוזים', 'עץ זית', 'עץ דקל'],
+        correct: 0
+    },
+    {
+        emoji: '🏹',
+        q: 'במה ילדים נוהגים לשחק בל"ג בעומר?',
+        opts: ['בקשת וחיצים', 'בכדורגל', 'בשחמט', 'בקלפים'],
+        correct: 0
+    },
+    {
+        emoji: '🪦',
+        q: 'איפה קבור רבי שמעון בר יוחאי, ולשם נוסעים בל"ג בעומר?',
+        opts: ['בהר מירון', 'בירושלים', 'בתל אביב', 'באילת'],
+        correct: 0
+    },
+    {
+        emoji: '✂️',
+        q: 'מה ילדים בני 3 עושים לפעמים בפעם הראשונה במירון בל"ג בעומר?',
+        opts: ['תספורת ראשונה (חאלקה)', 'נועלים נעליים', 'לומדים לרכוב על אופניים', 'הולכים לגן'],
+        correct: 0
+    },
+    {
+        emoji: '📚',
+        q: 'מהי הספירה שמתחילה אחרי פסח ונגמרת בשבועות?',
+        opts: ['ספירת העומר', 'ספירת השנה', 'ספירת הימים הטובים', 'ספירת החגים'],
+        correct: 0
+    },
+    {
+        emoji: '🎶',
+        q: 'מה אסור היה לעשות בימי ספירת העומר ומותר בל"ג בעומר?',
+        opts: ['להסתפר ולשמוע מוזיקה שמחה', 'לאכול לחם', 'לישון בלילה', 'לדבר'],
+        correct: 0
+    }
+];
+
+// shuffle options for each question
+triviaQuestions.forEach(q => {
+    const correctText = q.opts[q.correct];
+    q.opts = [...q.opts].sort(() => Math.random() - 0.5);
+    q.correct = q.opts.indexOf(correctText);
+});
+
+let triviaIdx = 0;
+let triviaScore = 0;
+let triviaLocked = false;
+
+function renderTriviaQuestion() {
+    const q = triviaQuestions[triviaIdx];
+    document.getElementById('triviaEmoji').textContent = q.emoji;
+    document.getElementById('triviaQuestion').textContent = q.q;
+    document.getElementById('triviaProgressLabel').textContent = `שאלה ${triviaIdx + 1} מתוך ${triviaQuestions.length}`;
+    document.getElementById('triviaProgress').style.width = ((triviaIdx) / triviaQuestions.length * 100) + '%';
+
+    const optsBox = document.getElementById('triviaOptions');
+    optsBox.innerHTML = '';
+    q.opts.forEach((opt, i) => {
+        const btn = document.createElement('button');
+        btn.className = 'trivia-opt';
+        btn.textContent = opt;
+        btn.style.animationDelay = (i * 60) + 'ms';
+        btn.style.animation = 'finalPop 0.4s var(--ease) backwards';
+        btn.addEventListener('click', () => answerTrivia(i, btn));
+        optsBox.appendChild(btn);
+    });
+
+    document.getElementById('triviaFeedback').classList.remove('show', 'good', 'bad');
+    document.getElementById('triviaFeedback').textContent = '';
+    triviaLocked = false;
+}
+
+const goodFeedback = ['🎉 מעולה!', '🌟 כל הכבוד!', '🔥 פצצה!', '✨ מדהים!', '💪 מומחים!', '🎯 בול בול!'];
+const badFeedback = ['🤏 כמעט!', '😅 לא נורא, ממשיכים!', '🌱 בפעם הבאה!', '💡 יופי שניסיתם!'];
+
+function answerTrivia(picked, btn) {
+    if (triviaLocked) return;
+    triviaLocked = true;
+    const q = triviaQuestions[triviaIdx];
+    const opts = document.querySelectorAll('.trivia-opt');
+    opts.forEach((o, i) => {
+        o.classList.add('disabled');
+        if (i === q.correct) o.classList.add('correct');
+        else if (i === picked) o.classList.add('wrong');
+        else o.classList.add('dim');
+    });
+
+    const feedback = document.getElementById('triviaFeedback');
+    const card = document.getElementById('triviaCard');
+
+    if (picked === q.correct) {
+        triviaScore++;
+        const scoreEl = document.getElementById('triviaScore');
+        document.getElementById('triviaScoreNum').textContent = triviaScore;
+        scoreEl.classList.remove('bump');
+        void scoreEl.offsetWidth;
+        scoreEl.classList.add('bump');
+
+        feedback.textContent = goodFeedback[Math.floor(Math.random() * goodFeedback.length)];
+        feedback.classList.add('show', 'good');
+
+        card.classList.add('flash');
+        setTimeout(() => card.classList.remove('flash'), 600);
+
+        spawnFloatPlus(btn);
+        miniConfetti(btn);
+        emojiRain(['⭐', '🎉', '✨', '🔥', '🏹'], 12);
+        fireworkBurst();
+        SFX.correct();
+    } else {
+        feedback.textContent = badFeedback[Math.floor(Math.random() * badFeedback.length)];
+        feedback.classList.add('show', 'bad');
+        card.classList.add('shake');
+        setTimeout(() => card.classList.remove('shake'), 500);
+        SFX.wrong();
+    }
+
+    document.getElementById('triviaProgress').style.width = ((triviaIdx + 1) / triviaQuestions.length * 100) + '%';
+
+    setTimeout(() => {
+        triviaIdx++;
+        if (triviaIdx >= triviaQuestions.length) showTriviaFinal();
+        else renderTriviaQuestion();
+    }, 1700);
+}
+
+function spawnFloatPlus(target) {
+    const rect = target.getBoundingClientRect();
+    const card = document.getElementById('triviaCard');
+    const cardRect = card.getBoundingClientRect();
+    const plus = document.createElement('div');
+    plus.className = 'float-plus';
+    plus.textContent = '+1 ⭐';
+    plus.style.left = (rect.left - cardRect.left + rect.width / 2 - 20) + 'px';
+    plus.style.top = (rect.top - cardRect.top - 10) + 'px';
+    card.appendChild(plus);
+    setTimeout(() => plus.remove(), 1300);
+}
+
+function miniConfetti(target) {
+    const rect = target.getBoundingClientRect();
+    const colors = ['#fb923c', '#a78bfa', '#14b8a6', '#facc15', '#ec4899', '#84cc16'];
+    for (let i = 0; i < 16; i++) {
+        const piece = document.createElement('div');
+        piece.className = 'confetti-piece';
+        piece.style.position = 'fixed';
+        piece.style.left = (rect.left + rect.width / 2) + 'px';
+        piece.style.top = (rect.top + rect.height / 2) + 'px';
+        piece.style.background = colors[Math.floor(Math.random() * colors.length)];
+        piece.style.borderRadius = Math.random() > 0.5 ? '50%' : '2px';
+        const angle = (Math.random() * Math.PI * 2);
+        const dist = 80 + Math.random() * 100;
+        piece.style.setProperty('--fx', Math.cos(angle) * dist + 'px');
+        piece.style.setProperty('--fy', Math.sin(angle) * dist + 'px');
+        piece.style.animation = 'fireworkFly 1.1s ease-out forwards';
+        document.body.appendChild(piece);
+        setTimeout(() => piece.remove(), 1300);
+    }
+}
+
+function fireworkBurst() {
+    const colors = ['#fb923c', '#facc15', '#ec4899', '#a78bfa', '#14b8a6', '#7dd3fc'];
+    const cx = window.innerWidth * (0.3 + Math.random() * 0.4);
+    const cy = window.innerHeight * (0.2 + Math.random() * 0.3);
+    for (let i = 0; i < 24; i++) {
+        const fw = document.createElement('div');
+        fw.className = 'firework';
+        fw.style.left = cx + 'px';
+        fw.style.top = cy + 'px';
+        fw.style.background = colors[Math.floor(Math.random() * colors.length)];
+        fw.style.boxShadow = `0 0 8px currentColor`;
+        const angle = (i / 24) * Math.PI * 2;
+        const dist = 80 + Math.random() * 80;
+        fw.style.setProperty('--fx', Math.cos(angle) * dist + 'px');
+        fw.style.setProperty('--fy', Math.sin(angle) * dist + 'px');
+        document.body.appendChild(fw);
+        setTimeout(() => fw.remove(), 1100);
+    }
+}
+
+function emojiRain(emojis, count) {
+    const rain = document.getElementById('triviaRain');
+    for (let i = 0; i < count; i++) {
+        const e = document.createElement('div');
+        e.className = 'rain-emoji';
+        e.textContent = emojis[Math.floor(Math.random() * emojis.length)];
+        e.style.left = Math.random() * 100 + '%';
+        const dur = 1.8 + Math.random() * 1.2;
+        e.style.animationDuration = dur + 's';
+        e.style.animationDelay = (Math.random() * 0.5) + 's';
+        e.style.fontSize = (22 + Math.random() * 18) + 'px';
+        rain.appendChild(e);
+        setTimeout(() => e.remove(), (dur + 1) * 1000);
+    }
+}
+
+function showTriviaFinal() {
+    document.getElementById('triviaStage').style.display = 'none';
+    const finalEl = document.getElementById('triviaFinal');
+    finalEl.classList.add('show');
+
+    const score = triviaScore;
+    document.getElementById('triviaFinalScore').textContent = score;
+
+    let title, emoji, stars;
+    if (score === 10) { title = 'מומחים אמיתיים לל"ג בעומר! 🏆'; emoji = '🏆'; stars = 5; }
+    else if (score >= 8) { title = 'וואו, ידע מרשים! 🌟'; emoji = '🌟'; stars = 4; }
+    else if (score >= 6) { title = 'יופי, יודעים יפה!'; emoji = '🔥'; stars = 3; }
+    else if (score >= 4) { title = 'התחלה טובה!'; emoji = '💪'; stars = 2; }
+    else { title = 'יש מה ללמוד — וזה כיף!'; emoji = '🌱'; stars = 1; }
+
+    document.getElementById('triviaFinalTitle').textContent = title;
+    document.getElementById('triviaFinalEmoji').textContent = emoji;
+
+    const starsBox = document.getElementById('triviaStars');
+    starsBox.innerHTML = '';
+    for (let i = 0; i < 5; i++) {
+        const s = document.createElement('span');
+        s.textContent = i < stars ? '⭐' : '☆';
+        s.style.animationDelay = (i * 150) + 'ms';
+        starsBox.appendChild(s);
+    }
+
+    confettiBurst();
+    setTimeout(() => fireworkBurst(), 300);
+    setTimeout(() => fireworkBurst(), 700);
+    setTimeout(() => fireworkBurst(), 1100);
+    emojiRain(['🎉', '⭐', '🔥', '🏆', '✨', '🎊'], 30);
+    SFX.tada();
+}
+
+function resetTrivia() {
+    triviaIdx = 0;
+    triviaScore = 0;
+    triviaLocked = false;
+    document.getElementById('triviaScoreNum').textContent = '0';
+    document.getElementById('triviaFinal').classList.remove('show');
+    document.getElementById('triviaStage').style.display = 'block';
+    triviaQuestions.forEach(q => {
+        const correctText = q.opts[q.correct];
+        q.opts = [...q.opts].sort(() => Math.random() - 0.5);
+        q.correct = q.opts.indexOf(correctText);
+    });
+    renderTriviaQuestion();
+}
+
+renderTriviaQuestion();
+
+// ============ Game 3: Bow & Arrow ============
+(function archeryGame() {
+    const stage = document.getElementById('archeryStage');
+    const canvas = document.getElementById('archeryCanvas');
+    const ctx = canvas.getContext('2d');
+    const overlay = document.getElementById('archeryOverlay');
+    const finalEl = document.getElementById('archeryFinal');
+    const startBtn = document.getElementById('archeryStartBtn');
+    const restartBtn = document.getElementById('archeryRestartBtn');
+    const timeEl = document.getElementById('archeryTime');
+    const hitsEl = document.getElementById('archeryHits');
+    const fireEl = document.getElementById('archeryFire');
+
+    let W = 0, H = 0, dpr = 1;
+    let running = false;
+    let lastTs = 0;
+    let timeLeft = 30;
+    let hits = 0;
+    let fireSize = 0;
+    let logs = [];
+    let arrows = [];
+    let particles = [];
+    let stars = [];
+    let aimX = 0, aimY = 0;
+    let spawnTimer = 0;
+    let nextSpawn = 0.6;
+
+    function resize() {
+        const rect = stage.getBoundingClientRect();
+        dpr = Math.min(window.devicePixelRatio || 1, 2);
+        W = rect.width;
+        H = rect.height;
+        canvas.width = W * dpr;
+        canvas.height = H * dpr;
+        canvas.style.width = W + 'px';
+        canvas.style.height = H + 'px';
+        ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+        // Background stars
+        if (stars.length === 0) {
+            for (let i = 0; i < 50; i++) {
+                stars.push({
+                    x: Math.random() * W,
+                    y: Math.random() * H * 0.7,
+                    r: Math.random() * 1.5 + 0.4,
+                    tw: Math.random() * Math.PI * 2
+                });
+            }
+        }
+    }
+
+    function start() {
+        resize();
+        running = true;
+        timeLeft = 30;
+        hits = 0;
+        fireSize = 18;
+        logs = [];
+        arrows = [];
+        particles = [];
+        spawnTimer = 0;
+        aimX = W / 2;
+        aimY = H / 2;
+        timeEl.textContent = '30';
+        hitsEl.textContent = '0';
+        fireEl.textContent = '18';
+        overlay.classList.add('hidden');
+        finalEl.classList.remove('show');
+        lastTs = performance.now();
+        requestAnimationFrame(loop);
+    }
+
+    function end() {
+        running = false;
+        finalEl.classList.add('show');
+        document.getElementById('archeryFinalHits').textContent = hits;
+
+        let title, emoji, stars;
+        if (hits >= 25) { title = 'אלוף הקשתים! 🏆'; emoji = '🏆'; stars = 5; }
+        else if (hits >= 18) { title = 'מדהים! מדורה ענקית!'; emoji = '🔥'; stars = 4; }
+        else if (hits >= 12) { title = 'יופי! מדורה יפה!'; emoji = '🌟'; stars = 3; }
+        else if (hits >= 6) { title = 'התחלה טובה!'; emoji = '🎯'; stars = 2; }
+        else { title = 'נסו שוב — אתם תצליחו!'; emoji = '🏹'; stars = 1; }
+
+        document.getElementById('archeryFinalTitle').textContent = title;
+        document.getElementById('archeryFinalEmoji').textContent = emoji;
+
+        const starsBox = document.getElementById('archeryStars');
+        starsBox.innerHTML = '';
+        for (let i = 0; i < 5; i++) {
+            const s = document.createElement('span');
+            s.textContent = i < stars ? '⭐' : '☆';
+            s.style.animationDelay = (i * 150) + 'ms';
+            starsBox.appendChild(s);
+        }
+
+        if (typeof SFX !== 'undefined') SFX.tada();
+        if (typeof confettiBurst === 'function') confettiBurst();
+        if (typeof fireworkBurst === 'function') {
+            setTimeout(() => fireworkBurst(), 200);
+            setTimeout(() => fireworkBurst(), 600);
+        }
+    }
+
+    function spawnLog() {
+        const fromLeft = Math.random() < 0.5;
+        const y = 60 + Math.random() * (H * 0.55 - 60);
+        const speed = 80 + Math.random() * 120 + (30 - timeLeft) * 4;
+        const size = 26 + Math.random() * 18;
+        logs.push({
+            x: fromLeft ? -50 : W + 50,
+            y,
+            vx: fromLeft ? speed : -speed,
+            r: size / 2,
+            rot: Math.random() * Math.PI,
+            spin: (Math.random() - 0.5) * 4
+        });
+    }
+
+    function shoot(tx, ty) {
+        if (!running) return;
+        const bowX = W / 2;
+        const bowY = H - 30;
+        const dx = tx - bowX;
+        const dy = ty - bowY;
+        const dist = Math.hypot(dx, dy) || 1;
+        // Scale speed with stage size so arrows always cross the canvas quickly,
+        // even in fullscreen where H may be 1500–2000px instead of ~480.
+        const diag = Math.hypot(W, H);
+        const speed = Math.max(750, diag * 1.6);
+        const life = (diag / speed) * 1.4;
+        arrows.push({
+            x: bowX,
+            y: bowY,
+            vx: (dx / dist) * speed,
+            vy: (dy / dist) * speed,
+            angle: Math.atan2(dy, dx),
+            life
+        });
+        if (typeof SFX !== 'undefined') SFX.click();
+    }
+
+    function update(dt) {
+        timeLeft -= dt;
+        if (timeLeft <= 0) {
+            timeLeft = 0;
+            timeEl.textContent = '0';
+            end();
+            return;
+        }
+        timeEl.textContent = Math.ceil(timeLeft);
+
+        spawnTimer += dt;
+        if (spawnTimer > nextSpawn) {
+            spawnTimer = 0;
+            nextSpawn = Math.max(0.4, 1.2 - (30 - timeLeft) * 0.025);
+            spawnLog();
+        }
+
+        // Update logs
+        logs.forEach(l => {
+            l.x += l.vx * dt;
+            l.rot += l.spin * dt;
+        });
+        logs = logs.filter(l => l.x > -100 && l.x < W + 100);
+
+        // Update arrows
+        arrows.forEach(a => {
+            a.x += a.vx * dt;
+            a.y += a.vy * dt;
+            a.life -= dt;
+        });
+
+        // Collision
+        for (let i = arrows.length - 1; i >= 0; i--) {
+            const a = arrows[i];
+            for (let j = logs.length - 1; j >= 0; j--) {
+                const l = logs[j];
+                const dist = Math.hypot(a.x - l.x, a.y - l.y);
+                if (dist < l.r + 6) {
+                    // Hit!
+                    hits++;
+                    fireSize = Math.min(180, fireSize + 8);
+                    hitsEl.textContent = hits;
+                    fireEl.textContent = Math.round(fireSize);
+                    hitsEl.parentElement.classList.remove('bump');
+                    void hitsEl.parentElement.offsetWidth;
+                    hitsEl.parentElement.classList.add('bump');
+                    fireEl.parentElement.classList.remove('bump');
+                    void fireEl.parentElement.offsetWidth;
+                    fireEl.parentElement.classList.add('bump');
+
+                    // Spawn particles
+                    for (let p = 0; p < 12; p++) {
+                        const angle = Math.random() * Math.PI * 2;
+                        const sp = 60 + Math.random() * 120;
+                        particles.push({
+                            x: l.x, y: l.y,
+                            vx: Math.cos(angle) * sp,
+                            vy: Math.sin(angle) * sp - 50,
+                            life: 0.6,
+                            color: ['#fbbf24','#f97316','#dc2626','#fde047'][p%4],
+                            size: 3 + Math.random() * 3
+                        });
+                    }
+                    // Log flies to fire
+                    const fx = W / 2;
+                    const fy = H - 30;
+                    const fdx = fx - l.x;
+                    const fdy = fy - l.y;
+                    const fdist = Math.hypot(fdx, fdy);
+                    l.vx = (fdx / fdist) * 400;
+                    l.vy = (fdy / fdist) * 400;
+                    l.spin = 10;
+                    l.toFire = 0.4;
+                    l.r *= 0.7;
+                    arrows.splice(i, 1);
+                    if (typeof SFX !== 'undefined') SFX.correct();
+                    break;
+                }
+            }
+        }
+
+        // Logs flying to fire
+        logs.forEach(l => {
+            if (l.toFire !== undefined) {
+                l.toFire -= dt;
+                if (l.toFire <= 0) l.consumed = true;
+            }
+        });
+        logs = logs.filter(l => !l.consumed);
+
+        arrows = arrows.filter(a => a.life > 0 && a.x > -50 && a.x < W + 50 && a.y > -50 && a.y < H + 50);
+
+        // Update particles
+        particles.forEach(p => {
+            p.x += p.vx * dt;
+            p.y += p.vy * dt;
+            p.vy += (p.ember ? -20 : 200) * dt;
+            p.life -= dt;
+        });
+        particles = particles.filter(p => p.life > 0);
+
+        // Fire constantly grows over time (slow ambient growth) + tiny breathing
+        fireSize = Math.min(180, fireSize + dt * 2.5);
+        fireEl.textContent = Math.round(fireSize);
+    }
+
+    function draw() {
+        // Stars
+        ctx.clearRect(0, 0, W, H);
+        const t = performance.now() / 1000;
+        stars.forEach(s => {
+            const alpha = 0.4 + Math.sin(t * 2 + s.tw) * 0.4;
+            ctx.fillStyle = `rgba(255,255,255,${alpha})`;
+            ctx.beginPath();
+            ctx.arc(s.x, s.y, s.r, 0, Math.PI * 2);
+            ctx.fill();
+        });
+
+        // Ground
+        const groundY = H - 50;
+        const grad = ctx.createLinearGradient(0, groundY, 0, H);
+        grad.addColorStop(0, '#1e1b4b');
+        grad.addColorStop(1, '#0f0a1f');
+        ctx.fillStyle = grad;
+        ctx.fillRect(0, groundY, W, 50);
+
+        // ===== Israeli flag (left side, on a pole) =====
+        const flagX = 36;
+        const poleTop = H - 180;
+        const poleBottom = H - 20;
+        // Pole
+        ctx.fillStyle = '#9ca3af';
+        ctx.fillRect(flagX - 2, poleTop, 3, poleBottom - poleTop);
+        // Pole top knob
+        ctx.fillStyle = '#fbbf24';
+        ctx.beginPath();
+        ctx.arc(flagX - 0.5, poleTop, 4, 0, Math.PI * 2);
+        ctx.fill();
+        // Flag (waving)
+        const flagW = 60;
+        const flagH = 42;
+        const flagY = poleTop + 4;
+        const wave = Math.sin(t * 3) * 3;
+        ctx.save();
+        ctx.translate(flagX, flagY);
+        // White background with subtle wave (segments)
+        const segments = 6;
+        for (let i = 0; i < segments; i++) {
+            const sx = (flagW / segments) * i;
+            const sw = flagW / segments + 0.5;
+            const sy = Math.sin(t * 3 + i * 0.7) * 2;
+            ctx.fillStyle = '#ffffff';
+            ctx.fillRect(sx, sy, sw, flagH);
+            // Top blue stripe
+            ctx.fillStyle = '#0038b8';
+            ctx.fillRect(sx, sy + 5, sw, 6);
+            // Bottom blue stripe
+            ctx.fillRect(sx, sy + flagH - 11, sw, 6);
+        }
+        // Star of David (simplified two triangles)
+        ctx.strokeStyle = '#0038b8';
+        ctx.lineWidth = 1.8;
+        const starX = flagW / 2;
+        const starY = flagH / 2 + Math.sin(t * 3 + 2) * 1.5;
+        const starR = 8;
+        // Triangle pointing up
+        ctx.beginPath();
+        ctx.moveTo(starX, starY - starR);
+        ctx.lineTo(starX - starR * 0.866, starY + starR * 0.5);
+        ctx.lineTo(starX + starR * 0.866, starY + starR * 0.5);
+        ctx.closePath();
+        ctx.stroke();
+        // Triangle pointing down
+        ctx.beginPath();
+        ctx.moveTo(starX, starY + starR);
+        ctx.lineTo(starX - starR * 0.866, starY - starR * 0.5);
+        ctx.lineTo(starX + starR * 0.866, starY - starR * 0.5);
+        ctx.closePath();
+        ctx.stroke();
+        ctx.restore();
+
+        // Bonfire base (logs at bottom) — scales with fire
+        const baseW = 70 + fireSize * 0.4;
+        ctx.fillStyle = '#451a03';
+        ctx.fillRect(W/2 - baseW/2, H - 22, baseW, 8);
+        ctx.fillStyle = '#78350f';
+        ctx.fillRect(W/2 - baseW/2 + 3, H - 20, baseW - 6, 4);
+
+        // Fire — multiple layers, taller and wider as fireSize grows
+        const flameH = Math.max(30, fireSize * 1.2);
+        const flameW = Math.max(25, fireSize * 0.8);
+        for (let i = 0; i < 4; i++) {
+            const flicker = 1 + Math.sin(t * 8 + i) * 0.12;
+            const fh = flameH * flicker * (1 - i * 0.18);
+            const fw = flameW * flicker * (1 - i * 0.13);
+            const colors = ['#7f1d1d', '#dc2626', '#f97316', '#fbbf24'];
+            ctx.fillStyle = colors[i];
+            ctx.beginPath();
+            ctx.ellipse(W/2, H - 22 - fh/2, fw/2, fh/2, 0, 0, Math.PI * 2);
+            ctx.fill();
+        }
+        // Inner white-hot core
+        if (fireSize > 40) {
+            ctx.fillStyle = `rgba(255, 248, 220, ${Math.min(0.6, (fireSize - 40) / 100)})`;
+            ctx.beginPath();
+            ctx.ellipse(W/2, H - 22 - flameH * 0.25, flameW * 0.18, flameH * 0.25, 0, 0, Math.PI * 2);
+            ctx.fill();
+        }
+
+        // Embers floating up from fire
+        if (Math.random() < Math.min(0.8, fireSize / 80)) {
+            particles.push({
+                x: W/2 + (Math.random() - 0.5) * flameW * 0.6,
+                y: H - 22 - flameH * 0.2,
+                vx: (Math.random() - 0.5) * 30,
+                vy: -40 - Math.random() * 60,
+                life: 1.2,
+                color: ['#fbbf24', '#f97316', '#fde047'][Math.floor(Math.random() * 3)],
+                size: 1.5 + Math.random() * 2,
+                ember: true
+            });
+        }
+
+        // Fire glow — bigger as fire grows
+        const glowR = fireSize + 100;
+        const glow = ctx.createRadialGradient(W/2, H - 40, 0, W/2, H - 40, glowR);
+        glow.addColorStop(0, `rgba(251, 146, 60, ${Math.min(0.5, fireSize / 220)})`);
+        glow.addColorStop(0.5, `rgba(220, 38, 38, ${Math.min(0.2, fireSize / 400)})`);
+        glow.addColorStop(1, 'rgba(251, 146, 60, 0)');
+        ctx.fillStyle = glow;
+        ctx.fillRect(W/2 - glowR, H - glowR - 20, glowR * 2, glowR + 50);
+
+        // Flag illuminated by fire (warm tint overlay)
+        if (fireSize > 60) {
+            ctx.fillStyle = `rgba(251, 146, 60, ${Math.min(0.15, (fireSize - 60) / 500)})`;
+            ctx.fillRect(flagX - 5, flagY - 5, flagW + 10, flagH + 10);
+        }
+
+        // Logs
+        logs.forEach(l => {
+            ctx.save();
+            ctx.translate(l.x, l.y);
+            ctx.rotate(l.rot);
+            // log body
+            ctx.fillStyle = '#78350f';
+            ctx.beginPath();
+            ctx.roundRect(-l.r, -l.r * 0.4, l.r * 2, l.r * 0.8, l.r * 0.4);
+            ctx.fill();
+            // wood grain
+            ctx.strokeStyle = '#451a03';
+            ctx.lineWidth = 1.5;
+            ctx.beginPath();
+            ctx.moveTo(-l.r * 0.7, -l.r * 0.15);
+            ctx.lineTo(l.r * 0.7, -l.r * 0.15);
+            ctx.moveTo(-l.r * 0.7, l.r * 0.15);
+            ctx.lineTo(l.r * 0.7, l.r * 0.15);
+            ctx.stroke();
+            // ends
+            ctx.fillStyle = '#a16207';
+            ctx.beginPath();
+            ctx.arc(-l.r, 0, l.r * 0.4, 0, Math.PI * 2);
+            ctx.arc(l.r, 0, l.r * 0.4, 0, Math.PI * 2);
+            ctx.fill();
+            ctx.restore();
+        });
+
+        // Arrows
+        arrows.forEach(a => {
+            ctx.save();
+            ctx.translate(a.x, a.y);
+            ctx.rotate(a.angle);
+            // shaft
+            ctx.strokeStyle = '#92400e';
+            ctx.lineWidth = 3;
+            ctx.beginPath();
+            ctx.moveTo(-16, 0);
+            ctx.lineTo(10, 0);
+            ctx.stroke();
+            // tip
+            ctx.fillStyle = '#cbd5e1';
+            ctx.beginPath();
+            ctx.moveTo(10, 0);
+            ctx.lineTo(4, -4);
+            ctx.lineTo(4, 4);
+            ctx.closePath();
+            ctx.fill();
+            // fletching
+            ctx.fillStyle = '#dc2626';
+            ctx.beginPath();
+            ctx.moveTo(-16, 0);
+            ctx.lineTo(-22, -4);
+            ctx.lineTo(-12, 0);
+            ctx.lineTo(-22, 4);
+            ctx.closePath();
+            ctx.fill();
+            ctx.restore();
+        });
+
+        // Particles
+        particles.forEach(p => {
+            ctx.fillStyle = p.color;
+            ctx.globalAlpha = Math.max(0, p.life / 0.6);
+            ctx.beginPath();
+            ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
+            ctx.fill();
+        });
+        ctx.globalAlpha = 1;
+
+        // Bow
+        const bowX = W / 2;
+        const bowY = H - 30;
+        const ang = Math.atan2(aimY - bowY, aimX - bowX);
+        ctx.save();
+        ctx.translate(bowX, bowY);
+        ctx.rotate(ang + Math.PI / 2);
+        // bow arc
+        ctx.strokeStyle = '#78350f';
+        ctx.lineWidth = 4;
+        ctx.beginPath();
+        ctx.arc(0, 0, 24, -Math.PI/2 - 0.7, -Math.PI/2 + 0.7);
+        ctx.stroke();
+        // string
+        ctx.strokeStyle = '#fef3c7';
+        ctx.lineWidth = 1;
+        ctx.beginPath();
+        ctx.moveTo(-15, -19);
+        ctx.lineTo(15, -19);
+        ctx.stroke();
+        // grip
+        ctx.fillStyle = '#451a03';
+        ctx.fillRect(-3, -2, 6, 4);
+        ctx.restore();
+
+        // Aim indicator (subtle crosshair)
+        if (running) {
+            ctx.strokeStyle = 'rgba(251, 191, 36, 0.5)';
+            ctx.lineWidth = 1.5;
+            ctx.beginPath();
+            ctx.arc(aimX, aimY, 14, 0, Math.PI * 2);
+            ctx.moveTo(aimX - 20, aimY); ctx.lineTo(aimX - 8, aimY);
+            ctx.moveTo(aimX + 8, aimY); ctx.lineTo(aimX + 20, aimY);
+            ctx.moveTo(aimX, aimY - 20); ctx.lineTo(aimX, aimY - 8);
+            ctx.moveTo(aimX, aimY + 8); ctx.lineTo(aimX, aimY + 20);
+            ctx.stroke();
+        }
+    }
+
+    function loop(ts) {
+        if (!running) return;
+        const dt = Math.min(0.05, (ts - lastTs) / 1000);
+        lastTs = ts;
+        update(dt);
+        draw();
+        requestAnimationFrame(loop);
+    }
+
+    function getPos(e) {
+        const rect = stage.getBoundingClientRect();
+        const t = e.touches ? e.touches[0] : e;
+        return {
+            x: (t.clientX - rect.left),
+            y: (t.clientY - rect.top)
+        };
+    }
+
+    stage.addEventListener('mousemove', e => {
+        const p = getPos(e);
+        aimX = p.x; aimY = p.y;
+    });
+    stage.addEventListener('touchmove', e => {
+        e.preventDefault();
+        const p = getPos(e);
+        aimX = p.x; aimY = p.y;
+    }, { passive: false });
+    stage.addEventListener('click', e => {
+        if (!running) return;
+        const p = getPos(e);
+        shoot(p.x, p.y);
+    });
+    stage.addEventListener('touchstart', e => {
+        e.preventDefault();
+        const p = getPos(e);
+        aimX = p.x; aimY = p.y;
+        if (running) shoot(p.x, p.y);
+    }, { passive: false });
+
+    startBtn.addEventListener('click', start);
+    restartBtn.addEventListener('click', start);
+    window.addEventListener('resize', () => { if (running || !overlay.classList.contains('hidden')) resize(); });
+
+    // Fullscreen
+    const fsBtn = document.getElementById('archeryFs');
+    function isFs() {
+        return !!(document.fullscreenElement || document.webkitFullscreenElement);
+    }
+    function toggleFs() {
+        if (isFs()) {
+            (document.exitFullscreen || document.webkitExitFullscreen).call(document);
+        } else {
+            const req = stage.requestFullscreen || stage.webkitRequestFullscreen;
+            if (req) req.call(stage).catch(() => {});
+        }
+    }
+    fsBtn.addEventListener('click', toggleFs);
+    document.addEventListener('fullscreenchange', onFsChange);
+    document.addEventListener('webkitfullscreenchange', onFsChange);
+    function onFsChange() {
+        fsBtn.textContent = isFs() ? '✕' : '⛶';
+        fsBtn.title = isFs() ? 'יציאה ממסך מלא' : 'מסך מלא';
+        // Force resize after browser layout
+        requestAnimationFrame(() => {
+            requestAnimationFrame(() => { resize(); if (!running) draw(); });
+        });
+    }
+
+    // Initial resize after layout
+    requestAnimationFrame(() => { resize(); draw(); });
+
+    // Polyfill roundRect for older browsers
+    if (!CanvasRenderingContext2D.prototype.roundRect) {
+        CanvasRenderingContext2D.prototype.roundRect = function(x, y, w, h, r) {
+            this.beginPath();
+            this.moveTo(x + r, y);
+            this.arcTo(x + w, y, x + w, y + h, r);
+            this.arcTo(x + w, y + h, x, y + h, r);
+            this.arcTo(x, y + h, x, y, r);
+            this.arcTo(x, y, x + w, y, r);
+            this.closePath();
+        };
+    }
+})();
+
+// ============ Confetti ============
+function confettiBurst() {
+    const colors = ['#fb923c', '#a78bfa', '#14b8a6', '#facc15', '#ec4899', '#7dd3fc'];
+    for (let i = 0; i < 40; i++) {
+        const piece = document.createElement('div');
+        piece.className = 'confetti-piece';
+        piece.style.left = Math.random() * 100 + 'vw';
+        piece.style.background = colors[Math.floor(Math.random() * colors.length)];
+        piece.style.animationDelay = (Math.random() * 0.5) + 's';
+        piece.style.animationDuration = (2 + Math.random() * 1.5) + 's';
+        piece.style.borderRadius = Math.random() > 0.5 ? '50%' : '2px';
+        document.body.appendChild(piece);
+        setTimeout(() => piece.remove(), 4000);
+    }
+}
+
+// ============ Share ============
+const SHARE_URL = 'https://sagiai.co.il/';
+function shareWhatsApp() {
+    const text = encodeURIComponent('בואו ליצור ספר ילדים אישי עם AI 📖✨ ');
+    window.open(`https://wa.me/?text=${text}${encodeURIComponent(SHARE_URL)}`, '_blank');
+    SFX.click();
+}
+function shareFacebook() {
+    window.open(`https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(SHARE_URL)}`, '_blank');
+    SFX.click();
+}
+function copyLink() {
+    navigator.clipboard.writeText(SHARE_URL).then(() => { showToast('הקישור הועתק'); SFX.sparkle(); });
+}
+</script>
+
+</body>
+</html>

@@ -1,0 +1,1164 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>איך הופכים דאטה מסובך לשיחה פשוטה? | שגיא בר און</title>
+    <meta name="description" content="הסבר חזותי לאיך עובדת מערכת סוכני AI שמאפשרת לשאול שאלות על הדאטה הארגוני בשפה טבעית — בלי SQL, בלי דשבורדים מסובכים. הרצאות וסדנאות AI לארגונים.">
+    <meta name="author" content="Sagi Bar-On">
+
+    <meta property="og:title" content="איך הופכים דאטה מסובך לשיחה פשוטה?">
+    <meta property="og:description" content="סיפור חזותי על מערכת סוכני AI שמדברת עם הדאטה הארגוני — בעברית פשוטה.">
+    <meta property="og:type" content="website">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Alef:wght@400;700&family=Heebo:wght@400;500;700;800&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --navy-950: #060b1a;
+            --navy-900: #0a1330;
+            --navy-800: #0f1c44;
+            --navy-700: #1a2a5e;
+            --ink: #0b1226;
+            --text: #1a2138;
+            --text-soft: #4a5573;
+            --text-muted: #6e7894;
+            --line: #e3e7f1;
+            --bg: #f6f7fb;
+            --white: #ffffff;
+            --purple: #8b5cf6;
+            --purple-deep: #6d28d9;
+            --purple-soft: #c4b5fd;
+            --purple-glow: rgba(139, 92, 246, 0.35);
+            --cyan: #67e8f9;
+            --gold: #fbbf24;
+            --radius: 18px;
+            --radius-lg: 28px;
+            --shadow-sm: 0 4px 14px rgba(13, 22, 56, 0.08);
+            --shadow: 0 12px 40px rgba(13, 22, 56, 0.12);
+            --shadow-lg: 0 30px 80px rgba(13, 22, 56, 0.25);
+            --ease: cubic-bezier(0.22, 1, 0.36, 1);
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        html { scroll-behavior: smooth; }
+
+        body {
+            font-family: 'Heebo', 'Alef', -apple-system, system-ui, sans-serif;
+            font-size: 18px;
+            line-height: 1.75;
+            color: var(--text);
+            background: var(--bg);
+            -webkit-font-smoothing: antialiased;
+            overflow-x: hidden;
+        }
+
+        a { color: inherit; text-decoration: none; }
+        img { max-width: 100%; display: block; }
+
+        :focus-visible {
+            outline: 3px solid var(--purple);
+            outline-offset: 3px;
+            border-radius: 6px;
+        }
+
+        .container {
+            max-width: 1180px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        .container-narrow {
+            max-width: 880px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        .eyebrow {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 14px;
+            font-weight: 700;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            color: var(--purple);
+            background: rgba(139, 92, 246, 0.1);
+            padding: 8px 16px;
+            border-radius: 999px;
+            border: 1px solid rgba(139, 92, 246, 0.25);
+        }
+
+        .eyebrow.on-dark {
+            color: var(--purple-soft);
+            background: rgba(139, 92, 246, 0.15);
+            border-color: rgba(196, 181, 253, 0.3);
+        }
+
+        .eyebrow .dot {
+            width: 8px; height: 8px; border-radius: 50%;
+            background: var(--purple);
+            box-shadow: 0 0 0 4px rgba(139, 92, 246, 0.18);
+        }
+
+        h1, h2, h3 { line-height: 1.25; color: var(--ink); font-weight: 800; letter-spacing: -0.01em; }
+        h2 { font-size: clamp(28px, 4vw, 44px); }
+        h3 { font-size: 22px; font-weight: 700; }
+
+        section { padding: 96px 0; }
+
+        .section-head {
+            text-align: center;
+            margin-bottom: 56px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 18px;
+        }
+
+        .section-head p {
+            color: var(--text-soft);
+            font-size: 19px;
+            max-width: 720px;
+        }
+
+        /* ===== HEADER ===== */
+        header.site {
+            position: sticky;
+            top: 0;
+            z-index: 50;
+            background: rgba(10, 19, 48, 0.85);
+            backdrop-filter: blur(14px);
+            -webkit-backdrop-filter: blur(14px);
+            border-bottom: 1px solid rgba(196, 181, 253, 0.12);
+        }
+        .nav {
+            display: flex; align-items: center; justify-content: space-between;
+            padding: 14px 0;
+        }
+        .brand {
+            display: flex; align-items: center; gap: 12px;
+            color: #fff; font-weight: 800; font-size: 17px;
+        }
+        .brand-mark {
+            width: 38px; height: 38px;
+            border-radius: 11px;
+            background: linear-gradient(135deg, var(--purple), var(--purple-deep));
+            display: grid; place-items: center;
+            color: #fff; font-weight: 800;
+            box-shadow: 0 8px 22px var(--purple-glow);
+        }
+        .nav-links { display: flex; gap: 26px; align-items: center; }
+        .nav-links a {
+            color: #cdd5e8; font-size: 15px; font-weight: 500;
+            transition: color 0.2s var(--ease);
+        }
+        .nav-links a:hover { color: #fff; }
+        .nav-cta {
+            color: #fff !important;
+            background: linear-gradient(135deg, var(--purple), var(--purple-deep));
+            padding: 9px 20px; border-radius: 999px;
+            font-weight: 700;
+            box-shadow: 0 8px 18px var(--purple-glow);
+            transition: transform 0.2s var(--ease);
+        }
+        .nav-cta:hover { transform: translateY(-2px); }
+
+        @media (max-width: 720px) {
+            .nav-links a:not(.nav-cta) { display: none; }
+        }
+
+        /* ===== HERO ===== */
+        .hero {
+            position: relative;
+            background:
+                radial-gradient(1100px 600px at 85% -10%, rgba(139, 92, 246, 0.35), transparent 60%),
+                radial-gradient(900px 500px at 10% 30%, rgba(103, 232, 249, 0.18), transparent 60%),
+                linear-gradient(180deg, var(--navy-950) 0%, var(--navy-900) 100%);
+            color: #fff;
+            overflow: hidden;
+            padding: 84px 0 110px;
+        }
+        .hero::before {
+            content: "";
+            position: absolute; inset: 0;
+            background-image:
+                linear-gradient(rgba(196, 181, 253, 0.05) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(196, 181, 253, 0.05) 1px, transparent 1px);
+            background-size: 56px 56px;
+            mask-image: radial-gradient(circle at 50% 40%, #000 0%, transparent 75%);
+            -webkit-mask-image: radial-gradient(circle at 50% 40%, #000 0%, transparent 75%);
+            pointer-events: none;
+        }
+        .hero-grid {
+            position: relative;
+            display: grid;
+            grid-template-columns: 1.1fr 0.9fr;
+            gap: 64px;
+            align-items: center;
+        }
+        .hero h1 {
+            color: #fff;
+            font-size: clamp(34px, 5vw, 60px);
+            line-height: 1.15;
+            margin: 22px 0 20px;
+            letter-spacing: -0.02em;
+        }
+        .hero h1 .accent {
+            background: linear-gradient(120deg, #c4b5fd, #67e8f9);
+            -webkit-background-clip: text; background-clip: text;
+            color: transparent;
+        }
+        .hero p.lead {
+            font-size: 21px;
+            color: #cdd5e8;
+            line-height: 1.7;
+            max-width: 580px;
+        }
+        .hero-cta-row {
+            display: flex; gap: 14px; flex-wrap: wrap;
+            margin-top: 32px;
+        }
+        .btn {
+            display: inline-flex; align-items: center; gap: 10px;
+            padding: 16px 28px;
+            font-size: 17px; font-weight: 700;
+            border-radius: 999px;
+            border: none;
+            cursor: pointer;
+            transition: all 0.25s var(--ease);
+            font-family: inherit;
+        }
+        .btn-primary {
+            color: #fff;
+            background: linear-gradient(135deg, var(--purple) 0%, var(--purple-deep) 100%);
+            box-shadow: 0 12px 30px var(--purple-glow);
+        }
+        .btn-primary:hover { transform: translateY(-3px); box-shadow: 0 18px 40px var(--purple-glow); }
+        .btn-ghost {
+            color: #fff;
+            background: rgba(255, 255, 255, 0.06);
+            border: 1px solid rgba(255, 255, 255, 0.18);
+            backdrop-filter: blur(8px);
+        }
+        .btn-ghost:hover { background: rgba(255, 255, 255, 0.12); }
+        .btn .arrow { transition: transform 0.25s var(--ease); display: inline-block; }
+        .btn:hover .arrow { transform: translateX(4px); }
+
+        .hero-visual { position: relative; }
+        .hero-image-wrap {
+            position: relative;
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            background: linear-gradient(145deg, rgba(139, 92, 246, 0.3), rgba(103, 232, 249, 0.15));
+            border: 1px solid rgba(196, 181, 253, 0.25);
+            box-shadow: var(--shadow-lg);
+            aspect-ratio: 4/5;
+        }
+        .hero-image-wrap img { width: 100%; height: 100%; object-fit: cover; position: relative; z-index: 1; }
+        .hero-image-fallback {
+            position: absolute; inset: 0;
+            display: grid; place-items: center;
+            color: rgba(255,255,255,0.5);
+            font-size: 14px;
+            background:
+                radial-gradient(circle at 30% 30%, rgba(139, 92, 246, 0.5), transparent 60%),
+                radial-gradient(circle at 70% 70%, rgba(103, 232, 249, 0.3), transparent 60%),
+                linear-gradient(135deg, #1a2a5e, #0a1330);
+        }
+        .hero-image-fallback::after { content: "hero-sagi-data.webp"; }
+        .floating-chip {
+            position: absolute;
+            background: rgba(255, 255, 255, 0.95);
+            color: var(--ink);
+            padding: 12px 18px;
+            border-radius: 14px;
+            font-size: 14px;
+            font-weight: 700;
+            box-shadow: var(--shadow);
+            display: flex; align-items: center; gap: 10px;
+            animation: floaty 5s ease-in-out infinite;
+            z-index: 2;
+        }
+        .floating-chip .chip-dot {
+            width: 10px; height: 10px; border-radius: 50%;
+            background: var(--purple);
+            box-shadow: 0 0 0 4px rgba(139, 92, 246, 0.2);
+        }
+        .floating-chip.one { top: 8%; right: -22px; animation-delay: 0s; }
+        .floating-chip.two { bottom: 18%; left: -28px; animation-delay: 1.5s; }
+        .floating-chip.three { bottom: 4%; right: 12%; animation-delay: 3s; }
+        @keyframes floaty {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+
+        @media (max-width: 920px) {
+            .hero { padding: 56px 0 72px; }
+            .hero-grid { grid-template-columns: 1fr; gap: 40px; }
+            .hero-visual { order: -1; max-width: 380px; margin: 0 auto; }
+            .floating-chip.one { right: -10px; }
+            .floating-chip.two { left: -10px; }
+        }
+
+        /* ===== INTRO ===== */
+        .intro { background: var(--white); position: relative; }
+        .intro-card {
+            background: linear-gradient(180deg, #fff, #fafbff);
+            border: 1px solid var(--line);
+            border-radius: var(--radius-lg);
+            padding: 56px;
+            box-shadow: var(--shadow-sm);
+            display: grid;
+            grid-template-columns: auto 1fr;
+            gap: 36px;
+            align-items: start;
+        }
+        .intro-icon {
+            width: 72px; height: 72px;
+            border-radius: 20px;
+            background: linear-gradient(135deg, rgba(139, 92, 246, 0.12), rgba(139, 92, 246, 0.04));
+            border: 1px solid rgba(139, 92, 246, 0.25);
+            display: grid; place-items: center;
+            flex-shrink: 0;
+        }
+        .intro-card h2 { margin-bottom: 16px; }
+        .intro-card p {
+            font-size: 19px;
+            color: var(--text-soft);
+            line-height: 1.85;
+        }
+        @media (max-width: 720px) {
+            .intro-card { padding: 32px 24px; grid-template-columns: 1fr; gap: 18px; }
+        }
+
+        /* ===== CAROUSEL ===== */
+        .carousel-section {
+            background: linear-gradient(180deg, var(--bg) 0%, #eef0f8 100%);
+            position: relative;
+        }
+        .carousel-wrap { position: relative; }
+        .carousel-track {
+            display: flex;
+            gap: 22px;
+            overflow-x: auto;
+            scroll-snap-type: x mandatory;
+            scroll-behavior: smooth;
+            padding: 8px 4px 28px;
+            -webkit-overflow-scrolling: touch;
+            scrollbar-width: none;
+        }
+        .carousel-track::-webkit-scrollbar { display: none; }
+
+        .carousel-card {
+            flex: 0 0 340px;
+            scroll-snap-align: center;
+            background: rgba(255, 255, 255, 0.78);
+            backdrop-filter: blur(14px);
+            -webkit-backdrop-filter: blur(14px);
+            border: 1px solid rgba(196, 181, 253, 0.4);
+            border-radius: var(--radius-lg);
+            box-shadow: var(--shadow-sm);
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            transition: transform 0.4s var(--ease), box-shadow 0.4s var(--ease), border-color 0.3s var(--ease);
+        }
+        .carousel-card:hover {
+            transform: translateY(-6px);
+            box-shadow: var(--shadow);
+            border-color: var(--purple-soft);
+        }
+        .carousel-image {
+            position: relative;
+            aspect-ratio: 16/10;
+            overflow: hidden;
+            background: linear-gradient(135deg, var(--navy-800), var(--purple-deep));
+        }
+        .carousel-image img {
+            width: 100%; height: 100%; object-fit: cover;
+            transition: transform 0.6s var(--ease);
+            position: relative; z-index: 1;
+        }
+        .carousel-card:hover .carousel-image img { transform: scale(1.05); }
+        .carousel-image .step-badge {
+            position: absolute;
+            top: 14px; right: 14px;
+            background: rgba(10, 19, 48, 0.85);
+            color: #fff;
+            font-weight: 800;
+            font-size: 13px;
+            padding: 6px 12px;
+            border-radius: 999px;
+            backdrop-filter: blur(8px);
+            border: 1px solid rgba(255,255,255,0.2);
+            letter-spacing: 0.04em;
+            z-index: 2;
+        }
+        .carousel-image .img-fallback {
+            position: absolute; inset: 0;
+            display: grid; place-items: center;
+            color: rgba(255, 255, 255, 0.85);
+            font-size: 44px;
+            font-weight: 800;
+        }
+        .carousel-content {
+            padding: 24px 26px 28px;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            flex: 1;
+        }
+        .carousel-content h3 { color: var(--ink); font-size: 22px; }
+        .carousel-content p { color: var(--text-soft); font-size: 16px; line-height: 1.7; }
+
+        .carousel-controls {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 18px;
+            margin-top: 14px;
+        }
+        .carousel-btn {
+            width: 52px; height: 52px;
+            border-radius: 50%;
+            border: 1px solid var(--line);
+            background: var(--white);
+            cursor: pointer;
+            display: grid; place-items: center;
+            transition: all 0.25s var(--ease);
+            box-shadow: var(--shadow-sm);
+            color: var(--ink);
+        }
+        .carousel-btn:hover:not(:disabled) {
+            background: var(--purple);
+            color: #fff;
+            border-color: var(--purple);
+            transform: scale(1.08);
+        }
+        .carousel-btn:disabled {
+            opacity: 0.4;
+            cursor: not-allowed;
+        }
+        .carousel-btn svg { width: 22px; height: 22px; }
+
+        .carousel-dots {
+            display: flex;
+            gap: 8px;
+            justify-content: center;
+            margin-top: 22px;
+            flex-wrap: wrap;
+        }
+        .carousel-dot {
+            width: 10px; height: 10px;
+            border-radius: 50%;
+            border: none;
+            background: rgba(13, 22, 56, 0.18);
+            cursor: pointer;
+            padding: 0;
+            transition: all 0.25s var(--ease);
+        }
+        .carousel-dot:hover { background: rgba(13, 22, 56, 0.4); }
+        .carousel-dot[aria-current="true"] {
+            width: 32px;
+            border-radius: 6px;
+            background: var(--purple);
+        }
+
+        @media (max-width: 720px) {
+            .carousel-card { flex-basis: 84%; }
+            .carousel-btn { display: none; }
+        }
+
+        /* ===== FLOW DIAGRAM ===== */
+        .flow {
+            background: linear-gradient(180deg, var(--navy-900) 0%, var(--navy-950) 100%);
+            color: #fff;
+            position: relative;
+            overflow: hidden;
+        }
+        .flow::before {
+            content: "";
+            position: absolute; inset: 0;
+            background:
+                radial-gradient(800px 400px at 80% 20%, rgba(139, 92, 246, 0.18), transparent 60%),
+                radial-gradient(700px 400px at 10% 80%, rgba(103, 232, 249, 0.12), transparent 60%);
+            pointer-events: none;
+        }
+        .flow .section-head h2 { color: #fff; }
+        .flow .section-head p { color: #cdd5e8; }
+
+        .flow-chain {
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 14px;
+            margin-top: 24px;
+            list-style: none;
+        }
+        .flow-step {
+            position: relative;
+            width: 100%;
+            max-width: 520px;
+            background: rgba(255, 255, 255, 0.06);
+            border: 1px solid rgba(196, 181, 253, 0.25);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border-radius: 18px;
+            padding: 22px 26px;
+            display: flex;
+            align-items: center;
+            gap: 18px;
+            box-shadow: 0 14px 30px rgba(0,0,0,0.25);
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.5s var(--ease), transform 0.5s var(--ease), border-color 0.3s var(--ease);
+        }
+        .flow-step.visible { opacity: 1; transform: translateY(0); }
+        .flow-step:hover { border-color: var(--purple-soft); }
+
+        .flow-num {
+            width: 44px; height: 44px;
+            border-radius: 12px;
+            display: grid; place-items: center;
+            background: linear-gradient(135deg, var(--purple), var(--purple-deep));
+            color: #fff;
+            font-weight: 800;
+            font-size: 16px;
+            flex-shrink: 0;
+            box-shadow: 0 6px 16px var(--purple-glow);
+        }
+        .flow-text { font-size: 19px; font-weight: 600; color: #fff; }
+        .flow-arrow {
+            width: 2px;
+            height: 28px;
+            background: linear-gradient(180deg, var(--purple-soft), transparent);
+            position: relative;
+            opacity: 0;
+            transition: opacity 0.5s var(--ease);
+        }
+        .flow-arrow.visible { opacity: 0.7; }
+        .flow-arrow::after {
+            content: "";
+            position: absolute;
+            bottom: -1px; left: 50%; transform: translateX(-50%) rotate(45deg);
+            width: 8px; height: 8px;
+            border-right: 2px solid var(--purple-soft);
+            border-bottom: 2px solid var(--purple-soft);
+        }
+
+        .flow-explain {
+            margin-top: 56px;
+            text-align: center;
+            max-width: 760px;
+            margin-inline: auto;
+            font-size: 19px;
+            color: #cdd5e8;
+            line-height: 1.85;
+            background: rgba(255, 255, 255, 0.04);
+            border: 1px solid rgba(196, 181, 253, 0.18);
+            padding: 28px 32px;
+            border-radius: var(--radius);
+        }
+        .flow-explain strong { color: #fff; }
+
+        /* ===== WHY ===== */
+        .why { background: var(--white); }
+        .why-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 20px;
+        }
+        .why-card {
+            background: linear-gradient(180deg, #fff, #fafbff);
+            border: 1px solid var(--line);
+            border-radius: var(--radius);
+            padding: 28px 26px;
+            display: flex;
+            gap: 16px;
+            align-items: flex-start;
+            transition: all 0.3s var(--ease);
+        }
+        .why-card:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow);
+            border-color: var(--purple-soft);
+        }
+        .why-check {
+            width: 32px; height: 32px; flex-shrink: 0;
+            border-radius: 10px;
+            background: linear-gradient(135deg, var(--purple), var(--purple-deep));
+            color: #fff;
+            display: grid; place-items: center;
+            box-shadow: 0 6px 14px var(--purple-glow);
+        }
+        .why-card p {
+            font-size: 17px;
+            font-weight: 600;
+            color: var(--ink);
+            line-height: 1.6;
+        }
+
+        /* ===== ABOUT ===== */
+        .about {
+            background: linear-gradient(180deg, var(--bg) 0%, #eef0f8 100%);
+        }
+        .about-grid {
+            display: grid;
+            grid-template-columns: 0.8fr 1.2fr;
+            gap: 56px;
+            align-items: center;
+        }
+        .about-image-wrap {
+            position: relative;
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            aspect-ratio: 4/5;
+            background: linear-gradient(135deg, var(--navy-800), var(--purple-deep));
+            box-shadow: var(--shadow-lg);
+            border: 1px solid rgba(196, 181, 253, 0.3);
+        }
+        .about-image-wrap img { width: 100%; height: 100%; object-fit: cover; position: relative; z-index: 1; }
+        .about-image-fallback {
+            position: absolute; inset: 0;
+            display: grid; place-items: center;
+            color: rgba(255,255,255,0.6);
+            font-size: 14px;
+        }
+        .about h2 { margin-bottom: 22px; }
+        .about p {
+            font-size: 19px;
+            color: var(--text-soft);
+            line-height: 1.85;
+            margin-bottom: 16px;
+        }
+        .about-signature {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            margin-top: 28px;
+            padding-top: 24px;
+            border-top: 1px solid var(--line);
+        }
+        .sig-mark {
+            width: 48px; height: 48px;
+            border-radius: 12px;
+            background: linear-gradient(135deg, var(--purple), var(--purple-deep));
+            display: grid; place-items: center;
+            color: #fff; font-weight: 800;
+            box-shadow: 0 6px 14px var(--purple-glow);
+        }
+        .sig-name { font-weight: 700; color: var(--ink); }
+        .sig-role { font-size: 14px; color: var(--text-muted); }
+
+        @media (max-width: 920px) {
+            .about-grid { grid-template-columns: 1fr; gap: 36px; }
+            .about-image-wrap { max-width: 360px; margin: 0 auto; aspect-ratio: 1/1; }
+        }
+
+        /* ===== WORKSHOPS ===== */
+        .workshops { background: var(--white); }
+        .ws-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 20px;
+        }
+        .ws-card {
+            position: relative;
+            padding: 30px 26px;
+            background: linear-gradient(180deg, #fff, #fafbff);
+            border: 1px solid var(--line);
+            border-radius: var(--radius);
+            transition: all 0.3s var(--ease);
+            overflow: hidden;
+        }
+        .ws-card::before {
+            content: "";
+            position: absolute;
+            inset-inline-start: 0; top: 0; bottom: 0;
+            width: 4px;
+            background: linear-gradient(180deg, var(--purple), var(--purple-deep));
+            transform: scaleY(0);
+            transform-origin: top;
+            transition: transform 0.35s var(--ease);
+        }
+        .ws-card:hover {
+            transform: translateY(-6px);
+            box-shadow: var(--shadow);
+            border-color: var(--purple-soft);
+        }
+        .ws-card:hover::before { transform: scaleY(1); }
+        .ws-icon {
+            width: 44px; height: 44px;
+            border-radius: 12px;
+            background: rgba(139, 92, 246, 0.12);
+            color: var(--purple-deep);
+            display: grid; place-items: center;
+            margin-bottom: 16px;
+        }
+        .ws-card h3 { font-size: 19px; color: var(--ink); font-weight: 700; }
+
+        /* ===== FINAL CTA ===== */
+        .final-cta {
+            background:
+                radial-gradient(900px 500px at 80% 0%, rgba(139, 92, 246, 0.4), transparent 65%),
+                radial-gradient(700px 400px at 10% 100%, rgba(103, 232, 249, 0.18), transparent 60%),
+                linear-gradient(180deg, var(--navy-950), var(--navy-900));
+            color: #fff;
+            text-align: center;
+        }
+        .final-cta h2 {
+            color: #fff;
+            font-size: clamp(30px, 4.5vw, 48px);
+            margin-bottom: 18px;
+        }
+        .final-cta h2 .accent {
+            background: linear-gradient(120deg, #c4b5fd, #67e8f9);
+            -webkit-background-clip: text; background-clip: text;
+            color: transparent;
+        }
+        .final-cta p {
+            font-size: 20px;
+            color: #cdd5e8;
+            max-width: 620px;
+            margin: 0 auto 36px;
+            line-height: 1.75;
+        }
+        .final-cta .eyebrow { margin-bottom: 0; }
+
+        /* ===== FOOTER ===== */
+        footer {
+            background: var(--navy-950);
+            color: #8a93a9;
+            padding: 36px 0;
+            border-top: 1px solid rgba(196, 181, 253, 0.1);
+            text-align: center;
+            font-size: 14px;
+        }
+        footer a { color: #cdd5e8; }
+
+        /* ===== UTIL ===== */
+        .reveal {
+            opacity: 0;
+            transform: translateY(24px);
+            transition: opacity 0.7s var(--ease), transform 0.7s var(--ease);
+        }
+        .reveal.visible { opacity: 1; transform: translateY(0); }
+
+        @media (prefers-reduced-motion: reduce) {
+            *, *::before, *::after {
+                animation-duration: 0.01ms !important;
+                transition-duration: 0.01ms !important;
+            }
+            html { scroll-behavior: auto; }
+            .reveal, .flow-step, .flow-arrow { opacity: 1 !important; transform: none !important; }
+        }
+
+        @media (max-width: 720px) {
+            section { padding: 64px 0; }
+            .section-head { margin-bottom: 36px; }
+            .intro-card { padding: 28px 22px; }
+        }
+    </style>
+</head>
+<body>
+
+<!-- ============= HEADER ============= -->
+<header class="site">
+    <div class="container nav">
+        <a href="#" class="brand" aria-label="שגיא בר און - חזרה לראש העמוד">
+            <span class="brand-mark" aria-hidden="true">SB</span>
+            <span>שגיא בר און · AI</span>
+        </a>
+        <nav class="nav-links" aria-label="ניווט ראשי">
+            <a href="#intro">הבעיה</a>
+            <a href="#process">התהליך</a>
+            <a href="#flow">ה־Flow</a>
+            <a href="#about">עליי</a>
+            <a href="#contact" class="nav-cta">דברו איתי</a>
+        </nav>
+    </div>
+</header>
+
+<!-- ============= HERO ============= -->
+<section class="hero" aria-labelledby="hero-title">
+    <div class="container hero-grid">
+        <div class="hero-text">
+            <span class="eyebrow on-dark"><span class="dot" aria-hidden="true"></span>סיפור על מערכת AI אמיתית</span>
+            <h1 id="hero-title">איך הופכים <span class="accent">דאטה מסובך</span> לשיחה פשוטה?</h1>
+            <p class="lead">סיפור קצר על מערכת סוכני AI שמאפשרת לשאול שאלות, לקבל תשובות, ולזהות חריגות — בלי לדעת SQL, בלי דשבורדים מסובכים, ובלי לחכות לאנליסט.</p>
+            <div class="hero-cta-row">
+                <a href="#contact" class="btn btn-primary">
+                    רוצה להבין איך זה מתאים לארגון שלך?
+                    <span class="arrow" aria-hidden="true">←</span>
+                </a>
+                <a href="#process" class="btn btn-ghost">איך זה עובד?</a>
+            </div>
+        </div>
+
+        <div class="hero-visual">
+            <div class="hero-image-wrap">
+                <div class="hero-image-fallback" aria-hidden="true"></div>
+                <img src="images/hero-sagi-data.webp" alt="שגיא בר און מסביר על מערכת סוכני AI שמתחברת לדאטה ארגוני" loading="eager" onerror="this.style.display='none'">
+            </div>
+            <div class="floating-chip one" aria-hidden="true">
+                <span class="chip-dot"></span>
+                <span>שאלה בעברית</span>
+            </div>
+            <div class="floating-chip two" aria-hidden="true">
+                <span class="chip-dot"></span>
+                <span>SQL אוטומטי</span>
+            </div>
+            <div class="floating-chip three" aria-hidden="true">
+                <span class="chip-dot"></span>
+                <span>תשובה + גרף</span>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ============= INTRO ============= -->
+<section class="intro" id="intro" aria-labelledby="intro-title">
+    <div class="container-narrow">
+        <div class="intro-card reveal">
+            <div class="intro-icon" aria-hidden="true">
+                <svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="#6d28d9" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
+                    <line x1="12" y1="9" x2="12" y2="13"/>
+                    <line x1="12" y1="17" x2="12.01" y2="17"/>
+                </svg>
+            </div>
+            <div>
+                <span class="eyebrow"><span class="dot" aria-hidden="true"></span>נקודת ההתחלה</span>
+                <h2 id="intro-title" style="margin-top: 14px;">הבעיה: הדאטה קיים, אבל קשה להגיע אליו</h2>
+                <p>בארגונים רבים יש המון מידע, אבל כדי להוציא ממנו תשובות צריך להבין טבלאות, SQL, מבני נתונים ודשבורדים מורכבים. בפועל, זה גורם לכך שאנשים מחכים לאנליסטים, מבזבזים זמן, ולעיתים פשוט מוותרים על השאלה.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ============= CAROUSEL ============= -->
+<section class="carousel-section" id="process" aria-labelledby="carousel-title">
+    <div class="container">
+        <div class="section-head reveal">
+            <span class="eyebrow"><span class="dot" aria-hidden="true"></span>תהליך הבנייה</span>
+            <h2 id="carousel-title">כך נבנה הפתרון — שלב אחרי שלב</h2>
+            <p>מסע ויזואלי דרך שלבי הבנייה של מערכת מבוססת סוכני AI — מהבעיה ועד לתובנות בזמן אמת.</p>
+        </div>
+
+        <div class="carousel-wrap">
+            <div class="carousel-track" id="carousel-track" tabindex="0" role="region" aria-label="קרוסלה: עשרת שלבי בניית מערכת ה־AI" aria-roledescription="carousel"></div>
+
+            <div class="carousel-controls">
+                <button class="carousel-btn" id="carousel-prev" type="button" aria-label="הקלף הקודם" aria-controls="carousel-track">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="9 18 15 12 9 6"></polyline></svg>
+                </button>
+                <button class="carousel-btn" id="carousel-next" type="button" aria-label="הקלף הבא" aria-controls="carousel-track">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="15 18 9 12 15 6"></polyline></svg>
+                </button>
+            </div>
+
+            <div class="carousel-dots" id="carousel-dots" role="tablist" aria-label="מעבר ישיר לשלב"></div>
+        </div>
+    </div>
+</section>
+
+<!-- ============= FLOW ============= -->
+<section class="flow" id="flow" aria-labelledby="flow-title">
+    <div class="container-narrow">
+        <div class="section-head reveal">
+            <span class="eyebrow on-dark"><span class="dot" aria-hidden="true"></span>הסבר חזותי</span>
+            <h2 id="flow-title">ה־Flow הפשוט</h2>
+            <p>שבעה שלבים שקורים מאחורי הקלעים בכל פעם שמישהו שואל שאלה.</p>
+        </div>
+
+        <ol class="flow-chain" id="flow-chain" aria-label="שבעת שלבי הזרימה של המערכת">
+            <li class="flow-step"><span class="flow-num" aria-hidden="true">1</span><span class="flow-text">שאלה בשפה טבעית</span></li>
+            <span class="flow-arrow" aria-hidden="true"></span>
+            <li class="flow-step"><span class="flow-num" aria-hidden="true">2</span><span class="flow-text">זיהוי כוונה</span></li>
+            <span class="flow-arrow" aria-hidden="true"></span>
+            <li class="flow-step"><span class="flow-num" aria-hidden="true">3</span><span class="flow-text">בדיקת בטיחות</span></li>
+            <span class="flow-arrow" aria-hidden="true"></span>
+            <li class="flow-step"><span class="flow-num" aria-hidden="true">4</span><span class="flow-text">המרה ל־SQL</span></li>
+            <span class="flow-arrow" aria-hidden="true"></span>
+            <li class="flow-step"><span class="flow-num" aria-hidden="true">5</span><span class="flow-text">בדיקת Cache</span></li>
+            <span class="flow-arrow" aria-hidden="true"></span>
+            <li class="flow-step"><span class="flow-num" aria-hidden="true">6</span><span class="flow-text">שליפה מהדאטה</span></li>
+            <span class="flow-arrow" aria-hidden="true"></span>
+            <li class="flow-step"><span class="flow-num" aria-hidden="true">7</span><span class="flow-text">תשובה ברורה + גרף</span></li>
+        </ol>
+
+        <p class="flow-explain reveal">
+            <strong>הקסם הוא לא רק במודל AI.</strong> הקסם הוא בתכנון נכון של תהליך: מי מבין את השאלה, מי בודק אותה, מי מתרגם אותה, מי שומר על בטיחות, ומי מחזיר תשובה שהמשתמש באמת מבין.
+        </p>
+    </div>
+</section>
+
+<!-- ============= WHY ============= -->
+<section class="why" aria-labelledby="why-title">
+    <div class="container">
+        <div class="section-head reveal">
+            <span class="eyebrow"><span class="dot" aria-hidden="true"></span>הערך לארגון</span>
+            <h2 id="why-title">למה זה חשוב לארגונים?</h2>
+            <p>חמש סיבות שבגללן מערכת כזו הופכת AI מ"כלי מגניב" לתהליך עבודה אמיתי.</p>
+        </div>
+
+        <div class="why-grid">
+            <div class="why-card reveal">
+                <div class="why-check" aria-hidden="true"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></div>
+                <p>מקצר זמן בין שאלה לתשובה</p>
+            </div>
+            <div class="why-card reveal">
+                <div class="why-check" aria-hidden="true"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></div>
+                <p>מנגיש דאטה גם לאנשים לא טכניים</p>
+            </div>
+            <div class="why-card reveal">
+                <div class="why-check" aria-hidden="true"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></div>
+                <p>מפחית תלות באנשי SQL</p>
+            </div>
+            <div class="why-card reveal">
+                <div class="why-check" aria-hidden="true"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></div>
+                <p>עוזר לזהות בעיות שלא תמיד שמים לב אליהן</p>
+            </div>
+            <div class="why-card reveal">
+                <div class="why-check" aria-hidden="true"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></div>
+                <p>הופך AI מכלי מגניב לתהליך עבודה אמיתי</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ============= ABOUT ============= -->
+<section class="about" id="about" aria-labelledby="about-title">
+    <div class="container">
+        <div class="about-grid">
+            <div class="about-image-wrap reveal">
+                <div class="about-image-fallback" aria-hidden="true">sagi-consultant.webp</div>
+                <img src="images/sagi-consultant.webp" alt="שגיא בר און — מאמן ויועץ AI לארגונים" loading="lazy" onerror="this.style.display='none'">
+            </div>
+            <div class="reveal">
+                <span class="eyebrow"><span class="dot" aria-hidden="true"></span>מי אני</span>
+                <h2 id="about-title" style="margin-top: 18px;">איפה אני נכנס לתמונה?</h2>
+                <p>אני עוזר לארגונים, מנהלים וצוותים להבין איך AI יכול להפוך מתיאוריה לכלי עבודה יומיומי. בהרצאות ובסדנאות אני מפרק מערכות מורכבות לתהליכים פשוטים, מדגים שימושים אמיתיים, ומראה איך לבנות חשיבה ארגונית סביב AI — בלי להפחיד, בלי לסבך, ובלי למכור קסמים.</p>
+                <div class="about-signature">
+                    <div class="sig-mark" aria-hidden="true">SB</div>
+                    <div>
+                        <div class="sig-name">שגיא בר און</div>
+                        <div class="sig-role">מאמן AI · מרצה · יועץ לארגונים</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ============= WORKSHOPS ============= -->
+<section class="workshops" aria-labelledby="ws-title">
+    <div class="container">
+        <div class="section-head reveal">
+            <span class="eyebrow"><span class="dot" aria-hidden="true"></span>פורמטים</span>
+            <h2 id="ws-title">הרצאות וסדנאות AI</h2>
+            <p>אפשר להתחיל קטן עם הרצאת מבוא, או ללכת רחב עם ליווי מתמשך — בהתאם למה שהארגון צריך.</p>
+        </div>
+
+        <div class="ws-grid">
+            <article class="ws-card reveal">
+                <div class="ws-icon" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg></div>
+                <h3>הרצאת מבוא לארגונים</h3>
+            </article>
+            <article class="ws-card reveal">
+                <div class="ws-icon" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
+                <h3>סדנת AI מעשית לצוותים</h3>
+            </article>
+            <article class="ws-card reveal">
+                <div class="ws-icon" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg></div>
+                <h3>בניית תהליכי עבודה עם AI</h3>
+            </article>
+            <article class="ws-card reveal">
+                <div class="ws-icon" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="4"/><line x1="21.17" y1="8" x2="12" y2="8"/><line x1="3.95" y1="6.06" x2="8.54" y2="14"/><line x1="10.88" y1="21.94" x2="15.46" y2="14"/></svg></div>
+                <h3>חשיבה סוכנית ו־Agentic AI</h3>
+            </article>
+            <article class="ws-card reveal">
+                <div class="ws-icon" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/></svg></div>
+                <h3>ליווי מנהלים בהטמעת AI</h3>
+            </article>
+        </div>
+    </div>
+</section>
+
+<!-- ============= FINAL CTA ============= -->
+<section class="final-cta" id="contact" aria-labelledby="cta-title">
+    <div class="container-narrow">
+        <span class="eyebrow on-dark"><span class="dot" aria-hidden="true"></span>צעד הבא</span>
+        <h2 id="cta-title" style="margin-top: 18px;">רוצה שגם אצלכם <span class="accent">יבינו AI באמת?</span></h2>
+        <p>אפשר להתחיל מהרצאה, סדנה או שיחה קצרה על הצרכים של הארגון. בלי התחייבות — רק שיחה.</p>
+        <a href="https://wa.me/972549995050?text=%D7%94%D7%99%D7%99%20%D7%A9%D7%92%D7%99%D7%90%2C%20%D7%A8%D7%90%D7%99%D7%AA%D7%99%20%D7%90%D7%AA%20%D7%94%D7%93%D7%A3%20%D7%A2%D7%9C%20%D7%A1%D7%95%D7%9B%D7%A0%D7%99%20AI%20%D7%95%D7%93%D7%90%D7%98%D7%94%2C%20%D7%90%D7%A9%D7%9E%D7%97%20%D7%9C%D7%93%D7%91%D7%A8" target="_blank" rel="noopener noreferrer" class="btn btn-primary" style="font-size: 19px; padding: 18px 36px;">
+            דברו איתי
+            <span class="arrow" aria-hidden="true">←</span>
+        </a>
+    </div>
+</section>
+
+<footer>
+    <div class="container">
+        © <span id="year"></span> שגיא בר און · ש.ב. ידע וטכנולוגיה · מאמן AI לארגונים
+    </div>
+</footer>
+
+<script>
+(function () {
+    'use strict';
+
+    const cards = [
+        { n: '01', title: 'הבעיה',           text: 'צוותים צריכים תשובות מהדאטה, אבל נתקעים בשאילתות SQL מורכבות ובמאגרי מידע גדולים.', img: 'images/carousel-01-problem.webp',     icon: '?' },
+        { n: '02', title: 'איסוף דרישות',     text: 'מגדירים מה המשתמשים צריכים באמת: שאלות בשפה טבעית, תשובות ברורות, ויזואליזציה וזיהוי חריגות.', img: 'images/carousel-02-requirements.webp', icon: '✓' },
+        { n: '03', title: 'תכנון הארכיטקטורה', text: 'בונים מערכת Multi-Agent שבה כמה סוכנים עובדים יחד, וכל אחד אחראי על חלק אחר בתהליך.', img: 'images/carousel-03-architecture.webp', icon: '◆' },
+        { n: '04', title: 'המשתמש שואל',       text: 'המשתמש כותב שאלה פשוטה בעברית או באנגלית, כאילו הוא מדבר עם אדם.', img: 'images/carousel-04-question.webp',    icon: '"' },
+        { n: '05', title: 'סוכן זיהוי כוונה',  text: 'המערכת מבינה מה המשתמש באמת מבקש: נתון, סיכום, השוואה או בדיקת חריגות.', img: 'images/carousel-05-intent.webp',      icon: '◎' },
+        { n: '06', title: 'סוכן ולידציה',      text: 'לפני שמריצים שאילתה, המערכת בודקת שהשאלה בטוחה, ממוקדת ולא תסרוק מיליוני רשומות ללא צורך.', img: 'images/carousel-06-validation.webp',  icon: '⛨' },
+        { n: '07', title: 'המרה ל־SQL',        text: 'סוכן ייעודי מתרגם את השאלה לשאילתת SQL מדויקת מול בסיס הנתונים.', img: 'images/carousel-07-sql.webp',         icon: '{ }' },
+        { n: '08', title: 'בדיקת Cache',       text: 'אם אותה שאלה כבר נשאלה בעבר, המערכת מחזירה תשובה במהירות במקום להריץ הכול מחדש.', img: 'images/carousel-08-cache.webp',       icon: '⚡' },
+        { n: '09', title: 'שליפה מהדאטה',      text: 'סוכן הנתונים מריץ את השאילתה מול BigQuery ומחזיר תוצאה מעובדת.', img: 'images/carousel-09-bigquery.webp',    icon: '▤' },
+        { n: '10', title: 'תובנות ואנומליות',   text: 'המשתמש מקבל תשובה פשוטה, גרפים, התרעות ודשבורד שמציג חריגות ודפוסים חשודים.', img: 'images/carousel-10-anomaly.webp',     icon: '▲' }
+    ];
+
+    const track = document.getElementById('carousel-track');
+    const dotsWrap = document.getElementById('carousel-dots');
+    const prevBtn = document.getElementById('carousel-prev');
+    const nextBtn = document.getElementById('carousel-next');
+
+    cards.forEach((c, i) => {
+        const card = document.createElement('article');
+        card.className = 'carousel-card';
+        card.setAttribute('role', 'group');
+        card.setAttribute('aria-roledescription', 'slide');
+        card.setAttribute('aria-label', `${i + 1} מתוך ${cards.length}: ${c.title}`);
+        card.dataset.index = i;
+        card.innerHTML = `
+            <div class="carousel-image">
+                <div class="img-fallback" aria-hidden="true">${c.icon}</div>
+                <img src="${c.img}" alt="המחשה לשלב: ${c.title}" loading="lazy" onerror="this.style.display='none'">
+                <span class="step-badge" aria-hidden="true">שלב ${c.n}</span>
+            </div>
+            <div class="carousel-content">
+                <h3>${c.title}</h3>
+                <p>${c.text}</p>
+            </div>
+        `;
+        track.appendChild(card);
+
+        const dot = document.createElement('button');
+        dot.type = 'button';
+        dot.className = 'carousel-dot';
+        dot.setAttribute('role', 'tab');
+        dot.setAttribute('aria-label', `מעבר לשלב ${i + 1}: ${c.title}`);
+        dot.dataset.index = i;
+        if (i === 0) dot.setAttribute('aria-current', 'true');
+        dot.addEventListener('click', () => scrollToIndex(i));
+        dotsWrap.appendChild(dot);
+    });
+
+    function activeIndex() {
+        const cardEls = track.querySelectorAll('.carousel-card');
+        if (!cardEls.length) return 0;
+        const trackRect = track.getBoundingClientRect();
+        const center = trackRect.left + trackRect.width / 2;
+        let best = 0, bestDist = Infinity;
+        cardEls.forEach((el, i) => {
+            const r = el.getBoundingClientRect();
+            const elCenter = r.left + r.width / 2;
+            const d = Math.abs(elCenter - center);
+            if (d < bestDist) { bestDist = d; best = i; }
+        });
+        return best;
+    }
+
+    function scrollToIndex(i) {
+        const cardEls = track.querySelectorAll('.carousel-card');
+        const idx = Math.max(0, Math.min(cards.length - 1, i));
+        const target = cardEls[idx];
+        if (!target) return;
+        // Use native scrollIntoView with center alignment — works correctly in RTL.
+        target.scrollIntoView({ behavior: 'smooth', inline: 'center', block: 'nearest' });
+    }
+
+    function updateUI() {
+        const i = activeIndex();
+        dotsWrap.querySelectorAll('.carousel-dot').forEach((d, idx) => {
+            if (idx === i) d.setAttribute('aria-current', 'true');
+            else d.removeAttribute('aria-current');
+        });
+        const max = cards.length - 1;
+        prevBtn.disabled = (i === 0);
+        nextBtn.disabled = (i === max);
+    }
+
+    // Semantic prev/next regardless of LTR/RTL — based on slide index.
+    prevBtn.addEventListener('click', () => scrollToIndex(activeIndex() - 1));
+    nextBtn.addEventListener('click', () => scrollToIndex(activeIndex() + 1));
+
+    let scrollTimer;
+    track.addEventListener('scroll', () => {
+        clearTimeout(scrollTimer);
+        scrollTimer = setTimeout(updateUI, 90);
+    }, { passive: true });
+
+    track.addEventListener('keydown', (e) => {
+        // RTL natural mapping: ArrowRight = previous (visually earlier), ArrowLeft = next
+        if (e.key === 'ArrowRight') { e.preventDefault(); scrollToIndex(activeIndex() - 1); }
+        else if (e.key === 'ArrowLeft') { e.preventDefault(); scrollToIndex(activeIndex() + 1); }
+        else if (e.key === 'Home') { e.preventDefault(); scrollToIndex(0); }
+        else if (e.key === 'End') { e.preventDefault(); scrollToIndex(cards.length - 1); }
+    });
+
+    window.addEventListener('resize', updateUI);
+    requestAnimationFrame(updateUI);
+
+    // ===== Reveal on scroll =====
+    const reveals = document.querySelectorAll('.reveal');
+    const flowSteps = document.querySelectorAll('.flow-step');
+    const flowArrows = document.querySelectorAll('.flow-arrow');
+
+    if ('IntersectionObserver' in window) {
+        const io = new IntersectionObserver((entries) => {
+            entries.forEach((e) => {
+                if (e.isIntersecting) {
+                    e.target.classList.add('visible');
+                    io.unobserve(e.target);
+                }
+            });
+        }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+        reveals.forEach((el) => io.observe(el));
+
+        const flowIO = new IntersectionObserver((entries) => {
+            entries.forEach((e) => {
+                if (e.isIntersecting) {
+                    flowSteps.forEach((step, i) => {
+                        setTimeout(() => step.classList.add('visible'), i * 130);
+                    });
+                    flowArrows.forEach((arr, i) => {
+                        setTimeout(() => arr.classList.add('visible'), i * 130 + 80);
+                    });
+                    flowIO.disconnect();
+                }
+            });
+        }, { threshold: 0.15 });
+        const flowChain = document.getElementById('flow-chain');
+        if (flowChain) flowIO.observe(flowChain);
+    } else {
+        reveals.forEach((el) => el.classList.add('visible'));
+        flowSteps.forEach((s) => s.classList.add('visible'));
+        flowArrows.forEach((a) => a.classList.add('visible'));
+    }
+
+    const yearEl = document.getElementById('year');
+    if (yearEl) yearEl.textContent = new Date().getFullYear();
+})();
+</script>
+
+</body>
+</html>
