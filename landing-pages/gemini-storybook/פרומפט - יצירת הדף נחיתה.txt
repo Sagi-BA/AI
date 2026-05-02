@@ -564,3 +564,11 @@ Storybook נמצא תחת **Gems** בתוך Gemini, ולא בצ׳אט הרגיל
 
 2. במקום לכתוב רק “Canvas”, תכתוב תמיד **Canvas של Google** או **Google Canvas**, כדי שלא יתבלבלו עם Canva.
    פה בלבול קטן, אחר כך חצי קהילה מסדרת את הספר במקום הלא נכון.
+
+*************************************
+סט התמונות המומלץ לעמוד:
+Hero image
+How it works image
+Book mockup image
+Canvas sharing advantage image
+CTA image

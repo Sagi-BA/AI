@@ -37,6 +37,7 @@ npx http-server -p 8080
 
 - **`/new-landing-page`** — generates a new Hebrew RTL landing page following the project's design system (GA, OG meta, WhatsApp float, contact section, reveal-on-scroll, prefers-reduced-motion). Auto-adds the new page to the portfolio gallery in `index.html` (unless the page contains pricing). See [.claude/skills/new-landing-page/SKILL.md](.claude/skills/new-landing-page/SKILL.md).
 - **`/new-reichman-summary`** — generates a new Reichman University workshop summary page based on the canonical template. The Reichman summaries are near-clones — only the audience/ministry name and Google Doc URL change. Auto-adds to the gallery under `workshops`. See [.claude/skills/new-reichman-summary/SKILL.md](.claude/skills/new-reichman-summary/SKILL.md).
+- **`/optimize-images`** — converts PNG/JPG images to WebP, resizes oversized images (max 1600px content, 1200px OG), and updates HTML references to point to the new files. Originals are kept until manually deleted. Requires Pillow (`pip install Pillow`). See [.claude/skills/optimize-images/SKILL.md](.claude/skills/optimize-images/SKILL.md).
 
 ## Reference templates (manual-copy starting points)
 
