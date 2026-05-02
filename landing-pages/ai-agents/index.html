@@ -391,6 +391,7 @@
             aspect-ratio: 16/10;
             overflow: hidden;
             background: linear-gradient(135deg, var(--navy-800), var(--purple-deep));
+            cursor: zoom-in;
         }
         .carousel-image img {
             width: 100%; height: 100%; object-fit: cover;
@@ -398,6 +399,84 @@
             position: relative; z-index: 1;
         }
         .carousel-card:hover .carousel-image img { transform: scale(1.05); }
+        .zoom-hint {
+            position: absolute;
+            top: 14px; left: 14px;
+            width: 36px; height: 36px;
+            border-radius: 50%;
+            background: rgba(10, 19, 48, 0.85);
+            color: #fff;
+            display: grid; place-items: center;
+            backdrop-filter: blur(8px);
+            border: 1px solid rgba(255,255,255,0.2);
+            z-index: 2;
+            opacity: 0;
+            transform: scale(0.85);
+            transition: opacity 0.25s var(--ease), transform 0.25s var(--ease);
+            pointer-events: none;
+        }
+        .carousel-card:hover .zoom-hint,
+        .carousel-card:focus-within .zoom-hint { opacity: 1; transform: scale(1); }
+        @media (max-width: 720px) {
+            .zoom-hint { opacity: 1; transform: scale(1); }
+        }
+
+        /* ===== LIGHTBOX ===== */
+        .lightbox {
+            position: fixed; inset: 0;
+            background: rgba(6, 11, 26, 0.92);
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+            z-index: 1000;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            padding: 24px;
+            opacity: 0;
+            transition: opacity 0.25s var(--ease);
+        }
+        .lightbox.open { display: flex; opacity: 1; }
+        .lightbox-img {
+            max-width: 100%;
+            max-height: 100%;
+            width: auto;
+            height: auto;
+            border-radius: 12px;
+            box-shadow: 0 30px 80px rgba(0,0,0,0.6);
+            transform: scale(0.96);
+            transition: transform 0.3s var(--ease);
+        }
+        .lightbox.open .lightbox-img { transform: scale(1); }
+        .lightbox-close {
+            position: absolute;
+            top: 20px;
+            inset-inline-end: 20px;
+            width: 48px; height: 48px;
+            border-radius: 50%;
+            border: 1px solid rgba(255,255,255,0.25);
+            background: rgba(255,255,255,0.1);
+            color: #fff;
+            cursor: pointer;
+            display: grid; place-items: center;
+            transition: background 0.2s var(--ease), transform 0.2s var(--ease);
+        }
+        .lightbox-close:hover { background: rgba(255,255,255,0.2); transform: scale(1.08); }
+        .lightbox-caption {
+            position: absolute;
+            bottom: 24px;
+            left: 50%;
+            transform: translateX(-50%);
+            color: #cdd5e8;
+            font-size: 16px;
+            font-weight: 600;
+            background: rgba(10, 19, 48, 0.7);
+            padding: 10px 22px;
+            border-radius: 999px;
+            border: 1px solid rgba(196, 181, 253, 0.2);
+            max-width: calc(100% - 48px);
+            text-align: center;
+        }
+        body.lightbox-open { overflow: hidden; }
         .carousel-image .step-badge {
             position: absolute;
             top: 14px; right: 14px;
@@ -1017,6 +1096,15 @@
     </div>
 </section>
 
+<!-- ============= LIGHTBOX ============= -->
+<div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-labelledby="lightbox-caption" aria-hidden="true">
+    <button class="lightbox-close" id="lightbox-close" type="button" aria-label="סגירת התמונה">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+    </button>
+    <img class="lightbox-img" id="lightbox-img" src="" alt="">
+    <div class="lightbox-caption" id="lightbox-caption"></div>
+</div>
+
 <footer>
     <div class="container">
         © <span id="year"></span> שגיא בר און · ש.ב. ידע וטכנולוגיה · מאמן AI לארגונים
@@ -1053,10 +1141,13 @@
         card.setAttribute('aria-label', `${i + 1} מתוך ${cards.length}: ${c.title}`);
         card.dataset.index = i;
         card.innerHTML = `
-            <div class="carousel-image">
+            <div class="carousel-image" role="button" tabindex="0" aria-label="הגדלת תמונה: ${c.title}" data-img="${c.img}" data-caption="שלב ${c.n} · ${c.title}">
                 <div class="img-fallback" aria-hidden="true">${c.icon}</div>
                 <img src="${c.img}" alt="המחשה לשלב: ${c.title}" loading="lazy" onerror="this.style.display='none'">
                 <span class="step-badge" aria-hidden="true">שלב ${c.n}</span>
+                <span class="zoom-hint" aria-hidden="true">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg>
+                </span>
             </div>
             <div class="carousel-content">
                 <h3>${c.title}</h3>
@@ -1168,6 +1259,59 @@
         flowSteps.forEach((s) => s.classList.add('visible'));
         flowArrows.forEach((a) => a.classList.add('visible'));
     }
+
+    // ===== Lightbox =====
+    const lightbox = document.getElementById('lightbox');
+    const lightboxImg = document.getElementById('lightbox-img');
+    const lightboxCaption = document.getElementById('lightbox-caption');
+    const lightboxClose = document.getElementById('lightbox-close');
+    let lastFocused = null;
+
+    function openLightbox(src, alt, caption, trigger) {
+        lastFocused = trigger || document.activeElement;
+        lightboxImg.src = src;
+        lightboxImg.alt = alt || '';
+        lightboxCaption.textContent = caption || '';
+        lightbox.classList.add('open');
+        lightbox.setAttribute('aria-hidden', 'false');
+        document.body.classList.add('lightbox-open');
+        lightboxClose.focus();
+    }
+
+    function closeLightbox() {
+        lightbox.classList.remove('open');
+        lightbox.setAttribute('aria-hidden', 'true');
+        document.body.classList.remove('lightbox-open');
+        lightboxImg.src = '';
+        if (lastFocused && typeof lastFocused.focus === 'function') lastFocused.focus();
+    }
+
+    track.addEventListener('click', (e) => {
+        const trigger = e.target.closest('.carousel-image');
+        if (!trigger) return;
+        const src = trigger.dataset.img;
+        const caption = trigger.dataset.caption;
+        const img = trigger.querySelector('img');
+        const alt = img ? img.alt : '';
+        openLightbox(src, alt, caption, trigger);
+    });
+
+    track.addEventListener('keydown', (e) => {
+        if (e.key !== 'Enter' && e.key !== ' ') return;
+        const trigger = e.target.closest('.carousel-image');
+        if (!trigger) return;
+        e.preventDefault();
+        const img = trigger.querySelector('img');
+        openLightbox(trigger.dataset.img, img ? img.alt : '', trigger.dataset.caption, trigger);
+    });
+
+    lightboxClose.addEventListener('click', closeLightbox);
+    lightbox.addEventListener('click', (e) => {
+        if (e.target === lightbox) closeLightbox();
+    });
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && lightbox.classList.contains('open')) closeLightbox();
+    });
 
     const yearEl = document.getElementById('year');
     if (yearEl) yearEl.textContent = new Date().getFullYear();
