@@ -32,3 +32,17 @@ npx http-server -p 8080
 - CSS variables defined in `:root` for theming
 - Responsive design with mobile breakpoints at 768px and 380px
 - WhatsApp contact links for call-to-action buttons
+
+## Skills (project-local)
+
+- **`/new-landing-page`** — generates a new Hebrew RTL landing page following the project's design system (GA, OG meta, WhatsApp float, contact section, reveal-on-scroll, prefers-reduced-motion). Auto-adds the new page to the portfolio gallery in `index.html` (unless the page contains pricing). See [.claude/skills/new-landing-page/SKILL.md](.claude/skills/new-landing-page/SKILL.md).
+- **`/new-reichman-summary`** — generates a new Reichman University workshop summary page based on the canonical template. The Reichman summaries are near-clones — only the audience/ministry name and Google Doc URL change. Auto-adds to the gallery under `workshops`. See [.claude/skills/new-reichman-summary/SKILL.md](.claude/skills/new-reichman-summary/SKILL.md).
+
+## Reference templates (manual-copy starting points)
+
+When a task doesn't have a dedicated skill, copy from these canonical references:
+
+- **New landing page** — use `/new-landing-page` skill instead of manual copy.
+- **Meeting / lecture summary (non-Reichman)** — copy [meeting-summary/ariel-university.html](meeting-summary/ariel-university.html) as the canonical layout (institution header, hero with date+audience, value cards, topic cards, CTA buttons). For Reichman summaries use the `/new-reichman-summary` skill instead.
+- **Price quote / proposal** — copy [forms/Price-quotes/Hashomer-Hadash-v2.html](forms/Price-quotes/Hashomer-Hadash-v2.html). A dedicated `/new-price-quote` skill is planned but on hold pending volume assessment.
+- **Game / Kahoot-style quiz** — copy [games/data-driven-management-kahot-game.html](games/data-driven-management-kahot-game.html).
