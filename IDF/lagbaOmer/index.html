@@ -21,16 +21,16 @@
   <meta property="og:url" content="https://sagi-ba.github.io/AI/IDF/lagbaOmer/">
   <meta property="og:title" content="גם כשאתם במילואים - האהבה לא יוצאת להפסקה">
   <meta property="og:description" content="10 טיפים קטנים מד״ר איריס בר־און לשמור על קרבה וחום בבית גם מרחוק.">
-  <meta property="og:image" content="https://sagi-ba.github.io/AI/IDF/lagbaOmer/images/og-preview.jpg">
-  <meta property="og:image:secure_url" content="https://sagi-ba.github.io/AI/IDF/lagbaOmer/images/og-preview.jpg">
+  <meta property="og:image" content="https://sagi-ba.github.io/AI/IDF/lagbaOmer/images/hero-collage.jpg">
+  <meta property="og:image:secure_url" content="https://sagi-ba.github.io/AI/IDF/lagbaOmer/images/hero-collage.jpg">
   <meta property="og:image:type" content="image/jpeg">
   <meta property="og:image:width" content="1200">
-  <meta property="og:image:height" content="630">
+  <meta property="og:image:height" content="800">
   <meta property="og:image:alt" content="10 טיפים לזוגיות במילואים - ד״ר איריס בר־און">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="גם כשאתם במילואים - האהבה לא יוצאת להפסקה">
   <meta name="twitter:description" content="10 טיפים קטנים מד״ר איריס בר־און לשמור על קרבה וחום בבית גם מרחוק.">
-  <meta name="twitter:image" content="https://sagi-ba.github.io/AI/IDF/lagbaOmer/images/og-preview.jpg">
+  <meta name="twitter:image" content="https://sagi-ba.github.io/AI/IDF/lagbaOmer/images/hero-collage.jpg">
   <meta name="twitter:image:alt" content="10 טיפים לזוגיות במילואים - ד״ר איריס בר־און">
   <link rel="canonical" href="https://sagi-ba.github.io/AI/IDF/lagbaOmer/">
 
@@ -627,6 +627,66 @@
       line-height: 1.6;
     }
 
+    /* ===== SCROLL PROGRESS ===== */
+    .scroll-progress {
+      position: fixed;
+      top: 0;
+      right: 0;
+      height: 3px;
+      width: 0%;
+      background: linear-gradient(90deg, var(--accent-deep), var(--accent), var(--accent-deep));
+      z-index: 60;
+      box-shadow: 0 0 10px rgba(201, 168, 76, 0.55);
+      transition: width 0.08s linear;
+      pointer-events: none;
+    }
+
+    /* ===== PRINT CTA ===== */
+    .print-cta {
+      padding: 32px 0 80px;
+      background: var(--white);
+      text-align: center;
+    }
+
+    .btn-print {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 13px 26px;
+      border-radius: 999px;
+      background: var(--white);
+      color: var(--olive-deep);
+      font-family: inherit;
+      font-weight: 700;
+      font-size: 16px;
+      border: 1.5px solid var(--accent-soft);
+      cursor: pointer;
+      transition: transform 0.3s var(--ease), box-shadow 0.3s var(--ease), border-color 0.3s var(--ease), background 0.3s var(--ease);
+    }
+
+    .btn-print:hover {
+      transform: translateY(-2px);
+      border-color: var(--accent);
+      background: var(--sand-soft);
+      box-shadow: 0 10px 26px rgba(201, 168, 76, 0.22);
+    }
+
+    .btn-print svg {
+      width: 20px;
+      height: 20px;
+      stroke: currentColor;
+      fill: none;
+      stroke-width: 2;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+
+    .print-note {
+      margin-top: 12px;
+      font-size: 14px;
+      color: var(--text-muted);
+    }
+
     /* ===== REVEAL ===== */
     .reveal {
       opacity: 0;
@@ -1046,10 +1106,150 @@
         height: 180px;
       }
     }
+
+    /* ===== PRINT ===== */
+    @media print {
+      @page {
+        size: A4;
+        margin: 14mm;
+      }
+
+      body {
+        font-size: 12pt;
+        line-height: 1.55;
+        color: #000;
+        background: #fff;
+      }
+
+      .intro-overlay,
+      header.site,
+      .hero,
+      .when-home,
+      .quote,
+      .transition-heading,
+      .break,
+      .scroll-progress,
+      .print-cta {
+        display: none !important;
+      }
+
+      .intro {
+        padding: 0 0 6mm;
+        background: #fff;
+        text-align: right;
+      }
+
+      .intro p {
+        color: #000;
+        font-size: 11pt;
+        max-width: 100%;
+        margin-bottom: 8pt;
+      }
+
+      .intro p.intro-final {
+        color: #000;
+        font-size: 12pt;
+      }
+
+      .intro::before {
+        content: "10 טיפים לזוגיות במילואים";
+        display: block;
+        font-size: 20pt;
+        font-weight: 800;
+        color: #000;
+        margin-bottom: 8pt;
+        text-align: right;
+      }
+
+      .tips {
+        padding: 0;
+        background: #fff;
+      }
+
+      .tips::before,
+      .section-head {
+        display: none !important;
+      }
+
+      .tips-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 6mm;
+      }
+
+      .tip-card {
+        background: #fff;
+        border: 1px solid #bbb;
+        box-shadow: none;
+        padding: 6mm;
+        page-break-inside: avoid;
+        break-inside: avoid;
+      }
+
+      .tip-num {
+        background: #fff;
+        color: #000;
+        border: 1.5px solid #000;
+        box-shadow: none;
+        width: 36px;
+        height: 36px;
+        font-size: 16pt;
+        margin-bottom: 6pt;
+      }
+
+      .tip-text {
+        color: #000;
+        font-size: 11pt;
+        line-height: 1.55;
+      }
+
+      .about {
+        padding: 8mm 0 0;
+        background: #fff;
+      }
+
+      .about-inner {
+        display: block;
+        text-align: right;
+      }
+
+      .iris-img-wrap {
+        display: none;
+      }
+
+      .about-body h2 {
+        font-size: 13pt;
+        margin-bottom: 4pt;
+      }
+
+      .about-body p {
+        font-size: 10pt;
+        color: #000;
+      }
+
+      footer.site {
+        padding: 6mm 0 0;
+        background: #fff;
+        color: #000;
+        border-top: 1px solid #ccc;
+      }
+
+      .footer-title {
+        color: #000;
+        font-size: 10pt;
+      }
+
+      .footer-sub {
+        color: #555;
+        font-size: 9pt;
+      }
+    }
   </style>
 </head>
 
 <body>
+
+  <!-- ============= SCROLL PROGRESS ============= -->
+  <div class="scroll-progress" id="scrollProgress" aria-hidden="true"></div>
 
   <!-- ============= CINEMATIC INTRO ============= -->
   <div class="intro-overlay" id="intro" role="dialog" aria-label="פתיחה">
@@ -1234,6 +1434,21 @@
     </div>
   </section>
 
+  <!-- ============= PRINT CTA ============= -->
+  <section class="print-cta">
+    <div class="container-narrow reveal">
+      <button type="button" class="btn-print" onclick="window.print()" aria-label="הדפיסו את הטיפים או שמרו כ-PDF">
+        <svg viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M6 9V3h12v6" />
+          <rect x="6" y="14" width="12" height="7" rx="1" />
+          <path d="M6 17H4a2 2 0 0 1-2-2v-4a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v4a2 2 0 0 1-2 2h-2" />
+        </svg>
+        <span>שמרו את הטיפים — להדפסה או PDF</span>
+      </button>
+      <p class="print-note">להחזיק על הנייד גם בלי קליטה</p>
+    </div>
+  </section>
+
   <!-- ============= FOOTER ============= -->
   <footer class="site">
     <div class="container">
@@ -1295,6 +1510,25 @@
       }
       const yearEl = document.getElementById('year');
       if (yearEl) yearEl.textContent = new Date().getFullYear();
+
+      // Scroll progress bar
+      const progress = document.getElementById('scrollProgress');
+      if (progress) {
+        let ticking = false;
+        const update = () => {
+          const max = document.documentElement.scrollHeight - window.innerHeight;
+          const pct = max > 0 ? (window.scrollY / max) * 100 : 0;
+          progress.style.width = pct + '%';
+          ticking = false;
+        };
+        window.addEventListener('scroll', () => {
+          if (!ticking) {
+            window.requestAnimationFrame(update);
+            ticking = true;
+          }
+        }, { passive: true });
+        update();
+      }
     })();
   </script>
 
