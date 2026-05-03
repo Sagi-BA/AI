@@ -1,3 +1,8 @@
+<!--
+  Live:  https://sagi-ba.github.io/AI/IDF/lagbaOmer/
+  Local: http://127.0.0.1:8080/IDF/lagbaOmer/
+  GA:    https://analytics.google.com/analytics/web/#/a351596902p494681343/reports/reportinghub
+-->
 <!DOCTYPE html>
 <html lang="he" dir="rtl">
 
@@ -12,14 +17,22 @@
   <!-- Open Graph -->
   <meta property="og:type" content="article">
   <meta property="og:locale" content="he_IL">
+  <meta property="og:site_name" content="ד״ר איריס בר־און">
+  <meta property="og:url" content="https://sagi-ba.github.io/AI/IDF/lagbaOmer/">
   <meta property="og:title" content="גם כשאתם במילואים - האהבה לא יוצאת להפסקה">
   <meta property="og:description" content="10 טיפים קטנים מד״ר איריס בר־און לשמור על קרבה וחום בבית גם מרחוק.">
-  <meta property="og:image" content="images/og-preview.webp">
-  <meta property="og:url" content="https://sagi-ba.github.io/AI/IDF/lagbaOmer/">
+  <meta property="og:image" content="https://sagi-ba.github.io/AI/IDF/lagbaOmer/images/og-preview.jpg">
+  <meta property="og:image:secure_url" content="https://sagi-ba.github.io/AI/IDF/lagbaOmer/images/og-preview.jpg">
+  <meta property="og:image:type" content="image/jpeg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="10 טיפים לזוגיות במילואים - ד״ר איריס בר־און">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="גם כשאתם במילואים - האהבה לא יוצאת להפסקה">
   <meta name="twitter:description" content="10 טיפים קטנים מד״ר איריס בר־און לשמור על קרבה וחום בבית גם מרחוק.">
-  <meta name="twitter:image" content="images/og-preview.webp">
+  <meta name="twitter:image" content="https://sagi-ba.github.io/AI/IDF/lagbaOmer/images/og-preview.jpg">
+  <meta name="twitter:image:alt" content="10 טיפים לזוגיות במילואים - ד״ר איריס בר־און">
+  <link rel="canonical" href="https://sagi-ba.github.io/AI/IDF/lagbaOmer/">
 
   <!-- Google Analytics -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-XSH19K5LBZ"></script>
@@ -50,8 +63,6 @@
       --accent: #c9a84c;
       --accent-deep: #9a7f30;
       --accent-soft: rgba(201, 168, 76, 0.18);
-      --whatsapp: #25d366;
-      --whatsapp-deep: #128c7e;
       --text: #1a2138;
       --text-soft: #4a5573;
       --text-muted: #6e7894;
@@ -131,17 +142,43 @@
       color: var(--white);
     }
 
-    .brand-mark {
-      width: 36px;
-      height: 36px;
-      border-radius: 50%;
-      background: linear-gradient(135deg, var(--accent), var(--accent-deep));
+    .header-logos {
       display: inline-flex;
       align-items: center;
-      justify-content: center;
-      font-weight: 800;
-      color: var(--navy-deep);
-      font-size: 14px;
+      gap: 8px;
+    }
+
+    .header-logos img {
+      width: 32px;
+      height: 32px;
+      border-radius: 6px;
+      background: #fff;
+      padding: 3px;
+      border: 1.5px solid rgba(201, 168, 76, 0.55);
+      box-shadow: 0 0 6px rgba(201, 168, 76, 0.18);
+      object-fit: contain;
+      display: block;
+    }
+
+    .header-logos .emblem-logo {
+      width: 38px;
+      height: 38px;
+    }
+
+    @media (max-width: 640px) {
+      .header-logos img {
+        width: 28px;
+        height: 28px;
+      }
+
+      .header-logos .emblem-logo {
+        width: 32px;
+        height: 32px;
+      }
+
+      .header-logos {
+        gap: 6px;
+      }
     }
 
     /* ===== HERO ===== */
@@ -407,43 +444,6 @@
       color: var(--navy);
     }
 
-    /* ===== INTERIM CTA (after break) ===== */
-    .cta-mid {
-      grid-column: 1 / -1;
-      display: flex;
-      justify-content: center;
-      margin: 32px 0;
-    }
-
-    .btn-wa-mid {
-      display: inline-flex;
-      align-items: center;
-      gap: 10px;
-      padding: 14px 30px;
-      border-radius: 999px;
-      background: var(--whatsapp);
-      color: var(--white);
-      font-weight: 700;
-      font-size: 17px;
-      min-width: 220px;
-      min-height: 48px;
-      justify-content: center;
-      box-shadow: 0 10px 28px rgba(37, 211, 102, 0.35);
-      transition: transform 0.3s var(--ease), box-shadow 0.3s var(--ease), background 0.3s var(--ease);
-    }
-
-    .btn-wa-mid:hover {
-      transform: translateY(-2px);
-      background: var(--whatsapp-deep);
-      box-shadow: 0 14px 34px rgba(37, 211, 102, 0.5);
-    }
-
-    .btn-wa-mid svg {
-      width: 22px;
-      height: 22px;
-      fill: currentColor;
-    }
-
     /* ===== WHEN HOME ===== */
     .when-home {
       padding: 96px 0;
@@ -576,7 +576,8 @@
       height: 100%;
       border-radius: 50%;
       object-fit: cover;
-      object-position: 62% 22%; /* center Iris's face — face is upper-right of source */
+      object-position: 62% 22%;
+      /* center Iris's face - face is upper-right of source */
       background: var(--sand);
     }
 
@@ -592,124 +593,6 @@
       line-height: 1.8;
       color: var(--text);
       margin-bottom: 16px;
-    }
-
-    .about-link {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      color: var(--olive-deep);
-      font-weight: 700;
-      border-bottom: 2px solid var(--accent-soft);
-      padding-bottom: 2px;
-      transition: border-color 0.3s var(--ease), color 0.3s var(--ease);
-    }
-
-    .about-link:hover {
-      color: var(--accent-deep);
-      border-color: var(--accent);
-    }
-
-    /* ===== FINAL CTA ===== */
-    .final-cta {
-      position: relative;
-      padding: 110px 0;
-      background: var(--navy-deep);
-      color: var(--white);
-      text-align: center;
-      overflow: hidden;
-      isolation: isolate;
-    }
-
-    .final-cta::before {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background-image: url('images/hero-collage.webp');
-      background-size: cover;
-      background-position: center;
-      filter: blur(8px);
-      opacity: 0.2;
-      z-index: -1;
-      transform: scale(1.05);
-    }
-
-    .final-cta::after {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(180deg, rgba(15, 23, 41, 0.65), rgba(15, 23, 41, 0.85));
-      z-index: -1;
-    }
-
-    .final-cta h2 {
-      font-size: clamp(28px, 4vw, 42px);
-      line-height: 1.3;
-      font-weight: 800;
-      margin-bottom: 22px;
-    }
-
-    .final-cta .sub {
-      font-size: clamp(17px, 2vw, 21px);
-      line-height: 1.7;
-      color: rgba(255, 255, 255, 0.9);
-      max-width: 720px;
-      margin: 0 auto 40px;
-    }
-
-    .cta-buttons {
-      display: flex;
-      gap: 16px;
-      justify-content: center;
-      flex-wrap: wrap;
-    }
-
-    .btn {
-      display: inline-flex;
-      align-items: center;
-      gap: 10px;
-      padding: 16px 32px;
-      border-radius: 999px;
-      font-weight: 700;
-      font-size: 17px;
-      transition: transform 0.3s var(--ease), box-shadow 0.3s var(--ease), background 0.3s var(--ease);
-    }
-
-    .btn-primary {
-      background: var(--whatsapp);
-      color: var(--white);
-      box-shadow: 0 14px 36px rgba(37, 211, 102, 0.45);
-    }
-
-    .btn-primary:hover {
-      transform: translateY(-2px);
-      background: var(--whatsapp-deep);
-      box-shadow: 0 18px 44px rgba(37, 211, 102, 0.6);
-    }
-
-    .btn-ghost {
-      background: rgba(255, 255, 255, 0.08);
-      border: 1px solid rgba(255, 255, 255, 0.25);
-      color: var(--white);
-      backdrop-filter: blur(8px);
-      -webkit-backdrop-filter: blur(8px);
-    }
-
-    .btn-ghost:hover {
-      background: rgba(255, 255, 255, 0.15);
-      transform: translateY(-2px);
-    }
-
-    .btn svg {
-      width: 20px;
-      height: 20px;
-      fill: currentColor;
-    }
-
-    .cta-nudge {
-      margin-top: 18px;
-      font-size: 15px;
-      color: rgba(255, 255, 255, 0.72);
     }
 
     /* ===== FOOTER ===== */
@@ -742,63 +625,6 @@
       font-size: 14px;
       color: rgba(255, 255, 255, 0.65);
       line-height: 1.6;
-    }
-
-    /* ===== WHATSAPP FLOAT ===== */
-    .whatsapp-float {
-      position: fixed;
-      bottom: 24px;
-      left: 24px;
-      width: 60px;
-      height: 60px;
-      background: var(--whatsapp);
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      box-shadow: 0 4px 20px rgba(37, 211, 102, 0.45);
-      z-index: 999;
-      transition: transform 0.3s var(--ease), box-shadow 0.3s var(--ease);
-      color: #fff;
-    }
-
-    .whatsapp-float:hover {
-      transform: scale(1.1);
-      box-shadow: 0 6px 28px rgba(37, 211, 102, 0.55);
-    }
-
-    .whatsapp-float svg {
-      width: 32px;
-      height: 32px;
-      fill: #fff;
-    }
-
-    .whatsapp-float::after {
-      content: '';
-      position: absolute;
-      inset: -6px;
-      border-radius: 50%;
-      border: 2px solid var(--whatsapp);
-      opacity: 0.6;
-      animation: waPulse 2.4s ease-out infinite;
-      pointer-events: none;
-    }
-
-    @keyframes waPulse {
-      0% {
-        transform: scale(0.85);
-        opacity: 0.7;
-      }
-
-      70% {
-        transform: scale(1.4);
-        opacity: 0;
-      }
-
-      100% {
-        transform: scale(1.4);
-        opacity: 0;
-      }
     }
 
     /* ===== REVEAL ===== */
@@ -834,10 +660,6 @@
 
       .iris-img-wrap:hover {
         transform: none;
-      }
-
-      .whatsapp-float::after {
-        animation: none;
       }
 
       .intro-overlay {
@@ -1140,8 +962,7 @@
 
       .tips,
       .when-home,
-      .quote,
-      .final-cta {
+      .quote {
         padding: 72px 0;
       }
     }
@@ -1173,14 +994,12 @@
       }
 
       .brand {
-        font-size: 15px;
+        font-size: 14px;
         gap: 10px;
       }
 
-      .brand-mark {
-        width: 32px;
-        height: 32px;
-        font-size: 12px;
+      .brand-text {
+        display: none;
       }
 
       .hero-cta {
@@ -1207,19 +1026,6 @@
         font-size: 21px;
       }
 
-      .btn {
-        padding: 14px 26px;
-        font-size: 16px;
-      }
-
-      .cta-buttons {
-        flex-direction: column;
-        align-items: stretch;
-      }
-
-      .btn {
-        justify-content: center;
-      }
     }
 
     @media (max-width: 380px) {
@@ -1257,7 +1063,7 @@
       <span class="intro-orb intro-orb-left" aria-hidden="true"></span>
     </div>
     <div class="intro-text">
-      <p class="intro-quote">גם כשאתם רחוקים — הלב נשאר בבית.</p>
+      <p class="intro-quote">גם כשאתם רחוקים - הלב נשאר בבית.</p>
       <p class="intro-byline">ד״ר איריס בר־און · 10 טיפים לזוגיות במילואים</p>
     </div>
   </div>
@@ -1265,11 +1071,14 @@
   <!-- ============= HEADER ============= -->
   <header class="site">
     <div class="nav">
-      <a href="https://irisbaron.co.il/" target="_blank" rel="noopener" class="brand"
-        aria-label="ד״ר איריס בר־און - לאתר הראשי">
-        <span class="brand-mark" aria-hidden="true">א</span>
-        <span>ד״ר איריס בר־און</span>
-      </a>
+      <div class="brand" aria-label="מרכז מגנים על העורף - מחוז חיפה">
+        <span class="brand-text">מרכז מגנים על העורף · מחוז חיפה</span>
+      </div>
+      <div class="header-logos" aria-hidden="true">
+        <img src="images/maganim-center.webp" alt="">
+        <img src="images/shaagat-hari-logo.webp" alt="" class="emblem-logo">
+        <img src="images/oref-haifa.webp" alt="">
+      </div>
     </div>
   </header>
 
@@ -1347,18 +1156,6 @@
           </div>
         </div>
 
-        <!-- INTERIM CTA -->
-        <div class="cta-mid reveal">
-          <a href="https://wa.me/972545555699?text=%D7%94%D7%99%D7%99%20%D7%90%D7%99%D7%A8%D7%99%D7%A1%2C%20%D7%A7%D7%A8%D7%90%D7%AA%D7%99%20%D7%90%D7%AA%20%D7%94%D7%98%D7%99%D7%A4%D7%99%D7%9D%20%D7%9C%D7%9E%D7%99%D7%9C%D7%95%D7%90%D7%99%D7%9D%20%D7%95%D7%96%D7%94%20%D7%9E%D7%9E%D7%A9%20%D7%93%D7%99%D7%91%D7%A8%20%D7%90%D7%9C%D7%99%D7%99.%0A%D7%A8%D7%A6%D7%99%D7%AA%D7%99%20%D7%9C%D7%94%D7%AA%D7%99%D7%99%D7%A2%D7%A5%20%D7%90%D7%99%D7%AA%D7%9A%20%F0%9F%99%8F"
-            target="_blank" rel="noopener noreferrer" class="btn-wa-mid">
-            <svg viewBox="0 0 24 24" aria-hidden="true">
-              <path
-                d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347zM12.05 21.785A9.737 9.737 0 0 1 7.1 20.45l-.353-.21-3.667.962.98-3.575-.232-.366a9.715 9.715 0 0 1-1.49-5.18c.002-5.373 4.378-9.748 9.752-9.748 2.604 0 5.052 1.014 6.892 2.857a9.683 9.683 0 0 1 2.852 6.892c-.002 5.373-4.378 9.749-9.762 9.749h-.012zM20.52 3.449C18.244 1.255 15.241.06 12.045.06 5.463.06.103 5.42.101 12.005c0 2.105.549 4.16 1.595 5.972L0 24l6.163-1.617a11.94 11.94 0 0 0 5.71 1.454h.006c6.585 0 11.946-5.36 11.949-11.946 0-3.196-1.24-6.198-3.495-8.453z" />
-            </svg>
-            שלחו הודעה לאיריס
-          </a>
-        </div>
-
         <article class="tip-card reveal">
           <div class="tip-num">6</div>
           <p class="tip-text">שלח עזרה הביתה: אח, אחות, סבתות או שכנה. תהיה מעורב.</p>
@@ -1417,11 +1214,11 @@
   <!-- ============= TRANSITION HEADING ============= -->
   <section class="transition-heading">
     <div class="container-narrow">
-      <h2 class="reveal">מי עומדת מאחורי המילים האלה?</h2>
+      <h2 class="reveal">על הכותבים</h2>
     </div>
   </section>
 
-  <!-- ============= ABOUT IRIS ============= -->
+  <!-- ============= CREDITS ============= -->
   <section class="about">
     <div class="container">
       <div class="about-inner reveal">
@@ -1429,32 +1226,11 @@
           <img src="images/iris.webp" alt="ד״ר איריס בר־און" class="iris-img">
         </div>
         <div class="about-body">
-          <h2>ד״ר איריס בר־און</h2>
-          <p>פסיכולוגית, מאמנת ומנחה. מלווה זוגות ומשפחות שנים רבות, ומתמחה בלסייע לקשרים לעבור תקופות של ריחוק, לחץ
-            ושינוי - ולצאת מהן חזקים יותר.</p>
-          <a href="https://irisbaron.co.il/" target="_blank" rel="noopener" class="about-link">לאתר של איריס ←</a>
+          <h2>הטיפים נכתבו במשותף</h2>
+          <p>על ידי <strong>צוות מרכז מגנים על העורף - מחוז חיפה</strong> ו<strong>ד״ר איריס בר־און</strong>,
+            פסיכולוגית, מאמנת ומנחה - מתוך עבודת הליווי של חיילי המילואים ומשפחותיהם בתקופות של ריחוק, לחץ ושינוי.</p>
         </div>
       </div>
-    </div>
-  </section>
-
-  <!-- ============= FINAL CTA ============= -->
-  <section class="final-cta" id="contact">
-    <div class="container-narrow">
-      <h2 class="reveal">לא חייבים לעבור את זה לבד.</h2>
-      <p class="sub reveal">אם זה נוגע בכם - שיחה אחת יכולה לשנות הרבה יותר ממה שנדמה.</p>
-      <div class="cta-buttons reveal">
-        <a href="https://wa.me/972545555699?text=%D7%94%D7%99%D7%99%20%D7%90%D7%99%D7%A8%D7%99%D7%A1%2C%20%D7%A7%D7%A8%D7%90%D7%AA%D7%99%20%D7%90%D7%AA%20%D7%94%D7%98%D7%99%D7%A4%D7%99%D7%9D%20%D7%9C%D7%9E%D7%99%D7%9C%D7%95%D7%90%D7%99%D7%9D%20%D7%95%D7%96%D7%94%20%D7%9E%D7%9E%D7%A9%20%D7%93%D7%99%D7%91%D7%A8%20%D7%90%D7%9C%D7%99%D7%99.%0A%D7%A8%D7%A6%D7%99%D7%AA%D7%99%20%D7%9C%D7%94%D7%AA%D7%99%D7%99%D7%A2%D7%A5%20%D7%90%D7%99%D7%AA%D7%9A%20%F0%9F%99%8F"
-          target="_blank" rel="noopener noreferrer" class="btn btn-primary">
-          <svg viewBox="0 0 24 24" aria-hidden="true">
-            <path
-              d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347zM12.05 21.785A9.737 9.737 0 0 1 7.1 20.45l-.353-.21-3.667.962.98-3.575-.232-.366a9.715 9.715 0 0 1-1.49-5.18c.002-5.373 4.378-9.748 9.752-9.748 2.604 0 5.052 1.014 6.892 2.857a9.683 9.683 0 0 1 2.852 6.892c-.002 5.373-4.378 9.749-9.762 9.749h-.012zM20.52 3.449C18.244 1.255 15.241.06 12.045.06 5.463.06.103 5.42.101 12.005c0 2.105.549 4.16 1.595 5.972L0 24l6.163-1.617a11.94 11.94 0 0 0 5.71 1.454h.006c6.585 0 11.946-5.36 11.949-11.946 0-3.196-1.24-6.198-3.495-8.453z" />
-          </svg>
-          דברו עם איריס בוואטסאפ
-        </a>
-        <a href="https://irisbaron.co.il/" target="_blank" rel="noopener" class="btn btn-ghost">לאתר של איריס</a>
-      </div>
-      <p class="cta-nudge reveal">אפשר להתחיל בשאלה אחת קטנה.</p>
     </div>
   </section>
 
@@ -1465,15 +1241,6 @@
       <p class="footer-sub">מערכת זו פותחה לסיוע לחיילי המילואים ומשפחותיהם</p>
     </div>
   </footer>
-
-  <!-- ============= WHATSAPP FLOAT ============= -->
-  <a href="https://wa.me/972545555699?text=%D7%94%D7%99%D7%99%20%D7%90%D7%99%D7%A8%D7%99%D7%A1%2C%20%D7%A7%D7%A8%D7%90%D7%AA%D7%99%20%D7%90%D7%AA%20%D7%94%D7%98%D7%99%D7%A4%D7%99%D7%9D%20%D7%9C%D7%9E%D7%99%D7%9C%D7%95%D7%90%D7%99%D7%9D%20%D7%95%D7%96%D7%94%20%D7%9E%D7%9E%D7%A9%20%D7%93%D7%99%D7%91%D7%A8%20%D7%90%D7%9C%D7%99%D7%99.%0A%D7%A8%D7%A6%D7%99%D7%AA%D7%99%20%D7%9C%D7%94%D7%AA%D7%99%D7%99%D7%A2%D7%A5%20%D7%90%D7%99%D7%AA%D7%9A%20%F0%9F%99%8F"
-    target="_blank" rel="noopener noreferrer" class="whatsapp-float" aria-label="שלחו הודעה לד״ר איריס בר־און בוואטסאפ">
-    <svg viewBox="0 0 24 24" aria-hidden="true">
-      <path
-        d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347zM12.05 21.785A9.737 9.737 0 0 1 7.1 20.45l-.353-.21-3.667.962.98-3.575-.232-.366a9.715 9.715 0 0 1-1.49-5.18c.002-5.373 4.378-9.748 9.752-9.748 2.604 0 5.052 1.014 6.892 2.857a9.683 9.683 0 0 1 2.852 6.892c-.002 5.373-4.378 9.749-9.762 9.749h-.012zM20.52 3.449C18.244 1.255 15.241.06 12.045.06 5.463.06.103 5.42.101 12.005c0 2.105.549 4.16 1.595 5.972L0 24l6.163-1.617a11.94 11.94 0 0 0 5.71 1.454h.006c6.585 0 11.946-5.36 11.949-11.946 0-3.196-1.24-6.198-3.495-8.453z" />
-    </svg>
-  </a>
 
   <script>
     (function () {
