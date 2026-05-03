@@ -33,7 +33,17 @@
       "Bash(ffmpeg -version)",
       "Bash(curl -s \"http://localhost:8089/IDF/lagbaOmer/index.html\")",
       "Bash(curl -sI \"https://sagi-ba.github.io/AI/IDF/lagbaOmer/images/hero-collage.jpg\")",
-      "Bash(curl -s \"https://sagi-ba.github.io/AI/IDF/lagbaOmer/\")"
+      "Bash(curl -s \"https://sagi-ba.github.io/AI/IDF/lagbaOmer/\")",
+      "Bash(awk 'NR>=4405 && NR<=4475 {print NR\": \"$0}' \"c:/projects/AI/IDF/lagbaOmer-gemini-storybook/index.html\")",
+      "Bash(awk 'NR>=4465 && NR<=4475 {print NR\": \"$0}' \"c:/projects/AI/IDF/lagbaOmer-gemini-storybook/index.html\")",
+      "Bash(awk 'NR<4145 || \\(NR>=4230 && NR<=4335\\) || NR>=4472' \"c:/projects/AI/IDF/lagbaOmer-gemini-storybook/index.html\")",
+      "Bash(curl -s -o /dev/null -w \"%{http_code}\" \"http://localhost:8089/IDF/lagbaOmer-gemini-storybook/index.html\")",
+      "Bash(awk 'NR>=4598 && NR<=4605 {print NR\": \"$0}' \"c:/projects/AI/IDF/lagbaOmer-gemini-storybook/index.html\")",
+      "Bash(awk 'NR>=4900 && NR<=4915 {print NR\": \"$0}' \"c:/projects/AI/IDF/lagbaOmer-gemini-storybook/index.html\")",
+      "Bash(awk 'NR>=4965 && NR<=4970 {print NR\": \"$0}' \"c:/projects/AI/IDF/lagbaOmer-gemini-storybook/index.html\")",
+      "Bash(awk 'NR>=5240 && NR<=5246 {print NR\": \"$0}' \"c:/projects/AI/IDF/lagbaOmer-gemini-storybook/index.html\")",
+      "Bash(awk 'NR>=5810 && NR<=5820 {print NR\": \"$0}' \"c:/projects/AI/IDF/lagbaOmer-gemini-storybook/index.html\")",
+      "Bash(awk 'NR>=4145 && NR<=4250 {print NR\": \"$0}' \"c:/projects/AI/IDF/lagbaOmer-gemini-storybook/index.html\")"
     ],
     "deny": [],
     "ask": []
