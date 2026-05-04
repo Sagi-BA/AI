@@ -216,32 +216,56 @@
     }
 
     .hero-text {
-      max-width: 720px;
-      margin-right: auto;
-      margin-left: 0;
+      max-width: 820px;
+      margin: 0 auto;
       color: var(--white);
+      text-align: center;
+    }
+
+    .hero p.lead,
+    .hero-text .hero-collab {
+      margin-left: auto;
+      margin-right: auto;
     }
 
     .hero-eyebrow {
       display: inline-flex;
       align-items: center;
-      gap: 10px;
-      padding: 8px 18px;
+      gap: 14px;
+      padding: 14px 28px;
       border-radius: 999px;
       background: rgba(201, 168, 76, 0.18);
       border: 1px solid rgba(201, 168, 76, 0.4);
       color: var(--accent);
-      font-size: 14px;
-      font-weight: 600;
-      margin-bottom: 24px;
+      font-size: clamp(18px, 2.4vw, 24px);
+      font-weight: 700;
+      margin-bottom: 20px;
+      letter-spacing: 0.2px;
     }
 
     .hero-eyebrow .dot {
-      width: 8px;
-      height: 8px;
+      width: 12px;
+      height: 12px;
       border-radius: 50%;
       background: var(--accent);
-      box-shadow: 0 0 12px var(--accent);
+      box-shadow: 0 0 16px var(--accent);
+      flex-shrink: 0;
+    }
+
+    .eyebrow-name {
+      font-size: 0.85em;
+      font-weight: 700;
+      color: var(--white);
+      margin-right: 2px;
+    }
+
+    .hero-collab {
+      display: block;
+      margin: -6px 0 26px;
+      font-size: clamp(15px, 1.6vw, 18px);
+      font-weight: 500;
+      color: rgba(255, 255, 255, 0.85);
+      letter-spacing: 0.2px;
     }
 
     .hero h1 {
@@ -1511,8 +1535,8 @@
     <div class="hero-inner">
       <div class="container">
         <div class="hero-text">
-          <span class="hero-eyebrow"><span class="dot" aria-hidden="true"></span>מרכז מגנים על העורף · מחוז חיפה · ד״ר
-            איריס בר־און</span>
+          <span class="hero-eyebrow"><span class="dot" aria-hidden="true"></span>מרכז מגנים על העורף · מחוז חיפה</span>
+          <span class="hero-collab">בשיתוף <span class="eyebrow-name">ד״ר איריס בר־און</span></span>
           <h1>גם כשאתם במילואים - האהבה לא יוצאת להפסקה</h1>
           <a href="#tips" class="hero-cta">⬇️ קחו טיפ ראשון כבר עכשיו</a>
         </div>
