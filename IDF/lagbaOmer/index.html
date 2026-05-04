@@ -9,7 +9,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>גם כשאתם במילואים - האהבה לא יוצאת להפסקה · ד״ר איריס בר־און</title>
+  <title>חוסן מגנים על העורף · הרצאה - ד״ר איריס בר־און · זוגיות במילואים</title>
   <meta name="description"
     content="10 טיפים קטנים מד״ר איריס בר־און שיעזרו לחיילי מילואים לשמור על קרבה, געגוע וחום בבית - גם מרחוק.">
   <meta name="theme-color" content="#1f2a44">
@@ -302,6 +302,143 @@
       color: var(--olive-deep);
       margin-top: 28px;
       line-height: 1.7;
+    }
+
+    .name-highlight {
+      color: var(--accent-deep);
+      font-weight: 800;
+      background: linear-gradient(180deg, transparent 62%, var(--accent-soft) 62%);
+      padding: 0 4px;
+      border-radius: 3px;
+    }
+
+    .event-card {
+      max-width: 720px;
+      margin: 36px auto 0;
+      padding: 36px 32px 30px;
+      background: linear-gradient(160deg, var(--white), var(--sand-soft));
+      border: 1.5px solid var(--accent-soft);
+      border-radius: var(--radius-lg);
+      box-shadow: 0 18px 48px rgba(15, 23, 41, 0.10);
+      text-align: right;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .event-card::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      right: 0;
+      width: 6px;
+      height: 100%;
+      background: linear-gradient(180deg, var(--accent), var(--accent-deep));
+    }
+
+    .event-badge {
+      display: inline-block;
+      padding: 7px 16px;
+      border-radius: 999px;
+      background: var(--olive-deep);
+      color: var(--white);
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 0.3px;
+      margin-bottom: 18px;
+    }
+
+    .event-title {
+      font-family: 'Heebo', sans-serif;
+      font-size: clamp(20px, 2.6vw, 26px);
+      line-height: 1.45;
+      font-weight: 700;
+      color: var(--navy);
+      margin-bottom: 22px;
+    }
+
+    .event-meta {
+      list-style: none;
+      padding: 0;
+      margin: 0 0 22px;
+      display: grid;
+      gap: 10px;
+    }
+
+    .event-meta li {
+      font-size: 17px;
+      line-height: 1.6;
+      color: var(--text);
+    }
+
+    .event-label {
+      font-weight: 800;
+      color: var(--olive-deep);
+      margin-left: 6px;
+    }
+
+    .event-limited {
+      display: inline-block;
+      padding: 10px 20px;
+      border-radius: 12px;
+      background: linear-gradient(135deg, #d64545, #b33636);
+      color: var(--white);
+      font-weight: 800;
+      font-size: 17px;
+      margin-bottom: 22px;
+      box-shadow: 0 8px 22px rgba(214, 69, 69, 0.32);
+      animation: limitedPulse 2.4s ease-in-out infinite;
+    }
+
+    @keyframes limitedPulse {
+      0%, 100% { transform: scale(1); box-shadow: 0 8px 22px rgba(214, 69, 69, 0.32); }
+      50% { transform: scale(1.03); box-shadow: 0 12px 30px rgba(214, 69, 69, 0.45); }
+    }
+
+    .event-cta {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 14px 28px;
+      border-radius: 999px;
+      background: linear-gradient(135deg, #25d366, #128c7e);
+      color: var(--white);
+      font-weight: 700;
+      font-size: 16px;
+      box-shadow: 0 10px 28px rgba(37, 211, 102, 0.35);
+      transition: transform 0.3s var(--ease), box-shadow 0.3s var(--ease);
+    }
+
+    .event-cta:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 14px 36px rgba(37, 211, 102, 0.5);
+    }
+
+    @media (max-width: 640px) {
+      .event-card {
+        padding: 28px 22px 24px;
+        margin-top: 28px;
+      }
+
+      .event-meta li {
+        font-size: 16px;
+      }
+
+      .event-cta {
+        width: 100%;
+        justify-content: center;
+        padding: 13px 22px;
+      }
+
+      .event-limited {
+        display: block;
+        text-align: center;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .event-limited {
+        animation: none !important;
+      }
     }
 
     /* ===== TIPS ===== */
@@ -1151,6 +1288,11 @@
         font-size: 12pt;
       }
 
+      .event-card,
+      .event-limited {
+        display: none !important;
+      }
+
       .intro::before {
         content: "10 טיפים לזוגיות במילואים";
         display: block;
@@ -1288,10 +1430,8 @@
     <div class="hero-inner">
       <div class="container">
         <div class="hero-text">
-          <span class="hero-eyebrow"><span class="dot" aria-hidden="true"></span>ד״ר איריס בר־און · 10 טיפים לזוגיות
-            במילואים</span>
+          <span class="hero-eyebrow"><span class="dot" aria-hidden="true"></span>מרכז מגנים על העורף · מחוז חיפה · ד״ר איריס בר־און</span>
           <h1>גם כשאתם במילואים - האהבה לא יוצאת להפסקה</h1>
-          <p class="lead">10 טיפים קטנים מד״ר איריס בר־און שיעזרו לשמור על קרבה, געגוע וחום בבית - גם מרחוק.</p>
           <a href="#tips" class="hero-cta">⬇️ קחו טיפ ראשון כבר עכשיו</a>
         </div>
       </div>
@@ -1301,9 +1441,22 @@
   <!-- ============= INTRO ============= -->
   <section class="intro">
     <div class="container-narrow">
-      <p class="reveal">צוות <strong>"מגנים על העורף"</strong>, מרכז החוסן הקהילתי של מחוז חיפה, אסף עבורכם.ן טיפים ייחודיים לשמירה על הגחלת.</p>
-      <p class="reveal">אנו מזמינים אתכם.ן להרצאה מרתקת של <strong>ד״ר איריס בר־און</strong> בנושא זוגיות בזמן מילואים.</p>
-      <p class="reveal"><strong>מתי?</strong> יום חמישי, 28/5/26, בשעה 20:30 בזום.<br><span style="font-size: 0.9em; color: var(--text-muted);">(לינק יישלח בהמשך)</span></p>
+      <p class="reveal">צוות <strong class="name-highlight">"מגנים על העורף"</strong>, מרכז החוסן הקהילתי של מחוז חיפה, יחד עם <strong class="name-highlight">ד״ר איריס בר־און</strong>, אסף עבורכם.ן טיפים ייחודיים לשמירה על הגחלת.</p>
+
+      <div class="event-card reveal">
+        <span class="event-badge">בונוס · רק לחיילי מחוז חיפה</span>
+        <h3 class="event-title">הרצאה מרתקת של <strong class="name-highlight">ד״ר איריס בר־און</strong><br>בנושא זוגיות בזמן מילואים</h3>
+        <ul class="event-meta">
+          <li><span class="event-label">מתי?</span> יום חמישי, 28/5/26 · 20:30 בזום</li>
+          <li><span class="event-label">לינק לזום:</span> יישלח בקבוצת הוואטסאפ השקטה ביום האירוע</li>
+        </ul>
+        <p class="event-limited">⚡ מספר המקומות מוגבל!</p>
+        <a href="https://chat.whatsapp.com/DpUDLyTHXIJCmZMBxi9pOG" target="_blank" rel="noopener" class="event-cta">
+          <svg viewBox="0 0 24 24" aria-hidden="true" width="20" height="20" fill="currentColor"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.46 1.32 4.97L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91S17.5 2 12.04 2zm0 18.15c-1.48 0-2.93-.4-4.2-1.15l-.3-.18-3.12.82.83-3.04-.2-.31a8.23 8.23 0 0 1-1.26-4.38c0-4.54 3.7-8.23 8.25-8.23 4.54 0 8.23 3.7 8.23 8.23s-3.7 8.24-8.23 8.24zm4.52-6.16c-.25-.12-1.47-.72-1.69-.81-.23-.08-.39-.12-.56.13-.16.25-.64.81-.78.97-.14.16-.29.18-.54.06-.25-.12-1.05-.39-2-1.23-.74-.66-1.23-1.47-1.38-1.72-.14-.25-.02-.39.11-.51.11-.11.25-.29.37-.43.12-.14.16-.25.25-.41.08-.16.04-.31-.02-.43-.06-.12-.56-1.34-.76-1.83-.2-.48-.4-.42-.56-.43h-.48c-.16 0-.43.06-.66.31-.23.25-.86.84-.86 2.05 0 1.21.88 2.38 1.01 2.55.12.16 1.74 2.65 4.21 3.72.59.25 1.04.4 1.4.51.59.19 1.12.16 1.55.1.47-.07 1.47-.6 1.67-1.18.21-.58.21-1.07.14-1.18-.06-.11-.22-.18-.47-.3z"/></svg>
+          הצטרפו לקבוצת הוואטסאפ
+        </a>
+      </div>
+
       <p class="intro-final reveal">מה מחכה לכם?<br>טיפים פרקטיים שיעזרו לשמור על הקרבה, הגעגוע והחום בבית… גם מרחוק.</p>
     </div>
   </section>
