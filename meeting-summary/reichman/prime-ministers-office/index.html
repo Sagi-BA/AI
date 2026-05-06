@@ -1,0 +1,2683 @@
+<!--
+  Live:  https://sagi-ba.github.io/AI/meeting-summary/reichman/prime-ministers-office/
+  Local: http://127.0.0.1:8080/meeting-summary/reichman/prime-ministers-office/
+  GA:    https://analytics.google.com/analytics/web/#/a351596902p494681343/reports/reportinghub
+-->
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>סיכום סדנה מעשית - בינה מלאכותית למשרד ראש הממשלה | שגיא בר און</title>
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-XSH19K5LBZ"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+        gtag('config', 'G-XSH19K5LBZ');
+    </script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Alef:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --bg: #fafafa;
+            --text: #1a1a1a;
+            --text-light: #555;
+            --accent: #ff6b00;
+            --accent-dark: #e55a00;
+            --accent-light: #fff3e6;
+            --yellow: #ffc107;
+            --yellow-light: #fff8e1;
+            --green: #4caf50;
+            --green-light: #e8f5e9;
+            --purple: #9c27b0;
+            --purple-light: #f3e5f5;
+            --cyan: #00bcd4;
+            --cyan-light: #e0f7fa;
+            --border: #e0e0e0;
+            --white: #ffffff;
+            --whatsapp: #25D366;
+            --whatsapp-dark: #1DA851;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Alef', sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 2.1;
+            font-size: 25px;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        /* PDF Download Button */
+        .pdf-download-link {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            margin-top: 12px;
+            background: var(--accent);
+            color: #fff;
+            text-decoration: none;
+            font-family: 'Alef', sans-serif;
+            font-size: 0.9rem;
+            font-weight: 700;
+            padding: 10px 28px;
+            border: none;
+            border-radius: 25px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 12px rgba(255, 107, 0, 0.25);
+        }
+
+        .pdf-download-link:hover {
+            background: var(--accent-dark);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 18px rgba(255, 107, 0, 0.35);
+        }
+
+        .pdf-download-link i {
+            font-size: 1rem;
+        }
+
+        /* Header Banner */
+        .quote-header {
+            background: linear-gradient(135deg, #ff6b00 0%, #ff8f3f 50%, #ffab6b 100%);
+            color: var(--white);
+            padding: 14px 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .header-inner {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 0 24px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 16px;
+        }
+
+        .logo {
+            font-size: 1.6rem;
+            font-weight: 700;
+            letter-spacing: 0.5px;
+        }
+
+        .logo span {
+            opacity: 0.85;
+            font-size: 1rem;
+            font-weight: 400;
+            margin-right: 8px;
+        }
+
+        .header-contact {
+            display: flex;
+            align-items: center;
+            gap: 24px;
+            font-size: 0.9rem;
+            opacity: 0.95;
+        }
+
+        .header-contact a {
+            color: var(--white);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            transition: opacity 0.2s;
+        }
+
+        .header-contact a:hover {
+            opacity: 0.8;
+        }
+
+        /* Hero */
+        .hero {
+            background: linear-gradient(180deg, #fff9f0 0%, #fff5e6 50%, var(--bg) 100%);
+            padding: 70px 0 60px;
+            text-align: center;
+        }
+
+        .hero-title {
+            font-size: clamp(2.2rem, 5vw, 3.2rem);
+            font-weight: 700;
+            margin-bottom: 24px;
+            line-height: 1.3;
+            color: var(--text);
+        }
+
+        .hero-title .highlight {
+            color: var(--accent);
+        }
+
+        .hero-subtitle {
+            font-size: 1.2rem;
+            color: var(--text-light);
+            max-width: 750px;
+            margin: 0 auto 40px;
+            line-height: 2;
+        }
+
+        .hero-cta-button {
+            display: inline-block;
+            background: var(--whatsapp);
+            color: white;
+            padding: 16px 40px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 1.15rem;
+            transition: transform 0.2s, box-shadow 0.2s, background 0.2s;
+            box-shadow: 0 4px 20px rgba(37, 211, 102, 0.3);
+        }
+
+        .hero-cta-button:hover {
+            background: var(--whatsapp-dark);
+            transform: translateY(-3px);
+            box-shadow: 0 8px 30px rgba(37, 211, 102, 0.4);
+        }
+
+        /* Section Titles */
+        .section-title {
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 16px;
+            color: var(--text);
+            text-align: center;
+        }
+
+        .section-subtitle {
+            font-size: 1.1rem;
+            color: var(--text-light);
+            margin-bottom: 50px;
+            text-align: center;
+        }
+
+        /* Value Cards */
+        .value-section {
+            padding: 70px 0;
+            background: var(--white);
+        }
+
+        .cards-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+            margin-bottom: 40px;
+        }
+
+        .value-card {
+            background: var(--bg);
+            border-radius: 16px;
+            padding: 32px 24px;
+            text-align: center;
+            box-shadow: 0 2px 12px rgba(0, 0, 0, 0.04);
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .value-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+        }
+
+        .value-card.purple {
+            border-top: 4px solid var(--purple);
+        }
+
+        .value-card.cyan {
+            border-top: 4px solid var(--cyan);
+        }
+
+        .value-card.green {
+            border-top: 4px solid var(--green);
+        }
+
+        .card-icon {
+            font-size: 2.5rem;
+            margin-bottom: 16px;
+        }
+
+        .value-card h3 {
+            font-size: 1.15rem;
+            font-weight: 700;
+            margin-bottom: 12px;
+            color: var(--text);
+        }
+
+        .value-card.purple h3 {
+            color: var(--purple);
+        }
+
+        .value-card.cyan h3 {
+            color: var(--cyan);
+        }
+
+        .value-card.green h3 {
+            color: var(--green);
+        }
+
+        .value-card p {
+            font-size: 0.95rem;
+            color: var(--text-light);
+            line-height: 1.8;
+        }
+
+        /* Highlight Box */
+        .highlight-box {
+            background: linear-gradient(135deg, var(--accent) 0%, #ff8533 100%);
+            border-radius: 16px;
+            padding: 32px 40px;
+            text-align: center;
+            color: white;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .highlight-box h3 {
+            font-size: 1.4rem;
+            font-weight: 700;
+            margin-bottom: 12px;
+        }
+
+        .highlight-box p {
+            font-size: 1rem;
+            opacity: 0.95;
+            line-height: 1.8;
+        }
+
+        /* Topics / Prompt Methods */
+        .topics-section {
+            padding: 5px 0;
+            background: var(--white);
+        }
+
+        .topics-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+        }
+
+        .prompts-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 24px;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .topic-card {
+            background: var(--bg);
+            border-radius: 12px;
+            padding: 28px;
+            text-align: center;
+        }
+
+        .topic-number {
+            width: 40px;
+            height: 40px;
+            background: var(--accent);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 1.1rem;
+            margin: 0 auto 16px;
+        }
+
+        .topic-card h3 {
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: var(--accent);
+            margin-bottom: 12px;
+        }
+
+        .topic-card p {
+            font-size: 0.95rem;
+            color: var(--text-light);
+            line-height: 1.8;
+        }
+
+        /* Prompt Cycle Flow (light background variant of vibe-flow) */
+        .prompt-cycle-flow {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 16px;
+            max-width: 800px;
+            margin: 0 auto 36px;
+            flex-wrap: wrap;
+        }
+
+        .prompt-cycle-flow .vibe-flow-step {
+            background: var(--accent-light);
+            color: var(--text);
+        }
+
+        .prompt-cycle-flow .vibe-flow-text strong {
+            color: var(--accent);
+        }
+
+        .prompt-cycle-flow .vibe-flow-text span {
+            color: var(--text-light);
+        }
+
+        .prompt-cycle-flow .vibe-flow-arrow {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--accent);
+            opacity: 0.7;
+        }
+
+        /* Prompt Comparison */
+        .prompt-compare {
+            max-width: 900px;
+            margin: 40px auto 0;
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 24px;
+        }
+
+        .prompt-compare-box {
+            background: var(--bg);
+            border-radius: 12px;
+            padding: 28px;
+            border-top: 4px solid var(--border);
+        }
+
+        .prompt-compare-box.excellent {
+            border-top-color: var(--green);
+            background: var(--green-light);
+        }
+
+        .prompt-compare-box h4 {
+            font-size: 1.1rem;
+            font-weight: 700;
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .prompt-compare-box.good h4 {
+            color: var(--text-light);
+        }
+
+        .prompt-compare-box.excellent h4 {
+            color: var(--green);
+        }
+
+        .prompt-compare-box .prompt-text {
+            font-size: 0.95rem;
+            line-height: 1.8;
+            color: var(--text);
+            background: var(--white);
+            border-radius: 8px;
+            padding: 16px;
+            border-right: 3px solid var(--border);
+        }
+
+        .prompt-compare-box.excellent .prompt-text {
+            border-right-color: var(--green);
+        }
+
+        .prompt-text .highlight-role {
+            background: var(--purple-light);
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-weight: 700;
+        }
+
+        .prompt-text .highlight-goal {
+            background: var(--cyan-light);
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-weight: 700;
+        }
+
+        .prompt-text .highlight-context {
+            background: var(--accent-light);
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-weight: 700;
+        }
+
+        .prompt-compare-legend {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 16px;
+            flex-wrap: wrap;
+        }
+
+        .prompt-compare-legend span {
+            font-size: 0.85rem;
+            padding: 4px 12px;
+            border-radius: 4px;
+            font-weight: 700;
+        }
+
+        /* NotebookLM Studio Section */
+        .notebooklm-section {
+            padding: 70px 0;
+            background: linear-gradient(135deg, #e8f5e9 0%, #f1f8e9 50%, #fff8e1 100%);
+        }
+
+        .notebooklm-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .notebooklm-card {
+            background: var(--white);
+            border-radius: 12px;
+            padding: 24px 20px;
+            text-align: center;
+            box-shadow: 0 2px 12px rgba(0, 0, 0, 0.04);
+            transition: transform 0.2s, box-shadow 0.2s;
+            border-top: 3px solid var(--green);
+        }
+
+        .notebooklm-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+        }
+
+        .notebooklm-card .tool-icon {
+            font-size: 2rem;
+            margin-bottom: 12px;
+        }
+
+        .notebooklm-card h4 {
+            font-size: 1rem;
+            font-weight: 700;
+            color: var(--green);
+            margin-bottom: 4px;
+        }
+
+        .notebooklm-card-subtitle {
+            font-size: 0.85rem;
+            font-weight: 700;
+            color: var(--text-light);
+            margin-bottom: 8px;
+        }
+
+        .notebooklm-card p {
+            font-size: 0.9rem;
+            color: var(--text-light);
+            line-height: 1.7;
+        }
+
+        .notebooklm-cta {
+            text-align: center;
+            margin-top: 30px;
+        }
+
+        .notebooklm-cta a {
+            display: inline-block;
+            background: var(--green);
+            color: var(--white);
+            padding: 14px 36px;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 1rem;
+            transition: transform 0.2s, box-shadow 0.2s, background 0.2s;
+            box-shadow: 0 4px 20px rgba(76, 175, 80, 0.3);
+        }
+
+        .notebooklm-cta a:hover {
+            background: #388e3c;
+            transform: translateY(-3px);
+            box-shadow: 0 8px 30px rgba(76, 175, 80, 0.4);
+        }
+
+        /* Benefits / Recommendations */
+        .benefits-section {
+            padding: 70px 0;
+            background: var(--bg);
+        }
+
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 24px;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .benefit-card {
+            background: var(--white);
+            border-radius: 12px;
+            padding: 28px;
+            display: flex;
+            gap: 16px;
+            align-items: flex-start;
+            box-shadow: 0 2px 12px rgba(0, 0, 0, 0.04);
+        }
+
+        .benefit-icon {
+            width: 48px;
+            height: 48px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            flex-shrink: 0;
+        }
+
+        .benefit-icon.orange {
+            background: var(--accent-light);
+        }
+
+        .benefit-icon.green {
+            background: var(--green-light);
+        }
+
+        .benefit-icon.purple {
+            background: var(--purple-light);
+        }
+
+        .benefit-icon.yellow {
+            background: var(--yellow-light);
+        }
+
+        .benefit-content h4 {
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: var(--text);
+            margin-bottom: 6px;
+        }
+
+        .benefit-content p {
+            font-size: 0.95rem;
+            color: var(--text-light);
+            line-height: 1.7;
+        }
+
+        /* Tools Gallery */
+        .tools-gallery {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .tool-card {
+            background: var(--white);
+            border-radius: 12px;
+            padding: 24px 20px;
+            text-align: center;
+            box-shadow: 0 2px 12px rgba(0, 0, 0, 0.04);
+            transition: transform 0.2s, box-shadow 0.2s;
+            border-top: 3px solid var(--accent);
+        }
+
+        .tool-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+        }
+
+        .tool-icon {
+            font-size: 2rem;
+            margin-bottom: 12px;
+        }
+
+        .tool-icon img {
+            width: 48px;
+            height: 48px;
+            object-fit: contain;
+            border-radius: 70px;
+        }
+
+        .tool-card h4 {
+            font-size: 1rem;
+            font-weight: 700;
+            color: var(--accent);
+            margin-bottom: 8px;
+        }
+
+        .tool-card p {
+            font-size: 0.9rem;
+            color: var(--text-light);
+            line-height: 1.7;
+        }
+
+        /* VIBE CODE Section */
+        .vibe-code-section {
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+            padding: 70px 0;
+            text-align: center;
+            color: var(--white);
+        }
+
+        .vibe-code-section .section-title {
+            color: var(--white);
+            font-size: 2.2rem;
+            letter-spacing: 1px;
+        }
+
+        .vibe-subtitle {
+            font-size: 1.15rem;
+            opacity: 0.97;
+            margin-bottom: 40px;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+            line-height: 2;
+        }
+
+        .vibe-subtitle strong {
+            text-decoration: underline;
+            text-underline-offset: 3px;
+        }
+
+        .vibe-flow {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 16px;
+            max-width: 800px;
+            margin: 0 auto 36px;
+            flex-wrap: wrap;
+        }
+
+        .vibe-flow-step {
+            background: rgba(255, 255, 255, 0.18);
+            border-radius: 16px;
+            padding: 24px 20px;
+            flex: 1;
+            min-width: 180px;
+            max-width: 220px;
+            text-align: center;
+            backdrop-filter: blur(4px);
+        }
+
+        .vibe-flow-icon {
+            font-size: 2rem;
+            margin-bottom: 8px;
+        }
+
+        .vibe-flow-text strong {
+            display: block;
+            font-size: 1.05rem;
+            margin-bottom: 4px;
+        }
+
+        .vibe-flow-text span {
+            font-size: 0.88rem;
+            opacity: 0.9;
+            line-height: 1.6;
+        }
+
+        .vibe-flow-arrow {
+            font-size: 1.8rem;
+            font-weight: 700;
+            opacity: 0.7;
+        }
+
+        .vibe-tools-bar {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            flex-wrap: wrap;
+            margin-bottom: 24px;
+        }
+
+        .vibe-tools-label {
+            font-size: 0.95rem;
+            font-weight: 700;
+            opacity: 0.9;
+        }
+
+        .vibe-tool-badge {
+            background: rgba(255, 255, 255, 0.25);
+            border: 1px solid rgba(255, 255, 255, 0.4);
+            border-radius: 20px;
+            padding: 6px 18px;
+            font-size: 0.9rem;
+            font-weight: 700;
+        }
+
+        .vibe-example-note {
+            font-size: 0.95rem;
+            opacity: 0.85;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .vibe-image-wrapper {
+            max-width: 800px;
+            margin: 36px auto 0;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 8px 40px rgba(0, 188, 212, 0.25), 0 4px 16px rgba(0, 0, 0, 0.4);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+        }
+
+        .vibe-image-wrapper img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        /* Info Section */
+        .info-section {
+            padding: 50px 0;
+            background: var(--white);
+        }
+
+        .info-bar {
+            display: flex;
+            justify-content: center;
+            gap: 50px;
+            flex-wrap: wrap;
+            background: var(--bg);
+            border-radius: 16px;
+            padding: 28px 40px;
+            max-width: 800px;
+            margin: 0 auto 24px;
+        }
+
+        .info-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .info-icon {
+            font-size: 1.4rem;
+        }
+
+        .info-text {
+            font-size: 1rem;
+            color: var(--text-light);
+        }
+
+        .info-text strong {
+            color: var(--text);
+            font-size: 0.9rem;
+        }
+
+        .audience-note {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            background: var(--yellow-light);
+            border: 2px solid var(--yellow);
+            border-radius: 12px;
+            padding: 20px 28px;
+            max-width: 800px;
+            margin: 0 auto;
+            font-size: 1rem;
+            color: var(--text);
+            text-align: center;
+        }
+
+        /* Social Links */
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 16px;
+            flex-wrap: wrap;
+            margin-top: 32px;
+        }
+
+        .social-link {
+            display: inline-block;
+            background: var(--accent-light);
+            color: var(--accent);
+            padding: 12px 24px;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 0.95rem;
+            transition: transform 0.2s, background 0.2s, color 0.2s;
+        }
+
+        .social-link:hover {
+            background: var(--accent);
+            color: var(--white);
+            transform: translateY(-2px);
+        }
+
+        /* Profile Section */
+        .profile-section {
+            padding: 70px 0;
+            background: var(--bg);
+        }
+
+        .section-card {
+            background: var(--white);
+            border-radius: 12px;
+            padding: 32px;
+            margin-bottom: 24px;
+            box-shadow: 0 2px 16px rgba(0, 0, 0, 0.06);
+            max-width: 900px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .profile-top {
+            display: flex;
+            gap: 28px;
+            align-items: flex-start;
+            margin-bottom: 28px;
+        }
+
+        .profile-image {
+            width: 140px;
+            height: 140px;
+            border-radius: 50%;
+            object-fit: cover;
+            object-position: center top;
+            border: 4px solid var(--accent-light);
+            box-shadow: 0 4px 20px rgba(255, 107, 0, 0.15);
+            flex-shrink: 0;
+        }
+
+        .profile-text h2 {
+            font-size: 1.3rem;
+            margin-bottom: 8px;
+            color: var(--text);
+        }
+
+        .profile-text p {
+            font-size: 0.95rem;
+            line-height: 1.9;
+            color: var(--text-light);
+        }
+
+        .badges-row {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 12px;
+            margin-bottom: 28px;
+        }
+
+        .badge {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            padding: 16px 8px;
+            background: var(--accent-light);
+            border-radius: 70px;
+            gap: 8px;
+        }
+
+        .badge i {
+            font-size: 1.4rem;
+            color: var(--accent);
+        }
+
+        .badge span {
+            font-size: 0.88rem;
+            font-weight: 700;
+            color: var(--text);
+            line-height: 1.4;
+        }
+
+        .experience-block {
+            margin-bottom: 20px;
+        }
+
+        .experience-block h3 {
+            font-size: 1.05rem;
+            color: var(--accent);
+            margin-bottom: 8px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .experience-block h3 i {
+            font-size: 0.9rem;
+        }
+
+        .experience-block p,
+        .experience-block li {
+            font-size: 0.95rem;
+            color: var(--text-light);
+            line-height: 1.9;
+        }
+
+        .experience-block ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .experience-block ul li {
+            padding: 4px 0;
+            padding-right: 20px;
+            position: relative;
+        }
+
+        .experience-block ul li::before {
+            content: '';
+            position: absolute;
+            right: 0;
+            top: 14px;
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: var(--accent);
+        }
+
+        .roi-box {
+            background: linear-gradient(135deg, var(--accent-light) 0%, #fff8f0 100%);
+            border-right: 4px solid var(--accent);
+            border-radius: 8px;
+            padding: 20px 24px;
+            margin-top: 16px;
+        }
+
+        .roi-box h3 {
+            font-size: 1.05rem;
+            color: var(--accent-dark);
+            margin-bottom: 6px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .roi-box p {
+            font-size: 0.95rem;
+            color: var(--text-light);
+            line-height: 1.8;
+        }
+
+        .video-block {
+            margin-top: 24px;
+        }
+
+        .video-block h3 {
+            font-size: 0.95rem;
+            margin-bottom: 12px;
+            color: var(--text);
+        }
+
+        .video-wrapper {
+            position: relative;
+            padding-bottom: 56.25%;
+            height: 0;
+            overflow: hidden;
+            border-radius: 12px;
+            box-shadow: 0 2px 16px rgba(0, 0, 0, 0.06);
+        }
+
+        .video-wrapper iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: none;
+            border-radius: 12px;
+        }
+
+        .video-wrapper .video-thumb-link {
+            position: absolute;
+            inset: 0;
+            display: block;
+            border-radius: 12px;
+            overflow: hidden;
+            background: #000;
+        }
+
+        .video-wrapper .video-thumb-link img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        .video-wrapper .video-thumb-link::after {
+            content: "▶";
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 84px;
+            height: 84px;
+            background: rgba(0, 0, 0, 0.75);
+            color: #fff;
+            font-size: 30px;
+            line-height: 1;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding-right: 6px;
+            transition: background 0.2s ease, transform 0.2s ease;
+        }
+
+        .video-wrapper .video-thumb-link:hover::after,
+        .video-wrapper .video-thumb-link:focus::after {
+            background: #ff0000;
+            transform: translate(-50%, -50%) scale(1.08);
+        }
+
+        /* Gem Demo Card */
+        .gem-demo-card {
+            display: flex;
+            gap: 32px;
+            align-items: center;
+            background: var(--white);
+            border-radius: 16px;
+            padding: 36px;
+            margin-top: 24px;
+            box-shadow: 0 4px 24px rgba(0, 0, 0, 0.08);
+            border: 2px solid rgba(66, 133, 244, 0.15);
+        }
+
+        .gem-demo-icon {
+            flex-shrink: 0;
+            width: 280px;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.18);
+        }
+
+        .gem-demo-icon img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .gem-demo-body {
+            flex: 1;
+        }
+
+        .gem-demo-body h3 {
+            font-size: 1.4rem;
+            margin-bottom: 12px;
+            color: var(--text);
+        }
+
+        .gem-demo-role {
+            font-size: 1rem;
+            color: var(--text-light);
+            line-height: 1.7;
+            margin-bottom: 20px;
+            padding: 16px 20px;
+            background: var(--accent-light);
+            border-right: 4px solid var(--accent);
+            border-radius: 8px;
+        }
+
+        @media (max-width: 768px) {
+            .gem-demo-card {
+                flex-direction: column;
+                text-align: center;
+                padding: 20px;
+                gap: 20px;
+            }
+
+            .gem-demo-icon {
+                width: 100%;
+                max-width: 360px;
+            }
+
+            .gem-demo-role {
+                text-align: right;
+            }
+        }
+
+        /* PDF Embed (workshop artifact) */
+        .pdf-embed-wrapper {
+            width: 100%;
+            height: 720px;
+            max-height: 80vh;
+            background: #f5f5f5;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 24px rgba(0, 0, 0, 0.12);
+            margin-top: 12px;
+        }
+
+        .pdf-embed-wrapper iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+            display: block;
+        }
+
+        @media (max-width: 768px) {
+            .pdf-embed-wrapper {
+                height: 500px;
+            }
+        }
+
+        @media (max-width: 380px) {
+            .pdf-embed-wrapper {
+                height: 380px;
+            }
+        }
+
+        /* Podcasts Section */
+        .podcasts-section {
+            padding: 70px 0;
+            background: var(--white);
+        }
+
+        .podcasts-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .podcast-card {
+            text-align: center;
+            text-decoration: none;
+            color: var(--text);
+            transition: transform 0.2s;
+            display: block;
+        }
+
+        .podcast-card:hover {
+            transform: translateY(-4px);
+        }
+
+        .podcast-card img {
+            width: 100%;
+            aspect-ratio: 1;
+            object-fit: cover;
+            border-radius: 12px;
+            box-shadow: 0 2px 12px rgba(0, 0, 0, 0.1);
+            margin-bottom: 70px;
+        }
+
+        .podcast-card span {
+            font-size: 0.9rem;
+            font-weight: 700;
+            color: var(--text);
+        }
+
+        /* Apps Showcase Section */
+        .apps-showcase-section {
+            padding: 70px 0;
+            background: var(--bg);
+        }
+
+        .apps-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .app-card {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            text-decoration: none;
+            color: var(--text);
+            background: var(--white);
+            border-radius: 16px;
+            padding: 32px 24px 24px;
+            box-shadow: 0 2px 16px rgba(0, 0, 0, 0.06);
+            border-top: 4px solid var(--accent);
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .app-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 12px 32px rgba(255, 107, 0, 0.15);
+        }
+
+        .app-card-icon {
+            font-size: 2.8rem;
+            margin-bottom: 16px;
+        }
+
+        .app-card h4 {
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: var(--accent);
+            margin-bottom: 70px;
+        }
+
+        .app-card p {
+            font-size: 0.92rem;
+            color: var(--text-light);
+            line-height: 1.8;
+            margin-bottom: 16px;
+            flex-grow: 1;
+        }
+
+        .app-card-cta {
+            display: inline-block;
+            background: var(--accent-light);
+            color: var(--accent);
+            padding: 8px 20px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: 700;
+            transition: background 0.2s, color 0.2s;
+        }
+
+        .app-card:hover .app-card-cta {
+            background: var(--accent);
+            color: var(--white);
+        }
+
+        /* CTA Section */
+        .cta-section {
+            background: var(--whatsapp);
+            color: white;
+            padding: 36px 0;
+            text-align: center;
+        }
+
+        .cta-section h2 {
+            font-size: 1.6rem;
+            margin-bottom: 16px;
+        }
+
+        .cta-section p {
+            opacity: 0.95;
+            margin-bottom: 32px;
+            font-size: 1.15rem;
+            max-width: 500px;
+            margin-left: auto;
+            margin-right: auto;
+            line-height: 1.8;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: white;
+            color: var(--whatsapp-dark);
+            padding: 18px 50px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 1.2rem;
+            transition: transform 0.2s, box-shadow 0.2s;
+            box-shadow: 0 6px 25px rgba(0, 0, 0, 0.15);
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 70px 35px rgba(0, 0, 0, 0.2);
+        }
+
+        .cta-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 16px;
+            flex-wrap: wrap;
+        }
+
+        .cta-button-outline {
+            background: transparent;
+            color: white;
+            border: 2px solid rgba(255, 255, 255, 0.7);
+            box-shadow: none;
+        }
+
+        .cta-button-outline:hover {
+            background: rgba(255, 255, 255, 0.15);
+            border-color: white;
+            box-shadow: none;
+        }
+
+        .cta-contact {
+            margin-top: 20px;
+            font-size: 0.95rem;
+            opacity: 0.85;
+        }
+
+        .cta-contact a {
+            color: white;
+            text-decoration: underline;
+        }
+
+        /* Footer */
+        .quote-footer {
+            background: var(--text);
+            padding: 24px;
+            text-align: center;
+            font-size: 0.85rem;
+            color: rgba(255, 255, 255, 0.6);
+        }
+
+        .quote-footer a {
+            color: var(--accent);
+            text-decoration: none;
+            font-weight: 700;
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 24px;
+            flex-wrap: wrap;
+        }
+
+        .footer-links span {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        /* Responsive */
+        @media (max-width: 900px) {
+            .cards-grid {
+                grid-template-columns: 1fr;
+                max-width: 400px;
+                margin: 0 auto 40px;
+            }
+
+            .benefits-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .topics-grid {
+                grid-template-columns: 1fr;
+                max-width: 400px;
+                margin: 0 auto;
+            }
+
+            .tools-gallery {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .apps-grid {
+                grid-template-columns: 1fr;
+                max-width: 400px;
+                margin: 0 auto;
+            }
+
+            .notebooklm-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .podcasts-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .podcasts-section {
+                padding: 50px 0;
+            }
+
+            body {
+                font-size: 22px;
+                line-height: 1.9;
+            }
+
+            .container {
+                padding: 0 20px;
+            }
+
+            .hero {
+                padding: 50px 0 40px;
+            }
+
+            .hero-title {
+                font-size: 1.8rem;
+                margin-bottom: 18px;
+                line-height: 1.35;
+            }
+
+            .hero-subtitle {
+                font-size: 1.05rem;
+                margin-bottom: 28px;
+                line-height: 1.8;
+            }
+
+            .hero-cta-button {
+                padding: 14px 32px;
+                font-size: 1.05rem;
+                width: 100%;
+            }
+
+            .section-title {
+                font-size: 1.5rem;
+            }
+
+            .section-subtitle {
+                font-size: 1rem;
+            }
+
+            .value-section,
+            .benefits-section,
+            .topics-section,
+            .profile-section,
+            .vibe-code-section {
+                padding: 50px 0;
+            }
+
+            .info-bar {
+                flex-direction: column;
+                gap: 20px;
+                padding: 24px;
+                align-items: flex-start;
+            }
+
+            .audience-note {
+                flex-direction: column;
+                text-align: center;
+                padding: 18px 20px;
+            }
+
+            .highlight-box {
+                padding: 24px 20px;
+            }
+
+            .highlight-box h3 {
+                font-size: 1.2rem;
+            }
+
+            .benefit-card {
+                padding: 20px;
+            }
+
+            .profile-top {
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+            }
+
+            .badges-row {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .section-card {
+                padding: 24px 18px;
+            }
+
+            .cta-section {
+                padding: 50px 0;
+            }
+
+            .cta-section h2 {
+                font-size: 1.5rem;
+            }
+
+            .cta-section p {
+                font-size: 1rem;
+            }
+
+            .cta-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .cta-button {
+                padding: 14px 32px;
+                font-size: 1.05rem;
+                width: 100%;
+                max-width: 320px;
+            }
+
+            .header-inner {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .header-contact {
+                flex-direction: row;
+                gap: 16px;
+            }
+
+            .prompts-grid {
+                grid-template-columns: 1fr;
+                max-width: 400px;
+                margin: 0 auto;
+            }
+
+            .tools-gallery {
+                grid-template-columns: 1fr;
+                max-width: 400px;
+                margin: 0 auto;
+            }
+
+            .vibe-flow {
+                flex-direction: column;
+                gap: 8px;
+            }
+
+            .vibe-flow-step {
+                max-width: 280px;
+                width: 100%;
+            }
+
+            .vibe-flow-arrow {
+                transform: rotate(90deg);
+                font-size: 1.4rem;
+            }
+
+            .vibe-tools-bar {
+                flex-direction: column;
+                gap: 8px;
+            }
+
+            .apps-showcase-section {
+                padding: 50px 0;
+            }
+
+            .prompt-compare {
+                grid-template-columns: 1fr;
+                max-width: 400px;
+                margin: 40px auto 0;
+            }
+
+            .prompt-cycle-flow {
+                flex-direction: column;
+                gap: 8px;
+            }
+
+            .prompt-cycle-flow .vibe-flow-step {
+                max-width: 280px;
+                width: 100%;
+            }
+
+            .prompt-cycle-flow .vibe-flow-arrow {
+                transform: rotate(90deg);
+                font-size: 1.4rem;
+            }
+
+            .notebooklm-grid {
+                grid-template-columns: 1fr;
+                max-width: 400px;
+                margin: 0 auto;
+            }
+
+            .notebooklm-section {
+                padding: 50px 0;
+            }
+        }
+
+        @media (max-width: 380px) {
+            .hero-title {
+                font-size: 1.5rem;
+            }
+
+            .section-title {
+                font-size: 1.3rem;
+            }
+
+            .badges-row {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* ======================== Accessibility Widget ======================== */
+        .a11y-toggle {
+            position: fixed;
+            bottom: 24px;
+            left: 24px;
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            background: #1565c0;
+            color: var(--white);
+            border: none;
+            cursor: pointer;
+            font-size: 1.4rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 2px 12px rgba(21, 101, 192, 0.4);
+            z-index: 1000;
+            transition: all 0.3s ease;
+        }
+
+        .a11y-toggle:hover {
+            background: #0d47a1;
+            transform: scale(1.08);
+        }
+
+        .a11y-panel {
+            position: fixed;
+            bottom: 84px;
+            left: 24px;
+            background: var(--white);
+            border-radius: 12px;
+            box-shadow: 0 4px 24px rgba(0, 0, 0, 0.15);
+            padding: 20px;
+            z-index: 1000;
+            width: 240px;
+            display: none;
+            direction: rtl;
+        }
+
+        .a11y-panel.open {
+            display: block;
+        }
+
+        .a11y-panel h3 {
+            font-size: 0.95rem;
+            margin-bottom: 14px;
+            color: #1565c0;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .a11y-option {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 70px 0;
+            border-bottom: 1px solid var(--border);
+            font-size: 0.88rem;
+            color: var(--text);
+            cursor: pointer;
+            user-select: none;
+        }
+
+        .a11y-option:last-child {
+            border-bottom: none;
+        }
+
+        .a11y-option-label {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .a11y-option-label i {
+            width: 20px;
+            text-align: center;
+            color: #1565c0;
+        }
+
+        .a11y-btn {
+            background: none;
+            border: 1px solid var(--border);
+            border-radius: 6px;
+            width: 32px;
+            height: 32px;
+            cursor: pointer;
+            font-size: 0.85rem;
+            color: var(--text);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.2s;
+        }
+
+        .a11y-btn:hover {
+            background: var(--bg);
+            border-color: #1565c0;
+            color: #1565c0;
+        }
+
+        .a11y-btn-group {
+            display: flex;
+            gap: 4px;
+        }
+
+        .a11y-toggle-switch {
+            position: relative;
+            width: 40px;
+            height: 22px;
+            background: var(--border);
+            border-radius: 11px;
+            cursor: pointer;
+            transition: background 0.3s;
+            border: none;
+            padding: 0;
+        }
+
+        .a11y-toggle-switch.active {
+            background: #1565c0;
+        }
+
+        .a11y-toggle-switch::after {
+            content: '';
+            position: absolute;
+            top: 2px;
+            left: 2px;
+            width: 18px;
+            height: 18px;
+            background: var(--white);
+            border-radius: 50%;
+            transition: transform 0.3s;
+        }
+
+        .a11y-toggle-switch.active::after {
+            transform: translateX(18px);
+        }
+
+        .a11y-reset {
+            margin-top: 12px;
+            width: 100%;
+            padding: 8px;
+            background: none;
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            cursor: pointer;
+            font-family: 'Alef', sans-serif;
+            font-size: 0.85rem;
+            color: var(--text-light);
+            transition: all 0.2s;
+        }
+
+        .a11y-reset:hover {
+            border-color: #c62828;
+            color: #c62828;
+        }
+
+        /* Accessibility active states */
+        body.a11y-high-contrast {
+            --bg: #000 !important;
+            --text: #fff !important;
+            --text-light: #e0e0e0 !important;
+            --white: #1a1a1a !important;
+            --border: #555 !important;
+            --accent-light: #332200 !important;
+        }
+
+        body.a11y-high-contrast .quote-header {
+            background: #000 !important;
+            border-bottom: 2px solid var(--accent);
+        }
+
+        body.a11y-high-contrast .a11y-panel {
+            background: #1a1a1a;
+            border: 1px solid #555;
+        }
+
+        body.a11y-highlight-links a {
+            outline: 2px solid #1565c0 !important;
+            outline-offset: 2px;
+            text-decoration: underline !important;
+        }
+
+        /* ======================== Print Styles ======================== */
+        @media print {
+            * {
+                -webkit-print-color-adjust: exact !important;
+                print-color-adjust: exact !important;
+            }
+
+            body {
+                font-size: 14px;
+            }
+
+            .pdf-download-link,
+            .hero-cta-button,
+            .cta-section,
+            .a11y-toggle,
+            .a11y-panel,
+            .quote-footer {
+                display: none !important;
+            }
+
+            .quote-header {
+                position: relative !important;
+            }
+
+            .hero {
+                padding: 30px 0 20px;
+            }
+
+            section {
+                break-inside: avoid;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <header class="quote-header">
+        <div class="header-inner">
+            <div class="logo">
+                שגיא בר און AI
+                <span>לעסקים</span>
+            </div>
+            <div class="header-contact">
+                <a href="https://api.whatsapp.com/send?phone=972549995050" target="_blank" data-track="header-whatsapp">
+                    <i class="fa-brands fa-whatsapp"></i> 054-9995050
+                </a>
+                <a href="https://sagiai.co.il/" target="_blank" data-track="header-website">
+                    <i class="fa-solid fa-globe"></i> sagiai.co.il
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero -->
+        <section class="hero">
+            <div class="container">
+                <h1 class="hero-title">
+                    סיכום סדנה מעשית<br>
+                    <span class="highlight">בינה מלאכותית למשרד ראש הממשלה</span>
+                </h1>
+                <p class="hero-subtitle">
+                    מרצה: שגיא בר און | חוקר ויועץ AI | NLP Master
+                </p>
+                <div style="
+              display: flex;
+              gap: 16px;
+              justify-content: center;
+              flex-wrap: wrap;
+              margin-top: 16px;
+            ">
+                    <a href="https://chat.whatsapp.com/F5rwMzOOgHK5nNKw6ALucH" class="hero-cta-button"
+                        data-track="hero-join-group">
+                        <i class="fa-brands fa-whatsapp"></i> הצטרפו לקבוצת הוואטסאפ שלנו
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Workshop opening: privacy first -->
+        <section class="value-section">
+            <div class="container">
+                <h2 class="section-title">פתחנו את הסדנה בשמירה על פרטיות</h2>
+                <p class="section-subtitle">
+                    לפני שנגענו בכלי AI כלשהו, התיישבנו על כללי המשחק: מה מותר להזין למודלים, מה אסור, ואיך שומרים על
+                    מידע ארגוני רגיש. הסרטון הקצר הבא הוא נקודת הפתיחה שצפינו בה יחד.
+                </p>
+                <div class="video-block">
+                    <div class="video-wrapper">
+                        <a class="video-thumb-link" href="https://www.youtube.com/watch?v=Dg-R-B6I-cI" target="_blank"
+                            rel="noopener noreferrer"
+                            aria-label="פתיחת הסדנה - שמירה על פרטיות בעבודה עם AI (נפתח ב-YouTube)"
+                            data-track="privacy-video-yt">
+                            <img src="https://img.youtube.com/vi/Dg-R-B6I-cI/hqdefault.jpg"
+                                alt="פתיחת הסדנה - שמירה על פרטיות בעבודה עם AI" loading="lazy">
+                        </a>
+                    </div>
+                    <p style="text-align:center; margin-top:12px; font-size:0.95rem; color:var(--text-light);">
+                        <i class="fa-brands fa-youtube" style="color:#ff0000;"></i> לחצו לצפייה ב-YouTube
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- What Happened -->
+        <section class="value-section">
+            <div class="container">
+                <h2 class="section-title">מה היה בסדנה?</h2>
+                <p class="section-subtitle">סקירה מרוכזת של הנושאים המרכזיים שנלמדו והתנסינו בהם</p>
+
+                <div class="cards-grid">
+                    <div class="value-card purple">
+                        <div class="card-icon">🤖</div>
+                        <h3>5 טכנולוגיות עיקריות</h3>
+                        <p>הכרנו את 5 טכנולוגיות הליבה של עולם ה-AI: מודלי שפה, יצירת תמונות, יצירת וידאו, מחקר עומק
+                            וסוכני AI - והבנו כיצד הן משנות את עולם העבודה</p>
+                    </div>
+                    <div class="value-card cyan">
+                        <div class="card-icon">💬</div>
+                        <h3>3 שיטות לפרומפט מוצלח</h3>
+                        <p>למדנו כיצד לתקשר נכון עם AI: הגדרת תפקיד, הגדרת מטרה, ומתן הקשר ופורמט - ותרגלנו בפועל</p>
+                    </div>
+                    <div class="value-card green">
+                        <div class="card-icon">🛠️</div>
+                        <h3>התנסות מעשית עם כלי Google</h3>
+                        <p>תרגול hands-on עם Gemini, Canvas, Slides, NANO BANANA, NotebookLM Studio ובניית סוכן AI עם
+                            Gem</p>
+                    </div>
+                </div>
+
+                <div class="highlight-box">
+                    <h3>ללמוד, לתרגל וליצור</h3>
+                    <p>סדנה מעשית שהפכה את ה-AI מקונספט מפחיד לכלי עבודה יומיומי - עם כלי Google בלבד</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- 3 Prompt Methods -->
+        <section class="topics-section">
+            <div class="container">
+                <h2 class="section-title">3 שיטות לפרומפט מוצלח</h2>
+                <p class="section-subtitle">הטכניקות שנלמדו בסדנה לעבודה אפקטיבית עם AI</p>
+                <div class="topics-grid">
+                    <div class="topic-card">
+                        <div class="topic-number">1</div>
+                        <h3>הגדר/י תפקיד</h3>
+                        <p>הגדירו למודל תפקיד ברור - "את/ה מומחה/ית בתחום X" - כדי לקבל תשובות ממוקדות ומקצועיות</p>
+                    </div>
+                    <div class="topic-card">
+                        <div class="topic-number">2</div>
+                        <h3>הגדר/י את המטרה</h3>
+                        <p>פרטו בדיוק מה אתם רוצים להשיג - ככל שהמטרה ברורה יותר, התוצאה טובה יותר</p>
+                    </div>
+                    <div class="topic-card">
+                        <div class="topic-number">3</div>
+                        <h3>ספק/י הקשר ופורמט לתוצאה</h3>
+                        <p>ספקו רקע, הקשר ותארו את הפורמט הרצוי לפלט - טבלה, רשימה, פסקה וכדומה</p>
+                    </div>
+                </div>
+
+                <!-- Good vs Excellent Prompt Comparison -->
+                <div class="prompt-compare">
+                    <div class="prompt-compare-box good">
+                        <h4>👍 פרומפט טוב</h4>
+                        <div class="prompt-text">
+                            עזור לי לתכנן יום פיתוח למנהלים חדשים.
+                        </div>
+                    </div>
+                    <div class="prompt-compare-box excellent">
+                        <h4>🌟 פרומפט מצוין</h4>
+                        <div class="prompt-text">
+                            <span class="highlight-role">את/ה מומחה/ית למנהיגות וניהול.</span> <span
+                                class="highlight-goal">הצע/י חמש פעילויות קבוצתיות שיכולות לעזור לאנשים לפתח מיומנויות
+                                ניהול ומנהיגות חיוניות.</span> <span class="highlight-context">השתמש/י בכותרות ברורות עם
+                                הסבר כיצד לבצע כל פעילות ובאילו מיומנויות כל פעילות עוזרת לפתח.</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="prompt-compare-legend">
+                    <span style="background:var(--purple-light); color:var(--purple);">🎭 תפקיד</span>
+                    <span style="background:var(--cyan-light); color:var(--cyan);">🎯 מטרה</span>
+                    <span style="background:var(--accent-light); color:var(--accent);">📋 הקשר ופורמט</span>
+                </div>
+
+                <!-- Iterative Prompt Building -->
+                <h3 class="section-title" style="font-size:1.5rem; margin-top:50px;">בונים את הפרומפט בניסוי וטעיה</h3>
+                <p class="section-subtitle">בניית פרומפט מוצלח מצריכה לעתים מספר ניסיונות עד להגעה לתוצר הרצוי</p>
+
+                <div class="prompt-cycle-flow">
+                    <div class="vibe-flow-step">
+                        <div class="vibe-flow-icon">🔨</div>
+                        <div class="vibe-flow-text">
+                            <strong>בניה</strong>
+                            <span>צרו והריצו את הפרומפט שלכם</span>
+                        </div>
+                    </div>
+                    <div class="vibe-flow-arrow">←</div>
+                    <div class="vibe-flow-step">
+                        <div class="vibe-flow-icon">🔍</div>
+                        <div class="vibe-flow-text">
+                            <strong>הערכה</strong>
+                            <span>בדקו שהפלט עונה על הצרכים שלכם</span>
+                        </div>
+                    </div>
+                    <div class="vibe-flow-arrow">←</div>
+                    <div class="vibe-flow-step">
+                        <div class="vibe-flow-icon">🔄</div>
+                        <div class="vibe-flow-text">
+                            <strong>חזרה</strong>
+                            <span>זהו מה צריך לשנות/להתאים</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Tools Gallery -->
+        <section class="benefits-section">
+            <div class="container">
+                <h2 class="section-title">ארגז הכלים שהוצג למשתתפים</h2>
+                <div class="tools-gallery">
+                    <div class="tool-card">
+                        <div class="tool-icon"><img
+                                src="https://www.google.com/s2/favicons?domain=gemini.google.com&sz=128" alt="Gemini">
+                        </div>
+                        <h4>Google Gemini</h4>
+                        <p>מודל השפה של גוגל - שיחה, מחקר עומק, יצירת תוכן ועבודה עם מסמכים</p>
+                    </div>
+                    <div class="tool-card">
+                        <div class="tool-icon"><img
+                                src="https://www.google.com/s2/favicons?domain=canvas.google.com&sz=128" alt="Canvas">
+                        </div>
+                        <h4>Google Canvas</h4>
+                        <p>סביבת עבודה ליצירת ועריכת תוצרים ישירות בתוך Gemini</p>
+                    </div>
+                    <div class="tool-card">
+                        <div class="tool-icon"><img
+                                src="https://www.gstatic.com/images/branding/product/1x/slides_2020q4_48dp.png"
+                                alt="Google Slides"></div>
+                        <h4>Google Slides + Gemini</h4>
+                        <p>בניית מצגות מקצועיות עם עזרת AI - יצירה, עיצוב והוספת תמונות והערות דובר</p>
+                    </div>
+                    <div class="tool-card">
+                        <div class="tool-icon"><img
+                                src="https://www.google.com/s2/favicons?domain=gemini.google.com&sz=128"
+                                alt="NANO BANANA"></div>
+                        <h4>Gemini NANO BANANA</h4>
+                        <p>יצירת ועריכת תמונות באמצעות AI בתוך Google Slides</p>
+                    </div>
+                    <div class="tool-card">
+                        <div class="tool-icon"><img
+                                src="https://www.google.com/s2/favicons?domain=notebooklm.google.com&sz=128"
+                                alt="NotebookLM"></div>
+                        <h4>NotebookLM Studio</h4>
+                        <p>ניתוח מסמכים, פודקאסטים, מצגות, בחנים ואינפוגרפיקה</p>
+                    </div>
+                    <div class="tool-card">
+                        <div class="tool-icon"><img
+                                src="https://www.google.com/s2/favicons?domain=gemini.google.com&sz=128"
+                                alt="Gemini Gem"></div>
+                        <h4>Gemini Gem - סוכן AI</h4>
+                        <p>בניית סוכן AI אישי מותאם מראש למשימות חוזרות</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- בניית מצגת עם Gemini in Slides -->
+        <section class="topics-section"
+            style="background: linear-gradient(135deg, #f3e5f5 0%, #e1bee7 50%, #ce93d8 100%);">
+            <div class="container">
+                <h2 class="section-title">בניית מצגת עם Gemini in Slides</h2>
+                <p class="section-subtitle">מטקסט פשוט למצגת מקצועית - תהליך שלם בליווי AI</p>
+                <div class="topics-grid">
+                    <div class="topic-card">
+                        <div class="topic-number">1</div>
+                        <h3>יצירה אוטומטית</h3>
+                        <p>Gemini יוצר מבנה מצגת מלא עם שקפים, כותרות ותוכן מתוך הנחיות טקסט פשוטות</p>
+                    </div>
+                    <div class="topic-card">
+                        <div class="topic-number">2</div>
+                        <h3>Gemini in Slides</h3>
+                        <p>כלי AI מובנה ב-Google Slides לליטוש השקפים, עיצוב חכם, והוספת תמונות רלוונטיות</p>
+                    </div>
+                    <div class="topic-card">
+                        <div class="topic-number">3</div>
+                        <h3>הערות דובר אוטומטיות</h3>
+                        <p>יצירת הערות דובר מפורטות לכל שקף - מושלם למצגות מקצועיות בארגון</p>
+                    </div>
+                </div>
+                <div class="audience-note" style="margin-top: 32px">
+                    <span class="info-icon">✨</span>
+                    <span><strong>יתרון למנהלי למידה:</strong> חיסכון משמעותי בזמן הכנת מצגות, שמירה על איחידות
+                        ויזואלית, והכנה מהירה להדרכות ומפגשים</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- NotebookLM Studio -->
+        <section class="notebooklm-section">
+            <div class="container">
+                <h2 class="section-title">NotebookLM Studio - הסטודיו החכם של Google</h2>
+                <p class="section-subtitle">העלו מסמכים, מצגות או קישורים - וקבלו תוצרים מרשימים באופן אוטומטי</p>
+                <div class="notebooklm-grid">
+                    <div class="notebooklm-card">
+                        <div class="tool-icon">🎙️</div>
+                        <h4>סקירה קולית</h4>
+                        <div class="notebooklm-card-subtitle">Audio Overview</div>
+                        <p>סיכום קולי בסגנון פודקאסט של המסמכים</p>
+                    </div>
+                    <div class="notebooklm-card">
+                        <div class="tool-icon">🎬</div>
+                        <h4>סרטון סקירה</h4>
+                        <div class="notebooklm-card-subtitle">Video Overview</div>
+                        <p>סיכום וידאו של התוכן</p>
+                    </div>
+                    <div class="notebooklm-card">
+                        <div class="tool-icon">🧠</div>
+                        <h4>מפת חשיבה</h4>
+                        <div class="notebooklm-card-subtitle">Mind Map</div>
+                        <p>מפה ויזואלית של מושגים וקשרים</p>
+                    </div>
+                    <div class="notebooklm-card">
+                        <div class="tool-icon">📊</div>
+                        <h4>דוחות</h4>
+                        <div class="notebooklm-card-subtitle">Reports</div>
+                        <p>דוחות מובנים מחומרי המקור</p>
+                    </div>
+                    <div class="notebooklm-card">
+                        <div class="tool-icon">🃏</div>
+                        <h4>כרטיסי עזר</h4>
+                        <div class="notebooklm-card-subtitle">Study Cards</div>
+                        <p>כרטיסיות לימוד למושגים מרכזיים</p>
+                    </div>
+                    <div class="notebooklm-card">
+                        <div class="tool-icon">✅</div>
+                        <h4>בוחן</h4>
+                        <div class="notebooklm-card-subtitle">Quiz</div>
+                        <p>בחנים אוטומטיים לבדיקת הידע</p>
+                    </div>
+                    <div class="notebooklm-card">
+                        <div class="tool-icon">📈</div>
+                        <h4>אינפוגרפיקה</h4>
+                        <div class="notebooklm-card-subtitle">Infographic</div>
+                        <p>סיכומים ויזואליים ואינפוגרפיקה</p>
+                    </div>
+                    <div class="notebooklm-card">
+                        <div class="tool-icon">📽️</div>
+                        <h4>מצגת</h4>
+                        <div class="notebooklm-card-subtitle">Presentation</div>
+                        <p>מצגות שקופיות מתוכן המסמכים</p>
+                    </div>
+                    <div class="notebooklm-card">
+                        <div class="tool-icon">📋</div>
+                        <h4>טבלת נתונים</h4>
+                        <div class="notebooklm-card-subtitle">Data Table</div>
+                        <p>טבלאות נתונים מובנות מהמקורות</p>
+                    </div>
+                </div>
+                <div class="notebooklm-cta">
+                    <a href="https://notebooklm.google.com/" target="_blank" data-track="notebooklm-cta"><i
+                            class="fa-solid fa-arrow-up-right-from-square"></i> נסו את NotebookLM Studio</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Demo Gem: Keto Lifestyle Guide -->
+        <section class="value-section" style="background: linear-gradient(135deg, #e0f7fa 0%, #f3e5f5 100%);">
+            <div class="container">
+                <h2 class="section-title">ה-Gem שהדגמתי בסדנה - המדריך הקיטוגני</h2>
+                <p class="section-subtitle">
+                    דוגמה חיה לסוכן AI אישי שבניתי ב-Gemini Gems - תפור לתחום מאוד ספציפי, עם תפקיד ברור ומשימות
+                    מדויקות. ככה נראה Gem בעבודה.
+                </p>
+                <div class="gem-demo-card">
+                    <div class="gem-demo-icon">
+                        <img src="keto.webp" alt="SAGI KETO AGENT - המדריך הקיטוגני" loading="lazy">
+                    </div>
+                    <div class="gem-demo-body">
+                        <h3>המדריך שלך לאורח חיים קיטוגני</h3>
+                        <p class="gem-demo-role">
+                            "המדריך שלך לאורח חיים קיטוגני מבית sagiai.co.il. ניתוח מוצרים, בדיקת מותר/אסור ומתכונים
+                            מותאמים אישית - כדי להרגיש טוב ולא לסבול."
+                        </p>
+                        <a href="https://gemini.google.com/gem/1MskIb__tsqNKNzlyPWuhLy_dV3_ZlNQ7" target="_blank"
+                            rel="noopener noreferrer" class="hero-cta-button"
+                            style="background: #4285f4; box-shadow: 0 4px 20px rgba(66, 133, 244, 0.3);"
+                            data-track="gem-keto-open">
+                            <i class="fa-solid fa-robot"></i> פתחו את ה-Gem ב-Gemini
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- NO CODE = VIBE CODE -->
+        <section class="vibe-code-section">
+            <div class="container">
+                <h2 class="section-title">NO CODE = VIBE CODE</h2>
+                <p class="vibe-subtitle">
+                    מה זה Vibe Coding? במקום לכתוב שורות קוד, אתם פשוט <strong>מתארים מה אתם רוצים</strong> בשפה טבעית -
+                    וה-AI בונה את האפליקציה עבורכם.
+                    <br>מה שפעם דרש אלפי שורות קוד וימי פיתוח - היום כל אחד יכול לעשות.
+                </p>
+                <div class="vibe-flow">
+                    <div class="vibe-flow-step">
+                        <div class="vibe-flow-icon">💬</div>
+                        <div class="vibe-flow-text">
+                            <strong>מתארים</strong>
+                            <span>כותבים בשפה חופשית מה האפליקציה צריכה לעשות</span>
+                        </div>
+                    </div>
+                    <div class="vibe-flow-arrow">←</div>
+                    <div class="vibe-flow-step">
+                        <div class="vibe-flow-icon">🤖</div>
+                        <div class="vibe-flow-text">
+                            <strong>AI בונה</strong>
+                            <span>הכלי מייצר קוד, עיצוב ולוגיקה באופן אוטומטי</span>
+                        </div>
+                    </div>
+                    <div class="vibe-flow-arrow">←</div>
+                    <div class="vibe-flow-step">
+                        <div class="vibe-flow-icon">🚀</div>
+                        <div class="vibe-flow-text">
+                            <strong>מוצר מוכן</strong>
+                            <span>אתר, אפליקציה או משחק - מוכנים לשימוש</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="vibe-tools-bar">
+                    <span class="vibe-tools-label">כלים שהוצגו:</span>
+                    <a class="vibe-tool-badge" href="https://aistudio.google.com/" target="_blank"
+                        rel="noopener noreferrer">Google AI Studio</a>
+                </div>
+                <p class="vibe-example-note">🏛️ בסדנה הודגם <u>מדריך וירטואלי למוזיאון אגם</u> - שהציג את היצירה "דבר
+                    שמתחפש לבית" של היוצרת אליה בלוך, נבנה בקלות ללא שורת קוד אחת.</p>
+                <div class="vibe-image-wrapper">
+                    <img src="vibe-vode.webp"
+                        alt="הדגמת המדריך הווירטואלי למוזיאון אגם - שגיא מציג את האפליקציה שנבנתה ב-Vibe Coding"
+                        loading="lazy">
+                </div>
+            </div>
+        </section>
+
+        <!-- Challenges -->
+        <section class="info-section">
+            <div class="container">
+                <h2 class="section-title">אתגרים וחשיבה ביקורתית</h2>
+                <p class="section-subtitle">מה חשוב לדעת כשעובדים עם AI</p>
+
+                <div class="benefits-grid">
+                    <div class="benefit-card">
+                        <div class="benefit-icon orange">⚠️</div>
+                        <div class="benefit-content">
+                            <h4>הזיות של AI (Hallucinations)</h4>
+                            <p>מודלי שפה יכולים "להמציא" מידע שנשמע אמין אך שגוי לחלוטין. זהו אחד האתגרים המרכזיים -
+                                חובה לאמת כל מידע קריטי</p>
+                        </div>
+                    </div>
+                    <div class="benefit-card">
+                        <div class="benefit-icon green">🔬</div>
+                        <div class="benefit-content">
+                            <h4>Deep Research - אנליסט AI שעובד בשבילכם</h4>
+                            <p>כלי מחקר מעמיק שסורק, מאמת ומסכם מידע ממקורות מרובים - הפתרון להזיות ולמידע לא מדויק.
+                                שאלו את השאלות הנכונות</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="audience-note" style="margin-top:24px;">
+                    <span class="info-icon">💡</span>
+                    <span><strong>המסר המרכזי:</strong> הזיות הן בעיה אמיתית ← Deep Research עוזר לאמת ולבצע מחקר יסודי
+                        ← המפתח הוא לשאול את השאלות הנכונות ולשמור תמיד על חשיבה ביקורתית</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Recommendations -->
+        <section class="benefits-section">
+            <div class="container">
+                <h2 class="section-title">סיכום והמלצות להווה</h2>
+                <div class="benefits-grid">
+                    <div class="benefit-card">
+                        <div class="benefit-icon orange">💪</div>
+                        <div class="benefit-content">
+                            <h4>התנסו עם הבינה ביומיום</h4>
+                            <p>השתמשו בכלי AI כמו Gemini ליצירת תוכן מותאם אישית.</p>
+                        </div>
+                    </div>
+                    <div class="benefit-card">
+                        <div class="benefit-icon green">🧠</div>
+                        <div class="benefit-content">
+                            <h4>למדו חשיבה ביקורתית</h4>
+                            <p>תאתגרו את הבינה על אמינות המידע, זיהוי מידע כוזב ואתיקה טכנולוגית.</p>
+                        </div>
+                    </div>
+                    <div class="benefit-card">
+                        <div class="benefit-icon purple">🔍</div>
+                        <div class="benefit-content">
+                            <h4>בכל תחום - בדקו איפה AI יכול להשתלב</h4>
+                            <p>חפשו את הנקודות בעבודה היומיומית שבינה מלאכותית יכולה לייעל.</p>
+                        </div>
+                    </div>
+                    <div class="benefit-card">
+                        <div class="benefit-icon yellow">🌟</div>
+                        <div class="benefit-content">
+                            <h4>השקיעו במיומנויות הרכות</h4>
+                            <p>למידה עצמית, מוטיבציה וסקרנות - זה מה שישאיר אתכם רלוונטיים.</p>
+                        </div>
+                    </div>
+                    <div class="benefit-card">
+                        <div class="benefit-icon orange">📅</div>
+                        <div class="benefit-content">
+                            <h4>עשו לעצמכם הרגל</h4>
+                            <p>פרויקט אחד מדי חודש עם AI - זה כל מה שצריך כדי להתקדם.</p>
+                        </div>
+                    </div>
+                    <div class="benefit-card">
+                        <div class="benefit-icon green">💡</div>
+                        <div class="benefit-content">
+                            <h4>ידע זה כוח - תישארו רלוונטיים</h4>
+                            <p>העולם משתנה. מי שלומד ומתעדכן נשאר בחזית.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- The artifact built together in the workshop -->
+        <section class="value-section" style="background: linear-gradient(135deg, #fff8e1 0%, #fff3e6 100%);">
+            <div class="container">
+                <h2 class="section-title">המצגת שבנינו ביחד בסדנה</h2>
+                <p class="section-subtitle">
+                    תוצר ה-AI המרכזי של היום: <strong>"Assistance to Mortgage Holders Plan"</strong> - מצגת שלמה שיצרנו
+                    יחד בזמן אמת, מהפרומפט ועד התוצר המוגמר. זו ההוכחה החיה לכך שהכלים שלמדתם עובדים - וזה מה שלקחתם
+                    איתכם הביתה.
+                </p>
+                <div class="pdf-embed-wrapper">
+                    <iframe
+                        src="https://docs.google.com/gview?url=https://sagi-ba.github.io/AI/meeting-summary/reichman/prime-ministers-office/Assistance%20to%20Mortgage%20Holders%20Plan.pdf&embedded=true"
+                        title="Assistance to Mortgage Holders Plan - המצגת שנבנתה בסדנה" loading="lazy">
+                    </iframe>
+                </div>
+                <div style="text-align:center; margin-top:24px;">
+                    <a href="Assistance to Mortgage Holders Plan.pdf" download class="hero-cta-button"
+                        data-track="pdf-download-main">
+                        <i class="fa-solid fa-download"></i> הורידו את המצגת המלאה (PDF)
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Workshop closing: VEO Star Wars Day 2026 demo -->
+        <section class="topics-section">
+            <div class="container">
+                <h2 class="section-title">סיימנו עם דמו של VEO - יום מלחמת הכוכבים 2026</h2>
+                <p class="section-subtitle">
+                    את הסדנה חתמנו בהצצה אל יצירת וידאו ב-Google VEO. הראיתי לכם איך הפקתי את הסרטון לכבוד "יום מלחמת
+                    הכוכבים 2026" - מהפרומפט ועד התוצר המוכן.
+                </p>
+                <div class="video-block">
+                    <div class="video-wrapper">
+                        <iframe width="100%" height="100%"
+                            src="https://www.youtube.com/embed/0Ts-4zM6WgY?vq=hd2160&rel=0&modestbranding=1"
+                            title="יצירת סרטון יום מלחמת הכוכבים 2026 עם Google VEO"
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                            allowfullscreen loading="eager" referrerpolicy="strict-origin-when-cross-origin">
+                        </iframe>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ======================== Professional Profile ======================== -->
+        <section class="section-card profile-section">
+            <div class="profile-top">
+                <img src="https://sagiai.co.il/assets/sagi-face-BM8CcVRz.webp" alt="שגיא בר און" class="profile-image">
+                <div class="profile-text">
+                    <h2>שגיא בר און</h2>
+                    <p>
+                        אני מביא עמי מעל 25 שנות ניסיון בתעשיית ההיי-טק והתמחות ספציפית בהנגשת טכנולוגיה מורכבת לאנשי
+                        מקצוע מתחומים מגוונים. הגישה שלי הופכת את ה-AI מטרנד מאיים לכלי עבודה מעשי שמעצים את הידע
+                        והמיומנות הקיימים.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Highlight Badges -->
+            <div class="badges-row">
+                <div class="badge">
+                    <i class="fa-solid fa-medal"></i>
+                    <span>25+ שנות ניסיון בהייטק</span>
+                </div>
+                <div class="badge">
+                    <i class="fa-solid fa-chart-line"></i>
+                    <span>חיסכון 20%-30% בזמן</span>
+                </div>
+                <div class="badge">
+                    <i class="fa-solid fa-graduation-cap"></i>
+                    <span>MBA, B.Sc, NLP Master</span>
+                </div>
+                <div class="badge">
+                    <i class="fa-solid fa-building-columns"></i>
+                    <span>כנסת ישראל, הכשרות לממשלה, רייכמן ועוד...</span>
+                </div>
+            </div>
+
+            <!-- Experience Details -->
+            <div class="experience-block">
+                <h3><i class="fa-solid fa-star"></i> הניסיון מדבר:</h3>
+                <ul>
+                    <li><strong>רקע מקצועי:</strong> חוקר ויועץ בתחום הבינה המלאכותית, המשלב ידע טכנולוגי עמוק (פיתוח,
+                        אוטומציה ואסטרטגיה) עם הבנה של המשתמש.</li>
+                    <li><strong>הכשרה אקדמית ומוסמכת:</strong> בעל תואר שני (MBA) במנהל עסקים בהתמחות ב-AI וייעוץ
+                        אסטרטגי עסקי, תואר ראשון (B.Sc) בהנדסת תוכנה, הנדסאי תוכנה, ומוסמך NLP MASTER.</li>
+                    <li><strong>איפה כבר פגשו את שגיא:</strong> כנסת ישראל, הכשרות לממשלה, הנהלת בתי המשפט, אוניברסיטת
+                        רייכמן, אוניברסיטת אריאל, מה"ט, משרד החינוך וארגונים נוספים בישראל.</li>
+                </ul>
+            </div>
+
+            <div class="experience-block">
+                <h3><i class="fa-solid fa-hands"></i> הגישה הפרקטית:</h3>
+                <p>
+                    אני חי את השטח. במקום ללמד תיאוריות, אני מעניק למשתתפים מתודולוגיות עבודה מוכחות שמטרתן לפשט את
+                    עולמות ה-AI, לנטרל את ה"בלגן" ולהביא ל:
+                </p>
+                <ul>
+                    <li><strong>תוצאה מיידית:</strong> מתן ביטחון טכנולוגי וחיסכון אדיר בזמן.</li>
+                    <li><strong>התאמה אישית:</strong> התוכן מעודכן ומותאם אישית לצרכים הספציפיים של המשתתפים, ללא קוד
+                        ובצורה פשוטה וברורה.</li>
+                </ul>
+            </div>
+
+            <!-- Video Embed -->
+            <div class="video-block">
+                <h3><i class="fa-solid fa-play-circle"></i> צפו בי מרצה בכנסת ישראל</h3>
+                <div class="video-wrapper">
+                    <iframe src="https://www.youtube.com/embed/Dk0NAi3Xmww?autoplay=1&mute=1"
+                        title="שגיא בר און מרצה בכנסת ישראל על בינה מלאכותית"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                        allowfullscreen loading="lazy">
+                    </iframe>
+                </div>
+            </div>
+
+            <!-- ROI Box -->
+            <div class="roi-box">
+                <h3><i class="fa-solid fa-arrow-trend-up"></i> בשורה התחתונה - החזר השקעה (ROI):</h3>
+                <p>הניסיון שלי מוכיח כי ליווי נכון הופך את ה-AI לכלי עבודה שחוסך בפועל בין <strong>20% ל-30%</strong>
+                    מהזמן המושקע במשימות יומיומיות ואדמיניסטרטיביות.</p>
+            </div>
+        </section>
+
+        <!-- Podcasts -->
+        <section class="podcasts-section">
+            <div class="container">
+                <h2 class="section-title">ידע זה כוח - תישארו רלוונטיים</h2>
+                <div class="podcasts-grid">
+                    <a href="https://open.spotify.com/show/0NnB7UQUMBjx5n24FDE4Iz" target="_blank" class="podcast-card"
+                        data-track="podcast-bina-bektana">
+                        <img src="https://i.scdn.co/image/ab6765630000ba8a18934b0522c637dc94ff0fe8" alt="בינה בקטנה"
+                            loading="lazy">
+                        <!-- <span>בינה בקטנה</span> -->
+                    </a>
+                    <a href="https://open.spotify.com/show/0R8OGY0eb6BJSepIApWB0z" target="_blank" class="podcast-card"
+                        data-track="podcast-bazman-sheavadtem">
+                        <img src="https://i.scdn.co/image/ab6765630000ba8aa6a34090f8409a8703b765b4" alt="בזמן שעבדתם"
+                            loading="lazy">
+                        <!-- <span>בזמן שעבדתם</span> -->
+                    </a>
+                    <a href="https://open.spotify.com/show/3X64eZDcxx8uaNBX2iUNXm" target="_blank" class="podcast-card"
+                        data-track="podcast-ai-vehaverim">
+                        <img src="https://i.scdn.co/image/ab6765630000ba8a0866627caa666366aadfb9e7" alt="AI וחברים"
+                            loading="lazy">
+                        <!-- <span>AI וחברים</span> -->
+                    </a>
+                    <a href="https://podcasts.apple.com/il/podcast/%D7%A4%D7%A9%D7%95%D7%98-ai/id1678562730"
+                        target="_blank" class="podcast-card" data-track="podcast-ai-pashut">
+                        <img src="https://is1-ssl.mzstatic.com/image/thumb/Podcasts116/v4/7c/56/5c/7c565c36-98cc-390b-b9f3-e61ce038641b/mza_6242471151528778909.jpg/1200x1200bf.webp"
+                            alt="AI פשוט" loading="lazy">
+                        <!-- <span>AI פשוט</span> -->
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- AI Apps Showcase -->
+        <section class="apps-showcase-section">
+            <div class="container">
+                <h2 class="section-title">אפליקציות שפיתחתי לשימושים שונים בתחום ה-AI</h2>
+                <p class="section-subtitle">נבנו באמצעות Vibe Coding - ללא שורת קוד אחת</p>
+                <div class="apps-grid">
+                    <a href="https://sagi-starwars-chatbot.streamlit.app/" target="_blank" class="app-card"
+                        data-track="app-starwars">
+                        <div class="app-card-icon">🚀</div>
+                        <h4>Star Wars Chatbot</h4>
+                        <p>צ'אט עם דמויות ממלחמת הכוכבים - חווית שיחה אינטראקטיבית עם AI</p>
+                        <span class="app-card-cta">לנסות עכשיו ←</span>
+                    </a>
+                    <a href="https://nanobananai.site/" target="_blank" class="app-card" data-track="app-nano-banana">
+                        <div class="app-card-icon">🍌</div>
+                        <h4>NANO BANANA AI Gallery</h4>
+                        <p>גלריית תמונות AI - שדרוג תמונות ולוק חדש ומקצועי</p>
+                        <span class="app-card-cta">לנסות עכשיו ←</span>
+                    </a>
+                    <a href="https://ai-image-face-off.lovable.app/" target="_blank" class="app-card"
+                        data-track="app-image-generator">
+                        <div class="app-card-icon">🖼️</div>
+                        <h4>מחולל תמונות AI</h4>
+                        <p>יצירת תמונות מטקסט באמצעות בינה מלאכותית - נבנה עם Lovable</p>
+                        <span class="app-card-cta">לנסות עכשיו ←</span>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA -->
+        <section class="cta-section" id="whatsapp-group">
+            <div class="container">
+                <h2>רוצים להישאר מעודכנים?</h2>
+                <div class="cta-buttons">
+                    <a href="https://chat.whatsapp.com/F5rwMzOOgHK5nNKw6ALucH" target="_blank" class="cta-button"
+                        data-track="whatsapp-group-cta"><i class="fa-brands fa-whatsapp"></i> הצטרפו לקבוצה השקטה</a>
+                    <a href="https://forms.gle/BWpq3ASFfNdvE29SA" target="_blank" class="cta-button cta-button-outline"
+                        data-track="feedback-form"><i class="fa-solid fa-comment-dots"></i> מלאו משוב כדאי שאשתפר</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- ======================== Footer ======================== -->
+    <footer class="quote-footer">
+        <div class="footer-links">
+            <span>
+                <i class="fa-solid fa-globe"></i>
+                <a href="https://sagiai.co.il/" target="_blank">sagiai.co.il</a>
+            </span>
+            <span>
+                <a href="https://api.whatsapp.com/send?phone=972549995050" target="_blank"
+                    style="color:inherit;text-decoration:none;">
+                    <i class="fa-brands fa-whatsapp"></i> 054-9995050
+                </a>
+            </span>
+            <span>&copy; ש.ב. ידע וטכנולוגיה | ח.פ.: 037565348</span>
+        </div>
+    </footer>
+
+    <script>
+        (function () {
+            var STORAGE_KEY = 'meeting_summary_clicks';
+
+            function getClicks() {
+                try {
+                    return JSON.parse(localStorage.getItem(STORAGE_KEY)) || {};
+                } catch (e) {
+                    return {};
+                }
+            }
+
+            function trackClick(actionName) {
+                var clicks = getClicks();
+                if (!clicks[actionName]) {
+                    clicks[actionName] = { count: 0, timestamps: [] };
+                }
+                clicks[actionName].count++;
+                clicks[actionName].timestamps.push(new Date().toISOString());
+
+                if (clicks[actionName].timestamps.length > 50) {
+                    clicks[actionName].timestamps = clicks[actionName].timestamps.slice(-50);
+                }
+
+                localStorage.setItem(STORAGE_KEY, JSON.stringify(clicks));
+                console.log('[Track]', actionName, '| Total:', clicks[actionName].count);
+            }
+
+            document.addEventListener('click', function (e) {
+                var target = e.target.closest('[data-track]');
+                if (target) {
+                    trackClick(target.getAttribute('data-track'));
+                }
+            });
+
+            var clicks = getClicks();
+            if (Object.keys(clicks).length > 0) {
+                console.log('[Track Summary]', clicks);
+            }
+        })();
+    </script>
+
+    <!-- ======================== Accessibility Widget ======================== -->
+    <button class="a11y-toggle" aria-label="תפריט נגישות" title="נגישות"
+        onclick="document.querySelector('.a11y-panel').classList.toggle('open')">
+        <i class="fa-solid fa-universal-access"></i>
+    </button>
+
+    <div class="a11y-panel" role="dialog" aria-label="אפשרויות נגישות">
+        <h3><i class="fa-solid fa-universal-access"></i> נגישות</h3>
+
+        <div class="a11y-option">
+            <span class="a11y-option-label"><i class="fa-solid fa-text-height"></i> גודל גופן</span>
+            <div class="a11y-btn-group">
+                <button class="a11y-btn" onclick="a11yFontSize(-1)" aria-label="הקטנת גופן">א-</button>
+                <button class="a11y-btn" onclick="a11yFontSize(1)" aria-label="הגדלת גופן">א+</button>
+            </div>
+        </div>
+
+        <div class="a11y-option" onclick="a11yToggle('high-contrast', this)">
+            <span class="a11y-option-label"><i class="fa-solid fa-circle-half-stroke"></i> ניגודיות גבוהה</span>
+            <button class="a11y-toggle-switch" aria-label="ניגודיות גבוהה"></button>
+        </div>
+
+        <div class="a11y-option" onclick="a11yToggle('highlight-links', this)">
+            <span class="a11y-option-label"><i class="fa-solid fa-link"></i> הדגשת קישורים</span>
+            <button class="a11y-toggle-switch" aria-label="הדגשת קישורים"></button>
+        </div>
+
+        <button class="a11y-reset" onclick="a11yReset()">
+            <i class="fa-solid fa-rotate-left"></i> איפוס נגישות
+        </button>
+    </div>
+
+    <script>
+        let a11yFontLevel = 0;
+
+        function a11yFontSize(dir) {
+            a11yFontLevel = Math.max(-2, Math.min(4, a11yFontLevel + dir));
+            document.documentElement.style.fontSize = (16 + a11yFontLevel * 2) + 'px';
+        }
+
+        function a11yToggle(feature, el) {
+            document.body.classList.toggle('a11y-' + feature);
+            var sw = el.querySelector('.a11y-toggle-switch');
+            if (sw) sw.classList.toggle('active');
+        }
+
+        function a11yReset() {
+            document.body.className = '';
+            document.documentElement.style.fontSize = '';
+            a11yFontLevel = 0;
+            document.querySelectorAll('.a11y-toggle-switch').forEach(function (s) { s.classList.remove('active'); });
+        }
+
+        document.addEventListener('click', function (e) {
+            var panel = document.querySelector('.a11y-panel');
+            var toggle = document.querySelector('.a11y-toggle');
+            if (!panel.contains(e.target) && !toggle.contains(e.target)) {
+                panel.classList.remove('open');
+            }
+        });
+    </script>
+
+</body>
+
+</html>
