@@ -1,0 +1,578 @@
+<!--
+  Live: __CANONICAL_URL__
+  Local: http://127.0.0.1:8080/landing-pages/__SLUG__/
+  GA:    https://analytics.google.com/analytics/web/#/a351596902p494681343/reports/reportinghub
+-->
+
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>__TITLE__ | שגיא בר און</title>
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-XSH19K5LBZ"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-XSH19K5LBZ');
+    </script>
+    <!-- ===== Primary Meta ===== -->
+    <meta name="description" content="__DESCRIPTION__">
+    <meta name="author" content="Sagi Bar-On">
+    <meta name="robots" content="index, follow">
+    <meta name="theme-color" content="#0a1330">
+
+    <link rel="canonical" href="__CANONICAL_URL__">
+
+    <!-- ===== Open Graph (Facebook · LinkedIn · WhatsApp · Pinterest · iMessage · Slack) ===== -->
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="שגיא בר און · AI לארגונים">
+    <meta property="og:title" content="__TITLE__">
+    <meta property="og:description" content="__DESCRIPTION__">
+    <meta property="og:url" content="__CANONICAL_URL__">
+    <meta property="og:locale" content="he_IL">
+    <meta property="og:image" content="__OG_IMAGE_URL__">
+    <meta property="og:image:secure_url" content="__OG_IMAGE_URL__">
+    <meta property="og:image:type" content="image/webp">
+    <meta property="og:image:width" content="1600">
+    <meta property="og:image:height" content="900">
+    <meta property="og:image:alt" content="__TITLE__">
+
+    <!-- ===== Twitter / X ===== -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="__TITLE__">
+    <meta name="twitter:description" content="__DESCRIPTION__">
+    <meta name="twitter:image" content="__OG_IMAGE_URL__">
+    <meta name="twitter:image:alt" content="__TITLE__">
+
+    <!-- ===== Schema.org / generic crawlers ===== -->
+    <meta itemprop="name" content="__TITLE__">
+    <meta itemprop="description" content="__DESCRIPTION__">
+    <meta itemprop="image" content="__OG_IMAGE_URL__">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Alef:wght@400;700&family=Heebo:wght@400;500;700;800&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --navy-950: #060b1a;
+            --navy-900: #0a1330;
+            --navy-800: #0f1c44;
+            --ink: #0b1226;
+            --text: #1a2138;
+            --text-soft: #4a5573;
+            --text-muted: #6e7894;
+            --line: #e3e7f1;
+            --bg: #f6f7fb;
+            --white: #ffffff;
+            --accent: __ACCENT_PRIMARY__;
+            --accent-deep: __ACCENT_DEEP__;
+            --accent-soft: __ACCENT_SOFT__;
+            --accent-glow: __ACCENT_GLOW__;
+            --whatsapp: #25d366;
+            --whatsapp-deep: #128c7e;
+            --radius: 18px;
+            --radius-lg: 28px;
+            --shadow-sm: 0 4px 14px rgba(13, 22, 56, 0.08);
+            --shadow: 0 12px 40px rgba(13, 22, 56, 0.12);
+            --shadow-lg: 0 30px 80px rgba(13, 22, 56, 0.25);
+            --ease: cubic-bezier(0.22, 1, 0.36, 1);
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+
+        body {
+            font-family: 'Heebo', 'Alef', -apple-system, system-ui, sans-serif;
+            font-size: 18px;
+            line-height: 1.75;
+            color: var(--text);
+            background: var(--bg);
+            -webkit-font-smoothing: antialiased;
+            overflow-x: hidden;
+        }
+
+        a { color: inherit; text-decoration: none; }
+        img { max-width: 100%; display: block; }
+
+        :focus-visible {
+            outline: 3px solid var(--accent);
+            outline-offset: 3px;
+            border-radius: 6px;
+        }
+
+        .container {
+            max-width: 1180px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        .container-narrow {
+            max-width: 880px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        .eyebrow {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 14px;
+            font-weight: 700;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            color: var(--accent-deep);
+            background: var(--accent-soft);
+            padding: 8px 16px;
+            border-radius: 999px;
+            border: 1px solid var(--accent-soft);
+        }
+        .eyebrow.on-dark {
+            color: #fff;
+            background: var(--accent-glow);
+            border-color: rgba(255, 255, 255, 0.2);
+        }
+        .eyebrow .dot {
+            width: 8px; height: 8px; border-radius: 50%;
+            background: var(--accent);
+            box-shadow: 0 0 0 4px var(--accent-soft);
+        }
+
+        h1, h2, h3 { line-height: 1.25; color: var(--ink); font-weight: 800; letter-spacing: -0.01em; }
+        h2 { font-size: clamp(28px, 4vw, 44px); }
+        h3 { font-size: 22px; font-weight: 700; }
+
+        section { padding: 96px 0; }
+
+        .section-head {
+            text-align: center;
+            margin-bottom: 56px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 18px;
+        }
+        .section-head p {
+            color: var(--text-soft);
+            font-size: 19px;
+            max-width: 720px;
+        }
+
+        /* ===== HEADER ===== */
+        header.site {
+            position: sticky;
+            top: 0;
+            z-index: 50;
+            background: rgba(10, 19, 48, 0.85);
+            backdrop-filter: blur(14px);
+            -webkit-backdrop-filter: blur(14px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+        }
+        .nav {
+            display: flex; align-items: center; justify-content: space-between;
+            padding: 14px 0;
+        }
+        .brand {
+            display: flex; align-items: center; gap: 12px;
+            color: #fff; font-weight: 800; font-size: 17px;
+        }
+        .brand-mark {
+            width: 38px; height: 38px;
+            border-radius: 11px;
+            background: linear-gradient(135deg, var(--accent), var(--accent-deep));
+            display: grid; place-items: center;
+            color: #fff; font-weight: 800;
+            box-shadow: 0 8px 22px var(--accent-glow);
+        }
+        .nav-cta {
+            color: #fff !important;
+            background: linear-gradient(135deg, var(--accent), var(--accent-deep));
+            padding: 9px 20px; border-radius: 999px;
+            font-weight: 700;
+            box-shadow: 0 8px 18px var(--accent-glow);
+            transition: transform 0.2s var(--ease);
+            font-size: 15px;
+        }
+        .nav-cta:hover { transform: translateY(-2px); }
+
+        /* ===== HERO ===== */
+        .hero {
+            position: relative;
+            background:
+                radial-gradient(1100px 600px at 85% -10%, var(--accent-glow), transparent 60%),
+                linear-gradient(180deg, var(--navy-950) 0%, var(--navy-900) 100%);
+            color: #fff;
+            overflow: hidden;
+            padding: 84px 0 110px;
+        }
+        .hero::before {
+            content: "";
+            position: absolute; inset: 0;
+            background-image:
+                linear-gradient(rgba(255, 255, 255, 0.04) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(255, 255, 255, 0.04) 1px, transparent 1px);
+            background-size: 56px 56px;
+            mask-image: radial-gradient(circle at 50% 40%, #000 0%, transparent 75%);
+            -webkit-mask-image: radial-gradient(circle at 50% 40%, #000 0%, transparent 75%);
+            pointer-events: none;
+        }
+        .hero-grid {
+            position: relative;
+            display: grid;
+            grid-template-columns: 1.1fr 0.9fr;
+            gap: 64px;
+            align-items: center;
+        }
+        .hero h1 {
+            color: #fff;
+            font-size: clamp(34px, 5vw, 60px);
+            line-height: 1.15;
+            margin: 22px 0 20px;
+            letter-spacing: -0.02em;
+        }
+        .hero h1 .accent {
+            background: linear-gradient(120deg, #fff, var(--accent));
+            -webkit-background-clip: text; background-clip: text;
+            color: transparent;
+        }
+        .hero p.lead {
+            font-size: 21px;
+            color: #cdd5e8;
+            line-height: 1.7;
+            max-width: 580px;
+        }
+        .hero-cta-row {
+            display: flex; gap: 14px; flex-wrap: wrap;
+            margin-top: 32px;
+        }
+        .btn {
+            display: inline-flex; align-items: center; gap: 10px;
+            padding: 16px 28px;
+            font-size: 17px; font-weight: 700;
+            border-radius: 999px;
+            border: none;
+            cursor: pointer;
+            transition: all 0.25s var(--ease);
+            font-family: inherit;
+        }
+        .btn-primary {
+            color: #fff;
+            background: linear-gradient(135deg, var(--accent) 0%, var(--accent-deep) 100%);
+            box-shadow: 0 12px 30px var(--accent-glow);
+        }
+        .btn-primary:hover { transform: translateY(-3px); box-shadow: 0 18px 40px var(--accent-glow); }
+        .btn-ghost {
+            color: #fff;
+            background: rgba(255, 255, 255, 0.06);
+            border: 1px solid rgba(255, 255, 255, 0.18);
+            backdrop-filter: blur(8px);
+        }
+        .btn-ghost:hover { background: rgba(255, 255, 255, 0.12); }
+        .btn .arrow { transition: transform 0.25s var(--ease); display: inline-block; }
+        .btn:hover .arrow { transform: translateX(4px); }
+
+        .hero-visual { position: relative; }
+        .hero-image-wrap {
+            position: relative;
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            background: linear-gradient(145deg, var(--accent-glow), rgba(255, 255, 255, 0.05));
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            box-shadow: var(--shadow-lg);
+            aspect-ratio: 4/5;
+        }
+        .hero-image-wrap img { width: 100%; height: 100%; object-fit: cover; position: relative; z-index: 1; }
+        .hero-image-fallback {
+            position: absolute; inset: 0;
+            display: grid; place-items: center;
+            color: rgba(255,255,255,0.5);
+            font-size: 14px;
+            background:
+                radial-gradient(circle at 30% 30%, var(--accent-glow), transparent 60%),
+                linear-gradient(135deg, var(--navy-800), var(--navy-900));
+        }
+
+        @media (max-width: 920px) {
+            .hero { padding: 56px 0 72px; }
+            .hero-grid { grid-template-columns: 1fr; gap: 40px; }
+            .hero-visual { order: -1; max-width: 380px; margin: 0 auto; }
+        }
+
+        /* ===== INTRO / SECTIONS ===== */
+        .section-light { background: var(--white); }
+        .section-soft { background: linear-gradient(180deg, var(--bg) 0%, #eef0f8 100%); }
+
+        .feature-card {
+            background: linear-gradient(180deg, #fff, #fafbff);
+            border: 1px solid var(--line);
+            border-radius: var(--radius-lg);
+            padding: 56px;
+            box-shadow: var(--shadow-sm);
+        }
+        .feature-card h2 { margin-bottom: 16px; }
+        .feature-card p {
+            font-size: 19px;
+            color: var(--text-soft);
+            line-height: 1.85;
+        }
+
+        @media (max-width: 720px) {
+            .feature-card { padding: 32px 24px; }
+        }
+
+        /* ===== CONTACT ===== */
+        .contact {
+            background:
+                radial-gradient(900px 500px at 80% 0%, var(--accent-glow), transparent 65%),
+                linear-gradient(180deg, var(--navy-950), var(--navy-900));
+            color: #fff;
+            text-align: center;
+        }
+        .contact h2 {
+            color: #fff;
+            font-size: clamp(30px, 4.5vw, 48px);
+            margin-bottom: 18px;
+        }
+        .contact p {
+            font-size: 20px;
+            color: #cdd5e8;
+            max-width: 620px;
+            margin: 0 auto 36px;
+            line-height: 1.75;
+        }
+        .contact-buttons {
+            display: flex;
+            gap: 14px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        .contact-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 16px 28px;
+            border-radius: 999px;
+            font-weight: 700;
+            font-size: 17px;
+            transition: all 0.25s var(--ease);
+            border: 1px solid transparent;
+        }
+        .contact-btn-wa {
+            background: var(--whatsapp);
+            color: #fff;
+            box-shadow: 0 8px 22px rgba(37, 211, 102, 0.35);
+        }
+        .contact-btn-wa:hover {
+            background: var(--whatsapp-deep);
+            transform: translateY(-2px);
+        }
+        .contact-btn-mail {
+            background: rgba(255, 255, 255, 0.06);
+            color: #fff;
+            border-color: rgba(255, 255, 255, 0.2);
+        }
+        .contact-btn-mail:hover { background: rgba(255, 255, 255, 0.12); }
+        .contact-btn-site {
+            background: linear-gradient(135deg, var(--accent), var(--accent-deep));
+            color: #fff;
+            box-shadow: 0 8px 22px var(--accent-glow);
+        }
+        .contact-btn-site:hover { transform: translateY(-2px); }
+
+        /* ===== FOOTER ===== */
+        footer {
+            background: var(--navy-950);
+            color: #8a93a9;
+            padding: 36px 0;
+            border-top: 1px solid rgba(255, 255, 255, 0.06);
+            text-align: center;
+            font-size: 14px;
+        }
+        footer a { color: #cdd5e8; }
+
+        /* ===== WhatsApp Floating Button ===== */
+        .whatsapp-float {
+            position: fixed;
+            bottom: 24px;
+            left: 24px;
+            width: 60px;
+            height: 60px;
+            background: var(--whatsapp);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 20px rgba(37, 211, 102, 0.4);
+            z-index: 999;
+            transition: transform 0.3s var(--ease), box-shadow 0.3s var(--ease);
+            color: #fff;
+        }
+        .whatsapp-float:hover {
+            transform: scale(1.1);
+            box-shadow: 0 6px 28px rgba(37, 211, 102, 0.55);
+        }
+        .whatsapp-float svg { width: 32px; height: 32px; fill: #fff; }
+        .whatsapp-float::after {
+            content: '';
+            position: absolute;
+            inset: -6px;
+            border-radius: 50%;
+            border: 2px solid var(--whatsapp);
+            opacity: 0.6;
+            animation: waPulse 2.4s ease-out infinite;
+            pointer-events: none;
+        }
+        @keyframes waPulse {
+            0% { transform: scale(0.85); opacity: 0.7; }
+            70% { transform: scale(1.4); opacity: 0; }
+            100% { transform: scale(1.4); opacity: 0; }
+        }
+
+        /* ===== UTIL ===== */
+        .reveal {
+            opacity: 0;
+            transform: translateY(24px);
+            transition: opacity 0.7s var(--ease), transform 0.7s var(--ease);
+        }
+        .reveal.visible { opacity: 1; transform: translateY(0); }
+
+        @media (prefers-reduced-motion: reduce) {
+            *, *::before, *::after {
+                animation-duration: 0.01ms !important;
+                transition-duration: 0.01ms !important;
+            }
+            html { scroll-behavior: auto; }
+            .reveal { opacity: 1 !important; transform: none !important; }
+        }
+
+        @media (max-width: 720px) {
+            section { padding: 64px 0; }
+            .section-head { margin-bottom: 36px; }
+            .whatsapp-float { width: 52px; height: 52px; bottom: 18px; left: 18px; }
+            .whatsapp-float svg { width: 28px; height: 28px; }
+        }
+    </style>
+</head>
+<body>
+
+<!-- ============= HEADER ============= -->
+<header class="site">
+    <div class="container nav">
+        <a href="#" class="brand" aria-label="שגיא בר און - חזרה לראש העמוד">
+            <span class="brand-mark" aria-hidden="true">SB</span>
+            <span>שגיא בר און · AI</span>
+        </a>
+        <a href="#contact" class="nav-cta">דברו איתי</a>
+    </div>
+</header>
+
+<!-- ============= HERO ============= -->
+<section class="hero" aria-labelledby="hero-title">
+    <div class="container hero-grid">
+        <div class="hero-text">
+            <span class="eyebrow on-dark"><span class="dot" aria-hidden="true"></span>AI לארגונים</span>
+            <h1 id="hero-title">__TITLE__</h1>
+            <p class="lead">__DESCRIPTION__</p>
+            <div class="hero-cta-row">
+                <a href="#contact" class="btn btn-primary">
+                    דברו איתי
+                    <span class="arrow" aria-hidden="true">←</span>
+                </a>
+                <a href="#about" class="btn btn-ghost">קראו עוד</a>
+            </div>
+        </div>
+
+        <div class="hero-visual">
+            <div class="hero-image-wrap">
+                <div class="hero-image-fallback" aria-hidden="true">__HERO_IMAGE__</div>
+                <img src="__HERO_IMAGE__" alt="__TITLE__" loading="eager" onerror="this.style.display='none'">
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ============= INTRO ============= -->
+<section class="section-light" id="about" aria-labelledby="about-title">
+    <div class="container-narrow">
+        <div class="feature-card reveal">
+            <span class="eyebrow"><span class="dot" aria-hidden="true"></span>על הפרויקט</span>
+            <h2 id="about-title" style="margin-top: 14px;">[כותרת לסקציה הראשונה]</h2>
+            <p>[התוכן של הסקציה — תיאור הבעיה / הרקע / הסיפור. החלף את הטקסט הזה בתוכן אמיתי.]</p>
+        </div>
+    </div>
+</section>
+
+<!-- ============= SECTION 2 (replace with real content) ============= -->
+<section class="section-soft" aria-labelledby="section2-title">
+    <div class="container">
+        <div class="section-head reveal">
+            <span class="eyebrow"><span class="dot" aria-hidden="true"></span>פרטים</span>
+            <h2 id="section2-title">[כותרת סקציה שנייה]</h2>
+            <p>[תיאור / subtitle לסקציה הזו.]</p>
+        </div>
+        <!-- TODO: הוסף תוכן (cards, רשימה, תהליך, וכו') -->
+    </div>
+</section>
+
+<!-- ============= CONTACT ============= -->
+<section class="contact" id="contact" aria-labelledby="cta-title">
+    <div class="container-narrow">
+        <span class="eyebrow on-dark"><span class="dot" aria-hidden="true"></span>צעד הבא</span>
+        <h2 id="cta-title" style="margin-top: 18px;">רוצה לדבר?</h2>
+        <p>שלחו הודעה קצרה — נקבע שיחה ללא התחייבות.</p>
+        <div class="contact-buttons">
+            <a href="https://wa.me/972549995050?text=__WHATSAPP_MSG__" target="_blank" rel="noopener noreferrer" class="contact-btn contact-btn-wa">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347zM12.05 21.785A9.737 9.737 0 0 1 7.1 20.45l-.353-.21-3.667.962.98-3.575-.232-.366a9.715 9.715 0 0 1-1.49-5.18c.002-5.373 4.378-9.748 9.752-9.748 2.604 0 5.052 1.014 6.892 2.857a9.683 9.683 0 0 1 2.852 6.892c-.002 5.373-4.378 9.749-9.762 9.749h-.012zM20.52 3.449C18.244 1.255 15.241.06 12.045.06 5.463.06.103 5.42.101 12.005c0 2.105.549 4.16 1.595 5.972L0 24l6.163-1.617a11.94 11.94 0 0 0 5.71 1.454h.006c6.585 0 11.946-5.36 11.949-11.946 0-3.196-1.24-6.198-3.495-8.453z"/></svg>
+                WhatsApp
+            </a>
+            <a href="mailto:sagi.baron76@gmail.com?subject=__TITLE__" class="contact-btn contact-btn-mail">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg>
+                Email
+            </a>
+            <a href="https://sagiai.co.il/" target="_blank" rel="noopener noreferrer" class="contact-btn contact-btn-site">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a14 14 0 0 1 0 18M12 3a14 14 0 0 0 0 18"/></svg>
+                לאתר הראשי
+            </a>
+        </div>
+    </div>
+</section>
+
+<footer>
+    <div class="container">
+        © <span id="year"></span> שגיא בר און · ש.ב. ידע וטכנולוגיה · AI לארגונים
+    </div>
+</footer>
+
+<a href="https://wa.me/972549995050?text=__WHATSAPP_MSG__" target="_blank" rel="noopener noreferrer" class="whatsapp-float" aria-label="שלחו הודעה בוואטסאפ">
+    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347zM12.05 21.785A9.737 9.737 0 0 1 7.1 20.45l-.353-.21-3.667.962.98-3.575-.232-.366a9.715 9.715 0 0 1-1.49-5.18c.002-5.373 4.378-9.748 9.752-9.748 2.604 0 5.052 1.014 6.892 2.857a9.683 9.683 0 0 1 2.852 6.892c-.002 5.373-4.378 9.749-9.762 9.749h-.012zM20.52 3.449C18.244 1.255 15.241.06 12.045.06 5.463.06.103 5.42.101 12.005c0 2.105.549 4.16 1.595 5.972L0 24l6.163-1.617a11.94 11.94 0 0 0 5.71 1.454h.006c6.585 0 11.946-5.36 11.949-11.946 0-3.196-1.24-6.198-3.495-8.453z"/></svg>
+</a>
+
+<script>
+(function () {
+    'use strict';
+
+    const reveals = document.querySelectorAll('.reveal');
+    if ('IntersectionObserver' in window) {
+        const io = new IntersectionObserver((entries) => {
+            entries.forEach((e) => {
+                if (e.isIntersecting) {
+                    e.target.classList.add('visible');
+                    io.unobserve(e.target);
+                }
+            });
+        }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+        reveals.forEach((el) => io.observe(el));
+    } else {
+        reveals.forEach((el) => el.classList.add('visible'));
+    }
+
+    const yearEl = document.getElementById('year');
+    if (yearEl) yearEl.textContent = new Date().getFullYear();
+})();
+</script>
+
+</body>
+</html>
