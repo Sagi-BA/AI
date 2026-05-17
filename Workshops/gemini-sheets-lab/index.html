@@ -7,54 +7,59 @@
 <html lang="he" dir="rtl">
 
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Gemini Sheets Lab — יום סדנה לארגונים: סימולטור עסקי עם AI | שגיא בר און</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gemini Sheets Lab - יום סדנה לארגונים: סימולטור עסקי עם AI | שגיא בר און</title>
 
-  <!-- Google Analytics -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-XSH19K5LBZ"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag() { dataLayer.push(arguments); }
-    gtag('js', new Date());
-    gtag('config', 'G-XSH19K5LBZ');
-  </script>
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-XSH19K5LBZ"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+        gtag('config', 'G-XSH19K5LBZ');
+    </script>
 
-  <!-- ===== Primary Meta ===== -->
-  <meta name="description" content="יום סדנה לארגונים: שגיא בר און מגיע אליכם, והצוות שלכם בונה סימולטור תגמול, דשבורד אינטראקטיבי ופילטרים חכמים ב-Google Sheets עם Gemini. ללא קוד, ללא BI, ללא צוות פיתוח.">
-  <meta name="keywords" content="Gemini, Google Sheets, AI, סימולטור עסקי, דשבורד, BI, תגמול, סדנת AI לארגונים, שגיא בר און, יום סדנה">
-  <meta name="author" content="Sagi Bar-On">
-  <meta name="robots" content="index, follow">
-  <meta name="theme-color" content="#0F172A">
+    <!-- ===== Primary Meta ===== -->
+    <meta name="description"
+        content="יום סדנה לארגונים: שגיא בר און מגיע אליכם, והצוות שלכם בונה סימולטור תגמול, דשבורד אינטראקטיבי ופילטרים חכמים ב-Google Sheets עם Gemini. ללא קוד, ללא BI, ללא צוות פיתוח.">
+    <meta name="keywords"
+        content="Gemini, Google Sheets, AI, סימולטור עסקי, דשבורד, BI, תגמול, סדנת AI לארגונים, שגיא בר און, יום סדנה">
+    <meta name="author" content="Sagi Bar-On">
+    <meta name="robots" content="index, follow">
+    <meta name="theme-color" content="#0F172A">
 
-  <link rel="canonical" href="https://sagi-ba.github.io/AI/Workshops/gemini-sheets-lab/">
+    <link rel="canonical" href="https://sagi-ba.github.io/AI/Workshops/gemini-sheets-lab/">
 
-  <!-- ===== Open Graph ===== -->
-  <meta property="og:type" content="website">
-  <meta property="og:site_name" content="שגיא בר און · AI לארגונים">
-  <meta property="og:title" content="Gemini Sheets Lab — יום סדנה לארגונים עם Gemini + Sheets">
-  <meta property="og:description" content="שגיא בר און מגיע אליכם לארגון ליום סדנה — בסופו הצוות יוצא עם סימולטור תגמול ודשבורד עובד ב-Google Sheets עם Gemini, בלי שורת קוד אחת.">
-  <meta property="og:url" content="https://sagi-ba.github.io/AI/Workshops/gemini-sheets-lab/">
-  <meta property="og:locale" content="he_IL">
-  <meta property="og:image" content="https://sagi-ba.github.io/AI/Workshops/gemini-sheets-lab/images/og-cover.webp">
-  <meta property="og:image:secure_url" content="https://sagi-ba.github.io/AI/Workshops/gemini-sheets-lab/images/og-cover.webp">
-  <meta property="og:image:type" content="image/webp">
-  <meta property="og:image:width" content="1200">
-  <meta property="og:image:height" content="630">
-  <meta property="og:image:alt" content="Gemini Sheets Lab — סדנת AI לבניית דשבורדים עסקיים">
+    <!-- ===== Open Graph ===== -->
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="שגיא בר און · AI לארגונים">
+    <meta property="og:title" content="Gemini Sheets Lab - יום סדנה לארגונים עם Gemini + Sheets">
+    <meta property="og:description"
+        content="שגיא בר און מגיע אליכם לארגון ליום סדנה - בסופו הצוות יוצא עם סימולטור תגמול ודשבורד עובד ב-Google Sheets עם Gemini, בלי שורת קוד אחת.">
+    <meta property="og:url" content="https://sagi-ba.github.io/AI/Workshops/gemini-sheets-lab/">
+    <meta property="og:locale" content="he_IL">
+    <meta property="og:image" content="https://sagi-ba.github.io/AI/Workshops/gemini-sheets-lab/images/og-cover.webp">
+    <meta property="og:image:secure_url"
+        content="https://sagi-ba.github.io/AI/Workshops/gemini-sheets-lab/images/og-cover.webp">
+    <meta property="og:image:type" content="image/webp">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:alt" content="Gemini Sheets Lab - סדנת AI לבניית דשבורדים עסקיים">
 
-  <!-- ===== Twitter / X ===== -->
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Gemini Sheets Lab — יום סדנה לארגונים">
-  <meta name="twitter:description" content="יום סדנה אצלכם בארגון: הצוות בונה סימולטור עסקי ודשבורד עובד ב-Google Sheets עם Gemini — בלי קוד.">
-  <meta name="twitter:image" content="https://sagi-ba.github.io/AI/Workshops/gemini-sheets-lab/images/og-cover.webp">
-  <meta name="twitter:image:alt" content="Gemini Sheets Lab — סדנת AI עסקית">
+    <!-- ===== Twitter / X ===== -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Gemini Sheets Lab - יום סדנה לארגונים">
+    <meta name="twitter:description"
+        content="יום סדנה אצלכם בארגון: הצוות בונה סימולטור עסקי ודשבורד עובד ב-Google Sheets עם Gemini - בלי קוד.">
+    <meta name="twitter:image" content="https://sagi-ba.github.io/AI/Workshops/gemini-sheets-lab/images/og-cover.webp">
+    <meta name="twitter:image:alt" content="Gemini Sheets Lab - סדנת AI עסקית">
 
-  <!-- ===== Schema.org ===== -->
-  <meta itemprop="name" content="Gemini Sheets Lab">
-  <meta itemprop="description" content="סדנה מעשית לבניית סימולטור עסקי בתוך Google Sheets עם Gemini.">
-  <meta itemprop="image" content="https://sagi-ba.github.io/AI/Workshops/gemini-sheets-lab/images/og-cover.webp">
-  <script type="application/ld+json">
+    <!-- ===== Schema.org ===== -->
+    <meta itemprop="name" content="Gemini Sheets Lab">
+    <meta itemprop="description" content="סדנה מעשית לבניית סימולטור עסקי בתוך Google Sheets עם Gemini.">
+    <meta itemprop="image" content="https://sagi-ba.github.io/AI/Workshops/gemini-sheets-lab/images/og-cover.webp">
+    <script type="application/ld+json">
   {
     "@context": "https://schema.org",
     "@type": "Course",
@@ -71,1485 +76,2523 @@
   }
   </script>
 
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Assistant:wght@400;500;600;700;800&family=Heebo:wght@400;500;700;800;900&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Assistant:wght@400;500;600;700;800&family=Heebo:wght@400;500;700;800;900&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
-  <style>
-    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+    <style>
+        *,
+        *::before,
+        *::after {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-    :root {
-      --primary: #2563EB;
-      --secondary: #7C3AED;
-      --accent: #06B6D4;
-      --success: #10B981;
-      --dark: #0F172A;
-      --dark-2: #0B1124;
-      --dark-3: #060A1A;
-      --light: #F8FAFC;
-      --slate-100: #E2E8F0;
-      --slate-300: #CBD5E1;
-      --slate-400: #94A3B8;
-      --slate-500: #64748B;
-      --slate-700: #334155;
-      --slate-800: #1E293B;
-      --slate-900: #0F172A;
-      --grad: linear-gradient(135deg, #2563EB 0%, #7C3AED 50%, #06B6D4 100%);
-      --grad-soft: linear-gradient(135deg, rgba(37,99,235,0.18) 0%, rgba(124,58,237,0.18) 50%, rgba(6,182,212,0.18) 100%);
-      --glass: rgba(255,255,255,0.04);
-      --glass-strong: rgba(255,255,255,0.08);
-      --glass-border: rgba(255,255,255,0.10);
-      --glow-blue: 0 0 60px rgba(37,99,235,0.35);
-      --glow-purple: 0 0 60px rgba(124,58,237,0.35);
-      --glow-cyan: 0 0 60px rgba(6,182,212,0.35);
-      --radius-sm: 10px;
-      --radius: 18px;
-      --radius-lg: 28px;
-    }
+        :root {
+            --primary: #2563EB;
+            --secondary: #7C3AED;
+            --accent: #06B6D4;
+            --success: #10B981;
+            --dark: #0F172A;
+            --dark-2: #0B1124;
+            --dark-3: #060A1A;
+            --light: #F8FAFC;
+            --slate-100: #E2E8F0;
+            --slate-300: #CBD5E1;
+            --slate-400: #94A3B8;
+            --slate-500: #64748B;
+            --slate-700: #334155;
+            --slate-800: #1E293B;
+            --slate-900: #0F172A;
+            --grad: linear-gradient(135deg, #2563EB 0%, #7C3AED 50%, #06B6D4 100%);
+            --grad-soft: linear-gradient(135deg, rgba(37, 99, 235, 0.18) 0%, rgba(124, 58, 237, 0.18) 50%, rgba(6, 182, 212, 0.18) 100%);
+            --glass: rgba(255, 255, 255, 0.04);
+            --glass-strong: rgba(255, 255, 255, 0.08);
+            --glass-border: rgba(255, 255, 255, 0.10);
+            --glow-blue: 0 0 60px rgba(37, 99, 235, 0.35);
+            --glow-purple: 0 0 60px rgba(124, 58, 237, 0.35);
+            --glow-cyan: 0 0 60px rgba(6, 182, 212, 0.35);
+            --radius-sm: 10px;
+            --radius: 18px;
+            --radius-lg: 28px;
+        }
 
-    html { scroll-behavior: smooth; }
+        html {
+            scroll-behavior: smooth;
+        }
 
-    body {
-      font-family: 'Assistant', 'Heebo', system-ui, sans-serif;
-      background: var(--dark);
-      color: var(--light);
-      line-height: 1.7;
-      font-size: 16px;
-      overflow-x: hidden;
-      -webkit-font-smoothing: antialiased;
-      position: relative;
-    }
+        body {
+            font-family: 'Assistant', 'Heebo', system-ui, sans-serif;
+            background: var(--dark);
+            color: var(--light);
+            line-height: 1.7;
+            font-size: 16px;
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+            position: relative;
+        }
 
-    h1, h2, h3, h4 { font-family: 'Heebo', 'Assistant', sans-serif; letter-spacing: -0.01em; }
+        h1,
+        h2,
+        h3,
+        h4 {
+            font-family: 'Heebo', 'Assistant', sans-serif;
+            letter-spacing: -0.01em;
+        }
 
-    /* ======================== Global Background ======================== */
-    .bg-canvas {
-      position: fixed; inset: 0; z-index: -2;
-      background:
-        radial-gradient(1100px 700px at 85% -10%, rgba(124,58,237,0.28), transparent 60%),
-        radial-gradient(900px 600px at 5% 20%, rgba(37,99,235,0.30), transparent 60%),
-        radial-gradient(800px 600px at 50% 110%, rgba(6,182,212,0.22), transparent 60%),
-        linear-gradient(180deg, #060A1A 0%, #0B1124 60%, #0F172A 100%);
-    }
-    .bg-grid {
-      position: fixed; inset: 0; z-index: -1; pointer-events: none;
-      background-image:
-        linear-gradient(rgba(148,163,184,0.06) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(148,163,184,0.06) 1px, transparent 1px);
-      background-size: 48px 48px;
-      mask-image: radial-gradient(ellipse at 50% 30%, #000 40%, transparent 80%);
-      -webkit-mask-image: radial-gradient(ellipse at 50% 30%, #000 40%, transparent 80%);
-    }
-    .bg-orb {
-      position: fixed; border-radius: 50%; filter: blur(80px); opacity: 0.55;
-      z-index: -1; pointer-events: none;
-      animation: float-orb 18s ease-in-out infinite;
-    }
-    .orb-1 { width: 420px; height: 420px; background: #2563EB; top: -120px; right: -120px; }
-    .orb-2 { width: 520px; height: 520px; background: #7C3AED; bottom: -160px; left: -160px; animation-delay: -6s; }
-    .orb-3 { width: 320px; height: 320px; background: #06B6D4; top: 40%; left: 60%; animation-delay: -12s; }
+        /* ======================== Global Background ======================== */
+        .bg-canvas {
+            position: fixed;
+            inset: 0;
+            z-index: -2;
+            background:
+                radial-gradient(1100px 700px at 85% -10%, rgba(124, 58, 237, 0.28), transparent 60%),
+                radial-gradient(900px 600px at 5% 20%, rgba(37, 99, 235, 0.30), transparent 60%),
+                radial-gradient(800px 600px at 50% 110%, rgba(6, 182, 212, 0.22), transparent 60%),
+                linear-gradient(180deg, #060A1A 0%, #0B1124 60%, #0F172A 100%);
+        }
 
-    @keyframes float-orb {
-      0%, 100% { transform: translate(0,0) scale(1); }
-      50% { transform: translate(30px, -40px) scale(1.06); }
-    }
+        .bg-grid {
+            position: fixed;
+            inset: 0;
+            z-index: -1;
+            pointer-events: none;
+            background-image:
+                linear-gradient(rgba(148, 163, 184, 0.06) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(148, 163, 184, 0.06) 1px, transparent 1px);
+            background-size: 48px 48px;
+            mask-image: radial-gradient(ellipse at 50% 30%, #000 40%, transparent 80%);
+            -webkit-mask-image: radial-gradient(ellipse at 50% 30%, #000 40%, transparent 80%);
+        }
 
-    /* ======================== Reusable ======================== */
-    .container { max-width: 1240px; margin: 0 auto; padding: 0 24px; }
+        .bg-orb {
+            position: fixed;
+            border-radius: 50%;
+            filter: blur(80px);
+            opacity: 0.55;
+            z-index: -1;
+            pointer-events: none;
+            animation: float-orb 18s ease-in-out infinite;
+        }
 
-    .badge-pill {
-      display: inline-flex; align-items: center; gap: 8px;
-      padding: 8px 16px;
-      background: var(--glass-strong);
-      border: 1px solid var(--glass-border);
-      border-radius: 999px;
-      font-size: 0.85rem; font-weight: 600;
-      color: var(--slate-100);
-      backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
-    }
-    .badge-pill .dot {
-      width: 7px; height: 7px; border-radius: 50%;
-      background: var(--success); box-shadow: 0 0 12px var(--success);
-      animation: pulse-dot 2s infinite;
-    }
-    @keyframes pulse-dot {
-      0%, 100% { opacity: 1; transform: scale(1); }
-      50% { opacity: 0.6; transform: scale(1.3); }
-    }
+        .orb-1 {
+            width: 420px;
+            height: 420px;
+            background: #2563EB;
+            top: -120px;
+            right: -120px;
+        }
 
-    .gradient-text {
-      background: var(--grad);
-      -webkit-background-clip: text; background-clip: text;
-      -webkit-text-fill-color: transparent; color: transparent;
-    }
+        .orb-2 {
+            width: 520px;
+            height: 520px;
+            background: #7C3AED;
+            bottom: -160px;
+            left: -160px;
+            animation-delay: -6s;
+        }
 
-    .btn {
-      display: inline-flex; align-items: center; justify-content: center; gap: 10px;
-      padding: 16px 28px;
-      border-radius: 14px;
-      font-family: 'Heebo', sans-serif;
-      font-size: 1rem; font-weight: 700;
-      cursor: pointer; text-decoration: none;
-      transition: transform .3s ease, box-shadow .3s ease, background .3s ease;
-      border: none; white-space: nowrap;
-    }
-    .btn-primary {
-      background: var(--grad);
-      color: #fff;
-      box-shadow: 0 10px 30px rgba(37,99,235,0.45), 0 0 0 1px rgba(255,255,255,0.08) inset;
-    }
-    .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 14px 40px rgba(124,58,237,0.55); }
-    .btn-ghost {
-      background: var(--glass-strong);
-      color: var(--light);
-      border: 1px solid var(--glass-border);
-      backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
-    }
-    .btn-ghost:hover { background: rgba(255,255,255,0.12); transform: translateY(-2px); }
+        .orb-3 {
+            width: 320px;
+            height: 320px;
+            background: #06B6D4;
+            top: 40%;
+            left: 60%;
+            animation-delay: -12s;
+        }
 
-    /* ======================== Nav ======================== */
-    .nav {
-      position: sticky; top: 0; z-index: 50;
-      backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px);
-      background: rgba(11,17,36,0.65);
-      border-bottom: 1px solid var(--glass-border);
-    }
-    .nav-inner {
-      max-width: 1240px; margin: 0 auto; padding: 14px 24px;
-      display: flex; justify-content: space-between; align-items: center; gap: 16px;
-    }
-    .nav-logo {
-      display: flex; align-items: center; gap: 10px;
-      font-weight: 800; font-size: 1.05rem; color: var(--light);
-      text-decoration: none;
-    }
-    .nav-logo .logo-mark {
-      width: 36px; height: 36px; border-radius: 10px;
-      background: var(--grad);
-      display: flex; align-items: center; justify-content: center;
-      color: #fff; font-size: 1rem; box-shadow: var(--glow-blue);
-    }
-    .nav-links { display: flex; gap: 24px; align-items: center; }
-    .nav-links a {
-      color: var(--slate-300); text-decoration: none; font-weight: 500; font-size: 0.95rem;
-      transition: color .2s;
-    }
-    .nav-links a:hover { color: var(--light); }
-    .nav-cta { padding: 10px 18px; font-size: 0.9rem; }
-    @media (max-width: 768px) {
-      .nav-links a:not(.nav-cta) { display: none; }
-    }
+        @keyframes float-orb {
 
-    /* ======================== Hero ======================== */
-    .hero {
-      padding: 80px 0 100px;
-      position: relative; overflow: hidden;
-    }
-    .hero-grid {
-      display: grid;
-      grid-template-columns: 1.05fr 1fr;
-      gap: 60px;
-      align-items: center;
-    }
-    .hero-content { display: flex; flex-direction: column; gap: 24px; }
-    .hero h1 {
-      font-size: clamp(2.1rem, 4.4vw, 3.7rem);
-      line-height: 1.1; font-weight: 900;
-      letter-spacing: -0.025em;
-    }
-    .hero p.lead {
-      font-size: clamp(1.05rem, 1.4vw, 1.25rem);
-      color: var(--slate-300);
-      max-width: 580px;
-      line-height: 1.75;
-    }
-    .hero-ctas { display: flex; gap: 14px; flex-wrap: wrap; margin-top: 6px; }
-    .trust-bar {
-      display: flex; flex-wrap: wrap; gap: 22px 32px;
-      margin-top: 22px;
-      padding-top: 22px;
-      border-top: 1px solid var(--glass-border);
-    }
-    .trust-bar span {
-      display: inline-flex; align-items: center; gap: 8px;
-      color: var(--slate-300); font-size: 0.92rem; font-weight: 600;
-    }
-    .trust-bar i { color: var(--accent); }
+            0%,
+            100% {
+                transform: translate(0, 0) scale(1);
+            }
 
-    /* ----- Hero Visual: Floating Dashboard Composition ----- */
-    .hero-visual {
-      position: relative; height: 560px;
-    }
-    .floater {
-      position: absolute;
-      background: linear-gradient(180deg, rgba(15,23,42,0.85), rgba(11,17,36,0.7));
-      border: 1px solid var(--glass-border);
-      border-radius: var(--radius);
-      backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px);
-      box-shadow: 0 20px 60px rgba(0,0,0,0.5), inset 0 1px 0 rgba(255,255,255,0.05);
-      animation: floaty 6s ease-in-out infinite;
-    }
-    @keyframes floaty {
-      0%, 100% { transform: translateY(0); }
-      50% { transform: translateY(-10px); }
-    }
+            50% {
+                transform: translate(30px, -40px) scale(1.06);
+            }
+        }
 
-    /* Big dashboard card */
-    .hero-dashboard {
-      top: 30px; right: 4%; width: 78%; padding: 22px;
-      animation-delay: 0s;
-    }
-    .hero-dashboard .row {
-      display: flex; justify-content: space-between; align-items: center;
-      margin-bottom: 18px;
-    }
-    .hero-dashboard .row .ttl { font-weight: 700; font-size: 0.95rem; }
-    .hero-dashboard .row .dots { display: flex; gap: 6px; }
-    .hero-dashboard .dot { width: 9px; height: 9px; border-radius: 50%; background: rgba(255,255,255,0.15); }
-    .hero-dashboard .dot:first-child { background: #ef4444; }
-    .hero-dashboard .dot:nth-child(2) { background: #f59e0b; }
-    .hero-dashboard .dot:nth-child(3) { background: #10b981; }
+        /* ======================== Reusable ======================== */
+        .container {
+            max-width: 1240px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
 
-    .kpi-row { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin-bottom: 18px; }
-    .kpi-mini {
-      background: var(--glass);
-      border: 1px solid var(--glass-border);
-      border-radius: 12px;
-      padding: 12px 14px;
-    }
-    .kpi-mini .lbl { font-size: 0.72rem; color: var(--slate-400); font-weight: 600; }
-    .kpi-mini .val { font-size: 1.4rem; font-weight: 800; color: var(--light); margin-top: 4px; font-family: 'Heebo'; }
-    .kpi-mini .delta { font-size: 0.72rem; color: var(--success); font-weight: 700; margin-top: 2px; }
-    .kpi-mini .delta.neg { color: #f87171; }
+        .badge-pill {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 8px 16px;
+            background: var(--glass-strong);
+            border: 1px solid var(--glass-border);
+            border-radius: 999px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: var(--slate-100);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+        }
 
-    .chart-svg { width: 100%; height: 130px; display: block; }
-    .chart-svg path.area { fill: url(#areaGrad); opacity: 0.6; }
-    .chart-svg path.line { fill: none; stroke: url(#lineGrad); stroke-width: 2.5; }
-    .chart-svg .gridline { stroke: rgba(148,163,184,0.10); stroke-width: 1; }
+        .badge-pill .dot {
+            width: 7px;
+            height: 7px;
+            border-radius: 50%;
+            background: var(--success);
+            box-shadow: 0 0 12px var(--success);
+            animation: pulse-dot 2s infinite;
+        }
 
-    /* Floating KPI widgets */
-    .float-kpi {
-      width: 195px; padding: 14px 16px;
-    }
-    .float-kpi .lbl { font-size: 0.72rem; color: var(--slate-400); font-weight: 600; text-transform: uppercase; letter-spacing: 0.5px; }
-    .float-kpi .val { font-size: 1.7rem; font-weight: 900; font-family: 'Heebo'; margin: 4px 0; }
-    .float-kpi .spark { width: 100%; height: 36px; }
+        @keyframes pulse-dot {
 
-    .float-kpi.a { top: 0; left: -10px; animation-delay: -2s; }
-    .float-kpi.a .val { background: var(--grad); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; }
-    .float-kpi.b { bottom: 50px; right: -20px; animation-delay: -4s; }
-    .float-kpi.b .val { color: var(--accent); }
+            0%,
+            100% {
+                opacity: 1;
+                transform: scale(1);
+            }
 
-    /* Floating Gemini assistant panel */
-    .gemini-panel {
-      bottom: -10px; left: -10px; width: 290px;
-      padding: 16px 18px;
-      animation-delay: -3s;
-    }
-    .gemini-panel .gp-head {
-      display: flex; align-items: center; gap: 10px; margin-bottom: 10px;
-    }
-    .gp-avatar {
-      width: 32px; height: 32px; border-radius: 9px;
-      background: linear-gradient(135deg, #4285F4 0%, #9B72CB 50%, #D96570 100%);
-      display: flex; align-items: center; justify-content: center;
-      color: #fff; font-size: 0.95rem; font-weight: 800;
-      box-shadow: 0 0 20px rgba(155,114,203,0.5);
-    }
-    .gp-name { font-weight: 800; font-size: 0.9rem; }
-    .gp-sub { font-size: 0.7rem; color: var(--slate-400); }
-    .gp-msg {
-      background: rgba(124,58,237,0.12);
-      border: 1px solid rgba(124,58,237,0.25);
-      border-radius: 10px; padding: 10px 12px;
-      font-size: 0.85rem; color: var(--slate-100);
-      line-height: 1.5;
-    }
-    .gp-typing { display: inline-flex; gap: 3px; margin-right: 6px; }
-    .gp-typing span {
-      width: 5px; height: 5px; border-radius: 50%; background: var(--secondary);
-      animation: typing 1.4s infinite;
-    }
-    .gp-typing span:nth-child(2) { animation-delay: 0.2s; }
-    .gp-typing span:nth-child(3) { animation-delay: 0.4s; }
-    @keyframes typing {
-      0%, 60%, 100% { opacity: 0.3; transform: translateY(0); }
-      30% { opacity: 1; transform: translateY(-3px); }
-    }
+            50% {
+                opacity: 0.6;
+                transform: scale(1.3);
+            }
+        }
 
-    @media (max-width: 980px) {
-      .hero-grid { grid-template-columns: 1fr; gap: 60px; }
-      .hero-visual { height: 460px; max-width: 560px; margin: 0 auto; }
-    }
-    @media (max-width: 560px) {
-      .hero { padding: 50px 0 60px; }
-      .hero-visual { height: 420px; }
-      .hero-dashboard { padding: 16px; }
-      .float-kpi { width: 165px; }
-      .gemini-panel { width: 250px; }
-      .kpi-row { gap: 8px; }
-      .kpi-mini { padding: 9px 10px; }
-      .kpi-mini .val { font-size: 1.1rem; }
-    }
+        .gradient-text {
+            background: var(--grad);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            color: transparent;
+        }
 
-    /* ======================== Section base ======================== */
-    section.block {
-      padding: 100px 0;
-      position: relative;
-    }
-    .section-head {
-      text-align: center; max-width: 760px; margin: 0 auto 60px;
-      display: flex; flex-direction: column; gap: 14px; align-items: center;
-    }
-    .section-head h2 {
-      font-size: clamp(1.8rem, 3.4vw, 2.8rem);
-      font-weight: 900; line-height: 1.2;
-    }
-    .section-head p {
-      color: var(--slate-300); font-size: 1.05rem;
-    }
-    .section-eyebrow {
-      font-size: 0.78rem; font-weight: 800; letter-spacing: 2px;
-      text-transform: uppercase;
-      background: var(--grad);
-      -webkit-background-clip: text; background-clip: text;
-      -webkit-text-fill-color: transparent;
-    }
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            padding: 16px 28px;
+            border-radius: 14px;
+            font-family: 'Heebo', sans-serif;
+            font-size: 1rem;
+            font-weight: 700;
+            cursor: pointer;
+            text-decoration: none;
+            transition: transform .3s ease, box-shadow .3s ease, background .3s ease;
+            border: none;
+            white-space: nowrap;
+        }
 
-    .glass-card {
-      background: var(--glass-strong);
-      border: 1px solid var(--glass-border);
-      border-radius: var(--radius);
-      padding: 28px;
-      backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px);
-      transition: transform .35s ease, box-shadow .35s ease, border-color .35s ease;
-    }
-    .glass-card:hover {
-      transform: translateY(-6px);
-      box-shadow: 0 20px 50px rgba(0,0,0,0.4), 0 0 0 1px rgba(255,255,255,0.06) inset;
-      border-color: rgba(124,58,237,0.35);
-    }
-    .card-icon {
-      width: 50px; height: 50px; border-radius: 14px;
-      display: inline-flex; align-items: center; justify-content: center;
-      font-size: 1.25rem; margin-bottom: 18px;
-      background: var(--grad-soft);
-      border: 1px solid var(--glass-border);
-    }
-    .card-icon.blue { color: #60a5fa; box-shadow: var(--glow-blue); }
-    .card-icon.purple { color: #c4b5fd; box-shadow: var(--glow-purple); }
-    .card-icon.cyan { color: #67e8f9; box-shadow: var(--glow-cyan); }
-    .card-icon.green { color: #6ee7b7; }
-    .card-icon.red { color: #fca5a5; }
-    .card-icon.amber { color: #fcd34d; }
+        .btn-primary {
+            background: var(--grad);
+            color: #fff;
+            box-shadow: 0 10px 30px rgba(37, 99, 235, 0.45), 0 0 0 1px rgba(255, 255, 255, 0.08) inset;
+        }
 
-    /* ======================== Problem section ======================== */
-    .pain-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 22px;
-    }
-    .pain-card h4 { font-size: 1.1rem; font-weight: 800; margin-bottom: 8px; }
-    .pain-card p { color: var(--slate-300); font-size: 0.95rem; }
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 14px 40px rgba(124, 58, 237, 0.55);
+        }
 
-    .closing-statement {
-      margin-top: 56px; text-align: center;
-      font-size: clamp(1.4rem, 2.8vw, 2.2rem);
-      font-weight: 900; line-height: 1.3;
-    }
+        .btn-ghost {
+            background: var(--glass-strong);
+            color: var(--light);
+            border: 1px solid var(--glass-border);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+        }
 
-    @media (max-width: 880px) { .pain-grid { grid-template-columns: 1fr 1fr; } }
-    @media (max-width: 560px) { .pain-grid { grid-template-columns: 1fr; } }
+        .btn-ghost:hover {
+            background: rgba(255, 255, 255, 0.12);
+            transform: translateY(-2px);
+        }
 
-    /* ======================== What you build ======================== */
-    .build-grid {
-      display: grid;
-      grid-template-columns: 1.05fr 0.95fr;
-      gap: 50px; align-items: center;
-    }
-    .build-features {
-      display: grid; grid-template-columns: 1fr 1fr; gap: 14px 22px;
-    }
-    .feat-item {
-      display: flex; align-items: flex-start; gap: 12px;
-      padding: 14px 16px;
-      background: var(--glass);
-      border: 1px solid var(--glass-border);
-      border-radius: 12px;
-      transition: background .25s, transform .25s;
-    }
-    .feat-item:hover { background: var(--glass-strong); transform: translateY(-2px); }
-    .feat-item .ic {
-      width: 32px; height: 32px; border-radius: 9px;
-      background: var(--grad-soft);
-      display: flex; align-items: center; justify-content: center;
-      color: var(--accent); flex-shrink: 0; font-size: 0.85rem;
-      border: 1px solid var(--glass-border);
-    }
-    .feat-item span.txt { font-size: 0.95rem; color: var(--slate-100); font-weight: 600; line-height: 1.4; }
+        /* ======================== Nav ======================== */
+        .nav {
+            position: sticky;
+            top: 0;
+            z-index: 50;
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            background: rgba(11, 17, 36, 0.65);
+            border-bottom: 1px solid var(--glass-border);
+        }
 
-    /* Big dashboard mockup */
-    .big-mockup {
-      position: relative;
-      background: linear-gradient(180deg, rgba(15,23,42,0.95), rgba(11,17,36,0.85));
-      border: 1px solid var(--glass-border);
-      border-radius: var(--radius-lg);
-      padding: 24px;
-      box-shadow: 0 30px 90px rgba(0,0,0,0.55), inset 0 1px 0 rgba(255,255,255,0.06);
-      overflow: hidden;
-    }
-    .big-mockup::before {
-      content: ''; position: absolute; inset: -1px;
-      border-radius: var(--radius-lg);
-      padding: 1px;
-      background: var(--grad);
-      -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-      mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-      -webkit-mask-composite: xor; mask-composite: exclude;
-      opacity: 0.35; pointer-events: none;
-    }
-    .mockup-head {
-      display: flex; justify-content: space-between; align-items: center;
-      margin-bottom: 16px;
-    }
-    .mockup-tabs { display: flex; gap: 6px; }
-    .mockup-tab {
-      padding: 6px 12px; border-radius: 8px; font-size: 0.78rem;
-      background: rgba(255,255,255,0.04); color: var(--slate-400); font-weight: 600;
-    }
-    .mockup-tab.active { background: var(--grad); color: #fff; }
-    .mockup-kpis {
-      display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px;
-      margin-bottom: 16px;
-    }
-    .mockup-chart-wrap {
-      background: rgba(255,255,255,0.03);
-      border: 1px solid var(--glass-border);
-      border-radius: 14px;
-      padding: 14px;
-    }
-    .mockup-controls {
-      display: flex; gap: 8px; margin-top: 14px; flex-wrap: wrap;
-    }
-    .mockup-controls .pill {
-      padding: 6px 12px; border-radius: 999px; font-size: 0.75rem;
-      background: rgba(124,58,237,0.15); border: 1px solid rgba(124,58,237,0.3);
-      color: #c4b5fd; font-weight: 600;
-    }
-    .mockup-controls .pill.alt {
-      background: rgba(6,182,212,0.12); border-color: rgba(6,182,212,0.3); color: #67e8f9;
-    }
+        .nav-inner {
+            max-width: 1240px;
+            margin: 0 auto;
+            padding: 14px 24px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 16px;
+        }
 
-    @media (max-width: 980px) {
-      .build-grid { grid-template-columns: 1fr; }
-      .build-features { grid-template-columns: 1fr; }
-    }
+        .nav-logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-weight: 800;
+            font-size: 1.05rem;
+            color: var(--light);
+            text-decoration: none;
+        }
 
-    /* ======================== How it works timeline ======================== */
-    .timeline {
-      position: relative;
-      display: grid; grid-template-columns: repeat(3, 1fr);
-      gap: 28px;
-    }
-    .timeline::before {
-      content: ''; position: absolute;
-      top: 36px; right: 6%; left: 6%; height: 2px;
-      background: linear-gradient(90deg, transparent, rgba(124,58,237,0.45), rgba(37,99,235,0.45), rgba(6,182,212,0.45), transparent);
-    }
-    .tl-step {
-      position: relative;
-      text-align: center;
-      padding: 24px 18px;
-    }
-    .tl-num {
-      width: 72px; height: 72px; border-radius: 50%;
-      margin: 0 auto 18px;
-      display: flex; align-items: center; justify-content: center;
-      font-family: 'Heebo'; font-weight: 900; font-size: 1.4rem;
-      background: linear-gradient(135deg, rgba(11,17,36,1), rgba(15,23,42,1));
-      border: 2px solid transparent;
-      background-clip: padding-box;
-      position: relative;
-      box-shadow: 0 8px 30px rgba(0,0,0,0.4);
-    }
-    .tl-num::before {
-      content: ''; position: absolute; inset: -2px; border-radius: 50%;
-      background: var(--grad);
-      z-index: -1;
-    }
-    .tl-num i {
-      background: var(--grad); -webkit-background-clip: text; background-clip: text;
-      -webkit-text-fill-color: transparent;
-    }
-    .tl-step h4 { font-size: 1.1rem; font-weight: 800; margin-bottom: 8px; }
-    .tl-step p { color: var(--slate-300); font-size: 0.92rem; }
-    @media (max-width: 880px) {
-      .timeline { grid-template-columns: 1fr 1fr; }
-      .timeline::before { display: none; }
-    }
-    @media (max-width: 560px) { .timeline { grid-template-columns: 1fr; } }
+        .nav-logo .logo-mark {
+            width: 36px;
+            height: 36px;
+            border-radius: 10px;
+            background: var(--grad);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #fff;
+            font-size: 1rem;
+            box-shadow: var(--glow-blue);
+        }
 
-    /* ======================== Live examples ======================== */
-    .examples-grid {
-      display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px;
-    }
-    .ex-card {
-      position: relative; overflow: hidden;
-      padding: 0;
-    }
-    .ex-thumb {
-      height: 220px; padding: 18px;
-      display: flex; flex-direction: column; gap: 10px;
-      background: linear-gradient(180deg, rgba(15,23,42,0.6), rgba(11,17,36,0.3));
-      border-bottom: 1px solid var(--glass-border);
-    }
-    .ex-body { padding: 18px 22px 22px; }
-    .ex-body h4 { font-size: 1.05rem; font-weight: 800; margin-bottom: 6px; }
-    .ex-body p { color: var(--slate-400); font-size: 0.88rem; }
-    @media (max-width: 880px) { .examples-grid { grid-template-columns: 1fr 1fr; } }
-    @media (max-width: 560px) { .examples-grid { grid-template-columns: 1fr; } }
+        .nav-links {
+            display: flex;
+            gap: 24px;
+            align-items: center;
+        }
 
-    /* Mini sheet/grid mockup */
-    .mini-sheet {
-      flex: 1; display: grid;
-      grid-template-columns: repeat(5, 1fr); gap: 2px;
-      background: rgba(148,163,184,0.1);
-      border-radius: 6px; overflow: hidden;
-      padding: 2px;
-    }
-    .mini-sheet .c {
-      background: rgba(15,23,42,0.85);
-      padding: 4px 6px;
-      font-size: 0.65rem; color: var(--slate-300);
-      text-align: right;
-    }
-    .mini-sheet .c.h { background: rgba(37,99,235,0.25); color: #93c5fd; font-weight: 700; }
-    .mini-sheet .c.hl { background: rgba(124,58,237,0.2); color: #c4b5fd; font-weight: 700; }
+        .nav-links a {
+            color: var(--slate-300);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.95rem;
+            transition: color .2s;
+        }
 
-    .mini-chart-wrap {
-      flex: 1; background: rgba(15,23,42,0.55);
-      border: 1px solid var(--glass-border);
-      border-radius: 8px; padding: 8px;
-    }
+        .nav-links a:hover {
+            color: var(--light);
+        }
 
-    .mini-kpi-grid {
-      flex: 1; display: grid;
-      grid-template-columns: 1fr 1fr; gap: 6px;
-    }
-    .mini-kpi-grid .b {
-      background: rgba(15,23,42,0.6);
-      border-radius: 8px; padding: 8px 10px;
-      border: 1px solid var(--glass-border);
-    }
-    .mini-kpi-grid .b .l { font-size: 0.6rem; color: var(--slate-400); }
-    .mini-kpi-grid .b .v { font-size: 0.95rem; font-weight: 800; }
+        .nav-cta {
+            padding: 10px 18px;
+            font-size: 0.9rem;
+        }
 
-    /* ======================== Who is this for ======================== */
-    .audience-grid {
-      display: grid; grid-template-columns: repeat(4, 1fr); gap: 18px;
-    }
-    .aud-card {
-      text-align: center; padding: 26px 18px;
-    }
-    .aud-card .ic {
-      width: 56px; height: 56px; border-radius: 14px;
-      margin: 0 auto 14px;
-      display: flex; align-items: center; justify-content: center;
-      font-size: 1.4rem;
-      background: var(--grad-soft);
-      border: 1px solid var(--glass-border);
-      color: var(--accent);
-    }
-    .aud-card h4 { font-size: 1rem; font-weight: 800; }
-    @media (max-width: 880px) { .audience-grid { grid-template-columns: repeat(2, 1fr); } }
-    @media (max-width: 380px) { .audience-grid { grid-template-columns: 1fr; } }
+        @media (max-width: 768px) {
+            .nav-links a:not(.nav-cta) {
+                display: none;
+            }
+        }
 
-    /* ======================== What they get ======================== */
-    .get-grid {
-      display: grid; grid-template-columns: repeat(4, 1fr); gap: 18px;
-    }
-    .get-card h4 { font-size: 1.02rem; font-weight: 800; margin-bottom: 6px; }
-    .get-card p { color: var(--slate-300); font-size: 0.88rem; }
-    @media (max-width: 980px) { .get-grid { grid-template-columns: repeat(2, 1fr); } }
-    @media (max-width: 480px) { .get-grid { grid-template-columns: 1fr; } }
+        /* ======================== Hero ======================== */
+        .hero {
+            padding: 80px 0 100px;
+            position: relative;
+            overflow: hidden;
+        }
 
-    /* ======================== About Sagi ======================== */
-    .about-card {
-      display: grid;
-      grid-template-columns: 280px 1fr;
-      gap: 40px;
-      align-items: center;
-      padding: 40px;
-    }
-    .about-video {
-      margin-top: 36px;
-      max-width: 880px;
-      margin-left: auto;
-      margin-right: auto;
-    }
-    .about-video h4 {
-      font-size: 1rem;
-      font-weight: 700;
-      color: var(--slate-100);
-      margin-bottom: 14px;
-      display: flex; align-items: center; gap: 10px;
-    }
-    .about-video h4 i {
-      background: var(--grad);
-      -webkit-background-clip: text; background-clip: text;
-      -webkit-text-fill-color: transparent;
-    }
-    .video-wrap {
-      position: relative;
-      padding-bottom: 56.25%;
-      height: 0;
-      border-radius: var(--radius);
-      overflow: hidden;
-      border: 1px solid var(--glass-border);
-      box-shadow: 0 30px 80px rgba(0,0,0,0.5), 0 0 0 1px rgba(255,255,255,0.04) inset;
-      background: #000;
-    }
-    .video-wrap iframe {
-      position: absolute; inset: 0;
-      width: 100%; height: 100%;
-      border: none;
-    }
-    .about-photo-wrap {
-      position: relative;
-      width: 240px; height: 240px;
-      margin: 0 auto;
-    }
-    .about-photo {
-      width: 100%; height: 100%; border-radius: 50%;
-      object-fit: cover;
-      border: 3px solid transparent;
-      background:
-        linear-gradient(#0F172A,#0F172A) padding-box,
-        var(--grad) border-box;
-      box-shadow: 0 20px 60px rgba(37,99,235,0.4);
-      position: relative; z-index: 2;
-    }
-    .about-photo-wrap::after {
-      content: ''; position: absolute; inset: -16px;
-      border-radius: 50%;
-      background: var(--grad);
-      filter: blur(40px); opacity: 0.45;
-      z-index: 1;
-    }
-    .about-content h3 { font-size: 1.6rem; font-weight: 900; margin-bottom: 8px; }
-    .about-content .role { color: var(--accent); font-weight: 700; margin-bottom: 16px; font-size: 1rem; }
-    .about-content p { color: var(--slate-300); font-size: 1rem; line-height: 1.8; margin-bottom: 16px; }
-    .about-tags {
-      display: flex; flex-wrap: wrap; gap: 10px;
-    }
-    .about-tag {
-      padding: 8px 16px; border-radius: 999px; font-size: 0.85rem; font-weight: 600;
-      background: var(--glass);
-      border: 1px solid var(--glass-border);
-      color: var(--slate-100);
-    }
-    @media (max-width: 780px) {
-      .about-card { grid-template-columns: 1fr; text-align: center; padding: 28px; }
-      .about-tags { justify-content: center; }
-    }
+        .hero-grid {
+            display: grid;
+            grid-template-columns: 1.05fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
 
-    /* ======================== Final CTA ======================== */
-    .final-cta {
-      position: relative;
-      text-align: center;
-      padding: 80px 32px;
-      background: linear-gradient(180deg, rgba(11,17,36,0.6), rgba(15,23,42,0.9));
-      border: 1px solid var(--glass-border);
-      border-radius: var(--radius-lg);
-      overflow: hidden;
-    }
-    .final-cta::before {
-      content: ''; position: absolute; inset: 0;
-      background:
-        radial-gradient(500px 300px at 30% 20%, rgba(37,99,235,0.35), transparent 60%),
-        radial-gradient(400px 300px at 80% 80%, rgba(124,58,237,0.35), transparent 60%);
-      pointer-events: none;
-    }
-    .final-cta > * { position: relative; z-index: 1; }
-    .final-cta h2 { font-size: clamp(1.8rem, 3.8vw, 3rem); font-weight: 900; margin-bottom: 14px; }
-    .final-cta p { color: var(--slate-300); font-size: 1.1rem; max-width: 560px; margin: 0 auto 30px; }
-    .final-cta .btn { padding: 20px 40px; font-size: 1.1rem; }
+        .hero-content {
+            display: flex;
+            flex-direction: column;
+            gap: 24px;
+        }
 
-    /* ======================== FAQ ======================== */
-    .faq-list { max-width: 820px; margin: 0 auto; display: flex; flex-direction: column; gap: 12px; }
-    .faq-item {
-      background: var(--glass-strong);
-      border: 1px solid var(--glass-border);
-      border-radius: 14px;
-      overflow: hidden;
-      transition: border-color .25s;
-    }
-    .faq-item[open] { border-color: rgba(124,58,237,0.4); }
-    .faq-item summary {
-      list-style: none;
-      cursor: pointer;
-      padding: 20px 24px;
-      display: flex; justify-content: space-between; align-items: center; gap: 16px;
-      font-weight: 700; font-size: 1.02rem;
-      transition: color .2s;
-    }
-    .faq-item summary::-webkit-details-marker { display: none; }
-    .faq-item summary::after {
-      content: '+';
-      width: 30px; height: 30px; border-radius: 50%;
-      display: flex; align-items: center; justify-content: center;
-      background: var(--glass);
-      border: 1px solid var(--glass-border);
-      font-weight: 400; font-size: 1.3rem;
-      transition: transform .3s, background .3s;
-      flex-shrink: 0;
-    }
-    .faq-item[open] summary::after { transform: rotate(45deg); background: var(--grad); border-color: transparent; }
-    .faq-item .faq-body {
-      padding: 0 24px 22px;
-      color: var(--slate-300);
-      line-height: 1.75;
-    }
+        .hero h1 {
+            font-size: clamp(2.1rem, 4.4vw, 3.7rem);
+            line-height: 1.1;
+            font-weight: 900;
+            letter-spacing: -0.025em;
+        }
 
-    /* ======================== Footer ======================== */
-    footer {
-      padding: 50px 0 30px;
-      border-top: 1px solid var(--glass-border);
-      background: rgba(6,10,26,0.6);
-    }
-    .footer-inner {
-      max-width: 1240px; margin: 0 auto; padding: 0 24px;
-      display: flex; justify-content: space-between; align-items: center; gap: 20px;
-      flex-wrap: wrap;
-    }
-    .footer-brand { display: flex; align-items: center; gap: 12px; }
-    .footer-brand .logo-mark { width: 36px; height: 36px; border-radius: 10px; background: var(--grad); display: flex; align-items: center; justify-content: center; color: #fff; font-weight: 800; }
-    .footer-brand .meta { display: flex; flex-direction: column; }
-    .footer-brand .meta strong { font-weight: 800; color: var(--light); }
-    .footer-brand .meta span { font-size: 0.82rem; color: var(--slate-400); }
-    .footer-links { display: flex; gap: 20px; align-items: center; }
-    .footer-links a {
-      width: 40px; height: 40px; border-radius: 10px;
-      background: var(--glass-strong);
-      border: 1px solid var(--glass-border);
-      display: flex; align-items: center; justify-content: center;
-      color: var(--slate-100); text-decoration: none;
-      transition: all .25s;
-    }
-    .footer-links a:hover { color: var(--accent); transform: translateY(-3px); border-color: rgba(6,182,212,0.4); }
-    .footer-copy { width: 100%; text-align: center; margin-top: 20px; color: var(--slate-500); font-size: 0.82rem; }
+        .hero p.lead {
+            font-size: clamp(1.05rem, 1.4vw, 1.25rem);
+            color: var(--slate-300);
+            max-width: 580px;
+            line-height: 1.75;
+        }
 
-    /* ======================== WhatsApp float ======================== */
-    .wa-float {
-      position: fixed; bottom: 24px; left: 24px;
-      width: 60px; height: 60px; border-radius: 50%;
-      background: #25D366;
-      display: flex; align-items: center; justify-content: center;
-      color: #fff; font-size: 1.8rem;
-      box-shadow: 0 10px 30px rgba(37,211,102,0.5);
-      text-decoration: none;
-      z-index: 80;
-      transition: transform .25s;
-    }
-    .wa-float:hover { transform: scale(1.08); }
-    .wa-float::before {
-      content: ''; position: absolute; inset: 0; border-radius: 50%;
-      box-shadow: 0 0 0 0 rgba(37,211,102,0.6);
-      animation: wa-pulse 2.2s infinite;
-    }
-    @keyframes wa-pulse {
-      0% { box-shadow: 0 0 0 0 rgba(37,211,102,0.6); }
-      100% { box-shadow: 0 0 0 24px rgba(37,211,102,0); }
-    }
+        .hero-ctas {
+            display: flex;
+            gap: 14px;
+            flex-wrap: wrap;
+            margin-top: 6px;
+        }
 
-    /* ======================== Reveal ======================== */
-    .reveal { opacity: 0; transform: translateY(24px); transition: opacity .8s ease, transform .8s ease; }
-    .reveal.is-visible { opacity: 1; transform: none; }
+        .trust-bar {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 22px 32px;
+            margin-top: 22px;
+            padding-top: 22px;
+            border-top: 1px solid var(--glass-border);
+        }
 
-    @media (prefers-reduced-motion: reduce) {
-      *, *::before, *::after {
-        animation-duration: 0.001s !important;
-        animation-iteration-count: 1 !important;
-        transition-duration: 0.001s !important;
-      }
-      .reveal { opacity: 1; transform: none; }
-    }
-  </style>
+        .trust-bar span {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            color: var(--slate-300);
+            font-size: 0.92rem;
+            font-weight: 600;
+        }
+
+        .trust-bar i {
+            color: var(--accent);
+        }
+
+        /* ----- Hero Visual: Photo composition with live overlay ----- */
+        .hero-visual {
+            position: relative;
+            height: 560px;
+        }
+
+        .hero-photo-frame {
+            position: absolute;
+            inset: 0;
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            border: 1px solid var(--glass-border);
+            box-shadow: 0 30px 100px rgba(0, 0, 0, 0.6), 0 0 0 1px rgba(255, 255, 255, 0.06) inset;
+        }
+
+        .hero-photo-frame::before {
+            content: '';
+            position: absolute;
+            inset: -1px;
+            border-radius: var(--radius-lg);
+            padding: 1px;
+            background: var(--grad);
+            -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+            mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+            -webkit-mask-composite: xor;
+            mask-composite: exclude;
+            opacity: 0.6;
+            pointer-events: none;
+            z-index: 2;
+        }
+
+        .hero-photo-frame img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        .hero-photo-frame::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(180deg, transparent 50%, rgba(11, 17, 36, 0.45) 100%);
+            pointer-events: none;
+        }
+
+        .live-pill {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            z-index: 3;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 8px 14px;
+            background: rgba(11, 17, 36, 0.78);
+            border: 1px solid var(--glass-border);
+            border-radius: 999px;
+            font-size: 0.82rem;
+            font-weight: 700;
+            color: var(--light);
+            backdrop-filter: blur(14px);
+            -webkit-backdrop-filter: blur(14px);
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
+        }
+
+        .live-pill .pulse {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: var(--success);
+            box-shadow: 0 0 12px var(--success);
+            animation: pulse-dot 1.8s infinite;
+        }
+
+        .floater {
+            position: absolute;
+            background: linear-gradient(180deg, rgba(15, 23, 42, 0.85), rgba(11, 17, 36, 0.7));
+            border: 1px solid var(--glass-border);
+            border-radius: var(--radius);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5), inset 0 1px 0 rgba(255, 255, 255, 0.05);
+            animation: floaty 6s ease-in-out infinite;
+        }
+
+        @keyframes floaty {
+
+            0%,
+            100% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(-10px);
+            }
+        }
+
+        /* Big dashboard card */
+        .hero-dashboard {
+            top: 30px;
+            right: 4%;
+            width: 78%;
+            padding: 22px;
+            animation-delay: 0s;
+        }
+
+        .hero-dashboard .row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 18px;
+        }
+
+        .hero-dashboard .row .ttl {
+            font-weight: 700;
+            font-size: 0.95rem;
+        }
+
+        .hero-dashboard .row .dots {
+            display: flex;
+            gap: 6px;
+        }
+
+        .hero-dashboard .dot {
+            width: 9px;
+            height: 9px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.15);
+        }
+
+        .hero-dashboard .dot:first-child {
+            background: #ef4444;
+        }
+
+        .hero-dashboard .dot:nth-child(2) {
+            background: #f59e0b;
+        }
+
+        .hero-dashboard .dot:nth-child(3) {
+            background: #10b981;
+        }
+
+        .kpi-row {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 12px;
+            margin-bottom: 18px;
+        }
+
+        .kpi-mini {
+            background: var(--glass);
+            border: 1px solid var(--glass-border);
+            border-radius: 12px;
+            padding: 12px 14px;
+        }
+
+        .kpi-mini .lbl {
+            font-size: 0.72rem;
+            color: var(--slate-400);
+            font-weight: 600;
+        }
+
+        .kpi-mini .val {
+            font-size: 1.4rem;
+            font-weight: 800;
+            color: var(--light);
+            margin-top: 4px;
+            font-family: 'Heebo';
+        }
+
+        .kpi-mini .delta {
+            font-size: 0.72rem;
+            color: var(--success);
+            font-weight: 700;
+            margin-top: 2px;
+        }
+
+        .kpi-mini .delta.neg {
+            color: #f87171;
+        }
+
+        .chart-svg {
+            width: 100%;
+            height: 130px;
+            display: block;
+        }
+
+        .chart-svg path.area {
+            fill: url(#areaGrad);
+            opacity: 0.6;
+        }
+
+        .chart-svg path.line {
+            fill: none;
+            stroke: url(#lineGrad);
+            stroke-width: 2.5;
+        }
+
+        .chart-svg .gridline {
+            stroke: rgba(148, 163, 184, 0.10);
+            stroke-width: 1;
+        }
+
+        /* Floating KPI widgets */
+        .float-kpi {
+            width: 195px;
+            padding: 14px 16px;
+        }
+
+        .float-kpi .lbl {
+            font-size: 0.72rem;
+            color: var(--slate-400);
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .float-kpi .val {
+            font-size: 1.7rem;
+            font-weight: 900;
+            font-family: 'Heebo';
+            margin: 4px 0;
+        }
+
+        .float-kpi .spark {
+            width: 100%;
+            height: 36px;
+        }
+
+        .float-kpi.a {
+            top: 0;
+            left: -10px;
+            animation-delay: -2s;
+        }
+
+        .float-kpi.a .val {
+            background: var(--grad);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .float-kpi.b {
+            bottom: 50px;
+            right: -20px;
+            animation-delay: -4s;
+        }
+
+        .float-kpi.b .val {
+            color: var(--accent);
+        }
+
+        /* Floating Gemini assistant panel */
+        .gemini-panel {
+            bottom: -18px;
+            left: -18px;
+            width: 290px;
+            padding: 16px 18px;
+            animation-delay: -3s;
+            z-index: 4;
+        }
+
+        .gemini-panel .gp-head {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 10px;
+        }
+
+        .gp-avatar {
+            width: 32px;
+            height: 32px;
+            border-radius: 9px;
+            background: linear-gradient(135deg, #4285F4 0%, #9B72CB 50%, #D96570 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #fff;
+            font-size: 0.95rem;
+            font-weight: 800;
+            box-shadow: 0 0 20px rgba(155, 114, 203, 0.5);
+        }
+
+        .gp-name {
+            font-weight: 800;
+            font-size: 0.9rem;
+        }
+
+        .gp-sub {
+            font-size: 0.7rem;
+            color: var(--slate-400);
+        }
+
+        .gp-msg {
+            background: rgba(124, 58, 237, 0.12);
+            border: 1px solid rgba(124, 58, 237, 0.25);
+            border-radius: 10px;
+            padding: 10px 12px;
+            font-size: 0.85rem;
+            color: var(--slate-100);
+            line-height: 1.5;
+        }
+
+        .gp-typing {
+            display: inline-flex;
+            gap: 3px;
+            margin-right: 6px;
+        }
+
+        .gp-typing span {
+            width: 5px;
+            height: 5px;
+            border-radius: 50%;
+            background: var(--secondary);
+            animation: typing 1.4s infinite;
+        }
+
+        .gp-typing span:nth-child(2) {
+            animation-delay: 0.2s;
+        }
+
+        .gp-typing span:nth-child(3) {
+            animation-delay: 0.4s;
+        }
+
+        @keyframes typing {
+
+            0%,
+            60%,
+            100% {
+                opacity: 0.3;
+                transform: translateY(0);
+            }
+
+            30% {
+                opacity: 1;
+                transform: translateY(-3px);
+            }
+        }
+
+        @media (max-width: 980px) {
+            .hero-grid {
+                grid-template-columns: 1fr;
+                gap: 60px;
+            }
+
+            .hero-visual {
+                height: 460px;
+                max-width: 560px;
+                margin: 0 auto;
+            }
+        }
+
+        @media (max-width: 560px) {
+            .hero {
+                padding: 50px 0 60px;
+            }
+
+            .hero-visual {
+                height: 420px;
+            }
+
+            .hero-dashboard {
+                padding: 16px;
+            }
+
+            .float-kpi {
+                width: 165px;
+            }
+
+            .gemini-panel {
+                width: 250px;
+            }
+
+            .kpi-row {
+                gap: 8px;
+            }
+
+            .kpi-mini {
+                padding: 9px 10px;
+            }
+
+            .kpi-mini .val {
+                font-size: 1.1rem;
+            }
+        }
+
+        /* ======================== Section base ======================== */
+        section.block {
+            padding: 100px 0;
+            position: relative;
+        }
+
+        .section-head {
+            text-align: center;
+            max-width: 760px;
+            margin: 0 auto 60px;
+            display: flex;
+            flex-direction: column;
+            gap: 14px;
+            align-items: center;
+        }
+
+        .section-head h2 {
+            font-size: clamp(1.8rem, 3.4vw, 2.8rem);
+            font-weight: 900;
+            line-height: 1.2;
+        }
+
+        .section-head p {
+            color: var(--slate-300);
+            font-size: 1.05rem;
+        }
+
+        .section-eyebrow {
+            font-size: 0.78rem;
+            font-weight: 800;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            background: var(--grad);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .glass-card {
+            background: var(--glass-strong);
+            border: 1px solid var(--glass-border);
+            border-radius: var(--radius);
+            padding: 28px;
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            transition: transform .35s ease, box-shadow .35s ease, border-color .35s ease;
+        }
+
+        .glass-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.4), 0 0 0 1px rgba(255, 255, 255, 0.06) inset;
+            border-color: rgba(124, 58, 237, 0.35);
+        }
+
+        .card-icon {
+            width: 50px;
+            height: 50px;
+            border-radius: 14px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.25rem;
+            margin-bottom: 18px;
+            background: var(--grad-soft);
+            border: 1px solid var(--glass-border);
+        }
+
+        .card-icon.blue {
+            color: #60a5fa;
+            box-shadow: var(--glow-blue);
+        }
+
+        .card-icon.purple {
+            color: #c4b5fd;
+            box-shadow: var(--glow-purple);
+        }
+
+        .card-icon.cyan {
+            color: #67e8f9;
+            box-shadow: var(--glow-cyan);
+        }
+
+        .card-icon.green {
+            color: #6ee7b7;
+        }
+
+        .card-icon.red {
+            color: #fca5a5;
+        }
+
+        .card-icon.amber {
+            color: #fcd34d;
+        }
+
+        /* ======================== Problem section ======================== */
+        .pain-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 22px;
+        }
+
+        .pain-card h4 {
+            font-size: 1.1rem;
+            font-weight: 800;
+            margin-bottom: 8px;
+        }
+
+        .pain-card p {
+            color: var(--slate-300);
+            font-size: 0.95rem;
+        }
+
+        .closing-statement {
+            margin-top: 56px;
+            text-align: center;
+            font-size: clamp(1.4rem, 2.8vw, 2.2rem);
+            font-weight: 900;
+            line-height: 1.3;
+        }
+
+        @media (max-width: 880px) {
+            .pain-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        @media (max-width: 560px) {
+            .pain-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* ======================== What you build ======================== */
+        .build-grid {
+            display: grid;
+            grid-template-columns: 1.05fr 0.95fr;
+            gap: 50px;
+            align-items: center;
+        }
+
+        .build-features {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 14px 22px;
+        }
+
+        .feat-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+            padding: 14px 16px;
+            background: var(--glass);
+            border: 1px solid var(--glass-border);
+            border-radius: 12px;
+            transition: background .25s, transform .25s;
+        }
+
+        .feat-item:hover {
+            background: var(--glass-strong);
+            transform: translateY(-2px);
+        }
+
+        .feat-item .ic {
+            width: 32px;
+            height: 32px;
+            border-radius: 9px;
+            background: var(--grad-soft);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--accent);
+            flex-shrink: 0;
+            font-size: 0.85rem;
+            border: 1px solid var(--glass-border);
+        }
+
+        .feat-item span.txt {
+            font-size: 0.95rem;
+            color: var(--slate-100);
+            font-weight: 600;
+            line-height: 1.4;
+        }
+
+        /* Big dashboard mockup - photoreal */
+        .big-mockup {
+            position: relative;
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            border: 1px solid var(--glass-border);
+            box-shadow: 0 30px 90px rgba(0, 0, 0, 0.55), inset 0 1px 0 rgba(255, 255, 255, 0.06);
+            aspect-ratio: 16 / 10;
+            background: #0B1124;
+        }
+
+        .big-mockup img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        .big-mockup-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(180deg, transparent 55%, rgba(11, 17, 36, 0.6) 100%);
+            pointer-events: none;
+        }
+
+        .big-mockup-badge {
+            position: absolute;
+            top: 18px;
+            right: 18px;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 7px 14px;
+            background: rgba(11, 17, 36, 0.78);
+            border: 1px solid var(--glass-border);
+            border-radius: 999px;
+            font-size: 0.78rem;
+            font-weight: 700;
+            color: var(--light);
+            backdrop-filter: blur(14px);
+            -webkit-backdrop-filter: blur(14px);
+        }
+
+        .big-mockup-badge .pulse {
+            width: 7px;
+            height: 7px;
+            border-radius: 50%;
+            background: var(--success);
+            box-shadow: 0 0 12px var(--success);
+            animation: pulse-dot 1.8s infinite;
+        }
+
+        .big-mockup::before {
+            content: '';
+            position: absolute;
+            inset: -1px;
+            border-radius: var(--radius-lg);
+            padding: 1px;
+            background: var(--grad);
+            -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+            mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+            -webkit-mask-composite: xor;
+            mask-composite: exclude;
+            opacity: 0.35;
+            pointer-events: none;
+        }
+
+        .mockup-head {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 16px;
+        }
+
+        .mockup-tabs {
+            display: flex;
+            gap: 6px;
+        }
+
+        .mockup-tab {
+            padding: 6px 12px;
+            border-radius: 8px;
+            font-size: 0.78rem;
+            background: rgba(255, 255, 255, 0.04);
+            color: var(--slate-400);
+            font-weight: 600;
+        }
+
+        .mockup-tab.active {
+            background: var(--grad);
+            color: #fff;
+        }
+
+        .mockup-kpis {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 10px;
+            margin-bottom: 16px;
+        }
+
+        .mockup-chart-wrap {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid var(--glass-border);
+            border-radius: 14px;
+            padding: 14px;
+        }
+
+        .mockup-controls {
+            display: flex;
+            gap: 8px;
+            margin-top: 14px;
+            flex-wrap: wrap;
+        }
+
+        .mockup-controls .pill {
+            padding: 6px 12px;
+            border-radius: 999px;
+            font-size: 0.75rem;
+            background: rgba(124, 58, 237, 0.15);
+            border: 1px solid rgba(124, 58, 237, 0.3);
+            color: #c4b5fd;
+            font-weight: 600;
+        }
+
+        .mockup-controls .pill.alt {
+            background: rgba(6, 182, 212, 0.12);
+            border-color: rgba(6, 182, 212, 0.3);
+            color: #67e8f9;
+        }
+
+        @media (max-width: 980px) {
+            .build-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .build-features {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* ======================== How it works timeline ======================== */
+        .timeline {
+            position: relative;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 28px;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            top: 36px;
+            right: 6%;
+            left: 6%;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, rgba(124, 58, 237, 0.45), rgba(37, 99, 235, 0.45), rgba(6, 182, 212, 0.45), transparent);
+        }
+
+        .tl-step {
+            position: relative;
+            text-align: center;
+            padding: 24px 18px;
+        }
+
+        .tl-num {
+            width: 72px;
+            height: 72px;
+            border-radius: 50%;
+            margin: 0 auto 18px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Heebo';
+            font-weight: 900;
+            font-size: 1.4rem;
+            background: linear-gradient(135deg, rgba(11, 17, 36, 1), rgba(15, 23, 42, 1));
+            border: 2px solid transparent;
+            background-clip: padding-box;
+            position: relative;
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.4);
+        }
+
+        .tl-num::before {
+            content: '';
+            position: absolute;
+            inset: -2px;
+            border-radius: 50%;
+            background: var(--grad);
+            z-index: -1;
+        }
+
+        .tl-num i {
+            background: var(--grad);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .tl-step h4 {
+            font-size: 1.1rem;
+            font-weight: 800;
+            margin-bottom: 8px;
+        }
+
+        .tl-step p {
+            color: var(--slate-300);
+            font-size: 0.92rem;
+        }
+
+        @media (max-width: 880px) {
+            .timeline {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .timeline::before {
+                display: none;
+            }
+        }
+
+        @media (max-width: 560px) {
+            .timeline {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* ======================== Live examples ======================== */
+        .examples-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 22px;
+        }
+
+        .ex-card {
+            position: relative;
+            overflow: hidden;
+            padding: 0;
+        }
+
+        .ex-thumb {
+            height: 220px;
+            padding: 18px;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            background: linear-gradient(180deg, rgba(15, 23, 42, 0.6), rgba(11, 17, 36, 0.3));
+            border-bottom: 1px solid var(--glass-border);
+        }
+
+        .ex-body {
+            padding: 18px 22px 22px;
+        }
+
+        .ex-body h4 {
+            font-size: 1.05rem;
+            font-weight: 800;
+            margin-bottom: 6px;
+        }
+
+        .ex-body p {
+            color: var(--slate-400);
+            font-size: 0.88rem;
+        }
+
+        @media (max-width: 880px) {
+            .examples-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        @media (max-width: 560px) {
+            .examples-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Mini sheet/grid mockup */
+        .mini-sheet {
+            flex: 1;
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 2px;
+            background: rgba(148, 163, 184, 0.1);
+            border-radius: 6px;
+            overflow: hidden;
+            padding: 2px;
+        }
+
+        .mini-sheet .c {
+            background: rgba(15, 23, 42, 0.85);
+            padding: 4px 6px;
+            font-size: 0.65rem;
+            color: var(--slate-300);
+            text-align: right;
+        }
+
+        .mini-sheet .c.h {
+            background: rgba(37, 99, 235, 0.25);
+            color: #93c5fd;
+            font-weight: 700;
+        }
+
+        .mini-sheet .c.hl {
+            background: rgba(124, 58, 237, 0.2);
+            color: #c4b5fd;
+            font-weight: 700;
+        }
+
+        .mini-chart-wrap {
+            flex: 1;
+            background: rgba(15, 23, 42, 0.55);
+            border: 1px solid var(--glass-border);
+            border-radius: 8px;
+            padding: 8px;
+        }
+
+        .mini-kpi-grid {
+            flex: 1;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 6px;
+        }
+
+        .mini-kpi-grid .b {
+            background: rgba(15, 23, 42, 0.6);
+            border-radius: 8px;
+            padding: 8px 10px;
+            border: 1px solid var(--glass-border);
+        }
+
+        .mini-kpi-grid .b .l {
+            font-size: 0.6rem;
+            color: var(--slate-400);
+        }
+
+        .mini-kpi-grid .b .v {
+            font-size: 0.95rem;
+            font-weight: 800;
+        }
+
+        /* ======================== Who is this for ======================== */
+        .audience-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 18px;
+        }
+
+        .aud-card {
+            text-align: center;
+            padding: 26px 18px;
+        }
+
+        .aud-card .ic {
+            width: 56px;
+            height: 56px;
+            border-radius: 14px;
+            margin: 0 auto 14px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.4rem;
+            background: var(--grad-soft);
+            border: 1px solid var(--glass-border);
+            color: var(--accent);
+        }
+
+        .aud-card h4 {
+            font-size: 1rem;
+            font-weight: 800;
+        }
+
+        @media (max-width: 880px) {
+            .audience-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 380px) {
+            .audience-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* ======================== What they get ======================== */
+        .get-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 18px;
+        }
+
+        .get-card h4 {
+            font-size: 1.02rem;
+            font-weight: 800;
+            margin-bottom: 6px;
+        }
+
+        .get-card p {
+            color: var(--slate-300);
+            font-size: 0.88rem;
+        }
+
+        @media (max-width: 980px) {
+            .get-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 480px) {
+            .get-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* ======================== About Sagi ======================== */
+        .about-banner {
+            position: relative;
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            margin-bottom: 28px;
+            border: 1px solid var(--glass-border);
+            box-shadow: 0 30px 80px rgba(0, 0, 0, 0.5);
+            aspect-ratio: 16 / 9;
+            max-height: 460px;
+        }
+
+        .about-banner img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        .about-banner-overlay {
+            position: absolute;
+            inset: 0;
+            background:
+                linear-gradient(180deg, rgba(11, 17, 36, 0.0) 30%, rgba(11, 17, 36, 0.85) 100%),
+                linear-gradient(90deg, rgba(11, 17, 36, 0.45) 0%, transparent 40%);
+            pointer-events: none;
+        }
+
+        .about-banner-caption {
+            position: absolute;
+            bottom: 28px;
+            right: 32px;
+            left: 32px;
+            color: var(--light);
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            z-index: 2;
+        }
+
+        .about-banner-caption .eyebrow {
+            font-size: 0.78rem;
+            font-weight: 800;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            background: var(--grad);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .about-banner-caption h3 {
+            font-size: clamp(1.3rem, 2.6vw, 2rem);
+            font-weight: 900;
+            line-height: 1.2;
+        }
+
+        @media (max-width: 560px) {
+            .about-banner {
+                aspect-ratio: 4 / 3;
+            }
+
+            .about-banner-caption {
+                bottom: 18px;
+                right: 18px;
+                left: 18px;
+            }
+        }
+
+        .about-card {
+            display: grid;
+            grid-template-columns: 280px 1fr;
+            gap: 40px;
+            align-items: center;
+            padding: 40px;
+        }
+
+        .about-video {
+            margin-top: 36px;
+            max-width: 880px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .about-video h4 {
+            font-size: 1rem;
+            font-weight: 700;
+            color: var(--slate-100);
+            margin-bottom: 14px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .about-video h4 i {
+            background: var(--grad);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .video-wrap {
+            position: relative;
+            padding-bottom: 56.25%;
+            height: 0;
+            border-radius: var(--radius);
+            overflow: hidden;
+            border: 1px solid var(--glass-border);
+            box-shadow: 0 30px 80px rgba(0, 0, 0, 0.5), 0 0 0 1px rgba(255, 255, 255, 0.04) inset;
+            background: #000;
+        }
+
+        .video-wrap iframe {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
+        .about-photo-wrap {
+            position: relative;
+            width: 240px;
+            height: 240px;
+            margin: 0 auto;
+        }
+
+        .about-photo {
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 3px solid transparent;
+            background:
+                linear-gradient(#0F172A, #0F172A) padding-box,
+                var(--grad) border-box;
+            box-shadow: 0 20px 60px rgba(37, 99, 235, 0.4);
+            position: relative;
+            z-index: 2;
+        }
+
+        .about-photo-wrap::after {
+            content: '';
+            position: absolute;
+            inset: -16px;
+            border-radius: 50%;
+            background: var(--grad);
+            filter: blur(40px);
+            opacity: 0.45;
+            z-index: 1;
+        }
+
+        .about-content h3 {
+            font-size: 1.6rem;
+            font-weight: 900;
+            margin-bottom: 8px;
+        }
+
+        .about-content .role {
+            color: var(--accent);
+            font-weight: 700;
+            margin-bottom: 16px;
+            font-size: 1rem;
+        }
+
+        .about-content p {
+            color: var(--slate-300);
+            font-size: 1rem;
+            line-height: 1.8;
+            margin-bottom: 16px;
+        }
+
+        .about-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .about-tag {
+            padding: 8px 16px;
+            border-radius: 999px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            background: var(--glass);
+            border: 1px solid var(--glass-border);
+            color: var(--slate-100);
+        }
+
+        @media (max-width: 780px) {
+            .about-card {
+                grid-template-columns: 1fr;
+                text-align: center;
+                padding: 28px;
+            }
+
+            .about-tags {
+                justify-content: center;
+            }
+        }
+
+        /* ======================== Final CTA ======================== */
+        .final-cta {
+            position: relative;
+            text-align: center;
+            padding: 80px 32px;
+            background: linear-gradient(180deg, rgba(11, 17, 36, 0.6), rgba(15, 23, 42, 0.9));
+            border: 1px solid var(--glass-border);
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+        }
+
+        .final-cta::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background:
+                radial-gradient(500px 300px at 30% 20%, rgba(37, 99, 235, 0.35), transparent 60%),
+                radial-gradient(400px 300px at 80% 80%, rgba(124, 58, 237, 0.35), transparent 60%);
+            pointer-events: none;
+        }
+
+        .final-cta>* {
+            position: relative;
+            z-index: 1;
+        }
+
+        .final-cta h2 {
+            font-size: clamp(1.8rem, 3.8vw, 3rem);
+            font-weight: 900;
+            margin-bottom: 14px;
+        }
+
+        .final-cta p {
+            color: var(--slate-300);
+            font-size: 1.1rem;
+            max-width: 560px;
+            margin: 0 auto 30px;
+        }
+
+        .final-cta .btn {
+            padding: 20px 40px;
+            font-size: 1.1rem;
+        }
+
+        /* ======================== FAQ ======================== */
+        .faq-list {
+            max-width: 820px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .faq-item {
+            background: var(--glass-strong);
+            border: 1px solid var(--glass-border);
+            border-radius: 14px;
+            overflow: hidden;
+            transition: border-color .25s;
+        }
+
+        .faq-item[open] {
+            border-color: rgba(124, 58, 237, 0.4);
+        }
+
+        .faq-item summary {
+            list-style: none;
+            cursor: pointer;
+            padding: 20px 24px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 16px;
+            font-weight: 700;
+            font-size: 1.02rem;
+            transition: color .2s;
+        }
+
+        .faq-item summary::-webkit-details-marker {
+            display: none;
+        }
+
+        .faq-item summary::after {
+            content: '+';
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: var(--glass);
+            border: 1px solid var(--glass-border);
+            font-weight: 400;
+            font-size: 1.3rem;
+            transition: transform .3s, background .3s;
+            flex-shrink: 0;
+        }
+
+        .faq-item[open] summary::after {
+            transform: rotate(45deg);
+            background: var(--grad);
+            border-color: transparent;
+        }
+
+        .faq-item .faq-body {
+            padding: 0 24px 22px;
+            color: var(--slate-300);
+            line-height: 1.75;
+        }
+
+        /* ======================== Footer ======================== */
+        footer {
+            padding: 50px 0 30px;
+            border-top: 1px solid var(--glass-border);
+            background: rgba(6, 10, 26, 0.6);
+        }
+
+        .footer-inner {
+            max-width: 1240px;
+            margin: 0 auto;
+            padding: 0 24px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .footer-brand {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .footer-brand .logo-mark {
+            width: 36px;
+            height: 36px;
+            border-radius: 10px;
+            background: var(--grad);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #fff;
+            font-weight: 800;
+        }
+
+        .footer-brand .meta {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .footer-brand .meta strong {
+            font-weight: 800;
+            color: var(--light);
+        }
+
+        .footer-brand .meta span {
+            font-size: 0.82rem;
+            color: var(--slate-400);
+        }
+
+        .footer-links {
+            display: flex;
+            gap: 20px;
+            align-items: center;
+        }
+
+        .footer-links a {
+            width: 40px;
+            height: 40px;
+            border-radius: 10px;
+            background: var(--glass-strong);
+            border: 1px solid var(--glass-border);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--slate-100);
+            text-decoration: none;
+            transition: all .25s;
+        }
+
+        .footer-links a:hover {
+            color: var(--accent);
+            transform: translateY(-3px);
+            border-color: rgba(6, 182, 212, 0.4);
+        }
+
+        .footer-copy {
+            width: 100%;
+            text-align: center;
+            margin-top: 20px;
+            color: var(--slate-500);
+            font-size: 0.82rem;
+        }
+
+        /* ======================== WhatsApp float ======================== */
+        .wa-float {
+            position: fixed;
+            bottom: 24px;
+            left: 24px;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background: #25D366;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #fff;
+            font-size: 1.8rem;
+            box-shadow: 0 10px 30px rgba(37, 211, 102, 0.5);
+            text-decoration: none;
+            z-index: 80;
+            transition: transform .25s;
+        }
+
+        .wa-float:hover {
+            transform: scale(1.08);
+        }
+
+        .wa-float::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            border-radius: 50%;
+            box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.6);
+            animation: wa-pulse 2.2s infinite;
+        }
+
+        @keyframes wa-pulse {
+            0% {
+                box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.6);
+            }
+
+            100% {
+                box-shadow: 0 0 0 24px rgba(37, 211, 102, 0);
+            }
+        }
+
+        /* ======================== Reveal ======================== */
+        .reveal {
+            opacity: 0;
+            transform: translateY(24px);
+            transition: opacity .8s ease, transform .8s ease;
+        }
+
+        .reveal.is-visible {
+            opacity: 1;
+            transform: none;
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+
+            *,
+            *::before,
+            *::after {
+                animation-duration: 0.001s !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.001s !important;
+            }
+
+            .reveal {
+                opacity: 1;
+                transform: none;
+            }
+        }
+    </style>
 </head>
 
 <body>
-  <div class="bg-canvas"></div>
-  <div class="bg-grid"></div>
-  <div class="bg-orb orb-1"></div>
-  <div class="bg-orb orb-2"></div>
-  <div class="bg-orb orb-3"></div>
+    <div class="bg-canvas"></div>
+    <div class="bg-grid"></div>
+    <div class="bg-orb orb-1"></div>
+    <div class="bg-orb orb-2"></div>
+    <div class="bg-orb orb-3"></div>
 
-  <!-- Shared SVG gradients -->
-  <svg width="0" height="0" style="position:absolute">
-    <defs>
-      <linearGradient id="lineGrad" x1="0" x2="1" y1="0" y2="0">
-        <stop offset="0%" stop-color="#06B6D4"/>
-        <stop offset="50%" stop-color="#7C3AED"/>
-        <stop offset="100%" stop-color="#2563EB"/>
-      </linearGradient>
-      <linearGradient id="areaGrad" x1="0" x2="0" y1="0" y2="1">
-        <stop offset="0%" stop-color="#7C3AED" stop-opacity="0.5"/>
-        <stop offset="100%" stop-color="#2563EB" stop-opacity="0"/>
-      </linearGradient>
-      <linearGradient id="lineGrad2" x1="0" x2="1" y1="0" y2="0">
-        <stop offset="0%" stop-color="#10B981"/>
-        <stop offset="100%" stop-color="#06B6D4"/>
-      </linearGradient>
-      <linearGradient id="barGrad" x1="0" x2="0" y1="0" y2="1">
-        <stop offset="0%" stop-color="#7C3AED"/>
-        <stop offset="100%" stop-color="#2563EB"/>
-      </linearGradient>
-    </defs>
-  </svg>
+    <!-- Shared SVG gradients -->
+    <svg width="0" height="0" style="position:absolute">
+        <defs>
+            <linearGradient id="lineGrad" x1="0" x2="1" y1="0" y2="0">
+                <stop offset="0%" stop-color="#06B6D4" />
+                <stop offset="50%" stop-color="#7C3AED" />
+                <stop offset="100%" stop-color="#2563EB" />
+            </linearGradient>
+            <linearGradient id="areaGrad" x1="0" x2="0" y1="0" y2="1">
+                <stop offset="0%" stop-color="#7C3AED" stop-opacity="0.5" />
+                <stop offset="100%" stop-color="#2563EB" stop-opacity="0" />
+            </linearGradient>
+            <linearGradient id="lineGrad2" x1="0" x2="1" y1="0" y2="0">
+                <stop offset="0%" stop-color="#10B981" />
+                <stop offset="100%" stop-color="#06B6D4" />
+            </linearGradient>
+            <linearGradient id="barGrad" x1="0" x2="0" y1="0" y2="1">
+                <stop offset="0%" stop-color="#7C3AED" />
+                <stop offset="100%" stop-color="#2563EB" />
+            </linearGradient>
+        </defs>
+    </svg>
 
-  <!-- ======================== NAV ======================== -->
-  <nav class="nav">
-    <div class="nav-inner">
-      <a href="#top" class="nav-logo">
-        <span class="logo-mark"><i class="fa-solid fa-table-cells"></i></span>
-        Gemini Sheets Lab
-      </a>
-      <div class="nav-links">
-        <a href="#what">מה בונים</a>
-        <a href="#how">איך זה עובד</a>
-        <a href="#audience">למי זה מתאים</a>
-        <a href="#faq">שאלות</a>
-        <a class="btn btn-primary nav-cta" href="https://api.whatsapp.com/send?phone=972549995050&text=%D7%94%D7%99%D7%99%20%D7%A9%D7%92%D7%99%D7%90%2C%20%D7%90%D7%A0%D7%97%D7%A0%D7%95%20%D7%9E%D7%A2%D7%95%D7%A0%D7%99%D7%99%D7%A0%D7%99%D7%9D%20%D7%9C%D7%94%D7%96%D7%9E%D7%99%D7%9F%20%D7%90%D7%AA%20%D7%A1%D7%93%D7%A0%D7%AA%20Gemini%20Sheets%20Lab%20%D7%9C%D7%90%D7%A8%D7%92%D7%95%D7%9F%20%D7%A9%D7%9C%D7%A0%D7%95" target="_blank" rel="noopener">
-          הזמינו לארגון
-          <i class="fa-solid fa-arrow-left"></i>
-        </a>
-      </div>
-    </div>
-  </nav>
-
-  <!-- ======================== HERO ======================== -->
-  <section class="hero" id="top">
-    <div class="container hero-grid">
-      <div class="hero-content reveal">
-        <span class="badge-pill">
-          <span class="dot"></span>
-          יום סדנה מלא לארגונים · One-Day Workshop
-        </span>
-        <h1>
-          הצוות שלכם בונה <span class="gradient-text">סימולטור עסקי אמיתי</span>
-          עם Gemini בתוך Google&nbsp;Sheets — ביום אחד
-        </h1>
-        <p class="lead">
-          ללא קוד. ללא BI. ללא צוות פיתוח.<br>
-          יום סדנה מלא אחד שבו אני מגיע אליכם לארגון — בבוקר מתחילים, ובסוף היום
-          הצוות יוצא עם מערכת אינטראקטיבית מבוססת AI שמייצרת סימולציות, חישובים ודשבורדים בזמן אמת.
-        </p>
-        <div class="hero-ctas">
-          <a class="btn btn-primary" href="https://api.whatsapp.com/send?phone=972549995050&text=%D7%94%D7%99%D7%99%20%D7%A9%D7%92%D7%99%D7%90%2C%20%D7%90%D7%A0%D7%97%D7%A0%D7%95%20%D7%9E%D7%A2%D7%95%D7%A0%D7%99%D7%99%D7%A0%D7%99%D7%9D%20%D7%9C%D7%94%D7%96%D7%9E%D7%99%D7%9F%20%D7%90%D7%AA%20%D7%A1%D7%93%D7%A0%D7%AA%20Gemini%20Sheets%20Lab%20%D7%9C%D7%90%D7%A8%D7%92%D7%95%D7%9F%20%D7%A9%D7%9C%D7%A0%D7%95" target="_blank" rel="noopener">
-            הזמינו את הסדנה לארגון
-            <i class="fa-solid fa-arrow-left"></i>
-          </a>
-          <a class="btn btn-ghost" href="#what">
-            <i class="fa-solid fa-play"></i>
-            צפו במה בונים
-          </a>
-        </div>
-        <div class="trust-bar">
-          <span><i class="fa-solid fa-chart-line"></i> Dashboards</span>
-          <span><i class="fa-solid fa-robot"></i> AI Automation</span>
-          <span><i class="fa-solid fa-table"></i> Google Sheets</span>
-          <span><i class="fa-solid fa-gem"></i> Gemini</span>
-        </div>
-      </div>
-
-      <div class="hero-visual reveal">
-        <!-- Main dashboard floating card -->
-        <div class="floater hero-dashboard">
-          <div class="row">
-            <div class="ttl">סימולטור תגמול · רבעון נוכחי</div>
-            <div class="dots"><span class="dot"></span><span class="dot"></span><span class="dot"></span></div>
-          </div>
-          <div class="kpi-row">
-            <div class="kpi-mini">
-              <div class="lbl">תקציב כולל</div>
-              <div class="val" data-counter="2840000" data-prefix="₪" data-suffix="">₪0</div>
-              <div class="delta"><i class="fa-solid fa-arrow-up"></i> 12.4%</div>
+    <!-- ======================== NAV ======================== -->
+    <nav class="nav">
+        <div class="nav-inner">
+            <a href="#top" class="nav-logo">
+                <span class="logo-mark"><i class="fa-solid fa-table-cells"></i></span>
+                Gemini Sheets Lab
+            </a>
+            <div class="nav-links">
+                <a href="#what">מה בונים</a>
+                <a href="#how">איך זה עובד</a>
+                <a href="#audience">למי זה מתאים</a>
+                <a href="#faq">שאלות</a>
+                <a class="btn btn-primary nav-cta"
+                    href="https://api.whatsapp.com/send?phone=972549995050&text=%D7%94%D7%99%D7%99%20%D7%A9%D7%92%D7%99%D7%90%2C%20%D7%90%D7%A0%D7%97%D7%A0%D7%95%20%D7%9E%D7%A2%D7%95%D7%A0%D7%99%D7%99%D7%A0%D7%99%D7%9D%20%D7%9C%D7%94%D7%96%D7%9E%D7%99%D7%9F%20%D7%90%D7%AA%20%D7%A1%D7%93%D7%A0%D7%AA%20Gemini%20Sheets%20Lab%20%D7%9C%D7%90%D7%A8%D7%92%D7%95%D7%9F%20%D7%A9%D7%9C%D7%A0%D7%95"
+                    target="_blank" rel="noopener">
+                    הזמינו לארגון
+                    <i class="fa-solid fa-arrow-left"></i>
+                </a>
             </div>
-            <div class="kpi-mini">
-              <div class="lbl">עובדים פעילים</div>
-              <div class="val" data-counter="487">0</div>
-              <div class="delta"><i class="fa-solid fa-arrow-up"></i> 5.1%</div>
+        </div>
+    </nav>
+
+    <!-- ======================== HERO ======================== -->
+    <section class="hero" id="top">
+        <div class="container hero-grid">
+            <div class="hero-content reveal">
+                <span class="badge-pill">
+                    <span class="dot"></span>
+                    יום סדנה מלא לארגונים · One-Day Workshop
+                </span>
+                <h1>
+                    הצוות שלכם בונה <span class="gradient-text">סימולטור עסקי אמיתי</span>
+                    עם Gemini בתוך Google&nbsp;Sheets - ביום אחד
+                </h1>
+                <p class="lead">
+                    ללא קוד. ללא BI. ללא צוות פיתוח.<br>
+                    יום סדנה מלא אחד שבו אני מגיע אליכם לארגון - בבוקר מתחילים, ובסוף היום
+                    הצוות יוצא עם מערכת אינטראקטיבית מבוססת AI שמייצרת סימולציות, חישובים ודשבורדים בזמן אמת.
+                </p>
+                <div class="hero-ctas">
+                    <a class="btn btn-primary"
+                        href="https://api.whatsapp.com/send?phone=972549995050&text=%D7%94%D7%99%D7%99%20%D7%A9%D7%92%D7%99%D7%90%2C%20%D7%90%D7%A0%D7%97%D7%A0%D7%95%20%D7%9E%D7%A2%D7%95%D7%A0%D7%99%D7%99%D7%A0%D7%99%D7%9D%20%D7%9C%D7%94%D7%96%D7%9E%D7%99%D7%9F%20%D7%90%D7%AA%20%D7%A1%D7%93%D7%A0%D7%AA%20Gemini%20Sheets%20Lab%20%D7%9C%D7%90%D7%A8%D7%92%D7%95%D7%9F%20%D7%A9%D7%9C%D7%A0%D7%95"
+                        target="_blank" rel="noopener">
+                        הזמינו את הסדנה לארגון
+                        <i class="fa-solid fa-arrow-left"></i>
+                    </a>
+                    <a class="btn btn-ghost" href="#what">
+                        <i class="fa-solid fa-play"></i>
+                        צפו במה בונים
+                    </a>
+                </div>
+                <div class="trust-bar">
+                    <span><i class="fa-solid fa-chart-line"></i> Dashboards</span>
+                    <span><i class="fa-solid fa-robot"></i> AI Automation</span>
+                    <span><i class="fa-solid fa-table"></i> Google Sheets</span>
+                    <span><i class="fa-solid fa-gem"></i> Gemini</span>
+                </div>
             </div>
-            <div class="kpi-mini">
-              <div class="lbl">בונוס ממוצע</div>
-              <div class="val" data-counter="5832" data-prefix="₪">₪0</div>
-              <div class="delta neg"><i class="fa-solid fa-arrow-down"></i> 1.8%</div>
+
+            <div class="hero-visual reveal">
+                <div class="hero-photo-frame">
+                    <img src="images/hero-keynote.webp" alt="שגיא בר און עם סימולטור Gemini בתוך Google Sheets"
+                        loading="eager" fetchpriority="high">
+                </div>
+                <span class="live-pill">
+                    <span class="pulse"></span>
+                    Live · Gemini Building…
+                </span>
+                <!-- Floating Gemini panel overlay -->
+                <div class="floater gemini-panel">
+                    <div class="gp-head">
+                        <div class="gp-avatar">✦</div>
+                        <div>
+                            <div class="gp-name">Gemini Assistant</div>
+                            <div class="gp-sub">Build Mode · פעיל</div>
+                        </div>
+                    </div>
+                    <div class="gp-msg">
+                        <span class="gp-typing"><span></span><span></span><span></span></span>
+                        מייצר נוסחת תגמול לפי משתני ביצועים…
+                    </div>
+                </div>
             </div>
-          </div>
-          <svg class="chart-svg" viewBox="0 0 320 130" preserveAspectRatio="none">
-            <g>
-              <line class="gridline" x1="0" y1="30" x2="320" y2="30"/>
-              <line class="gridline" x1="0" y1="65" x2="320" y2="65"/>
-              <line class="gridline" x1="0" y1="100" x2="320" y2="100"/>
-            </g>
-            <path class="area" d="M0,90 L30,72 L60,80 L90,55 L120,62 L150,40 L180,48 L210,28 L240,38 L270,20 L300,30 L320,18 L320,130 L0,130 Z"/>
-            <path class="line" d="M0,90 L30,72 L60,80 L90,55 L120,62 L150,40 L180,48 L210,28 L240,38 L270,20 L300,30 L320,18"/>
-          </svg>
         </div>
+    </section>
 
-        <!-- Floating KPI A -->
-        <div class="floater float-kpi a">
-          <div class="lbl">Conversion</div>
-          <div class="val" data-counter="68.4" data-decimals="1" data-suffix="%">0%</div>
-          <svg class="spark" viewBox="0 0 100 36" preserveAspectRatio="none">
-            <path d="M0,28 L14,22 L28,25 L42,15 L56,18 L70,8 L84,12 L100,4" fill="none" stroke="url(#lineGrad)" stroke-width="2"/>
-          </svg>
-        </div>
-
-        <!-- Floating KPI B -->
-        <div class="floater float-kpi b">
-          <div class="lbl">חיסכון בזמן</div>
-          <div class="val" data-counter="73" data-suffix="%">0%</div>
-          <svg class="spark" viewBox="0 0 100 36" preserveAspectRatio="none">
-            <rect x="2" y="22" width="10" height="12" fill="url(#barGrad)" rx="2"/>
-            <rect x="16" y="14" width="10" height="20" fill="url(#barGrad)" rx="2"/>
-            <rect x="30" y="18" width="10" height="16" fill="url(#barGrad)" rx="2"/>
-            <rect x="44" y="8" width="10" height="26" fill="url(#barGrad)" rx="2"/>
-            <rect x="58" y="12" width="10" height="22" fill="url(#barGrad)" rx="2"/>
-            <rect x="72" y="4" width="10" height="30" fill="url(#barGrad)" rx="2"/>
-            <rect x="86" y="2" width="10" height="32" fill="url(#barGrad)" rx="2"/>
-          </svg>
-        </div>
-
-        <!-- Floating Gemini panel -->
-        <div class="floater gemini-panel">
-          <div class="gp-head">
-            <div class="gp-avatar">✦</div>
-            <div>
-              <div class="gp-name">Gemini Assistant</div>
-              <div class="gp-sub">Build Mode · פעיל</div>
+    <!-- ======================== PROBLEM ======================== -->
+    <section class="block" id="problem">
+        <div class="container">
+            <div class="section-head reveal">
+                <span class="section-eyebrow">The Problem</span>
+                <h2>עדיין בונים סימולציות <span class="gradient-text">ידנית?</span></h2>
+                <p>זו הסיבה שכל פרויקט אנליטיקה לוקח חודשים - וזו בדיוק הסיבה שזה הולך להשתנות.</p>
             </div>
-          </div>
-          <div class="gp-msg">
-            <span class="gp-typing"><span></span><span></span><span></span></span>
-            מייצר נוסחת תגמול לפי משתני ביצועים…
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
 
-  <!-- ======================== PROBLEM ======================== -->
-  <section class="block" id="problem">
-    <div class="container">
-      <div class="section-head reveal">
-        <span class="section-eyebrow">The Problem</span>
-        <h2>עדיין בונים סימולציות <span class="gradient-text">ידנית?</span></h2>
-        <p>זו הסיבה שכל פרויקט אנליטיקה לוקח חודשים — וזו בדיוק הסיבה שזה הולך להשתנות.</p>
-      </div>
-
-      <div class="pain-grid">
-        <div class="glass-card pain-card reveal">
-          <div class="card-icon red"><i class="fa-solid fa-triangle-exclamation"></i></div>
-          <h4>נוסחאות שנשברות</h4>
-          <p>כל שינוי קטן בנתונים מפיל חצי גליון, ואיש לא יודע למה.</p>
-        </div>
-        <div class="glass-card pain-card reveal">
-          <div class="card-icon amber"><i class="fa-solid fa-clock"></i></div>
-          <h4>שעות עבודה ידניות</h4>
-          <p>חישובים שיכולים להיעשות באוטומציה — נעשים בקופי-פייסט.</p>
-        </div>
-        <div class="glass-card pain-card reveal">
-          <div class="card-icon purple"><i class="fa-solid fa-clone"></i></div>
-          <h4>גרסאות קבצים אינסופיות</h4>
-          <p>v3_final_final_2.xlsx — אף אחד כבר לא יודע מה האמת.</p>
-        </div>
-        <div class="glass-card pain-card reveal">
-          <div class="card-icon blue"><i class="fa-solid fa-rotate"></i></div>
-          <h4>דוחות שלא מתעדכנים</h4>
-          <p>מצגות עם נתונים מהשבוע שעבר. החלטות עם נתונים מהחודש שעבר.</p>
-        </div>
-        <div class="glass-card pain-card reveal">
-          <div class="card-icon cyan"><i class="fa-solid fa-snail"></i></div>
-          <h4>החלטות איטיות</h4>
-          <p>השאלה "מה יקרה אם" מקבלת תשובה שבוע אחרי הצורך.</p>
-        </div>
-        <div class="glass-card pain-card reveal">
-          <div class="card-icon green"><i class="fa-solid fa-eye-slash"></i></div>
-          <h4>חוסר שקיפות</h4>
-          <p>אין לכם דרך פשוטה להסביר להנהלה איך הגעתם למספר.</p>
-        </div>
-      </div>
-
-      <p class="closing-statement reveal">
-        הגיע הזמן לתת ל-<span class="gradient-text">AI</span> לבנות את המערכת בשבילכם.
-      </p>
-    </div>
-  </section>
-
-  <!-- ======================== WHAT YOU BUILD ======================== -->
-  <section class="block" id="what">
-    <div class="container">
-      <div class="section-head reveal">
-        <span class="section-eyebrow">What You Build</span>
-        <h2>מערכת חיה. <span class="gradient-text">לא עוד טבלה.</span></h2>
-        <p>בסוף הסדנה יוצאים עם דשבורד אינטראקטיבי שמחשב, מסנן ומדמה בזמן אמת — בתוך Google Sheets שכבר יש לכם.</p>
-      </div>
-
-      <div class="build-grid">
-        <div class="build-features reveal">
-          <div class="feat-item"><span class="ic"><i class="fa-solid fa-sliders"></i></span><span class="txt">סימולטור תגמול אינטראקטיבי</span></div>
-          <div class="feat-item"><span class="ic"><i class="fa-solid fa-filter"></i></span><span class="txt">פילטרים חכמים לפי קריטריונים</span></div>
-          <div class="feat-item"><span class="ic"><i class="fa-solid fa-chart-line"></i></span><span class="txt">גרפים דינמיים שמתעדכנים לבד</span></div>
-          <div class="feat-item"><span class="ic"><i class="fa-solid fa-table-cells-large"></i></span><span class="txt">Dashboard אינטראקטיבי מלא</span></div>
-          <div class="feat-item"><span class="ic"><i class="fa-solid fa-wand-magic-sparkles"></i></span><span class="txt">Gemini Canvas לעיצוב מהיר</span></div>
-          <div class="feat-item"><span class="ic"><i class="fa-solid fa-screwdriver-wrench"></i></span><span class="txt">Build Mode מתקדם</span></div>
-          <div class="feat-item"><span class="ic"><i class="fa-solid fa-shield-check"></i></span><span class="txt">QA אוטומטי לנוסחאות</span></div>
-          <div class="feat-item"><span class="ic"><i class="fa-solid fa-gauge-high"></i></span><span class="txt">Dynamic controls וסליידרים</span></div>
-          <div class="feat-item"><span class="ic"><i class="fa-solid fa-calculator"></i></span><span class="txt">חישובי תגמול מורכבים</span></div>
-          <div class="feat-item"><span class="ic"><i class="fa-solid fa-bolt"></i></span><span class="txt">אנליטיקה ב-Real Time</span></div>
-        </div>
-
-        <div class="big-mockup reveal">
-          <div class="mockup-head">
-            <div class="mockup-tabs">
-              <span class="mockup-tab active">דשבורד</span>
-              <span class="mockup-tab">סימולציה</span>
-              <span class="mockup-tab">נתונים</span>
+            <div class="pain-grid">
+                <div class="glass-card pain-card reveal">
+                    <div class="card-icon red"><i class="fa-solid fa-triangle-exclamation"></i></div>
+                    <h4>נוסחאות שנשברות</h4>
+                    <p>כל שינוי קטן בנתונים מפיל חצי גליון, ואיש לא יודע למה.</p>
+                </div>
+                <div class="glass-card pain-card reveal">
+                    <div class="card-icon amber"><i class="fa-solid fa-clock"></i></div>
+                    <h4>שעות עבודה ידניות</h4>
+                    <p>חישובים שיכולים להיעשות באוטומציה - נעשים בקופי-פייסט.</p>
+                </div>
+                <div class="glass-card pain-card reveal">
+                    <div class="card-icon purple"><i class="fa-solid fa-clone"></i></div>
+                    <h4>גרסאות קבצים אינסופיות</h4>
+                    <p>v3_final_final_2.xlsx - אף אחד כבר לא יודע מה האמת.</p>
+                </div>
+                <div class="glass-card pain-card reveal">
+                    <div class="card-icon blue"><i class="fa-solid fa-rotate"></i></div>
+                    <h4>דוחות שלא מתעדכנים</h4>
+                    <p>מצגות עם נתונים מהשבוע שעבר. החלטות עם נתונים מהחודש שעבר.</p>
+                </div>
+                <div class="glass-card pain-card reveal">
+                    <div class="card-icon cyan"><i class="fa-solid fa-snail"></i></div>
+                    <h4>החלטות איטיות</h4>
+                    <p>השאלה "מה יקרה אם" מקבלת תשובה שבוע אחרי הצורך.</p>
+                </div>
+                <div class="glass-card pain-card reveal">
+                    <div class="card-icon green"><i class="fa-solid fa-eye-slash"></i></div>
+                    <h4>חוסר שקיפות</h4>
+                    <p>אין לכם דרך פשוטה להסביר להנהלה איך הגעתם למספר.</p>
+                </div>
             </div>
-            <span style="font-size:0.78rem;color:var(--slate-400);"><i class="fa-solid fa-circle" style="color:var(--success);font-size:0.5rem;margin-left:6px;"></i>Live</span>
-          </div>
 
-          <div class="mockup-kpis">
-            <div class="kpi-mini">
-              <div class="lbl">סה"כ חודש</div>
-              <div class="val" style="font-size:1.1rem;">₪842K</div>
+            <p class="closing-statement reveal">
+                הגיע הזמן לתת ל-<span class="gradient-text">AI</span> לבנות את המערכת בשבילכם.
+            </p>
+        </div>
+    </section>
+
+    <!-- ======================== WHAT YOU BUILD ======================== -->
+    <section class="block" id="what">
+        <div class="container">
+            <div class="section-head reveal">
+                <span class="section-eyebrow">What You Build</span>
+                <h2>מערכת חיה. <span class="gradient-text">לא עוד טבלה.</span></h2>
+                <p>בסוף הסדנה יוצאים עם דשבורד אינטראקטיבי שמחשב, מסנן ומדמה בזמן אמת - בתוך Google Sheets שכבר יש לכם.
+                </p>
             </div>
-            <div class="kpi-mini">
-              <div class="lbl">יעד</div>
-              <div class="val" style="font-size:1.1rem;color:var(--accent);">96.4%</div>
+
+            <div class="build-grid">
+                <div class="build-features reveal">
+                    <div class="feat-item"><span class="ic"><i class="fa-solid fa-sliders"></i></span><span
+                            class="txt">סימולטור תגמול אינטראקטיבי</span></div>
+                    <div class="feat-item"><span class="ic"><i class="fa-solid fa-filter"></i></span><span
+                            class="txt">פילטרים חכמים לפי קריטריונים</span></div>
+                    <div class="feat-item"><span class="ic"><i class="fa-solid fa-chart-line"></i></span><span
+                            class="txt">גרפים דינמיים שמתעדכנים לבד</span></div>
+                    <div class="feat-item"><span class="ic"><i class="fa-solid fa-table-cells-large"></i></span><span
+                            class="txt">Dashboard אינטראקטיבי מלא</span></div>
+                    <div class="feat-item"><span class="ic"><i class="fa-solid fa-wand-magic-sparkles"></i></span><span
+                            class="txt">Gemini Canvas לעיצוב מהיר</span></div>
+                    <div class="feat-item"><span class="ic"><i class="fa-solid fa-screwdriver-wrench"></i></span><span
+                            class="txt">Build Mode מתקדם</span></div>
+                    <div class="feat-item"><span class="ic"><i class="fa-solid fa-shield-check"></i></span><span
+                            class="txt">QA אוטומטי לנוסחאות</span></div>
+                    <div class="feat-item"><span class="ic"><i class="fa-solid fa-gauge-high"></i></span><span
+                            class="txt">Dynamic controls וסליידרים</span></div>
+                    <div class="feat-item"><span class="ic"><i class="fa-solid fa-calculator"></i></span><span
+                            class="txt">חישובי תגמול מורכבים</span></div>
+                    <div class="feat-item"><span class="ic"><i class="fa-solid fa-bolt"></i></span><span
+                            class="txt">אנליטיקה ב-Real Time</span></div>
+                </div>
+
+                <div class="big-mockup reveal">
+                    <img src="images/sheets-evolved.webp"
+                        alt="Google Sheets עתידי עם Gemini — סימולטור עסקי, דשבורד, פילטרים, KPIs" loading="lazy">
+                    <div class="big-mockup-overlay"></div>
+                    <span class="big-mockup-badge">
+                        <span class="pulse"></span>
+                        Real-time · Gemini Sync
+                    </span>
+                </div>
             </div>
-            <div class="kpi-mini">
-              <div class="lbl">צוותים</div>
-              <div class="val" style="font-size:1.1rem;">24</div>
+        </div>
+    </section>
+
+    <!-- ======================== HOW IT WORKS ======================== -->
+    <section class="block" id="how">
+        <div class="container">
+            <div class="section-head reveal">
+                <span class="section-eyebrow">How It Works</span>
+                <h2>שישה צעדים. <span class="gradient-text">מערכת אחת.</span></h2>
+                <p>תהליך עבודה מובנה - מעלים נתונים, מבקשים מ-Gemini, ומקבלים מערכת שעובדת.</p>
             </div>
-            <div class="kpi-mini">
-              <div class="lbl">סטיה</div>
-              <div class="val" style="font-size:1.1rem;color:#6ee7b7;">+3.2%</div>
+
+            <div class="timeline">
+                <div class="tl-step reveal">
+                    <div class="tl-num"><i class="fa-solid fa-upload"></i></div>
+                    <h4>1. Upload Data</h4>
+                    <p>מעלים את הקובץ הקיים שלכם - בלי לעבד, בלי לנקות.</p>
+                </div>
+                <div class="tl-step reveal">
+                    <div class="tl-num"><i class="fa-solid fa-wand-magic-sparkles"></i></div>
+                    <h4>2. Prompt Gemini</h4>
+                    <p>מתארים מה אתם רוצים - בשפה פשוטה, כמו שמסבירים לעובד חדש.</p>
+                </div>
+                <div class="tl-step reveal">
+                    <div class="tl-num"><i class="fa-solid fa-table-cells-large"></i></div>
+                    <h4>3. Build Dashboard</h4>
+                    <p>Gemini בונה את הדשבורד, הגרפים והנוסחאות - בזמן אמת.</p>
+                </div>
+                <div class="tl-step reveal">
+                    <div class="tl-num"><i class="fa-solid fa-sliders"></i></div>
+                    <h4>4. Add Controls</h4>
+                    <p>מוסיפים סליידרים, פילטרים וכפתורים - הופכים את זה לאינטראקטיבי.</p>
+                </div>
+                <div class="tl-step reveal">
+                    <div class="tl-num"><i class="fa-solid fa-shield-check"></i></div>
+                    <h4>5. Validate Formulas</h4>
+                    <p>QA אוטומטי לכל נוסחה - תופסים שגיאות לפני שהן הופכות להחלטות.</p>
+                </div>
+                <div class="tl-step reveal">
+                    <div class="tl-num"><i class="fa-solid fa-rocket"></i></div>
+                    <h4>6. Refine &amp; Optimize</h4>
+                    <p>משפרים, מדייקים ומשחררים לארגון - בלי תלות בצוות פיתוח.</p>
+                </div>
             </div>
-          </div>
+        </div>
+    </section>
 
-          <div class="mockup-chart-wrap">
-            <svg class="chart-svg" viewBox="0 0 320 120" preserveAspectRatio="none" style="height:120px;">
-              <g>
-                <line class="gridline" x1="0" y1="30" x2="320" y2="30"/>
-                <line class="gridline" x1="0" y1="60" x2="320" y2="60"/>
-                <line class="gridline" x1="0" y1="90" x2="320" y2="90"/>
-              </g>
-              <path class="area" d="M0,80 L25,68 L50,72 L75,50 L100,58 L125,38 L150,46 L175,30 L200,42 L225,22 L250,28 L275,16 L300,22 L320,10 L320,120 L0,120 Z"/>
-              <path class="line" d="M0,80 L25,68 L50,72 L75,50 L100,58 L125,38 L150,46 L175,30 L200,42 L225,22 L250,28 L275,16 L300,22 L320,10"/>
-              <path d="M0,90 L25,85 L50,82 L75,75 L100,72 L125,68 L150,65 L175,60 L200,55 L225,52 L250,48 L275,45 L300,40 L320,38" fill="none" stroke="url(#lineGrad2)" stroke-width="2" stroke-dasharray="4 3" opacity="0.8"/>
-            </svg>
-          </div>
-
-          <div class="mockup-controls">
-            <span class="pill"><i class="fa-solid fa-sliders"></i> מקדם ביצועים</span>
-            <span class="pill alt"><i class="fa-solid fa-percent"></i> בונוס יעד</span>
-            <span class="pill"><i class="fa-solid fa-filter"></i> חלוקה לפי צוות</span>
-            <span class="pill alt"><i class="fa-solid fa-calendar"></i> רבעון</span>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ======================== HOW IT WORKS ======================== -->
-  <section class="block" id="how">
-    <div class="container">
-      <div class="section-head reveal">
-        <span class="section-eyebrow">How It Works</span>
-        <h2>שישה צעדים. <span class="gradient-text">מערכת אחת.</span></h2>
-        <p>תהליך עבודה מובנה — מעלים נתונים, מבקשים מ-Gemini, ומקבלים מערכת שעובדת.</p>
-      </div>
-
-      <div class="timeline">
-        <div class="tl-step reveal">
-          <div class="tl-num"><i class="fa-solid fa-upload"></i></div>
-          <h4>1. Upload Data</h4>
-          <p>מעלים את הקובץ הקיים שלכם — בלי לעבד, בלי לנקות.</p>
-        </div>
-        <div class="tl-step reveal">
-          <div class="tl-num"><i class="fa-solid fa-wand-magic-sparkles"></i></div>
-          <h4>2. Prompt Gemini</h4>
-          <p>מתארים מה אתם רוצים — בשפה פשוטה, כמו שמסבירים לעובד חדש.</p>
-        </div>
-        <div class="tl-step reveal">
-          <div class="tl-num"><i class="fa-solid fa-table-cells-large"></i></div>
-          <h4>3. Build Dashboard</h4>
-          <p>Gemini בונה את הדשבורד, הגרפים והנוסחאות — בזמן אמת.</p>
-        </div>
-        <div class="tl-step reveal">
-          <div class="tl-num"><i class="fa-solid fa-sliders"></i></div>
-          <h4>4. Add Controls</h4>
-          <p>מוסיפים סליידרים, פילטרים וכפתורים — הופכים את זה לאינטראקטיבי.</p>
-        </div>
-        <div class="tl-step reveal">
-          <div class="tl-num"><i class="fa-solid fa-shield-check"></i></div>
-          <h4>5. Validate Formulas</h4>
-          <p>QA אוטומטי לכל נוסחה — תופסים שגיאות לפני שהן הופכות להחלטות.</p>
-        </div>
-        <div class="tl-step reveal">
-          <div class="tl-num"><i class="fa-solid fa-rocket"></i></div>
-          <h4>6. Refine &amp; Optimize</h4>
-          <p>משפרים, מדייקים ומשחררים לארגון — בלי תלות בצוות פיתוח.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ======================== LIVE EXAMPLES ======================== -->
-  <section class="block" id="examples">
-    <div class="container">
-      <div class="section-head reveal">
-        <span class="section-eyebrow">Live Examples</span>
-        <h2>ככה זה <span class="gradient-text">נראה בפועל</span></h2>
-        <p>שלוש דוגמאות אמיתיות שתבנו עם הידע מהסדנה.</p>
-      </div>
-
-      <div class="examples-grid">
-        <div class="glass-card ex-card reveal">
-          <div class="ex-thumb">
-            <div style="display:flex;justify-content:space-between;align-items:center;">
-              <span style="font-size:0.78rem;color:var(--slate-400);font-weight:600;">Sheet · Bonus_Sim</span>
-              <span style="font-size:0.65rem;background:rgba(16,185,129,0.2);color:#6ee7b7;padding:2px 8px;border-radius:999px;font-weight:700;">LIVE</span>
+    <!-- ======================== LIVE EXAMPLES ======================== -->
+    <section class="block" id="examples">
+        <div class="container">
+            <div class="section-head reveal">
+                <span class="section-eyebrow">Live Examples</span>
+                <h2>ככה זה <span class="gradient-text">נראה בפועל</span></h2>
+                <p>שלוש דוגמאות אמיתיות שתבנו עם הידע מהסדנה.</p>
             </div>
-            <div class="mini-sheet">
-              <div class="c h">עובד</div><div class="c h">בסיס</div><div class="c h">יעד</div><div class="c h">ביצוע</div><div class="c h">בונוס</div>
-              <div class="c">דנה</div><div class="c">8200</div><div class="c">110%</div><div class="c">128%</div><div class="c hl">₪4,520</div>
-              <div class="c">תומר</div><div class="c">7800</div><div class="c">100%</div><div class="c">94%</div><div class="c hl">₪1,820</div>
-              <div class="c">שגית</div><div class="c">9100</div><div class="c">115%</div><div class="c">142%</div><div class="c hl">₪6,210</div>
-              <div class="c">איל</div><div class="c">8400</div><div class="c">105%</div><div class="c">112%</div><div class="c hl">₪3,840</div>
+
+            <div class="examples-grid">
+                <div class="glass-card ex-card reveal">
+                    <div class="ex-thumb">
+                        <div style="display:flex;justify-content:space-between;align-items:center;">
+                            <span style="font-size:0.78rem;color:var(--slate-400);font-weight:600;">Sheet ·
+                                Bonus_Sim</span>
+                            <span
+                                style="font-size:0.65rem;background:rgba(16,185,129,0.2);color:#6ee7b7;padding:2px 8px;border-radius:999px;font-weight:700;">LIVE</span>
+                        </div>
+                        <div class="mini-sheet">
+                            <div class="c h">עובד</div>
+                            <div class="c h">בסיס</div>
+                            <div class="c h">יעד</div>
+                            <div class="c h">ביצוע</div>
+                            <div class="c h">בונוס</div>
+                            <div class="c">דנה</div>
+                            <div class="c">8200</div>
+                            <div class="c">110%</div>
+                            <div class="c">128%</div>
+                            <div class="c hl">₪4,520</div>
+                            <div class="c">תומר</div>
+                            <div class="c">7800</div>
+                            <div class="c">100%</div>
+                            <div class="c">94%</div>
+                            <div class="c hl">₪1,820</div>
+                            <div class="c">שגית</div>
+                            <div class="c">9100</div>
+                            <div class="c">115%</div>
+                            <div class="c">142%</div>
+                            <div class="c hl">₪6,210</div>
+                            <div class="c">איל</div>
+                            <div class="c">8400</div>
+                            <div class="c">105%</div>
+                            <div class="c">112%</div>
+                            <div class="c hl">₪3,840</div>
+                        </div>
+                    </div>
+                    <div class="ex-body">
+                        <h4>סימולטור בונוסים</h4>
+                        <p>נוסחאות מורכבות שמשתנות לפי משתנים - הכל בתוך Sheets.</p>
+                    </div>
+                </div>
+
+                <div class="glass-card ex-card reveal">
+                    <div class="ex-thumb">
+                        <div style="display:flex;justify-content:space-between;align-items:center;">
+                            <span style="font-size:0.78rem;color:var(--slate-400);font-weight:600;">Dashboard ·
+                                Q-View</span>
+                            <span
+                                style="font-size:0.65rem;background:rgba(124,58,237,0.2);color:#c4b5fd;padding:2px 8px;border-radius:999px;font-weight:700;">REAL-TIME</span>
+                        </div>
+                        <div class="mini-chart-wrap">
+                            <svg class="chart-svg" viewBox="0 0 200 140" preserveAspectRatio="none"
+                                style="height:140px;">
+                                <line class="gridline" x1="0" y1="35" x2="200" y2="35" />
+                                <line class="gridline" x1="0" y1="70" x2="200" y2="70" />
+                                <line class="gridline" x1="0" y1="105" x2="200" y2="105" />
+                                <path class="area"
+                                    d="M0,100 L20,80 L40,90 L60,60 L80,68 L100,40 L120,50 L140,28 L160,38 L180,18 L200,28 L200,140 L0,140 Z" />
+                                <path class="line"
+                                    d="M0,100 L20,80 L40,90 L60,60 L80,68 L100,40 L120,50 L140,28 L160,38 L180,18 L200,28" />
+                                <g>
+                                    <circle cx="100" cy="40" r="3" fill="#06B6D4" />
+                                    <circle cx="100" cy="40" r="6" fill="none" stroke="#06B6D4" opacity="0.5" />
+                                </g>
+                            </svg>
+                        </div>
+                    </div>
+                    <div class="ex-body">
+                        <h4>דשבורד KPI חי</h4>
+                        <p>גרפים שמתעדכנים אוטומטית עם כל שינוי בגיליון הנתונים.</p>
+                    </div>
+                </div>
+
+                <div class="glass-card ex-card reveal">
+                    <div class="ex-thumb">
+                        <div style="display:flex;justify-content:space-between;align-items:center;">
+                            <span style="font-size:0.78rem;color:var(--slate-400);font-weight:600;">Filter ·
+                                Multi-Segment</span>
+                            <span
+                                style="font-size:0.65rem;background:rgba(6,182,212,0.2);color:#67e8f9;padding:2px 8px;border-radius:999px;font-weight:700;">SMART</span>
+                        </div>
+                        <div class="mini-kpi-grid">
+                            <div class="b">
+                                <div class="l">סה"כ הכנסה</div>
+                                <div class="v">₪1.24M</div>
+                            </div>
+                            <div class="b">
+                                <div class="l">לקוחות</div>
+                                <div class="v">3,182</div>
+                            </div>
+                            <div class="b">
+                                <div class="l">ARPU</div>
+                                <div class="v">₪389</div>
+                            </div>
+                            <div class="b">
+                                <div class="l">Retention</div>
+                                <div class="v" style="color:#6ee7b7;">87%</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="ex-body">
+                        <h4>פילטרים חכמים</h4>
+                        <p>סגמנטציה דינמית - אזור, מוצר, רבעון - בקליק אחד.</p>
+                    </div>
+                </div>
             </div>
-          </div>
-          <div class="ex-body">
-            <h4>סימולטור בונוסים</h4>
-            <p>נוסחאות מורכבות שמשתנות לפי משתנים — הכל בתוך Sheets.</p>
-          </div>
         </div>
+    </section>
 
-        <div class="glass-card ex-card reveal">
-          <div class="ex-thumb">
-            <div style="display:flex;justify-content:space-between;align-items:center;">
-              <span style="font-size:0.78rem;color:var(--slate-400);font-weight:600;">Dashboard · Q-View</span>
-              <span style="font-size:0.65rem;background:rgba(124,58,237,0.2);color:#c4b5fd;padding:2px 8px;border-radius:999px;font-weight:700;">REAL-TIME</span>
+    <!-- ======================== WHO IS THIS FOR ======================== -->
+    <section class="block" id="audience">
+        <div class="container">
+            <div class="section-head reveal">
+                <span class="section-eyebrow">Who Is This For</span>
+                <h2>לאיזה צוותים בארגון <span class="gradient-text">הסדנה מתאימה</span></h2>
+                <p>פורמט סגור לארגונים - אני מגיע אליכם, מעביר את הסדנה לצוות שלכם, על הדאטה שלכם.</p>
             </div>
-            <div class="mini-chart-wrap">
-              <svg class="chart-svg" viewBox="0 0 200 140" preserveAspectRatio="none" style="height:140px;">
-                <line class="gridline" x1="0" y1="35" x2="200" y2="35"/>
-                <line class="gridline" x1="0" y1="70" x2="200" y2="70"/>
-                <line class="gridline" x1="0" y1="105" x2="200" y2="105"/>
-                <path class="area" d="M0,100 L20,80 L40,90 L60,60 L80,68 L100,40 L120,50 L140,28 L160,38 L180,18 L200,28 L200,140 L0,140 Z"/>
-                <path class="line" d="M0,100 L20,80 L40,90 L60,60 L80,68 L100,40 L120,50 L140,28 L160,38 L180,18 L200,28"/>
-                <g>
-                  <circle cx="100" cy="40" r="3" fill="#06B6D4"/>
-                  <circle cx="100" cy="40" r="6" fill="none" stroke="#06B6D4" opacity="0.5"/>
-                </g>
-              </svg>
+
+            <div class="audience-grid">
+                <div class="glass-card aud-card reveal">
+                    <div class="ic"><i class="fa-solid fa-user-tie"></i></div>
+                    <h4>מנהלים</h4>
+                </div>
+                <div class="glass-card aud-card reveal">
+                    <div class="ic"><i class="fa-solid fa-chart-pie"></i></div>
+                    <h4>BI</h4>
+                </div>
+                <div class="glass-card aud-card reveal">
+                    <div class="ic"><i class="fa-solid fa-magnifying-glass-chart"></i></div>
+                    <h4>אנליסטים</h4>
+                </div>
+                <div class="glass-card aud-card reveal">
+                    <div class="ic"><i class="fa-solid fa-coins"></i></div>
+                    <h4>כספים</h4>
+                </div>
+                <div class="glass-card aud-card reveal">
+                    <div class="ic"><i class="fa-solid fa-diagram-project"></i></div>
+                    <h4>PMO</h4>
+                </div>
+                <div class="glass-card aud-card reveal">
+                    <div class="ic"><i class="fa-solid fa-gears"></i></div>
+                    <h4>תפעול</h4>
+                </div>
+                <div class="glass-card aud-card reveal">
+                    <div class="ic"><i class="fa-solid fa-chess-knight"></i></div>
+                    <h4>Strategy</h4>
+                </div>
+                <div class="glass-card aud-card reveal">
+                    <div class="ic"><i class="fa-solid fa-database"></i></div>
+                    <h4>Data Teams</h4>
+                </div>
             </div>
-          </div>
-          <div class="ex-body">
-            <h4>דשבורד KPI חי</h4>
-            <p>גרפים שמתעדכנים אוטומטית עם כל שינוי בגיליון הנתונים.</p>
-          </div>
         </div>
+    </section>
 
-        <div class="glass-card ex-card reveal">
-          <div class="ex-thumb">
-            <div style="display:flex;justify-content:space-between;align-items:center;">
-              <span style="font-size:0.78rem;color:var(--slate-400);font-weight:600;">Filter · Multi-Segment</span>
-              <span style="font-size:0.65rem;background:rgba(6,182,212,0.2);color:#67e8f9;padding:2px 8px;border-radius:999px;font-weight:700;">SMART</span>
+    <!-- ======================== WHAT THEY GET ======================== -->
+    <section class="block" id="get">
+        <div class="container">
+            <div class="section-head reveal">
+                <span class="section-eyebrow">What You Get</span>
+                <h2>הכל יוצא <span class="gradient-text">איתכם הביתה</span></h2>
+                <p>לא רק ידע - תיק עבודות מלא שמוכן לשימוש מהיום הראשון.</p>
             </div>
-            <div class="mini-kpi-grid">
-              <div class="b"><div class="l">סה"כ הכנסה</div><div class="v">₪1.24M</div></div>
-              <div class="b"><div class="l">לקוחות</div><div class="v">3,182</div></div>
-              <div class="b"><div class="l">ARPU</div><div class="v">₪389</div></div>
-              <div class="b"><div class="l">Retention</div><div class="v" style="color:#6ee7b7;">87%</div></div>
+
+            <div class="get-grid">
+                <div class="glass-card get-card reveal">
+                    <div class="card-icon blue"><i class="fa-solid fa-folder-open"></i></div>
+                    <h4>קבצי עבודה</h4>
+                    <p>כל הגיליונות והדשבורדים שבנינו בסדנה - מוכנים לעריכה.</p>
+                </div>
+                <div class="glass-card get-card reveal">
+                    <div class="card-icon purple"><i class="fa-solid fa-table-cells"></i></div>
+                    <h4>Templates</h4>
+                    <p>תבניות מוכנות לסימולטור תגמול, דשבורד מכירות, KPI חודשי.</p>
+                </div>
+                <div class="glass-card get-card reveal">
+                    <div class="card-icon cyan"><i class="fa-solid fa-book-bookmark"></i></div>
+                    <h4>Prompt Library</h4>
+                    <p>ספריית פרומפטים מוכחים שעובדים - מותאמת ל-Gemini ו-Sheets.</p>
+                </div>
+                <div class="glass-card get-card reveal">
+                    <div class="card-icon green"><i class="fa-solid fa-chart-column"></i></div>
+                    <h4>Dashboards</h4>
+                    <p>דשבורדים גמורים שתוכלו להתאים לארגון שלכם ולעבוד איתם מהיום הראשון.</p>
+                </div>
+                <div class="glass-card get-card reveal">
+                    <div class="card-icon red"><i class="fa-solid fa-diagram-project"></i></div>
+                    <h4>Full Workflow</h4>
+                    <p>תהליך עבודה מובנה - איך עובדים עם Gemini ב-Sheets כל יום.</p>
+                </div>
+                <div class="glass-card get-card reveal">
+                    <div class="card-icon blue"><i class="fa-solid fa-list-check"></i></div>
+                    <h4>Checklists</h4>
+                    <p>רשימות בדיקה ל-QA לנוסחאות, ל-launch ולתחזוקה שוטפת.</p>
+                </div>
+                <div class="glass-card get-card reveal">
+                    <div class="card-icon purple"><i class="fa-solid fa-hands"></i></div>
+                    <h4>Hands-On Experience</h4>
+                    <p>הניסיון שבונה ביטחון - לא צפינו, בנינו ביד.</p>
+                </div>
             </div>
-          </div>
-          <div class="ex-body">
-            <h4>פילטרים חכמים</h4>
-            <p>סגמנטציה דינמית — אזור, מוצר, רבעון — בקליק אחד.</p>
-          </div>
         </div>
-      </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- ======================== WHO IS THIS FOR ======================== -->
-  <section class="block" id="audience">
-    <div class="container">
-      <div class="section-head reveal">
-        <span class="section-eyebrow">Who Is This For</span>
-        <h2>לאיזה צוותים בארגון <span class="gradient-text">הסדנה מתאימה</span></h2>
-        <p>פורמט סגור לארגונים — אני מגיע אליכם, מעביר את הסדנה לצוות שלכם, על הדאטה שלכם.</p>
-      </div>
+    <!-- ======================== ABOUT SAGI ======================== -->
+    <section class="block" id="about">
+        <div class="container">
+            <div class="section-head reveal">
+                <span class="section-eyebrow">About</span>
+                <h2>מי מעביר את <span class="gradient-text">הסדנה</span></h2>
+            </div>
 
-      <div class="audience-grid">
-        <div class="glass-card aud-card reveal"><div class="ic"><i class="fa-solid fa-user-tie"></i></div><h4>מנהלים</h4></div>
-        <div class="glass-card aud-card reveal"><div class="ic"><i class="fa-solid fa-chart-pie"></i></div><h4>BI</h4></div>
-        <div class="glass-card aud-card reveal"><div class="ic"><i class="fa-solid fa-magnifying-glass-chart"></i></div><h4>אנליסטים</h4></div>
-        <div class="glass-card aud-card reveal"><div class="ic"><i class="fa-solid fa-coins"></i></div><h4>כספים</h4></div>
-        <div class="glass-card aud-card reveal"><div class="ic"><i class="fa-solid fa-diagram-project"></i></div><h4>PMO</h4></div>
-        <div class="glass-card aud-card reveal"><div class="ic"><i class="fa-solid fa-gears"></i></div><h4>תפעול</h4></div>
-        <div class="glass-card aud-card reveal"><div class="ic"><i class="fa-solid fa-chess-knight"></i></div><h4>Strategy</h4></div>
-        <div class="glass-card aud-card reveal"><div class="ic"><i class="fa-solid fa-database"></i></div><h4>Data Teams</h4></div>
-      </div>
-    </div>
-  </section>
+            <div class="about-banner reveal">
+                <img src="images/workshop-scene.webp"
+                    alt="שגיא בר און מעביר יום סדנה Gemini Sheets Lab — צוות בונה דשבורד עסקי על מסך גדול" loading="lazy">
+                <div class="about-banner-overlay"></div>
+                <div class="about-banner-caption">
+                    <span class="eyebrow">On-Site · יום סדנה לארגונים</span>
+                    <h3>הצוות שלכם בונה ביחד.<br>שגיא מוביל את היום מההתחלה ועד התוצר.</h3>
+                </div>
+            </div>
 
-  <!-- ======================== WHAT THEY GET ======================== -->
-  <section class="block" id="get">
-    <div class="container">
-      <div class="section-head reveal">
-        <span class="section-eyebrow">What You Get</span>
-        <h2>הכל יוצא <span class="gradient-text">איתכם הביתה</span></h2>
-        <p>לא רק ידע — תיק עבודות מלא שמוכן לשימוש מהיום הראשון.</p>
-      </div>
+            <div class="glass-card about-card reveal">
+                <div class="about-photo-wrap">
+                    <img class="about-photo" src="https://sagiai.co.il/assets/sagi-face-BM8CcVRz.webp"
+                        alt="שגיא בר און">
+                </div>
+                <div class="about-content">
+                    <h3>שגיא בר און</h3>
+                    <div class="role">AI Leader · מייסד SagiAI</div>
+                    <p>
+                        מעל 25 שנות ניסיון בהובלת תהליכים טכנולוגיים ועסקיים, עם התמחות בהנגשת טכנולוגיות AI ככלי עבודה
+                        מעשי
+                        לארגונים - לא כצעצוע, אלא כמערכת שמייצרת תוצאות עסקיות מדידות. מעביר סדנאות AI לכנסת ישראל,
+                        להכשרות לממשלה,
+                        לאוניברסיטת רייכמן, אוניברסיטת אריאל, מה"ט ומשרד החינוך.
+                    </p>
+                    <p>
+                        הגישה שלי: לא ללמד תיאוריה - לתת לכם מתודולוגיות עבודה מוכחות שמפשטות את עולמות ה-AI ומביאות
+                        לתוצאה מיידית. הסדנה הזו מקודדת את התהליך שאני משתמש בו בעצמי כדי לבנות מערכות עסקיות.
+                    </p>
+                    <div class="about-tags">
+                        <span class="about-tag"><i class="fa-solid fa-medal"
+                                style="margin-left:6px;color:var(--accent);"></i>25+ שנות הייטק</span>
+                        <span class="about-tag"><i class="fa-solid fa-graduation-cap"
+                                style="margin-left:6px;color:var(--accent);"></i>MBA · NLP Master</span>
+                        <span class="about-tag"><i class="fa-solid fa-building-columns"
+                                style="margin-left:6px;color:var(--accent);"></i>כנסת · ממשלה · רייכמן</span>
+                        <span class="about-tag"><i class="fa-solid fa-chart-line"
+                                style="margin-left:6px;color:var(--accent);"></i>חיסכון 20%-30% בזמן</span>
+                    </div>
+                </div>
+            </div>
 
-      <div class="get-grid">
-        <div class="glass-card get-card reveal">
-          <div class="card-icon blue"><i class="fa-solid fa-folder-open"></i></div>
-          <h4>קבצי עבודה</h4>
-          <p>כל הגיליונות והדשבורדים שבנינו בסדנה — מוכנים לעריכה.</p>
+            <div class="about-video reveal">
+                <h4><i class="fa-solid fa-play-circle"></i> צפו בשגיא מרצה בכנסת ישראל</h4>
+                <div class="video-wrap">
+                    <iframe src="https://www.youtube.com/embed/Dk0NAi3Xmww"
+                        title="שגיא בר און מרצה בכנסת ישראל על בינה מלאכותית"
+                        allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                        allowfullscreen loading="lazy"></iframe>
+                </div>
+            </div>
         </div>
-        <div class="glass-card get-card reveal">
-          <div class="card-icon purple"><i class="fa-solid fa-table-cells"></i></div>
-          <h4>Templates</h4>
-          <p>תבניות מוכנות לסימולטור תגמול, דשבורד מכירות, KPI חודשי.</p>
-        </div>
-        <div class="glass-card get-card reveal">
-          <div class="card-icon cyan"><i class="fa-solid fa-book-bookmark"></i></div>
-          <h4>Prompt Library</h4>
-          <p>ספריית פרומפטים מוכחים שעובדים — מותאמת ל-Gemini ו-Sheets.</p>
-        </div>
-        <div class="glass-card get-card reveal">
-          <div class="card-icon green"><i class="fa-solid fa-chart-column"></i></div>
-          <h4>Dashboards</h4>
-          <p>דשבורדים גמורים שתוכלו להתאים לארגון שלכם ולעבוד איתם מהיום הראשון.</p>
-        </div>
-        <div class="glass-card get-card reveal">
-          <div class="card-icon red"><i class="fa-solid fa-diagram-project"></i></div>
-          <h4>Full Workflow</h4>
-          <p>תהליך עבודה מובנה — איך עובדים עם Gemini ב-Sheets כל יום.</p>
-        </div>
-        <div class="glass-card get-card reveal">
-          <div class="card-icon blue"><i class="fa-solid fa-list-check"></i></div>
-          <h4>Checklists</h4>
-          <p>רשימות בדיקה ל-QA לנוסחאות, ל-launch ולתחזוקה שוטפת.</p>
-        </div>
-        <div class="glass-card get-card reveal">
-          <div class="card-icon purple"><i class="fa-solid fa-hands"></i></div>
-          <h4>Hands-On Experience</h4>
-          <p>הניסיון שבונה ביטחון — לא צפינו, בנינו ביד.</p>
-        </div>
-      </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- ======================== ABOUT SAGI ======================== -->
-  <section class="block" id="about">
-    <div class="container">
-      <div class="section-head reveal">
-        <span class="section-eyebrow">About</span>
-        <h2>מי מעביר את <span class="gradient-text">הסדנה</span></h2>
-      </div>
-
-      <div class="glass-card about-card reveal">
-        <div class="about-photo-wrap">
-          <img class="about-photo" src="https://sagiai.co.il/assets/sagi-face-BM8CcVRz.webp" alt="שגיא בר און">
+    <!-- ======================== FINAL CTA ======================== -->
+    <section class="block" id="cta">
+        <div class="container">
+            <div class="final-cta reveal">
+                <span class="badge-pill" style="margin-bottom:18px;">
+                    <i class="fa-solid fa-rocket" style="color:var(--accent);"></i>
+                    יום סדנה אצלכם בארגון
+                </span>
+                <h2>מוכנים שהצוות שלכם יבנה את הסימולטור הראשון <span class="gradient-text">ביום אחד?</span></h2>
+                <p>אני מגיע אליכם, מותאם לדאטה שלכם, מסתיים עם מערכת עובדת. גם אם לצוות אין רקע בפיתוח.</p>
+                <a class="btn btn-primary"
+                    href="https://api.whatsapp.com/send?phone=972549995050&text=%D7%94%D7%99%D7%99%20%D7%A9%D7%92%D7%99%D7%90%2C%20%D7%90%D7%A0%D7%97%D7%A0%D7%95%20%D7%9E%D7%A2%D7%95%D7%A0%D7%99%D7%99%D7%A0%D7%99%D7%9D%20%D7%9C%D7%94%D7%96%D7%9E%D7%99%D7%9F%20%D7%90%D7%AA%20%D7%A1%D7%93%D7%A0%D7%AA%20Gemini%20Sheets%20Lab%20%D7%9C%D7%90%D7%A8%D7%92%D7%95%D7%9F%20%D7%A9%D7%9C%D7%A0%D7%95"
+                    target="_blank" rel="noopener">
+                    לתיאום סדנה בארגון
+                    <i class="fa-solid fa-arrow-left"></i>
+                </a>
+            </div>
         </div>
-        <div class="about-content">
-          <h3>שגיא בר און</h3>
-          <div class="role">AI Leader · מייסד SagiAI</div>
-          <p>
-            מעל 25 שנות ניסיון בהובלת תהליכים טכנולוגיים ועסקיים, עם התמחות בהנגשת טכנולוגיות AI ככלי עבודה מעשי
-            לארגונים — לא כצעצוע, אלא כמערכת שמייצרת תוצאות עסקיות מדידות. מעביר סדנאות AI לכנסת ישראל, להכשרות לממשלה,
-            לאוניברסיטת רייכמן, אוניברסיטת אריאל, מה"ט ומשרד החינוך.
-          </p>
-          <p>
-            הגישה שלי: לא ללמד תיאוריה — לתת לכם מתודולוגיות עבודה מוכחות שמפשטות את עולמות ה-AI ומביאות
-            לתוצאה מיידית. הסדנה הזו מקודדת את התהליך שאני משתמש בו בעצמי כדי לבנות מערכות עסקיות.
-          </p>
-          <div class="about-tags">
-            <span class="about-tag"><i class="fa-solid fa-medal" style="margin-left:6px;color:var(--accent);"></i>25+ שנות הייטק</span>
-            <span class="about-tag"><i class="fa-solid fa-graduation-cap" style="margin-left:6px;color:var(--accent);"></i>MBA · NLP Master</span>
-            <span class="about-tag"><i class="fa-solid fa-building-columns" style="margin-left:6px;color:var(--accent);"></i>כנסת · ממשלה · רייכמן</span>
-            <span class="about-tag"><i class="fa-solid fa-chart-line" style="margin-left:6px;color:var(--accent);"></i>חיסכון 20%-30% בזמן</span>
-          </div>
+    </section>
+
+    <!-- ======================== FAQ ======================== -->
+    <section class="block" id="faq">
+        <div class="container">
+            <div class="section-head reveal">
+                <span class="section-eyebrow">FAQ</span>
+                <h2>שאלות <span class="gradient-text">שכבר נשאלו</span></h2>
+            </div>
+
+            <div class="faq-list">
+                <details class="faq-item reveal">
+                    <summary>צריך לדעת קוד?</summary>
+                    <div class="faq-body">לא. הסדנה בנויה בדיוק לאנשים שלא כותבים קוד. כל מה שצריך זה היכרות עם Google
+                        Sheets ברמת משתמש.</div>
+                </details>
+                <details class="faq-item reveal">
+                    <summary>צריך Gemini בתשלום?</summary>
+                    <div class="faq-body">כן - חובה. הסדנה מבוססת על Gemini בתוך Google Workspace (גרסה בתשלום), שזו
+                        הגרסה שמאפשרת את החיבור המלא ל-Sheets, Build Mode, Canvas והיכולות המתקדמות שנעבוד איתן. מרבית
+                        הארגונים שמזמינים את הסדנה כבר עם Workspace, ומי שלא - נדאג להסדיר רישיונות לפני המפגש.</div>
+                </details>
+                <details class="faq-item reveal">
+                    <summary>איך מזמינים את הסדנה לארגון?</summary>
+                    <div class="faq-body">בקליק על אחד הכפתורים בעמוד - נפתחת שיחת WhatsApp. נתאם שיחת אפיון של 20 דק׳
+                        להבנת הצרכים, גודל הצוות והדאטה שאיתה תרצו לעבוד. אחרי השיחה אשלח הצעה מסודרת.</div>
+                </details>
+                <details class="faq-item reveal">
+                    <summary>כמה זמן הסדנה?</summary>
+                    <div class="faq-body">יום סדנה מלא אחד אצלכם בארגון - מתחילים בבוקר ובסוף היום הצוות יוצא עם
+                        סימולטור עובד ביד. סדנה אחת, יום אחד, מערכת עובדת.</div>
+                </details>
+                <details class="faq-item reveal">
+                    <summary>האם עובדים Hands-On?</summary>
+                    <div class="faq-body">כן - זו הנקודה. רוב הזמן בסדנה מוקדש לבנייה אקטיבית, לא להאזנה. בסוף הסדנה יש
+                        לכם משהו עובד.</div>
+                </details>
+                <details class="faq-item reveal">
+                    <summary>מקבלים קבצים?</summary>
+                    <div class="faq-body">כן - כל קבצי העבודה, התבניות, ספריית הפרומפטים והדשבורדים שבנינו במהלך הסדנה.
+                    </div>
+                </details>
+                <details class="faq-item reveal">
+                    <summary>האם מתאים גם ל-Excel users?</summary>
+                    <div class="faq-body">העקרונות זהים, והרבה מהמתודולוגיה רלוונטית גם ל-Excel. עם זאת, השילוב המלא של
+                        Gemini הוא דרך Google Sheets - ולכן הסדנה ממוקדת שם.</div>
+                </details>
+            </div>
         </div>
-      </div>
+    </section>
 
-      <div class="about-video reveal">
-        <h4><i class="fa-solid fa-play-circle"></i> צפו בשגיא מרצה בכנסת ישראל</h4>
-        <div class="video-wrap">
-          <iframe src="https://www.youtube.com/embed/Dk0NAi3Xmww"
-            title="שגיא בר און מרצה בכנסת ישראל על בינה מלאכותית"
-            allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-            allowfullscreen loading="lazy"></iframe>
+    <!-- ======================== FOOTER ======================== -->
+    <footer>
+        <div class="footer-inner">
+            <div class="footer-brand">
+                <span class="logo-mark"><i class="fa-solid fa-table-cells"></i></span>
+                <div class="meta">
+                    <strong>Gemini Sheets Lab</strong>
+                    <span>שגיא בר און · AI לארגונים</span>
+                </div>
+            </div>
+            <div class="footer-links">
+                <a href="https://api.whatsapp.com/send?phone=972549995050" target="_blank" rel="noopener"
+                    aria-label="WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
+                <a href="https://www.linkedin.com/in/sagi-bar-on/" target="_blank" rel="noopener"
+                    aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+                <a href="mailto:sagi.baron76@gmail.com" aria-label="Email"><i class="fa-solid fa-envelope"></i></a>
+                <a href="https://sagiai.co.il/" target="_blank" rel="noopener" aria-label="Website"><i
+                        class="fa-solid fa-globe"></i></a>
+            </div>
+            <div class="footer-copy">
+                &copy; ש.ב. ידע וטכנולוגיה | ח.פ. 037565348 · כל הזכויות שמורות
+            </div>
         </div>
-      </div>
-    </div>
-  </section>
+    </footer>
 
-  <!-- ======================== FINAL CTA ======================== -->
-  <section class="block" id="cta">
-    <div class="container">
-      <div class="final-cta reveal">
-        <span class="badge-pill" style="margin-bottom:18px;">
-          <i class="fa-solid fa-rocket" style="color:var(--accent);"></i>
-          יום סדנה אצלכם בארגון
-        </span>
-        <h2>מוכנים שהצוות שלכם יבנה את הסימולטור הראשון <span class="gradient-text">ביום אחד?</span></h2>
-        <p>אני מגיע אליכם, מותאם לדאטה שלכם, מסתיים עם מערכת עובדת. גם אם לצוות אין רקע בפיתוח.</p>
-        <a class="btn btn-primary" href="https://api.whatsapp.com/send?phone=972549995050&text=%D7%94%D7%99%D7%99%20%D7%A9%D7%92%D7%99%D7%90%2C%20%D7%90%D7%A0%D7%97%D7%A0%D7%95%20%D7%9E%D7%A2%D7%95%D7%A0%D7%99%D7%99%D7%A0%D7%99%D7%9D%20%D7%9C%D7%94%D7%96%D7%9E%D7%99%D7%9F%20%D7%90%D7%AA%20%D7%A1%D7%93%D7%A0%D7%AA%20Gemini%20Sheets%20Lab%20%D7%9C%D7%90%D7%A8%D7%92%D7%95%D7%9F%20%D7%A9%D7%9C%D7%A0%D7%95" target="_blank" rel="noopener">
-          לתיאום סדנה בארגון
-          <i class="fa-solid fa-arrow-left"></i>
-        </a>
-      </div>
-    </div>
-  </section>
+    <a class="wa-float"
+        href="https://api.whatsapp.com/send?phone=972549995050&text=%D7%94%D7%99%D7%99%20%D7%A9%D7%92%D7%99%D7%90%2C%20%D7%90%D7%A9%D7%9E%D7%97%20%D7%9C%D7%A4%D7%A8%D7%98%D7%99%D7%9D%20%D7%A2%D7%9C%20%D7%94%D7%96%D7%9E%D7%A0%D7%AA%20%D7%A1%D7%93%D7%A0%D7%AA%20Gemini%20Sheets%20Lab%20%D7%9C%D7%90%D7%A8%D7%92%D7%95%D7%9F%20%D7%A9%D7%9C%D7%A0%D7%95"
+        target="_blank" rel="noopener" aria-label="WhatsApp">
+        <i class="fa-brands fa-whatsapp"></i>
+    </a>
 
-  <!-- ======================== FAQ ======================== -->
-  <section class="block" id="faq">
-    <div class="container">
-      <div class="section-head reveal">
-        <span class="section-eyebrow">FAQ</span>
-        <h2>שאלות <span class="gradient-text">שכבר נשאלו</span></h2>
-      </div>
+    <script>
+        // ===== Reveal on scroll =====
+        (function () {
+            const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+            const els = document.querySelectorAll('.reveal');
+            if (reduce || !('IntersectionObserver' in window)) {
+                els.forEach(el => el.classList.add('is-visible'));
+                return;
+            }
+            const io = new IntersectionObserver(entries => {
+                entries.forEach(e => {
+                    if (e.isIntersecting) {
+                        e.target.classList.add('is-visible');
+                        io.unobserve(e.target);
+                    }
+                });
+            }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+            els.forEach(el => io.observe(el));
+        })();
 
-      <div class="faq-list">
-        <details class="faq-item reveal">
-          <summary>צריך לדעת קוד?</summary>
-          <div class="faq-body">לא. הסדנה בנויה בדיוק לאנשים שלא כותבים קוד. כל מה שצריך זה היכרות עם Google Sheets ברמת משתמש.</div>
-        </details>
-        <details class="faq-item reveal">
-          <summary>צריך Gemini בתשלום?</summary>
-          <div class="faq-body">כן — חובה. הסדנה מבוססת על Gemini בתוך Google Workspace (גרסה בתשלום), שזו הגרסה שמאפשרת את החיבור המלא ל-Sheets, Build Mode, Canvas והיכולות המתקדמות שנעבוד איתן. מרבית הארגונים שמזמינים את הסדנה כבר עם Workspace, ומי שלא — נדאג להסדיר רישיונות לפני המפגש.</div>
-        </details>
-        <details class="faq-item reveal">
-          <summary>איך מזמינים את הסדנה לארגון?</summary>
-          <div class="faq-body">בקליק על אחד הכפתורים בעמוד — נפתחת שיחת WhatsApp. נתאם שיחת אפיון של 20 דק׳ להבנת הצרכים, גודל הצוות והדאטה שאיתה תרצו לעבוד. אחרי השיחה אשלח הצעה מסודרת.</div>
-        </details>
-        <details class="faq-item reveal">
-          <summary>כמה זמן הסדנה?</summary>
-          <div class="faq-body">יום סדנה מלא אחד אצלכם בארגון — מתחילים בבוקר ובסוף היום הצוות יוצא עם סימולטור עובד ביד. סדנה אחת, יום אחד, מערכת עובדת.</div>
-        </details>
-        <details class="faq-item reveal">
-          <summary>האם עובדים Hands-On?</summary>
-          <div class="faq-body">כן — זו הנקודה. רוב הזמן בסדנה מוקדש לבנייה אקטיבית, לא להאזנה. בסוף הסדנה יש לכם משהו עובד.</div>
-        </details>
-        <details class="faq-item reveal">
-          <summary>מקבלים קבצים?</summary>
-          <div class="faq-body">כן — כל קבצי העבודה, התבניות, ספריית הפרומפטים והדשבורדים שבנינו במהלך הסדנה.</div>
-        </details>
-        <details class="faq-item reveal">
-          <summary>האם מתאים גם ל-Excel users?</summary>
-          <div class="faq-body">העקרונות זהים, והרבה מהמתודולוגיה רלוונטית גם ל-Excel. עם זאת, השילוב המלא של Gemini הוא דרך Google Sheets — ולכן הסדנה ממוקדת שם.</div>
-        </details>
-      </div>
-    </div>
-  </section>
-
-  <!-- ======================== FOOTER ======================== -->
-  <footer>
-    <div class="footer-inner">
-      <div class="footer-brand">
-        <span class="logo-mark"><i class="fa-solid fa-table-cells"></i></span>
-        <div class="meta">
-          <strong>Gemini Sheets Lab</strong>
-          <span>שגיא בר און · AI לארגונים</span>
-        </div>
-      </div>
-      <div class="footer-links">
-        <a href="https://api.whatsapp.com/send?phone=972549995050" target="_blank" rel="noopener" aria-label="WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
-        <a href="https://www.linkedin.com/in/sagi-bar-on/" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
-        <a href="mailto:sagi.baron76@gmail.com" aria-label="Email"><i class="fa-solid fa-envelope"></i></a>
-        <a href="https://sagiai.co.il/" target="_blank" rel="noopener" aria-label="Website"><i class="fa-solid fa-globe"></i></a>
-      </div>
-      <div class="footer-copy">
-        &copy; ש.ב. ידע וטכנולוגיה | ח.פ. 037565348 · כל הזכויות שמורות
-      </div>
-    </div>
-  </footer>
-
-  <a class="wa-float" href="https://api.whatsapp.com/send?phone=972549995050&text=%D7%94%D7%99%D7%99%20%D7%A9%D7%92%D7%99%D7%90%2C%20%D7%90%D7%A9%D7%9E%D7%97%20%D7%9C%D7%A4%D7%A8%D7%98%D7%99%D7%9D%20%D7%A2%D7%9C%20%D7%94%D7%96%D7%9E%D7%A0%D7%AA%20%D7%A1%D7%93%D7%A0%D7%AA%20Gemini%20Sheets%20Lab%20%D7%9C%D7%90%D7%A8%D7%92%D7%95%D7%9F%20%D7%A9%D7%9C%D7%A0%D7%95" target="_blank" rel="noopener" aria-label="WhatsApp">
-    <i class="fa-brands fa-whatsapp"></i>
-  </a>
-
-  <script>
-    // ===== Reveal on scroll =====
-    (function(){
-      const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-      const els = document.querySelectorAll('.reveal');
-      if (reduce || !('IntersectionObserver' in window)) {
-        els.forEach(el => el.classList.add('is-visible'));
-        return;
-      }
-      const io = new IntersectionObserver(entries => {
-        entries.forEach(e => {
-          if (e.isIntersecting) {
-            e.target.classList.add('is-visible');
-            io.unobserve(e.target);
-          }
-        });
-      }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
-      els.forEach(el => io.observe(el));
-    })();
-
-    // ===== Animated counters =====
-    (function(){
-      const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-      const fmt = (n, decimals) => {
-        const v = decimals ? n.toFixed(decimals) : Math.round(n);
-        return Number(v).toLocaleString('en-US', { minimumFractionDigits: decimals || 0, maximumFractionDigits: decimals || 0 });
-      };
-      const animate = (el) => {
-        const target = parseFloat(el.dataset.counter);
-        const decimals = parseInt(el.dataset.decimals || '0', 10);
-        const prefix = el.dataset.prefix || '';
-        const suffix = el.dataset.suffix || '';
-        if (reduce) {
-          el.textContent = prefix + fmt(target, decimals) + suffix;
-          return;
-        }
-        const duration = 1600;
-        const start = performance.now();
-        const step = (now) => {
-          const t = Math.min(1, (now - start) / duration);
-          const eased = 1 - Math.pow(1 - t, 3);
-          const cur = target * eased;
-          el.textContent = prefix + fmt(cur, decimals) + suffix;
-          if (t < 1) requestAnimationFrame(step);
-        };
-        requestAnimationFrame(step);
-      };
-      const counters = document.querySelectorAll('[data-counter]');
-      if (!('IntersectionObserver' in window)) {
-        counters.forEach(animate);
-        return;
-      }
-      const io = new IntersectionObserver(entries => {
-        entries.forEach(e => {
-          if (e.isIntersecting) {
-            animate(e.target);
-            io.unobserve(e.target);
-          }
-        });
-      }, { threshold: 0.4 });
-      counters.forEach(c => io.observe(c));
-    })();
-  </script>
+        // ===== Animated counters =====
+        (function () {
+            const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+            const fmt = (n, decimals) => {
+                const v = decimals ? n.toFixed(decimals) : Math.round(n);
+                return Number(v).toLocaleString('en-US', { minimumFractionDigits: decimals || 0, maximumFractionDigits: decimals || 0 });
+            };
+            const animate = (el) => {
+                const target = parseFloat(el.dataset.counter);
+                const decimals = parseInt(el.dataset.decimals || '0', 10);
+                const prefix = el.dataset.prefix || '';
+                const suffix = el.dataset.suffix || '';
+                if (reduce) {
+                    el.textContent = prefix + fmt(target, decimals) + suffix;
+                    return;
+                }
+                const duration = 1600;
+                const start = performance.now();
+                const step = (now) => {
+                    const t = Math.min(1, (now - start) / duration);
+                    const eased = 1 - Math.pow(1 - t, 3);
+                    const cur = target * eased;
+                    el.textContent = prefix + fmt(cur, decimals) + suffix;
+                    if (t < 1) requestAnimationFrame(step);
+                };
+                requestAnimationFrame(step);
+            };
+            const counters = document.querySelectorAll('[data-counter]');
+            if (!('IntersectionObserver' in window)) {
+                counters.forEach(animate);
+                return;
+            }
+            const io = new IntersectionObserver(entries => {
+                entries.forEach(e => {
+                    if (e.isIntersecting) {
+                        animate(e.target);
+                        io.unobserve(e.target);
+                    }
+                });
+            }, { threshold: 0.4 });
+            counters.forEach(c => io.observe(c));
+        })();
+    </script>
 
 </body>
+
 </html>
