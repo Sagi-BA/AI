@@ -1,5 +1,5 @@
 <!--
-  Live:  https://sagi-ba.github.io/AI/landing-pages/recipes-for-shavuot/
+  Live:  https://megenimoref.github.io/LandingPages/recipes-for-shavuot/
   Local: http://127.0.0.1:8080/recipes-for-shavuot/
   GA:    https://analytics.google.com/analytics/web/#/a351596902p494681343/reports/reportinghub
 -->
@@ -16,15 +16,14 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>מהמטבחים שלנו · שבועות תשפ״ו</title>
   <meta name="description"
-    content="ספר מתכונים דיגיטלי לשבועות תשפ&quot;ו. אוסף מתכונים מהמטבחים של חמש משפחות - חיבוק קטן לחג חלב ודבש.">
+    content="ספר מתכונים דיגיטלי לשבועות תשפ&quot;ו, ממשפחות גדודי המילואים בישראל. אוסף מתכונים מהבית, מוקדש לנשות מילואים.">
 
   <!-- Open Graph -->
   <meta property="og:type" content="website">
   <meta property="og:locale" content="he_IL">
   <meta property="og:site_name" content="מהמטבחים שלנו">
-  <meta property="og:title" content="מהמטבחים שלנו · ספר מתכונים לשבועות תשפ״ו">
-  <meta property="og:description"
-    content="חמישה מתכונים מהמטבחים של חמש משפחות. מתנה קטנה לחג חלב ודבש - מאיתנו אליכם.">
+  <meta property="og:title" content="מהמטבחים שלנו · מתכוני שבועות מנשות מילואים">
+  <meta property="og:description" content="אוסף מתכונים מהבית, ממשפחות גדודי המילואים בישראל">
   <meta property="og:image" content="images/og-cover.webp">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
@@ -32,9 +31,8 @@
 
   <!-- Twitter -->
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="מהמטבחים שלנו · ספר מתכונים לשבועות תשפ״ו">
-  <meta name="twitter:description"
-    content="חמישה מתכונים מהמטבחים של חמש משפחות. מתנה קטנה לחג חלב ודבש - מאיתנו אליכם.">
+  <meta name="twitter:title" content="מהמטבחים שלנו · מתכוני שבועות מנשות מילואים">
+  <meta name="twitter:description" content="אוסף מתכונים מהבית, ממשפחות גדודי המילואים בישראל">
   <meta name="twitter:image" content="images/og-cover.webp">
 
   <!-- Google Analytics -->
@@ -52,8 +50,8 @@
     rel="stylesheet">
   <style>
     :root {
-      --paper: #fbf6ec;
-      --paper-2: #f4ecdb;
+      --paper: #f3ead6;
+      --paper-2: #ece0c4;
       --ink: #2a1f12;
       --ink-soft: #5b4a33;
       --olive: oklch(0.44 0.06 130);
@@ -61,8 +59,8 @@
       --wheat: oklch(0.66 0.13 78);
       --wheat-deep: oklch(0.52 0.13 70);
       --wine: oklch(0.42 0.14 18);
-      --rule: #b9a87e;
-      --rule-soft: #d4c5a0;
+      --rule: #9c8862;
+      --rule-soft: #bfae87;
     }
 
     * {
@@ -96,11 +94,12 @@
       aspect-ratio: 1 / 1.414;
       /* A-series */
       overflow: hidden;
-      padding: 72px 80px;
-      border-bottom: 1px solid rgba(0, 0, 0, .04);
+      padding: 64px 72px;
+      border-bottom: 1px solid rgba(0, 0, 0, .05);
       background-image:
-        radial-gradient(ellipse at 18% -10%, rgba(201, 168, 90, .06), transparent 60%),
-        radial-gradient(ellipse at 100% 110%, rgba(201, 168, 90, .07), transparent 65%);
+        radial-gradient(ellipse at 20% 0%, rgba(156, 136, 98, .10), transparent 55%),
+        radial-gradient(ellipse at 100% 100%, rgba(156, 136, 98, .12), transparent 60%),
+        url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='220' height='220'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 0.18  0 0 0 0 0.13  0 0 0 0 0.07  0 0 0 0.06 0'/></filter><rect width='100%25' height='100%25' filter='url(%23n)'/></svg>");
     }
 
     /* Recipe pages must grow to fit ingredients + instructions in full */
@@ -225,15 +224,14 @@
 
     .header-mark {
       position: absolute;
-      top: 32px;
+      top: 28px;
       left: 0;
       right: 0;
       text-align: center;
       font-family: "Cardo", serif;
-      font-style: italic;
       font-size: 11px;
-      letter-spacing: .6em;
-      color: var(--wheat-deep);
+      letter-spacing: .5em;
+      color: var(--ink-soft);
       text-transform: uppercase;
     }
 
@@ -241,7 +239,7 @@
     .cover {
       padding: 0;
       background:
-        radial-gradient(ellipse at 50% 38%, #fcf4dc 0%, #f0e0b8 60%, #d6c089 100%);
+        radial-gradient(ellipse at 50% 38%, #f9efd2 0%, #ead7a8 55%, #c9b07a 100%);
       color: var(--ink);
       overflow: hidden;
     }
@@ -282,16 +280,14 @@
 
     .cover-top {
       position: absolute;
-      top: 84px;
+      top: 78px;
       left: 0;
       right: 0;
       text-align: center;
       font-family: "Cardo", serif;
-      font-style: italic;
-      letter-spacing: .65em;
+      letter-spacing: .55em;
       color: var(--wine);
-      font-size: 12px;
-      text-transform: uppercase;
+      font-size: 13px;
     }
 
     .cover-top .dot {
@@ -313,11 +309,11 @@
     .cover-title h1 {
       font-family: "Suez One", "Frank Ruhl Libre", serif;
       font-weight: 400;
-      font-size: 80px;
+      font-size: 78px;
       line-height: 1.02;
       margin: 0;
       color: #3a2410;
-      letter-spacing: -0.01em;
+      text-shadow: 0 1px 0 rgba(255, 255, 255, .4);
     }
 
     .cover-title .amp {
@@ -509,98 +505,6 @@
       transform: rotate(180deg) scaleX(-1);
     }
 
-    /* ============ INTRO (personal note) ============ */
-    .intro .intro-wrap {
-      position: absolute;
-      inset: 130px 80px;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-    }
-
-    .intro .ornament {
-      width: 120px;
-      height: 30px;
-      margin-bottom: 18px;
-      opacity: .6;
-    }
-
-    .intro .eyebrow {
-      font-family: "Cardo", serif;
-      font-style: italic;
-      font-size: 14px;
-      letter-spacing: .5em;
-      color: var(--wine);
-      text-transform: uppercase;
-      margin-bottom: 18px;
-    }
-
-    .intro .portrait {
-      width: 260px;
-      height: auto;
-      max-height: 405px;
-      border-radius: 6px;
-      object-fit: cover;
-      border: 4px solid var(--paper);
-      box-shadow: 0 0 0 1px var(--wheat-deep), 0 18px 38px rgba(58, 36, 16, .22);
-      margin-bottom: 22px;
-    }
-
-    .intro h3 {
-      font-family: "Suez One", "Frank Ruhl Libre", serif;
-      font-weight: 400;
-      font-size: 42px;
-      line-height: 1.1;
-      color: #3a2410;
-      margin: 0 0 18px;
-    }
-
-    .intro p.lead {
-      font-family: "Frank Ruhl Libre", serif;
-      font-weight: 300;
-      font-size: 20px;
-      line-height: 1.75;
-      color: var(--ink);
-      max-width: 540px;
-      margin: 0 0 24px;
-    }
-
-    .intro p.lead em {
-      font-style: italic;
-      color: var(--wine);
-    }
-
-    .intro .sig {
-      font-family: "Cardo", serif;
-      font-style: italic;
-      color: var(--olive);
-      font-size: 20px;
-      margin-top: 14px;
-      letter-spacing: .06em;
-    }
-
-    .intro .sig strong {
-      display: block;
-      font-family: "Suez One", serif;
-      font-style: normal;
-      font-size: 28px;
-      color: var(--wine);
-      letter-spacing: .02em;
-      margin-top: 6px;
-    }
-
-    .intro .ai-credit {
-      margin-top: 22px;
-      font-family: "Cardo", serif;
-      font-style: italic;
-      font-size: 13px;
-      color: var(--wheat-deep);
-      letter-spacing: .06em;
-      opacity: .85;
-    }
-
     /* ============ DEDICATION ============ */
     .ded .ded-wrap {
       position: absolute;
@@ -632,11 +536,11 @@
     .ded p.lead {
       font-family: "Frank Ruhl Libre", serif;
       font-weight: 300;
-      font-size: 23px;
-      line-height: 1.8;
+      font-size: 24px;
+      line-height: 1.7;
       color: var(--ink);
       max-width: 520px;
-      margin: 0 0 32px;
+      margin: 0 0 30px;
     }
 
     .ded p.lead em {
@@ -1059,14 +963,6 @@
       border-radius: 999px;
     }
 
-    .closing .ai-credit {
-      margin-top: 18px;
-      font-size: 11px;
-      color: var(--wheat-deep);
-      letter-spacing: .04em;
-      opacity: .8;
-    }
-
     /* small decorative SVGs */
     .leaf-row {
       display: flex;
@@ -1237,27 +1133,8 @@
       }
 
       .ded .ded-wrap,
-      .closing .wrap,
-      .intro .intro-wrap {
+      .closing .wrap {
         inset: 60px 24px;
-      }
-
-      .intro h3 {
-        font-size: 30px;
-      }
-
-      .intro p.lead {
-        font-size: 17px;
-        line-height: 1.6;
-      }
-
-      .intro .portrait {
-        width: 200px;
-        max-height: 312px;
-      }
-
-      .intro .sig strong {
-        font-size: 22px;
       }
 
       .cover-title h1 {
@@ -1513,50 +1390,29 @@
       </div>
 
       <div class="cover-bottom">
-        <span class="yr">חמישה מתכונים · חמש משפחות</span>
-        מתנה קטנה לחג חלב ודבש
+        <span class="yr">מתכון משפחתי · משפחת קופר</span>
+        מוקדש באהבה לנשות המילואים
       </div>
 
       <div class="cover-share">
-        <button class="share-btn" type="button" data-share aria-label="שתפו את הספר">
+        <button class="share-btn" type="button" data-share aria-label="שתפי את הספר">
           <svg viewBox="0 0 24 24" aria-hidden="true">
             <path
               d="M18 8a3 3 0 1 0-2.83-4H15.1a3 3 0 0 0 .11 1.94L8.82 8.69A3 3 0 1 0 8.82 15.31l6.39 3.75A3 3 0 1 0 16.18 17.3l-6.39-3.75a3 3 0 0 0 0-2.7l6.4-3.76A3 3 0 0 0 18 8Z" />
           </svg>
-          <span class="label">שתפו את הספר</span>
+          <span class="label">שתפי את הספר</span>
         </button>
       </div>
 
-    </section>
-
-    <!-- ============ PERSONAL INTRO ============ -->
-    <section class="page intro" data-screen-label="02 פתח דבר">
-      <div class="header-mark">פתח דבר</div>
-      <div class="intro-wrap">
-        <svg class="ornament" style="color:var(--wheat-deep)">
-          <use href="#ornament" />
-        </svg>
-
-        <div class="eyebrow">ממני אליכם</div>
-
-        <img class="portrait" src="images/intro-shavuot.webp" alt="שגיא בר־און ליד שולחן שבועות עם גבינות, רימונים, חלה ושיבולים" loading="lazy">
-
-        <h3>חברים יקרים,</h3>
-
-        <p class="lead">
-          שבועות תשפ״ו, ורציתי להעביר לכם משהו <em>קטן וביתי</em>
-          לפני שמתיישבים סביב השולחן.<br>
-          ייצרתי כאן עם בינה מלאכותית חמישה מתכונים לחג חלב ודבש,
-          ועטפתי אותם בסיפור של חמש משפחות - כי גם מתכון רוצה רקע ביתי.<br>
-          <em>נסו, תהנו, וספרו לי איך יצא.</em>
-        </p>
-
-        <div class="sig">
-          חג שמח ובתאבון,
-          <strong>שגיא</strong>
+      <div class="cover-partners">
+        <div class="pcaption">בשיתוף</div>
+        <div class="plogos">
+          <img src="images/maganim-center.webp" alt="מרכז מגנים">
+          <span class="psep" aria-hidden="true"></span>
+          <img src="images/oref-haifa.webp" alt="פיקוד העורף - חיפה">
+          <span class="psep" aria-hidden="true"></span>
+          <img src="images/shaagat-hari-logo.webp" alt="שאגת הארי">
         </div>
-
-        <p class="ai-credit">הביצוע של הבינה. המחשבה של האדם.</p>
       </div>
     </section>
 
@@ -1568,12 +1424,13 @@
           <use href="#ornament" />
         </svg>
 
-        <h3>לקהילה שלי</h3>
+        <h3>לנשות המילואים</h3>
 
         <p class="lead">
-          לחברים, למשפחה ולעוקבים שלי - תודה שאתם כאן, קוראים, מגיבים ועושים את הדרך הזו ביחד.<br>
-          <em>החוברת הזו היא חיבוק קטן ממני אליכם -</em>
-          חמישה מתכונים שיצרתי עם בינה מלאכותית,
+          בשעה שהבעלים בשירות, אתן מחזיקות את הבית, את הילדים,
+          ואת השולחן החגיגי.<br>
+          <em>החוברת הזו היא חיבוק קטן מאיתנו אליכן -</em>
+          אוסף מתכונים מהמטבחים של החברות בגדוד,
           כדי שגם חג שבועות הזה יהיה לבן, מתוק, ומלא טעם של בית.
         </p>
 
@@ -1591,43 +1448,15 @@
     <section class="page toc" data-screen-label="03 תוכן">
       <div class="header-mark">תוכן עניינים</div>
       <h2 class="section-title">מה בפנים</h2>
-      <div class="sub">~ חמישה מתכונים לשולחן החג ~</div>
+      <div class="sub">~ מתכון משפחתי לשולחן החג ~</div>
 
       <ol class="toc-list">
         <li>
           <span class="num">01</span>
-          <span class="ttl">קיש גבינות חגיגי
-            <small>משפחת מזרחי</small>
+          <span class="ttl">פשטידת פצפוצי אורז
+            <small>משפחת קופר · נתנאל, פתח תקווה</small>
           </span>
-          <span class="pg">עמ׳ 06</span>
-        </li>
-        <li>
-          <span class="num">02</span>
-          <span class="ttl">לזניה גבינות חגיגית
-            <small>משפחת אברהם</small>
-          </span>
-          <span class="pg">עמ׳ 08</span>
-        </li>
-        <li>
-          <span class="num">03</span>
-          <span class="ttl">בלינצ׳ס גבינה מתוקים
-            <small>משפחת לוי</small>
-          </span>
-          <span class="pg">עמ׳ 10</span>
-        </li>
-        <li>
-          <span class="num">04</span>
-          <span class="ttl">עוגת גבינה אפויה קלאסית
-            <small>משפחת כהן</small>
-          </span>
-          <span class="pg">עמ׳ 12</span>
-        </li>
-        <li>
-          <span class="num">05</span>
-          <span class="ttl">עוגת גבינה קרה בכוסות
-            <small>משפחת ביטון</small>
-          </span>
-          <span class="pg">עמ׳ 14</span>
+          <span class="pg">עמ׳ 04</span>
         </li>
       </ol>
 
@@ -1643,13 +1472,13 @@
       <div class="pgnum"><span>3</span></div>
     </section>
 
-    <!-- ============ RECIPE 01 - Quiche ============ -->
-    <section class="page recipe" id="recipe-01" data-screen-label="04 מתכון 01 - קיש גבינות">
+    <!-- ============ RECIPE 01 - Rice Crispies Pashtida ============ -->
+    <section class="page recipe" id="recipe-01" data-screen-label="04 מתכון 01 - פשטידת פצפוצי אורז">
       <div class="top-band">
-        <span class="num-badge">מתכון · 01 / 05</span>
+        <span class="num-badge">מתכון · 01 / 01</span>
         <span class="chip">מנה עיקרית · אפייה</span>
         <button class="recipe-share-btn" type="button" data-share data-share-type="recipe"
-          data-share-name="קיש גבינות חגיגי" aria-label="שתפו מתכון: קיש גבינות חגיגי">
+          data-share-name="פשטידת פצפוצי אורז" aria-label="שתפי מתכון: פשטידת פצפוצי אורז">
           <svg viewBox="0 0 24 24" aria-hidden="true">
             <path
               d="M18 8a3 3 0 1 0-2.83-4H15.1a3 3 0 0 0 .11 1.94L8.82 8.69A3 3 0 1 0 8.82 15.31l6.39 3.75A3 3 0 1 0 16.18 17.3l-6.39-3.75a3 3 0 0 0 0-2.7l6.4-3.76A3 3 0 0 0 18 8Z" />
@@ -1657,15 +1486,15 @@
         </button>
       </div>
 
-      <h2 class="title">קיש גבינות<br>חגיגי</h2>
-      <div class="dedication">בהשראת משפחת מזרחי</div>
+      <h2 class="title">פשטידת<br>פצפוצי אורז</h2>
+      <div class="dedication">באדיבות משפחת קופר · נתנאל, פתח תקווה</div>
 
-      <div class="hero"><img src="images/recipe-03.webp" alt="קיש גבינות עם בצל סגול ועשבי תיבול"></div>
+      <div class="hero"><img src="images/pashtida-rice.webp" alt="פשטידת פצפוצי אורז זהובה עם בצל מטוגן מעל"></div>
 
       <div class="meta">
-        <div class="m"><span class="k">הכנה</span><span class="v">45 דק׳</span></div>
-        <div class="m"><span class="k">אפייה</span><span class="v">50 דק׳</span></div>
-        <div class="m"><span class="k">תבנית</span><span class="v">קיש 26</span></div>
+        <div class="m"><span class="k">הכנה</span><span class="v">15 דק׳</span></div>
+        <div class="m"><span class="k">אפייה</span><span class="v">40 דק׳</span></div>
+        <div class="m"><span class="k">תבנית</span><span class="v">בינונית</span></div>
         <div class="m"><span class="k">מנות</span><span class="v">8</span></div>
       </div>
 
@@ -1673,292 +1502,41 @@
         <div class="col ingredients">
           <h4>~ מצרכים ~</h4>
           <ul>
-            <li class="section">לבצק</li>
-            <li>250 גרם קמח</li>
-            <li>125 גרם חמאה קרה, חתוכה לקוביות</li>
-            <li>ביצה אחת</li>
-            <li>3 כפות מים קרים</li>
-            <li>קורט מלח</li>
-            <li class="section">למילוי</li>
-            <li>4 ביצים</li>
-            <li>200 מ״ל שמנת מתוקה 38%</li>
-            <li>100 מ״ל חלב</li>
-            <li>150 גרם גבינה צהובה מגוררת</li>
-            <li>100 גרם גבינת פטה מפוררת</li>
-            <li>100 גרם מוצרלה מגוררת</li>
-            <li>1 בצל סגול, פרוס דק ומאודה</li>
-            <li>מלח, פלפל שחור, אגוז מוסקט</li>
+            <li>4 גביעי קוטג'</li>
+            <li>6 ביצים</li>
+            <li>6 כוסות פצפוצי אורז</li>
+            <li>3 כפות גדושות אבקת מרק</li>
+            <li>3 בצלים מטוגנים, קצוצים</li>
+            <li>שמן לטיגון</li>
           </ul>
-        </div>
-        <div class="col instructions">
-          <h4>~ אופן ההכנה ~</h4>
-          <ol>
-            <li>להכנת הבצק: מערבבים קמח, חמאה ומלח עד לקבלת תערובת פירורית. מוסיפים ביצה ומים קרים, ולשים רק עד לקבלת
-              בצק אחיד. עוטפים בניילון נצמד ומקררים במשך 30 דקות.</li>
-            <li>מרדדים את הבצק לעובי של כ־3–4 מ"מ ומעבירים לתבנית קיש בקוטר 26 ס"מ. מחוררים את התחתית בעזרת מזלג ומקררים
-              במשך 15 דקות נוספות.</li>
-            <li>מחממים תנור ל־180 מעלות. מכסים את הבצק בנייר אפייה ומניחים משקולות אפייה או אורז. אופים אפייה עיוורת
-              במשך 12 דקות, מסירים את המשקולות ואופים 5 דקות נוספות.</li>
-            <li>מצננים את בסיס הקיש במשך מספר דקות עד להתייצבות קלה.</li>
-            <li>מטגנים את הבצל במחבת עם מעט שמן עד להזהבה ומניחים בצד.</li>
-            <li>בקערה גדולה טורפים ביצים, שמנת, חלב, מלח, פלפל ואגוז מוסקט.</li>
-            <li>מוסיפים את הגבינות ואת הבצל המאודה לתערובת ומערבבים היטב.</li>
-            <li>יוצקים את המלית על בסיס הבצק ואופים במשך 30–35 דקות, עד שהמלית מתייצבת והקיש מזהיב.</li>
-            <li>מניחים לקיש לנוח כ־10 דקות לפני ההגשה. מגישים חם או בטמפרטורת החדר.</li>
-          </ol>
-        </div>
-      </div>
-
-      <div class="pgnum"><span>6</span></div>
-    </section>
-
-    <!-- ============ RECIPE 02 - Lasagna ============ -->
-    <section class="page recipe" id="recipe-02" data-screen-label="05 מתכון 02 - לזניה גבינות">
-      <div class="top-band">
-        <span class="num-badge">מתכון · 02 / 05</span>
-        <span class="chip">מנה עיקרית · תבנית</span>
-        <button class="recipe-share-btn" type="button" data-share data-share-type="recipe"
-          data-share-name="לזניה גבינות חגיגית" aria-label="שתפו מתכון: לזניה גבינות חגיגית">
-          <svg viewBox="0 0 24 24" aria-hidden="true">
-            <path
-              d="M18 8a3 3 0 1 0-2.83-4H15.1a3 3 0 0 0 .11 1.94L8.82 8.69A3 3 0 1 0 8.82 15.31l6.39 3.75A3 3 0 1 0 16.18 17.3l-6.39-3.75a3 3 0 0 0 0-2.7l6.4-3.76A3 3 0 0 0 18 8Z" />
-          </svg>
-        </button>
-      </div>
-
-      <h2 class="title">לזניה גבינות<br>חגיגית</h2>
-      <div class="dedication">בהשראת משפחת אברהם</div>
-
-      <div class="hero"><img src="images/recipe-05.webp" alt="לזניה גבינות אפויה בתבנית קרמית"></div>
-
-      <div class="meta">
-        <div class="m"><span class="k">הכנה</span><span class="v">30 דק׳</span></div>
-        <div class="m"><span class="k">אפייה</span><span class="v">50 דק׳</span></div>
-        <div class="m"><span class="k">תבנית</span><span class="v">22×33</span></div>
-        <div class="m"><span class="k">מנות</span><span class="v">8–10</span></div>
-      </div>
-
-      <div class="columns">
-        <div class="col ingredients">
-          <h4>~ מצרכים ~</h4>
-          <ul>
-            <li>1 חבילת דפי לזניה (250 גרם)</li>
-            <li>500 גרם רוטב עגבניות איכותי</li>
-            <li>500 גרם גבינת ריקוטה או קוטג' 5%</li>
-            <li>300 גרם גבינת מוצרלה מגוררת</li>
-            <li>100 גרם גבינה צהובה מגוררת</li>
-            <li>50 גרם פרמזן מגורר</li>
-            <li>2 ביצים</li>
-            <li>1/4 כוס פטרוזיליה קצוצה</li>
-            <li>2 כפות בזיליקום טרי קצוץ</li>
-            <li>3 שיני שום כתושות</li>
-            <li>מלח ופלפל שחור</li>
-          </ul>
+          <p class="tip"
+            style="margin-top:18px; font-family:'Frank Ruhl Libre', serif; font-style:italic; color:var(--ink-soft); line-height:1.55;">
+            <strong style="color:var(--wine);">טיפ למשפחות:</strong><br>
+            כדי לתת לילדים להכין את הפשטידות בעצמם - טגנו מראש 20 בצלים קצוצים וחלקו לכוסות חד־פעמיות להקפאה. בכל פעם
+            שמתחשק, הילדים בוחרים, מערבבים, ונהנים מכל שנייה. 😘
+          </p>
         </div>
         <div class="col instructions">
           <h4>~ אופן ההכנה ~</h4>
           <ol>
             <li>מחממים תנור ל־180 מעלות.</li>
-            <li>בקערה גדולה מערבבים: ריקוטה (או קוטג'), ביצים, חצי מכמות המוצרלה, פטרוזיליה, בזיליקום, שום, מלח ופלפל.
-            </li>
-            <li>בתבנית פיירקס בגודל 22×33 ס"מ יוצקים שכבה דקה של רוטב עגבניות בתחתית.</li>
-            <li>מסדרים שכבת דפי לזניה. אם משתמשים בדפים יבשים, ניתן להשרות אותם במים חמימים במשך כ־5 דקות. מעל מורחים
-              שכבה מתערובת הגבינות ולאחר מכן שכבה נוספת של רוטב.</li>
-            <li>חוזרים על הפעולה במשך 3–4 שכבות, ומסיימים בשכבת דפי לזניה ורוטב עגבניות מעל.</li>
-            <li>מפזרים מעל את שאר המוצרלה, הגבינה הצהובה והפרמזן.</li>
-            <li>מכסים בנייר אלומיניום, מבלי שייגע בגבינה, ואופים במשך 30 דקות.</li>
-            <li>מסירים את נייר האלומיניום ואופים 15–20 דקות נוספות, עד שהחלק העליון מזהיב ומבעבע.</li>
-            <li>מניחים ללזניה להתייצב במשך 10 דקות לפני ההגשה. מגישים חם.</li>
+            <li>בקערה גדולה שמים את כל המצרכים: קוטג', ביצים, פצפוצי אורז, אבקת מרק ובצל מטוגן קצוץ.</li>
+            <li>מערבבים היטב עד לקבלת בלילה אחידה.</li>
+            <li>משמנים תבנית בינונית או מרפדים אותה בנייר אפייה.</li>
+            <li>יוצקים את הבלילה לתבנית ומיישרים את פני הפשטידה.</li>
+            <li>אופים בתנור שחומם מראש ל־180 מעלות עד להזהבה יפה (כ־40 דקות).</li>
+            <li>מוציאים מהתנור, מצננים מעט - ומגישים בתיאבון.</li>
           </ol>
+          <p
+            style="margin-top:18px; font-family:'Cardo', serif; font-style:italic; color:var(--wine); text-align:center; font-size:15px;">
+            ⚠ זהירות - זו פשטידה ממכרת! 😘
+          </p>
         </div>
       </div>
 
-      <div class="pgnum"><span>8</span></div>
+      <div class="pgnum"><span>4</span></div>
     </section>
 
-    <!-- ============ RECIPE 03 - Blintzes ============ -->
-    <section class="page recipe" id="recipe-03" data-screen-label="06 מתכון 03 - בלינצ׳ס">
-      <div class="top-band">
-        <span class="num-badge">מתכון · 03 / 05</span>
-        <span class="chip">מנה ראשונה · מטוגן</span>
-        <button class="recipe-share-btn" type="button" data-share data-share-type="recipe"
-          data-share-name="בלינצ'ס גבינה מתוקים" aria-label="שתפו מתכון: בלינצ'ס גבינה מתוקים">
-          <svg viewBox="0 0 24 24" aria-hidden="true">
-            <path
-              d="M18 8a3 3 0 1 0-2.83-4H15.1a3 3 0 0 0 .11 1.94L8.82 8.69A3 3 0 1 0 8.82 15.31l6.39 3.75A3 3 0 1 0 16.18 17.3l-6.39-3.75a3 3 0 0 0 0-2.7l6.4-3.76A3 3 0 0 0 18 8Z" />
-          </svg>
-        </button>
-      </div>
-
-      <h2 class="title">בלינצ׳ס גבינה<br>מתוקים</h2>
-      <div class="dedication">בהשראת משפחת לוי</div>
-
-      <div class="hero"><img src="images/recipe-02.webp" alt="בלינצ׳ס גבינה עם רוטב פירות יער"></div>
-
-      <div class="meta">
-        <div class="m"><span class="k">הכנה</span><span class="v">40 דק׳</span></div>
-        <div class="m"><span class="k">טיגון</span><span class="v">25 דק׳</span></div>
-        <div class="m"><span class="k">מחבת</span><span class="v">20 ס״מ</span></div>
-        <div class="m"><span class="k">יחידות</span><span class="v">12–14</span></div>
-      </div>
-
-      <div class="columns">
-        <div class="col ingredients">
-          <h4>~ מצרכים ~</h4>
-          <ul>
-            <li class="section">לבלינצ'ס</li>
-            <li>1 כוס קמח (150 גרם)</li>
-            <li>2 ביצים</li>
-            <li>1 כוס חלב</li>
-            <li>1/2 כוס מים</li>
-            <li>2 כפות חמאה מומסת</li>
-            <li>1 כף סוכר</li>
-            <li>קורט מלח</li>
-            <li class="section">למלית</li>
-            <li>500 גרם גבינה לבנה 9%</li>
-            <li>1 ביצה</li>
-            <li>3 כפות סוכר</li>
-            <li>1 כפית תמצית וניל</li>
-            <li>גרידת לימון (אופציונלי)</li>
-          </ul>
-        </div>
-        <div class="col instructions">
-          <h4>~ אופן ההכנה ~</h4>
-          <ol>
-            <li>מערבבים את כל חומרי הבלילה במיקסר או בקערה עד לקבלת תערובת חלקה וללא גושים. מניחים לבלילה לנוח במשך 30
-              דקות.</li>
-            <li>מחממים מחבת נון־סטיק בקוטר 20 ס"מ ומשמנים קלות. יוצקים מעט מהבלילה ומטים את המחבת לפיזור אחיד בשכבה דקה.
-            </li>
-            <li>מטגנים כדקה מכל צד, עד שהבלינצ'ס מזהיבים קלות. מעבירים לצלחת וממשיכים עד לסיום כל הבלילה.</li>
-            <li>להכנת המילוי: מערבבים בקערה גבינה, ביצה, סוכר וגרידת לימון, אם משתמשים.</li>
-            <li>מניחים כף נדיבה מהמילוי במרכז כל בלינצ'ס. מקפלים את שני הצדדים פנימה ומגלגלים לסיגר.</li>
-            <li>מטגנים את הבלינצ'ס הממולאים במחבת עם מעט חמאה במשך 2–3 דקות מכל צד, עד להזהבה.</li>
-            <li>מגישים חם, עם רוטב פירות יער, סילאן או אבקת סוכר.</li>
-          </ol>
-        </div>
-      </div>
-
-      <div class="pgnum"><span>10</span></div>
-    </section>
-
-    <!-- ============ RECIPE 04 - Cheesecake ============ -->
-    <section class="page recipe" id="recipe-04" data-screen-label="07 מתכון 04 - עוגת גבינה אפויה">
-      <div class="top-band">
-        <span class="num-badge">מתכון · 04 / 05</span>
-        <span class="chip">קינוח · אפייה</span>
-        <button class="recipe-share-btn" type="button" data-share data-share-type="recipe"
-          data-share-name="עוגת גבינה אפויה קלאסית" aria-label="שתפו מתכון: עוגת גבינה אפויה קלאסית">
-          <svg viewBox="0 0 24 24" aria-hidden="true">
-            <path
-              d="M18 8a3 3 0 1 0-2.83-4H15.1a3 3 0 0 0 .11 1.94L8.82 8.69A3 3 0 1 0 8.82 15.31l6.39 3.75A3 3 0 1 0 16.18 17.3l-6.39-3.75a3 3 0 0 0 0-2.7l6.4-3.76A3 3 0 0 0 18 8Z" />
-          </svg>
-        </button>
-      </div>
-
-      <h2 class="title">עוגת גבינה אפויה<br>קלאסית</h2>
-      <div class="dedication">בהשראת משפחת כהן</div>
-
-      <div class="hero"><img src="images/recipe-01.webp" alt="עוגת גבינה אפויה עם פירות יער"></div>
-
-      <div class="meta">
-        <div class="m"><span class="k">הכנה</span><span class="v">25 דק׳</span></div>
-        <div class="m"><span class="k">אפייה</span><span class="v">70 דק׳</span></div>
-        <div class="m"><span class="k">תבנית</span><span class="v">קפיצית 24</span></div>
-        <div class="m"><span class="k">מנות</span><span class="v">10–12</span></div>
-      </div>
-
-      <div class="columns">
-        <div class="col ingredients">
-          <h4>~ מצרכים ~</h4>
-          <ul>
-            <li>200 גרם ביסקוויטים פתי בר</li>
-            <li>100 גרם חמאה מומסת</li>
-            <li>750 גרם גבינה לבנה 5% (3 גביעים)</li>
-            <li>200 מ"ל שמנת חמוצה</li>
-            <li>1 כוס סוכר (200 גרם)</li>
-            <li>4 ביצים גדולות, מופרדות</li>
-            <li>3 כפות קורנפלור</li>
-            <li>1 כפית תמצית וניל</li>
-            <li>גרידת לימון אחד</li>
-          </ul>
-        </div>
-        <div class="col instructions">
-          <h4>~ אופן ההכנה ~</h4>
-          <ol>
-            <li>מחממים תנור ל־160 מעלות. מרפדים תבנית קפיצית בקוטר 24 ס"מ בנייר אפייה.</li>
-            <li>כותשים את הביסקוויטים ומערבבים עם החמאה המומסת עד לקבלת תערובת אחידה. מהדקים לתחתית התבנית ומקררים במשך
-              15 דקות.</li>
-            <li>בקערה גדולה מערבבים גבינה לבנה, שמנת חמוצה, 3/4 כוס סוכר, קורנפלור, וניל וגרידת לימון עד לקבלת תערובת
-              חלקה.</li>
-            <li>בקערה נפרדת מקציפים את החלבונים עם 1/4 כוס הסוכר הנותר עד לקבלת קצף יציב.</li>
-            <li>מקפלים בעדינות את החלבונים לתערובת הגבינה, תוך שמירה על אווריריות המסה.</li>
-            <li>יוצקים את הבלילה על בסיס הביסקוויטים ומחליקים את פני העוגה.</li>
-            <li>אופים במשך 60–70 דקות, עד שמרכז העוגה מתייצב אך עדיין מעט רוטט. מכבים את התנור ומשאירים את העוגה בפנים
-              למשך 30 דקות נוספות, כאשר דלת התנור פתוחה מעט.</li>
-            <li>מקררים במשך 4 שעות לפחות, רצוי למשך לילה שלם. מגישים עם פירות יער טריים.</li>
-          </ol>
-        </div>
-      </div>
-
-      <div class="pgnum"><span>12</span></div>
-    </section>
-
-    <!-- ============ RECIPE 05 - Cheesecake cups ============ -->
-    <section class="page recipe" id="recipe-05" data-screen-label="08 מתכון 05 - עוגת גבינה קרה בכוסות">
-      <div class="top-band">
-        <span class="num-badge">מתכון · 05 / 05</span>
-        <span class="chip">קינוח · ללא אפייה</span>
-        <button class="recipe-share-btn" type="button" data-share data-share-type="recipe"
-          data-share-name="עוגת גבינה קרה בכוסות" aria-label="שתפו מתכון: עוגת גבינה קרה בכוסות">
-          <svg viewBox="0 0 24 24" aria-hidden="true">
-            <path
-              d="M18 8a3 3 0 1 0-2.83-4H15.1a3 3 0 0 0 .11 1.94L8.82 8.69A3 3 0 1 0 8.82 15.31l6.39 3.75A3 3 0 1 0 16.18 17.3l-6.39-3.75a3 3 0 0 0 0-2.7l6.4-3.76A3 3 0 0 0 18 8Z" />
-          </svg>
-        </button>
-      </div>
-
-      <h2 class="title">עוגת גבינה קרה<br>בכוסות</h2>
-      <div class="dedication">בהשראת משפחת ביטון</div>
-
-      <div class="hero"><img src="images/recipe-04.webp" alt="עוגת גבינה בכוסות עם פירות יער"></div>
-
-      <div class="meta">
-        <div class="m"><span class="k">הכנה</span><span class="v">20 דק׳</span></div>
-        <div class="m"><span class="k">קירור</span><span class="v">4 שעות</span></div>
-        <div class="m"><span class="k">הגשה</span><span class="v">קר</span></div>
-        <div class="m"><span class="k">כוסות</span><span class="v">8</span></div>
-      </div>
-
-      <div class="columns">
-        <div class="col ingredients">
-          <h4>~ מצרכים ~</h4>
-          <ul>
-            <li>500 מ"ל שמנת להקצפה 38%</li>
-            <li>500 גרם גבינה לבנה או שמנת 9%</li>
-            <li>1 כוס סוכר (200 גרם)</li>
-            <li>1 שקית אינסטנט פודינג בטעם וניל</li>
-            <li>200 גרם ביסקוויטים פתי בר</li>
-            <li>50 גרם חמאה מומסת</li>
-            <li>1 כפית תמצית וניל</li>
-            <li>ריבת פירות יער או רוטב פירות לקישוט (אופציונלי)</li>
-          </ul>
-        </div>
-        <div class="col instructions">
-          <h4>~ אופן ההכנה ~</h4>
-          <ol>
-            <li>כותשים את הביסקוויטים לפירורים דקים ומערבבים עם החמאה המומסת עד לקבלת תערובת אחידה.</li>
-            <li>בקערת מיקסר עם וו הקצפה מקציפים את השמנת עם הסוכר ואבקת הפודינג במשך 3–4 דקות, עד לקבלת קצפת יציבה.</li>
-            <li>מוסיפים את הגבינה ותמצית הווניל וממשיכים לערבב במהירות נמוכה עד לקבלת תערובת אחידה וחלקה.</li>
-            <li>מרכיבים את הקינוח בכוסות הגשה: מניחים שכבת פירורי ביסקוויטים בתחתית.</li>
-            <li>מעל הביסקוויטים מוסיפים שכבת קרם גבינה. חוזרים על הפעולה פעם נוספת.</li>
-            <li>מסיימים בשכבת קרם גבינה ומקשטים בריבת פירות יער או בפירות טריים לפי הטעם.</li>
-            <li>מקררים במשך 4 שעות לפחות, רצוי למשך לילה שלם. מגישים קר.</li>
-          </ol>
-        </div>
-      </div>
-
-      <div class="pgnum"><span>14</span></div>
-    </section>
 
     <!-- ============ CLOSING ============ -->
     <section class="page closing" data-screen-label="09 סיום">
@@ -1969,15 +1547,11 @@
         </svg>
         <h2>בתאבון</h2>
         <p>
-          תודה לכם שעצרתם, קראתם, ועיינתם. שיהיה חג של חלב, דבש ומלא טעם של בית.
+          תודה למשפחת קופר שפתחה את המטבח, ולכל הנשים שמחזיקות את הבית באהבה.
         </p>
 
         <div class="families">
-          <span>משפחת כהן</span>
-          <span>משפחת לוי</span>
-          <span>משפחת מזרחי</span>
-          <span>משפחת ביטון</span>
-          <span>משפחת אברהם</span>
+          <span>משפחת קופר · נתנאל, פתח תקווה</span>
         </div>
 
         <div class="leaf-row" style="margin-top:36px;">
@@ -1987,10 +1561,8 @@
         </div>
 
         <div class="footer-stamp">שבועות · תשפ״ו</div>
-
-        <p class="ai-credit">הביצוע של הבינה. המחשבה של האדם.</p>
       </div>
-      <div class="pgnum"><span>16</span></div>
+      <div class="pgnum"><span>6</span></div>
     </section>
 
   </div>
@@ -2100,13 +1672,13 @@
           const name = btn.dataset.shareName || 'מתכון';
           return {
             title: name + ' · מהמטבחים שלנו',
-            text: 'מתכון ' + name + ' מתוך ספר המתכונים שלי לשבועות תשפ״ו',
+            text: 'מתכון ' + name + ' מתוך ספר השבועות של נשות המילואים',
             url: baseUrl + (id ? '#' + id : '')
           };
         }
         return {
           title: 'מהמטבחים שלנו · שבועות תשפ״ו',
-          text: 'ספר מתכונים דיגיטלי לשבועות תשפ״ו - חמישה מתכונים לחג חלב ודבש, ממני אליכם',
+          text: 'ספר מתכונים דיגיטלי לשבועות תשפ״ו, ממשפחות גדודי המילואים',
           url: baseUrl
         };
       };
