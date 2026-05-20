@@ -967,6 +967,65 @@
             }
         }
 
+        /* ======================== Why Now · Jensen Huang ======================== */
+        .why-now-grid {
+            display: grid;
+            grid-template-columns: 320px 1fr;
+            gap: 60px;
+            align-items: center;
+            max-width: 1080px;
+            margin: 0 auto;
+        }
+
+        .why-now-video {
+            position: relative;
+            aspect-ratio: 9 / 16;
+            border-radius: var(--radius);
+            overflow: hidden;
+            border: 1px solid var(--glass-border);
+            box-shadow: 0 30px 80px rgba(0, 0, 0, 0.5), 0 0 0 1px rgba(255, 255, 255, 0.04) inset;
+            background: #000;
+        }
+
+        .why-now-video iframe {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
+        .why-now-attrib {
+            color: var(--slate-300);
+            font-size: 0.95rem;
+            margin-bottom: 22px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-weight: 600;
+        }
+
+        .why-now-attrib i {
+            color: var(--accent);
+        }
+
+        .why-now-bullets {
+            display: grid;
+            gap: 14px;
+        }
+
+        @media (max-width: 880px) {
+            .why-now-grid {
+                grid-template-columns: 1fr;
+                gap: 36px;
+            }
+            .why-now-video {
+                max-width: 300px;
+                margin: 0 auto;
+                width: 100%;
+            }
+        }
+
         /* ======================== What you build ======================== */
         .build-grid {
             display: grid;
@@ -2300,6 +2359,48 @@
             <p class="closing-statement reveal">
                 הגיע הזמן לתת ל-<span class="gradient-text">AI</span> לבנות את המערכת בשבילכם.
             </p>
+        </div>
+    </section>
+
+    <!-- ======================== WHY NOW · JENSEN HUANG ======================== -->
+    <section class="block" id="why-now">
+        <div class="container">
+            <div class="section-head reveal">
+                <span class="section-eyebrow">Why Now · Jensen Huang</span>
+                <h2>ה-AI לא יחליף אתכם. <span class="gradient-text">מי שמשתמש בו - כן.</span></h2>
+                <p>ג'נסן הואנג, מנכ"ל NVIDIA, מסביר ב-60 שניות למה זו הזדמנות - לא איום.</p>
+            </div>
+
+            <div class="why-now-grid">
+                <div class="why-now-video reveal">
+                    <iframe src="https://www.youtube.com/embed/82G_mjaerz8"
+                        title="Jensen Huang על AI ועתיד העבודה"
+                        allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                        allowfullscreen loading="lazy"></iframe>
+                </div>
+
+                <div class="why-now-text reveal">
+                    <p class="why-now-attrib">
+                        <i class="fa-solid fa-quote-right"></i>
+                        Jensen Huang · CEO, NVIDIA
+                    </p>
+
+                    <div class="why-now-bullets">
+                        <div class="feat-item">
+                            <div class="ic"><i class="fa-solid fa-keyboard"></i></div>
+                            <span class="txt">העבודה שלכם היא לא המקלדת ולא טבלאות אקסל - היא המחשבה שמאחוריהן.</span>
+                        </div>
+                        <div class="feat-item">
+                            <div class="ic"><i class="fa-solid fa-bolt"></i></div>
+                            <span class="txt">ה-AI לוקח את המשימות הסיזיפיות ומשחרר אתכם ליצירתיות, אסטרטגיה והחלטות.</span>
+                        </div>
+                        <div class="feat-item">
+                            <div class="ic"><i class="fa-solid fa-chart-line"></i></div>
+                            <span class="txt">העוגה רק תגדל - יותר הזדמנויות, לא פחות מקומות עבודה.</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </section>
 
