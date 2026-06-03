@@ -1,0 +1,1170 @@
+<!--
+  Live:  https://sagi-ba.github.io/AI/forms/Price-quotes/malam-team/fifa-world-cup-2026-speaker-notes.html
+  Local: http://127.0.0.1:8080/forms/Price-quotes/malam-team/fifa-world-cup-2026-speaker-notes.html
+  NOTE:  דף הכנה למרצה (פנימי) — שלד מצגת + מה לומר + קישורי סרטונים. לא נשלח ללקוח.
+-->
+
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>שלד מצגת — AI במונדיאל 2026 | מלם תים | דף מרצה</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Alef:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --bg: #f5f5f7;
+            --text: #1a1a1a;
+            --text-light: #555;
+            --text-muted: #888;
+            --accent: #ff6b00;
+            --accent-dark: #e55a00;
+            --accent-light: #fff3e6;
+            --green: #2e7d32;
+            --green-light: #e8f5e9;
+            --purple: #6a1b9a;
+            --purple-light: #f3e5f5;
+            --blue: #1565c0;
+            --blue-light: #e3f2fd;
+            --border: #e0e0e0;
+            --white: #ffffff;
+            --shadow: 0 2px 16px rgba(0, 0, 0, 0.06);
+            --radius: 12px;
+        }
+
+        body {
+            font-family: 'Alef', sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.7;
+            font-size: 16px;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 32px 24px 80px;
+        }
+
+        .header {
+            background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
+            color: var(--white);
+            padding: 28px 32px;
+            border-radius: var(--radius);
+            margin-bottom: 24px;
+            box-shadow: var(--shadow);
+        }
+
+        .header h1 {
+            font-size: 1.6rem;
+            margin-bottom: 6px;
+        }
+
+        .header .subtitle {
+            font-size: 1rem;
+            opacity: 0.85;
+        }
+
+        .header .meta {
+            display: flex;
+            gap: 24px;
+            margin-top: 14px;
+            font-size: 0.9rem;
+            opacity: 0.9;
+            flex-wrap: wrap;
+        }
+
+        .header .meta span {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .header .accent-bar {
+            background: var(--accent);
+            color: var(--white);
+            display: inline-block;
+            padding: 3px 10px;
+            border-radius: 4px;
+            font-size: 0.8rem;
+            font-weight: 700;
+            margin-bottom: 8px;
+            letter-spacing: 0.5px;
+        }
+
+        .toc {
+            background: var(--white);
+            border-radius: var(--radius);
+            padding: 20px 24px;
+            margin-bottom: 24px;
+            box-shadow: var(--shadow);
+        }
+
+        .toc h2 {
+            font-size: 1rem;
+            color: var(--text-muted);
+            margin-bottom: 10px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .toc ul {
+            list-style: none;
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 6px 24px;
+        }
+
+        .toc li {
+            font-size: 0.95rem;
+        }
+
+        .toc a {
+            color: var(--accent-dark);
+            text-decoration: none;
+        }
+
+        .toc a:hover {
+            text-decoration: underline;
+        }
+
+        .segment {
+            background: var(--white);
+            border-radius: var(--radius);
+            padding: 24px 28px;
+            margin-bottom: 24px;
+            box-shadow: var(--shadow);
+            border-right: 4px solid var(--accent);
+        }
+
+        .segment-header {
+            display: flex;
+            align-items: baseline;
+            gap: 12px;
+            margin-bottom: 6px;
+        }
+
+        .segment-num {
+            background: var(--accent);
+            color: var(--white);
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1rem;
+            font-weight: 700;
+            flex-shrink: 0;
+        }
+
+        .segment-title {
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: var(--text);
+        }
+
+        .segment-time {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            margin-bottom: 16px;
+            margin-right: 48px;
+        }
+
+        .slide {
+            background: var(--bg);
+            border-radius: 10px;
+            padding: 18px 20px;
+            margin-bottom: 14px;
+            border-right: 3px solid var(--blue);
+        }
+
+        .slide-header {
+            display: flex;
+            align-items: baseline;
+            gap: 10px;
+            margin-bottom: 10px;
+        }
+
+        .slide-num {
+            background: var(--blue);
+            color: var(--white);
+            font-size: 0.75rem;
+            font-weight: 700;
+            padding: 3px 10px;
+            border-radius: 10px;
+            letter-spacing: 0.5px;
+        }
+
+        .slide-title {
+            font-size: 1.05rem;
+            font-weight: 700;
+            color: var(--text);
+        }
+
+        .field {
+            margin-top: 10px;
+            padding-right: 12px;
+            border-right: 2px solid var(--border);
+        }
+
+        .field-label {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            font-weight: 700;
+            letter-spacing: 0.5px;
+            margin-bottom: 4px;
+        }
+
+        .field-content {
+            font-size: 0.95rem;
+            color: var(--text);
+        }
+
+        .field-content ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .field-content ul li {
+            padding-right: 16px;
+            position: relative;
+            margin-bottom: 4px;
+        }
+
+        .field-content ul li::before {
+            content: '◂';
+            position: absolute;
+            right: 0;
+            color: var(--accent);
+            font-size: 0.8rem;
+            top: 3px;
+        }
+
+        .speaker-notes {
+            background: var(--accent-light);
+            border-right: 3px solid var(--accent);
+            padding: 10px 14px;
+            border-radius: 6px;
+            margin-top: 10px;
+            font-size: 0.92rem;
+            color: var(--text);
+            line-height: 1.7;
+        }
+
+        .speaker-notes::before {
+            content: '🎤 לומר:';
+            font-weight: 700;
+            color: var(--accent-dark);
+            display: block;
+            margin-bottom: 4px;
+            font-size: 0.8rem;
+            letter-spacing: 0.5px;
+        }
+
+        .video-link {
+            background: var(--purple-light);
+            border-right: 3px solid var(--purple);
+            padding: 10px 14px;
+            border-radius: 6px;
+            margin-top: 10px;
+            font-size: 0.92rem;
+        }
+
+        .video-link::before {
+            content: '🎬 קליפ מומלץ:';
+            font-weight: 700;
+            color: var(--purple);
+            display: block;
+            margin-bottom: 6px;
+            font-size: 0.8rem;
+            letter-spacing: 0.5px;
+        }
+
+        .video-link a {
+            color: var(--purple);
+            font-weight: 700;
+            text-decoration: none;
+            display: inline-block;
+            background: var(--white);
+            padding: 4px 10px;
+            border-radius: 4px;
+            margin: 2px 0;
+            border: 1px solid var(--purple-light);
+            font-size: 0.85rem;
+        }
+
+        .video-link a:hover {
+            background: var(--purple);
+            color: var(--white);
+        }
+
+        .video-link .source {
+            display: block;
+            color: var(--text-muted);
+            font-size: 0.82rem;
+            margin-top: 4px;
+        }
+
+        .visual {
+            background: var(--blue-light);
+            border-right: 3px solid var(--blue);
+            padding: 10px 14px;
+            border-radius: 6px;
+            margin-top: 10px;
+            font-size: 0.92rem;
+        }
+
+        .visual::before {
+            content: '🖼️ ויזואל מומלץ:';
+            font-weight: 700;
+            color: var(--blue);
+            display: block;
+            margin-bottom: 4px;
+            font-size: 0.8rem;
+            letter-spacing: 0.5px;
+        }
+
+        .hook {
+            background: #fff8dc;
+            border-right: 3px solid #f9a825;
+            padding: 10px 14px;
+            border-radius: 6px;
+            margin-top: 10px;
+            font-size: 0.92rem;
+            font-style: italic;
+        }
+
+        .hook::before {
+            content: '⚡ Hook:';
+            font-weight: 700;
+            color: #f57f17;
+            display: block;
+            margin-bottom: 4px;
+            font-size: 0.8rem;
+            letter-spacing: 0.5px;
+            font-style: normal;
+        }
+
+        .resources {
+            background: var(--white);
+            border-radius: var(--radius);
+            padding: 24px 28px;
+            margin-bottom: 24px;
+            box-shadow: var(--shadow);
+            border-right: 4px solid var(--green);
+        }
+
+        .resources h2 {
+            font-size: 1.3rem;
+            color: var(--green);
+            margin-bottom: 16px;
+        }
+
+        .resources ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .resources ul li {
+            padding: 8px 0;
+            padding-right: 18px;
+            position: relative;
+            font-size: 0.95rem;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .resources ul li:last-child {
+            border-bottom: none;
+        }
+
+        .resources ul li::before {
+            content: '🔍';
+            position: absolute;
+            right: 0;
+            top: 8px;
+        }
+
+        .resources code {
+            background: var(--bg);
+            padding: 2px 8px;
+            border-radius: 4px;
+            font-family: 'Consolas', monospace;
+            font-size: 0.88rem;
+            color: var(--accent-dark);
+        }
+
+        @media (max-width: 768px) {
+            .toc ul {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+
+        <header class="header">
+            <span class="accent-bar">דף הכנה למרצה — לא נשלח ללקוח</span>
+            <h1>שלד מצגת: AI במונדיאל 2026</h1>
+            <div class="subtitle">הרצאת Keynote של 45 דקות במלם תים, 17/06/2026 בשעה 17:30</div>
+            <div class="meta">
+                <span><i class="fa-solid fa-user"></i> שגיא בר און</span>
+                <span><i class="fa-solid fa-building"></i> מיטל טנא | מלם תים</span>
+                <span><i class="fa-solid fa-location-dot"></i> משרדי החברה, פתח תקווה</span>
+                <span><i class="fa-solid fa-clock"></i> 45 דקות (כולל Q&amp;A)</span>
+            </div>
+        </header>
+
+        <nav class="toc">
+            <h2>תוכן עניינים</h2>
+            <ul>
+                <li><a href="#seg1">1. פתיחה — למה 2026 שונה</a></li>
+                <li><a href="#seg2">2. AI על המגרש — SAOT + הכדור</a></li>
+                <li><a href="#seg3">3. חוויית האוהד</a></li>
+                <li><a href="#seg4">4. שידור AI + Deepfakes</a></li>
+                <li><a href="#seg5">5. מאחורי הקלעים בנבחרות</a></li>
+                <li><a href="#seg6">6. 3 לקחים + Q&amp;A</a></li>
+            </ul>
+        </nav>
+
+        <!-- =================== Segment 1 =================== -->
+        <section class="segment" id="seg1">
+            <div class="segment-header">
+                <div class="segment-num">1</div>
+                <h2 class="segment-title">פתיחה — למה מונדיאל 2026 הוא רגע מכונן</h2>
+            </div>
+            <div class="segment-time">~5 דקות · 4 שקפים</div>
+
+            <div class="slide">
+                <div class="slide-header">
+                    <span class="slide-num">שקף 1</span>
+                    <span class="slide-title">שקף פתיחה — Title</span>
+                </div>
+                <div class="visual">תמונת רקע: שחקן בעיטה / כדור Al Rihla / לוגו FIFA 2026. כותרת ענק:
+                    <strong>"AI במונדיאל 2026"</strong>. כותרת משנה: "איך הבינה המלאכותית משנה את הספורט הגדול בעולם".
+                    בתחתית: שם, לוגו ש.ב., תאריך.
+                </div>
+                <div class="speaker-notes">"שלום לכולם, אני שגיא, ובמהלך 45 הדקות הקרובות אני עומד לשנות לכם
+                    את הדרך שבה תצפו במשחק הכדורגל הבא שלכם. כי המונדיאל הזה — הוא לא רק האירוע הספורטיבי הגדול בעולם,
+                    הוא גם המעבדה הגדולה בעולם לבינה מלאכותית בזמן אמת."</div>
+            </div>
+
+            <div class="slide">
+                <div class="slide-header">
+                    <span class="slide-num">שקף 2</span>
+                    <span class="slide-title">המספרים שמדברים בעד עצמם</span>
+                </div>
+                <div class="field">
+                    <div class="field-label">תוכן השקף</div>
+                    <div class="field-content">
+                        <ul>
+                            <li><strong>104</strong> משחקים (מ-64 במונדיאל הקודם)</li>
+                            <li><strong>48</strong> נבחרות (מ-32)</li>
+                            <li><strong>3</strong> מדינות מארחות: ארה"ב, קנדה, מקסיקו</li>
+                            <li><strong>16</strong> ערים מארחות</li>
+                            <li><strong>5 מיליארד</strong> צופים צפויים</li>
+                            <li><strong>11/6/2026 - 19/7/2026</strong> — 39 ימי משחק</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="visual">אינפוגרפיקה גדולה — כל מספר באייקון משלו. גרסה: 6 אריחים גדולים, רקע כהה, אקצנט
+                    כתום.</div>
+                <div class="hook">"אלה הם המספרים של הספורט. אבל המספר האמיתי, זה שמעניין אותנו פה
+                    היום — הוא אחד: <strong>1</strong>. זה הטורניר הראשון שכל שכבת הניהול שלו מבוססת AI."</div>
+            </div>
+
+            <div class="slide">
+                <div class="slide-header">
+                    <span class="slide-num">שקף 3</span>
+                    <span class="slide-title">הצהרת הכוונה — מה נראה היום</span>
+                </div>
+                <div class="field">
+                    <div class="field-label">תוכן השקף</div>
+                    <div class="field-content">
+                        <ul>
+                            <li>AI על המגרש — השופט הוירטואלי</li>
+                            <li>AI ביציע — חוויית האוהד</li>
+                            <li>AI במסך — שידור ב-100 שפות + הצד האפל</li>
+                            <li>AI מאחורי הקלעים — נבחרות וטקטיקה</li>
+                            <li>3 לקחים לארגון טכנולוגי כמו מלם תים</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="speaker-notes">"במהלך 45 הדקות הבאות נעבור 4 שכבות של AI במונדיאל — מהמגרש, ליציע,
+                    למסך, ולאחורי הקלעים — ואסיים ב-3 לקחים שאני מבטיח לכם שתוכלו ליישם כבר ביום ראשון בבוקר."</div>
+            </div>
+
+            <div class="slide">
+                <div class="slide-header">
+                    <span class="slide-num">שקף 4</span>
+                    <span class="slide-title">Hook — סוויץ' לסגמנט הבא</span>
+                </div>
+                <div class="hook">"אז קצת לפני שנכנס לעובי הקורה — בואו נשאל את עצמנו שאלה אחת: <strong>מי
+                        השופט המהיר והמדויק בעולם הכדורגל היום?</strong>"</div>
+                <div class="visual">שקף שאלה ענקית באמצע, רקע שחור. נשארים על השקף 3 שניות, אז מעבר לסגמנט הבא.</div>
+            </div>
+        </section>
+
+        <!-- =================== Segment 2 =================== -->
+        <section class="segment" id="seg2">
+            <div class="segment-header">
+                <div class="segment-num">2</div>
+                <h2 class="segment-title">AI על המגרש — השופט המהיר והמדויק בעולם</h2>
+            </div>
+            <!-- <div class="segment-time">~8 דקות · 6 שקפים</div> -->
+
+            <div class="slide">
+                <div class="slide-header">
+                    <span class="slide-num">שקף 5</span>
+                    <span class="slide-title">תשובה — לא בן אדם, זה SAOT</span>
+                </div>
+                <div class="field">
+                    <div class="field-label">תוכן השקף</div>
+                    <div class="field-content">השם המלא: <strong>Semi-Automated Offside Technology</strong>.
+                        קוצר תהליך הכרעה מ-70 שניות ל-25.</div>
+                </div>
+                <div class="visual">שקף עם המילה "SAOT" ענקית באמצע + תמונת רקע של מצלמה תלויה בגג אצטדיון.</div>
+                <div class="video-link">
+                    <strong>מה לחפש:</strong> סרטון רשמי של FIFA על SAOT (60-90 שניות).<br>
+                    <a href="https://www.youtube.com/results?search_query=FIFA+semi-automated+offside+technology+explained"
+                        target="_blank">חיפוש YouTube: FIFA semi-automated offside technology explained</a>
+                    <span class="source">המקור הכי מהימן: ערוץ FIFA הרשמי ב-YouTube (@FIFA).
+                        בחיפוש זה — קח את הסרטון הכי קצר וויזואלי (60-90 שניות) ולא דיון/פאנל.</span>
+                </div>
+            </div>
+
+            <div class="slide">
+                <div class="slide-header">
+                    <span class="slide-num">שקף 6</span>
+                    <span class="slide-title">איך זה עובד? 12 מצלמות + 29 נקודות גוף</span>
+                </div>
+                <div class="field">
+                    <div class="field-label">תוכן השקף</div>
+                    <div class="field-content">
+                        <ul>
+                            <li><strong>12 מצלמות ייעודיות</strong> מותקנות בגג האצטדיון</li>
+                            <li>עוקבות אחרי <strong>29 נקודות בגוף</strong> של כל שחקן</li>
+                            <li>שולחות נתונים <strong>50 פעם בשנייה</strong></li>
+                            <li>מודל AI משחזר את הסצנה ב-3D — ויודע בדיוק היכן כל מפרק בגוף</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="visual">דיאגרמה: סטיק-פיגר של שחקן עם 29 נקודות אדומות מסומנות. רקע: מגרש מבט-על.</div>
+                <div class="video-link">
+                    <strong>אופציה לסרטון נוסף:</strong> הסבר וויזואלי על 29 הנקודות.<br>
+                    <a href="https://www.youtube.com/results?search_query=SAOT+29+data+points+offside+how+it+works"
+                        target="_blank">חיפוש: SAOT 29 data points offside how it works</a>
+                    <span class="source">חפש סרטונים מ-Sky Sports, BBC Sport, או Tifo Football — הסברים ויזואליים
+                        מצוינים.</span>
+                </div>
+            </div>
+
+            <div class="slide">
+                <div class="slide-header">
+                    <span class="slide-num">שקף 7</span>
+                    <span class="slide-title">Connected Ball — החיישן בכדור</span>
+                </div>
+                <div class="field">
+                    <div class="field-label">תוכן השקף</div>
+                    <div class="field-content">
+                        <ul>
+                            <li>כדור Al Rihla (2022) / Trionda (2026) — חיישן <strong>IMU</strong> במרכזו</li>
+                            <li>שולח נתונים <strong>500 פעם בשנייה</strong> למערכת השיפוט</li>
+                            <li>מזהה את <strong>הרגע המדויק</strong> של מגע ברגל / ראש</li>
+                            <li>בעבר: השופט מנחש לפי וידאו. היום: הכדור עצמו מדווח</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="visual">פירוק של הכדור — חתך-רוחב שמראה את החיישן בפנים. תמונה דרמטית.</div>
+                <div class="video-link">
+                    <strong>מה לחפש:</strong> סרטון של Adidas או FIFA על הכדור.<br>
+                    <a href="https://www.youtube.com/results?search_query=Adidas+Al+Rihla+connected+ball+technology"
+                        target="_blank">חיפוש: Adidas Al Rihla connected ball technology</a><br>
+                    <a href="https://www.youtube.com/results?search_query=FIFA+World+Cup+2026+Trionda+ball"
+                        target="_blank">חיפוש: FIFA World Cup 2026 Trionda ball</a>
+                    <span class="source">Trionda הוא שם הכדור החדש של 2026. אם יש סרטון רשמי שלו — קח אותו.
+                        אם אין עוד — תשתמש בסרטון Al Rihla מ-2022 (אותה טכנולוגיה).</span>
+                </div>
+            </div>
+
+            <div class="slide">
+                <div class="slide-header">
+                    <span class="slide-num">שקף 8</span>
+                    <span class="slide-title">🎬 הדוגמה החיה — הגול ש-AI פסל</span>
+                </div>
+                <div class="speaker-notes">"רוצים לראות איך זה עובד בפועל? בואו נחזור רגע ל-2022, ל-25 בנובמבר.
+                    משחק פורטוגל-אורוגוואי. רונאלדו קופץ לראש על כדור, ולכאורה הגיש לעצמו גול. ה-AI אמר משהו אחר."</div>
+                <div class="video-link">
+                    <strong>קליפ מרכזי של הסגמנט — חובה!</strong> זה ה-money shot של ההרצאה.<br>
+                    <a href="https://www.youtube.com/results?search_query=Ronaldo+goal+disallowed+Portugal+Uruguay+offside+2022"
+                        target="_blank">חיפוש: Ronaldo goal disallowed Portugal Uruguay offside 2022</a><br>
+                    <a href="https://www.youtube.com/results?search_query=World+Cup+2022+SAOT+offside+example+visualization"
+                        target="_blank">חיפוש: World Cup 2022 SAOT offside example visualization</a>
+                    <span class="source">חפש קליפ עם הויזואליזציה התלת-מימדית של ה-AI (קווים אדומים על השחקנים).
+                        אורך מומלץ: 30-45 שניות.</span>
+                </div>
+            </div>
+
+            <div class="slide">
+                <div class="slide-header">
+                    <span class="slide-num">שקף 9</span>
+                    <span class="slide-title">25 שניות במקום 70 — מה זה אומר?</span>
+                </div>
+                <div class="field">
+                    <div class="field-label">תוכן השקף</div>
+                    <div class="field-content">
+                        <ul>
+                            <li>ב-2018: ממוצע <strong>70 שניות</strong> לעצירת חגיגות אחרי גול</li>
+                            <li>ב-2022 עם SAOT: <strong>25 שניות</strong> בממוצע</li>
+                            <li>ב-2026: צפוי לרדת ל-<strong>15 שניות</strong></li>
+                            <li>חיסכון של 2-3 דקות בכל משחק — אבל הרבה יותר חשוב: <strong>אמינות.</strong></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="visual">השוואה ויזואלית: ציר זמן (70s, 25s, 15s) עם אייקונים של שופט אנושי, שופט VAR,
+                    ושופט AI.</div>
+            </div>
+
+            <div class="slide">
+                <div class="slide-header">
+                    <span class="slide-num">שקף 10</span>
+                    <span class="slide-title">סיכום סגמנט + מעבר</span>
+                </div>
+                <div class="hook">"אז יש לנו AI ששופט. עכשיו השאלה — מה קורה ביציע, איפה <strong>אנחנו</strong>,
+                    האוהדים?"</div>
+                <div class="visual">שקף עם 3 אייקונים: ✅ AI על המגרש (נסמן וי), ⬜ AI ביציע (חץ פנימה), ⬜ AI במסך, ⬜ AI
+                    מאחורי הקלעים.</div>
+            </div>
+        </section>
+
+        <!-- =================== Segment 3 =================== -->
+        <section class="segment" id="seg3">
+            <div class="segment-header">
+                <div class="segment-num">3</div>
+                <h2 class="segment-title">חוויית האוהד — Hyper-Personalization בסטריודיים</h2>
+            </div>
+            <div class="segment-time">~8 דקות · 6 שקפים</div>
+
+            <div class="slide">
+                <div class="slide-header">
+                    <span class="slide-num">שקף 11</span>
+                    <span class="slide-title">FAN ID — מי אתה? AI יודע.</span>
+                </div>
+                <div class="field">
+                    <div class="field-label">תוכן השקף</div>
+                    <div class="field-content">
+                        <ul>
+                            <li>במונדיאל 2022 בקטאר: <strong>Hayya Card</strong> — כרטיס אוהד עם זיהוי פנים</li>
+                            <li>ב-2026: יורחב למערכת ביומטרית מלאה ב-16 ערים</li>
+                            <li>כניסה לאצטדיון בלי כרטיס פיזי — רק <strong>הפנים</strong></li>
+                            <li>זמן ממוצע בכניסה: ירד מ-20 שניות ל-<strong>2 שניות</strong></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="visual">תמונה: שער כניסה מודרני באצטדיון עם פנים של אוהד מסומנים בריבוע ירוק.</div>
+                <div class="video-link">
+                    <strong>מה לחפש:</strong> הדגמה של מערכת זיהוי פנים בכניסה לאצטדיון.<br>
+                    <a href="https://www.youtube.com/results?search_query=stadium+facial+recognition+entry+sports"
+                        target="_blank">חיפוש: stadium facial recognition entry sports</a>
+                    <span class="source">אפשרות נוספת: סרטון על Mercedes-Benz Stadium / SoFi Stadium עם מערכות
+                        אלה.</span>
+                </div>
+            </div>
+
+            <div class="slide">
+                <div class="slide-header">
+                    <span class="slide-num">שקף 12</span>
+                    <span class="slide-title">אפליקציית החוויה — מהשדה ועד למושב</span>
+                </div>
+                <div class="field">
+                    <div class="field-label">תוכן השקף</div>
+                    <div class="field-content">
+                        <ul>
+                            <li><strong>ניווט פנימי</strong> באצטדיון של 80,000 איש (כמו Waze לאצטדיון)</li>
+                            <li><strong>הזמנה מקדימה</strong> של נקניקיה/בירה — מגיע למושב</li>
+                            <li><strong>מציאת חברים</strong> בקהל בעזרת AI + Bluetooth</li>
+                            <li><strong>Replay אישי</strong> מזווית המושב שלך</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="visual">צילום מסך של אפליקציה (מומצא) שמראה ניווט במסדרון של אצטדיון + רכישת אוכל. סגנון
+                    Apple/Google.</div>
+            </div>
+
+            <div class="slide">
+                <div class="slide-header">
+                    <span class="slide-num">שקף 13</span>
+                    <span class="slide-title">🎬 Hyper-Personalized Highlights — 60 שניות רק בשבילך</span>
+                </div>
+                <div class="speaker-notes">"דמיינו את זה: המשחק נגמר, אתם נכנסים לרכב, מקבלים התראה: 'הכנו לך
+                    סרטון 60 שניות של הרגעים הכי חשובים, רק לפי מה <strong>שאתה</strong> אוהב.' אתה אוהד הגנתי?
+                    תקבל הצלות שוערים. אוהד גול? תקבל גולים. כל אחד מקבל סרטון <strong>שונה</strong>."</div>
+                <div class="video-link">
+                    <strong>מה לחפש:</strong> הסבר על Generative AI highlights בספורט.<br>
+                    <a href="https://www.youtube.com/results?search_query=AI+generated+sports+highlights+personalized"
+                        target="_blank">חיפוש: AI generated sports highlights personalized</a><br>
+                    <a href="https://www.youtube.com/results?search_query=IBM+Watson+Wimbledon+highlights+AI"
+                        target="_blank">חיפוש: IBM Watson Wimbledon highlights AI</a>
+                    <span class="source">IBM Watson עשו את זה כבר בווימבלדון (טניס) — דוגמה מעולה לאותה
+                        טכנולוגיה.</span>
+                </div>
+            </div>
+
+            <div class="slide">
+                <div class="slide-header">
+                    <span class="slide-num">שקף 14</span>
+                    <span class="slide-title">בטיחות הקהל — AI שמזהה צרות מראש</span>
+                </div>
+                <div class="field">
+                    <div class="field-label">תוכן השקף</div>
+                    <div class="field-content">
+                        <ul>
+                            <li>מצלמות + מודלים שמזהים <strong>צפיפות חריגה</strong> או דחיפות</li>
+                            <li>זיהוי <strong>תנועה אגרסיבית</strong> או חפצים זרוקים</li>
+                            <li>התראה אוטומטית לכוחות אבטחה תוך <strong>שניות</strong>, לא דקות</li>
+                            <li>אחרי האסון של Stade de France 2022 — דרישת FIFA</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="visual">מצלמה אבטחתית בקהל עם ריבועים צבעוניים מסומנים על אנשים — חלקם ירוקים, אחד אדום.
+                </div>
+            </div>
+
+            <div class="slide">
+                <div class="slide-header">
+                    <span class="slide-num">שקף 15</span>
+                    <span class="slide-title">💡 הלקח לארגון</span>
+                </div>
+                <div class="field">
+                    <div class="field-label">תוכן השקף — נקודה גדולה אחת</div>
+                    <div class="field-content"><strong>"אוטומציה" ≠ "התאמה אישית אמיתית"</strong>
+                        <br><br>
+                        אוטומציה: כולם מקבלים את אותו דבר, מהר יותר.<br>
+                        Hyper-Personalization: כל אחד מקבל <em>משהו שונה</em>, מבוסס על מי שהוא.
+                    </div>
+                </div>
+                <div class="speaker-notes">"כשמלם תים בונה אפליקציה לבנק, לבריאות, לממשלה — השאלה כבר לא
+                    'איך נאוטמט את התהליך'. השאלה היא: 'איך כל לקוח יקבל חוויה שמרגישה לו אישית, גם אם אנחנו
+                    משרתים 5 מיליון לקוחות'. ה-FIFA הוכיחה שזה אפשרי בקנה מידה ענקי."</div>
+            </div>
+
+            <div class="slide">
+                <div class="slide-header">
+                    <span class="slide-num">שקף 16</span>
+                    <span class="slide-title">סיכום סגמנט + מעבר</span>
+                </div>
+                <div class="hook">"היציע מוקיר. השופט מהיר. אבל הקהל הכי גדול לא נמצא באצטדיון — <strong>הוא במסך שלכם
+                        בבית.</strong>"</div>
+                <div class="visual">3 אייקונים: ✅ ✅ ⬜ ⬜ — לסמן התקדמות.</div>
+            </div>
+        </section>
+
+        <!-- =================== Segment 4 =================== -->
+        <section class="segment" id="seg4">
+            <div class="segment-header">
+                <div class="segment-num">4</div>
+                <h2 class="segment-title">השידור והתוכן — פרשנות AI ב-100 שפות + הצד האפל של Deepfakes</h2>
+            </div>
+            <div class="segment-time">~8 דקות · 6 שקפים</div>
+
+            <div class="slide">
+                <div class="slide-header">
+                    <span class="slide-num">שקף 17</span>
+                    <span class="slide-title">פרשנות AI חיה ב-100 שפות</span>
+                </div>
+                <div class="field">
+                    <div class="field-label">תוכן השקף</div>
+                    <div class="field-content">
+                        <ul>
+                            <li>שיתוף פעולה: <strong>Microsoft + Google + FIFA</strong></li>
+                            <li>פרשנות אוטומטית ב-<strong>100+ שפות</strong> — כולל עברית, ערבית, וייטנמית, סוואהילי
+                            </li>
+                            <li>קול AI שמדמה פרשן אמיתי — לא רובוטי</li>
+                            <li>אפשרות לבחור <strong>סגנון</strong>: מתלהב, אנליטי, הומוריסטי</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="visual">מפת עולם עם דגלים של 100 מדינות + לוגואים של Microsoft, Google, FIFA במרכז.</div>
+                <div class="video-link">
+                    <strong>מה לחפש:</strong> Microsoft או Google מציגים פרשנות AI.<br>
+                    <a href="https://www.youtube.com/results?search_query=Microsoft+AI+commentary+sports+real+time"
+                        target="_blank">חיפוש: Microsoft AI commentary sports real time</a><br>
+                    <a href="https://www.youtube.com/results?search_query=Google+Cloud+sports+AI+broadcast"
+                        target="_blank">חיפוש: Google Cloud sports AI broadcast</a>
+                </div>
+            </div>
+
+            <div class="slide">
+                <div class="slide-header">
+                    <span class="slide-num">שקף 18</span>
+                    <span class="slide-title">🎬 שמיעת ההבדל — אותו רגע, 3 שפות</span>
+                </div>
+                <div class="speaker-notes">"בואו נשמע יחד: אותו רגע בדיוק, באנגלית של פרשן אנושי, אחר כך
+                    באנגלית של פרשן AI, ולסיום בערבית של פרשן AI. אתם מוזמנים לנחש מי בן אדם ומי מכונה."</div>
+                <div class="video-link">
+                    <strong>מה לחפש:</strong> השוואה בין פרשן אנושי לפרשן AI (בכל ספורט).<br>
+                    <a href="https://www.youtube.com/results?search_query=human+vs+AI+sports+commentator+comparison"
+                        target="_blank">חיפוש: human vs AI sports commentator comparison</a>
+                    <span class="source">אם לא מוצא — אפשר להתעלם מהקליפ הזה ולעבור לאינטראקציה עם הקהל
+                        ("מי כאן הקשיב פעם לפרשן AI? מה הרגשתם?"). הקהל של מלם בוודאי טכנולוגי מספיק.</span>
+                </div>
+            </div>
+
+            <div class="slide">
+                <div class="slide-header">
+                    <span class="slide-num">שקף 19</span>
+                    <span class="slide-title">גרפיקה דינמית — סטטיסטיקות בזמן אמת</span>
+                </div>
+                <div class="field">
+                    <div class="field-label">תוכן השקף</div>
+                    <div class="field-content">
+                        <ul>
+                            <li>מודל AI שמייצר גרפים מעוצבים <strong>תוך 3 שניות</strong> מכל פעולה</li>
+                            <li>אחוז החזקה, מפת חום, מהירויות ריצה — בלי עורך אנושי</li>
+                            <li>חברות מובילות: <strong>Stats Perform, Genius Sports, Sportradar</strong></li>
+                            <li>היעד: <strong>לא להפריע למשחק</strong>, אבל לתת לצופה הקשר עמוק</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="visual">צילום מסך של שידור עם מפת חום + גרף שליטה — סגנון Sky Sports / ESPN.</div>
+            </div>
+
+            <div class="slide">
+                <div class="slide-header">
+                    <span class="slide-num">שקף 20</span>
+                    <span class="slide-title">⚠️ הצד האפל — Deepfakes ו-Fake News</span>
+                </div>
+                <div class="field">
+                    <div class="field-label">תוכן השקף</div>
+                    <div class="field-content">
+                        <ul>
+                            <li>סרטוני <strong>deepfake</strong> של מסי / רונאלדו תוקפים מנהיגים / מפרסמים מטבעות</li>
+                            <li>הימורים מזויפים — צ'אטבוטים שמתחזים לדמויות אמיתיות</li>
+                            <li>FIFA חתמה עם חברות כמו <strong>Sensity AI</strong> לזיהוי deepfakes בזמן אמת</li>
+                            <li>בקטאר 2022: זוהו מעל <strong>1,500 deepfakes</strong> במהלך הטורניר</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="visual">תמונה דרמטית: שחקן מפורסם במסך עם סימן אזהרה אדום ⚠️ ו-"DEEPFAKE DETECTED".</div>
+                <div class="video-link">
+                    <strong>מה לחפש:</strong> דוגמה לדיפ-פייק של שחקן מוכר (חינוכית).<br>
+                    <a href="https://www.youtube.com/results?search_query=deepfake+football+player+example+Messi+Ronaldo"
+                        target="_blank">חיפוש: deepfake football player example Messi Ronaldo</a>
+                    <span class="source">בחר משהו ברור שהוא דוגמה חינוכית, לא תוכן שמטעה. ערוצים אמינים: BBC,
+                        Reuters, Wall Street Journal.</span>
+                </div>
+            </div>
+
+            <div class="slide">
+                <div class="slide-header">
+                    <span class="slide-num">שקף 21</span>
+                    <span class="slide-title">💡 הלקח לארגון — אמון = הנכס הכי חשוב</span>
+                </div>
+                <div class="field">
+                    <div class="field-label">תוכן השקף — נקודה גדולה אחת</div>
+                    <div class="field-content">
+                        <strong>"אמינות התוכן" הופכת לפיצ'ר חדש.</strong><br><br>
+                        כשכל אחד יכול לזייף כל דבר — מי שיש לו <em>תווית אמון</em> מנצח.<br>
+                        זה נכון ל-FIFA, נכון לבנקים, ונכון לכל מערכת שמלם תים בונה.
+                    </div>
+                </div>
+                <div class="speaker-notes">"חשבו על זה: ב-2026 לקוח שמקבל מייל לכאורה מהבנק שלו — איך הוא יודע
+                    שזה באמת הבנק? המשימה הבאה של ארגוני IT היא לא רק לבנות מערכות, אלא <strong>לבנות אמון
+                        מאומת.</strong>"</div>
+            </div>
+
+            <div class="slide">
+                <div class="slide-header">
+                    <span class="slide-num">שקף 22</span>
+                    <span class="slide-title">סיכום סגמנט + מעבר</span>
+                </div>
+                <div class="hook">"אז ראינו AI על המגרש, ביציע ובמסך. אבל יש שכבה אחת שלא רואים בכלל —
+                    <strong>מה הולך בחדר ההלבשה?</strong>"
+                </div>
+                <div class="visual">3 אייקונים: ✅ ✅ ✅ ⬜.</div>
+            </div>
+        </section>
+
+        <!-- =================== Segment 5 =================== -->
+        <section class="segment" id="seg5">
+            <div class="segment-header">
+                <div class="segment-num">5</div>
+                <h2 class="segment-title">AI מאחורי הקלעים — בנבחרות עצמן</h2>
+            </div>
+            <div class="segment-time">~8 דקות · 5 שקפים</div>
+
+            <div class="slide">
+                <div class="slide-header">
+                    <span class="slide-num">שקף 23</span>
+                    <span class="slide-title">Tactical AI — מנתח יריב בזמן אמת</span>
+                </div>
+                <div class="field">
+                    <div class="field-label">תוכן השקף</div>
+                    <div class="field-content">
+                        <ul>
+                            <li>חברות מובילות: <strong>Stats Perform, SciSports, Hudl</strong></li>
+                            <li>מודלים שמנתחים <strong>אלפי משחקים</strong> של כל יריב</li>
+                            <li>מזהים <strong>תבניות חזרתיות</strong>: "כשהשוער מקבל לחץ — הוא מעביר ימינה ב-73%
+                                מהמקרים"</li>
+                            <li>המאמן מקבל <strong>דוח טקטי</strong> 24 שעות לפני המשחק — מבוסס AI</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="visual">צילום מסך של ממשק tactical AI עם מפת חום של שחקן + טבלת סטטיסטיקות.</div>
+            </div>
+
+            <div class="slide">
+                <div class="slide-header">
+                    <span class="slide-num">שקף 24</span>
+                    <span class="slide-title">ניבוי פציעות — AI שמציל קריירות</span>
+                </div>
+                <div class="field">
+                    <div class="field-label">תוכן השקף</div>
+                    <div class="field-content">
+                        <ul>
+                            <li>שעוני <strong>GPS + מד-לב</strong> על כל שחקן באימון</li>
+                            <li>מודל AI מנתח: כמה רץ, באיזו עוצמה, רמת עייפות, היסטוריית פציעות</li>
+                            <li>חיזוי הסיכון לפציעה ב-<strong>72 שעות הבאות</strong></li>
+                            <li>תוצאה במועדונים שמשתמשים: ירידה של <strong>30%-40%</strong> בפציעות</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="visual">תמונה: שחקן עם GPS-vest שחור (מאוד מוכר ויזואלית) + גרף קו של "Injury Risk Score".
+                </div>
+            </div>
+
+            <div class="slide">
+                <div class="slide-header">
+                    <span class="slide-num">שקף 25</span>
+                    <span class="slide-title">🎬 איך נבחרות גדולות עובדות עם AI</span>
+                </div>
+                <div class="field">
+                    <div class="field-label">תוכן השקף — דוגמאות</div>
+                    <div class="field-content">
+                        <ul>
+                            <li><strong>גרמניה:</strong> שיתוף פעולה עם SAP — פלטפורמת Match Insights</li>
+                            <li><strong>בלגיה:</strong> עובדים עם Sports AI Lab כבר מ-2024</li>
+                            <li><strong>ספרד:</strong> בנו מערכת פנימית לזיהוי כישרונות (Scouting AI)</li>
+                            <li><strong>ארה"ב:</strong> מקבילה ב-MLS — חיזוי המהלך הבא של היריב</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="video-link">
+                    <strong>מה לחפש:</strong> דוגמה לטקטיקה מבוססת AI בנבחרת.<br>
+                    <a href="https://www.youtube.com/results?search_query=Belgium+national+team+AI+tactics+analysis"
+                        target="_blank">חיפוש: Belgium national team AI tactics analysis</a><br>
+                    <a href="https://www.youtube.com/results?search_query=SAP+match+insights+Germany+football"
+                        target="_blank">חיפוש: SAP match insights Germany football</a>
+                </div>
+            </div>
+
+            <div class="slide">
+                <div class="slide-header">
+                    <span class="slide-num">שקף 26</span>
+                    <span class="slide-title">Generative AI לתדריך אישי</span>
+                </div>
+                <div class="field">
+                    <div class="field-label">תוכן השקף</div>
+                    <div class="field-content">
+                        <ul>
+                            <li>במקום שמאמן יסביר לכל שחקן בנפרד — <strong>AI מכין סרטון תדריך אישי</strong></li>
+                            <li>הסרטון מציג: <em>"כשתפגוש את [שם השחקן], זכור שהוא תמיד פונה ימינה אחרי דריבל
+                                    ראשון"</em></li>
+                            <li>שילוב של קליפים אמיתיים + סימונים גרפיים שיוצרו אוטומטית</li>
+                            <li>זמן הכנה: מ-3 ימים של אנליסטים → <strong>20 דקות של AI</strong></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="visual">דמיון: מסך של iPad ביד של שחקן עם סרטון תדריך אישי, סימונים על שחקני יריב.</div>
+            </div>
+
+            <div class="slide">
+                <div class="slide-header">
+                    <span class="slide-num">שקף 27</span>
+                    <span class="slide-title">סיכום סגמנט + מעבר לטייקאוייז</span>
+                </div>
+                <div class="hook">"ראינו 4 שכבות: המגרש, היציע, המסך, וחדר ההלבשה. עכשיו — <strong>מה אנחנו לוקחים
+                        חזרה למלם תים?</strong>"</div>
+                <div class="visual">4 אייקונים: ✅ ✅ ✅ ✅ + חץ גדול שאומר "מה הלאה?"</div>
+            </div>
+        </section>
+
+        <!-- =================== Segment 6 =================== -->
+        <section class="segment" id="seg6">
+            <div class="segment-header">
+                <div class="segment-num">6</div>
+                <h2 class="segment-title">3 לקחים לארגון טכנולוגי + הצצה ל-2030 + Q&amp;A</h2>
+            </div>
+            <div class="segment-time">~8 דקות · 5 שקפים</div>
+
+            <div class="slide">
+                <div class="slide-header">
+                    <span class="slide-num">שקף 28</span>
+                    <span class="slide-title">💡 לקח 1: Real-Time Decisions ברגעי לחץ</span>
+                </div>
+                <div class="field">
+                    <div class="field-label">תוכן השקף</div>
+                    <div class="field-content"><strong>השיעור מהשפיטה:</strong> כשהזמן קריטי, AI עושה את ההחלטה ב-25
+                        שניות,
+                        בן אדם מאשר.<br><br>
+                        <strong>במלם תים:</strong> זיהוי הונאות בכרטיסי אשראי, ניתוב פניות לתמיכה, alerts באבטחת מידע —
+                        הכל יכול להפוך מ"לאחר מעשה" ל"בזמן אמת" עם AI מקדים + אישור אנושי.
+                    </div>
+                </div>
+                <div class="visual">סמל ⚡ ענק + כותרת: "Decide Fast. Verify Smart."</div>
+            </div>
+
+            <div class="slide">
+                <div class="slide-header">
+                    <span class="slide-num">שקף 29</span>
+                    <span class="slide-title">💡 לקח 2: Hyper-Personalization בקנה מידה</span>
+                </div>
+                <div class="field">
+                    <div class="field-label">תוכן השקף</div>
+                    <div class="field-content"><strong>השיעור מהאוהדים:</strong> 5 מיליארד אוהדים, 5 מיליארד חוויות
+                        שונות.<br><br>
+                        <strong>במלם תים:</strong> במקום "אפליקציה אחת לכולם" — אפליקציה שמתאימה את עצמה לכל משתמש.
+                        Generative UI, recommended actions, התראות חכמות. <em>כל לקוח מרגיש שזה רק בשבילו.</em>
+                    </div>
+                </div>
+                <div class="visual">פירמידה הפוכה: 5 מיליארד למעלה → 1 אפליקציה למטה → AI באמצע (המגביר/מתרגם).</div>
+            </div>
+
+            <div class="slide">
+                <div class="slide-header">
+                    <span class="slide-num">שקף 30</span>
+                    <span class="slide-title">💡 לקח 3: המודל המנצח — אנושי + AI, לא במקום</span>
+                </div>
+                <div class="field">
+                    <div class="field-label">תוכן השקף</div>
+                    <div class="field-content"><strong>השיעור מהשופט והפרשן:</strong> השופט עדיין שולק שריקה. הפרשן
+                        עדיין מדבר.
+                        ה-AI <em>עוזר</em> להם להיות טובים פי 10.<br><br>
+                        <strong>במלם תים:</strong> מפתח + AI = פי 3 קוד. אנליסט + AI = פי 5 תובנות. תמיכה + AI = פי 10
+                        לקוחות מרוצים.
+                        <strong>זה לא תחרות, זה שותפות.</strong>
+                    </div>
+                </div>
+                <div class="visual">שתי ידיים — אחת אנושית, אחת רובוטית — לוחצות. רקע חם.</div>
+            </div>
+
+            <div class="slide">
+                <div class="slide-header">
+                    <span class="slide-num">שקף 31</span>
+                    <span class="slide-title">🚀 הצצה ל-2030</span>
+                </div>
+                <div class="field">
+                    <div class="field-label">תוכן השקף</div>
+                    <div class="field-content">
+                        <ul>
+                            <li><strong>שופט AI מלא</strong> — בלי שופט אנושי בכלל (לפחות בליגות נמוכות)</li>
+                            <li><strong>AR Glasses</strong> לכל אוהד באצטדיון — סטטיסטיקות צפות מעל כל שחקן</li>
+                            <li><strong>שחקנים וירטואליים</strong> שאוהדים מעצבים — וצופים בהם משחקים מקבילים</li>
+                            <li><strong>Brain-Computer Interface</strong> לרגשות אוהד — חוויה שמתאמת לדופק שלך</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="speaker-notes">"זה לא מדע בדיוני. כל אחת מהטכנולוגיות האלה כבר קיימת ב-prototype היום.
+                    השאלה לא <em>אם</em> — אלא <em>מי יהיה הראשון להעז</em>."</div>
+            </div>
+
+            <div class="slide">
+                <div class="slide-header">
+                    <span class="slide-num">שקף 32</span>
+                    <span class="slide-title">תודה + Q&amp;A + הבונוס</span>
+                </div>
+                <div class="field">
+                    <div class="field-label">תוכן השקף</div>
+                    <div class="field-content"><strong>תודה!</strong><br><br>
+                        אשלח לכל המשתתפים PDF: <strong>"20 השימושים הכי מגניבים של AI במונדיאל 2026"</strong><br><br>
+                        QR Code לקבלת ה-PDF + לקבוצת WhatsApp להמשך דיון.<br><br>
+                        <strong>שגיא בר און</strong> | 054-9995050 | sagiai.co.il
+                    </div>
+                </div>
+                <div class="visual">QR Code ענק במרכז, פרטי קשר ולוגו ש.ב.</div>
+                <div class="speaker-notes">"אני פה ל-Q&A. שתי בקשות: 1) אל תשאלו 'מי יזכה במונדיאל' — לא יודע.
+                    2) שאלות חכמות תקבלו תשובות חכמות. קדימה."</div>
+            </div>
+        </section>
+
+        <!-- =================== Resources =================== -->
+        <section class="resources">
+            <h2><i class="fa-solid fa-book"></i> מקורות לחיפוש מקיף + הכנה</h2>
+            <ul>
+                <li><strong>הערוץ הרשמי של FIFA ב-YouTube</strong> (@FIFA) — סרטונים על SAOT, הכדור, אצטדיונים.
+                    בחיפוש: <code>site:youtube.com/@FIFA</code></li>
+                <li><strong>אתר FIFA הרשמי</strong> — דף הטכנולוגיה <code>fifa.com</code> כולל הסברים מהימנים על SAOT,
+                    Connected Ball, ועוד</li>
+                <li><strong>Adidas</strong> — דף Connected Ball Technology באתר הרשמי, ובערוץ YouTube של @adidasfootball
+                </li>
+                <li><strong>Microsoft Sports</strong> — בלוג רשמי על שיתופי פעולה ב-AI סביב ספורט גדול</li>
+                <li><strong>Google Cloud Customer Stories</strong> — דוגמאות שימוש בנבחרות וליגות</li>
+                <li><strong>SAP — Match Insights</strong> — דף ייעודי עם דוגמאות מנבחרת גרמניה</li>
+                <li><strong>Tifo Football</strong> (ערוץ YouTube) — סרטוני הסבר ויזואליים על טקטיקה וטכנולוגיה בכדורגל
+                </li>
+                <li><strong>The Athletic</strong>, <strong>ESPN</strong>, <strong>Sky Sports</strong> — מאמרים מקצועיים
+                    על
+                    AI בכדורגל. חיפוש: <code>"AI" + "FIFA" + "2026" site:theathletic.com</code></li>
+                <li><strong>Stats Perform / Hudl / SciSports</strong> — בלוגים של החברות עצמן עם מקרי שימוש</li>
+                <li><strong>arXiv + Google Scholar</strong> — לעמקות אקדמית. חיפוש: <code>"semi-automated offside" deep
+                        learning</code></li>
+                <li><strong>חיפושים חזותיים מהירים:</strong> Google Images עם המילים <code>SAOT diagram</code>,
+                    <code>Al Rihla sensor inside</code>, <code>fan ID stadium entrance</code> — מצוין לשקפים
+                </li>
+            </ul>
+        </section>
+
+        <section class="resources">
+            <h2><i class="fa-solid fa-list-check"></i> צ'ק-ליסט הכנה למרצה</h2>
+            <ul style="list-style: none; padding: 0;">
+                <li style="padding: 8px 0; padding-right: 28px; position: relative;">
+                    <span style="position: absolute; right: 0;">☐</span>
+                    בחר 3-4 קליפי וידאו (מתוך הרשימה שמצוינת בכל שקף עם 🎬) — ולהוריד מראש למקרה של בעיית אינטרנט
+                </li>
+                <li style="padding: 8px 0; padding-right: 28px; position: relative;">
+                    <span style="position: absolute; right: 0;">☐</span>
+                    הכן Backup: תמונות סטטיות (screenshot) של כל קליפ, למקרה שהאינטרנט נופל
+                </li>
+                <li style="padding: 8px 0; padding-right: 28px; position: relative;">
+                    <span style="position: absolute; right: 0;">☐</span>
+                    בדוק עדכון אחרון — לפחות 24 שעות לפני: האם FIFA פרסמה משהו חדש? האם משחק רלוונטי קרה?
+                </li>
+                <li style="padding: 8px 0; padding-right: 28px; position: relative;">
+                    <span style="position: absolute; right: 0;">☐</span>
+                    הכן QR Code לבונוס ה-PDF + לקבוצת WhatsApp להמשך
+                </li>
+                <li style="padding: 8px 0; padding-right: 28px; position: relative;">
+                    <span style="position: absolute; right: 0;">☐</span>
+                    תרגל פעם אחת בקול רם — לא ב-45 דקות אלא ב-40 (להשאיר חזית לטעויות וריאקציות)
+                </li>
+                <li style="padding: 8px 0; padding-right: 28px; position: relative;">
+                    <span style="position: absolute; right: 0;">☐</span>
+                    הגע 30 דק׳ לפני — בדיקת מקרן, רזולוציה, שמע מהמחשב, חיבור אינטרנט
+                </li>
+                <li style="padding: 8px 0; padding-right: 28px; position: relative;">
+                    <span style="position: absolute; right: 0;">☐</span>
+                    שאל את מיטל אם יש Slido / Mentimeter שאפשר לשלב לאינטראקציה מהירה
+                </li>
+            </ul>
+        </section>
+
+    </div>
+
+</body>
+
+</html>
