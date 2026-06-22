@@ -43,7 +43,14 @@
       "Bash(awk 'NR>=4965 && NR<=4970 {print NR\": \"$0}' \"c:/projects/AI/IDF/lagbaOmer-gemini-storybook/index.html\")",
       "Bash(awk 'NR>=5240 && NR<=5246 {print NR\": \"$0}' \"c:/projects/AI/IDF/lagbaOmer-gemini-storybook/index.html\")",
       "Bash(awk 'NR>=5810 && NR<=5820 {print NR\": \"$0}' \"c:/projects/AI/IDF/lagbaOmer-gemini-storybook/index.html\")",
-      "Bash(awk 'NR>=4145 && NR<=4250 {print NR\": \"$0}' \"c:/projects/AI/IDF/lagbaOmer-gemini-storybook/index.html\")"
+      "Bash(awk 'NR>=4145 && NR<=4250 {print NR\": \"$0}' \"c:/projects/AI/IDF/lagbaOmer-gemini-storybook/index.html\")",
+      "Bash(cp -r \"c:/projects/AI/landing-pages/PMI/files/.\" \"c:/projects/AI/landing-pages/pmi-2026/files/\")",
+      "Bash(cp \"c:/projects/AI/landing-pages/PMI/images/\"*.png \"c:/projects/AI/landing-pages/pmi-2026/files/\")",
+      "Bash(curl -s -o /dev/null -w \"HTTP %{http_code} · %{size_download} bytes\\\\n\" http://127.0.0.1:8080/landing-pages/pmi-2026/)",
+      "Bash(curl -s -o /dev/null -w \"hero.webp: HTTP %{http_code} · %{size_download} bytes\\\\n\" http://127.0.0.1:8080/landing-pages/pmi-2026/images/hero.webp)",
+      "Bash(curl -s -o /dev/null -w \"slide-25.webp: HTTP %{http_code} · %{size_download} bytes\\\\n\" http://127.0.0.1:8080/landing-pages/pmi-2026/images/slide-25.webp)",
+      "Bash(curl -s http://127.0.0.1:8080/landing-pages/pmi-2026/ -o /tmp/pmi.html)",
+      "Read(//tmp/**)"
     ],
     "deny": [],
     "ask": []

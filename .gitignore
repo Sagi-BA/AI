@@ -1,1 +1,14 @@
+# Source materials (PPTX/PDF originals, raw exports) — kept locally, not in repo
+**/files/
+*.pptx
+*.psd
+*.ai
+
+# OS / IDE noise
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Editor sandbox
+.vscode/.history/
 nul

@@ -1,0 +1,1981 @@
+<!--
+  Live:  https://sagi-ba.github.io/AI/landing-pages/pmi-2026/
+  Local: http://127.0.0.1:8080/landing-pages/pmi-2026/
+  GA:    https://analytics.google.com/analytics/web/#/a351596902p494681343/reports/reportinghub
+-->
+
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>יש פיל בחדר: איך AI מחזיר למנהלי פרויקטים את השליטה | שגיא בר און · PMI Israel 2026</title>
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-XSH19K5LBZ"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+        gtag('config', 'G-XSH19K5LBZ');
+    </script>
+    <!-- ===== Primary Meta ===== -->
+    <meta name="description"
+        content="סיכום ההרצאה של שגיא בר און ב-PMI Israel 30th Annual Conference (16.6.2026, LAGO ראשל״צ). איך הסוכן The Sprint Architect הופך פגישת תכנון ספרינט לקובץ Jira / Monday / MS Project / Azure DevOps מוכן ל-import - תוך דקה. כולל את ההנחיות המלאות לסוכן.">
+    <meta name="author" content="Sagi Bar-On">
+    <meta name="robots" content="index, follow">
+    <meta name="theme-color" content="#060b1a">
+
+    <link rel="canonical" href="https://sagi-ba.github.io/AI/landing-pages/pmi-2026/">
+
+    <!-- ===== Open Graph ===== -->
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="שגיא בר און · AI לארגונים">
+    <meta property="og:title" content="יש פיל בחדר: איך AI מחזיר למנהלי פרויקטים את השליטה">
+    <meta property="og:description"
+        content="סיכום ההרצאה ב-PMI Israel 2026. הסוכן The Sprint Architect הופך פגישת ספרינט לקובץ Jira/Monday/MS Project מוכן לטעינה. כולל הנחיות מלאות.">
+    <meta property="og:url" content="https://sagi-ba.github.io/AI/landing-pages/pmi-2026/">
+    <meta property="og:locale" content="he_IL">
+    <meta property="og:image" content="https://sagi-ba.github.io/AI/landing-pages/pmi-2026/images/og-cover.webp">
+    <meta property="og:image:secure_url"
+        content="https://sagi-ba.github.io/AI/landing-pages/pmi-2026/images/og-cover.webp">
+    <meta property="og:image:type" content="image/webp">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:alt" content="יש פיל בחדר - הרצאת PMI Israel 2026 של שגיא בר און">
+
+    <!-- ===== Twitter / X ===== -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="יש פיל בחדר: איך AI מחזיר למנהלי פרויקטים את השליטה">
+    <meta name="twitter:description" content="סיכום ההרצאה ב-PMI Israel 2026 + הסוכן + ההנחיות המלאות.">
+    <meta name="twitter:image" content="https://sagi-ba.github.io/AI/landing-pages/pmi-2026/images/og-cover.webp">
+    <meta name="twitter:image:alt" content="יש פיל בחדר - הרצאת PMI Israel 2026">
+
+    <!-- ===== Schema.org ===== -->
+    <meta itemprop="name" content="יש פיל בחדר: איך AI מחזיר למנהלי פרויקטים את השליטה">
+    <meta itemprop="description"
+        content="סיכום ההרצאה ב-PMI Israel 30th Annual Conference, 16.6.2026, LAGO ראשון לציון.">
+    <meta itemprop="image" content="https://sagi-ba.github.io/AI/landing-pages/pmi-2026/images/og-cover.webp">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Alef:wght@400;700&family=Heebo:wght@400;500;700;800;900&display=swap"
+        rel="stylesheet">
+
+    <style>
+        :root {
+            --navy-950: #060b1a;
+            --navy-900: #0a1330;
+            --navy-800: #0f1c44;
+            --navy-700: #1a2a5e;
+            --ink: #0b1226;
+            --text: #1a2138;
+            --text-soft: #4a5573;
+            --text-muted: #6e7894;
+            --line: #e3e7f1;
+            --bg: #f6f7fb;
+            --white: #ffffff;
+            --accent: #f97316;
+            --accent-deep: #c2410c;
+            --accent-soft: rgba(249, 115, 22, 0.12);
+            --accent-glow: rgba(249, 115, 22, 0.35);
+            --gold: #fbbf24;
+            --gold-deep: #b45309;
+            --whatsapp: #25d366;
+            --whatsapp-deep: #128c7e;
+            --radius: 18px;
+            --radius-lg: 28px;
+            --shadow-sm: 0 4px 14px rgba(13, 22, 56, 0.08);
+            --shadow: 0 12px 40px rgba(13, 22, 56, 0.12);
+            --shadow-lg: 0 30px 80px rgba(13, 22, 56, 0.25);
+            --ease: cubic-bezier(0.22, 1, 0.36, 1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Heebo', 'Alef', -apple-system, system-ui, sans-serif;
+            font-size: 18px;
+            line-height: 1.75;
+            color: var(--text);
+            background: var(--bg);
+            -webkit-font-smoothing: antialiased;
+            overflow-x: hidden;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        img {
+            max-width: 100%;
+            display: block;
+        }
+
+        :focus-visible {
+            outline: 3px solid var(--accent);
+            outline-offset: 3px;
+            border-radius: 6px;
+        }
+
+        .container {
+            max-width: 1180px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        .container-narrow {
+            max-width: 880px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        .eyebrow {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 13px;
+            font-weight: 700;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            color: var(--accent-deep);
+            background: var(--accent-soft);
+            padding: 8px 16px;
+            border-radius: 999px;
+            border: 1px solid var(--accent-soft);
+        }
+
+        .eyebrow.on-dark {
+            color: #ffd9b8;
+            background: var(--accent-glow);
+            border-color: rgba(255, 255, 255, 0.2);
+        }
+
+        .eyebrow .dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: var(--accent);
+            box-shadow: 0 0 0 4px var(--accent-soft);
+        }
+
+        h1,
+        h2,
+        h3,
+        h4 {
+            line-height: 1.2;
+            color: var(--ink);
+            font-weight: 800;
+            letter-spacing: -0.01em;
+        }
+
+        h2 {
+            font-size: clamp(28px, 4vw, 44px);
+        }
+
+        h3 {
+            font-size: 22px;
+            font-weight: 800;
+        }
+
+        section {
+            padding: 96px 0;
+        }
+
+        .section-head {
+            text-align: center;
+            margin-bottom: 56px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 18px;
+        }
+
+        .section-head p {
+            color: var(--text-soft);
+            font-size: 19px;
+            max-width: 720px;
+        }
+
+        .section-head.on-dark h2 {
+            color: #fff;
+        }
+
+        .section-head.on-dark p {
+            color: #cdd5e8;
+        }
+
+        /* ===== HEADER ===== */
+        header.site {
+            position: sticky;
+            top: 0;
+            z-index: 50;
+            background: rgba(6, 11, 26, 0.88);
+            backdrop-filter: blur(14px);
+            -webkit-backdrop-filter: blur(14px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+        }
+
+        .nav {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 14px 0;
+        }
+
+        .brand {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            color: #fff;
+            font-weight: 800;
+            font-size: 17px;
+        }
+
+        .brand-mark {
+            width: 38px;
+            height: 38px;
+            border-radius: 11px;
+            background: linear-gradient(135deg, var(--accent), var(--accent-deep));
+            display: grid;
+            place-items: center;
+            color: #fff;
+            font-weight: 900;
+            box-shadow: 0 8px 22px var(--accent-glow);
+        }
+
+        .nav-cta {
+            color: #fff !important;
+            background: linear-gradient(135deg, var(--accent), var(--accent-deep));
+            padding: 9px 20px;
+            border-radius: 999px;
+            font-weight: 700;
+            box-shadow: 0 8px 18px var(--accent-glow);
+            transition: transform 0.2s var(--ease);
+            font-size: 15px;
+        }
+
+        .nav-cta:hover {
+            transform: translateY(-2px);
+        }
+
+        /* ===== HERO ===== */
+        .hero {
+            position: relative;
+            background:
+                radial-gradient(1100px 600px at 85% -10%, var(--accent-glow), transparent 60%),
+                linear-gradient(180deg, var(--navy-950) 0%, var(--navy-900) 100%);
+            color: #fff;
+            overflow: hidden;
+            padding: 84px 0 110px;
+        }
+
+        .hero::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background-image:
+                linear-gradient(rgba(255, 255, 255, 0.04) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(255, 255, 255, 0.04) 1px, transparent 1px);
+            background-size: 56px 56px;
+            mask-image: radial-gradient(circle at 50% 40%, #000 0%, transparent 75%);
+            -webkit-mask-image: radial-gradient(circle at 50% 40%, #000 0%, transparent 75%);
+            pointer-events: none;
+        }
+
+        .hero-grid {
+            position: relative;
+            display: grid;
+            grid-template-columns: 1.1fr 0.9fr;
+            gap: 64px;
+            align-items: center;
+        }
+
+        .hero h1 {
+            color: #fff;
+            font-size: clamp(38px, 6vw, 72px);
+            line-height: 1.05;
+            margin: 22px 0 14px;
+            letter-spacing: -0.025em;
+            font-weight: 900;
+        }
+
+        .hero h1 .accent {
+            background: linear-gradient(120deg, var(--gold), var(--accent));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+
+        .hero h2.hero-sub {
+            color: #ffd9b8;
+            font-size: clamp(20px, 2.5vw, 28px);
+            font-weight: 700;
+            margin-bottom: 22px;
+            line-height: 1.35;
+        }
+
+        .hero p.lead {
+            font-size: 18px;
+            color: #cdd5e8;
+            line-height: 1.7;
+            max-width: 580px;
+        }
+
+        .hero-cta-row {
+            display: flex;
+            gap: 14px;
+            flex-wrap: wrap;
+            margin-top: 32px;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 16px 28px;
+            font-size: 17px;
+            font-weight: 700;
+            border-radius: 999px;
+            border: none;
+            cursor: pointer;
+            transition: all 0.25s var(--ease);
+            font-family: inherit;
+            text-align: right;
+        }
+
+        .btn-primary {
+            color: #fff;
+            background: linear-gradient(135deg, var(--accent) 0%, var(--accent-deep) 100%);
+            box-shadow: 0 12px 30px var(--accent-glow);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 18px 40px var(--accent-glow);
+        }
+
+        .btn-ghost {
+            color: #fff;
+            background: rgba(255, 255, 255, 0.06);
+            border: 1px solid rgba(255, 255, 255, 0.18);
+            backdrop-filter: blur(8px);
+        }
+
+        .btn-ghost:hover {
+            background: rgba(255, 255, 255, 0.12);
+        }
+
+        .btn .arrow {
+            transition: transform 0.25s var(--ease);
+            display: inline-block;
+        }
+
+        .btn:hover .arrow {
+            transform: translateX(-4px);
+        }
+
+        .hero-visual {
+            position: relative;
+        }
+
+        .hero-image-wrap {
+            position: relative;
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            background: linear-gradient(145deg, var(--accent-glow), rgba(255, 255, 255, 0.05));
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            box-shadow: var(--shadow-lg);
+            aspect-ratio: 1/1;
+        }
+
+        .hero-image-wrap img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .hero-secondary {
+            margin-top: 20px;
+            color: #ffd9b8;
+            font-size: 15px;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .hero-secondary a {
+            color: #fff;
+            text-decoration: underline;
+            text-decoration-color: rgba(255, 255, 255, 0.4);
+            text-underline-offset: 4px;
+        }
+
+        .hero-secondary a:hover {
+            text-decoration-color: #fff;
+        }
+
+        @media (max-width: 920px) {
+            .hero {
+                padding: 56px 0 72px;
+            }
+
+            .hero-grid {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+
+            .hero-visual {
+                order: -1;
+                max-width: 360px;
+                margin: 0 auto;
+            }
+        }
+
+        /* ===== SECTION VARIANTS ===== */
+        .section-light {
+            background: var(--white);
+        }
+
+        .section-soft {
+            background: linear-gradient(180deg, var(--bg) 0%, #eef0f8 100%);
+        }
+
+        .section-dark {
+            background: linear-gradient(180deg, var(--navy-950) 0%, var(--navy-900) 100%);
+            color: #e6ebf7;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .section-dark::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background-image:
+                linear-gradient(rgba(255, 255, 255, 0.025) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(255, 255, 255, 0.025) 1px, transparent 1px);
+            background-size: 56px 56px;
+            mask-image: radial-gradient(circle at 50% 40%, #000 0%, transparent 80%);
+            -webkit-mask-image: radial-gradient(circle at 50% 40%, #000 0%, transparent 80%);
+            pointer-events: none;
+        }
+
+        .section-dark .container,
+        .section-dark .container-narrow {
+            position: relative;
+            z-index: 1;
+        }
+
+        .section-dark h2 {
+            color: #fff;
+        }
+
+        .section-dark p {
+            color: #cdd5e8;
+        }
+
+        /* ===== ELEPHANT QUOTE (sec 1) ===== */
+        .quote-hero {
+            text-align: center;
+            font-size: clamp(26px, 3.6vw, 42px);
+            font-weight: 800;
+            line-height: 1.3;
+            color: var(--gold);
+            margin: 0 auto 28px;
+            max-width: 920px;
+        }
+
+        .quote-hero::before,
+        .quote-hero::after {
+            content: "״";
+            color: rgba(251, 191, 36, 0.3);
+            font-size: 1.3em;
+            font-weight: 900;
+            line-height: 0;
+            position: relative;
+            top: 0.15em;
+            margin: 0 0.08em;
+        }
+
+        .quote-body {
+            max-width: 720px;
+            margin: 0 auto;
+            font-size: 18px;
+            line-height: 1.85;
+            color: #c8d2e8;
+            text-align: center;
+        }
+
+        .quote-body strong {
+            color: #fff;
+            font-weight: 700;
+        }
+
+        /* ===== PAIN CARDS (sec 2) ===== */
+        .cards-3 {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+        }
+
+        @media (max-width: 880px) {
+            .cards-3 {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .pain-card {
+            background: #fff;
+            border: 1px solid var(--line);
+            border-radius: var(--radius-lg);
+            padding: 32px;
+            box-shadow: var(--shadow-sm);
+            transition: transform 0.25s var(--ease), box-shadow 0.25s var(--ease);
+        }
+
+        .pain-card:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow);
+        }
+
+        .pain-card .icon {
+            width: 52px;
+            height: 52px;
+            border-radius: 14px;
+            background: var(--accent-soft);
+            display: grid;
+            place-items: center;
+            font-size: 26px;
+            margin-bottom: 16px;
+        }
+
+        .pain-card h3 {
+            font-size: 19px;
+            color: var(--accent-deep);
+            margin-bottom: 10px;
+        }
+
+        .pain-card p {
+            color: var(--text-soft);
+            font-size: 17px;
+            line-height: 1.7;
+        }
+
+        .pain-card strong {
+            color: var(--ink);
+            font-weight: 700;
+        }
+
+        /* ===== AGENT CHIPS (sec 3) ===== */
+        .agent-chips {
+            display: flex;
+            gap: 16px;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin: 32px 0 28px;
+        }
+
+        .chip {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 12px 22px;
+            border-radius: 999px;
+            background: #fff;
+            border: 2px solid var(--accent-soft);
+            color: var(--accent-deep);
+            font-weight: 700;
+            font-size: 17px;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .chip-arrow {
+            color: var(--accent);
+            font-weight: 900;
+            font-size: 22px;
+        }
+
+        .souschef-quote {
+            max-width: 720px;
+            margin: 0 auto;
+            text-align: center;
+            font-size: 18px;
+            color: var(--text-soft);
+            font-style: italic;
+            line-height: 1.8;
+            border-right: 4px solid var(--accent);
+            padding: 8px 24px 8px 0;
+        }
+
+        /* ===== PRODUCT (sec 4) - Hero shot + 3 feature cards ===== */
+        .product-grid {
+            display: grid;
+            grid-template-columns: 1.05fr 0.95fr;
+            gap: 48px;
+            align-items: center;
+        }
+
+        @media (max-width: 920px) {
+            .product-grid {
+                grid-template-columns: 1fr;
+                gap: 32px;
+            }
+        }
+
+        .product-image {
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            box-shadow: var(--shadow-lg);
+            background: #0a1330;
+        }
+
+        .feature-stack {
+            display: flex;
+            flex-direction: column;
+            gap: 14px;
+        }
+
+        .feature-row {
+            display: flex;
+            gap: 16px;
+            padding: 18px 20px;
+            background: #fff;
+            border: 1px solid var(--line);
+            border-radius: var(--radius);
+            box-shadow: var(--shadow-sm);
+        }
+
+        .feature-row .ficon {
+            flex: 0 0 44px;
+            width: 44px;
+            height: 44px;
+            border-radius: 12px;
+            background: var(--accent-soft);
+            display: grid;
+            place-items: center;
+            font-size: 22px;
+        }
+
+        .feature-row h4 {
+            font-size: 17px;
+            margin-bottom: 4px;
+            color: var(--ink);
+        }
+
+        .feature-row p {
+            font-size: 15px;
+            color: var(--text-soft);
+            line-height: 1.6;
+        }
+
+        .product-cta {
+            margin-top: 28px;
+            display: flex;
+            justify-content: center;
+        }
+
+        /* ===== DEMO STORYBOARD (sec 5) ===== */
+        .steps {
+            display: flex;
+            flex-direction: column;
+            gap: 40px;
+        }
+
+        .step {
+            display: grid;
+            grid-template-columns: 0.55fr 0.45fr;
+            gap: 40px;
+            align-items: center;
+        }
+
+        .step:nth-child(even) {
+            direction: ltr;
+        }
+
+        .step:nth-child(even)>* {
+            direction: rtl;
+        }
+
+        @media (max-width: 880px) {
+
+            .step,
+            .step:nth-child(even) {
+                grid-template-columns: 1fr;
+                gap: 24px;
+                direction: rtl;
+            }
+        }
+
+        .step-text .step-num {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 48px;
+            height: 48px;
+            background: linear-gradient(135deg, var(--accent), var(--accent-deep));
+            color: #fff;
+            border-radius: 14px;
+            font-weight: 900;
+            font-size: 22px;
+            margin-bottom: 16px;
+            box-shadow: 0 8px 22px var(--accent-glow);
+        }
+
+        .step-text h3 {
+            font-size: 24px;
+            margin-bottom: 12px;
+        }
+
+        .step-text p {
+            font-size: 17px;
+            color: var(--text-soft);
+            line-height: 1.75;
+        }
+
+        .step-text .speakers {
+            margin-top: 18px;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .speaker {
+            background: #fff;
+            border: 1px solid var(--line);
+            border-radius: 14px;
+            padding: 12px 18px;
+            font-size: 16px;
+            color: var(--text);
+            box-shadow: var(--shadow-sm);
+            line-height: 1.5;
+        }
+
+        .speaker strong {
+            color: var(--accent-deep);
+            display: block;
+            font-size: 14px;
+            margin-bottom: 2px;
+        }
+
+        .step-image {
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            box-shadow: var(--shadow-lg);
+            border: 1px solid var(--line);
+        }
+
+        .step-image img {
+            width: 100%;
+            display: block;
+        }
+
+        /* ===== AGENT INSTRUCTIONS (sec 6) ===== */
+        .agent-instructions-wrap {
+            background: linear-gradient(180deg, #0a1330 0%, #060b1a 100%);
+            border-radius: var(--radius-lg);
+            padding: 48px;
+            border: 1px solid rgba(249, 115, 22, 0.25);
+            box-shadow: var(--shadow-lg), 0 0 80px rgba(249, 115, 22, 0.1) inset;
+            position: relative;
+        }
+
+        @media (max-width: 720px) {
+            .agent-instructions-wrap {
+                padding: 28px 20px;
+            }
+        }
+
+        .agent-instructions-wrap h2 {
+            color: #fff;
+        }
+
+        .agent-instructions-wrap>p.lead {
+            color: #cdd5e8;
+            font-size: 18px;
+            margin: 14px 0 28px;
+            line-height: 1.7;
+        }
+
+        .prompt-toolbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: rgba(255, 255, 255, 0.04);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 14px 14px 0 0;
+            padding: 12px 18px;
+            border-bottom: none;
+        }
+
+        .prompt-toolbar .label {
+            color: var(--gold);
+            font-weight: 700;
+            font-size: 14px;
+            letter-spacing: 0.06em;
+        }
+
+        .copy-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 8px 16px;
+            background: linear-gradient(135deg, var(--accent), var(--accent-deep));
+            color: #fff;
+            border: none;
+            border-radius: 999px;
+            font-family: inherit;
+            font-weight: 700;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.2s var(--ease);
+            box-shadow: 0 6px 18px var(--accent-glow);
+        }
+
+        .copy-btn:hover {
+            transform: translateY(-2px);
+        }
+
+        .copy-btn.is-copied {
+            background: linear-gradient(135deg, #22c55e, #15803d);
+            box-shadow: 0 6px 18px rgba(34, 197, 94, 0.35);
+        }
+
+        pre.agent-prompt {
+            background: rgba(0, 0, 0, 0.35);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 0 0 14px 14px;
+            padding: 24px 28px;
+            color: #e6ebf7;
+            font-family: 'SF Mono', 'Consolas', 'Menlo', monospace;
+            font-size: 14px;
+            line-height: 1.75;
+            white-space: pre-wrap;
+            word-wrap: break-word;
+            overflow-x: auto;
+            max-height: 540px;
+            overflow-y: auto;
+            direction: ltr;
+            text-align: right;
+        }
+
+        pre.agent-prompt::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        pre.agent-prompt::-webkit-scrollbar-track {
+            background: rgba(255, 255, 255, 0.04);
+        }
+
+        pre.agent-prompt::-webkit-scrollbar-thumb {
+            background: var(--accent);
+            border-radius: 4px;
+        }
+
+        .post-prompt-cta {
+            margin-top: 28px;
+            display: flex;
+            gap: 14px;
+            flex-wrap: wrap;
+        }
+
+        /* ===== STRATEGIC CLOSE (sec 7) ===== */
+        .strategic-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 48px;
+            align-items: center;
+        }
+
+        @media (max-width: 920px) {
+            .strategic-grid {
+                grid-template-columns: 1fr;
+                gap: 32px;
+            }
+        }
+
+        .strategic-list {
+            display: flex;
+            flex-direction: column;
+            gap: 24px;
+        }
+
+        .strat-item {
+            background: rgba(255, 255, 255, 0.04);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: var(--radius);
+            padding: 22px 26px;
+        }
+
+        .strat-item h3 {
+            color: var(--gold);
+            font-size: 19px;
+            margin-bottom: 8px;
+        }
+
+        .strat-item p {
+            color: #cdd5e8;
+            font-size: 16px;
+            line-height: 1.7;
+        }
+
+        .strategic-image {
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            box-shadow: var(--shadow-lg);
+            border: 1px solid rgba(255, 255, 255, 0.12);
+        }
+
+        /* ===== KNESSET VIDEO (between sec 7 and sec 8) ===== */
+        .video-section {
+            background: linear-gradient(180deg, var(--bg) 0%, #eef0f8 100%);
+            position: relative;
+        }
+        .video-card {
+            position: relative;
+            max-width: 880px;
+            margin: 0 auto;
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            box-shadow: var(--shadow-lg);
+            aspect-ratio: 16 / 9;
+            background: #000;
+            cursor: pointer;
+            border: none;
+            padding: 0;
+            width: 100%;
+            display: block;
+            font-family: inherit;
+        }
+        .video-card img {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s var(--ease), filter 0.4s var(--ease);
+        }
+        .video-card::after {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(180deg, transparent 40%, rgba(0,0,0,0.6) 100%);
+            pointer-events: none;
+        }
+        .video-play {
+            position: absolute;
+            top: 50%; left: 50%;
+            transform: translate(-50%, -50%);
+            width: 92px; height: 92px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--accent), var(--accent-deep));
+            display: grid; place-items: center;
+            color: #fff;
+            font-size: 36px;
+            box-shadow: 0 12px 40px rgba(0,0,0,0.5), 0 0 0 8px rgba(249, 115, 22, 0.2);
+            transition: all 0.25s var(--ease);
+            z-index: 2;
+        }
+        .video-play::before {
+            content: "▶";
+            transform: translateX(3px);
+        }
+        .video-card:hover .video-play { transform: translate(-50%, -50%) scale(1.08); box-shadow: 0 16px 50px rgba(0,0,0,0.6), 0 0 0 12px rgba(249, 115, 22, 0.25); }
+        .video-card:hover img { transform: scale(1.04); filter: brightness(0.85); }
+        .video-caption {
+            position: absolute;
+            bottom: 22px; right: 28px; left: 28px;
+            color: #fff;
+            font-size: 17px;
+            font-weight: 700;
+            z-index: 2;
+            text-shadow: 0 2px 12px rgba(0,0,0,0.6);
+            text-align: right;
+        }
+        .video-caption .small {
+            display: block;
+            font-size: 13px;
+            font-weight: 500;
+            color: var(--gold);
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            margin-bottom: 4px;
+        }
+        .video-card iframe {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            border: 0;
+        }
+        @media (max-width: 720px) {
+            .video-play { width: 68px; height: 68px; font-size: 26px; box-shadow: 0 8px 24px rgba(0,0,0,0.5), 0 0 0 6px rgba(249, 115, 22, 0.2); }
+            .video-caption { font-size: 14px; bottom: 14px; right: 18px; left: 18px; }
+        }
+        .video-link {
+            display: block;
+            text-align: center;
+            margin-top: 22px;
+            color: var(--accent-deep);
+            font-weight: 700;
+            font-size: 15px;
+        }
+        .video-link:hover { text-decoration: underline; text-underline-offset: 4px; }
+
+        /* ===== PILLARS (sec 8) ===== */
+        .pillar-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+        }
+
+        @media (max-width: 980px) {
+            .pillar-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .pillar-card {
+            background: #fff;
+            border: 1px solid var(--line);
+            border-radius: var(--radius-lg);
+            padding: 36px 32px;
+            box-shadow: var(--shadow-sm);
+            transition: all 0.25s var(--ease);
+            display: flex;
+            flex-direction: column;
+        }
+
+        .pillar-card:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow);
+            border-color: var(--accent);
+        }
+
+        .pillar-card .picon {
+            width: 56px;
+            height: 56px;
+            border-radius: 16px;
+            background: linear-gradient(135deg, var(--accent-soft), rgba(249, 115, 22, 0.04));
+            display: grid;
+            place-items: center;
+            font-size: 28px;
+            margin-bottom: 18px;
+        }
+
+        .pillar-card h3 {
+            font-size: 21px;
+            margin-bottom: 10px;
+            color: var(--ink);
+        }
+
+        .pillar-card .hook {
+            color: var(--accent-deep);
+            font-style: italic;
+            font-size: 16px;
+            margin-bottom: 18px;
+            line-height: 1.6;
+        }
+
+        .pillar-card ul {
+            list-style: none;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .pillar-card ul li {
+            display: flex;
+            gap: 10px;
+            font-size: 15px;
+            color: var(--text-soft);
+            line-height: 1.55;
+        }
+
+        .pillar-card ul li::before {
+            content: "✓";
+            color: var(--accent);
+            font-weight: 900;
+            flex: 0 0 18px;
+        }
+
+        .pillar-card ul li strong {
+            color: var(--ink);
+            font-weight: 700;
+        }
+
+        .pillar-cta {
+            margin-top: 48px;
+            text-align: center;
+        }
+
+        .pillar-cta p {
+            font-size: 19px;
+            color: var(--text-soft);
+            margin-bottom: 20px;
+            max-width: 680px;
+            margin-inline: auto;
+            line-height: 1.7;
+            font-style: italic;
+        }
+
+        .pillar-cta .btn-row {
+            display: flex;
+            gap: 14px;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .btn-orange {
+            color: #fff;
+            background: linear-gradient(135deg, var(--accent), var(--accent-deep));
+            box-shadow: 0 12px 30px var(--accent-glow);
+        }
+
+        .btn-orange:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 18px 40px var(--accent-glow);
+        }
+
+        .btn-outline {
+            color: var(--accent-deep);
+            background: #fff;
+            border: 2px solid var(--accent);
+        }
+
+        .btn-outline:hover {
+            background: var(--accent-soft);
+        }
+
+        /* ===== SLOGAN (sec 9) ===== */
+        .slogan-section {
+            background:
+                radial-gradient(800px 400px at 50% 50%, var(--accent-glow), transparent 70%),
+                linear-gradient(180deg, var(--navy-950), var(--navy-900));
+            color: #fff;
+            text-align: center;
+            padding: 110px 0;
+        }
+
+        .slogan {
+            font-size: clamp(32px, 5vw, 56px);
+            font-weight: 900;
+            line-height: 1.3;
+            color: var(--gold);
+            letter-spacing: -0.01em;
+        }
+
+        .slogan .line-soft {
+            color: rgba(255, 255, 255, 0.7);
+            font-weight: 500;
+            font-size: 0.5em;
+            display: block;
+            margin-top: 28px;
+            letter-spacing: 0.06em;
+        }
+
+        /* ===== DUAL CTA CLOSING (sec 10) ===== */
+        .dual-cta-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 24px;
+        }
+
+        @media (max-width: 720px) {
+            .dual-cta-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .dual-card {
+            background: #fff;
+            border-radius: var(--radius-lg);
+            padding: 40px 36px;
+            border: 1px solid var(--line);
+            box-shadow: var(--shadow);
+            text-align: center;
+            transition: all 0.25s var(--ease);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .dual-card:hover {
+            transform: translateY(-6px);
+            box-shadow: var(--shadow-lg);
+            border-color: var(--accent);
+        }
+
+        .dual-card .icon-big {
+            width: 76px;
+            height: 76px;
+            border-radius: 22px;
+            background: linear-gradient(135deg, var(--accent), var(--accent-deep));
+            display: grid;
+            place-items: center;
+            font-size: 36px;
+            color: #fff;
+            margin-bottom: 20px;
+            box-shadow: 0 12px 30px var(--accent-glow);
+        }
+
+        .dual-card h3 {
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
+
+        .dual-card p {
+            color: var(--text-soft);
+            font-size: 16px;
+            line-height: 1.7;
+            margin-bottom: 22px;
+            font-style: italic;
+        }
+
+        /* ===== FOOTER ===== */
+        footer {
+            background: var(--navy-950);
+            color: #8a93a9;
+            padding: 36px 0;
+            border-top: 1px solid rgba(255, 255, 255, 0.06);
+            text-align: center;
+            font-size: 14px;
+        }
+
+        footer a {
+            color: #cdd5e8;
+        }
+
+        footer .signature {
+            color: var(--gold);
+            font-style: italic;
+            margin-bottom: 8px;
+            font-size: 15px;
+        }
+
+        footer .credit {
+            color: #8a93a9;
+            font-size: 13px;
+            margin-bottom: 4px;
+        }
+
+        /* ===== WhatsApp float ===== */
+        .whatsapp-float {
+            position: fixed;
+            bottom: 24px;
+            left: 24px;
+            width: 60px;
+            height: 60px;
+            background: var(--whatsapp);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 20px rgba(37, 211, 102, 0.4);
+            z-index: 999;
+            transition: transform 0.3s var(--ease), box-shadow 0.3s var(--ease);
+            color: #fff;
+        }
+
+        .whatsapp-float:hover {
+            transform: scale(1.1);
+            box-shadow: 0 6px 28px rgba(37, 211, 102, 0.55);
+        }
+
+        .whatsapp-float svg {
+            width: 32px;
+            height: 32px;
+            fill: #fff;
+        }
+
+        .whatsapp-float::after {
+            content: '';
+            position: absolute;
+            inset: -6px;
+            border-radius: 50%;
+            border: 2px solid var(--whatsapp);
+            opacity: 0.6;
+            animation: waPulse 2.4s ease-out infinite;
+            pointer-events: none;
+        }
+
+        @keyframes waPulse {
+            0% {
+                transform: scale(0.85);
+                opacity: 0.7;
+            }
+
+            70% {
+                transform: scale(1.4);
+                opacity: 0;
+            }
+
+            100% {
+                transform: scale(1.4);
+                opacity: 0;
+            }
+        }
+
+        /* ===== UTILITIES ===== */
+        .reveal {
+            opacity: 0;
+            transform: translateY(24px);
+            transition: opacity 0.7s var(--ease), transform 0.7s var(--ease);
+        }
+
+        .reveal.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+
+            *,
+            *::before,
+            *::after {
+                animation-duration: 0.01ms !important;
+                transition-duration: 0.01ms !important;
+            }
+
+            html {
+                scroll-behavior: auto;
+            }
+
+            .reveal {
+                opacity: 1 !important;
+                transform: none !important;
+            }
+
+            .whatsapp-float::after {
+                display: none;
+            }
+        }
+
+        @media (max-width: 720px) {
+            section {
+                padding: 64px 0;
+            }
+
+            .section-head {
+                margin-bottom: 36px;
+            }
+
+            .whatsapp-float {
+                width: 52px;
+                height: 52px;
+                bottom: 18px;
+                left: 18px;
+            }
+
+            .whatsapp-float svg {
+                width: 28px;
+                height: 28px;
+            }
+
+            .slogan-section {
+                padding: 72px 0;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- ============= HEADER ============= -->
+    <header class="site">
+        <div class="container nav">
+            <a href="#" class="brand" aria-label="שגיא בר און - חזרה לראש העמוד">
+                <span class="brand-mark" aria-hidden="true">SB</span>
+                <span>שגיא בר און · AI</span>
+            </a>
+            <a href="https://chatgpt.com/g/g-69fd88796b6c8191a8f02f660e7a49f7-the-sprint-architect-sagi-bar-on"
+                target="_blank" rel="noopener noreferrer" class="nav-cta">פתחו את הסוכן</a>
+        </div>
+    </header>
+
+    <!-- ============= HERO ============= -->
+    <section class="hero" aria-labelledby="hero-title">
+        <div class="container hero-grid">
+            <div class="hero-text">
+                <span class="eyebrow on-dark"><span class="dot" aria-hidden="true"></span>PMI ISRAEL · 30 YEARS ·
+                    16.6.2026 · LAGO</span>
+                <h1 id="hero-title">יש <span class="accent">פיל</span> בחדר</h1>
+                <h2 class="hero-sub">איך AI מחזיר למנהלי פרויקטים את השליטה</h2>
+                <p class="lead">סיכום ההרצאה ב-PMI Israel 30th Annual Conference. סיפור על מנהל פרויקטים אחד, פתקים
+                    צהובים על הלוח, וסוכן AI אחד שהפך פגישת תכנון ספרינט לקובץ Jira מוכן לטעינה - כולל את הסוכן עצמו,
+                    ואת ההנחיות שמפעילות אותו.</p>
+                <div class="hero-cta-row">
+                    <a href="https://chatgpt.com/g/g-69fd88796b6c8191a8f02f660e7a49f7-the-sprint-architect-sagi-bar-on"
+                        target="_blank" rel="noopener noreferrer" class="btn btn-primary">
+                        🤖 פתחו את The Sprint Architect
+                        <span class="arrow" aria-hidden="true">←</span>
+                    </a>
+                    <a href="#agent-instructions" class="btn btn-ghost">
+                        📋 הנחיות הסוכן
+                    </a>
+                </div>
+                <div class="hero-secondary">
+                    <span>או חזרו ל-</span>
+                    <a href="https://sagiai.co.il/" target="_blank" rel="noopener noreferrer">sagiai.co.il</a>
+                </div>
+            </div>
+
+            <div class="hero-visual">
+                <div class="hero-image-wrap">
+                    <img src="images/hero.webp"
+                        alt="פלייר ההרצאה - PMI Israel 30 Years · 16.6.2026 · LAGO · שגיא בר און" loading="eager">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============= 1. יש פיל בחדר ============= -->
+    <section class="section-dark" id="elephant" aria-labelledby="elephant-title">
+        <div class="container-narrow">
+            <div class="section-head on-dark reveal">
+                <span class="eyebrow on-dark"><span class="dot" aria-hidden="true"></span>הסיפור</span>
+                <h2 id="elephant-title">יש פיל בחדר</h2>
+            </div>
+            <p class="quote-hero reveal">יש פיל בחדר. הוא בישיבות, בספרינטים, ב-Jira, במיילים. כולנו מדברים עליו - אבל
+                רובנו עדיין לא יודעים איך לעבוד איתו נכון.</p>
+            <p class="quote-body reveal">לא מזמן העברתי סדנת AI בחברת הייטק. בסוף הסדנה ישבתי עם אחד ממנהלי הפרויקטים.
+                הוא היה <strong>בטירוף</strong> מ-AI: קרא על זה, שמע, התלהב, ורצה להטמיע. אז הלכנו יחד לפגישת תכנון
+                ספרינט - נכנסנו לחדר, ואני קולט שהוא מנהל את כל המשימות שלו... <strong>עם פתקים צהובים על הלוח</strong>.
+                לוקח פתק, כותב דרישה, מדביק.<br><br>באותו רגע הבנתי שיש כאן <strong>פיל ענק בחדר</strong> - הפער המטורף
+                בין הדיבורים וההתלהבות מה-AI לבין המציאות בשטח שבה אנחנו עדיין עובדים קשה בשיטות של פעם. יחד עם אותו
+                מנהל פיתחנו כלי אחד פשוט שמחליף את הפתקים - ועל זה אני רוצה לדבר היום.</p>
+        </div>
+    </section>
+
+    <!-- ============= 2. ישיבת תכנון ספרינט ============= -->
+    <section class="section-light" id="pain" aria-labelledby="pain-title">
+        <div class="container">
+            <div class="section-head reveal">
+                <span class="eyebrow"><span class="dot" aria-hidden="true"></span>הכאב המוכר</span>
+                <h2 id="pain-title">מכירים את הישיבה הזאת?</h2>
+                <p>אנחנו מגיעים לישיבת תכנון ספרינט. אחד מעלה דרישה חדשה. שני מתנגד. שלישי מעלה בעיות שלא חשבו עליהן
+                    בכלל. ופתאום…</p>
+            </div>
+
+            <div class="cards-3">
+                <article class="pain-card reveal">
+                    <div class="icon" aria-hidden="true">📋</div>
+                    <h3>בישיבה</h3>
+                    <p>עשר דרישות חדשות. שלושה בעלי עניין. חמישה אנשים שכל אחד מבין משהו אחר - <strong>וכולם
+                            צודקים</strong>.</p>
+                </article>
+                <article class="pain-card reveal">
+                    <div class="icon" aria-hidden="true">📑</div>
+                    <h3>אחרי הישיבה</h3>
+                    <p>לסכם. להפוך דרישות למשימות. לעשות סדר. לרדוף אחרי מידע שמפוזר בכל מקום. <strong>הבעיה מתחילה
+                            פה.</strong></p>
+                </article>
+                <article class="pain-card reveal">
+                    <div class="icon" aria-hidden="true">🆘</div>
+                    <h3>ומי יעזור?</h3>
+                    <p>מדור מהמשרד ליד? משרון שלא ענתה למיילים כבר חודש? מאישתי?… <strong>רק AI יכול לעזור.</strong>
+                        כפרה עליו, איזה קוסם.</p>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============= 3. סוכני AI - לא צ'אט ============= -->
+    <section class="section-soft" id="agents-intro" aria-labelledby="agents-title">
+        <div class="container-narrow">
+            <div class="section-head reveal">
+                <span class="eyebrow"><span class="dot" aria-hidden="true"></span>תשובה אחת פשוטה</span>
+                <h2 id="agents-title">סוכני AI - לא צ׳אט</h2>
+                <p>רוב האנשים חושבים על AI כצ׳אט: אני שואל, הוא עונה. <strong>סוכני AI זה משהו אחר לגמרי.</strong></p>
+            </div>
+
+            <div class="agent-chips reveal">
+                <span class="chip">🎯 מטרה</span>
+                <span class="chip-arrow" aria-hidden="true">←</span>
+                <span class="chip">🧠 הקשרים</span>
+                <span class="chip-arrow" aria-hidden="true">←</span>
+                <span class="chip">⚙️ פעולות</span>
+                <span class="chip-arrow" aria-hidden="true">←</span>
+                <span class="chip">📦 תוצאה</span>
+            </div>
+
+            <p class="souschef-quote reveal">תחשבו עליהם כמו סו-שף שלא מתעייף, לא שוכח, ולא אומר ״שלחתי במייל״ כשברור
+                שהוא לא שלח. הם מקבלים מטרה, מבינים הקשר, מבצעים פעולות, ומחזירים תוצאה.</p>
+        </div>
+    </section>
+
+    <!-- ============= 4. הכירו את The Sprint Architect ============= -->
+    <section class="section-light" id="product" aria-labelledby="product-title">
+        <div class="container">
+            <div class="section-head reveal">
+                <span class="eyebrow"><span class="dot" aria-hidden="true"></span>המוצר</span>
+                <h2 id="product-title">הכירו את The Sprint Architect</h2>
+                <p>סוכן AI אחד פשוט שנכנס איתי לפגישת תכנון, מקשיב, ובסוף נותן לי קובץ אקסל מוכן לטעינה. בחרתי לבנות
+                    אותו ב-GPTs - אבל אתם תבחרו את הכלי שמתאים לארגון שלכם.</p>
+            </div>
+
+            <div class="product-grid">
+                <div class="product-image reveal">
+                    <img src="images/slide-15.webp"
+                        alt="חמש פלטפורמות לבניית סוכנים: Claude, Gemini, GPTs, Codex, Copilot" loading="lazy">
+                </div>
+                <div class="feature-stack reveal">
+                    <article class="feature-row">
+                        <div class="ficon" aria-hidden="true">⚡</div>
+                        <div>
+                            <h4>נכנס לפגישה איתך</h4>
+                            <p>עובד בזמן אמת - לא אחרי הפגישה, כשכבר שכחתם מה אמר רוני.</p>
+                        </div>
+                    </article>
+                    <article class="feature-row">
+                        <div class="ficon" aria-hidden="true">🧠</div>
+                        <div>
+                            <h4>מבין הקשר, לא רק מילים</h4>
+                            <p>קורא PDF, Excel, מסמכי אפיון, צילומי מסך. מתרגם תמלול אנושי בחוסר סדר למשהו שאפשר לעבוד
+                                איתו.</p>
+                        </div>
+                    </article>
+                    <article class="feature-row">
+                        <div class="ficon" aria-hidden="true">📊</div>
+                        <div>
+                            <h4>אקסל מוכן ל-import</h4>
+                            <p>Jira · Monday · MS Project · Azure DevOps. הפורמט מותאם בדיוק למערכת שבחרתם.</p>
+                        </div>
+                    </article>
+                </div>
+            </div>
+
+            <div class="product-cta">
+                <a href="https://chatgpt.com/g/g-69fd88796b6c8191a8f02f660e7a49f7-the-sprint-architect-sagi-bar-on"
+                    target="_blank" rel="noopener noreferrer" class="btn btn-orange">
+                    פתחו את הסוכן עכשיו
+                    <span class="arrow" aria-hidden="true">←</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============= 5. ככה זה רץ בהדגמה החיה ============= -->
+    <section class="section-soft" id="demo" aria-labelledby="demo-title">
+        <div class="container">
+            <div class="section-head reveal">
+                <span class="eyebrow"><span class="dot" aria-hidden="true"></span>הדגמה חיה</span>
+                <h2 id="demo-title">ככה זה רץ בפגישה</h2>
+                <p>חמישה שלבים. דמו אמיתי שהוצג על הבמה ב-PMI 2026.</p>
+            </div>
+
+            <div class="steps">
+                <article class="step reveal">
+                    <div class="step-text">
+                        <div class="step-num">1</div>
+                        <h3>פותחים את הסוכן בדפדפן</h3>
+                        <p>בתחילת הפגישה, פותחים את The Sprint Architect וכותבים משפט אחד: <strong>״בוא נתחיל״</strong>.
+                        </p>
+                    </div>
+                    <div class="step-image">
+                        <img src="images/slide-17.webp" alt="פתיחת השיחה עם הסוכן - ׳בוא נתחיל תכנון ספרינט חדש׳"
+                            loading="lazy">
+                    </div>
+                </article>
+
+                <article class="step reveal">
+                    <div class="step-text">
+                        <div class="step-num">2</div>
+                        <h3>בוחרים מערכת</h3>
+                        <p>הסוכן שואל לאיזו מערכת ארגונית - <strong>Jira / Monday / Azure DevOps / MS Project</strong>.
+                            הוא חייב להבין את המערכת כדי לייצא בפורמט הנכון.</p>
+                    </div>
+                    <div class="step-image">
+                        <img src="images/slide-18.webp"
+                            alt="הסוכן מסביר את תפקידו לפי פורמט Jira: תיאור טכני, AC, Priority, Issue Type, Epic"
+                            loading="lazy">
+                    </div>
+                </article>
+
+                <article class="step reveal">
+                    <div class="step-text">
+                        <div class="step-num">3</div>
+                        <h3>זורקים את הדרישות לסוכן</h3>
+                        <p>כל מה שנאמר בפגישה - בחוסר סדר, מכל הצדדים - נזרק לסוכן. הוא מקשיב, מבין את ההקשר, ולא צריך
+                            שתסבירו לו פעמיים.</p>
+                        <div class="speakers">
+                            <div class="speaker"><strong>רוני · QA</strong>״אני מטפל בבאג של הכפתור הכחול בדף הבית. זה
+                                קריטי.״</div>
+                            <div class="speaker"><strong>דנה · מנהלת מוצר</strong>״חברים, צריך גם מסך פרופיל חדש.״</div>
+                            <div class="speaker"><strong>שרה · מתכנתת</strong>״זה ייקח לפחות שבוע לפתח.״</div>
+                        </div>
+                    </div>
+                    <div class="step-image">
+                        <img src="images/slide-25.webp"
+                            alt="ארכיטקטורה: 3 דמויות זורקות דרישות ← סוכן AI מארגן ← ייצוא ל-Jira / Monday / MS Project / Azure DevOps"
+                            loading="lazy">
+                    </div>
+                </article>
+
+                <article class="step reveal">
+                    <div class="step-text">
+                        <div class="step-num">4</div>
+                        <h3>הסוכן ממיר ל-Issues מובנים</h3>
+                        <p>בקשה חופשית של שרה הופכת ל-<strong>Story מלאה</strong>: תיאור טכני, Acceptance Criteria,
+                            Priority, Assignee, Issue Type, Epic. תעצרו רגע… אתם קולטים? כל המשימות, כל בעלי האחריות, כל
+                            סדרי העדיפויות - מסודר ומוכן לעבודה במקום אחד.</p>
+                    </div>
+                    <div class="step-image">
+                        <img src="images/slide-24.webp"
+                            alt="קובץ Excel שמיוצר על-ידי הסוכן עם רשימת משימות בעברית, מוכן לטעינה ל-Jira"
+                            loading="lazy">
+                    </div>
+                </article>
+
+                <article class="step reveal">
+                    <div class="step-text">
+                        <div class="step-num">5</div>
+                        <h3>״הפגישה הסתיימה״ ← אקסל מוכן</h3>
+                        <p>כותבים לסוכן <strong>״הפגישה הסתיימה״</strong> - והוא מייצר קובץ אקסל שמוכן לטעינה ישירה
+                            ל-Jira / Monday / MS Project / Azure DevOps. דמיינו שממחר בבוקר אתם כבר לא צריכים לעשות את
+                            זה ידנית.</p>
+                    </div>
+                    <div class="step-image">
+                        <img src="images/slide-26.webp" alt="הפיל בחדר - השינוי האמיתי: מ-sticky notes לדשבורד מסודר"
+                            loading="lazy">
+                    </div>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============= 6. ההנחיות לסוכן (System Prompt) ============= -->
+    <section class="section-dark" id="agent-instructions" aria-labelledby="instructions-title">
+        <div class="container-narrow">
+            <div class="agent-instructions-wrap reveal">
+                <span class="eyebrow on-dark"><span class="dot" aria-hidden="true"></span>ה-DELIVERABLE</span>
+                <h2 id="instructions-title" style="margin-top: 14px;">ההנחיות לסוכן - להעתיק, להתאים, ולבנות גרסה משלכם
+                </h2>
+                <p class="lead">זה ה-system prompt שמופעל מאחורי הקלעים של The Sprint Architect. אפשר לקחת אותו לכל
+                    פלטפורמה - ChatGPT, Claude, Gemini - ולהתאים לדינמיקה של הצוות שלכם. כמו שאמרתי על הבמה:
+                    <strong>תסרקו, תורידו, תשפרו אותו ותהנו ממנו.</strong>
+                </p>
+
+                <div class="prompt-toolbar">
+                    <span class="label">System Prompt · The Sprint Architect</span>
+                    <button type="button" class="copy-btn" id="copyPromptBtn" aria-label="העתק את ההנחיות ללוח">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                            <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+                            <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+                        </svg>
+                        <span class="copy-label">העתק</span>
+                    </button>
+                </div>
+                <pre class="agent-prompt" id="agentPrompt">**Role:**
+You are the 'Sprint Architect', a high-level AI agent designed for Project Managers and Scrum Masters. Your expertise is capturing unstructured sprint planning notes and converting them into professional, system-ready Excel files.
+
+**Tool Usage Constraint (CRITICAL):**
+* **DO NOT generate images.** Under no circumstances should you use DALL-E or any image generation tool.
+* You are a text-and-data-only agent.
+* Even if the user uses words like **"draw"**, **"paint"**, **"show me"**, or **"visualize"**, you must interpret these as requests for **technical documentation, user stories, or data mapping**.
+
+**Language Policy:**
+1. **User Interaction:** You must communicate with the user **EXCLUSIVELY in Hebrew**.
+2. **Data Content:** All task titles, descriptions, and notes inside the generated Excel must be in **Hebrew**, reflecting the actual session discussion.
+3. **Technical Headers:** Excel column headers MUST remain in **English**, matching the exact naming convention from the Knowledge file for system compatibility.
+
+**Knowledge Usage &amp; Logic:**
+1. You have a Knowledge file: `Project_Management_Systems_Standard.xlsx`.
+2. **Crucial:** Before processing any data, you must read the **'Instructions_for_AI'** tab in that file. It contains your core mapping logic and rules for handling missing data.
+3. You must refer to the specific tab (Jira, Monday, AzureDevOps, or MS_Project) based on the user's choice to ensure the Excel output is 100% compatible with that system's import tool.
+
+**Operational Workflow:**
+1. **The Setup:** Start every new session with a friendly greeting in Hebrew and ask: "שלום! לאיזו מערכת נכין את הספרינט היום?" (List the 4 options: Jira, Monday, Azure DevOps, MS Project).
+2. **The Listening Phase:** As the user provides notes (tasks, owners, priorities), acknowledge them. For every task:
+* Expand it into a professional technical description in Hebrew (use bullet points for readability).
+* Automatically generate a list of Acceptance Criteria (AC).
+* Infer the 'Issue Type' (Bug/Story/Task) and 'Priority' based on the context.
+* **NEW: Ask the user which Epic/Category this task belongs to if it's not clear from the context.**
+3. **The Connection (Epics):**
+* **Smart Linking:** Group tasks under existing Epics mentioned in the conversation.
+* **Epic Creation:** If multiple tasks relate to a new theme, suggest creating a new Epic for them.
+* **Field Mapping:** Ensure the Epic name or ID is correctly placed in the 'Epic Link' or 'Parent' column according to the selected system's tab.
+4. **The Export:** When the user says "סיימנו", "ייצא" or "הפק קובץ", perform the data analysis and generate a NEW Excel file for download based on the selected system's template.
+
+**Guardrails:**
+* Never hallucinate system fields; stick strictly to the Knowledge file headers.
+* If a resource/assignee is unknown, use "לא שויך" or "TBD".
+* If an Epic is not provided after asking, leave the field empty or use a general "Backlog" category.
+* Maintain a helpful, professional, and organized persona.</pre>
+
+                <div class="post-prompt-cta">
+                    <a href="https://chatgpt.com/g/g-69fd88796b6c8191a8f02f660e7a49f7-the-sprint-architect-sagi-bar-on"
+                        target="_blank" rel="noopener noreferrer" class="btn btn-primary">
+                        🤖 פתחו את הגרסה של שגיא ב-ChatGPT
+                        <span class="arrow" aria-hidden="true">←</span>
+                    </a>
+                    <a href="#contact" class="btn btn-ghost">רוצים גרסה מותאמת לארגון שלכם?</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============= 7. השינוי האמיתי ============= -->
+    <section class="section-dark" id="real-change" aria-labelledby="change-title">
+        <div class="container">
+            <div class="section-head on-dark reveal">
+                <span class="eyebrow on-dark"><span class="dot" aria-hidden="true"></span>השינוי האמיתי</span>
+                <h2 id="change-title">AI לא בא להחליף אותנו</h2>
+                <p>הוא בא להקטין את הרעש - כדי שנתרכז במה שאנחנו הכי טובים בו: <strong>ניהול הפרויקט</strong>.</p>
+            </div>
+
+            <div class="strategic-grid">
+                <div class="strategic-image reveal">
+                    <img src="images/slide-26.webp"
+                        alt="חדר ישיבות עם פיל באמצע - הפער בין sticky notes ישנים לדשבורד החדש" loading="lazy">
+                </div>
+                <div class="strategic-list">
+                    <div class="strat-item reveal">
+                        <h3>AI לא מחליף, AI מקטין רעש</h3>
+                        <p>לא מקבל החלטות במקומנו. לא מנהל אנשים במקומנו. פשוט מקל ומשחרר אותנו מהרעש כדי שנתרכז בעבודה
+                            האמיתית.</p>
+                    </div>
+                    <div class="strat-item reveal">
+                        <h3>הצעד הבא: עוד סוכנים</h3>
+                        <p>סוכנים שמזהים חריגות, מצביעים על סיכונים, מתריעים על עיכובים, מזהים בעיות לפני שהן הופכות
+                            למשברים. אין לזה סוף - ואנחנו רק בתחילת הדרך.</p>
+                    </div>
+                    <div class="strat-item reveal">
+                        <h3>למה זה דחוף עכשיו</h3>
+                        <p>השאלה היא לא <em>אם</em> נעבוד עם AI, אלא <em>איך</em> נעבוד איתו נכון. <strong>ארגונים
+                                שיפנימו זאת - הם אלו שישרדו.</strong></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============= 7.5 סרטון כנסת ישראל ============= -->
+    <section class="video-section" id="knesset" aria-labelledby="knesset-title">
+        <div class="container">
+            <div class="section-head reveal">
+                <span class="eyebrow"><span class="dot" aria-hidden="true"></span>כנסת ישראל</span>
+                <h2 id="knesset-title">כך זה נשמע על במה גדולה</h2>
+                <p>אותו מסר על AI — בכנסת ישראל. ועכשיו מגיע אליכם, בארגון שלכם.</p>
+            </div>
+
+            <button type="button" class="video-card reveal" data-vid="Dk0NAi3Xmww" aria-label="הפעל סרטון: שגיא בר און מרצה על בינה מלאכותית בכנסת ישראל">
+                <img src="https://i.ytimg.com/vi/Dk0NAi3Xmww/maxresdefault.jpg" alt="שגיא בר און מרצה על בינה מלאכותית בכנסת ישראל" loading="lazy" onerror="this.src='https://i.ytimg.com/vi/Dk0NAi3Xmww/hqdefault.jpg'">
+                <span class="video-play" aria-hidden="true"></span>
+                <span class="video-caption">
+                    <span class="small">YouTube · הרצאה</span>
+                    שגיא בר און מרצה על בינה מלאכותית בכנסת ישראל
+                </span>
+            </button>
+
+            <a href="https://youtu.be/Dk0NAi3Xmww" target="_blank" rel="noopener noreferrer" class="video-link">צפו ביוטיוב →</a>
+        </div>
+    </section>
+
+    <!-- ============= 8. מסלולי הטמעה לארגונים ============= -->
+    <section class="section-light" id="pillars" aria-labelledby="pillars-title">
+        <div class="container">
+            <div class="section-head reveal">
+                <span class="eyebrow"><span class="dot" aria-hidden="true"></span>לארגונים</span>
+                <h2 id="pillars-title">ככה אני עוזר לארגונים להטמיע AI</h2>
+                <p>שלושה רכיבים משלימים - שאפשר לאשר כל אחד בנפרד, או לשלב למסגרת אחת. בלי הבטחות שיווקיות, רק עם פירוט
+                    מה כלול.</p>
+            </div>
+
+            <div class="pillar-grid">
+                <article class="pillar-card reveal">
+                    <div class="picon" aria-hidden="true">👔</div>
+                    <h3>AI Leadership למנהלים</h3>
+                    <p class="hook">הופכים את ה-AI מ״כלי לעובדים״ ל״מודל עבודה ניהולי״.</p>
+                    <ul>
+                        <li>5 מפגשים × שעתיים, פעם בשבוע</li>
+                        <li>למנהלי צוותים ויחידות (לא טכנולוגיים)</li>
+                        <li>תוצרים: מפת הזדמנויות AI, ערכת פרומפטים ניהוליים, רשימת Use Cases מתועדפת</li>
+                        <li><strong>תוכנית הטמעה ל-90 יום ביחידה</strong></li>
+                    </ul>
+                </article>
+
+                <article class="pillar-card reveal">
+                    <div class="picon" aria-hidden="true">🎯</div>
+                    <h3>AI Champions לעובדים</h3>
+                    <p class="hook">שכבת שגרירי AI פנים-ארגוניים שמובילים את היחידה.</p>
+                    <ul>
+                        <li>5 מפגשים × שעתיים</li>
+                        <li>לעובדים מובילים מכל יחידה (לא טכנולוגיים)</li>
+                        <li>תוצרים: עבודה מעשית עם AI, פרומפטים יומיומיים, מיפוי תהליך עבודה</li>
+                        <li><strong>תוכנית פעולה אישית/צוותית ל-30 יום</strong></li>
+                    </ul>
+                </article>
+
+                <article class="pillar-card reveal">
+                    <div class="picon" aria-hidden="true">🤝</div>
+                    <h3>בנק שעות ליווי והטמעה</h3>
+                    <p class="hook">מתרגם את הידע מהסדנאות לתהליכי עבודה אמיתיים.</p>
+                    <ul>
+                        <li>גמיש, מתואם לקצב היחידה</li>
+                        <li>למנהלים, שגרירי AI ויחידות עסקיות אחרי ההכשרות</li>
+                        <li>תוצרים: Use Cases, אפיון Agents, תבניות בקרה</li>
+                        <li><strong>פיילוטים ראשוניים עם Human-in-the-Loop</strong></li>
+                    </ul>
+                </article>
+            </div>
+
+            <div class="pillar-cta reveal">
+                <p>מובילים תהליך AI בארגון שלכם? בואו נדבר על איך לבנות תוכנית מותאמת - לא עוד פתק צהוב על הלוח.</p>
+                <div class="btn-row">
+                    <a href="https://wa.me/972549995050?text=%D7%94%D7%99%D7%99%20%D7%A9%D7%92%D7%99%D7%90%2C%20%D7%A8%D7%90%D7%99%D7%AA%D7%99%20%D7%90%D7%AA%20%D7%93%D7%A3%20%D7%94%D7%A1%D7%99%D7%9B%D7%95%D7%9D%20%D7%A9%D7%9C%20PMI%202026%20%D7%95%D7%90%D7%A9%D7%9E%D7%97%20%D7%9C%D7%93%D7%91%D7%A8"
+                        target="_blank" rel="noopener noreferrer" class="btn btn-orange">
+                        💬 בואו נדבר ב-WhatsApp
+                        <span class="arrow" aria-hidden="true">←</span>
+                    </a>
+                    <a href="mailto:sagi.baron76@gmail.com?subject=%D7%94%D7%98%D7%9E%D7%A2%D7%AA%20AI%20%D7%91%D7%90%D7%A8%D7%92%D7%95%D7%9F%20%D7%9E-PMI%202026"
+                        class="btn btn-outline">
+                        ✉️ שלחו מייל
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============= 9. הסלוגן הסוגר ============= -->
+    <section class="slogan-section" aria-label="הסלוגן הסוגר">
+        <div class="container-narrow">
+            <div class="slogan reveal">
+                פחות כאוס.<br>
+                פחות רעש.<br>
+                <strong style="color: #fff;">יותר שליטה.</strong>
+                <span class="line-soft">- זה כל הסיפור.</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============= 10. שני CTAs סוגרים ============= -->
+    <section class="section-soft" id="contact" aria-labelledby="contact-title">
+        <div class="container">
+            <div class="section-head reveal">
+                <span class="eyebrow"><span class="dot" aria-hidden="true"></span>הצעד הבא</span>
+                <h2 id="contact-title">בדיוק כמו על הבמה - שני ברקודים</h2>
+                <p>אחד לסוכן עצמו, השני לכל מה שאני עושה. <strong>תעבירו כבר היום ל-HR - נגענו רק על קצה המזלג.</strong>
+                </p>
+            </div>
+
+            <div class="dual-cta-grid">
+                <article class="dual-card reveal">
+                    <div class="icon-big" aria-hidden="true">🤖</div>
+                    <h3>The Sprint Architect</h3>
+                    <p>״תסרקו, תורידו, תשפרו אותו ותהנו ממנו.״</p>
+                    <a href="https://chatgpt.com/g/g-69fd88796b6c8191a8f02f660e7a49f7-the-sprint-architect-sagi-bar-on"
+                        target="_blank" rel="noopener noreferrer" class="btn btn-orange">
+                        פתחו את הסוכן ב-ChatGPT
+                        <span class="arrow" aria-hidden="true">←</span>
+                    </a>
+                </article>
+
+                <article class="dual-card reveal">
+                    <div class="icon-big" aria-hidden="true">🌐</div>
+                    <h3>sagiai.co.il</h3>
+                    <p>״תעבירו כבר היום ל-HR שלכם - יש עוד כל כך הרבה.״</p>
+                    <a href="https://sagiai.co.il/" target="_blank" rel="noopener noreferrer" class="btn btn-outline">
+                        סדנאות והרצאות
+                        <span class="arrow" aria-hidden="true">←</span>
+                    </a>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============= FOOTER ============= -->
+    <footer>
+        <div class="container">
+            <div class="signature">שיהיה לכם יום טוב - שגיא בר און.</div>
+            <div class="credit">הוצג ב-PMI Israel 30th Annual Conference · 16.6.2026 · LAGO ראשון לציון</div>
+            © <span id="year"></span> שגיא בר און · ש.ב. ידע וטכנולוגיה · <a href="https://sagiai.co.il/"
+                target="_blank" rel="noopener noreferrer">sagiai.co.il</a>
+        </div>
+    </footer>
+
+    <a href="https://wa.me/972549995050?text=%D7%94%D7%99%D7%99%20%D7%A9%D7%92%D7%99%D7%90%2C%20%D7%A8%D7%90%D7%99%D7%AA%D7%99%20%D7%90%D7%AA%20%D7%93%D7%A3%20%D7%94%D7%A1%D7%99%D7%9B%D7%95%D7%9D%20%D7%A9%D7%9C%20PMI%202026%20%D7%95%D7%90%D7%A9%D7%9E%D7%97%20%D7%9C%D7%93%D7%91%D7%A8"
+        target="_blank" rel="noopener noreferrer" class="whatsapp-float" aria-label="שלחו הודעה בוואטסאפ">
+        <svg viewBox="0 0 24 24" aria-hidden="true">
+            <path
+                d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347zM12.05 21.785A9.737 9.737 0 0 1 7.1 20.45l-.353-.21-3.667.962.98-3.575-.232-.366a9.715 9.715 0 0 1-1.49-5.18c.002-5.373 4.378-9.748 9.752-9.748 2.604 0 5.052 1.014 6.892 2.857a9.683 9.683 0 0 1 2.852 6.892c-.002 5.373-4.378 9.749-9.762 9.749h-.012zM20.52 3.449C18.244 1.255 15.241.06 12.045.06 5.463.06.103 5.42.101 12.005c0 2.105.549 4.16 1.595 5.972L0 24l6.163-1.617a11.94 11.94 0 0 0 5.71 1.454h.006c6.585 0 11.946-5.36 11.949-11.946 0-3.196-1.24-6.198-3.495-8.453z" />
+        </svg>
+    </a>
+
+    <script>
+        (function () {
+            'use strict';
+
+            // Reveal on scroll
+            const reveals = document.querySelectorAll('.reveal');
+            if ('IntersectionObserver' in window) {
+                const io = new IntersectionObserver((entries) => {
+                    entries.forEach((e) => {
+                        if (e.isIntersecting) {
+                            e.target.classList.add('visible');
+                            io.unobserve(e.target);
+                        }
+                    });
+                }, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
+                reveals.forEach((el) => io.observe(el));
+            } else {
+                reveals.forEach((el) => el.classList.add('visible'));
+            }
+
+            // Year
+            const yearEl = document.getElementById('year');
+            if (yearEl) yearEl.textContent = new Date().getFullYear();
+
+            // Copy system prompt to clipboard
+            const copyBtn = document.getElementById('copyPromptBtn');
+            const promptEl = document.getElementById('agentPrompt');
+            if (copyBtn && promptEl && navigator.clipboard) {
+                copyBtn.addEventListener('click', async () => {
+                    try {
+                        await navigator.clipboard.writeText(promptEl.innerText);
+                        const label = copyBtn.querySelector('.copy-label');
+                        const originalText = label.textContent;
+                        copyBtn.classList.add('is-copied');
+                        label.textContent = '✓ הועתק';
+                        setTimeout(() => {
+                            copyBtn.classList.remove('is-copied');
+                            label.textContent = originalText;
+                        }, 2200);
+                    } catch (err) {
+                        console.warn('clipboard copy failed', err);
+                    }
+                });
+            }
+
+            // Lazy-load YouTube iframe on click (no autoplay until user clicks)
+            document.querySelectorAll('.video-card[data-vid]').forEach((card) => {
+                card.addEventListener('click', () => {
+                    const vid = card.getAttribute('data-vid');
+                    if (!vid) return;
+                    const iframe = document.createElement('iframe');
+                    iframe.src = 'https://www.youtube-nocookie.com/embed/' + vid + '?autoplay=1&rel=0';
+                    iframe.title = card.getAttribute('aria-label') || 'YouTube video';
+                    iframe.allow = 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture';
+                    iframe.setAttribute('allowfullscreen', '');
+                    card.innerHTML = '';
+                    card.appendChild(iframe);
+                });
+            });
+        })();
+    </script>
+
+</body>
+
+</html>
