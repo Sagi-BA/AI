@@ -50,7 +50,10 @@
       "Bash(curl -s -o /dev/null -w \"hero.webp: HTTP %{http_code} · %{size_download} bytes\\\\n\" http://127.0.0.1:8080/landing-pages/pmi-2026/images/hero.webp)",
       "Bash(curl -s -o /dev/null -w \"slide-25.webp: HTTP %{http_code} · %{size_download} bytes\\\\n\" http://127.0.0.1:8080/landing-pages/pmi-2026/images/slide-25.webp)",
       "Bash(curl -s http://127.0.0.1:8080/landing-pages/pmi-2026/ -o /tmp/pmi.html)",
-      "Read(//tmp/**)"
+      "Read(//tmp/**)",
+      "Bash(git reset *)",
+      "Bash(git restore *)",
+      "Bash(curl -s http://127.0.0.1:8080/landing-pages/pmi-2026/)"
     ],
     "deny": [],
     "ask": []

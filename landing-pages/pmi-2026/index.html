@@ -941,6 +941,7 @@
             background: linear-gradient(180deg, var(--bg) 0%, #eef0f8 100%);
             position: relative;
         }
+
         .video-card {
             position: relative;
             max-width: 880px;
@@ -957,6 +958,7 @@
             display: block;
             font-family: inherit;
         }
+
         .video-card img {
             position: absolute;
             inset: 0;
@@ -965,43 +967,61 @@
             object-fit: cover;
             transition: transform 0.5s var(--ease), filter 0.4s var(--ease);
         }
+
         .video-card::after {
             content: "";
             position: absolute;
             inset: 0;
-            background: linear-gradient(180deg, transparent 40%, rgba(0,0,0,0.6) 100%);
+            background: linear-gradient(180deg, transparent 40%, rgba(0, 0, 0, 0.6) 100%);
             pointer-events: none;
         }
+
         .video-play {
             position: absolute;
-            top: 50%; left: 50%;
+            top: 50%;
+            left: 50%;
             transform: translate(-50%, -50%);
-            width: 92px; height: 92px;
+            width: 92px;
+            height: 92px;
             border-radius: 50%;
             background: linear-gradient(135deg, var(--accent), var(--accent-deep));
-            display: grid; place-items: center;
+            display: grid;
+            place-items: center;
             color: #fff;
             font-size: 36px;
-            box-shadow: 0 12px 40px rgba(0,0,0,0.5), 0 0 0 8px rgba(249, 115, 22, 0.2);
+            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.5), 0 0 0 8px rgba(249, 115, 22, 0.2);
             transition: all 0.25s var(--ease);
             z-index: 2;
         }
+
         .video-play::before {
             content: "▶";
             transform: translateX(3px);
         }
-        .video-card:hover .video-play { transform: translate(-50%, -50%) scale(1.08); box-shadow: 0 16px 50px rgba(0,0,0,0.6), 0 0 0 12px rgba(249, 115, 22, 0.25); }
-        .video-card:hover img { transform: scale(1.04); filter: brightness(0.85); }
+
+        .video-card:hover .video-play {
+            transform: translate(-50%, -50%) scale(1.08);
+            box-shadow: 0 16px 50px rgba(0, 0, 0, 0.6), 0 0 0 12px rgba(249, 115, 22, 0.25);
+        }
+
+        .video-card:hover img {
+            transform: scale(1.04);
+            filter: brightness(0.85);
+        }
+
         .video-caption {
             position: absolute;
-            bottom: 22px; right: 28px; left: 28px;
+            bottom: 22px;
+            right: 28px;
+            left: 28px;
             color: #fff;
             font-size: 17px;
             font-weight: 700;
             z-index: 2;
-            text-shadow: 0 2px 12px rgba(0,0,0,0.6);
+            text-shadow: 0 2px 12px rgba(0, 0, 0, 0.6);
             text-align: right;
         }
+
         .video-caption .small {
             display: block;
             font-size: 13px;
@@ -1011,6 +1031,7 @@
             text-transform: uppercase;
             margin-bottom: 4px;
         }
+
         .video-card iframe {
             position: absolute;
             inset: 0;
@@ -1018,10 +1039,23 @@
             height: 100%;
             border: 0;
         }
+
         @media (max-width: 720px) {
-            .video-play { width: 68px; height: 68px; font-size: 26px; box-shadow: 0 8px 24px rgba(0,0,0,0.5), 0 0 0 6px rgba(249, 115, 22, 0.2); }
-            .video-caption { font-size: 14px; bottom: 14px; right: 18px; left: 18px; }
+            .video-play {
+                width: 68px;
+                height: 68px;
+                font-size: 26px;
+                box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5), 0 0 0 6px rgba(249, 115, 22, 0.2);
+            }
+
+            .video-caption {
+                font-size: 14px;
+                bottom: 14px;
+                right: 18px;
+                left: 18px;
+            }
         }
+
         .video-link {
             display: block;
             text-align: center;
@@ -1030,7 +1064,11 @@
             font-weight: 700;
             font-size: 15px;
         }
-        .video-link:hover { text-decoration: underline; text-underline-offset: 4px; }
+
+        .video-link:hover {
+            text-decoration: underline;
+            text-underline-offset: 4px;
+        }
 
         /* ===== PILLARS (sec 8) ===== */
         .pillar-grid {
@@ -1768,11 +1806,14 @@ You are the 'Sprint Architect', a high-level AI agent designed for Project Manag
             <div class="section-head reveal">
                 <span class="eyebrow"><span class="dot" aria-hidden="true"></span>כנסת ישראל</span>
                 <h2 id="knesset-title">כך זה נשמע על במה גדולה</h2>
-                <p>אותו מסר על AI — בכנסת ישראל. ועכשיו מגיע אליכם, בארגון שלכם.</p>
+                <p>אותו מסר על AI - בכנסת ישראל. ועכשיו מגיע אליכם, בארגון שלכם.</p>
             </div>
 
-            <button type="button" class="video-card reveal" data-vid="Dk0NAi3Xmww" aria-label="הפעל סרטון: שגיא בר און מרצה על בינה מלאכותית בכנסת ישראל">
-                <img src="https://i.ytimg.com/vi/Dk0NAi3Xmww/maxresdefault.jpg" alt="שגיא בר און מרצה על בינה מלאכותית בכנסת ישראל" loading="lazy" onerror="this.src='https://i.ytimg.com/vi/Dk0NAi3Xmww/hqdefault.jpg'">
+            <button type="button" class="video-card reveal" data-vid="Dk0NAi3Xmww"
+                aria-label="הפעל סרטון: שגיא בר און מרצה על בינה מלאכותית בכנסת ישראל">
+                <img src="https://i.ytimg.com/vi/Dk0NAi3Xmww/maxresdefault.jpg"
+                    alt="שגיא בר און מרצה על בינה מלאכותית בכנסת ישראל" loading="lazy"
+                    onerror="this.src='https://i.ytimg.com/vi/Dk0NAi3Xmww/hqdefault.jpg'">
                 <span class="video-play" aria-hidden="true"></span>
                 <span class="video-caption">
                     <span class="small">YouTube · הרצאה</span>
@@ -1780,7 +1821,8 @@ You are the 'Sprint Architect', a high-level AI agent designed for Project Manag
                 </span>
             </button>
 
-            <a href="https://youtu.be/Dk0NAi3Xmww" target="_blank" rel="noopener noreferrer" class="video-link">צפו ביוטיוב →</a>
+            <a href="https://youtu.be/Dk0NAi3Xmww" target="_blank" rel="noopener noreferrer" class="video-link">צפו
+                ביוטיוב →</a>
         </div>
     </section>
 
