@@ -5,6 +5,9 @@ on:
     paths:
       - 'forms/Price-quotes/**/*.html'
 
+permissions:
+  contents: write
+
 jobs:
   generate-pdf:
     runs-on: ubuntu-latest
