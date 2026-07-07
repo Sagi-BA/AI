@@ -1,6 +1,6 @@
 <!-- https://sagi-ba.github.io/AI/landing-pages/yourpage -->
 
- <!-- http://127.0.0.1:8080/landing-pages/yourpage -->
+<!-- http://127.0.0.1:8080/landing-pages/yourpage -->
 
 <!DOCTYPE html>
 <html lang="he" dir="rtl">
@@ -9,13 +9,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>בונים לכם דף נחיתה שמוכר באמת | שגיא בר און</title>
-    <meta name="description" content="ענו על כמה שאלות קצרות — ואני אבנה לכם דף נחיתה שמוכר. תהליך קצר, ברור ומותאם אישית.">
+    <meta name="description"
+        content="ענו על כמה שאלות קצרות - ואני אבנה לכם דף נחיתה שמוכר. תהליך קצר, ברור ומותאם אישית.">
 
     <!-- Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-XSH19K5LBZ"></script>
     <script>
         window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
+        function gtag() { dataLayer.push(arguments); }
         gtag('js', new Date());
         gtag('config', 'G-XSH19K5LBZ');
     </script>
@@ -85,8 +86,15 @@
             transition: opacity 0.8s ease-out, transform 1.2s ease-out;
         }
 
-        .intro-ring.r2 { inset: -30px; border-color: rgba(255, 107, 0, 0.2); }
-        .intro-ring.r3 { inset: -60px; border-color: rgba(255, 107, 0, 0.1); }
+        .intro-ring.r2 {
+            inset: -30px;
+            border-color: rgba(255, 107, 0, 0.2);
+        }
+
+        .intro-ring.r3 {
+            inset: -60px;
+            border-color: rgba(255, 107, 0, 0.1);
+        }
 
         .intro-ring.show {
             opacity: 1;
@@ -121,7 +129,9 @@
             transition: width 0.7s ease-out;
         }
 
-        .intro-line.show { width: 220px; }
+        .intro-line.show {
+            width: 220px;
+        }
 
         .intro-subtitle {
             font-family: 'Alef', sans-serif;
@@ -154,15 +164,22 @@
             transition: opacity 0.4s ease-out, background 0.2s;
         }
 
-        .intro-skip.show { opacity: 1; }
-        .intro-skip:hover { background: rgba(255, 255, 255, 0.95); }
+        .intro-skip.show {
+            opacity: 1;
+        }
+
+        .intro-skip:hover {
+            background: rgba(255, 255, 255, 0.95);
+        }
 
         .main-content {
             opacity: 0;
             transition: opacity 0.6s ease-out;
         }
 
-        .main-content.visible { opacity: 1; }
+        .main-content.visible {
+            opacity: 1;
+        }
 
         :root {
             --bg: #fafafa;
@@ -428,10 +445,21 @@
             animation: fadeInUp 0.6s ease-out both;
         }
 
-        .benefit-card:nth-child(1) { animation-delay: 0.05s; }
-        .benefit-card:nth-child(2) { animation-delay: 0.15s; }
-        .benefit-card:nth-child(3) { animation-delay: 0.25s; }
-        .benefit-card:nth-child(4) { animation-delay: 0.35s; }
+        .benefit-card:nth-child(1) {
+            animation-delay: 0.05s;
+        }
+
+        .benefit-card:nth-child(2) {
+            animation-delay: 0.15s;
+        }
+
+        .benefit-card:nth-child(3) {
+            animation-delay: 0.25s;
+        }
+
+        .benefit-card:nth-child(4) {
+            animation-delay: 0.35s;
+        }
 
         .benefit-card:hover {
             transform: translateY(-4px);
@@ -688,7 +716,7 @@
                 font-size: 1.5rem;
             }
 
-            .header-wa span + * {
+            .header-wa span+* {
                 display: none;
             }
         }
@@ -757,17 +785,31 @@
 
         /* Animations */
         @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
+            from {
+                opacity: 0;
+            }
+
+            to {
+                opacity: 1;
+            }
         }
 
         @keyframes fadeInUp {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
 
         @keyframes spin {
-            to { transform: rotate(360deg); }
+            to {
+                transform: rotate(360deg);
+            }
         }
 
         /* Mobile */
@@ -879,155 +921,172 @@
 
     <div class="main-content" id="mainContent">
 
-    <header class="top-header">
-        <div class="header-inner">
-            <div class="logo">דף נחיתה שמוכר</div>
-            <div class="header-actions">
-                <a href="https://wa.me/972549995050?text=שלום%20שגיא,%20אשמח%20לבנות%20דף%20נחיתה" target="_blank" rel="noopener noreferrer" class="header-wa">
-                    <span aria-hidden="true">💬</span> 054-9995050
-                </a>
-                <a href="#form" class="header-cta">התחילו עכשיו</a>
-            </div>
-        </div>
-    </header>
-
-    <section class="hero">
-        <div class="container">
-            <div class="hero-grid">
-                <div class="hero-text">
-                    <h1 class="hero-title">
-                        בואו נבנה לכם <span class="highlight">דף נחיתה שמוכר</span> באמת
-                    </h1>
-                    <p class="hero-subtitle">
-                        ענו על כמה שאלות קצרות — ואני כבר אבנה לכם את הדף.<br>
-                        בלי כאבי ראש, בלי לכתוב שיווק, בלי סיבוכים.
-                    </p>
-                    <div class="cta-group">
-                        <a href="https://chatgpt.com/g/g-69dfce7083888191b3057af3faa650fa-bv-nbnh-dp-nkhyth-ykhd" target="_blank" rel="noopener noreferrer" class="cta-button cta-primary">
-                            <span aria-hidden="true">🤖</span> בוא נבנה את זה יחד (צ'אט חכם)
-                        </a>
-                        <a href="#form" class="cta-button cta-secondary">
-                            אני רוצה למלא שאלון קצר
-                        </a>
-                        <a href="https://wa.me/972549995050?text=שלום%20שגיא,%20אשמח%20לבנות%20דף%20נחיתה" target="_blank" rel="noopener noreferrer" class="cta-button cta-whatsapp">
-                            <span aria-hidden="true">💬</span> דברוו איתי בוואטסאפ
-                        </a>
-                    </div>
-                    <p class="cta-hint">לא בטוחים איך לענות? הצ'אט החכם ילווה אתכם שלב-שלב</p>
-                </div>
-                <div class="hero-image-col">
-                    <div class="hero-image-wrapper">
-                        <img src="sagi.webp" alt="שגיא בר און" loading="eager">
-                    </div>
-                    <p class="personal-note">
-                        הייתי בדיוק במקום שלכם — מבולבל מכל הכלים האלה
-                    </p>
+        <header class="top-header">
+            <div class="header-inner">
+                <div class="logo">דף נחיתה שמוכר</div>
+                <div class="header-actions">
+                    <a href="https://wa.me/972549995050?text=שלום%20שגיא,%20אשמח%20לבנות%20דף%20נחיתה" target="_blank"
+                        rel="noopener noreferrer" class="header-wa">
+                        <span aria-hidden="true">💬</span> 054-9995050
+                    </a>
+                    <a href="#form" class="header-cta">התחילו עכשיו</a>
                 </div>
             </div>
-        </div>
-    </section>
+        </header>
 
-    <section class="benefits">
-        <div class="container">
-            <h2 class="section-title">למה <span class="highlight">איתי?</span></h2>
-            <div class="benefits-grid">
-                <div class="benefit-card">
-                    <div class="benefit-icon">✓</div>
-                    <h3 class="benefit-title">בלי כאב ראש</h3>
-                    <p class="benefit-text">אתם עונים על שאלות פשוטות — ואני עושה את כל השאר.</p>
-                </div>
-                <div class="benefit-card">
-                    <div class="benefit-icon">✍</div>
-                    <h3 class="benefit-title">בלי לכתוב שיווק</h3>
-                    <p class="benefit-text">את כל הניסוחים, הכותרות והטקסטים — אני מנסח עבורכם.</p>
-                </div>
-                <div class="benefit-card">
-                    <div class="benefit-icon">⚡</div>
-                    <h3 class="benefit-title">תהליך קצר וברור</h3>
-                    <p class="benefit-text">ממילוי השאלון ועד דף מוכן — תהליך מהיר בלי התרוצצויות.</p>
-                </div>
-                <div class="benefit-card">
-                    <div class="benefit-icon">★</div>
-                    <h3 class="benefit-title">מותאם אישית</h3>
-                    <p class="benefit-text">כל דף נבנה סביב העסק, הקהל והמטרה הספציפית שלכם.</p>
+        <section class="hero">
+            <div class="container">
+                <div class="hero-grid">
+                    <div class="hero-text">
+                        <h1 class="hero-title">
+                            בואו נבנה לכם <span class="highlight">דף נחיתה שמוכר</span> באמת
+                        </h1>
+                        <p class="hero-subtitle">
+                            ענו על כמה שאלות קצרות - ואני כבר אבנה לכם את הדף.<br>
+                            בלי כאבי ראש, בלי לכתוב שיווק, בלי סיבוכים.
+                        </p>
+                        <div class="cta-group">
+                            <a href="https://chatgpt.com/g/g-69dfce7083888191b3057af3faa650fa-bv-nbnh-dp-nkhyth-ykhd"
+                                target="_blank" rel="noopener noreferrer" class="cta-button cta-primary">
+                                <span aria-hidden="true">🤖</span> בוא נבנה את זה יחד (צ'אט חכם)
+                            </a>
+                            <a href="#form" class="cta-button cta-secondary">
+                                אני רוצה למלא שאלון קצר
+                            </a>
+                            <a href="https://wa.me/972549995050?text=שלום%20שגיא,%20אשמח%20לבנות%20דף%20נחיתה"
+                                target="_blank" rel="noopener noreferrer" class="cta-button cta-whatsapp">
+                                <span aria-hidden="true">💬</span> דברוו איתי בוואטסאפ
+                            </a>
+                        </div>
+                        <p class="cta-hint">לא בטוחים איך לענות? הצ'אט החכם ילווה אתכם שלב-שלב</p>
+                    </div>
+                    <div class="hero-image-col">
+                        <div class="hero-image-wrapper">
+                            <img src="sagi.webp" alt="שגיא בר און" loading="eager">
+                        </div>
+                        <p class="personal-note">
+                            הייתי בדיוק במקום שלכם - מבולבל מכל הכלים האלה
+                        </p>
+                    </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <section class="examples">
-        <div class="container">
-            <h2 class="section-title">דפים ש<span class="highlight">בניתי</span></h2>
-            <p class="examples-intro">
-                כמה דוגמאות מהפרויקטים האחרונים — לקוחות אמיתיים, מוצרים, וקמפיינים.
-            </p>
-            <div class="examples-grid">
+        <section class="benefits">
+            <div class="container">
+                <h2 class="section-title">למה <span class="highlight">איתי?</span></h2>
+                <div class="benefits-grid">
+                    <div class="benefit-card">
+                        <div class="benefit-icon">✓</div>
+                        <h3 class="benefit-title">בלי כאב ראש</h3>
+                        <p class="benefit-text">אתם עונים על שאלות פשוטות - ואני עושה את כל השאר.</p>
+                    </div>
+                    <div class="benefit-card">
+                        <div class="benefit-icon">✍</div>
+                        <h3 class="benefit-title">בלי לכתוב שיווק</h3>
+                        <p class="benefit-text">את כל הניסוחים, הכותרות והטקסטים - אני מנסח עבורכם.</p>
+                    </div>
+                    <div class="benefit-card">
+                        <div class="benefit-icon">⚡</div>
+                        <h3 class="benefit-title">תהליך קצר וברור</h3>
+                        <p class="benefit-text">ממילוי השאלון ועד דף מוכן - תהליך מהיר בלי התרוצצויות.</p>
+                    </div>
+                    <div class="benefit-card">
+                        <div class="benefit-icon">★</div>
+                        <h3 class="benefit-title">מותאם אישית</h3>
+                        <p class="benefit-text">כל דף נבנה סביב העסק, הקהל והמטרה הספציפית שלכם.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
 
-                <a href="https://sagi-ba.github.io/AI/landing-pages/iris-baron/feminine-empowering.html" target="_blank" rel="noopener noreferrer" class="example-card">
-                    <div class="example-thumb">
-                        <img src="images/iris-baron.jpg" alt="דף מפגש נשי - ד״ר איריס בר-און" loading="lazy" onerror="this.style.display='none';this.parentElement.innerHTML='🌸';">
-                    </div>
-                    <div class="example-body">
-                        <h3 class="example-title">מפגש נשי מעצים</h3>
-                        <p class="example-desc">דף נחיתה לאירוע של ד"ר איריס בר-און — עיצוב נשי ורגוע עם intro קולנועי.</p>
-                        <span class="example-link">צפו בדף ←</span>
-                    </div>
-                </a>
+        <section class="examples">
+            <div class="container">
+                <h2 class="section-title">דפים ש<span class="highlight">בניתי</span></h2>
+                <p class="examples-intro">
+                    כמה דוגמאות מהפרויקטים האחרונים - לקוחות אמיתיים, מוצרים, וקמפיינים.
+                </p>
+                <div class="examples-grid">
 
-                <a href="https://sagi-ba.github.io/AI/landing-pages/from-darkness-to-revival/" target="_blank" rel="noopener noreferrer" class="example-card">
-                    <div class="example-thumb">
-                        <img src="images/from-darkness.jpg" alt="מזיכרון לתקומה" loading="lazy" onerror="this.style.display='none';this.parentElement.innerHTML='🕯️';">
-                    </div>
-                    <div class="example-body">
-                        <h3 class="example-title">מזיכרון לתקומה</h3>
-                        <p class="example-desc">דף חוויתי ליום העצמאות — סיפור של תקומה מתמונה אחת בעזרת AI.</p>
-                        <span class="example-link">צפו בדף ←</span>
-                    </div>
-                </a>
+                    <a href="https://sagi-ba.github.io/AI/landing-pages/iris-baron/feminine-empowering.html"
+                        target="_blank" rel="noopener noreferrer" class="example-card">
+                        <div class="example-thumb">
+                            <img src="images/iris-baron.jpg" alt="דף מפגש נשי - ד״ר איריס בר-און" loading="lazy"
+                                onerror="this.style.display='none';this.parentElement.innerHTML='🌸';">
+                        </div>
+                        <div class="example-body">
+                            <h3 class="example-title">מפגש נשי מעצים</h3>
+                            <p class="example-desc">דף נחיתה לאירוע של ד"ר איריס בר-און - עיצוב נשי ורגוע עם intro
+                                קולנועי.</p>
+                            <span class="example-link">צפו בדף ←</span>
+                        </div>
+                    </a>
 
-                <a href="https://sagi-ba.github.io/AI/landing-pages/hypershot/" target="_blank" rel="noopener noreferrer" class="example-card">
-                    <div class="example-thumb">
-                        <img src="images/hypershot.jpg" alt="HyperShot" loading="lazy" onerror="this.style.display='none';this.parentElement.innerHTML='📸';">
-                    </div>
-                    <div class="example-body">
-                        <h3 class="example-title">HyperShot</h3>
-                        <p class="example-desc">דף מוצר לשדרוג תמונות לאיכות סטודיו — עם before/after אינטראקטיבי.</p>
-                        <span class="example-link">צפו בדף ←</span>
-                    </div>
-                </a>
+                    <a href="https://sagi-ba.github.io/AI/landing-pages/from-darkness-to-revival/" target="_blank"
+                        rel="noopener noreferrer" class="example-card">
+                        <div class="example-thumb">
+                            <img src="images/from-darkness.jpg" alt="מזיכרון לתקומה" loading="lazy"
+                                onerror="this.style.display='none';this.parentElement.innerHTML='🕯️';">
+                        </div>
+                        <div class="example-body">
+                            <h3 class="example-title">מזיכרון לתקומה</h3>
+                            <p class="example-desc">דף חוויתי ליום העצמאות - סיפור של תקומה מתמונה אחת בעזרת AI.</p>
+                            <span class="example-link">צפו בדף ←</span>
+                        </div>
+                    </a>
 
-                <a href="https://sagi-ba.github.io/AI/landing-pages/Expertise2Bot-Landing.html" target="_blank" rel="noopener noreferrer" class="example-card">
-                    <div class="example-thumb">
-                        <img src="images/expertise2bot.jpg" alt="Expertise2Bot" loading="lazy" onerror="this.style.display='none';this.parentElement.innerHTML='🤖';">
-                    </div>
-                    <div class="example-body">
-                        <h3 class="example-title">Expertise2Bot</h3>
-                        <p class="example-desc">דף מכירה למוצר שהופך מומחיות אישית למוצר דיגיטלי חכם.</p>
-                        <span class="example-link">צפו בדף ←</span>
-                    </div>
-                </a>
+                    <a href="https://sagi-ba.github.io/AI/landing-pages/hypershot/" target="_blank"
+                        rel="noopener noreferrer" class="example-card">
+                        <div class="example-thumb">
+                            <img src="images/hypershot.jpg" alt="HyperShot" loading="lazy"
+                                onerror="this.style.display='none';this.parentElement.innerHTML='📸';">
+                        </div>
+                        <div class="example-body">
+                            <h3 class="example-title">HyperShot</h3>
+                            <p class="example-desc">דף מוצר לשדרוג תמונות לאיכות סטודיו - עם before/after אינטראקטיבי.
+                            </p>
+                            <span class="example-link">צפו בדף ←</span>
+                        </div>
+                    </a>
 
-                <a href="https://sagi-ba.github.io/AI/landing-pages/chirut-digitalit.html" target="_blank" rel="noopener noreferrer" class="example-card">
-                    <div class="example-thumb">
-                        <img src="images/chirut-digitalit.jpg" alt="חירות דיגיטלית" loading="lazy" onerror="this.style.display='none';this.parentElement.innerHTML='🗝️';">
-                    </div>
-                    <div class="example-body">
-                        <h3 class="example-title">חירות דיגיטלית</h3>
-                        <p class="example-desc">10 כלי AI כנגד עשר המכות — דף קמפיין תימטי לפסח.</p>
-                        <span class="example-link">צפו בדף ←</span>
-                    </div>
-                </a>
+                    <a href="https://sagi-ba.github.io/AI/landing-pages/Expertise2Bot-Landing.html" target="_blank"
+                        rel="noopener noreferrer" class="example-card">
+                        <div class="example-thumb">
+                            <img src="images/expertise2bot.jpg" alt="Expertise2Bot" loading="lazy"
+                                onerror="this.style.display='none';this.parentElement.innerHTML='🤖';">
+                        </div>
+                        <div class="example-body">
+                            <h3 class="example-title">Expertise2Bot</h3>
+                            <p class="example-desc">דף מכירה למוצר שהופך מומחיות אישית למוצר דיגיטלי חכם.</p>
+                            <span class="example-link">צפו בדף ←</span>
+                        </div>
+                    </a>
 
-                <a href="https://sagi-ba.github.io/AI/games/my-rabbit/" target="_blank" rel="noopener noreferrer" class="example-card">
-                    <div class="example-thumb">
-                        <img src="images/my-rabbit.jpg" alt="ארנב שלי" loading="lazy" onerror="this.style.display='none';this.parentElement.innerHTML='🐰';">
-                    </div>
-                    <div class="example-body">
-                        <h3 class="example-title">ארנב שלי</h3>
-                        <p class="example-desc">אתר-עולם אינטראקטיבי על ארנבים ננסיים — פרויקט אישי צבעוני.</p>
-                        <span class="example-link">צפו בדף ←</span>
-                    </div>
-                <!-- </a>
+                    <a href="https://sagi-ba.github.io/AI/landing-pages/chirut-digitalit.html" target="_blank"
+                        rel="noopener noreferrer" class="example-card">
+                        <div class="example-thumb">
+                            <img src="images/chirut-digitalit.jpg" alt="חירות דיגיטלית" loading="lazy"
+                                onerror="this.style.display='none';this.parentElement.innerHTML='🗝️';">
+                        </div>
+                        <div class="example-body">
+                            <h3 class="example-title">חירות דיגיטלית</h3>
+                            <p class="example-desc">10 כלי AI כנגד עשר המכות - דף קמפיין תימטי לפסח.</p>
+                            <span class="example-link">צפו בדף ←</span>
+                        </div>
+                    </a>
+
+                    <a href="https://sagi-ba.github.io/AI/games/my-rabbit/" target="_blank" rel="noopener noreferrer"
+                        class="example-card">
+                        <div class="example-thumb">
+                            <img src="images/my-rabbit.jpg" alt="ארנב שלי" loading="lazy"
+                                onerror="this.style.display='none';this.parentElement.innerHTML='🐰';">
+                        </div>
+                        <div class="example-body">
+                            <h3 class="example-title">ארנב שלי</h3>
+                            <p class="example-desc">אתר-עולם אינטראקטיבי על ארנבים ננסיים - פרויקט אישי צבעוני.</p>
+                            <span class="example-link">צפו בדף ←</span>
+                        </div>
+                        <!-- </a>
 
                 <a href="https://sagi-ba.github.io/AI/landing-pages/shaagat-hari-pesach.html" target="_blank" rel="noopener noreferrer" class="example-card">
                     <div class="example-thumb">
@@ -1035,56 +1094,59 @@
                     </div>
                     <div class="example-body">
                         <h3 class="example-title">שאגת הארי</h3>
-                        <p class="example-desc">פסקול ושירי הקדשה לחיילי מילואים — דף תוכן עם אודיו.</p>
+                        <p class="example-desc">פסקול ושירי הקדשה לחיילי מילואים - דף תוכן עם אודיו.</p>
                         <span class="example-link">צפו בדף ←</span>
                     </div>
                 </a> -->
 
-            </div>
-        </div>
-    </section>
-
-    <section class="form-section" id="form">
-        <div class="container">
-            <h2 class="section-title">מלאו את <span class="highlight">השאלון</span></h2>
-            <p class="form-intro">
-                זה לוקח רק כמה דקות. ברגע שתסיימו — אחזור אליכם עם דף ראשוני שמותאם לעסק שלכם.
-            </p>
-            <div class="form-wrapper">
-                <div class="form-loading" id="form-loading">
-                    <div class="spinner"></div>
-                    <div>טוען את השאלון…</div>
                 </div>
-                <iframe
-                    src="https://docs.google.com/forms/d/e/1FAIpQLSfHxL33JNxxeOA__DEwbR0633GjE0tBKGInxGEfjgUPsVcugg/viewform?embedded=true"
-                    title="שאלון בניית דף נחיתה"
-                    loading="lazy"
-                    onload="document.getElementById('form-loading').classList.add('hidden')">
-                    טוען…
-                </iframe>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <a href="https://chatgpt.com/g/g-69dfce7083888191b3057af3faa650fa-bv-nbnh-dp-nkhyth-ykhd" target="_blank" rel="noopener noreferrer" class="floating-chat" aria-label="פתח צ'אט חכם">
-        <span aria-hidden="true">🤖</span> צריכים עזרה? דברו איתי
-    </a>
+        <section class="form-section" id="form">
+            <div class="container">
+                <h2 class="section-title">מלאו את <span class="highlight">השאלון</span></h2>
+                <p class="form-intro">
+                    זה לוקח רק כמה דקות. ברגע שתסיימו - אחזור אליכם עם דף ראשוני שמותאם לעסק שלכם.
+                </p>
+                <div class="form-wrapper">
+                    <div class="form-loading" id="form-loading">
+                        <div class="spinner"></div>
+                        <div>טוען את השאלון…</div>
+                    </div>
+                    <iframe
+                        src="https://docs.google.com/forms/d/e/1FAIpQLSfHxL33JNxxeOA__DEwbR0633GjE0tBKGInxGEfjgUPsVcugg/viewform?embedded=true"
+                        title="שאלון בניית דף נחיתה" loading="lazy"
+                        onload="document.getElementById('form-loading').classList.add('hidden')">
+                        טוען…
+                    </iframe>
+                </div>
+            </div>
+        </section>
 
-    <a href="https://wa.me/972549995050?text=שלום%20שגיא,%20אשמח%20לבנות%20דף%20נחיתה" target="_blank" rel="noopener noreferrer" class="floating-wa" aria-label="שלחו הודעת וואטסאפ">
-        <span aria-hidden="true">💬</span>
-    </a>
-
-    <div class="footer-promo">
-        <p class="footer-promo-text">גם אתם רוצים דף נחיתה מעוצב כזה?</p>
-        <a href="https://wa.me/972549995050?text=שלום%20שגיא,%20אשמח%20לשמוע%20על%20דף%20נחיתה" target="_blank" rel="noopener noreferrer" class="footer-promo-cta">
-            <span aria-hidden="true">💬</span> דברו איתי
+        <a href="https://chatgpt.com/g/g-69dfce7083888191b3057af3faa650fa-bv-nbnh-dp-nkhyth-ykhd" target="_blank"
+            rel="noopener noreferrer" class="floating-chat" aria-label="פתח צ'אט חכם">
+            <span aria-hidden="true">🤖</span> צריכים עזרה? דברו איתי
         </a>
-        <p class="footer-promo-credit">נבנה ב-❤️ ע"י <a href="https://sagiai.co.il" target="_blank" rel="noopener noreferrer">SagiAI</a> · שגיא בר און</p>
-    </div>
 
-    <footer class="footer">
-        © שגיא בר און · כל הזכויות שמורות
-    </footer>
+        <a href="https://wa.me/972549995050?text=שלום%20שגיא,%20אשמח%20לבנות%20דף%20נחיתה" target="_blank"
+            rel="noopener noreferrer" class="floating-wa" aria-label="שלחו הודעת וואטסאפ">
+            <span aria-hidden="true">💬</span>
+        </a>
+
+        <div class="footer-promo">
+            <p class="footer-promo-text">גם אתם רוצים דף נחיתה מעוצב כזה?</p>
+            <a href="https://wa.me/972549995050?text=שלום%20שגיא,%20אשמח%20לשמוע%20על%20דף%20נחיתה" target="_blank"
+                rel="noopener noreferrer" class="footer-promo-cta">
+                <span aria-hidden="true">💬</span> דברו איתי
+            </a>
+            <p class="footer-promo-credit">נבנה ב-❤️ ע"י <a href="https://sagiai.co.il" target="_blank"
+                    rel="noopener noreferrer">SagiAI</a> · שגיא בר און</p>
+        </div>
+
+        <footer class="footer">
+            © שגיא בר און · כל הזכויות שמורות
+        </footer>
 
     </div><!-- /main-content -->
 

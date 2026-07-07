@@ -1,17 +1,20 @@
 <!-- https://sagi-ba.github.io/AI/landing-pages/chirut-digitalit.html -->
- <!-- https://l5k.me/peP04 -->
+<!-- https://l5k.me/peP04 -->
 <!-- http://127.0.0.1:8080/landing-pages/chirut-digitalit.html -->
- <!-- https://analytics.google.com/analytics/web/#/a351596902p494681343/realtime/overview?params=_u..nav%3Dmaui -->
+<!-- https://analytics.google.com/analytics/web/#/a351596902p494681343/realtime/overview?params=_u..nav%3Dmaui -->
 <!DOCTYPE html>
 <html lang="he" dir="rtl">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>חירות דיגיטלית - 10 כלי AI כנגד עשר המכות | שגיא בר און</title>  
-  <meta name="description" content="חג פסח שמח! 10 כלי AI חינמיים כנגד עשר המכות - שישחררו אתכם מעבדות הטכנולוגיה. מתנת חג מאת שגיא בר און, יועץ AI">
+  <title>חירות דיגיטלית - 10 כלי AI כנגד עשר המכות | שגיא בר און</title>
+  <meta name="description"
+    content="חג פסח שמח! 10 כלי AI חינמיים כנגד עשר המכות - שישחררו אתכם מעבדות הטכנולוגיה. מתנת חג מאת שגיא בר און, יועץ AI">
   <!-- Open Graph -->
   <meta property="og:title" content="חירות דיגיטלית - 10 כלי AI כנגד עשר המכות">
-  <meta property="og:description" content="חג פסח שמח! 10 כלי AI חינמיים כנגד עשר המכות - שישחררו אתכם מעבדות הטכנולוגיה">
+  <meta property="og:description"
+    content="חג פסח שמח! 10 כלי AI חינמיים כנגד עשר המכות - שישחררו אתכם מעבדות הטכנולוגיה">
   <meta property="og:image" content="https://sagi-ba.github.io/AI/sagi.webp">
   <meta property="og:url" content="https://sagi-ba.github.io/AI/landing-pages/chirut-digitalit.html">
   <meta property="og:type" content="website">
@@ -23,7 +26,7 @@
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-XSH19K5LBZ"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
+    function gtag() { dataLayer.push(arguments); }
     gtag('js', new Date());
     gtag('config', 'G-XSH19K5LBZ');
   </script>
@@ -67,7 +70,9 @@
     }
 
     /* ===== RESET & BASE ===== */
-    *, *::before, *::after {
+    *,
+    *::before,
+    *::after {
       box-sizing: border-box;
       margin: 0;
       padding: 0;
@@ -130,9 +135,9 @@
       position: absolute;
       inset: 0;
       background-image:
-        radial-gradient(circle 2px, rgba(0,0,0,0.6) 100%, transparent 100%),
-        radial-gradient(circle 1.5px, rgba(0,0,0,0.5) 100%, transparent 100%),
-        radial-gradient(circle 1px, rgba(0,0,0,0.7) 100%, transparent 100%);
+        radial-gradient(circle 2px, rgba(0, 0, 0, 0.6) 100%, transparent 100%),
+        radial-gradient(circle 1.5px, rgba(0, 0, 0, 0.5) 100%, transparent 100%),
+        radial-gradient(circle 1px, rgba(0, 0, 0, 0.7) 100%, transparent 100%);
       background-size: 60px 50px, 45px 65px, 80px 40px;
       background-position: 10px 10px, 30px 25px, 5px 35px;
       animation: lice-crawl 3s linear infinite;
@@ -140,8 +145,13 @@
     }
 
     @keyframes lice-crawl {
-      0% { background-position: 10px 10px, 30px 25px, 5px 35px; }
-      100% { background-position: 15px 16px, 25px 31px, 10px 29px; }
+      0% {
+        background-position: 10px 10px, 30px 25px, 5px 35px;
+      }
+
+      100% {
+        background-position: 15px 16px, 25px 31px, 10px 29px;
+      }
     }
 
     /* Sea parting - triggered by JS */
@@ -301,8 +311,25 @@
       animation: twinkle-2 5s ease-in-out infinite alternate;
     }
 
-    @keyframes twinkle-1 { 0% { opacity: 0.4; } 100% { opacity: 1; } }
-    @keyframes twinkle-2 { 0% { opacity: 1; } 100% { opacity: 0.4; } }
+    @keyframes twinkle-1 {
+      0% {
+        opacity: 0.4;
+      }
+
+      100% {
+        opacity: 1;
+      }
+    }
+
+    @keyframes twinkle-2 {
+      0% {
+        opacity: 1;
+      }
+
+      100% {
+        opacity: 0.4;
+      }
+    }
 
     /* Pillar of Fire */
     .pillar-fire {
@@ -312,11 +339,11 @@
       width: 6px;
       height: 100vh;
       background: linear-gradient(to top,
-        rgba(201, 168, 76, 0),
-        rgba(201, 168, 76, 0.12) 20%,
-        rgba(192, 57, 43, 0.08) 50%,
-        rgba(201, 168, 76, 0.15) 80%,
-        rgba(201, 168, 76, 0));
+          rgba(201, 168, 76, 0),
+          rgba(201, 168, 76, 0.12) 20%,
+          rgba(192, 57, 43, 0.08) 50%,
+          rgba(201, 168, 76, 0.15) 80%,
+          rgba(201, 168, 76, 0));
       filter: blur(20px);
       pointer-events: none;
       z-index: 0;
@@ -324,8 +351,15 @@
     }
 
     @keyframes pillar-pulse {
-      0% { opacity: 0.5; filter: blur(20px); }
-      100% { opacity: 1; filter: blur(25px); }
+      0% {
+        opacity: 0.5;
+        filter: blur(20px);
+      }
+
+      100% {
+        opacity: 1;
+        filter: blur(25px);
+      }
     }
 
     /* Desert ambient */
@@ -355,25 +389,137 @@
       animation: sand-drift linear infinite;
     }
 
-    .particle:nth-child(1) { left: 8%; width: 2px; height: 2px; background: rgba(212, 184, 150, 0.35); animation-duration: 12s; animation-delay: 0s; }
-    .particle:nth-child(2) { left: 22%; width: 3px; height: 3px; background: rgba(201, 168, 76, 0.25); animation-duration: 15s; animation-delay: 2s; }
-    .particle:nth-child(3) { left: 38%; width: 2px; height: 2px; background: rgba(212, 184, 150, 0.3); animation-duration: 11s; animation-delay: 4s; }
-    .particle:nth-child(4) { left: 52%; width: 2px; height: 2px; background: rgba(201, 168, 76, 0.2); animation-duration: 14s; animation-delay: 1s; }
-    .particle:nth-child(5) { left: 67%; width: 3px; height: 3px; background: rgba(212, 184, 150, 0.3); animation-duration: 13s; animation-delay: 3s; }
-    .particle:nth-child(6) { left: 82%; width: 2px; height: 2px; background: rgba(201, 168, 76, 0.25); animation-duration: 16s; animation-delay: 5s; }
-    .particle:nth-child(7) { left: 15%; width: 1px; height: 1px; background: rgba(212, 184, 150, 0.4); animation-duration: 10s; animation-delay: 6s; }
-    .particle:nth-child(8) { left: 58%; width: 1px; height: 1px; background: rgba(201, 168, 76, 0.35); animation-duration: 17s; animation-delay: 7s; }
-    .particle:nth-child(9) { left: 45%; width: 2px; height: 2px; background: rgba(212, 184, 150, 0.2); animation-duration: 19s; animation-delay: 0.5s; }
-    .particle:nth-child(10) { left: 75%; width: 1px; height: 1px; background: rgba(201, 168, 76, 0.3); animation-duration: 14s; animation-delay: 8s; }
-    .particle:nth-child(11) { left: 92%; width: 2px; height: 2px; background: rgba(212, 184, 150, 0.25); animation-duration: 11s; animation-delay: 3.5s; }
-    .particle:nth-child(12) { left: 5%; width: 1px; height: 1px; background: rgba(201, 168, 76, 0.3); animation-duration: 18s; animation-delay: 9s; }
+    .particle:nth-child(1) {
+      left: 8%;
+      width: 2px;
+      height: 2px;
+      background: rgba(212, 184, 150, 0.35);
+      animation-duration: 12s;
+      animation-delay: 0s;
+    }
+
+    .particle:nth-child(2) {
+      left: 22%;
+      width: 3px;
+      height: 3px;
+      background: rgba(201, 168, 76, 0.25);
+      animation-duration: 15s;
+      animation-delay: 2s;
+    }
+
+    .particle:nth-child(3) {
+      left: 38%;
+      width: 2px;
+      height: 2px;
+      background: rgba(212, 184, 150, 0.3);
+      animation-duration: 11s;
+      animation-delay: 4s;
+    }
+
+    .particle:nth-child(4) {
+      left: 52%;
+      width: 2px;
+      height: 2px;
+      background: rgba(201, 168, 76, 0.2);
+      animation-duration: 14s;
+      animation-delay: 1s;
+    }
+
+    .particle:nth-child(5) {
+      left: 67%;
+      width: 3px;
+      height: 3px;
+      background: rgba(212, 184, 150, 0.3);
+      animation-duration: 13s;
+      animation-delay: 3s;
+    }
+
+    .particle:nth-child(6) {
+      left: 82%;
+      width: 2px;
+      height: 2px;
+      background: rgba(201, 168, 76, 0.25);
+      animation-duration: 16s;
+      animation-delay: 5s;
+    }
+
+    .particle:nth-child(7) {
+      left: 15%;
+      width: 1px;
+      height: 1px;
+      background: rgba(212, 184, 150, 0.4);
+      animation-duration: 10s;
+      animation-delay: 6s;
+    }
+
+    .particle:nth-child(8) {
+      left: 58%;
+      width: 1px;
+      height: 1px;
+      background: rgba(201, 168, 76, 0.35);
+      animation-duration: 17s;
+      animation-delay: 7s;
+    }
+
+    .particle:nth-child(9) {
+      left: 45%;
+      width: 2px;
+      height: 2px;
+      background: rgba(212, 184, 150, 0.2);
+      animation-duration: 19s;
+      animation-delay: 0.5s;
+    }
+
+    .particle:nth-child(10) {
+      left: 75%;
+      width: 1px;
+      height: 1px;
+      background: rgba(201, 168, 76, 0.3);
+      animation-duration: 14s;
+      animation-delay: 8s;
+    }
+
+    .particle:nth-child(11) {
+      left: 92%;
+      width: 2px;
+      height: 2px;
+      background: rgba(212, 184, 150, 0.25);
+      animation-duration: 11s;
+      animation-delay: 3.5s;
+    }
+
+    .particle:nth-child(12) {
+      left: 5%;
+      width: 1px;
+      height: 1px;
+      background: rgba(201, 168, 76, 0.3);
+      animation-duration: 18s;
+      animation-delay: 9s;
+    }
 
     @keyframes sand-drift {
-      0% { transform: translateY(100vh) translateX(0) scale(0); opacity: 0; }
-      5% { opacity: 0.8; transform: translateY(95vh) translateX(0) scale(1); }
-      50% { transform: translateY(50vh) translateX(20px) scale(0.8); }
-      90% { opacity: 0.3; }
-      100% { transform: translateY(-20px) translateX(-10px) scale(0.3); opacity: 0; }
+      0% {
+        transform: translateY(100vh) translateX(0) scale(0);
+        opacity: 0;
+      }
+
+      5% {
+        opacity: 0.8;
+        transform: translateY(95vh) translateX(0) scale(1);
+      }
+
+      50% {
+        transform: translateY(50vh) translateX(20px) scale(0.8);
+      }
+
+      90% {
+        opacity: 0.3;
+      }
+
+      100% {
+        transform: translateY(-20px) translateX(-10px) scale(0.3);
+        opacity: 0;
+      }
     }
 
     /* ===== STICKY HEADER ===== */
@@ -404,7 +550,9 @@
       transition: color 0.2s;
     }
 
-    .logo:hover { color: #d4b896; }
+    .logo:hover {
+      color: #d4b896;
+    }
 
     .header-cta {
       background: #c9a84c;
@@ -467,13 +615,27 @@
     }
 
     @keyframes chain-snap-left {
-      0% { transform: rotate(0deg) translateX(0); opacity: 1; }
-      100% { transform: rotate(-45deg) translateX(-30px); opacity: 0.3; }
+      0% {
+        transform: rotate(0deg) translateX(0);
+        opacity: 1;
+      }
+
+      100% {
+        transform: rotate(-45deg) translateX(-30px);
+        opacity: 0.3;
+      }
     }
 
     @keyframes chain-snap-right {
-      0% { transform: rotate(0deg) translateX(0); opacity: 1; }
-      100% { transform: rotate(45deg) translateX(30px); opacity: 0.3; }
+      0% {
+        transform: rotate(0deg) translateX(0);
+        opacity: 1;
+      }
+
+      100% {
+        transform: rotate(45deg) translateX(30px);
+        opacity: 0.3;
+      }
     }
 
     .hero-title {
@@ -500,7 +662,17 @@
       -webkit-text-fill-color: #c9a84c;
     }
 
-    @keyframes cursor-blink { 0%, 100% { opacity: 1; } 50% { opacity: 0; } }
+    @keyframes cursor-blink {
+
+      0%,
+      100% {
+        opacity: 1;
+      }
+
+      50% {
+        opacity: 0;
+      }
+    }
 
     .hero-underline {
       width: 0;
@@ -510,9 +682,15 @@
       margin: 0 auto 20px;
     }
 
-    .hero-underline.animate { animation: underline-grow 0.8s ease-out forwards; }
+    .hero-underline.animate {
+      animation: underline-grow 0.8s ease-out forwards;
+    }
 
-    @keyframes underline-grow { to { width: 100px; } }
+    @keyframes underline-grow {
+      to {
+        width: 100px;
+      }
+    }
 
     .hero-subtitle {
       font-size: clamp(1.1rem, 2.5vw, 1.4rem);
@@ -552,7 +730,17 @@
       box-shadow: 0 8px 30px rgba(201, 168, 76, 0.5);
     }
 
-    @keyframes fade-in { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+    @keyframes fade-in {
+      from {
+        opacity: 0;
+        transform: translateY(10px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
 
     /* ===== CARDS ===== */
     .card {
@@ -581,7 +769,10 @@
     /* Animated border glow */
     .card .border-glow {
       position: absolute;
-      top: -1px; left: -1px; right: -1px; bottom: -1px;
+      top: -1px;
+      left: -1px;
+      right: -1px;
+      bottom: -1px;
       border-radius: 14px;
       background: conic-gradient(from 0deg, transparent, rgba(201, 168, 76, 0.12), transparent, rgba(201, 168, 76, 0.08), transparent);
       opacity: 0;
@@ -590,25 +781,61 @@
       animation: border-spin 4s linear infinite;
     }
 
-    .card:hover .border-glow { opacity: 1; }
+    .card:hover .border-glow {
+      opacity: 1;
+    }
 
-    @keyframes border-spin { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
+    @keyframes border-spin {
+      from {
+        transform: rotate(0deg);
+      }
+
+      to {
+        transform: rotate(360deg);
+      }
+    }
 
     /* Corner brackets */
-    .card > .corner {
+    .card>.corner {
       position: absolute;
-      width: 20px; height: 20px;
+      width: 20px;
+      height: 20px;
       pointer-events: none;
       opacity: 0;
       transition: opacity 0.4s ease;
     }
 
-    .card:hover > .corner { opacity: 0.4; }
+    .card:hover>.corner {
+      opacity: 0.4;
+    }
 
-    .corner.tl { top: 8px; right: 8px; border-top: 2px solid #c9a84c; border-right: 2px solid #c9a84c; }
-    .corner.tr { top: 8px; left: 8px; border-top: 2px solid #c9a84c; border-left: 2px solid #c9a84c; }
-    .corner.bl { bottom: 8px; right: 8px; border-bottom: 2px solid #c9a84c; border-right: 2px solid #c9a84c; }
-    .corner.br { bottom: 8px; left: 8px; border-bottom: 2px solid #c9a84c; border-left: 2px solid #c9a84c; }
+    .corner.tl {
+      top: 8px;
+      right: 8px;
+      border-top: 2px solid #c9a84c;
+      border-right: 2px solid #c9a84c;
+    }
+
+    .corner.tr {
+      top: 8px;
+      left: 8px;
+      border-top: 2px solid #c9a84c;
+      border-left: 2px solid #c9a84c;
+    }
+
+    .corner.bl {
+      bottom: 8px;
+      right: 8px;
+      border-bottom: 2px solid #c9a84c;
+      border-right: 2px solid #c9a84c;
+    }
+
+    .corner.br {
+      bottom: 8px;
+      left: 8px;
+      border-bottom: 2px solid #c9a84c;
+      border-left: 2px solid #c9a84c;
+    }
 
     /* Card scroll-reveal */
     .card.reveal {
@@ -621,23 +848,38 @@
     }
 
     @keyframes card-reveal {
-      from { opacity: 0; transform: translateY(40px) scale(0.97); }
-      to { opacity: 1; transform: translateY(0) scale(1); }
+      from {
+        opacity: 0;
+        transform: translateY(40px) scale(0.97);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+      }
     }
 
     /* Horizontal light scan */
     .card .h-scan {
       position: absolute;
-      top: 0; left: -100%;
-      width: 50%; height: 100%;
+      top: 0;
+      left: -100%;
+      width: 50%;
+      height: 100%;
       background: linear-gradient(90deg, transparent, rgba(201, 168, 76, 0.03), transparent);
       pointer-events: none;
       z-index: 1;
     }
 
-    .card:hover .h-scan { animation: h-scan-move 1.5s ease-out; }
+    .card:hover .h-scan {
+      animation: h-scan-move 1.5s ease-out;
+    }
 
-    @keyframes h-scan-move { to { left: 200%; } }
+    @keyframes h-scan-move {
+      to {
+        left: 200%;
+      }
+    }
 
     /* Highlight marker effect */
     .highlight {
@@ -666,7 +908,8 @@
 
     /* Section divider */
     .section-divider {
-      width: 40px; height: 2px;
+      width: 40px;
+      height: 2px;
       background: linear-gradient(90deg, #c9a84c, transparent);
       border-radius: 2px;
       margin-bottom: 16px;
@@ -744,8 +987,15 @@
     }
 
     @keyframes gold-pulse {
-      0%, 100% { box-shadow: 0 0 20px rgba(201, 168, 76, 0.3); }
-      50% { box-shadow: 0 0 30px rgba(201, 168, 76, 0.5); }
+
+      0%,
+      100% {
+        box-shadow: 0 0 20px rgba(201, 168, 76, 0.3);
+      }
+
+      50% {
+        box-shadow: 0 0 30px rgba(201, 168, 76, 0.5);
+      }
     }
 
     .tool-icon {
@@ -765,7 +1015,7 @@
       margin-top: -4px;
     }
 
-    .tool-card > p {
+    .tool-card>p {
       color: #9ca3af;
       font-size: 1rem;
       line-height: 1.7;
@@ -805,16 +1055,45 @@
     }
 
     /* Stagger tool card reveals */
-    .tool-card:nth-child(3).visible { animation-delay: 0.1s; }
-    .tool-card:nth-child(4).visible { animation-delay: 0.15s; }
-    .tool-card:nth-child(5).visible { animation-delay: 0.2s; }
-    .tool-card:nth-child(6).visible { animation-delay: 0.25s; }
-    .tool-card:nth-child(7).visible { animation-delay: 0.3s; }
-    .tool-card:nth-child(8).visible { animation-delay: 0.35s; }
-    .tool-card:nth-child(9).visible { animation-delay: 0.4s; }
-    .tool-card:nth-child(10).visible { animation-delay: 0.45s; }
-    .tool-card:nth-child(11).visible { animation-delay: 0.5s; }
-    .tool-card:nth-child(12).visible { animation-delay: 0.55s; }
+    .tool-card:nth-child(3).visible {
+      animation-delay: 0.1s;
+    }
+
+    .tool-card:nth-child(4).visible {
+      animation-delay: 0.15s;
+    }
+
+    .tool-card:nth-child(5).visible {
+      animation-delay: 0.2s;
+    }
+
+    .tool-card:nth-child(6).visible {
+      animation-delay: 0.25s;
+    }
+
+    .tool-card:nth-child(7).visible {
+      animation-delay: 0.3s;
+    }
+
+    .tool-card:nth-child(8).visible {
+      animation-delay: 0.35s;
+    }
+
+    .tool-card:nth-child(9).visible {
+      animation-delay: 0.4s;
+    }
+
+    .tool-card:nth-child(10).visible {
+      animation-delay: 0.45s;
+    }
+
+    .tool-card:nth-child(11).visible {
+      animation-delay: 0.5s;
+    }
+
+    .tool-card:nth-child(12).visible {
+      animation-delay: 0.55s;
+    }
 
     /* ===== CTA SECTION ===== */
     .cta-section {
@@ -876,7 +1155,8 @@
     }
 
     .footer-divider {
-      width: 60px; height: 1px;
+      width: 60px;
+      height: 1px;
       background: rgba(201, 168, 76, 0.15);
       margin: 0 auto 16px;
     }
@@ -976,9 +1256,17 @@
     }
 
     @keyframes plague-bounce {
-      0% { transform: scale(0); }
-      60% { transform: scale(1.3); }
-      100% { transform: scale(1); }
+      0% {
+        transform: scale(0);
+      }
+
+      60% {
+        transform: scale(1.3);
+      }
+
+      100% {
+        transform: scale(1);
+      }
     }
 
     .quiz-plague-name {
@@ -1045,11 +1333,27 @@
     }
 
     @keyframes shake {
-      0%, 100% { transform: translateX(0); }
-      20% { transform: translateX(-8px); }
-      40% { transform: translateX(8px); }
-      60% { transform: translateX(-5px); }
-      80% { transform: translateX(5px); }
+
+      0%,
+      100% {
+        transform: translateX(0);
+      }
+
+      20% {
+        transform: translateX(-8px);
+      }
+
+      40% {
+        transform: translateX(8px);
+      }
+
+      60% {
+        transform: translateX(-5px);
+      }
+
+      80% {
+        transform: translateX(5px);
+      }
     }
 
     /* Feedback */
@@ -1076,8 +1380,13 @@
       transform: translateY(0);
     }
 
-    .quiz-feedback-text.correct { color: #27ae60; }
-    .quiz-feedback-text.wrong { color: #c0392b; }
+    .quiz-feedback-text.correct {
+      color: #27ae60;
+    }
+
+    .quiz-feedback-text.wrong {
+      color: #c0392b;
+    }
 
     /* Results screen */
     .quiz-results {
@@ -1178,7 +1487,10 @@
     }
 
     @keyframes confetti-fall {
-      to { top: 110%; transform: rotate(720deg); }
+      to {
+        top: 110%;
+        transform: rotate(720deg);
+      }
     }
 
     @media (max-width: 768px) {
@@ -1418,8 +1730,14 @@
       overflow-y: auto;
     }
 
-    .prompt-text::-webkit-scrollbar { width: 4px; }
-    .prompt-text::-webkit-scrollbar-thumb { background: rgba(201, 168, 76, 0.3); border-radius: 2px; }
+    .prompt-text::-webkit-scrollbar {
+      width: 4px;
+    }
+
+    .prompt-text::-webkit-scrollbar-thumb {
+      background: rgba(201, 168, 76, 0.3);
+      border-radius: 2px;
+    }
 
     .gift-steps {
       display: flex;
@@ -1573,7 +1891,9 @@
     }
 
     @keyframes nanobanner-spin {
-      to { transform: rotate(360deg); }
+      to {
+        transform: rotate(360deg);
+      }
     }
 
     .nanobanner-icons {
@@ -1656,9 +1976,11 @@
       .nanobanner {
         padding: 1.8rem 1.2rem;
       }
+
       .nanobanner-title {
         font-size: 1.35rem;
       }
+
       .nanobanner-icons {
         font-size: 1.3rem;
       }
@@ -1696,16 +2018,36 @@
 
     /* ===== RESPONSIVE ===== */
     @media (min-width: 768px) {
-      .container { padding: 20px 24px 40px; }
-      .card { padding: 32px 30px; margin-bottom: 24px; }
-      .intro-card h2 { font-size: 1.8rem; }
-      .intro-card p { font-size: 1.1rem; }
+      .container {
+        padding: 20px 24px 40px;
+      }
+
+      .card {
+        padding: 32px 30px;
+        margin-bottom: 24px;
+      }
+
+      .intro-card h2 {
+        font-size: 1.8rem;
+      }
+
+      .intro-card p {
+        font-size: 1.1rem;
+      }
     }
 
     @media (min-width: 1024px) {
-      body { font-size: 19px; }
-      .container { padding: 30px 24px 50px; }
-      .card { padding: 36px 34px; }
+      body {
+        font-size: 19px;
+      }
+
+      .container {
+        padding: 30px 24px 50px;
+      }
+
+      .card {
+        padding: 36px 34px;
+      }
     }
 
     @media (max-width: 768px) {
@@ -1785,16 +2127,35 @@
 
     /* ===== REDUCED MOTION ===== */
     @media (prefers-reduced-motion: reduce) {
-      *, *::before, *::after {
+
+      *,
+      *::before,
+      *::after {
         animation-duration: 0.01ms !important;
         animation-iteration-count: 1 !important;
         transition-duration: 0.01ms !important;
       }
 
-      .card.reveal { opacity: 1; transform: none; }
-      .highlight::after { width: 100%; }
-      .particles, .pillar-fire { display: none; }
-      .hero-subtitle, .hero-greeting, .hero-cta { opacity: 1; transform: none; }
+      .card.reveal {
+        opacity: 1;
+        transform: none;
+      }
+
+      .highlight::after {
+        width: 100%;
+      }
+
+      .particles,
+      .pillar-fire {
+        display: none;
+      }
+
+      .hero-subtitle,
+      .hero-greeting,
+      .hero-cta {
+        opacity: 1;
+        transform: none;
+      }
     }
 
     /* ===== ACCESSIBILITY WIDGET ===== */
@@ -1852,7 +2213,9 @@
       direction: rtl;
     }
 
-    .a11y-panel.open { display: block; }
+    .a11y-panel.open {
+      display: block;
+    }
 
     .a11y-panel-title {
       font-size: 0.85rem;
@@ -1871,7 +2234,9 @@
       border-bottom: 1px solid rgba(255, 255, 255, 0.05);
     }
 
-    .a11y-option:last-child { border-bottom: none; }
+    .a11y-option:last-child {
+      border-bottom: none;
+    }
 
     .a11y-option-label {
       font-size: 0.85rem;
@@ -1942,11 +2307,19 @@
     }
 
     /* Accessibility states */
-    body.a11y-large-text { font-size: 22px; }
-    body.a11y-large-text .hero-title { font-size: clamp(2.8rem, 6vw, 4.5rem); }
+    body.a11y-large-text {
+      font-size: 22px;
+    }
+
+    body.a11y-large-text .hero-title {
+      font-size: clamp(2.8rem, 6vw, 4.5rem);
+    }
+
     body.a11y-large-text .tools-header h2,
     body.a11y-large-text .intro-card h2,
-    body.a11y-large-text .cta-section h2 { font-size: 2rem; }
+    body.a11y-large-text .cta-section h2 {
+      font-size: 2rem;
+    }
 
     body.a11y-no-anim *,
     body.a11y-no-anim *::before,
@@ -1957,12 +2330,26 @@
       transition-duration: 0ms !important;
     }
 
-    body.a11y-no-anim .card.reveal { opacity: 1; transform: none; }
-    body.a11y-no-anim .highlight::after { width: 100%; }
-    body.a11y-no-anim .particles, body.a11y-no-anim .pillar-fire { display: none !important; }
+    body.a11y-no-anim .card.reveal {
+      opacity: 1;
+      transform: none;
+    }
+
+    body.a11y-no-anim .highlight::after {
+      width: 100%;
+    }
+
+    body.a11y-no-anim .particles,
+    body.a11y-no-anim .pillar-fire {
+      display: none !important;
+    }
+
     body.a11y-no-anim .hero-subtitle,
     body.a11y-no-anim .hero-greeting,
-    body.a11y-no-anim .hero-cta { opacity: 1; transform: none; }
+    body.a11y-no-anim .hero-cta {
+      opacity: 1;
+      transform: none;
+    }
 
     body.a11y-high-contrast {
       background: #000;
@@ -1977,23 +2364,46 @@
     body.a11y-high-contrast .card h3,
     body.a11y-high-contrast .card p,
     body.a11y-high-contrast .tool-tagline,
-    body.a11y-high-contrast .tools-subtitle { color: #fff; }
+    body.a11y-high-contrast .tools-subtitle {
+      color: #fff;
+    }
 
     body.a11y-high-contrast .highlight::after {
       background: rgba(255, 255, 0, 0.35);
     }
 
-    body.a11y-high-contrast .footer p { color: #aaa; }
+    body.a11y-high-contrast .footer p {
+      color: #aaa;
+    }
 
     @media (forced-colors: active) {
-      .card { border: 2px solid CanvasText; }
-      .header { border-bottom-color: Highlight; }
-      .tool-number { border: 2px solid Highlight; color: HighlightText; }
-      .highlight::after { background: Highlight; }
-      .corner.tl, .corner.tr, .corner.bl, .corner.br { display: none; }
+      .card {
+        border: 2px solid CanvasText;
+      }
+
+      .header {
+        border-bottom-color: Highlight;
+      }
+
+      .tool-number {
+        border: 2px solid Highlight;
+        color: HighlightText;
+      }
+
+      .highlight::after {
+        background: Highlight;
+      }
+
+      .corner.tl,
+      .corner.tr,
+      .corner.bl,
+      .corner.br {
+        display: none;
+      }
     }
   </style>
 </head>
+
 <body>
 
   <!-- Skip to content -->
@@ -2001,8 +2411,12 @@
 
   <!-- ===== CINEMATIC INTRO: RED SEA PARTING ===== -->
   <div class="intro-overlay" id="intro" aria-hidden="true">
-    <div class="sea-wall sea-wall-left"><div class="lice-layer"></div></div>
-    <div class="sea-wall sea-wall-right"><div class="lice-layer"></div></div>
+    <div class="sea-wall sea-wall-left">
+      <div class="lice-layer"></div>
+    </div>
+    <div class="sea-wall sea-wall-right">
+      <div class="lice-layer"></div>
+    </div>
     <div class="intro-quote">
       <p class="intro-quote-text">בכל דור ודור חייב אדם לראות את עצמו</p>
       <p class="intro-quote-text">כאילו הוא יצא ממצרים</p>
@@ -2015,10 +2429,18 @@
   <div class="stars" aria-hidden="true"></div>
   <div class="pillar-fire" aria-hidden="true"></div>
   <div class="particles" aria-hidden="true">
-    <div class="particle"></div><div class="particle"></div><div class="particle"></div>
-    <div class="particle"></div><div class="particle"></div><div class="particle"></div>
-    <div class="particle"></div><div class="particle"></div><div class="particle"></div>
-    <div class="particle"></div><div class="particle"></div><div class="particle"></div>
+    <div class="particle"></div>
+    <div class="particle"></div>
+    <div class="particle"></div>
+    <div class="particle"></div>
+    <div class="particle"></div>
+    <div class="particle"></div>
+    <div class="particle"></div>
+    <div class="particle"></div>
+    <div class="particle"></div>
+    <div class="particle"></div>
+    <div class="particle"></div>
+    <div class="particle"></div>
   </div>
 
   <!-- ===== STICKY HEADER ===== -->
@@ -2026,7 +2448,7 @@
     <div class="header-content">
       <a href="https://sagiai.co.il/" target="_blank" class="logo">שגיא בר און | AI</a>
       <a href="https://wa.me/972549995050?text=%D7%94%D7%99%D7%99%20%D7%A9%D7%92%D7%99%D7%90%2C%20%D7%A7%D7%99%D7%91%D7%9C%D7%AA%D7%99%20%D7%90%D7%AA%20%D7%94%D7%93%D7%A3%20%D7%97%D7%99%D7%A8%D7%95%D7%AA%20%D7%93%D7%99%D7%92%D7%99%D7%98%D7%9C%D7%99%D7%AA%20%D7%95%D7%90%D7%A9%D7%9E%D7%97%20%D7%9C%D7%A9%D7%9E%D7%95%D7%A2%20%D7%A2%D7%9C%20%D7%94%D7%A8%D7%A6%D7%90%D7%95%D7%AA%20%D7%95%D7%A1%D7%93%D7%A0%D7%90%D7%95%D7%AA%20AI"
-         target="_blank" class="header-cta">בואו נדבר</a>
+        target="_blank" class="header-cta">בואו נדבר</a>
     </div>
   </header>
 
@@ -2058,7 +2480,8 @@
         <div class="section-divider" aria-hidden="true"></div>
         <p>בפסח הזה, אני רוצה לתת לכם מתנה - <span class="highlight">חירות דיגיטלית</span>.</p>
         <p>כמו שבני ישראל השתחררו מעבדות מצרים, גם אתם יכולים להשתחרר מהמשימות החוזרות שגוזלות לכם שעות יקרות.</p>
-        <p>הנה 10 כלי AI - כנגד עשר המכות - שיעשו לכם את העבודה כדי שתוכלו <span class="highlight">להתפנות למה שבאמת חשוב</span>.</p>
+        <p>הנה 10 כלי AI - כנגד עשר המכות - שיעשו לכם את העבודה כדי שתוכלו <span class="highlight">להתפנות למה שבאמת
+            חשוב</span>.</p>
       </section>
 
       <!-- ===== 5 AI TOOLS ===== -->
@@ -2294,7 +2717,8 @@
         <span class="corner bl" aria-hidden="true"></span><span class="corner br" aria-hidden="true"></span>
         <span class="gift-badge">🎁 מתנות חג</span>
         <h2>3 פרומפטים שיהפכו אתכם לכוכבי פסח!</h2>
-        <p class="gift-desc">העלו תמונה שלכם ל-ChatGPT או Gemini יחד עם אחד מהפרומפטים, וקבלו תמונה מדהימה. החליקו בין הסגנונות:</p>
+        <p class="gift-desc">העלו תמונה שלכם ל-ChatGPT או Gemini יחד עם אחד מהפרומפטים, וקבלו תמונה מדהימה. החליקו בין
+          הסגנונות:</p>
 
         <!-- Carousel -->
         <div class="carousel">
@@ -2310,7 +2734,8 @@
                   </div>
                   <div class="ba-arrow" aria-hidden="true">⬅</div>
                   <div class="ba-item">
-                    <img src="../images/Passover/image1_after.webp" alt="קריעת ים סוף בסגנון פוסטר קולנועי" loading="lazy" class="clickable">
+                    <img src="../images/Passover/image1_after.webp" alt="קריעת ים סוף בסגנון פוסטר קולנועי"
+                      loading="lazy" class="clickable">
                     <span class="ba-label">🎬 התוצאה עם AI</span>
                   </div>
                 </div>
@@ -2325,7 +2750,8 @@
                   </div>
                   <div class="ba-arrow" aria-hidden="true">⬅</div>
                   <div class="ba-item">
-                    <img src="../images/Passover/image2_after.webp" alt="כתב יד מאוייר על קלף עתיק" loading="lazy" class="clickable">
+                    <img src="../images/Passover/image2_after.webp" alt="כתב יד מאוייר על קלף עתיק" loading="lazy"
+                      class="clickable">
                     <span class="ba-label">🎨 התוצאה עם AI</span>
                   </div>
                 </div>
@@ -2340,7 +2766,8 @@
                   </div>
                   <div class="ba-arrow" aria-hidden="true">⬅</div>
                   <div class="ba-item">
-                    <img src="../images/Passover/image3_after.webp" alt="שולחן סדר יוקרתי בסגנון מגזין" loading="lazy" class="clickable">
+                    <img src="../images/Passover/image3_after.webp" alt="שולחן סדר יוקרתי בסגנון מגזין" loading="lazy"
+                      class="clickable">
                     <span class="ba-label">🍷 התוצאה עם AI</span>
                   </div>
                 </div>
@@ -2402,7 +2829,7 @@
         <p class="nanobanner-subtitle">הפרומפט שלנו, היצירה שלכם</p>
         <p class="nanobanner-desc">
           גלו מאות פרומפטים מקצועיים ליצירת תמונות AI מדהימות.<br>
-          מוכנים לשימוש ב-ChatGPT, Gemini ו-Perplexity — בחינם.
+          מוכנים לשימוש ב-ChatGPT, Gemini ו-Perplexity - בחינם.
         </p>
         <div class="nanobanner-tags">
           <span class="nanobanner-tag">דיוקן</span>
@@ -2423,17 +2850,17 @@
       <section class="cta-section" aria-label="יצירת קשר">
         <h2>🏛️ רוצים ללמוד עוד כלי AI?</h2>
         <p>אני מעביר הרצאות וסדנאות AI לארגונים, חברות ומוסדות חינוך.<br>
-        בואו נדבר איך AI יכול לשחרר את הצוות שלכם מעבדות הטכנולוגיה.</p>
+          בואו נדבר איך AI יכול לשחרר את הצוות שלכם מעבדות הטכנולוגיה.</p>
         <a href="https://wa.me/972549995050?text=%D7%94%D7%99%D7%99%20%D7%A9%D7%92%D7%99%D7%90%2C%20%D7%A7%D7%99%D7%91%D7%9C%D7%AA%D7%99%20%D7%90%D7%AA%20%D7%94%D7%93%D7%A3%20%D7%97%D7%99%D7%A8%D7%95%D7%AA%20%D7%93%D7%99%D7%92%D7%99%D7%98%D7%9C%D7%99%D7%AA%20%D7%95%D7%90%D7%A9%D7%9E%D7%97%20%D7%9C%D7%A9%D7%9E%D7%95%D7%A2%20%D7%A2%D7%9C%20%D7%94%D7%A8%D7%A6%D7%90%D7%95%D7%AA%20%D7%95%D7%A1%D7%93%D7%A0%D7%90%D7%95%D7%AA%20AI"
-           target="_blank" class="whatsapp-cta">
+          target="_blank" class="whatsapp-cta">
           📱 שלחו לי הודעה בוואטסאפ
         </a>
         <p style="margin-top: 24px; font-size: 0.95rem; color: #d4b896; line-height: 1.6;">
           לעוד עדכונים וכלים על בינה מלאכותית, הצטרפו לקהילה השקטה שלנו בוואטסאפ:
         </p>
         <a href="https://chat.whatsapp.com/F5rwMzOOgHK5nNKw6ALucH" target="_blank" rel="noopener"
-           style="display:inline-flex;align-items:center;gap:8px;color:#25D366;font-weight:700;font-size:1rem;text-decoration:none;margin-top:8px;transition:opacity 0.2s;"
-           onmouseover="this.style.opacity='0.8'" onmouseout="this.style.opacity='1'">
+          style="display:inline-flex;align-items:center;gap:8px;color:#25D366;font-weight:700;font-size:1rem;text-decoration:none;margin-top:8px;transition:opacity 0.2s;"
+          onmouseover="this.style.opacity='0.8'" onmouseout="this.style.opacity='1'">
           🚀 הצטרפו לקהילה
         </a>
       </section>
@@ -2457,12 +2884,12 @@
 
   <!-- ===== FLOATING WHATSAPP BUTTON ===== -->
   <a href="https://wa.me/972549995050?text=%D7%94%D7%99%D7%99%20%D7%A9%D7%92%D7%99%D7%90%2C%20%D7%A7%D7%99%D7%91%D7%9C%D7%AA%D7%99%20%D7%90%D7%AA%20%D7%94%D7%93%D7%A3%20%D7%97%D7%99%D7%A8%D7%95%D7%AA%20%D7%93%D7%99%D7%92%D7%99%D7%98%D7%9C%D7%99%D7%AA%20%D7%95%D7%90%D7%A9%D7%9E%D7%97%20%D7%9C%D7%A9%D7%9E%D7%95%D7%A2%20%D7%A2%D7%9C%20%D7%94%D7%A8%D7%A6%D7%90%D7%95%D7%AA%20%D7%95%D7%A1%D7%93%D7%A0%D7%90%D7%95%D7%AA%20AI"
-     class="whatsapp-float" target="_blank" aria-label="שלחו הודעה בוואטסאפ">💬</a>
+    class="whatsapp-float" target="_blank" aria-label="שלחו הודעה בוואטסאפ">💬</a>
 
   <!-- ===== MOBILE STICKY CTA BAR ===== -->
   <div class="mobile-cta-bar">
     <a href="https://wa.me/972549995050?text=%D7%94%D7%99%D7%99%20%D7%A9%D7%92%D7%99%D7%90%2C%20%D7%A7%D7%99%D7%91%D7%9C%D7%AA%D7%99%20%D7%90%D7%AA%20%D7%94%D7%93%D7%A3%20%D7%97%D7%99%D7%A8%D7%95%D7%AA%20%D7%93%D7%99%D7%92%D7%99%D7%98%D7%9C%D7%99%D7%AA%20%D7%95%D7%90%D7%A9%D7%9E%D7%97%20%D7%9C%D7%A9%D7%9E%D7%95%D7%A2%20%D7%A2%D7%9C%20%D7%94%D7%A8%D7%A6%D7%90%D7%95%D7%AA%20%D7%95%D7%A1%D7%93%D7%A0%D7%90%D7%95%D7%AA%20AI"
-       target="_blank">
+      target="_blank">
       📱 דברו איתי בוואטסאפ
     </a>
   </div>
@@ -2481,40 +2908,45 @@
       </div>
       <div class="a11y-option">
         <span class="a11y-option-label">עצור אנימציות</span>
-        <button class="a11y-toggle" id="toggleAnim" role="switch" aria-checked="false" aria-label="עצור אנימציות"></button>
+        <button class="a11y-toggle" id="toggleAnim" role="switch" aria-checked="false"
+          aria-label="עצור אנימציות"></button>
       </div>
       <div class="a11y-option">
         <span class="a11y-option-label">ניגודיות גבוהה</span>
-        <button class="a11y-toggle" id="toggleContrast" role="switch" aria-checked="false" aria-label="ניגודיות גבוהה"></button>
+        <button class="a11y-toggle" id="toggleContrast" role="switch" aria-checked="false"
+          aria-label="ניגודיות גבוהה"></button>
       </div>
     </div>
-    <button class="a11y-btn" id="a11yToggle" aria-label="פתח תפריט נגישות" aria-expanded="false" aria-controls="a11yPanel">
-      <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 2a2 2 0 1 1 0 4 2 2 0 0 1 0-4zm9 7h-6l-1.41 7.41L16 22h-2l-2-5-2 5H8l2.41-5.59L9 9H3V7h18v2z"/></svg>
+    <button class="a11y-btn" id="a11yToggle" aria-label="פתח תפריט נגישות" aria-expanded="false"
+      aria-controls="a11yPanel">
+      <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+        <path d="M12 2a2 2 0 1 1 0 4 2 2 0 0 1 0-4zm9 7h-6l-1.41 7.41L16 22h-2l-2-5-2 5H8l2.41-5.59L9 9H3V7h18v2z" />
+      </svg>
     </button>
   </div>
 
   <!-- ===== JAVASCRIPT ===== -->
   <script>
     // ===== ACCESSIBILITY WIDGET =====
-    (function() {
+    (function () {
       var btn = document.getElementById('a11yToggle');
       var panel = document.getElementById('a11yPanel');
       var body = document.body;
       var fontLevel = 0;
 
-      btn.addEventListener('click', function() {
+      btn.addEventListener('click', function () {
         var isOpen = panel.classList.toggle('open');
         btn.setAttribute('aria-expanded', isOpen);
       });
 
-      document.addEventListener('click', function(e) {
+      document.addEventListener('click', function (e) {
         if (!document.getElementById('a11yWidget').contains(e.target)) {
           panel.classList.remove('open');
           btn.setAttribute('aria-expanded', 'false');
         }
       });
 
-      document.addEventListener('keydown', function(e) {
+      document.addEventListener('keydown', function (e) {
         if (e.key === 'Escape' && panel.classList.contains('open')) {
           panel.classList.remove('open');
           btn.setAttribute('aria-expanded', 'false');
@@ -2522,15 +2954,15 @@
         }
       });
 
-      document.getElementById('fontUp').addEventListener('click', function() {
+      document.getElementById('fontUp').addEventListener('click', function () {
         fontLevel = Math.min(fontLevel + 1, 1);
         applyFont();
       });
-      document.getElementById('fontDown').addEventListener('click', function() {
+      document.getElementById('fontDown').addEventListener('click', function () {
         fontLevel = Math.max(fontLevel - 1, -1);
         applyFont();
       });
-      document.getElementById('fontReset').addEventListener('click', function() {
+      document.getElementById('fontReset').addEventListener('click', function () {
         fontLevel = 0;
         applyFont();
       });
@@ -2540,13 +2972,13 @@
         if (fontLevel === 1) body.classList.add('a11y-large-text');
       }
 
-      document.getElementById('toggleAnim').addEventListener('click', function() {
+      document.getElementById('toggleAnim').addEventListener('click', function () {
         var active = this.classList.toggle('active');
         this.setAttribute('aria-checked', active);
         body.classList.toggle('a11y-no-anim', active);
       });
 
-      document.getElementById('toggleContrast').addEventListener('click', function() {
+      document.getElementById('toggleContrast').addEventListener('click', function () {
         var active = this.classList.toggle('active');
         this.setAttribute('aria-checked', active);
         body.classList.toggle('a11y-high-contrast', active);
@@ -2554,7 +2986,7 @@
     })();
 
     // ===== TYPEWRITER EFFECT =====
-    (function() {
+    (function () {
       var text = 'חירות דיגיטלית';
       var el = document.getElementById('heroTitle');
       var i = 0;
@@ -2568,7 +3000,7 @@
           i++;
           setTimeout(type, 100 + Math.random() * 60);
         } else {
-          setTimeout(function() {
+          setTimeout(function () {
             cursor.style.display = 'none';
             document.getElementById('heroUnderline').classList.add('animate');
             // Show chain animation after typewriter
@@ -2582,9 +3014,9 @@
     })();
 
     // ===== SCROLL-TRIGGERED REVEALS =====
-    (function() {
-      var observer = new IntersectionObserver(function(entries) {
-        entries.forEach(function(entry) {
+    (function () {
+      var observer = new IntersectionObserver(function (entries) {
+        entries.forEach(function (entry) {
           if (!entry.isIntersecting) return;
           var target = entry.target;
 
@@ -2592,9 +3024,9 @@
             target.classList.add('visible');
 
             // Trigger highlights inside card
-            setTimeout(function() {
-              target.querySelectorAll('.highlight').forEach(function(h, idx) {
-                setTimeout(function() { h.classList.add('marked'); }, idx * 200);
+            setTimeout(function () {
+              target.querySelectorAll('.highlight').forEach(function (h, idx) {
+                setTimeout(function () { h.classList.add('marked'); }, idx * 200);
               });
             }, 400);
           }
@@ -2603,13 +3035,13 @@
         });
       }, { threshold: 0.1 });
 
-      document.querySelectorAll('.card.reveal').forEach(function(el) {
+      document.querySelectorAll('.card.reveal').forEach(function (el) {
         observer.observe(el);
       });
     })();
 
     // ===== PLAGUE QUIZ GAME =====
-    (function() {
+    (function () {
       var questions = [
         { icon: '🩸', plague: 'מכת דם', question: 'הדם שלכם רותח מריבוי מיילים. איזה כלי ירגיע?', answer: 'ChatGPT', options: ['ChatGPT', 'Perplexity', 'Gamma', 'Make'] },
         { icon: '🐸', plague: 'מכת צפרדע', question: 'ישיבות קופצות עליכם מכל כיוון. מי יתמלל ויסכם?', answer: 'Timeless', options: ['Claude', 'Timeless', 'NotebookLM', 'Gemini'] },
@@ -2639,7 +3071,7 @@
         try {
           var ctx = getAudioCtx();
           // Happy ascending chime
-          [523, 659, 784].forEach(function(freq, i) {
+          [523, 659, 784].forEach(function (freq, i) {
             var osc = ctx.createOscillator();
             var gain = ctx.createGain();
             osc.type = 'sine';
@@ -2651,7 +3083,7 @@
             osc.start(ctx.currentTime + i * 0.12);
             osc.stop(ctx.currentTime + i * 0.12 + 0.4);
           });
-        } catch(e) {}
+        } catch (e) { }
       }
 
       function playWrongSound() {
@@ -2669,14 +3101,14 @@
           gain.connect(ctx.destination);
           osc.start();
           osc.stop(ctx.currentTime + 0.3);
-        } catch(e) {}
+        } catch (e) { }
       }
 
       function playVictorySound() {
         try {
           var ctx = getAudioCtx();
           // Fanfare
-          [523, 659, 784, 1047].forEach(function(freq, i) {
+          [523, 659, 784, 1047].forEach(function (freq, i) {
             var osc = ctx.createOscillator();
             var gain = ctx.createGain();
             osc.type = 'sine';
@@ -2688,7 +3120,7 @@
             osc.start(ctx.currentTime + i * 0.15);
             osc.stop(ctx.currentTime + i * 0.15 + 0.6);
           });
-        } catch(e) {}
+        } catch (e) { }
       }
 
       function spawnMiniConfetti() {
@@ -2708,7 +3140,7 @@
           c.style.animationDelay = (Math.random() * 0.3) + 's';
           container.appendChild(c);
         }
-        setTimeout(function() { container.remove(); }, 3000);
+        setTimeout(function () { container.remove(); }, 3000);
       }
 
       function spawnSkull() {
@@ -2716,14 +3148,14 @@
         skull.textContent = '💀';
         skull.style.cssText = 'position:absolute;top:40%;left:50%;transform:translate(-50%,-50%) scale(0);font-size:3rem;z-index:10;transition:all 0.4s;pointer-events:none;';
         area.appendChild(skull);
-        requestAnimationFrame(function() {
+        requestAnimationFrame(function () {
           skull.style.transform = 'translate(-50%,-50%) scale(1.5) rotate(10deg)';
           skull.style.opacity = '0.8';
         });
-        setTimeout(function() {
+        setTimeout(function () {
           skull.style.transform = 'translate(-50%,-50%) scale(0) rotate(-20deg)';
           skull.style.opacity = '0';
-          setTimeout(function() { skull.remove(); }, 400);
+          setTimeout(function () { skull.remove(); }, 400);
         }, 600);
       }
 
@@ -2765,8 +3197,8 @@
 
         area.innerHTML = html;
 
-        area.querySelectorAll('.quiz-option').forEach(function(btn) {
-          btn.addEventListener('click', function() { handleAnswer(this); });
+        area.querySelectorAll('.quiz-option').forEach(function (btn) {
+          btn.addEventListener('click', function () { handleAnswer(this); });
         });
       }
 
@@ -2777,7 +3209,7 @@
         if (isCorrect) score++;
 
         // Disable all buttons
-        area.querySelectorAll('.quiz-option').forEach(function(b) {
+        area.querySelectorAll('.quiz-option').forEach(function (b) {
           b.classList.add('disabled');
           if (b.getAttribute('data-answer') === q.answer) b.classList.add('correct');
         });
@@ -2801,7 +3233,7 @@
         if (dots[current]) dots[current].className = 'quiz-progress-dot ' + (isCorrect ? 'done' : 'wrong');
 
         // Next question after delay
-        setTimeout(function() {
+        setTimeout(function () {
           current++;
           render();
         }, 1800);
@@ -2836,7 +3268,7 @@
         if (pct >= 80) { spawnConfetti(); playVictorySound(); }
         else if (pct >= 50) { playCorrectSound(); }
 
-        document.getElementById('quizRestart').addEventListener('click', function() {
+        document.getElementById('quizRestart').addEventListener('click', function () {
           current = 0; score = 0; results = [];
           render();
         });
@@ -2861,14 +3293,14 @@
           container.appendChild(c);
         }
 
-        setTimeout(function() { container.remove(); }, 4000);
+        setTimeout(function () { container.remove(); }, 4000);
       }
 
       render();
     })();
 
     // ===== GIFT CAROUSEL =====
-    (function() {
+    (function () {
       var slides = [
         {
           title: 'קריעת ים סוף 🌊',
@@ -2897,7 +3329,7 @@
         current = index;
 
         track.style.transform = 'translateX(' + (current * 100) + '%)';
-        dots.forEach(function(d, i) { d.classList.toggle('active', i === current); });
+        dots.forEach(function (d, i) { d.classList.toggle('active', i === current); });
         counter.textContent = (current + 1) + '/' + slides.length;
         styleName.textContent = slides[current].title;
         promptText.textContent = slides[current].prompt;
@@ -2908,25 +3340,25 @@
       goTo(0);
 
       // Arrows
-      document.getElementById('carouselNext').addEventListener('click', function() { goTo(current + 1); });
-      document.getElementById('carouselPrev').addEventListener('click', function() { goTo(current - 1); });
+      document.getElementById('carouselNext').addEventListener('click', function () { goTo(current + 1); });
+      document.getElementById('carouselPrev').addEventListener('click', function () { goTo(current - 1); });
 
       // Dots
-      dots.forEach(function(dot) {
-        dot.addEventListener('click', function() { goTo(parseInt(this.getAttribute('data-index'))); });
+      dots.forEach(function (dot) {
+        dot.addEventListener('click', function () { goTo(parseInt(this.getAttribute('data-index'))); });
       });
 
       // Touch swipe
       var startX = 0, startY = 0, isDragging = false;
       var viewport = document.querySelector('.carousel-viewport');
 
-      viewport.addEventListener('touchstart', function(e) {
+      viewport.addEventListener('touchstart', function (e) {
         startX = e.touches[0].clientX;
         startY = e.touches[0].clientY;
         isDragging = true;
       }, { passive: true });
 
-      viewport.addEventListener('touchend', function(e) {
+      viewport.addEventListener('touchend', function (e) {
         if (!isDragging) return;
         isDragging = false;
         var dx = e.changedTouches[0].clientX - startX;
@@ -2938,19 +3370,19 @@
       }, { passive: true });
 
       // Keyboard
-      document.getElementById('giftCarousel').addEventListener('keydown', function(e) {
+      document.getElementById('giftCarousel').addEventListener('keydown', function (e) {
         if (e.key === 'ArrowLeft') goTo(current - 1);
         if (e.key === 'ArrowRight') goTo(current + 1);
       });
     })();
 
     // ===== LIGHTBOX =====
-    (function() {
+    (function () {
       var lightbox = document.getElementById('lightbox');
       var lightboxImg = lightbox ? lightbox.querySelector('img') : null;
       if (!lightbox || !lightboxImg) return;
 
-      document.addEventListener('click', function(e) {
+      document.addEventListener('click', function (e) {
         if (e.target.matches('img.clickable')) {
           lightboxImg.src = e.target.src;
           lightboxImg.alt = e.target.alt;
@@ -2958,26 +3390,26 @@
         }
       });
 
-      lightbox.addEventListener('click', function() {
+      lightbox.addEventListener('click', function () {
         lightbox.classList.remove('open');
       });
 
-      document.addEventListener('keydown', function(e) {
+      document.addEventListener('keydown', function (e) {
         if (e.key === 'Escape') lightbox.classList.remove('open');
       });
     })();
 
     // ===== COPY PROMPT =====
-    (function() {
+    (function () {
       var btn = document.getElementById('copyPrompt');
       var text = document.getElementById('promptText');
       if (!btn || !text) return;
 
-      btn.addEventListener('click', function() {
-        navigator.clipboard.writeText(text.textContent).then(function() {
+      btn.addEventListener('click', function () {
+        navigator.clipboard.writeText(text.textContent).then(function () {
           btn.textContent = 'הועתק! ✓';
           btn.classList.add('copied');
-          setTimeout(function() {
+          setTimeout(function () {
             btn.textContent = 'העתק';
             btn.classList.remove('copied');
           }, 2000);
@@ -2986,8 +3418,8 @@
     })();
 
     // ===== SMOOTH SCROLL =====
-    document.querySelectorAll('a[href^="#"]').forEach(function(anchor) {
-      anchor.addEventListener('click', function(e) {
+    document.querySelectorAll('a[href^="#"]').forEach(function (anchor) {
+      anchor.addEventListener('click', function (e) {
         e.preventDefault();
         var target = document.querySelector(this.getAttribute('href'));
         if (target) {
@@ -3000,7 +3432,7 @@
     });
 
     // ===== CINEMATIC INTRO SEQUENCE =====
-    (function() {
+    (function () {
       var intro = document.getElementById('intro');
       if (!intro) return;
 
@@ -3012,42 +3444,43 @@
       document.body.style.overflow = 'hidden';
 
       // Step 1: Show first quote line (300ms)
-      setTimeout(function() {
+      setTimeout(function () {
         if (texts[0]) texts[0].classList.add('show');
       }, 300);
 
       // Step 2: Show second quote line (700ms)
-      setTimeout(function() {
+      setTimeout(function () {
         if (texts[1]) texts[1].classList.add('show');
       }, 700);
 
       // Step 3: Expand golden line (1100ms)
-      setTimeout(function() {
+      setTimeout(function () {
         if (line) line.classList.add('show');
       }, 1100);
 
       // Step 4: Show subtitle (1400ms)
-      setTimeout(function() {
+      setTimeout(function () {
         if (subtitle) subtitle.classList.add('show');
       }, 1400);
 
       // Step 5: Part the sea! (2000ms)
-      setTimeout(function() {
+      setTimeout(function () {
         intro.classList.add('parting');
       }, 2000);
 
       // Step 6: Dismiss overlay (3500ms)
-      setTimeout(function() {
+      setTimeout(function () {
         intro.classList.add('dismissed');
         document.body.style.overflow = '';
       }, 3500);
 
       // Step 7: Remove from DOM (4500ms)
-      setTimeout(function() {
+      setTimeout(function () {
         intro.remove();
       }, 4500);
     })();
   </script>
 
 </body>
+
 </html>

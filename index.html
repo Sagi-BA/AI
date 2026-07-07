@@ -5,24 +5,28 @@
 -->
 <!DOCTYPE html>
 <html lang="he" dir="rtl">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>תיק עבודות AI | שגיא בר און</title>
-    <meta name="description" content="כל העבודות שלי בעולם ה־AI במקום אחד — דפי נחיתה, סדנאות, משחקים אינטראקטיביים, סימולציות וקמפיינים. פיתוח ייעוץ והדרכה של שגיא בר און.">
+    <meta name="description"
+        content="כל העבודות שלי בעולם ה־AI במקום אחד - דפי נחיתה, סדנאות, משחקים אינטראקטיביים, סימולציות וקמפיינים. פיתוח ייעוץ והדרכה של שגיא בר און.">
     <meta name="author" content="Sagi Bar-On">
     <meta name="theme-color" content="#1a1d2e">
     <meta name="format-detection" content="telephone=no">
     <meta name="robots" content="index, follow">
 
-    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E📚%3C/text%3E%3C/svg%3E">
+    <link rel="icon" type="image/svg+xml"
+        href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E📚%3C/text%3E%3C/svg%3E">
     <link rel="canonical" href="https://sagi-ba.github.io/AI/">
 
     <meta property="og:title" content="תיק עבודות AI | שגיא בר און">
-    <meta property="og:description" content="כל העבודות שלי בעולם ה־AI במקום אחד — דפי נחיתה, סדנאות, משחקים אינטראקטיביים, סימולציות וקמפיינים.">
+    <meta property="og:description"
+        content="כל העבודות שלי בעולם ה־AI במקום אחד - דפי נחיתה, סדנאות, משחקים אינטראקטיביים, סימולציות וקמפיינים.">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://sagi-ba.github.io/AI/">
-    <meta property="og:site_name" content="שגיא בר און — AI לארגונים">
+    <meta property="og:site_name" content="שגיא בר און - AI לארגונים">
     <meta property="og:locale" content="he_IL">
     <meta property="og:image" content="https://sagi-ba.github.io/AI/landing-pages/gemini-storybook/images/og-image.jpg">
     <meta property="og:image:width" content="1200">
@@ -31,13 +35,14 @@
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="תיק עבודות AI | שגיא בר און">
     <meta name="twitter:description" content="כל העבודות שלי בעולם ה־AI במקום אחד.">
-    <meta name="twitter:image" content="https://sagi-ba.github.io/AI/landing-pages/gemini-storybook/images/og-image.jpg">
+    <meta name="twitter:image"
+        content="https://sagi-ba.github.io/AI/landing-pages/gemini-storybook/images/og-image.jpg">
 
     <!-- Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-XSH19K5LBZ"></script>
     <script>
         window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
+        function gtag() { dataLayer.push(arguments); }
         gtag('js', new Date());
         gtag('config', 'G-XSH19K5LBZ');
     </script>
@@ -68,8 +73,16 @@
             --ease: cubic-bezier(0.22, 1, 0.36, 1);
         }
 
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        html { scroll-behavior: smooth; }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
         body {
             font-family: 'Heebo', -apple-system, system-ui, sans-serif;
             font-size: 16px;
@@ -78,11 +91,30 @@
             background: var(--bg);
             -webkit-font-smoothing: antialiased;
         }
-        a { color: inherit; text-decoration: none; }
-        img { max-width: 100%; display: block; }
-        button { font: inherit; cursor: pointer; border: none; background: none; color: inherit; }
 
-        :focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; border-radius: 4px; }
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        img {
+            max-width: 100%;
+            display: block;
+        }
+
+        button {
+            font: inherit;
+            cursor: pointer;
+            border: none;
+            background: none;
+            color: inherit;
+        }
+
+        :focus-visible {
+            outline: 2px solid var(--accent);
+            outline-offset: 3px;
+            border-radius: 4px;
+        }
 
         .container {
             max-width: 1240px;
@@ -99,6 +131,7 @@
             z-index: 50;
             backdrop-filter: blur(8px);
         }
+
         .site-header-inner {
             display: flex;
             align-items: center;
@@ -107,6 +140,7 @@
             max-width: 1240px;
             margin: 0 auto;
         }
+
         .brand {
             display: flex;
             align-items: center;
@@ -114,8 +148,10 @@
             font-weight: 700;
             font-size: 15px;
         }
+
         .brand-mark {
-            width: 36px; height: 36px;
+            width: 36px;
+            height: 36px;
             border-radius: 10px;
             background: linear-gradient(135deg, var(--ink) 0%, var(--accent-deep) 100%);
             color: white;
@@ -126,8 +162,15 @@
             font-size: 14px;
             letter-spacing: -0.02em;
         }
-        .brand-name { color: var(--ink); }
-        .brand-name span { color: var(--ink-muted); font-weight: 500; }
+
+        .brand-name {
+            color: var(--ink);
+        }
+
+        .brand-name span {
+            color: var(--ink-muted);
+            font-weight: 500;
+        }
 
         .header-cta {
             font-size: 14px;
@@ -141,6 +184,7 @@
             border: 1px solid var(--border);
             transition: all 0.2s var(--ease);
         }
+
         .header-cta:hover {
             border-color: var(--accent);
             color: var(--accent-deep);
@@ -156,6 +200,7 @@
             padding-bottom: 22px;
             border-bottom: 1px solid var(--border);
         }
+
         .hero-avatar {
             width: 76px;
             height: 76px;
@@ -165,22 +210,26 @@
             box-shadow: 0 0 0 1px var(--border), var(--shadow-sm);
             flex-shrink: 0;
         }
+
         .hero-about-text {
             display: flex;
             flex-direction: column;
             gap: 2px;
         }
+
         .hero-about-name {
             font-size: 1.05rem;
             font-weight: 700;
             color: var(--ink);
             line-height: 1.2;
         }
+
         .hero-about-role {
             font-size: 0.88rem;
             color: var(--ink-soft);
             line-height: 1.4;
         }
+
         .hero-tagline {
             font-size: 1.02rem;
             color: var(--ink-soft);
@@ -192,6 +241,7 @@
         .hero {
             padding: 56px 0 48px;
         }
+
         .hero h1 {
             font-size: clamp(1.8rem, 4vw, 2.6rem);
             font-weight: 800;
@@ -199,6 +249,7 @@
             margin-bottom: 14px;
             line-height: 1.2;
         }
+
         .hero h1 em {
             font-style: normal;
             background: linear-gradient(120deg, var(--accent), var(--accent-deep));
@@ -206,12 +257,14 @@
             background-clip: text;
             -webkit-text-fill-color: transparent;
         }
+
         .hero p {
             font-size: 1.05rem;
             color: var(--ink-soft);
             max-width: 640px;
             margin-bottom: 28px;
         }
+
         .hero-stats {
             display: flex;
             gap: 32px;
@@ -219,6 +272,7 @@
             padding-top: 24px;
             border-top: 1px solid var(--border);
         }
+
         .stat .num {
             font-size: 1.8rem;
             font-weight: 800;
@@ -226,6 +280,7 @@
             letter-spacing: -0.02em;
             line-height: 1;
         }
+
         .stat .label {
             font-size: 0.85rem;
             color: var(--ink-muted);
@@ -242,6 +297,7 @@
             border-bottom: 1px solid var(--border);
             margin-bottom: 28px;
         }
+
         .filters {
             display: flex;
             gap: 8px;
@@ -249,7 +305,11 @@
             overflow-x: auto;
             scrollbar-width: none;
         }
-        .filters::-webkit-scrollbar { display: none; }
+
+        .filters::-webkit-scrollbar {
+            display: none;
+        }
+
         .chip {
             padding: 8px 16px;
             border: 1px solid var(--border);
@@ -265,20 +325,24 @@
             gap: 8px;
             flex-shrink: 0;
         }
+
         .chip:hover {
             border-color: var(--border-strong);
             color: var(--ink);
         }
+
         .chip.active {
             background: var(--ink);
             color: white;
             border-color: var(--ink);
         }
+
         .chip .count {
             font-size: 0.78rem;
             opacity: 0.7;
             font-weight: 500;
         }
+
         .chip.active .count {
             opacity: 0.85;
         }
@@ -287,11 +351,13 @@
         .gallery {
             padding-bottom: 80px;
         }
+
         .grid {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
             gap: 22px;
         }
+
         .card {
             background: var(--surface);
             border: 1px solid var(--border);
@@ -302,33 +368,42 @@
             flex-direction: column;
             position: relative;
         }
+
         .card:hover {
             transform: translateY(-4px);
             border-color: var(--border-strong);
             box-shadow: var(--shadow);
         }
-        .card.hidden { display: none; }
+
+        .card.hidden {
+            display: none;
+        }
+
         .card a.card-link {
             display: flex;
             flex-direction: column;
             height: 100%;
             color: inherit;
         }
+
         .card-thumb {
             aspect-ratio: 16 / 10;
             overflow: hidden;
             background: linear-gradient(135deg, #f5f5f4 0%, #e7e5e4 100%);
             position: relative;
         }
+
         .card-thumb img {
             width: 100%;
             height: 100%;
             object-fit: cover;
             transition: transform 0.4s var(--ease);
         }
+
         .card:hover .card-thumb img {
             transform: scale(1.04);
         }
+
         .card-thumb-fallback {
             width: 100%;
             height: 100%;
@@ -340,6 +415,7 @@
             background-size: cover;
             background-position: center;
         }
+
         .card-tag {
             position: absolute;
             top: 12px;
@@ -351,11 +427,12 @@
             font-size: 11px;
             font-weight: 700;
             backdrop-filter: blur(6px);
-            border: 1px solid rgba(0,0,0,0.04);
+            border: 1px solid rgba(0, 0, 0, 0.04);
             display: inline-flex;
             align-items: center;
             gap: 4px;
         }
+
         .card-body {
             padding: 18px 20px 20px;
             flex: 1;
@@ -363,6 +440,7 @@
             flex-direction: column;
             gap: 6px;
         }
+
         .card-body h3 {
             font-size: 1.02rem;
             font-weight: 700;
@@ -374,6 +452,7 @@
             -webkit-box-orient: vertical;
             overflow: hidden;
         }
+
         .card-body p {
             font-size: 0.88rem;
             color: var(--ink-soft);
@@ -385,6 +464,7 @@
             overflow: hidden;
             flex: 1;
         }
+
         .card-meta {
             display: flex;
             justify-content: space-between;
@@ -395,10 +475,12 @@
             font-size: 0.78rem;
             color: var(--ink-muted);
         }
+
         .external-icon {
             color: var(--ink-muted);
             transition: color 0.2s var(--ease), transform 0.2s var(--ease);
         }
+
         .card:hover .external-icon {
             color: var(--accent-deep);
             transform: translate(-2px, -2px);
@@ -419,6 +501,7 @@
             padding: 64px 0;
             text-align: center;
         }
+
         .contact h2 {
             font-size: clamp(1.4rem, 3vw, 1.9rem);
             font-weight: 800;
@@ -426,6 +509,7 @@
             margin-bottom: 10px;
             color: var(--ink);
         }
+
         .contact .eyebrow {
             display: inline-block;
             font-size: 0.78rem;
@@ -438,6 +522,7 @@
             border-radius: 999px;
             border: 1px solid var(--border);
         }
+
         .contact p.lead {
             font-size: 1rem;
             color: var(--ink-soft);
@@ -445,12 +530,14 @@
             margin: 0 auto 28px;
             line-height: 1.6;
         }
+
         .contact-buttons {
             display: flex;
             gap: 12px;
             justify-content: center;
             flex-wrap: wrap;
         }
+
         .contact-btn {
             display: inline-flex;
             align-items: center;
@@ -462,34 +549,41 @@
             transition: all 0.2s var(--ease);
             border: 1px solid transparent;
         }
+
         .contact-btn svg {
             width: 18px;
             height: 18px;
         }
+
         .contact-btn-wa {
             background: var(--whatsapp);
             color: white;
             box-shadow: 0 4px 14px rgba(37, 211, 102, 0.3);
         }
+
         .contact-btn-wa:hover {
             background: var(--whatsapp-deep);
             transform: translateY(-2px);
             box-shadow: 0 8px 22px rgba(37, 211, 102, 0.4);
         }
+
         .contact-btn-mail {
             background: var(--ink);
             color: white;
         }
+
         .contact-btn-mail:hover {
             background: #2d3142;
             transform: translateY(-2px);
             box-shadow: var(--shadow);
         }
+
         .contact-btn-site {
             background: var(--surface);
             color: var(--accent-deep);
             border-color: var(--accent);
         }
+
         .contact-btn-site:hover {
             background: var(--accent-soft);
             transform: translateY(-2px);
@@ -512,15 +606,18 @@
             transition: transform 0.3s var(--ease), box-shadow 0.3s var(--ease);
             color: white;
         }
+
         .whatsapp-float:hover {
             transform: scale(1.1);
             box-shadow: 0 6px 28px rgba(37, 211, 102, 0.55);
         }
+
         .whatsapp-float svg {
             width: 32px;
             height: 32px;
             fill: white;
         }
+
         .whatsapp-float::after {
             content: '';
             position: absolute;
@@ -531,14 +628,30 @@
             animation: waPulse 2.4s ease-out infinite;
             pointer-events: none;
         }
+
         @keyframes waPulse {
-            0% { transform: scale(0.85); opacity: 0.7; }
-            70% { transform: scale(1.4); opacity: 0; }
-            100% { transform: scale(1.4); opacity: 0; }
+            0% {
+                transform: scale(0.85);
+                opacity: 0.7;
+            }
+
+            70% {
+                transform: scale(1.4);
+                opacity: 0;
+            }
+
+            100% {
+                transform: scale(1.4);
+                opacity: 0;
+            }
         }
 
         @media print {
-            .whatsapp-float, .contact { display: none !important; }
+
+            .whatsapp-float,
+            .contact {
+                display: none !important;
+            }
         }
 
         /* ===== Footer ===== */
@@ -550,11 +663,15 @@
             font-size: 0.88rem;
             color: var(--ink-muted);
         }
+
         footer a {
             color: var(--accent-deep);
             font-weight: 600;
         }
-        footer a:hover { text-decoration: underline; }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
 
         /* ===== Reveal ===== */
         .card {
@@ -562,437 +679,543 @@
             transform: translateY(8px);
             animation: cardIn 0.4s var(--ease) forwards;
         }
+
         @keyframes cardIn {
-            to { opacity: 1; transform: translateY(0); }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
 
         /* Responsive */
         @media (max-width: 600px) {
-            .hero { padding: 40px 0 32px; }
-            .hero h1 { font-size: 1.7rem; }
-            .hero-stats { gap: 24px; }
-            .stat .num { font-size: 1.4rem; }
-            .grid { grid-template-columns: 1fr; gap: 16px; }
-            .filters { padding: 12px 0; }
-            .header-cta { padding: 6px 10px; font-size: 13px; }
-            .hero-avatar { width: 60px; height: 60px; }
-            .hero-about { gap: 12px; margin-bottom: 22px; padding-bottom: 18px; }
-            .hero-about-name { font-size: 0.98rem; }
-            .hero-about-role { font-size: 0.82rem; }
-            .hero-tagline { font-size: 0.95rem; }
-            .contact { padding: 48px 0; }
-            .contact-buttons { flex-direction: column; align-items: stretch; max-width: 320px; margin: 0 auto; }
-            .contact-btn { justify-content: center; padding: 14px 22px; }
-            .whatsapp-float { width: 52px; height: 52px; bottom: 18px; left: 18px; }
-            .whatsapp-float svg { width: 28px; height: 28px; }
+            .hero {
+                padding: 40px 0 32px;
+            }
+
+            .hero h1 {
+                font-size: 1.7rem;
+            }
+
+            .hero-stats {
+                gap: 24px;
+            }
+
+            .stat .num {
+                font-size: 1.4rem;
+            }
+
+            .grid {
+                grid-template-columns: 1fr;
+                gap: 16px;
+            }
+
+            .filters {
+                padding: 12px 0;
+            }
+
+            .header-cta {
+                padding: 6px 10px;
+                font-size: 13px;
+            }
+
+            .hero-avatar {
+                width: 60px;
+                height: 60px;
+            }
+
+            .hero-about {
+                gap: 12px;
+                margin-bottom: 22px;
+                padding-bottom: 18px;
+            }
+
+            .hero-about-name {
+                font-size: 0.98rem;
+            }
+
+            .hero-about-role {
+                font-size: 0.82rem;
+            }
+
+            .hero-tagline {
+                font-size: 0.95rem;
+            }
+
+            .contact {
+                padding: 48px 0;
+            }
+
+            .contact-buttons {
+                flex-direction: column;
+                align-items: stretch;
+                max-width: 320px;
+                margin: 0 auto;
+            }
+
+            .contact-btn {
+                justify-content: center;
+                padding: 14px 22px;
+            }
+
+            .whatsapp-float {
+                width: 52px;
+                height: 52px;
+                bottom: 18px;
+                left: 18px;
+            }
+
+            .whatsapp-float svg {
+                width: 28px;
+                height: 28px;
+            }
         }
+
         @media (prefers-reduced-motion: reduce) {
-            *, *::before, *::after {
+
+            *,
+            *::before,
+            *::after {
                 animation-duration: 0.01ms !important;
                 transition-duration: 0.01ms !important;
             }
         }
     </style>
 </head>
+
 <body>
 
-<header class="site-header">
-    <div class="site-header-inner">
-        <a href="/" class="brand">
-            <div class="brand-mark">SB</div>
-            <div class="brand-name">שגיא בר און <span>· AI לארגונים</span></div>
-        </a>
-        <a href="https://sagiai.co.il/" target="_blank" rel="noopener" class="header-cta">
-            לאתר הראשי <span style="font-size:14px;">←</span>
-        </a>
-    </div>
-</header>
+    <header class="site-header">
+        <div class="site-header-inner">
+            <a href="/" class="brand">
+                <div class="brand-mark">SB</div>
+                <div class="brand-name">שגיא בר און <span>· AI לארגונים</span></div>
+            </a>
+            <a href="https://sagiai.co.il/" target="_blank" rel="noopener" class="header-cta">
+                לאתר הראשי <span style="font-size:14px;">←</span>
+            </a>
+        </div>
+    </header>
 
-<section class="hero">
-    <div class="container">
-        <div class="hero-about">
-            <img src="sagi.webp" alt="שגיא בר־און" class="hero-avatar" loading="eager">
-            <div class="hero-about-text">
-                <span class="hero-about-name">שגיא בר־און</span>
-                <span class="hero-about-role">יועץ AI לארגונים · מרצה · יוצר</span>
+    <section class="hero">
+        <div class="container">
+            <div class="hero-about">
+                <img src="sagi.webp" alt="שגיא בר־און" class="hero-avatar" loading="eager">
+                <div class="hero-about-text">
+                    <span class="hero-about-name">שגיא בר־און</span>
+                    <span class="hero-about-role">יועץ AI לארגונים · מרצה · יוצר</span>
+                </div>
+            </div>
+            <h1>כל העבודות שלי בעולם ה־<em>AI</em><br>במקום אחד.</h1>
+            <p class="hero-tagline">אני בונה דפי נחיתה, סדנאות וכלים אינטראקטיביים שעוזרים לארגונים להבין ולאמץ AI.</p>
+            <p>דפי נחיתה, סדנאות לארגונים, משחקים אינטראקטיביים, סימולציות אסטרטגיות וקמפיינים - כל מה שיצרתי בשנים
+                האחרונות עם בינה מלאכותית, פתוח לעיון.</p>
+            <div class="hero-stats" id="heroStats">
+                <div class="stat">
+                    <div class="num" id="statTotal">0</div>
+                    <div class="label">פרויקטים</div>
+                </div>
+                <div class="stat">
+                    <div class="num">4</div>
+                    <div class="label">קטגוריות</div>
+                </div>
+                <div class="stat">
+                    <div class="num">15+</div>
+                    <div class="label">לקוחות</div>
+                </div>
             </div>
         </div>
-        <h1>כל העבודות שלי בעולם ה־<em>AI</em><br>במקום אחד.</h1>
-        <p class="hero-tagline">אני בונה דפי נחיתה, סדנאות וכלים אינטראקטיביים שעוזרים לארגונים להבין ולאמץ AI.</p>
-        <p>דפי נחיתה, סדנאות לארגונים, משחקים אינטראקטיביים, סימולציות אסטרטגיות וקמפיינים — כל מה שיצרתי בשנים האחרונות עם בינה מלאכותית, פתוח לעיון.</p>
-        <div class="hero-stats" id="heroStats">
-            <div class="stat"><div class="num" id="statTotal">0</div><div class="label">פרויקטים</div></div>
-            <div class="stat"><div class="num">4</div><div class="label">קטגוריות</div></div>
-            <div class="stat"><div class="num">15+</div><div class="label">לקוחות</div></div>
+    </section>
+
+    <div class="filters-wrap">
+        <div class="container">
+            <div class="filters" id="filters" role="tablist" aria-label="סינון פרויקטים"></div>
         </div>
     </div>
-</section>
 
-<div class="filters-wrap">
-    <div class="container">
-        <div class="filters" id="filters" role="tablist" aria-label="סינון פרויקטים"></div>
-    </div>
-</div>
-
-<section class="gallery">
-    <div class="container">
-        <div class="grid" id="grid"></div>
-    </div>
-</section>
-
-<section class="contact" id="contact">
-    <div class="container">
-        <span class="eyebrow">✉ יצירת קשר</span>
-        <h2>יש פרויקט בראש? בוא נדבר</h2>
-        <p class="lead">אני זמין לייעוץ, סדנאות ופיתוח מותאם — שלחו הודעה ונקבע שיחה.</p>
-        <div class="contact-buttons">
-            <a href="https://wa.me/972549995050?text=%D7%94%D7%99%D7%99%20%D7%A9%D7%92%D7%99%D7%90%2C%20%D7%A8%D7%90%D7%99%D7%AA%D7%99%20%D7%90%D7%AA%20%D7%AA%D7%99%D7%A7%20%D7%94%D7%A2%D7%91%D7%95%D7%93%D7%95%D7%AA%20%D7%91%D7%90%D7%AA%D7%A8%20%D7%A9%D7%9C%D7%9A%20%D7%95%D7%90%D7%A9%D7%9E%D7%97%20%D7%9C%D7%93%D7%91%D7%A8%20%D7%A2%D7%9C..." target="_blank" rel="noopener" class="contact-btn contact-btn-wa">
-                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347zM12.05 21.785A9.737 9.737 0 0 1 7.1 20.45l-.353-.21-3.667.962.98-3.575-.232-.366a9.715 9.715 0 0 1-1.49-5.18c.002-5.373 4.378-9.748 9.752-9.748 2.604 0 5.052 1.014 6.892 2.857a9.683 9.683 0 0 1 2.852 6.892c-.002 5.373-4.378 9.749-9.762 9.749h-.012zM20.52 3.449C18.244 1.255 15.241.06 12.045.06 5.463.06.103 5.42.101 12.005c0 2.105.549 4.16 1.595 5.972L0 24l6.163-1.617a11.94 11.94 0 0 0 5.71 1.454h.006c6.585 0 11.946-5.36 11.949-11.946 0-3.196-1.24-6.198-3.495-8.453z"/></svg>
-                WhatsApp
-            </a>
-            <a href="mailto:sagi.baron76@gmail.com?subject=%D7%99%D7%A6%D7%99%D7%A8%D7%AA%20%D7%A7%D7%A9%D7%A8%20%D7%9E%D7%AA%D7%99%D7%A7%20%D7%94%D7%A2%D7%91%D7%95%D7%93%D7%95%D7%AA" class="contact-btn contact-btn-mail">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg>
-                Email
-            </a>
-            <a href="https://sagiai.co.il/" target="_blank" rel="noopener" class="contact-btn contact-btn-site">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a14 14 0 0 1 0 18M12 3a14 14 0 0 0 0 18"/></svg>
-                לאתר הראשי
-            </a>
+    <section class="gallery">
+        <div class="container">
+            <div class="grid" id="grid"></div>
         </div>
-    </div>
-</section>
+    </section>
 
-<footer>
-    <div class="container">
-        נוצר על ידי <a href="https://sagiai.co.il/" target="_blank" rel="noopener">שגיא בר און</a> · 2026
-    </div>
-</footer>
+    <section class="contact" id="contact">
+        <div class="container">
+            <span class="eyebrow">✉ יצירת קשר</span>
+            <h2>יש פרויקט בראש? בוא נדבר</h2>
+            <p class="lead">אני זמין לייעוץ, סדנאות ופיתוח מותאם - שלחו הודעה ונקבע שיחה.</p>
+            <div class="contact-buttons">
+                <a href="https://wa.me/972549995050?text=%D7%94%D7%99%D7%99%20%D7%A9%D7%92%D7%99%D7%90%2C%20%D7%A8%D7%90%D7%99%D7%AA%D7%99%20%D7%90%D7%AA%20%D7%AA%D7%99%D7%A7%20%D7%94%D7%A2%D7%91%D7%95%D7%93%D7%95%D7%AA%20%D7%91%D7%90%D7%AA%D7%A8%20%D7%A9%D7%9C%D7%9A%20%D7%95%D7%90%D7%A9%D7%9E%D7%97%20%D7%9C%D7%93%D7%91%D7%A8%20%D7%A2%D7%9C..."
+                    target="_blank" rel="noopener" class="contact-btn contact-btn-wa">
+                    <svg viewBox="0 0 24 24" fill="currentColor">
+                        <path
+                            d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347zM12.05 21.785A9.737 9.737 0 0 1 7.1 20.45l-.353-.21-3.667.962.98-3.575-.232-.366a9.715 9.715 0 0 1-1.49-5.18c.002-5.373 4.378-9.748 9.752-9.748 2.604 0 5.052 1.014 6.892 2.857a9.683 9.683 0 0 1 2.852 6.892c-.002 5.373-4.378 9.749-9.762 9.749h-.012zM20.52 3.449C18.244 1.255 15.241.06 12.045.06 5.463.06.103 5.42.101 12.005c0 2.105.549 4.16 1.595 5.972L0 24l6.163-1.617a11.94 11.94 0 0 0 5.71 1.454h.006c6.585 0 11.946-5.36 11.949-11.946 0-3.196-1.24-6.198-3.495-8.453z" />
+                    </svg>
+                    WhatsApp
+                </a>
+                <a href="mailto:sagi.baron76@gmail.com?subject=%D7%99%D7%A6%D7%99%D7%A8%D7%AA%20%D7%A7%D7%A9%D7%A8%20%D7%9E%D7%AA%D7%99%D7%A7%20%D7%94%D7%A2%D7%91%D7%95%D7%93%D7%95%D7%AA"
+                    class="contact-btn contact-btn-mail">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <rect x="3" y="5" width="18" height="14" rx="2" />
+                        <path d="m3 7 9 6 9-6" />
+                    </svg>
+                    Email
+                </a>
+                <a href="https://sagiai.co.il/" target="_blank" rel="noopener" class="contact-btn contact-btn-site">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="9" />
+                        <path d="M3 12h18M12 3a14 14 0 0 1 0 18M12 3a14 14 0 0 0 0 18" />
+                    </svg>
+                    לאתר הראשי
+                </a>
+            </div>
+        </div>
+    </section>
 
-<a href="https://wa.me/972549995050?text=%D7%94%D7%99%D7%99%20%D7%A9%D7%92%D7%99%D7%90%2C%20%D7%A8%D7%90%D7%99%D7%AA%D7%99%20%D7%90%D7%AA%20%D7%AA%D7%99%D7%A7%20%D7%94%D7%A2%D7%91%D7%95%D7%93%D7%95%D7%AA%20%D7%91%D7%90%D7%AA%D7%A8%20%D7%A9%D7%9C%D7%9A%20%D7%95%D7%90%D7%A9%D7%9E%D7%97%20%D7%9C%D7%93%D7%91%D7%A8%20%D7%A2%D7%9C..." target="_blank" rel="noopener" class="whatsapp-float" aria-label="שלחו הודעה בוואטסאפ">
-    <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347zM12.05 21.785A9.737 9.737 0 0 1 7.1 20.45l-.353-.21-3.667.962.98-3.575-.232-.366a9.715 9.715 0 0 1-1.49-5.18c.002-5.373 4.378-9.748 9.752-9.748 2.604 0 5.052 1.014 6.892 2.857a9.683 9.683 0 0 1 2.852 6.892c-.002 5.373-4.378 9.749-9.762 9.749h-.012zM20.52 3.449C18.244 1.255 15.241.06 12.045.06 5.463.06.103 5.42.101 12.005c0 2.105.549 4.16 1.595 5.972L0 24l6.163-1.617a11.94 11.94 0 0 0 5.71 1.454h.006c6.585 0 11.946-5.36 11.949-11.946 0-3.196-1.24-6.198-3.495-8.453z"/></svg>
-</a>
+    <footer>
+        <div class="container">
+            נוצר על ידי <a href="https://sagiai.co.il/" target="_blank" rel="noopener">שגיא בר און</a> · 2026
+        </div>
+    </footer>
 
-<script>
-const CATEGORIES = {
-    all:       { label: 'הכל',                   icon: '✨', color: '#1a1d2e' },
-    landing:   { label: 'דפי נחיתה',             icon: '📄', color: '#7c3aed' },
-    games:     { label: 'משחקים & סימולציות',    icon: '🎮', color: '#0ea5e9' },
-    workshops: { label: 'סדנאות & הרצאות',       icon: '🎓', color: '#0d9488' },
-    campaigns: { label: 'קמפיינים & פרומפטים',   icon: '📣', color: '#ea580c' },
-};
+    <a href="https://wa.me/972549995050?text=%D7%94%D7%99%D7%99%20%D7%A9%D7%92%D7%99%D7%90%2C%20%D7%A8%D7%90%D7%99%D7%AA%D7%99%20%D7%90%D7%AA%20%D7%AA%D7%99%D7%A7%20%D7%94%D7%A2%D7%91%D7%95%D7%93%D7%95%D7%AA%20%D7%91%D7%90%D7%AA%D7%A8%20%D7%A9%D7%9C%D7%9A%20%D7%95%D7%90%D7%A9%D7%9E%D7%97%20%D7%9C%D7%93%D7%91%D7%A8%20%D7%A2%D7%9C..."
+        target="_blank" rel="noopener" class="whatsapp-float" aria-label="שלחו הודעה בוואטסאפ">
+        <svg viewBox="0 0 24 24">
+            <path
+                d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347zM12.05 21.785A9.737 9.737 0 0 1 7.1 20.45l-.353-.21-3.667.962.98-3.575-.232-.366a9.715 9.715 0 0 1-1.49-5.18c.002-5.373 4.378-9.748 9.752-9.748 2.604 0 5.052 1.014 6.892 2.857a9.683 9.683 0 0 1 2.852 6.892c-.002 5.373-4.378 9.749-9.762 9.749h-.012zM20.52 3.449C18.244 1.255 15.241.06 12.045.06 5.463.06.103 5.42.101 12.005c0 2.105.549 4.16 1.595 5.972L0 24l6.163-1.617a11.94 11.94 0 0 0 5.71 1.454h.006c6.585 0 11.946-5.36 11.949-11.946 0-3.196-1.24-6.198-3.495-8.453z" />
+        </svg>
+    </a>
 
-const PROJECTS = [
-    // ===== Landing Pages =====
-    {
-        title: 'איך הופכים דאטה מסובך לשיחה פשוטה?',
-        desc: 'הסבר חזותי לאיך עובדת מערכת סוכני AI שמאפשרת לשאול שאלות על הדאטה הארגוני בשפה טבעית — בלי SQL, בלי דשבורדים מסובכים.',
-        href: 'landing-pages/ai-agents/index.html',
-        img: 'landing-pages/ai-agents/images/carousel-03-architecture.webp',
-        category: 'landing'
-    },
-    {
-        title: 'כך יוצרים ספר ילדים אישי ומאויר עם AI',
-        desc: 'מדריך אינטראקטיבי שמראה איך הופכים רעיון, חג או זיכרון משפחתי לספר ילדים מאויר בעזרת Gemini Storybook ו־Canvas של Google.',
-        href: 'landing-pages/gemini-storybook/index.html',
-        img: 'landing-pages/gemini-storybook/images/Hero.webp',
-        category: 'landing'
-    },
-    {
-        title: 'HyperShot — שדרוג תמונות לאיכות סטודיו',
-        desc: 'הופכים כל תמונה לצילום מקצועי ברמת סטודיו עם פרומפט קולנועי חינמי ל־ChatGPT, Gemini ו־Arena.',
-        href: 'landing-pages/hypershot/index.html',
-        img: 'landing-pages/hypershot/before-after-images/image1_after.webp',
-        category: 'landing'
-    },
-    {
-        title: 'פרומפטים ויראליים לתוכן חינוכי',
-        desc: 'אוסף פרומפטים מדויקים ליצירת אינפוגרפיקות מדעיות בסגנון אנציקלופדיה וינטג\' — עם GPT Image, Gemini Nano Banana ו־Grok.',
-        href: 'landing-pages/viral-educational-prompts/index.html',
-        img: 'landing-pages/viral-educational-prompts/images/master-chatgpt.webp',
-        category: 'landing'
-    },
-    {
-        title: 'הפכו את המומחיות שלכם למוצר דיגיטלי חכם',
-        desc: 'פיתוח מערכות AI מותאמות אישית — בוטים חכמים ודפי נחיתה שעובדים בשבילכם 24/7.',
-        href: 'landing-pages/Expertise2Bot-Landing.html',
-        img: 'landing-pages/Expertise2Bot-Landing-thumb.webp',
-        category: 'landing'
-    },
-    {
-        title: 'Organic Butternut — הפתרון לריח רע מהפה',
-        desc: 'דף נחיתה לפרוביוטיקה טבעית שמטפלת בשורש הבעיה — מהקיבה, לא מהפה.',
-        href: 'landing-pages/fresh-breath-root/index.html',
-        img: 'landing-pages/fresh-breath-root/images/hero-main.webp',
-        category: 'landing'
-    },
-    {
-        title: 'מזיכרון לתקומה',
-        desc: 'מחווה לערב יום העצמאות — סיפור של תקומה שנבנה מתמונה אחת בלבד בעזרת AI. התהליך המלא, עם כל הפרומפטים, התמונות והסרטונים.',
-        href: 'landing-pages/from-darkness-to-revival/index.html',
-        img: 'landing-pages/from-darkness-to-revival/images/image1.webp',
-        category: 'landing'
-    },
-    {
-        title: 'מפגש נשי מעצים ומאיר — ד"ר איריס בר און',
-        desc: 'דף נחיתה לאירוע נשים — איך לדייק את חייך. ידע על תהליכים רגשיים ופיזיים, כלים מעשיים ואווירה מחבקת.',
-        href: 'landing-pages/iris-baron/feminine-empowering.html',
-        img: 'landing-pages/iris-baron/iris.jpg',
-        category: 'landing'
-    },
-    {
-        title: 'בונים לכם דף נחיתה שמוכר באמת',
-        desc: 'ענו על כמה שאלות קצרות — ואני אבנה לכם דף נחיתה שמוכר. תהליך קצר, ברור ומותאם אישית.',
-        href: 'landing-pages/yourpage/index.html',
-        img: 'landing-pages/yourpage/images/expertise2bot.jpg',
-        category: 'landing'
-    },
-    {
-        title: 'להבין את הבינה תכל\'ס — AI בגובה העיניים',
-        desc: 'דף נחיתה להרצאות וסדנאות AI לארגונים — איך להבין בינה מלאכותית בלי להתפס על המונחים הטכניים.',
-        href: 'To_understand_the_AI.html',
-        img: 'sagi.webp',
-        category: 'landing'
-    },
-    {
-        title: 'להיות יוצר בעולם של AI',
-        desc: 'מניפסט קצר על מה זה אומר ליצור בעידן הבינה המלאכותית — ואיך להישאר רלוונטי כשהכלים משתנים יום־יום.',
-        href: 'To_be_a_creator.html',
-        img: 'sagi.webp',
-        category: 'landing'
-    },
-    {
-        title: '10 טיפים לזוגיות במילואים — ד״ר איריס בר־און',
-        desc: 'דף נחיתה רגשי לחיילי מילואים — 10 טיפים קטנים מד״ר איריס בר־און שיעזרו לשמור על קרבה, געגוע וחום בבית גם מרחוק.',
-        href: 'IDF/lagbaOmer/index.html',
-        img: 'IDF/lagbaOmer/images/hero-collage.webp',
-        category: 'landing'
-    },
-    {
-        title: 'Shavuot Moments — גלויה מרגשת תוך דקה',
-        desc: 'דף נחיתה אינטראקטיבי לחג שבועות: מעלים תמונה, מדביקים פרומפט, ומקבלים גלויה מרגשת עם ChatGPT או Gemini. כולל סליידר לפני/אחרי ושם משפחה דינמי.',
-        href: 'IDF/ShavuotMoments/699/index.html',
-        img: 'IDF/ShavuotMoments/699/images/after1.webp',
-        category: 'landing'
-    },
+    <script>
+        const CATEGORIES = {
+            all: { label: 'הכל', icon: '✨', color: '#1a1d2e' },
+            landing: { label: 'דפי נחיתה', icon: '📄', color: '#7c3aed' },
+            games: { label: 'משחקים & סימולציות', icon: '🎮', color: '#0ea5e9' },
+            workshops: { label: 'סדנאות & הרצאות', icon: '🎓', color: '#0d9488' },
+            campaigns: { label: 'קמפיינים & פרומפטים', icon: '📣', color: '#ea580c' },
+        };
 
-    // ===== Games & Interactive =====
-    {
-        title: 'ארנב שלי — עולם הארנבים הננסיים',
-        desc: 'אתר אינטראקטיבי על ארנבים — עובדות, סרטונים, ואפשר אפילו להפוך את עצמכם לארנב עם AI.',
-        href: 'games/my-rabbit/index.html',
-        img: 'games/my-rabbit/images/image1_after.webp',
-        category: 'games'
-    },
-    {
-        title: 'HyperShot — לפני / אחרי',
-        desc: 'משחק אינטראקטיבי לפני־ואחרי שמראה את העוצמה של פרומפט אחד טוב לשדרוג תמונות.',
-        href: 'games/hypershot/index.html',
-        img: 'landing-pages/hypershot/before-after-images/image2_after.webp',
-        category: 'games'
-    },
-    {
-        title: 'משחק קהוט — ניהול מבוסס נתונים',
-        desc: 'משחק חוויתי בסגנון Kahoot לקורס ניהול מבוסס נתונים. שאלות, ניקוד וטיימר.',
-        href: 'games/data-driven-management-kahot-game.html',
-        img: 'games/data-driven-thumb.webp',
-        category: 'games'
-    },
-    {
-        title: 'משחק קהוט — אסטרטגיה עסקית גלובלית בעידן AI',
-        desc: 'משחק חוויתי לקורס אסטרטגיה עסקית בעידן הבינה המלאכותית והביג־דאטה. מתאים לשיעור פרונטלי או למידה היברידית.',
-        href: 'games/global-business-strategy-in-the-age-of-ai-and-big-data.html',
-        img: 'games/global-business-strategy.webp',
-        category: 'games'
-    },
-    {
-        title: 'סימולציה אסטרטגית — יועץ AI',
-        desc: 'סימולציה אסטרטגית עם שגיא בר און. למדו כיצד לשלב בינה מלאכותית עם שיקול דעת אנושי לקבלת החלטות עסקיות חכמות.',
-        href: 'ai-strategy-simulation.html',
-        img: 'ai-strategy-simulation.webp',
-        category: 'games'
-    },
+        const PROJECTS = [
+            // ===== Landing Pages =====
+            {
+                title: 'איך הופכים דאטה מסובך לשיחה פשוטה?',
+                desc: 'הסבר חזותי לאיך עובדת מערכת סוכני AI שמאפשרת לשאול שאלות על הדאטה הארגוני בשפה טבעית - בלי SQL, בלי דשבורדים מסובכים.',
+                href: 'landing-pages/ai-agents/index.html',
+                img: 'landing-pages/ai-agents/images/carousel-03-architecture.webp',
+                category: 'landing'
+            },
+            {
+                title: 'כך יוצרים ספר ילדים אישי ומאויר עם AI',
+                desc: 'מדריך אינטראקטיבי שמראה איך הופכים רעיון, חג או זיכרון משפחתי לספר ילדים מאויר בעזרת Gemini Storybook ו־Canvas של Google.',
+                href: 'landing-pages/gemini-storybook/index.html',
+                img: 'landing-pages/gemini-storybook/images/Hero.webp',
+                category: 'landing'
+            },
+            {
+                title: 'HyperShot - שדרוג תמונות לאיכות סטודיו',
+                desc: 'הופכים כל תמונה לצילום מקצועי ברמת סטודיו עם פרומפט קולנועי חינמי ל־ChatGPT, Gemini ו־Arena.',
+                href: 'landing-pages/hypershot/index.html',
+                img: 'landing-pages/hypershot/before-after-images/image1_after.webp',
+                category: 'landing'
+            },
+            {
+                title: 'פרומפטים ויראליים לתוכן חינוכי',
+                desc: 'אוסף פרומפטים מדויקים ליצירת אינפוגרפיקות מדעיות בסגנון אנציקלופדיה וינטג\' - עם GPT Image, Gemini Nano Banana ו־Grok.',
+                href: 'landing-pages/viral-educational-prompts/index.html',
+                img: 'landing-pages/viral-educational-prompts/images/master-chatgpt.webp',
+                category: 'landing'
+            },
+            {
+                title: 'הפכו את המומחיות שלכם למוצר דיגיטלי חכם',
+                desc: 'פיתוח מערכות AI מותאמות אישית - בוטים חכמים ודפי נחיתה שעובדים בשבילכם 24/7.',
+                href: 'landing-pages/Expertise2Bot-Landing.html',
+                img: 'landing-pages/Expertise2Bot-Landing-thumb.webp',
+                category: 'landing'
+            },
+            {
+                title: 'Organic Butternut - הפתרון לריח רע מהפה',
+                desc: 'דף נחיתה לפרוביוטיקה טבעית שמטפלת בשורש הבעיה - מהקיבה, לא מהפה.',
+                href: 'landing-pages/fresh-breath-root/index.html',
+                img: 'landing-pages/fresh-breath-root/images/hero-main.webp',
+                category: 'landing'
+            },
+            {
+                title: 'מזיכרון לתקומה',
+                desc: 'מחווה לערב יום העצמאות - סיפור של תקומה שנבנה מתמונה אחת בלבד בעזרת AI. התהליך המלא, עם כל הפרומפטים, התמונות והסרטונים.',
+                href: 'landing-pages/from-darkness-to-revival/index.html',
+                img: 'landing-pages/from-darkness-to-revival/images/image1.webp',
+                category: 'landing'
+            },
+            {
+                title: 'מפגש נשי מעצים ומאיר - ד"ר איריס בר און',
+                desc: 'דף נחיתה לאירוע נשים - איך לדייק את חייך. ידע על תהליכים רגשיים ופיזיים, כלים מעשיים ואווירה מחבקת.',
+                href: 'landing-pages/iris-baron/feminine-empowering.html',
+                img: 'landing-pages/iris-baron/iris.jpg',
+                category: 'landing'
+            },
+            {
+                title: 'בונים לכם דף נחיתה שמוכר באמת',
+                desc: 'ענו על כמה שאלות קצרות - ואני אבנה לכם דף נחיתה שמוכר. תהליך קצר, ברור ומותאם אישית.',
+                href: 'landing-pages/yourpage/index.html',
+                img: 'landing-pages/yourpage/images/expertise2bot.jpg',
+                category: 'landing'
+            },
+            {
+                title: '100+ אתרים ללמוד כל מיומנות בחינם · 2026',
+                desc: 'מדריך מרוכז ל-100 פלטפורמות למידה חינמיות: קוד, AI, עסקים, עיצוב, שפות, פרודוקטיביות, כתיבה ועוד - עם חיפוש חי וקטגוריות מסוננות.',
+                href: 'landing-pages/free-learning-2026/index.html',
+                img: 'landing-pages/free-learning-2026/og-free-learning-2026.webp',
+                category: 'landing'
+            },
+            {
+                title: 'להבין את הבינה תכל\'ס - AI בגובה העיניים',
+                desc: 'דף נחיתה להרצאות וסדנאות AI לארגונים - איך להבין בינה מלאכותית בלי להתפס על המונחים הטכניים.',
+                href: 'To_understand_the_AI.html',
+                img: 'sagi.webp',
+                category: 'landing'
+            },
+            {
+                title: 'להיות יוצר בעולם של AI',
+                desc: 'מניפסט קצר על מה זה אומר ליצור בעידן הבינה המלאכותית - ואיך להישאר רלוונטי כשהכלים משתנים יום־יום.',
+                href: 'To_be_a_creator.html',
+                img: 'sagi.webp',
+                category: 'landing'
+            },
+            {
+                title: '10 טיפים לזוגיות במילואים - ד״ר איריס בר־און',
+                desc: 'דף נחיתה רגשי לחיילי מילואים - 10 טיפים קטנים מד״ר איריס בר־און שיעזרו לשמור על קרבה, געגוע וחום בבית גם מרחוק.',
+                href: 'IDF/lagbaOmer/index.html',
+                img: 'IDF/lagbaOmer/images/hero-collage.webp',
+                category: 'landing'
+            },
+            {
+                title: 'Shavuot Moments - גלויה מרגשת תוך דקה',
+                desc: 'דף נחיתה אינטראקטיבי לחג שבועות: מעלים תמונה, מדביקים פרומפט, ומקבלים גלויה מרגשת עם ChatGPT או Gemini. כולל סליידר לפני/אחרי ושם משפחה דינמי.',
+                href: 'IDF/ShavuotMoments/699/index.html',
+                img: 'IDF/ShavuotMoments/699/images/after1.webp',
+                category: 'landing'
+            },
 
-    // ===== Workshops & Talks =====
-    {
-        title: 'Gemini Sheets Lab — יום סדנה לארגונים',
-        desc: 'יום סדנה אצלכם בארגון: הצוות בונה סימולטור תגמול, דשבורד ופילטרים חכמים ב-Google Sheets עם Gemini — ללא קוד, ללא BI.',
-        href: 'Workshops/gemini-sheets-lab/index.html',
-        img: 'Workshops/gemini-sheets-lab/images/og-cover.webp',
-        category: 'workshops'
-    },
-    {
-        title: 'AI במונדיאל 2026 — הרצאת Keynote לארגון',
-        desc: 'הרצאה סוחפת של 45-60 דק׳ לארגונים על AI במונדיאל 2026: SAOT, פרשנות AI ב-100 שפות, הכדור המחובר, Deepfakes, ועוד. אקטואלית במיוחד לאירועים במהלך הטורניר (יוני-יולי 2026).',
-        href: 'landing-pages/ai-at-the-world-cup-2026/index.html',
-        img: 'landing-pages/ai-at-the-world-cup-2026/images/hero.webp',
-        category: 'workshops'
-    },
-    {
-        title: 'הנדסת פרומפטים לעולם העסקי',
-        desc: 'סיכום סדנה מעשית להנדסת פרומפטים — כלים, טכניקות ודוגמאות מעולם העבודה האמיתי.',
-        href: 'Workshops/Mastering-Prompt-Engineering.html',
-        img: 'Workshops/Mastering-Prompt-Engineering.webp',
-        category: 'workshops'
-    },
-    {
-        title: 'בינה מלאכותית למגזר הציבורי',
-        desc: 'סיכום סדנה מעשית — איך משתמשים ב־AI במשרדי ממשלה ובארגונים ציבוריים בצורה אחראית ויעילה.',
-        href: 'meeting-summary/ai-for-public-sector.html',
-        img: 'meeting-summary/ai-for-public-sector.webp',
-        category: 'workshops'
-    },
-    {
-        title: 'אוניברסיטת אריאל — להבין את הבינה תכל\'ס',
-        desc: 'סיכום הרצאה באוניברסיטת אריאל. AI בגובה העיניים, עם כלים מעשיים ודוגמאות שכל אחד יכול ליישם.',
-        href: 'meeting-summary/ariel-university.html',
-        img: 'meeting-summary/ariel-university.webp',
-        category: 'workshops'
-    },
-    {
-        title: 'המכללה האקדמית צפת — להבין את הבינה',
-        desc: 'סיכום הרצאה במכללה האקדמית צפת — היכרות עם AI, מתי להשתמש, ואיך לא ליפול במלכודות הנפוצות.',
-        href: 'meeting-summary/zefat-academic-college.html',
-        img: 'meeting-summary/zefat-academic-college.webp',
-        category: 'workshops'
-    },
-    {
-        title: 'אוניברסיטת רייכמן — מנהלי למידה ומשאבי אנוש',
-        desc: 'סיכום סדנה מעשית באוניברסיטת רייכמן עבור מנהלי הדרכה, ארגונים ומשאבי אנוש — כלי AI ליום־יום ארגוני.',
-        href: 'meeting-summary/reichman/workshop-for-learning-managers-organizations-and-human-resources.html',
-        img: 'meeting-summary/reichman/workshop-for-learning-managers.webp',
-        category: 'workshops'
-    },
-    {
-        title: 'משרד האנרגיה והתשתיות — סדנת AI',
-        desc: 'סיכום סדנה מעשית למשרד האנרגיה והתשתיות. שילוב בינה מלאכותית בעבודה היומיומית של משרד ממשלתי.',
-        href: 'meeting-summary/reichman/workshop-for-ministry_of_energy.html',
-        img: 'meeting-summary/reichman/workshop-for-ministry_of_energy.webp',
-        category: 'workshops'
-    },
-    {
-        title: 'משרד ראש הממשלה — סדנת AI',
-        desc: 'סיכום סדנה מעשית במשרד ראש הממשלה. מהמסגור על שמירת פרטיות ועד דמו VEO ביצירת סרטון "יום מלחמת הכוכבים 2026".',
-        href: 'meeting-summary/reichman/prime-ministers-office/',
-        img: 'meeting-summary/reichman/workshop-for-learning-managers.webp',
-        category: 'workshops'
-    },
-    {
-        title: 'איך הופכים לאלופים של Claude — מדריך מתחילים',
-        desc: 'מדריך פרקטי בעברית: מתי Chat, מתי Cowork, מתי Code · נוסחת ODAF לפרומפטים · הגדרת Custom Instructions · אוטומציות בזמן שאתם ישנים.',
-        href: 'landing-pages/How-to-Master-Claude/beginners/index.html',
-        img: 'landing-pages/How-to-Master-Claude/beginners/hero.webp',
-        category: 'workshops'
-    },
-    {
-        title: 'מוצר אמיתי. בלי צוות. בלי קוד.',
-        desc: 'וובינר מעשי — איך הופכים רעיון למוצר עובד בעזרת כלי AI, גם בלי ידע בתכנות. הדגמות חיות וכלים מעשיים.',
-        href: 'webinars/build-app-with-ai-webinar.html',
-        img: 'webinars/Webinars.png',
-        category: 'workshops'
-    },
-    {
-        title: 'מיצוי זכויות — חיילי המחוז',
-        desc: 'חמ״ל מיצוי זכויות לחיילי המחוז ומשפחותיהם. ייעוץ בנושאי מס, ביטוח לאומי, כלכלת בית ועוד.',
-        href: 'IDF/miztuy-zchuyot/webinar/index.html',
-        img: 'images/maganim-center.webp',
-        category: 'workshops'
-    },
-    {
-        title: 'יש פיל בחדר — PMI Israel 2026',
-        desc: 'סיכום הרצאת ה-Keynote ב-PMI Israel 30th Annual Conference. איך הסוכן The Sprint Architect הופך פגישת תכנון ספרינט לקובץ Jira/Monday מוכן לטעינה — תוך דקה. כולל את ההנחיות המלאות לסוכן.',
-        href: 'landing-pages/pmi-2026/index.html',
-        img: 'landing-pages/pmi-2026/images/og-cover.webp',
-        category: 'workshops'
-    },
+            // ===== Games & Interactive =====
+            {
+                title: 'ארנב שלי - עולם הארנבים הננסיים',
+                desc: 'אתר אינטראקטיבי על ארנבים - עובדות, סרטונים, ואפשר אפילו להפוך את עצמכם לארנב עם AI.',
+                href: 'games/my-rabbit/index.html',
+                img: 'games/my-rabbit/images/image1_after.webp',
+                category: 'games'
+            },
+            {
+                title: 'HyperShot - לפני / אחרי',
+                desc: 'משחק אינטראקטיבי לפני־ואחרי שמראה את העוצמה של פרומפט אחד טוב לשדרוג תמונות.',
+                href: 'games/hypershot/index.html',
+                img: 'landing-pages/hypershot/before-after-images/image2_after.webp',
+                category: 'games'
+            },
+            {
+                title: 'משחק קהוט - ניהול מבוסס נתונים',
+                desc: 'משחק חוויתי בסגנון Kahoot לקורס ניהול מבוסס נתונים. שאלות, ניקוד וטיימר.',
+                href: 'games/data-driven-management-kahot-game.html',
+                img: 'games/data-driven-thumb.webp',
+                category: 'games'
+            },
+            {
+                title: 'משחק קהוט - אסטרטגיה עסקית גלובלית בעידן AI',
+                desc: 'משחק חוויתי לקורס אסטרטגיה עסקית בעידן הבינה המלאכותית והביג־דאטה. מתאים לשיעור פרונטלי או למידה היברידית.',
+                href: 'games/global-business-strategy-in-the-age-of-ai-and-big-data.html',
+                img: 'games/global-business-strategy.webp',
+                category: 'games'
+            },
+            {
+                title: 'סימולציה אסטרטגית - יועץ AI',
+                desc: 'סימולציה אסטרטגית עם שגיא בר און. למדו כיצד לשלב בינה מלאכותית עם שיקול דעת אנושי לקבלת החלטות עסקיות חכמות.',
+                href: 'ai-strategy-simulation.html',
+                img: 'ai-strategy-simulation.webp',
+                category: 'games'
+            },
 
-    // ===== Campaigns & Prompts =====
-    {
-        title: 'פסקול שאגת הארי — הקדשות לחיילי מילואים',
-        desc: 'קמפיין חברתי — ממלאים טופס קצר, ואנחנו דואגים שהשיר וההקדשה יגיעו לבן/בת הזוג, לחייל/ת המילואים שלך.',
-        href: 'landing-pages/shaagat-hari-pesach.html',
-        img: 'images/shaagat-hari-logo.webp',
-        category: 'campaigns'
-    },
-    {
-        title: '40 הפרומפטים לפסח',
-        desc: 'אוסף של 40 פרומפטים מוכנים לחג הפסח — להכנת תוכן, איורים, סיפורי חג, סרטונים והפעלות לסדר.',
-        href: 'landing-pages/40-prompts-pesach-final.html',
-        img: 'images/Passover/image2_after.webp',
-        category: 'campaigns'
-    },
-    {
-        title: 'חירות דיגיטלית — 10 כלי AI כנגד עשר המכות',
-        desc: 'מתנת חג פסח — 10 כלי AI חינמיים שמשחררים אתכם מ"עבדות" הטכנולוגיה. אחד לכל מכה.',
-        href: 'landing-pages/chirut-digitalit-idf.html',
-        img: 'images/Passover/image1_after.webp',
-        category: 'campaigns'
-    },
-];
+            // ===== Workshops & Talks =====
+            {
+                title: 'Gemini Sheets Lab - יום סדנה לארגונים',
+                desc: 'יום סדנה אצלכם בארגון: הצוות בונה סימולטור תגמול, דשבורד ופילטרים חכמים ב-Google Sheets עם Gemini - ללא קוד, ללא BI.',
+                href: 'Workshops/gemini-sheets-lab/index.html',
+                img: 'Workshops/gemini-sheets-lab/images/og-cover.webp',
+                category: 'workshops'
+            },
+            {
+                title: 'AI במונדיאל 2026 - הרצאת Keynote לארגון',
+                desc: 'הרצאה סוחפת של 45-60 דק׳ לארגונים על AI במונדיאל 2026: SAOT, פרשנות AI ב-100 שפות, הכדור המחובר, Deepfakes, ועוד. אקטואלית במיוחד לאירועים במהלך הטורניר (יוני-יולי 2026).',
+                href: 'landing-pages/ai-at-the-world-cup-2026/index.html',
+                img: 'landing-pages/ai-at-the-world-cup-2026/images/hero.webp',
+                category: 'workshops'
+            },
+            {
+                title: 'הנדסת פרומפטים לעולם העסקי',
+                desc: 'סיכום סדנה מעשית להנדסת פרומפטים - כלים, טכניקות ודוגמאות מעולם העבודה האמיתי.',
+                href: 'Workshops/Mastering-Prompt-Engineering.html',
+                img: 'Workshops/Mastering-Prompt-Engineering.webp',
+                category: 'workshops'
+            },
+            {
+                title: 'בינה מלאכותית למגזר הציבורי',
+                desc: 'סיכום סדנה מעשית - איך משתמשים ב־AI במשרדי ממשלה ובארגונים ציבוריים בצורה אחראית ויעילה.',
+                href: 'meeting-summary/ai-for-public-sector.html',
+                img: 'meeting-summary/ai-for-public-sector.webp',
+                category: 'workshops'
+            },
+            {
+                title: 'אוניברסיטת אריאל - להבין את הבינה תכל\'ס',
+                desc: 'סיכום הרצאה באוניברסיטת אריאל. AI בגובה העיניים, עם כלים מעשיים ודוגמאות שכל אחד יכול ליישם.',
+                href: 'meeting-summary/ariel-university.html',
+                img: 'meeting-summary/ariel-university.webp',
+                category: 'workshops'
+            },
+            {
+                title: 'המכללה האקדמית צפת - להבין את הבינה',
+                desc: 'סיכום הרצאה במכללה האקדמית צפת - היכרות עם AI, מתי להשתמש, ואיך לא ליפול במלכודות הנפוצות.',
+                href: 'meeting-summary/zefat-academic-college.html',
+                img: 'meeting-summary/zefat-academic-college.webp',
+                category: 'workshops'
+            },
+            {
+                title: 'אוניברסיטת רייכמן - מנהלי למידה ומשאבי אנוש',
+                desc: 'סיכום סדנה מעשית באוניברסיטת רייכמן עבור מנהלי הדרכה, ארגונים ומשאבי אנוש - כלי AI ליום־יום ארגוני.',
+                href: 'meeting-summary/reichman/workshop-for-learning-managers-organizations-and-human-resources.html',
+                img: 'meeting-summary/reichman/workshop-for-learning-managers.webp',
+                category: 'workshops'
+            },
+            {
+                title: 'משרד האנרגיה והתשתיות - סדנת AI',
+                desc: 'סיכום סדנה מעשית למשרד האנרגיה והתשתיות. שילוב בינה מלאכותית בעבודה היומיומית של משרד ממשלתי.',
+                href: 'meeting-summary/reichman/workshop-for-ministry_of_energy.html',
+                img: 'meeting-summary/reichman/workshop-for-ministry_of_energy.webp',
+                category: 'workshops'
+            },
+            {
+                title: 'משרד ראש הממשלה - סדנת AI',
+                desc: 'סיכום סדנה מעשית במשרד ראש הממשלה. מהמסגור על שמירת פרטיות ועד דמו VEO ביצירת סרטון "יום מלחמת הכוכבים 2026".',
+                href: 'meeting-summary/reichman/prime-ministers-office/',
+                img: 'meeting-summary/reichman/workshop-for-learning-managers.webp',
+                category: 'workshops'
+            },
+            {
+                title: 'איך הופכים לאלופים של Claude - מדריך מתחילים',
+                desc: 'מדריך פרקטי בעברית: מתי Chat, מתי Cowork, מתי Code · נוסחת ODAF לפרומפטים · הגדרת Custom Instructions · אוטומציות בזמן שאתם ישנים.',
+                href: 'landing-pages/How-to-Master-Claude/beginners/index.html',
+                img: 'landing-pages/How-to-Master-Claude/beginners/hero.webp',
+                category: 'workshops'
+            },
+            {
+                title: 'מוצר אמיתי. בלי צוות. בלי קוד.',
+                desc: 'וובינר מעשי - איך הופכים רעיון למוצר עובד בעזרת כלי AI, גם בלי ידע בתכנות. הדגמות חיות וכלים מעשיים.',
+                href: 'webinars/build-app-with-ai-webinar.html',
+                img: 'webinars/Webinars.png',
+                category: 'workshops'
+            },
+            {
+                title: 'מיצוי זכויות - חיילי המחוז',
+                desc: 'חמ״ל מיצוי זכויות לחיילי המחוז ומשפחותיהם. ייעוץ בנושאי מס, ביטוח לאומי, כלכלת בית ועוד.',
+                href: 'IDF/miztuy-zchuyot/webinar/index.html',
+                img: 'images/maganim-center.webp',
+                category: 'workshops'
+            },
+            {
+                title: 'יש פיל בחדר - PMI Israel 2026',
+                desc: 'סיכום הרצאת ה-Keynote ב-PMI Israel 30th Annual Conference. איך הסוכן The Sprint Architect הופך פגישת תכנון ספרינט לקובץ Jira/Monday מוכן לטעינה - תוך דקה. כולל את ההנחיות המלאות לסוכן.',
+                href: 'landing-pages/pmi-2026/index.html',
+                img: 'landing-pages/pmi-2026/images/og-cover.webp',
+                category: 'workshops'
+            },
 
-// ============ Render ============
-function buildFallback(category) {
-    const cat = CATEGORIES[category] || CATEGORIES.all;
-    const div = document.createElement('div');
-    div.className = 'card-thumb-fallback';
-    div.style.background = `linear-gradient(135deg, ${cat.color}10 0%, ${cat.color}25 100%)`;
-    div.textContent = cat.icon;
-    return div;
-}
+            // ===== Campaigns & Prompts =====
+            {
+                title: 'פסקול שאגת הארי - הקדשות לחיילי מילואים',
+                desc: 'קמפיין חברתי - ממלאים טופס קצר, ואנחנו דואגים שהשיר וההקדשה יגיעו לבן/בת הזוג, לחייל/ת המילואים שלך.',
+                href: 'landing-pages/shaagat-hari-pesach.html',
+                img: 'images/shaagat-hari-logo.webp',
+                category: 'campaigns'
+            },
+            {
+                title: '40 הפרומפטים לפסח',
+                desc: 'אוסף של 40 פרומפטים מוכנים לחג הפסח - להכנת תוכן, איורים, סיפורי חג, סרטונים והפעלות לסדר.',
+                href: 'landing-pages/40-prompts-pesach-final.html',
+                img: 'images/Passover/image2_after.webp',
+                category: 'campaigns'
+            },
+            {
+                title: 'חירות דיגיטלית - 10 כלי AI כנגד עשר המכות',
+                desc: 'מתנת חג פסח - 10 כלי AI חינמיים שמשחררים אתכם מ"עבדות" הטכנולוגיה. אחד לכל מכה.',
+                href: 'landing-pages/chirut-digitalit-idf.html',
+                img: 'images/Passover/image1_after.webp',
+                category: 'campaigns'
+            },
+        ];
 
-function renderCards(filter = 'all') {
-    const grid = document.getElementById('grid');
-    grid.innerHTML = '';
-
-    const filtered = filter === 'all' ? PROJECTS : PROJECTS.filter(p => p.category === filter);
-
-    if (filtered.length === 0) {
-        grid.innerHTML = '<div class="empty-state">אין פרויקטים בקטגוריה הזו עדיין.</div>';
-        return;
-    }
-
-    filtered.forEach((p, i) => {
-        const cat = CATEGORIES[p.category];
-        const card = document.createElement('div');
-        card.className = 'card';
-        card.dataset.category = p.category;
-        card.style.animationDelay = `${Math.min(i * 30, 400)}ms`;
-
-        const link = document.createElement('a');
-        link.className = 'card-link';
-        link.href = p.href;
-        link.target = '_blank';
-        link.rel = 'noopener';
-
-        // Thumbnail
-        const thumb = document.createElement('div');
-        thumb.className = 'card-thumb';
-
-        if (p.img) {
-            const img = document.createElement('img');
-            img.src = p.img;
-            img.alt = p.title;
-            img.loading = 'lazy';
-            img.onerror = () => {
-                img.remove();
-                thumb.appendChild(buildFallback(p.category));
-            };
-            thumb.appendChild(img);
-        } else {
-            thumb.appendChild(buildFallback(p.category));
+        // ============ Render ============
+        function buildFallback(category) {
+            const cat = CATEGORIES[category] || CATEGORIES.all;
+            const div = document.createElement('div');
+            div.className = 'card-thumb-fallback';
+            div.style.background = `linear-gradient(135deg, ${cat.color}10 0%, ${cat.color}25 100%)`;
+            div.textContent = cat.icon;
+            return div;
         }
 
-        // Tag
-        const tag = document.createElement('div');
-        tag.className = 'card-tag';
-        tag.innerHTML = `<span>${cat.icon}</span><span>${cat.label}</span>`;
-        thumb.appendChild(tag);
+        function renderCards(filter = 'all') {
+            const grid = document.getElementById('grid');
+            grid.innerHTML = '';
 
-        link.appendChild(thumb);
+            const filtered = filter === 'all' ? PROJECTS : PROJECTS.filter(p => p.category === filter);
 
-        // Body
-        const body = document.createElement('div');
-        body.className = 'card-body';
-        body.innerHTML = `
+            if (filtered.length === 0) {
+                grid.innerHTML = '<div class="empty-state">אין פרויקטים בקטגוריה הזו עדיין.</div>';
+                return;
+            }
+
+            filtered.forEach((p, i) => {
+                const cat = CATEGORIES[p.category];
+                const card = document.createElement('div');
+                card.className = 'card';
+                card.dataset.category = p.category;
+                card.style.animationDelay = `${Math.min(i * 30, 400)}ms`;
+
+                const link = document.createElement('a');
+                link.className = 'card-link';
+                link.href = p.href;
+                link.target = '_blank';
+                link.rel = 'noopener';
+
+                // Thumbnail
+                const thumb = document.createElement('div');
+                thumb.className = 'card-thumb';
+
+                if (p.img) {
+                    const img = document.createElement('img');
+                    img.src = p.img;
+                    img.alt = p.title;
+                    img.loading = 'lazy';
+                    img.onerror = () => {
+                        img.remove();
+                        thumb.appendChild(buildFallback(p.category));
+                    };
+                    thumb.appendChild(img);
+                } else {
+                    thumb.appendChild(buildFallback(p.category));
+                }
+
+                // Tag
+                const tag = document.createElement('div');
+                tag.className = 'card-tag';
+                tag.innerHTML = `<span>${cat.icon}</span><span>${cat.label}</span>`;
+                thumb.appendChild(tag);
+
+                link.appendChild(thumb);
+
+                // Body
+                const body = document.createElement('div');
+                body.className = 'card-body';
+                body.innerHTML = `
             <h3>${p.title}</h3>
             <p>${p.desc}</p>
             <div class="card-meta">
@@ -1002,58 +1225,59 @@ function renderCards(filter = 'all') {
                 </svg>
             </div>
         `;
-        link.appendChild(body);
-        card.appendChild(link);
-        grid.appendChild(card);
-    });
-}
+                link.appendChild(body);
+                card.appendChild(link);
+                grid.appendChild(card);
+            });
+        }
 
-function renderFilters() {
-    const wrap = document.getElementById('filters');
-    Object.entries(CATEGORIES).forEach(([key, cat]) => {
-        const count = key === 'all'
-            ? PROJECTS.length
-            : PROJECTS.filter(p => p.category === key).length;
-        const btn = document.createElement('button');
-        btn.className = 'chip' + (key === currentFilter ? ' active' : '');
-        btn.dataset.filter = key;
-        btn.setAttribute('role', 'tab');
-        btn.setAttribute('aria-selected', key === currentFilter ? 'true' : 'false');
-        btn.innerHTML = `<span>${cat.icon}</span><span>${cat.label}</span><span class="count">(${count})</span>`;
-        btn.addEventListener('click', () => setFilter(key));
-        wrap.appendChild(btn);
-    });
-}
+        function renderFilters() {
+            const wrap = document.getElementById('filters');
+            Object.entries(CATEGORIES).forEach(([key, cat]) => {
+                const count = key === 'all'
+                    ? PROJECTS.length
+                    : PROJECTS.filter(p => p.category === key).length;
+                const btn = document.createElement('button');
+                btn.className = 'chip' + (key === currentFilter ? ' active' : '');
+                btn.dataset.filter = key;
+                btn.setAttribute('role', 'tab');
+                btn.setAttribute('aria-selected', key === currentFilter ? 'true' : 'false');
+                btn.innerHTML = `<span>${cat.icon}</span><span>${cat.label}</span><span class="count">(${count})</span>`;
+                btn.addEventListener('click', () => setFilter(key));
+                wrap.appendChild(btn);
+            });
+        }
 
-function setFilter(filter) {
-    currentFilter = filter;
-    document.querySelectorAll('.chip').forEach(c => {
-        const active = c.dataset.filter === filter;
-        c.classList.toggle('active', active);
-        c.setAttribute('aria-selected', active ? 'true' : 'false');
-    });
-    if (filter === 'all') {
-        history.replaceState(null, '', location.pathname + location.search);
-    } else {
-        history.replaceState(null, '', '#' + filter);
-    }
-    renderCards(filter);
-}
+        function setFilter(filter) {
+            currentFilter = filter;
+            document.querySelectorAll('.chip').forEach(c => {
+                const active = c.dataset.filter === filter;
+                c.classList.toggle('active', active);
+                c.setAttribute('aria-selected', active ? 'true' : 'false');
+            });
+            if (filter === 'all') {
+                history.replaceState(null, '', location.pathname + location.search);
+            } else {
+                history.replaceState(null, '', '#' + filter);
+            }
+            renderCards(filter);
+        }
 
-// Init
-const initFilter = location.hash.replace('#', '');
-let currentFilter = (initFilter && CATEGORIES[initFilter]) ? initFilter : 'all';
+        // Init
+        const initFilter = location.hash.replace('#', '');
+        let currentFilter = (initFilter && CATEGORIES[initFilter]) ? initFilter : 'all';
 
-document.getElementById('statTotal').textContent = PROJECTS.length;
-renderFilters();
-renderCards(currentFilter);
+        document.getElementById('statTotal').textContent = PROJECTS.length;
+        renderFilters();
+        renderCards(currentFilter);
 
-// Listen for hash changes (e.g., browser back/forward)
-window.addEventListener('hashchange', () => {
-    const f = location.hash.replace('#', '');
-    setFilter((f && CATEGORIES[f]) ? f : 'all');
-});
-</script>
+        // Listen for hash changes (e.g., browser back/forward)
+        window.addEventListener('hashchange', () => {
+            const f = location.hash.replace('#', '');
+            setFilter((f && CATEGORIES[f]) ? f : 'all');
+        });
+    </script>
 
 </body>
+
 </html>

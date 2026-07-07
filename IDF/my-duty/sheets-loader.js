@@ -8,10 +8,23 @@
   var SHEET_ID = "12-MnWkEMc0Zn0onlLtrcRWvodH0mglcHoUI7X5BiAJ0";
   var FETCH_TIMEOUT = 5000; // ms
 
-  var TAB_NAMES = ["meta", "steps", "questions", "rates", "hitargnutTable", "benefits", "faq"];
+  var TAB_NAMES = [
+    "meta",
+    "steps",
+    "questions",
+    "rates",
+    "hitargnutTable",
+    "benefits",
+    "faq",
+  ];
 
   function sheetCsvUrl(tabName) {
-    return "https://docs.google.com/spreadsheets/d/" + SHEET_ID + "/gviz/tq?tqx=out:csv&headers=1&sheet=" + encodeURIComponent(tabName);
+    return (
+      "https://docs.google.com/spreadsheets/d/" +
+      SHEET_ID +
+      "/gviz/tq?tqx=out:csv&headers=1&sheet=" +
+      encodeURIComponent(tabName)
+    );
     // https://docs.google.com/spreadsheets/d/12-MnWkEMc0Zn0onlLtrcRWvodH0mglcHoUI7X5BiAJ0/
   }
 
@@ -71,7 +84,9 @@
   function csvToObjects(text) {
     var rows = parseCSV(text.trim());
     if (rows.length < 2) return [];
-    var headers = rows[0].map(function (h) { return h.trim(); });
+    var headers = rows[0].map(function (h) {
+      return h.trim();
+    });
     var result = [];
     for (var r = 1; r < rows.length; r++) {
       var obj = {};
@@ -100,7 +115,12 @@
 
   function splitSemicolon(v) {
     if (!v || !v.trim()) return null;
-    return v.split(";").map(function (s) { return s.trim(); }).filter(Boolean);
+    return v
+      .split(";")
+      .map(function (s) {
+        return s.trim();
+      })
+      .filter(Boolean);
   }
 
   // ===== TRANSFORM FUNCTIONS =====
@@ -119,7 +139,7 @@
         id: r.id,
         title: r.title || "",
         subtitle: (r.subtitle || "").replace(/\\n/g, "\n"),
-        icon: r.icon || ""
+        icon: r.icon || "",
       };
     });
   }
@@ -131,11 +151,12 @@
         step: r.step,
         question: r.question || "",
         type: r.type || "choice",
-        icon: r.icon || ""
+        icon: r.icon || "",
       };
       if (r.helper) q.helper = r.helper;
       if (r.helpButton) q.helpButton = r.helpButton;
-      if (r.helpContent) q.helpContent = (r.helpContent || "").replace(/\\n/g, "\n");
+      if (r.helpContent)
+        q.helpContent = (r.helpContent || "").replace(/\\n/g, "\n");
       if (r.options) q.options = splitSemicolon(r.options);
       if (r["default"]) q["default"] = r["default"];
       if (toBool(r.required) === true) q.required = true;
@@ -188,7 +209,7 @@
       table[level].push({
         min: toNum(r.min) || 0,
         max: toNum(r.max) || 0,
-        days: toNum(r.days) || 0
+        days: toNum(r.days) || 0,
       });
     });
     return table;
@@ -201,7 +222,7 @@
         name: r.name || "",
         category: r.category || "",
         icon: r.icon || "",
-        calcType: r.calcType || "info_only"
+        calcType: r.calcType || "info_only",
       };
 
       // Optional string fields
@@ -213,7 +234,14 @@
       if (r.displayAmount) b.displayAmount = r.displayAmount;
 
       // Optional numeric fields
-      var numFields = ["fixedAmount", "campBaseAmount", "campExtraPerKid", "campMaxAmount", "treatmentsDivisor", "treatmentsMax"];
+      var numFields = [
+        "fixedAmount",
+        "campBaseAmount",
+        "campExtraPerKid",
+        "campMaxAmount",
+        "treatmentsDivisor",
+        "treatmentsMax",
+      ];
       numFields.forEach(function (f) {
         var v = toNum(r[f]);
         if (v !== null) b[f] = v;
@@ -227,7 +255,12 @@
 
       // Threshold object
       var threshold = {};
-      var thresholdFields = ["totalDays", "totalDaysMin", "days2026Min", "days2025Min"];
+      var thresholdFields = [
+        "totalDays",
+        "totalDaysMin",
+        "days2026Min",
+        "days2025Min",
+      ];
       thresholdFields.forEach(function (f) {
         var v = toNum(r["threshold_" + f]);
         if (v !== null) threshold[f] = v;
@@ -255,23 +288,31 @@
   }
 
   function parseFaq(rows) {
-    return rows.map(function (r) {
-      return { question: r.question || "", answer: r.answer || "" };
-    }).filter(function (f) { return f.question; });
+    return rows
+      .map(function (r) {
+        return { question: r.question || "", answer: r.answer || "" };
+      })
+      .filter(function (f) {
+        return f.question;
+      });
   }
 
   // ===== FETCH WITH TIMEOUT =====
   function fetchWithTimeout(url, timeout) {
     return new Promise(function (resolve, reject) {
-      var timer = setTimeout(function () { reject(new Error("timeout")); }, timeout);
-      fetch(url).then(function (res) {
-        clearTimeout(timer);
-        if (!res.ok) reject(new Error("HTTP " + res.status));
-        else res.text().then(resolve).catch(reject);
-      }).catch(function (err) {
-        clearTimeout(timer);
-        reject(err);
-      });
+      var timer = setTimeout(function () {
+        reject(new Error("timeout"));
+      }, timeout);
+      fetch(url)
+        .then(function (res) {
+          clearTimeout(timer);
+          if (!res.ok) reject(new Error("HTTP " + res.status));
+          else res.text().then(resolve).catch(reject);
+        })
+        .catch(function (err) {
+          clearTimeout(timer);
+          reject(err);
+        });
     });
   }
 
@@ -284,9 +325,14 @@
 
     var fetches = TAB_NAMES.map(function (tab) {
       return fetchWithTimeout(sheetCsvUrl(tab), FETCH_TIMEOUT)
-        .then(function (text) { return { tab: tab, data: csvToObjects(text) }; })
+        .then(function (text) {
+          return { tab: tab, data: csvToObjects(text) };
+        })
         .catch(function (err) {
-          console.warn("sheets-loader: failed to fetch tab '" + tab + "':", err.message);
+          console.warn(
+            "sheets-loader: failed to fetch tab '" + tab + "':",
+            err.message,
+          );
           return { tab: tab, data: null, error: err };
         });
     });
@@ -301,7 +347,9 @@
 
       // If all tabs failed, fall back to local data
       if (allFailed) {
-        console.warn("sheets-loader: all tabs failed, using local data.js fallback");
+        console.warn(
+          "sheets-loader: all tabs failed, using local data.js fallback",
+        );
         window.CALC_DATA_SOURCE = "local";
         return window.CALC_DATA;
       }
@@ -310,17 +358,27 @@
         var fallback = window.CALC_DATA || {};
         var fallbackForm = fallback.form || {};
         var sheetsData = {
-          meta: tabData.meta ? parseMeta(tabData.meta) : (fallback.meta || {}),
+          meta: tabData.meta ? parseMeta(tabData.meta) : fallback.meta || {},
           form: {
-            steps: tabData.steps ? parseSteps(tabData.steps) : (fallbackForm.steps || []),
-            questions: tabData.questions ? parseQuestions(tabData.questions) : (fallbackForm.questions || [])
+            steps: tabData.steps
+              ? parseSteps(tabData.steps)
+              : fallbackForm.steps || [],
+            questions: tabData.questions
+              ? parseQuestions(tabData.questions)
+              : fallbackForm.questions || [],
           },
-          rates: tabData.rates ? parseRates(tabData.rates) : (fallback.rates || {}),
-          hitargnutTable: tabData.hitargnutTable ? parseHitargnut(tabData.hitargnutTable) : (fallback.hitargnutTable || {}),
-          benefits: tabData.benefits ? parseBenefits(tabData.benefits) : (fallback.benefits || [])
+          rates: tabData.rates
+            ? parseRates(tabData.rates)
+            : fallback.rates || {},
+          hitargnutTable: tabData.hitargnutTable
+            ? parseHitargnut(tabData.hitargnutTable)
+            : fallback.hitargnutTable || {},
+          benefits: tabData.benefits
+            ? parseBenefits(tabData.benefits)
+            : fallback.benefits || [],
         };
 
-        // FAQ — loaded separately into window.FAQ_DATA
+        // FAQ - loaded separately into window.FAQ_DATA
         if (tabData.faq) {
           window.FAQ_DATA = parseFaq(tabData.faq);
         }
@@ -330,7 +388,10 @@
         console.log("sheets-loader: data loaded from Google Sheets");
         return sheetsData;
       } catch (err) {
-        console.error("sheets-loader: transform error, using local fallback:", err);
+        console.error(
+          "sheets-loader: transform error, using local fallback:",
+          err,
+        );
         window.CALC_DATA_SOURCE = "local";
         return window.CALC_DATA;
       }

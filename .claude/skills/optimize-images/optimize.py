@@ -67,7 +67,7 @@ def find_images(root: Path) -> list[Path]:
 def convert_one(src: Path, quality: int, max_width: int, dry_run: bool) -> Conversion | None:
     dst = src.with_suffix(".webp")
     if dst.exists() and not dry_run:
-        # Don't overwrite existing webp — but still surface the mapping so HTML refs
+        # Don't overwrite existing webp - but still surface the mapping so HTML refs
         # can be updated on a re-run.
         with Image.open(src) as im:
             src_w, src_h = im.size
@@ -146,7 +146,7 @@ def find_html_references(repo_root: Path, conversions: list[Conversion]) -> list
 
         pairs: list[tuple[str, str]] = []
         for src_name, dst_name, src_path, dst_path in src_names:
-            # Match the basename — most references are relative paths ending with `<name>.png`.
+            # Match the basename - most references are relative paths ending with `<name>.png`.
             # Use a regex that ensures we only match whole filenames (preceded by /, ", ', or whitespace).
             pattern = re.compile(r'(?P<prefix>["\'/\s\(=])' + re.escape(src_name) + r'(?P<suffix>["\'\s\)\?#])')
             if pattern.search(text):
@@ -220,7 +220,7 @@ def main() -> int:
         max_w = target_max_width(src, args.max_width, args.og_max_width)
         result = convert_one(src, args.quality, max_w, args.dry_run)
         if result is None:
-            # WebP already exists — skip (don't overwrite)
+            # WebP already exists - skip (don't overwrite)
             continue
         conversions.append(result)
 
@@ -263,7 +263,7 @@ def main() -> int:
         print(header + "\n")
         for c in conversions:
             tag = " [OG]" if c.is_og else ""
-            existed = " [SKIPPED — webp already exists]" if c.already_existed else ""
+            existed = " [SKIPPED - webp already exists]" if c.already_existed else ""
             sw, sh = c.src_dimensions
             dw, dh = c.dst_dimensions
             dim_str = f"{sw}x{sh}" if (sw, sh) == (dw, dh) else f"{sw}x{sh} -> {dw}x{dh}"

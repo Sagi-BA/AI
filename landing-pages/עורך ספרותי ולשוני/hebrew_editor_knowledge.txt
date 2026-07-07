@@ -34,7 +34,7 @@ Preserve:
 - stylistic quirks
 
 If the writing has personality:
-enhance it —
+enhance it -
 do not neutralize it.
 
 ---

@@ -1,815 +1,869 @@
 <!-- https://sagi-ba.github.io/AI/IDF/miztuy-zchuyot/webinar -->
 
- <!-- http://localhost:41002/IDF/miztuy-zchuyot/webinar/ -->
- <!-- https://analytics.google.com/analytics/web/#/a351596902p494681343/realtime/overview?params=_u..nav%3Dmaui -->
+<!-- http://localhost:41002/IDF/miztuy-zchuyot/webinar/ -->
+<!-- https://analytics.google.com/analytics/web/#/a351596902p494681343/realtime/overview?params=_u..nav%3Dmaui -->
 
 <!DOCTYPE html>
 <html lang="he" dir="rtl">
+
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>מיצוי זכויות - חיילי המחוז</title>
-<meta name="description" content="חמ״ל מיצוי זכויות לחיילי המחוז ומשפחותיהם. זמנו פגישת ייעוץ אישית עם יועצים מקצועיים בנושאי מס, ביטוח לאומי, כלכלת בית ועוד.">
-<!-- Open Graph / WhatsApp -->
-<meta property="og:title" content="חמ״ל מיצוי זכויות — חיילי המחוז">
-<meta property="og:description" content="זמנו פגישת ייעוץ אישית עם יועצים מקצועיים בנושאי מס, ביטוח לאומי, כלכלת בית ועוד. השירות חינמי לחיילי המחוז ומשפחותיהם.">
-<meta property="og:image" content="https://sagi-ba.github.io/AI/IDF/miztuy-zchuyot/webinar/images/og-preview.jpg">
-<meta property="og:image:width" content="1200">
-<meta property="og:image:height" content="630">
-<meta property="og:url" content="https://sagi-ba.github.io/AI/IDF/miztuy-zchuyot/webinar/index.html">
-<meta property="og:type" content="website">
-<meta property="og:locale" content="he_IL">
-<meta property="og:site_name" content="שאגת הארי — מיצוי זכויות">
-<!-- Twitter Card -->
-<meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="חמ״ל מיצוי זכויות — חיילי המחוז">
-<meta name="twitter:description" content="זמנו פגישת ייעוץ אישית עם יועצים מקצועיים. השירות חינמי לחיילי המחוז ומשפחותיהם.">
-<meta name="twitter:image" content="https://sagi-ba.github.io/AI/IDF/miztuy-zchuyot/webinar/images/og-preview.jpg">
-<!-- Google Analytics -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-XSH19K5LBZ"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-  gtag('config', 'G-XSH19K5LBZ');
-</script>
-<link href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;600;700;900&display=swap" rel="stylesheet">
-<style>
-  :root {
-    --bg-deep:     #1a2010;
-    --bg-card:     #232d18;
-    --bg-card-hover: #2a361d;
-    --green-dark:  #2e3d1e;
-    --green-mid:   #4a6030;
-    --gold:        #c9a84c;
-    --gold-light:  #e8c96a;
-    --khaki:       #9b8c6a;
-    --text-primary:#f0ead8;
-    --text-muted:  #8a8070;
-    --border:      rgba(201,168,76,0.25);
-    --shadow:      0 8px 40px rgba(0,0,0,0.5);
-  }
-
-  * { margin: 0; padding: 0; box-sizing: border-box; }
-
-  body {
-    font-family: 'Heebo', sans-serif;
-    background-color: var(--bg-deep);
-    color: var(--text-primary);
-    direction: rtl;
-    min-height: 100vh;
-    overflow-x: hidden;
-  }
-
-  /* Background texture */
-  body::before {
-    content: '';
-    position: fixed;
-    inset: 0;
-    background-image:
-      repeating-linear-gradient(
-        45deg,
-        transparent,
-        transparent 40px,
-        rgba(255,255,255,0.012) 40px,
-        rgba(255,255,255,0.012) 41px
-      ),
-      repeating-linear-gradient(
-        -45deg,
-        transparent,
-        transparent 40px,
-        rgba(255,255,255,0.012) 40px,
-        rgba(255,255,255,0.012) 41px
-      );
-    pointer-events: none;
-    z-index: 0;
-  }
-
-  /* ===== CINEMATIC INTRO ===== */
-  .intro-overlay {
-    position: fixed;
-    inset: 0;
-    z-index: 9999;
-    background: radial-gradient(ellipse at 50% 60%, #1a2010 0%, #0d1508 50%, #0a0e05 100%);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    transition: opacity 0.8s ease-out;
-  }
-
-  .intro-overlay.dismissed {
-    opacity: 0;
-    pointer-events: none;
-  }
-
-  .shield-wall {
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    width: 52%;
-    overflow: hidden;
-    transition: transform 1.5s cubic-bezier(0.4, 0, 0.2, 1);
-  }
-
-  .shield-wall-left {
-    left: 0;
-    background: linear-gradient(135deg, #1a2010 0%, #2e3d1e 25%, #3a4d28 50%, #4a6030 75%, #2e3d1e 100%);
-  }
-
-  .shield-wall-right {
-    right: 0;
-    background: linear-gradient(225deg, #1a2010 0%, #2e3d1e 25%, #3a4d28 50%, #4a6030 75%, #2e3d1e 100%);
-  }
-
-  .shield-wall .camo-layer {
-    position: absolute;
-    inset: 0;
-    background-image:
-      radial-gradient(circle 3px, rgba(201,168,76,0.15) 100%, transparent 100%),
-      radial-gradient(circle 2px, rgba(201,168,76,0.1) 100%, transparent 100%);
-    background-size: 80px 60px, 55px 75px;
-    background-position: 10px 10px, 35px 30px;
-    pointer-events: none;
-  }
-
-  .intro-overlay.parting .shield-wall-left {
-    transform: translateX(-105%);
-  }
-
-  .intro-overlay.parting .shield-wall-right {
-    transform: translateX(105%);
-  }
-
-  .shield-wall-left::after,
-  .shield-wall-right::after {
-    content: "";
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    width: 60px;
-    background:
-      radial-gradient(ellipse 30px 20px at 30px 30px, rgba(201,168,76,0.15) 0%, transparent 100%),
-      radial-gradient(ellipse 25px 15px at 25px 80px, rgba(201,168,76,0.1) 0%, transparent 100%);
-    background-repeat: repeat-y;
-    background-size: 60px 160px;
-  }
-
-  .shield-wall-left::after { left: calc(100% - 30px); }
-  .shield-wall-right::after { right: calc(100% - 30px); }
-
-  .intro-quote {
-    text-align: center;
-    z-index: 10001;
-    width: 90%;
-    max-width: 600px;
-  }
-
-  .intro-quote-text {
-    font-family: 'Heebo', sans-serif;
-    font-size: clamp(1.2rem, 3.5vw, 1.7rem);
-    font-weight: 700;
-    color: var(--gold);
-    line-height: 1.8;
-    opacity: 0;
-    text-shadow: 0 0 30px rgba(201,168,76,0.5);
-    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
-    transform: translateY(10px);
-  }
-
-  .intro-quote-text.show {
-    opacity: 1;
-    transform: translateY(0);
-  }
-
-  .intro-line {
-    width: 0;
-    height: 2px;
-    background: linear-gradient(90deg, transparent, var(--gold), transparent);
-    margin: 16px auto;
-    transition: width 0.5s ease-out;
-  }
-
-  .intro-line.show {
-    width: 200px;
-  }
-
-  .intro-subtitle {
-    font-size: 1rem;
-    font-weight: 500;
-    color: var(--khaki);
-    letter-spacing: 3px;
-    opacity: 0;
-    transition: opacity 0.5s ease-out, transform 0.5s ease-out;
-    transform: translateY(10px);
-  }
-
-  .intro-subtitle.show {
-    opacity: 1;
-    transform: translateY(0);
-  }
-
-  /* ===== LOGO STRIP ===== */
-  .logo-strip {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 24px;
-    margin-bottom: 20px;
-    opacity: 0;
-    animation: fadeUp 0.5s ease forwards 0.2s;
-  }
-
-  .logo-strip img {
-    width: 60px;
-    height: auto;
-    border-radius: 10px;
-    background: #fff;
-    padding: 5px;
-    border: 2px solid var(--gold);
-    box-shadow: 0 0 8px rgba(201,168,76,0.3);
-  }
-
-  .logo-strip .emblem-logo {
-    width: 75px;
-  }
-
-  @media (max-width: 600px) {
-    .logo-strip img { width: 50px; }
-    .logo-strip .emblem-logo { width: 60px; }
-    .logo-strip { gap: 16px; }
-  }
-
-  /* TOP BANNER */
-  .top-banner {
-    background: var(--gold);
-    color: #1a1a0a;
-    text-align: center;
-    padding: 8px 20px;
-    font-size: 13px;
-    font-weight: 700;
-    letter-spacing: 1px;
-    position: relative;
-    z-index: 10;
-  }
-
-  /* HEADER */
-  header {
-    position: relative;
-    z-index: 10;
-    padding: 60px 20px 50px;
-    text-align: center;
-    border-bottom: 1px solid var(--border);
-    background: linear-gradient(180deg, rgba(46,61,30,0.6) 0%, transparent 100%);
-  }
-
-  .header-emblem {
-    font-size: 52px;
-    margin-bottom: 16px;
-    filter: drop-shadow(0 0 20px rgba(201,168,76,0.4));
-    animation: pulse-glow 3s ease-in-out infinite;
-  }
-
-  @keyframes pulse-glow {
-    0%, 100% { filter: drop-shadow(0 0 20px rgba(201,168,76,0.3)); }
-    50%       { filter: drop-shadow(0 0 35px rgba(201,168,76,0.7)); }
-  }
-
-  .header-badge {
-    display: inline-block;
-    border: 1px solid var(--gold);
-    color: var(--gold);
-    font-size: 11px;
-    font-weight: 700;
-    letter-spacing: 3px;
-    padding: 4px 16px;
-    margin-bottom: 20px;
-    text-transform: uppercase;
-  }
-
-  header h1 {
-    font-size: clamp(28px, 6vw, 52px);
-    font-weight: 900;
-    line-height: 1.15;
-    color: var(--text-primary);
-    margin-bottom: 16px;
-    text-shadow: 0 2px 20px rgba(0,0,0,0.5);
-  }
-
-  header h1 span {
-    color: var(--gold);
-  }
-
-  header p.subtitle {
-    font-size: clamp(14px, 2.5vw, 18px);
-    color: var(--khaki);
-    max-width: 600px;
-    margin: 0 auto 24px;
-    line-height: 1.7;
-    font-weight: 300;
-  }
-
-  .time-badge {
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    background: rgba(201,168,76,0.1);
-    border: 1px solid var(--border);
-    padding: 10px 24px;
-    font-size: 14px;
-    color: var(--gold-light);
-    font-weight: 600;
-  }
-
-  /* MAIN */
-  main {
-    position: relative;
-    z-index: 10;
-    max-width: 1100px;
-    margin: 0 auto;
-    padding: 60px 20px 80px;
-  }
-
-  .section-label {
-    text-align: center;
-    font-size: 12px;
-    font-weight: 700;
-    letter-spacing: 4px;
-    color: var(--text-muted);
-    margin-bottom: 40px;
-    text-transform: uppercase;
-  }
-
-  /* CARDS GRID */
-  .cards-grid {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 20px;
-  }
-
-  .card:last-child:nth-child(odd) {
-    grid-column: 1 / -1;
-    max-width: 520px;
-    margin: 0 auto;
-    width: 100%;
-  }
-
-  /* CARD - Instagram Style */
-  .card {
-    background: var(--bg-card);
-    border: 1px solid var(--border);
-    padding: 0;
-    transition: all 0.3s ease;
-    cursor: pointer;
-    position: relative;
-    overflow: hidden;
-    text-align: center;
-    border-radius: 16px;
-  }
-
-  .card:hover {
-    transform: translateY(-5px);
-    box-shadow: var(--shadow), 0 0 30px rgba(201,168,76,0.15);
-  }
-
-  .card:hover .card-photo-wrapper::after {
-    opacity: 1;
-  }
-
-  /* Instagram story-style gradient ring */
-  .card-photo-wrapper {
-    width: 140px;
-    height: 140px;
-    border-radius: 50%;
-    padding: 4px;
-    background: linear-gradient(135deg, var(--gold), #e8c96a, #f0d078, var(--gold));
-    margin: 28px auto 0;
-    position: relative;
-  }
-
-  .card-photo-wrapper::after {
-    content: '';
-    position: absolute;
-    inset: -4px;
-    border-radius: 50%;
-    background: linear-gradient(135deg, #c9a84c, #f5d98a, #b8943f, #e8c96a);
-    z-index: -1;
-    opacity: 0;
-    transition: opacity 0.3s;
-    filter: blur(8px);
-  }
-
-  .card-photo {
-    width: 100%;
-    height: 100%;
-    border-radius: 50%;
-    object-fit: cover;
-    object-position: center 20%;
-    border: 3px solid var(--bg-card);
-    display: block;
-  }
-
-  /* Card top bar - like IG post header */
-  .card-profile {
-    padding: 18px 20px 14px;
-  }
-
-  .card-consultant-name {
-    font-size: 17px;
-    font-weight: 700;
-    color: var(--text-primary);
-    margin-bottom: 2px;
-  }
-
-  .card-consultant-role {
-    font-size: 12px;
-    color: var(--gold);
-    font-weight: 600;
-    letter-spacing: 0.5px;
-  }
-
-  .card-divider {
-    display: none;
-  }
-
-  /* Card body */
-  .card-body {
-    padding: 0 22px;
-    border-top: 1px solid var(--border);
-    padding-top: 18px;
-  }
-
-  .card-title {
-    font-size: 20px;
-    font-weight: 800;
-    color: var(--text-primary);
-    margin-bottom: 8px;
-  }
-
-  .card-desc {
-    font-size: 13px;
-    color: var(--khaki);
-    line-height: 1.7;
-    margin-bottom: 20px;
-    font-weight: 300;
-    min-height: 40px;
-  }
-
-  .card-btn {
-    display: block;
-    width: calc(100% - 44px);
-    margin: 0 auto 22px;
-    padding: 12px 20px;
-    background: transparent;
-    color: var(--gold);
-    font-family: 'Heebo', sans-serif;
-    font-size: 14px;
-    font-weight: 700;
-    text-align: center;
-    text-decoration: none;
-    border: 2px solid var(--gold);
-    cursor: pointer;
-    transition: all 0.2s ease;
-    letter-spacing: 0.5px;
-    border-radius: 10px;
-  }
-
-  .card-btn:hover {
-    background: var(--gold);
-    color: #1a1a0a;
-    transform: translateY(-1px);
-    box-shadow: 0 4px 20px rgba(201,168,76,0.4);
-  }
-
-  .card-btn::before {
-    content: '\01F4C5  ';
-  }
-
-  /* HOW IT WORKS */
-  .how-section {
-    margin-top: 70px;
-    padding-top: 50px;
-    border-top: 1px solid var(--border);
-  }
-
-  .how-section h2 {
-    text-align: center;
-    font-size: 20px;
-    font-weight: 700;
-    color: var(--gold);
-    letter-spacing: 2px;
-    margin-bottom: 40px;
-  }
-
-  .steps {
-    display: flex;
-    justify-content: center;
-    gap: 0;
-    flex-wrap: wrap;
-  }
-
-  .step {
-    flex: 1;
-    min-width: 160px;
-    max-width: 220px;
-    text-align: center;
-    padding: 0 20px;
-    position: relative;
-  }
-
-  .step:not(:last-child)::before {
-    content: '←';
-    position: absolute;
-    left: -10px;
-    top: 20px;
-    color: var(--text-muted);
-    font-size: 18px;
-  }
-
-  .step-num {
-    width: 44px;
-    height: 44px;
-    border: 2px solid var(--gold);
-    color: var(--gold);
-    font-size: 18px;
-    font-weight: 800;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin: 0 auto 14px;
-  }
-
-  .step-text {
-    font-size: 14px;
-    color: var(--khaki);
-    line-height: 1.6;
-    font-weight: 400;
-  }
-
-  /* FOOTER */
-  footer {
-    position: relative;
-    z-index: 10;
-    border-top: 1px solid var(--border);
-    padding: 30px 20px;
-    text-align: center;
-  }
-
-  footer p {
-    font-size: 13px;
-    color: var(--text-muted);
-    margin-bottom: 4px;
-  }
-
-  footer p strong {
-    color: var(--khaki);
-  }
-
-  /* MOBILE */
-  @media (max-width: 600px) {
-    .cards-grid {
-      grid-template-columns: 1fr;
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>מיצוי זכויות - חיילי המחוז</title>
+  <meta name="description"
+    content="חמ״ל מיצוי זכויות לחיילי המחוז ומשפחותיהם. זמנו פגישת ייעוץ אישית עם יועצים מקצועיים בנושאי מס, ביטוח לאומי, כלכלת בית ועוד.">
+  <!-- Open Graph / WhatsApp -->
+  <meta property="og:title" content="חמ״ל מיצוי זכויות - חיילי המחוז">
+  <meta property="og:description"
+    content="זמנו פגישת ייעוץ אישית עם יועצים מקצועיים בנושאי מס, ביטוח לאומי, כלכלת בית ועוד. השירות חינמי לחיילי המחוז ומשפחותיהם.">
+  <meta property="og:image" content="https://sagi-ba.github.io/AI/IDF/miztuy-zchuyot/webinar/images/og-preview.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:url" content="https://sagi-ba.github.io/AI/IDF/miztuy-zchuyot/webinar/index.html">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="he_IL">
+  <meta property="og:site_name" content="שאגת הארי - מיצוי זכויות">
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="חמ״ל מיצוי זכויות - חיילי המחוז">
+  <meta name="twitter:description"
+    content="זמנו פגישת ייעוץ אישית עם יועצים מקצועיים. השירות חינמי לחיילי המחוז ומשפחותיהם.">
+  <meta name="twitter:image" content="https://sagi-ba.github.io/AI/IDF/miztuy-zchuyot/webinar/images/og-preview.jpg">
+  <!-- Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-XSH19K5LBZ"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+    gtag('config', 'G-XSH19K5LBZ');
+  </script>
+  <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;600;700;900&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg-deep: #1a2010;
+      --bg-card: #232d18;
+      --bg-card-hover: #2a361d;
+      --green-dark: #2e3d1e;
+      --green-mid: #4a6030;
+      --gold: #c9a84c;
+      --gold-light: #e8c96a;
+      --khaki: #9b8c6a;
+      --text-primary: #f0ead8;
+      --text-muted: #8a8070;
+      --border: rgba(201, 168, 76, 0.25);
+      --shadow: 0 8px 40px rgba(0, 0, 0, 0.5);
     }
-    .card:last-child:nth-child(odd) {
-      grid-column: auto;
-      max-width: 100%;
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
     }
-    .steps {
-      flex-direction: column;
+
+    body {
+      font-family: 'Heebo', sans-serif;
+      background-color: var(--bg-deep);
+      color: var(--text-primary);
+      direction: rtl;
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+
+    /* Background texture */
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background-image:
+        repeating-linear-gradient(45deg,
+          transparent,
+          transparent 40px,
+          rgba(255, 255, 255, 0.012) 40px,
+          rgba(255, 255, 255, 0.012) 41px),
+        repeating-linear-gradient(-45deg,
+          transparent,
+          transparent 40px,
+          rgba(255, 255, 255, 0.012) 40px,
+          rgba(255, 255, 255, 0.012) 41px);
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    /* ===== CINEMATIC INTRO ===== */
+    .intro-overlay {
+      position: fixed;
+      inset: 0;
+      z-index: 9999;
+      background: radial-gradient(ellipse at 50% 60%, #1a2010 0%, #0d1508 50%, #0a0e05 100%);
+      display: flex;
       align-items: center;
-      gap: 30px;
+      justify-content: center;
+      transition: opacity 0.8s ease-out;
     }
+
+    .intro-overlay.dismissed {
+      opacity: 0;
+      pointer-events: none;
+    }
+
+    .shield-wall {
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      width: 52%;
+      overflow: hidden;
+      transition: transform 1.5s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    .shield-wall-left {
+      left: 0;
+      background: linear-gradient(135deg, #1a2010 0%, #2e3d1e 25%, #3a4d28 50%, #4a6030 75%, #2e3d1e 100%);
+    }
+
+    .shield-wall-right {
+      right: 0;
+      background: linear-gradient(225deg, #1a2010 0%, #2e3d1e 25%, #3a4d28 50%, #4a6030 75%, #2e3d1e 100%);
+    }
+
+    .shield-wall .camo-layer {
+      position: absolute;
+      inset: 0;
+      background-image:
+        radial-gradient(circle 3px, rgba(201, 168, 76, 0.15) 100%, transparent 100%),
+        radial-gradient(circle 2px, rgba(201, 168, 76, 0.1) 100%, transparent 100%);
+      background-size: 80px 60px, 55px 75px;
+      background-position: 10px 10px, 35px 30px;
+      pointer-events: none;
+    }
+
+    .intro-overlay.parting .shield-wall-left {
+      transform: translateX(-105%);
+    }
+
+    .intro-overlay.parting .shield-wall-right {
+      transform: translateX(105%);
+    }
+
+    .shield-wall-left::after,
+    .shield-wall-right::after {
+      content: "";
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      width: 60px;
+      background:
+        radial-gradient(ellipse 30px 20px at 30px 30px, rgba(201, 168, 76, 0.15) 0%, transparent 100%),
+        radial-gradient(ellipse 25px 15px at 25px 80px, rgba(201, 168, 76, 0.1) 0%, transparent 100%);
+      background-repeat: repeat-y;
+      background-size: 60px 160px;
+    }
+
+    .shield-wall-left::after {
+      left: calc(100% - 30px);
+    }
+
+    .shield-wall-right::after {
+      right: calc(100% - 30px);
+    }
+
+    .intro-quote {
+      text-align: center;
+      z-index: 10001;
+      width: 90%;
+      max-width: 600px;
+    }
+
+    .intro-quote-text {
+      font-family: 'Heebo', sans-serif;
+      font-size: clamp(1.2rem, 3.5vw, 1.7rem);
+      font-weight: 700;
+      color: var(--gold);
+      line-height: 1.8;
+      opacity: 0;
+      text-shadow: 0 0 30px rgba(201, 168, 76, 0.5);
+      transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+      transform: translateY(10px);
+    }
+
+    .intro-quote-text.show {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .intro-line {
+      width: 0;
+      height: 2px;
+      background: linear-gradient(90deg, transparent, var(--gold), transparent);
+      margin: 16px auto;
+      transition: width 0.5s ease-out;
+    }
+
+    .intro-line.show {
+      width: 200px;
+    }
+
+    .intro-subtitle {
+      font-size: 1rem;
+      font-weight: 500;
+      color: var(--khaki);
+      letter-spacing: 3px;
+      opacity: 0;
+      transition: opacity 0.5s ease-out, transform 0.5s ease-out;
+      transform: translateY(10px);
+    }
+
+    .intro-subtitle.show {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* ===== LOGO STRIP ===== */
+    .logo-strip {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 24px;
+      margin-bottom: 20px;
+      opacity: 0;
+      animation: fadeUp 0.5s ease forwards 0.2s;
+    }
+
+    .logo-strip img {
+      width: 60px;
+      height: auto;
+      border-radius: 10px;
+      background: #fff;
+      padding: 5px;
+      border: 2px solid var(--gold);
+      box-shadow: 0 0 8px rgba(201, 168, 76, 0.3);
+    }
+
+    .logo-strip .emblem-logo {
+      width: 75px;
+    }
+
+    @media (max-width: 600px) {
+      .logo-strip img {
+        width: 50px;
+      }
+
+      .logo-strip .emblem-logo {
+        width: 60px;
+      }
+
+      .logo-strip {
+        gap: 16px;
+      }
+    }
+
+    /* TOP BANNER */
+    .top-banner {
+      background: var(--gold);
+      color: #1a1a0a;
+      text-align: center;
+      padding: 8px 20px;
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 1px;
+      position: relative;
+      z-index: 10;
+    }
+
+    /* HEADER */
+    header {
+      position: relative;
+      z-index: 10;
+      padding: 60px 20px 50px;
+      text-align: center;
+      border-bottom: 1px solid var(--border);
+      background: linear-gradient(180deg, rgba(46, 61, 30, 0.6) 0%, transparent 100%);
+    }
+
+    .header-emblem {
+      font-size: 52px;
+      margin-bottom: 16px;
+      filter: drop-shadow(0 0 20px rgba(201, 168, 76, 0.4));
+      animation: pulse-glow 3s ease-in-out infinite;
+    }
+
+    @keyframes pulse-glow {
+
+      0%,
+      100% {
+        filter: drop-shadow(0 0 20px rgba(201, 168, 76, 0.3));
+      }
+
+      50% {
+        filter: drop-shadow(0 0 35px rgba(201, 168, 76, 0.7));
+      }
+    }
+
+    .header-badge {
+      display: inline-block;
+      border: 1px solid var(--gold);
+      color: var(--gold);
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 3px;
+      padding: 4px 16px;
+      margin-bottom: 20px;
+      text-transform: uppercase;
+    }
+
+    header h1 {
+      font-size: clamp(28px, 6vw, 52px);
+      font-weight: 900;
+      line-height: 1.15;
+      color: var(--text-primary);
+      margin-bottom: 16px;
+      text-shadow: 0 2px 20px rgba(0, 0, 0, 0.5);
+    }
+
+    header h1 span {
+      color: var(--gold);
+    }
+
+    header p.subtitle {
+      font-size: clamp(14px, 2.5vw, 18px);
+      color: var(--khaki);
+      max-width: 600px;
+      margin: 0 auto 24px;
+      line-height: 1.7;
+      font-weight: 300;
+    }
+
+    .time-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(201, 168, 76, 0.1);
+      border: 1px solid var(--border);
+      padding: 10px 24px;
+      font-size: 14px;
+      color: var(--gold-light);
+      font-weight: 600;
+    }
+
+    /* MAIN */
+    main {
+      position: relative;
+      z-index: 10;
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 60px 20px 80px;
+    }
+
+    .section-label {
+      text-align: center;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 4px;
+      color: var(--text-muted);
+      margin-bottom: 40px;
+      text-transform: uppercase;
+    }
+
+    /* CARDS GRID */
+    .cards-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 20px;
+    }
+
+    .card:last-child:nth-child(odd) {
+      grid-column: 1 / -1;
+      max-width: 520px;
+      margin: 0 auto;
+      width: 100%;
+    }
+
+    /* CARD - Instagram Style */
+    .card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      padding: 0;
+      transition: all 0.3s ease;
+      cursor: pointer;
+      position: relative;
+      overflow: hidden;
+      text-align: center;
+      border-radius: 16px;
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+      box-shadow: var(--shadow), 0 0 30px rgba(201, 168, 76, 0.15);
+    }
+
+    .card:hover .card-photo-wrapper::after {
+      opacity: 1;
+    }
+
+    /* Instagram story-style gradient ring */
+    .card-photo-wrapper {
+      width: 140px;
+      height: 140px;
+      border-radius: 50%;
+      padding: 4px;
+      background: linear-gradient(135deg, var(--gold), #e8c96a, #f0d078, var(--gold));
+      margin: 28px auto 0;
+      position: relative;
+    }
+
+    .card-photo-wrapper::after {
+      content: '';
+      position: absolute;
+      inset: -4px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, #c9a84c, #f5d98a, #b8943f, #e8c96a);
+      z-index: -1;
+      opacity: 0;
+      transition: opacity 0.3s;
+      filter: blur(8px);
+    }
+
+    .card-photo {
+      width: 100%;
+      height: 100%;
+      border-radius: 50%;
+      object-fit: cover;
+      object-position: center 20%;
+      border: 3px solid var(--bg-card);
+      display: block;
+    }
+
+    /* Card top bar - like IG post header */
+    .card-profile {
+      padding: 18px 20px 14px;
+    }
+
+    .card-consultant-name {
+      font-size: 17px;
+      font-weight: 700;
+      color: var(--text-primary);
+      margin-bottom: 2px;
+    }
+
+    .card-consultant-role {
+      font-size: 12px;
+      color: var(--gold);
+      font-weight: 600;
+      letter-spacing: 0.5px;
+    }
+
+    .card-divider {
+      display: none;
+    }
+
+    /* Card body */
+    .card-body {
+      padding: 0 22px;
+      border-top: 1px solid var(--border);
+      padding-top: 18px;
+    }
+
+    .card-title {
+      font-size: 20px;
+      font-weight: 800;
+      color: var(--text-primary);
+      margin-bottom: 8px;
+    }
+
+    .card-desc {
+      font-size: 13px;
+      color: var(--khaki);
+      line-height: 1.7;
+      margin-bottom: 20px;
+      font-weight: 300;
+      min-height: 40px;
+    }
+
+    .card-btn {
+      display: block;
+      width: calc(100% - 44px);
+      margin: 0 auto 22px;
+      padding: 12px 20px;
+      background: transparent;
+      color: var(--gold);
+      font-family: 'Heebo', sans-serif;
+      font-size: 14px;
+      font-weight: 700;
+      text-align: center;
+      text-decoration: none;
+      border: 2px solid var(--gold);
+      cursor: pointer;
+      transition: all 0.2s ease;
+      letter-spacing: 0.5px;
+      border-radius: 10px;
+    }
+
+    .card-btn:hover {
+      background: var(--gold);
+      color: #1a1a0a;
+      transform: translateY(-1px);
+      box-shadow: 0 4px 20px rgba(201, 168, 76, 0.4);
+    }
+
+    .card-btn::before {
+      content: '\01F4C5  ';
+    }
+
+    /* HOW IT WORKS */
+    .how-section {
+      margin-top: 70px;
+      padding-top: 50px;
+      border-top: 1px solid var(--border);
+    }
+
+    .how-section h2 {
+      text-align: center;
+      font-size: 20px;
+      font-weight: 700;
+      color: var(--gold);
+      letter-spacing: 2px;
+      margin-bottom: 40px;
+    }
+
+    .steps {
+      display: flex;
+      justify-content: center;
+      gap: 0;
+      flex-wrap: wrap;
+    }
+
+    .step {
+      flex: 1;
+      min-width: 160px;
+      max-width: 220px;
+      text-align: center;
+      padding: 0 20px;
+      position: relative;
+    }
+
     .step:not(:last-child)::before {
-      content: '↓';
-      left: 50%;
-      top: auto;
-      bottom: -24px;
+      content: '←';
+      position: absolute;
+      left: -10px;
+      top: 20px;
+      color: var(--text-muted);
+      font-size: 18px;
     }
-    header { padding: 40px 20px 36px; }
-  }
 
-  /* Entry animation */
-  .card {
-    opacity: 0;
-    transform: translateY(20px);
-    animation: fadeUp 0.5s ease forwards;
-  }
-  .card:nth-child(1) { animation-delay: 0.1s; }
-  .card:nth-child(2) { animation-delay: 0.2s; }
-  .card:nth-child(3) { animation-delay: 0.3s; }
-  .card:nth-child(4) { animation-delay: 0.4s; }
-  .card:nth-child(5) { animation-delay: 0.5s; }
+    .step-num {
+      width: 44px;
+      height: 44px;
+      border: 2px solid var(--gold);
+      color: var(--gold);
+      font-size: 18px;
+      font-weight: 800;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 14px;
+    }
 
-  @keyframes fadeUp {
-    to { opacity: 1; transform: translateY(0); }
-  }
-</style>
+    .step-text {
+      font-size: 14px;
+      color: var(--khaki);
+      line-height: 1.6;
+      font-weight: 400;
+    }
+
+    /* FOOTER */
+    footer {
+      position: relative;
+      z-index: 10;
+      border-top: 1px solid var(--border);
+      padding: 30px 20px;
+      text-align: center;
+    }
+
+    footer p {
+      font-size: 13px;
+      color: var(--text-muted);
+      margin-bottom: 4px;
+    }
+
+    footer p strong {
+      color: var(--khaki);
+    }
+
+    /* MOBILE */
+    @media (max-width: 600px) {
+      .cards-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .card:last-child:nth-child(odd) {
+        grid-column: auto;
+        max-width: 100%;
+      }
+
+      .steps {
+        flex-direction: column;
+        align-items: center;
+        gap: 30px;
+      }
+
+      .step:not(:last-child)::before {
+        content: '↓';
+        left: 50%;
+        top: auto;
+        bottom: -24px;
+      }
+
+      header {
+        padding: 40px 20px 36px;
+      }
+    }
+
+    /* Entry animation */
+    .card {
+      opacity: 0;
+      transform: translateY(20px);
+      animation: fadeUp 0.5s ease forwards;
+    }
+
+    .card:nth-child(1) {
+      animation-delay: 0.1s;
+    }
+
+    .card:nth-child(2) {
+      animation-delay: 0.2s;
+    }
+
+    .card:nth-child(3) {
+      animation-delay: 0.3s;
+    }
+
+    .card:nth-child(4) {
+      animation-delay: 0.4s;
+    }
+
+    .card:nth-child(5) {
+      animation-delay: 0.5s;
+    }
+
+    @keyframes fadeUp {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+  </style>
 </head>
+
 <body>
 
-<!-- ===== CINEMATIC INTRO ===== -->
-<div class="intro-overlay" id="intro">
-  <div class="shield-wall shield-wall-left"><div class="camo-layer"></div></div>
-  <div class="shield-wall shield-wall-right"><div class="camo-layer"></div></div>
-  <div class="intro-quote">
-    <p class="intro-quote-text">מי שמגן על המדינה</p>
-    <p class="intro-quote-text">מגיע לו שידאגו לזכויות שלו</p>
-    <div class="intro-line"></div>
-    <p class="intro-subtitle">חמ"ל מיצוי זכויות - חיילי המחוז</p>
-  </div>
-</div>
-
-<!-- TOP BANNER -->
-<div class="top-banner">
-  ⚔️ &nbsp; האירוע מיועד לחיילי המחוז ומשפחותיהם בלבד &nbsp; ⚔️
-</div>
-
-<!-- HEADER -->
-<header>
-  <div class="logo-strip">
-    <img src="../../../images/maganim-center.webp" alt="לוגו מרכז מגנים">
-    <img src="../../../images/shaagat-hari-logo.webp" alt="סמל שאגת הארי" class="emblem-logo">
-    <img src="../../../images/oref-haifa.webp" alt="לוגו עורף חיפה">
-  </div>
-  <div class="header-emblem">🛡️</div>
-  <div class="header-badge">חמ"ל מיצוי זכויות</div>
-  <h1>מיצוי זכויות<br><span>חיילי המחוז</span></h1>
-  <p class="subtitle">
-    בחרו את הנושא הרלוונטי אליכם - זמנו פגישה ישירות ביומן של היועץ
-  </p>
-  <div class="time-badge">
-    ⏱️ &nbsp; משך פגישה: 15–20 דקות
-  </div>
-</header>
-
-<!-- MAIN -->
-<main>
-  <p class="section-label">בחרו יועץ וזמן פגישה</p>
-
-  <div class="cards-grid">
-
-    <!-- Card 1 -->
-    <div class="card">
-      <div class="card-photo-wrapper">
-        <img class="card-photo" src="images/orna_avikzar.webp" alt="אורנה אביקזר">
-      </div>
-      <div class="card-profile">
-        <div class="card-consultant-name">אורנה אביקזר</div>
-        <div class="card-consultant-role">מיצוי זכויות</div>
-      </div>
-      <div class="card-body">
-        <div class="card-title">עצמאים</div>
-        <div class="card-desc">מס הכנסה, עוסק פטור ומורשה, החזרי מס, דו"חות שנתיים</div>
-        <a class="card-btn" href="https://calendar.app.google/qDYF2FnpzEtit8Ww6" target="_blank">לזימון פגישה</a>
-      </div>
+  <!-- ===== CINEMATIC INTRO ===== -->
+  <div class="intro-overlay" id="intro">
+    <div class="shield-wall shield-wall-left">
+      <div class="camo-layer"></div>
     </div>
-
-    <!-- Card 2 -->
-    <div class="card">
-      <div class="card-photo-wrapper">
-        <img class="card-photo" src="images/kohav_avshalom.webp" alt="כוכב אבשלום">
-      </div>
-      <div class="card-profile">
-        <div class="card-consultant-name">כוכב אבשלום</div>
-        <div class="card-consultant-role">רואת חשבון</div>
-      </div>
-      <div class="card-body">
-        <div class="card-title">שכירים</div>
-        <div class="card-desc">זכויות עובד, תלושי שכר, החזרי מס, פיצויים וקרנות</div>
-        <a class="card-btn" href="https://calendar.app.google/qDYF2FnpzEtit8Ww6" target="_blank">לזימון פגישה</a>
-      </div>
+    <div class="shield-wall shield-wall-right">
+      <div class="camo-layer"></div>
     </div>
-
-    <!-- Card 3 -->
-    <div class="card">
-      <div class="card-photo-wrapper">
-        <img class="card-photo" src="images/yaki_keinan.webp" alt="יקי קינן">
-      </div>
-      <div class="card-profile">
-        <div class="card-consultant-name">יקי קינן</div>
-        <div class="card-consultant-role">רואה חשבון</div>
-      </div>
-      <div class="card-body">
-        <div class="card-title">כלכלת בית</div>
-        <div class="card-desc">ייעוץ כלכלי, מענקים, הלוואות וסיוע למשפחות מגויסים</div>
-        <a class="card-btn" href="https://calendar.app.google/qDYF2FnpzEtit8Ww6" target="_blank">לזימון פגישה</a>
-      </div>
-    </div>
-
-    <!-- Card 4 -->
-    <div class="card">
-      <div class="card-photo-wrapper">
-        <img class="card-photo" src="images/lilach_avisror.webp" alt="לילך אביצור">
-      </div>
-      <div class="card-profile">
-        <div class="card-consultant-name">לילך אביצור</div>
-        <div class="card-consultant-role">ביטוח לאומי</div>
-      </div>
-      <div class="card-body">
-        <div class="card-title">ביטוח לאומי</div>
-        <div class="card-desc">קצבאות, דמי פגיעה, נכות, זכויות מגויסים ומשפחותיהם</div>
-        <a class="card-btn" href="https://calendar.app.google/qDYF2FnpzEtit8Ww6" target="_blank">לזימון פגישה</a>
-      </div>
-    </div>
-
-    <!-- Card 5 -->
-    <div class="card">
-      <div class="card-photo-wrapper">
-        <img class="card-photo" src="images/sagi_baron.webp" alt="שגיא בר און">
-      </div>
-      <div class="card-profile">
-        <div class="card-consultant-name">שגיא בר און</div>
-        <div class="card-consultant-role">יועץ AI</div>
-      </div>
-      <div class="card-body">
-        <div class="card-title">שאגת הארי</div>
-        <div class="card-desc">מערכת הקדשות אישיות לחיילי המילואים - מהמשפחה אליך</div>
-        <a class="card-btn" href="https://calendar.app.google/qDYF2FnpzEtit8Ww6" target="_blank">לזימון פגישה</a>
-      </div>
-    </div>
-
-  </div>
-
-  <!-- HOW IT WORKS -->
-  <div class="how-section">
-    <h2>איך זה עובד?</h2>
-    <div class="steps">
-      <div class="step">
-        <div class="step-num">1</div>
-        <div class="step-text">בחרו את נושא הייעוץ הרלוונטי אליכם</div>
-      </div>
-      <div class="step">
-        <div class="step-num">2</div>
-        <div class="step-text">לחצו "לזימון פגישה" - ייפתח לכם היומן של היועץ</div>
-      </div>
-      <div class="step">
-        <div class="step-num">3</div>
-        <div class="step-text">בחרו שעה פנויה ואשרו את הפגישה</div>
-      </div>
-      <div class="step">
-        <div class="step-num">4</div>
-        <div class="step-text">קבלו אישור עם קישור לפגישה ישירות למייל</div>
-      </div>
+    <div class="intro-quote">
+      <p class="intro-quote-text">מי שמגן על המדינה</p>
+      <p class="intro-quote-text">מגיע לו שידאגו לזכויות שלו</p>
+      <div class="intro-line"></div>
+      <p class="intro-subtitle">חמ"ל מיצוי זכויות - חיילי המחוז</p>
     </div>
   </div>
 
-</main>
+  <!-- TOP BANNER -->
+  <div class="top-banner">
+    ⚔️ &nbsp; האירוע מיועד לחיילי המחוז ומשפחותיהם בלבד &nbsp; ⚔️
+  </div>
 
-<!-- FOOTER -->
-<footer>
-  <p><strong>מיצוי זכויות - חיילי המחוז</strong></p>
-  <p>מערכת זו פותחה לסיוע לחיילי המילואים ומשפחותיהם</p>
-</footer>
+  <!-- HEADER -->
+  <header>
+    <div class="logo-strip">
+      <img src="../../../images/maganim-center.webp" alt="לוגו מרכז מגנים">
+      <img src="../../../images/shaagat-hari-logo.webp" alt="סמל שאגת הארי" class="emblem-logo">
+      <img src="../../../images/oref-haifa.webp" alt="לוגו עורף חיפה">
+    </div>
+    <div class="header-emblem">🛡️</div>
+    <div class="header-badge">חמ"ל מיצוי זכויות</div>
+    <h1>מיצוי זכויות<br><span>חיילי המחוז</span></h1>
+    <p class="subtitle">
+      בחרו את הנושא הרלוונטי אליכם - זמנו פגישה ישירות ביומן של היועץ
+    </p>
+    <div class="time-badge">
+      ⏱️ &nbsp; משך פגישה: 15–20 דקות
+    </div>
+  </header>
 
-<script>
-// ===== CINEMATIC INTRO SEQUENCE =====
-(function() {
-  var intro = document.getElementById('intro');
-  if (!intro) return;
+  <!-- MAIN -->
+  <main>
+    <p class="section-label">בחרו יועץ וזמן פגישה</p>
 
-  var texts = intro.querySelectorAll('.intro-quote-text');
-  var line = intro.querySelector('.intro-line');
-  var subtitle = intro.querySelector('.intro-subtitle');
+    <div class="cards-grid">
 
-  // Lock scroll during intro
-  document.body.style.overflow = 'hidden';
+      <!-- Card 1 -->
+      <div class="card">
+        <div class="card-photo-wrapper">
+          <img class="card-photo" src="images/orna_avikzar.webp" alt="אורנה אביקזר">
+        </div>
+        <div class="card-profile">
+          <div class="card-consultant-name">אורנה אביקזר</div>
+          <div class="card-consultant-role">מיצוי זכויות</div>
+        </div>
+        <div class="card-body">
+          <div class="card-title">עצמאים</div>
+          <div class="card-desc">מס הכנסה, עוסק פטור ומורשה, החזרי מס, דו"חות שנתיים</div>
+          <a class="card-btn" href="https://calendar.app.google/qDYF2FnpzEtit8Ww6" target="_blank">לזימון פגישה</a>
+        </div>
+      </div>
 
-  // Step 1: Show first quote line
-  setTimeout(function() {
-    if (texts[0]) texts[0].classList.add('show');
-  }, 300);
+      <!-- Card 2 -->
+      <div class="card">
+        <div class="card-photo-wrapper">
+          <img class="card-photo" src="images/kohav_avshalom.webp" alt="כוכב אבשלום">
+        </div>
+        <div class="card-profile">
+          <div class="card-consultant-name">כוכב אבשלום</div>
+          <div class="card-consultant-role">רואת חשבון</div>
+        </div>
+        <div class="card-body">
+          <div class="card-title">שכירים</div>
+          <div class="card-desc">זכויות עובד, תלושי שכר, החזרי מס, פיצויים וקרנות</div>
+          <a class="card-btn" href="https://calendar.app.google/qDYF2FnpzEtit8Ww6" target="_blank">לזימון פגישה</a>
+        </div>
+      </div>
 
-  // Step 2: Show second quote line
-  setTimeout(function() {
-    if (texts[1]) texts[1].classList.add('show');
-  }, 700);
+      <!-- Card 3 -->
+      <div class="card">
+        <div class="card-photo-wrapper">
+          <img class="card-photo" src="images/yaki_keinan.webp" alt="יקי קינן">
+        </div>
+        <div class="card-profile">
+          <div class="card-consultant-name">יקי קינן</div>
+          <div class="card-consultant-role">רואה חשבון</div>
+        </div>
+        <div class="card-body">
+          <div class="card-title">כלכלת בית</div>
+          <div class="card-desc">ייעוץ כלכלי, מענקים, הלוואות וסיוע למשפחות מגויסים</div>
+          <a class="card-btn" href="https://calendar.app.google/qDYF2FnpzEtit8Ww6" target="_blank">לזימון פגישה</a>
+        </div>
+      </div>
 
-  // Step 3: Expand golden line
-  setTimeout(function() {
-    if (line) line.classList.add('show');
-  }, 1100);
+      <!-- Card 4 -->
+      <div class="card">
+        <div class="card-photo-wrapper">
+          <img class="card-photo" src="images/lilach_avisror.webp" alt="לילך אביצור">
+        </div>
+        <div class="card-profile">
+          <div class="card-consultant-name">לילך אביצור</div>
+          <div class="card-consultant-role">ביטוח לאומי</div>
+        </div>
+        <div class="card-body">
+          <div class="card-title">ביטוח לאומי</div>
+          <div class="card-desc">קצבאות, דמי פגיעה, נכות, זכויות מגויסים ומשפחותיהם</div>
+          <a class="card-btn" href="https://calendar.app.google/qDYF2FnpzEtit8Ww6" target="_blank">לזימון פגישה</a>
+        </div>
+      </div>
 
-  // Step 4: Show subtitle
-  setTimeout(function() {
-    if (subtitle) subtitle.classList.add('show');
-  }, 1400);
+      <!-- Card 5 -->
+      <div class="card">
+        <div class="card-photo-wrapper">
+          <img class="card-photo" src="images/sagi_baron.webp" alt="שגיא בר און">
+        </div>
+        <div class="card-profile">
+          <div class="card-consultant-name">שגיא בר און</div>
+          <div class="card-consultant-role">יועץ AI</div>
+        </div>
+        <div class="card-body">
+          <div class="card-title">שאגת הארי</div>
+          <div class="card-desc">מערכת הקדשות אישיות לחיילי המילואים - מהמשפחה אליך</div>
+          <a class="card-btn" href="https://calendar.app.google/qDYF2FnpzEtit8Ww6" target="_blank">לזימון פגישה</a>
+        </div>
+      </div>
 
-  // Step 5: Part the shields!
-  setTimeout(function() {
-    intro.classList.add('parting');
-  }, 2000);
+    </div>
 
-  // Step 6: Dismiss overlay
-  setTimeout(function() {
-    intro.classList.add('dismissed');
-    document.body.style.overflow = '';
-  }, 3500);
+    <!-- HOW IT WORKS -->
+    <div class="how-section">
+      <h2>איך זה עובד?</h2>
+      <div class="steps">
+        <div class="step">
+          <div class="step-num">1</div>
+          <div class="step-text">בחרו את נושא הייעוץ הרלוונטי אליכם</div>
+        </div>
+        <div class="step">
+          <div class="step-num">2</div>
+          <div class="step-text">לחצו "לזימון פגישה" - ייפתח לכם היומן של היועץ</div>
+        </div>
+        <div class="step">
+          <div class="step-num">3</div>
+          <div class="step-text">בחרו שעה פנויה ואשרו את הפגישה</div>
+        </div>
+        <div class="step">
+          <div class="step-num">4</div>
+          <div class="step-text">קבלו אישור עם קישור לפגישה ישירות למייל</div>
+        </div>
+      </div>
+    </div>
 
-  // Step 7: Remove from DOM
-  setTimeout(function() {
-    intro.remove();
-  }, 4500);
-})();
-</script>
+  </main>
+
+  <!-- FOOTER -->
+  <footer>
+    <p><strong>מיצוי זכויות - חיילי המחוז</strong></p>
+    <p>מערכת זו פותחה לסיוע לחיילי המילואים ומשפחותיהם</p>
+  </footer>
+
+  <script>
+    // ===== CINEMATIC INTRO SEQUENCE =====
+    (function () {
+      var intro = document.getElementById('intro');
+      if (!intro) return;
+
+      var texts = intro.querySelectorAll('.intro-quote-text');
+      var line = intro.querySelector('.intro-line');
+      var subtitle = intro.querySelector('.intro-subtitle');
+
+      // Lock scroll during intro
+      document.body.style.overflow = 'hidden';
+
+      // Step 1: Show first quote line
+      setTimeout(function () {
+        if (texts[0]) texts[0].classList.add('show');
+      }, 300);
+
+      // Step 2: Show second quote line
+      setTimeout(function () {
+        if (texts[1]) texts[1].classList.add('show');
+      }, 700);
+
+      // Step 3: Expand golden line
+      setTimeout(function () {
+        if (line) line.classList.add('show');
+      }, 1100);
+
+      // Step 4: Show subtitle
+      setTimeout(function () {
+        if (subtitle) subtitle.classList.add('show');
+      }, 1400);
+
+      // Step 5: Part the shields!
+      setTimeout(function () {
+        intro.classList.add('parting');
+      }, 2000);
+
+      // Step 6: Dismiss overlay
+      setTimeout(function () {
+        intro.classList.add('dismissed');
+        document.body.style.overflow = '';
+      }, 3500);
+
+      // Step 7: Remove from DOM
+      setTimeout(function () {
+        intro.remove();
+      }, 4500);
+    })();
+  </script>
 
 </body>
+
 </html>
