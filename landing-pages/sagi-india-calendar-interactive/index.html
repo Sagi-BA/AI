@@ -853,8 +853,12 @@
         line-height: 1.35;
       }
 
+      /* Needs an explicit height: otherwise the photos' intrinsic aspect ratio
+         sizes the hero's grid row, pushing it past the fixed row height so the
+         hero's overflow:hidden clips the text beside it. */
       .photo-strip {
         gap: 1.8mm;
+        height: 37mm;
       }
 
       .travel-photo {
@@ -1027,15 +1031,21 @@
       html.print-a4 .calendar-page {
         width: 297mm;
         height: 210mm;
-        padding: 6mm;
-        grid-template-rows: 32mm 7.5mm 108mm 42mm 4mm;
-        gap: 1.1mm;
+        padding: 5mm;
+        grid-template-rows: 24mm 140mm 29mm 4mm;
+        gap: 1mm;
+      }
+
+      /* On paper the bar is always empty and the count is always 0 - the pen
+         marks are the real progress. Dropping it feeds the calendar. */
+      html.print-a4 .journey-progress {
+        display: none;
       }
 
       html.print-a4 .hero {
-        padding: 2.6mm 3.4mm;
-        gap: 3.4mm;
-        border-radius: 3.4mm;
+        padding: 2mm 3mm;
+        gap: 3mm;
+        border-radius: 3mm;
       }
 
       html.print-a4 .dedication {
@@ -1049,19 +1059,19 @@
       }
 
       html.print-a4 .subtitle {
-        margin: .6mm 0 .9mm;
-        font-size: 3mm;
+        margin: .5mm 0 0;
+        font-size: 3.2mm;
       }
 
+      /* The letter lives on the interactive version; dropping it from the A4
+         sheet is what buys the day cards their bigger type. */
       html.print-a4 .letter {
-        padding: 1.2mm 1.8mm;
-        border-radius: 1.8mm;
-        font-size: 2.1mm;
-        line-height: 1.3;
+        display: none;
       }
 
       html.print-a4 .photo-strip {
         gap: 1.2mm;
+        height: 20mm;
       }
 
       html.print-a4 .travel-photo {
@@ -1099,7 +1109,7 @@
       }
 
       html.print-a4 .calendar-shell {
-        grid-template-rows: 6.5mm 1fr;
+        grid-template-rows: 7mm 1fr;
       }
 
       html.print-a4 .weekdays,
@@ -1108,40 +1118,40 @@
       }
 
       html.print-a4 .weekday {
-        border-radius: 1.5mm 1.5mm .6mm .6mm;
-        font-size: 2.3mm;
+        border-radius: 1.6mm 1.6mm .6mm .6mm;
+        font-size: 2.9mm;
       }
 
       html.print-a4 .day-card {
-        padding: 1.2mm 1.5mm 1mm;
-        border-radius: 2.1mm;
+        padding: 1.3mm 1.6mm 1.1mm;
+        border-radius: 2.2mm;
       }
 
       html.print-a4 .date-line {
-        gap: .8mm;
-        margin-bottom: .8mm;
-        padding-bottom: .6mm;
-        font-size: 2.3mm;
+        gap: .9mm;
+        margin-bottom: .9mm;
+        padding-bottom: .7mm;
+        font-size: 3mm;
       }
 
       html.print-a4 .day-check {
-        width: 3.8mm;
-        height: 3.8mm;
-        border-width: .4mm;
-        font-size: 2.2mm;
+        width: 4.6mm;
+        height: 4.6mm;
+        border-width: .45mm;
+        font-size: 2.7mm;
       }
 
       html.print-a4 .place-line {
-        margin-bottom: .5mm;
-        font-size: 2.5mm;
+        margin-bottom: .6mm;
+        font-size: 3.2mm;
       }
 
       html.print-a4 .english {
-        font-size: 1.8mm;
+        font-size: 2.2mm;
       }
 
       html.print-a4 .day-note {
-        font-size: 2.1mm;
+        font-size: 2.7mm;
         line-height: 1.22;
       }
 
@@ -1149,11 +1159,11 @@
         gap: 3mm;
         padding: 1.8mm 3.5mm;
         border-radius: 2.2mm;
-        font-size: 3.2mm;
+        font-size: 3.6mm;
       }
 
       html.print-a4 .home-celebration .confetti {
-        font-size: 4.8mm;
+        font-size: 5.2mm;
       }
 
       html.print-a4 .footer-grid {
@@ -1161,29 +1171,29 @@
       }
 
       html.print-a4 .panel {
-        padding: 1.8mm 2.2mm;
+        padding: 1.6mm 2.2mm;
         border-radius: 2.2mm;
       }
 
       html.print-a4 .panel h2 {
-        margin-bottom: .9mm;
+        margin-bottom: .8mm;
         font-size: 2.7mm;
       }
 
       html.print-a4 .panel-kicker {
-        margin-bottom: 1mm;
-        font-size: 1.8mm;
+        margin-bottom: .9mm;
+        font-size: 1.9mm;
       }
 
       html.print-a4 .task-list {
-        gap: 1mm;
+        gap: .9mm;
       }
 
       html.print-a4 .task {
         grid-template-columns: 3.5mm 1fr;
         gap: 1.1mm;
-        font-size: 2.1mm;
-        line-height: 1.3;
+        font-size: 2.2mm;
+        line-height: 1.28;
       }
 
       html.print-a4 .task input {
@@ -1198,24 +1208,24 @@
       }
 
       html.print-a4 .legend-grid {
-        gap: 1.1mm 1.6mm;
+        gap: .8mm 1.6mm;
       }
 
       html.print-a4 .legend-item {
-        grid-template-columns: 4.3mm 1fr;
-        gap: 1.1mm;
-        font-size: 1.9mm;
+        grid-template-columns: 3.8mm 1fr;
+        gap: 1mm;
+        font-size: 2mm;
       }
 
       html.print-a4 .legend-icon {
-        width: 4.3mm;
-        height: 4.3mm;
-        border-radius: 1.2mm;
-        font-size: 2.5mm;
+        width: 3.8mm;
+        height: 3.8mm;
+        border-radius: 1.1mm;
+        font-size: 2.3mm;
       }
 
       html.print-a4 .love-footer {
-        font-size: 2.05mm;
+        font-size: 2.3mm;
       }
     }
   </style>
