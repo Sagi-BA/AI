@@ -109,20 +109,31 @@ def main():
                 entry["photos"].append(u)
         print(f"  {date}  {len(shots):>2} photo(s)  {step.get('name') or ''}")
 
+    existing = {}
+    if os.path.exists(OUT):
+        try:
+            with open(OUT, encoding="utf-8") as f:
+                existing = json.load(f)
+        except (OSError, json.JSONDecodeError):
+            existing = {}
+
+    # Never replace real content with an empty file - a transient API hiccup
+    # shouldn't blank out the girls' photos.
+    if not days and existing.get("days"):
+        print("API returned no steps but the existing file has photos - keeping it.")
+        return
+
+    # Only the photos matter. Refreshing `updated` on every run would commit
+    # (and redeploy the site) four times a day for the whole trip.
+    if existing.get("days") == days:
+        print("no change in photos - leaving the file alone")
+        return
+
     payload = {
         "trip": trip.get("name"),
         "updated": datetime.now(timezone.utc).isoformat(timespec="seconds"),
         "days": days,
     }
-
-    # Never replace real content with an empty file - a transient API hiccup
-    # shouldn't blank out the girls' photos.
-    if os.path.exists(OUT) and not days:
-        with open(OUT, encoding="utf-8") as f:
-            existing = json.load(f)
-        if existing.get("days"):
-            print("API returned no steps but the existing file has photos - keeping it.")
-            return
 
     os.makedirs(os.path.dirname(OUT), exist_ok=True)
     with open(OUT, "w", encoding="utf-8") as f:
