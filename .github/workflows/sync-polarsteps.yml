@@ -1,0 +1,48 @@
+name: Sync Polarsteps photos
+
+# Pulls Sagi's public Polarsteps trip and writes photos per day into
+# landing-pages/sagi-india-calendar-interactive/polarsteps.json
+#
+# Why a workflow and not fetch() in the page: the Polarsteps API sends no
+# Access-Control-Allow-Origin and its preflight returns 400, so a browser on
+# github.io cannot read it. A runner has no such restriction.
+#
+# Requires the trip to stay PUBLIC. If it flips back to followers-only the
+# API returns 404 and the job fails loudly rather than wiping the file.
+
+on:
+  schedule:
+    - cron: "0 */6 * * *"      # every 6 hours
+  workflow_dispatch:            # manual run from the Actions tab
+
+permissions:
+  contents: write
+
+concurrency:
+  group: polarsteps-sync
+  cancel-in-progress: false
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Fetch trip and build photos file
+        env:
+          TRIP_ID: "28911836"
+        run: python .github/scripts/sync_polarsteps.py
+
+      - name: Commit if changed
+        run: |
+          FILE=landing-pages/sagi-india-calendar-interactive/polarsteps.json
+          if [[ -n "$(git status --porcelain "$FILE")" ]]; then
+            git config user.name  "github-actions[bot]"
+            git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+            git add "$FILE"
+            git commit -m "Update Polarsteps photos"
+            git push
+            echo "pushed an update"
+          else
+            echo "no change"
+          fi

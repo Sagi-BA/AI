@@ -45,6 +45,12 @@
       box-sizing: border-box;
     }
 
+    /* An explicit `display` beats the hidden attribute's UA style, so collapsible
+       panels here need this or they open on load. */
+    [hidden] {
+      display: none !important;
+    }
+
     html {
       background: #f2edf8;
     }
@@ -506,7 +512,6 @@
       border: 0;
       border-radius: 14px;
       color: var(--ink);
-      cursor: pointer;
       overflow: hidden;
       box-shadow: inset 0 0 0 1px rgba(68, 62, 91, .08), 0 3px 10px rgba(40, 48, 68, .06);
       transition: transform .16s ease, box-shadow .16s ease, opacity .16s ease;
@@ -517,9 +522,37 @@
       box-shadow: inset 0 0 0 1px rgba(68, 62, 91, .12), 0 7px 16px rgba(40, 48, 68, .12);
     }
 
-    .day-card:focus-visible {
+    /* The circle marks the day done; the rest of the card opens that day's photos. */
+    .day-open {
+      display: block;
+      width: 100%;
+      padding: 0;
+      border: 0;
+      background: none;
+      color: inherit;
+      font: inherit;
+      text-align: right;
+      cursor: pointer;
+    }
+
+    .day-check:focus-visible,
+    .day-open:focus-visible {
       outline: 4px solid rgba(124, 92, 231, .32);
       outline-offset: 1px;
+      border-radius: 8px;
+    }
+
+    .day-photo-badge {
+      position: absolute;
+      inset-block-end: 6px;
+      inset-inline-start: 8px;
+      z-index: 2;
+      font-size: 11px;
+      font-weight: 800;
+      color: var(--purple-deep, #6d28d9);
+      background: rgba(255, 255, 255, .85);
+      border-radius: 999px;
+      padding: 1px 7px;
     }
 
     .day-card.region-delhi {
@@ -568,6 +601,8 @@
       flex: 0 0 auto;
       width: 23px;
       height: 23px;
+      padding: 0;
+      cursor: pointer;
       display: grid;
       place-items: center;
       border-radius: 50%;
@@ -637,6 +672,103 @@
       padding: 2px 7px;
       border-radius: 999px;
       letter-spacing: .02em;
+    }
+
+    .photo-lightbox {
+      position: fixed;
+      inset: 0;
+      z-index: 200;
+      display: grid;
+      place-items: center;
+      padding: 18px;
+      background: rgba(30, 24, 50, .72);
+      backdrop-filter: blur(3px);
+    }
+
+    .photo-lightbox[hidden] {
+      display: none;
+    }
+
+    .lightbox-inner {
+      width: min(760px, 100%);
+      max-height: 88vh;
+      overflow: auto;
+      display: grid;
+      gap: 12px;
+      padding: 18px 20px 20px;
+      border-radius: 18px;
+      background: var(--paper);
+      box-shadow: 0 26px 70px rgba(20, 14, 40, .4);
+    }
+
+    .lightbox-head {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 14px;
+    }
+
+    .lightbox-head h2 {
+      margin: 0;
+      font-size: 19px;
+      color: var(--ink);
+    }
+
+    .lightbox-close {
+      flex: 0 0 auto;
+      width: 34px;
+      height: 34px;
+      border: 0;
+      border-radius: 50%;
+      cursor: pointer;
+      font-size: 17px;
+      font-weight: 800;
+      color: var(--ink);
+      background: rgba(40, 48, 68, .09);
+    }
+
+    .lightbox-body img {
+      display: block;
+      width: 100%;
+      max-height: 62vh;
+      object-fit: contain;
+      border-radius: 12px;
+      background: #eceaf2;
+    }
+
+    .lightbox-empty {
+      padding: 26px 10px;
+      text-align: center;
+      font-size: 17px;
+      font-weight: 700;
+      line-height: 1.6;
+      color: var(--muted);
+    }
+
+    .lightbox-nav {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 16px;
+      font-weight: 800;
+      color: var(--muted);
+    }
+
+    .lightbox-nav button {
+      width: 40px;
+      height: 40px;
+      border: 0;
+      border-radius: 50%;
+      cursor: pointer;
+      font-size: 24px;
+      line-height: 1;
+      color: #fff;
+      background: linear-gradient(135deg, var(--purple), var(--pink));
+    }
+
+    .lightbox-nav button:disabled {
+      opacity: .35;
+      cursor: default;
     }
 
     .home-celebration {
@@ -939,7 +1071,9 @@
       /* Live/date-dependent bits would be frozen (and wrong) on paper; an
          iframe can't print at all. */
       .today-strip,
-      .map-section {
+      .map-section,
+      .photo-lightbox,
+      .day-photo-badge {
         display: none !important;
       }
 
@@ -1520,6 +1654,22 @@
     <div class="love-footer">עוד יום שעובר הוא עוד יום שמתקרבים לחיבוק הגדול בבית ❤️</div>
   </main>
 
+  <div class="photo-lightbox" id="photoLightbox" role="dialog" aria-modal="true"
+    aria-labelledby="lightboxTitle" hidden>
+    <div class="lightbox-inner">
+      <div class="lightbox-head">
+        <h2 id="lightboxTitle"></h2>
+        <button type="button" class="lightbox-close" id="lightboxClose" aria-label="סגירה">✕</button>
+      </div>
+      <div class="lightbox-body" id="lightboxBody"></div>
+      <div class="lightbox-nav" id="lightboxNav" hidden>
+        <button type="button" id="lightboxPrev" aria-label="התמונה הקודמת">‹</button>
+        <span id="lightboxCounter"></span>
+        <button type="button" id="lightboxNext" aria-label="התמונה הבאה">›</button>
+      </div>
+    </div>
+  </div>
+
   <script>
     const days = [
       { date: '2026-09-13', label: "יום א׳ | 13.9", icon: '🏙️', place: 'דלהי', en: 'Delhi', note: 'הגעה ועיר גדולה', region: 'delhi' },
@@ -1559,6 +1709,44 @@
       { date: '2026-10-13', label: "יום ג׳ | 13.10", icon: '✈️🏠', place: 'טיסה הביתה!', en: 'Flight back home', note: 'היום של החיבוק הגדול', region: 'home' }
     ];
 
+    // ===== תמונות לכל יום =====
+    // כדי להוסיף תמונות ליום: שימו את הקבצים בתיקייה photos/ והוסיפו כאן שורה
+    // עם התאריך. אפשר גם כתובת מלאה לתמונה באינטרנט. זה המקום היחיד שצריך לערוך.
+    //   '2026-09-22': ['photos/22-09-bir-1.webp', 'photos/22-09-bir-2.webp'],
+    const PHOTOS_BY_DATE = {
+    };
+
+    // Filled from polarsteps.json, which a scheduled GitHub Action writes from
+    // Sagi's public trip. The API itself can't be read from the browser (no CORS),
+    // hence the detour through a file on our own origin.
+    let livePhotos = {};
+
+    function photosFor(date) {
+      const manual = PHOTOS_BY_DATE[date];
+      if (Array.isArray(manual) && manual.length) return manual;
+      const live = livePhotos[date];
+      return live && Array.isArray(live.photos) ? live.photos : [];
+    }
+
+    function liveTitleFor(date) {
+      const live = livePhotos[date];
+      return live && live.title ? live.title : '';
+    }
+
+    async function loadLivePhotos() {
+      try {
+        const res = await fetch('polarsteps.json?t=' + Date.now(), { cache: 'no-store' });
+        if (!res.ok) return;
+        const data = await res.json();
+        if (data && data.days && typeof data.days === 'object') {
+          livePhotos = data.days;
+          renderDays();
+        }
+      } catch {
+        // No file yet, or offline - the calendar works fine without it.
+      }
+    }
+
     const DAY_KEY = 'sagi-india-days-v1';
     const TASK_KEY = 'sagi-india-tasks-v1';
     const grid = document.getElementById('calendarGrid');
@@ -1579,20 +1767,32 @@
       const localToday = `${today.getFullYear()}-${String(today.getMonth() + 1).padStart(2, '0')}-${String(today.getDate()).padStart(2, '0')}`;
 
       days.forEach(day => {
-        const button = document.createElement('button');
-        button.type = 'button';
-        button.className = `day-card region-${day.region}`;
-        if (savedDays.has(day.date)) button.classList.add('done');
-        if (day.date === localToday) button.classList.add('today');
-        button.dataset.date = day.date;
-        button.setAttribute('aria-pressed', savedDays.has(day.date) ? 'true' : 'false');
-        button.setAttribute('aria-label', `${day.label}, ${day.place}, ${day.note}. לחצו כדי לסמן שהיום עבר`);
-        button.innerHTML = `
-          <div class="date-line"><span>${day.label}</span><span class="day-check" aria-hidden="true"></span></div>
-          <div class="place-line">${day.icon} ${day.place} <span class="english">(${day.en})</span></div>
-          <div class="day-note">${day.note}</div>`;
-        button.addEventListener('click', () => toggleDay(day.date, button));
-        grid.appendChild(button);
+        const card = document.createElement('div');
+        card.className = `day-card region-${day.region}`;
+        if (savedDays.has(day.date)) card.classList.add('done');
+        if (day.date === localToday) card.classList.add('today');
+        card.dataset.date = day.date;
+
+        const count = photosFor(day.date).length;
+        card.innerHTML = `
+          <div class="date-line">
+            <span>${day.label}</span>
+            <button type="button" class="day-check" aria-pressed="${savedDays.has(day.date)}"
+              aria-label="לסמן ש${day.label} כבר עבר"></button>
+          </div>
+          <button type="button" class="day-open"
+            aria-label="${day.label}, ${day.place}, ${day.note}. לחצו לתמונות מהיום הזה">
+            <div class="place-line">${day.icon} ${day.place} <span class="english">(${day.en})</span></div>
+            <div class="day-note">${day.note}</div>
+            ${count ? `<span class="day-photo-badge">📷 ${count}</span>` : ''}
+          </button>`;
+
+        card.querySelector('.day-check').addEventListener('click', e => {
+          e.stopPropagation();
+          toggleDay(day.date, card);
+        });
+        card.querySelector('.day-open').addEventListener('click', () => openPhotos(day));
+        grid.appendChild(card);
       });
 
       const celebration = document.createElement('div');
@@ -1602,12 +1802,12 @@
       updateProgress();
     }
 
-    function toggleDay(date, button) {
+    function toggleDay(date, card) {
       if (savedDays.has(date)) savedDays.delete(date); else savedDays.add(date);
       storage.set(DAY_KEY, JSON.stringify([...savedDays]));
       const done = savedDays.has(date);
-      button.classList.toggle('done', done);
-      button.setAttribute('aria-pressed', done ? 'true' : 'false');
+      card.classList.toggle('done', done);
+      card.querySelector('.day-check').setAttribute('aria-pressed', done ? 'true' : 'false');
       updateProgress();
     }
 
@@ -1685,6 +1885,70 @@
       card.scrollIntoView({ behavior: 'smooth', block: 'center' });
     }
 
+    // ===== תמונות של יום =====
+    const lightbox = document.getElementById('photoLightbox');
+    const lightboxTitle = document.getElementById('lightboxTitle');
+    const lightboxBody = document.getElementById('lightboxBody');
+    const lightboxNav = document.getElementById('lightboxNav');
+    const lightboxCounter = document.getElementById('lightboxCounter');
+    const lightboxPrev = document.getElementById('lightboxPrev');
+    const lightboxNext = document.getElementById('lightboxNext');
+    let lightboxShots = [];
+    let lightboxAt = 0;
+    let lastFocused = null;
+
+    function renderShot() {
+      if (!lightboxShots.length) {
+        lightboxBody.innerHTML =
+          '<p class="lightbox-empty">עוד אין תמונות מהיום הזה 📷<br>אבא יעלה אותן כשהוא יגיע לשם!</p>';
+        lightboxNav.hidden = true;
+        return;
+      }
+      lightboxBody.innerHTML = '';
+      const img = document.createElement('img');
+      img.src = lightboxShots[lightboxAt];
+      img.alt = `תמונה ${lightboxAt + 1} מתוך ${lightboxShots.length}`;
+      img.loading = 'lazy';
+      lightboxBody.appendChild(img);
+      lightboxNav.hidden = lightboxShots.length < 2;
+      lightboxCounter.textContent = `${lightboxAt + 1} / ${lightboxShots.length}`;
+      lightboxPrev.disabled = lightboxAt === 0;
+      lightboxNext.disabled = lightboxAt === lightboxShots.length - 1;
+    }
+
+    function openPhotos(day) {
+      lastFocused = document.activeElement;
+      lightboxShots = photosFor(day.date);
+      lightboxAt = 0;
+      const stepName = liveTitleFor(day.date);
+      lightboxTitle.textContent = stepName
+        ? `${day.label} · ${stepName}`
+        : `${day.label} · ${day.place}`;
+      renderShot();
+      lightbox.hidden = false;
+      document.body.style.overflow = 'hidden';
+      document.getElementById('lightboxClose').focus();
+    }
+
+    function closePhotos() {
+      lightbox.hidden = true;
+      document.body.style.overflow = '';
+      if (lastFocused) lastFocused.focus();
+    }
+
+    document.getElementById('lightboxClose').addEventListener('click', closePhotos);
+    lightbox.addEventListener('click', e => { if (e.target === lightbox) closePhotos(); });
+    lightboxPrev.addEventListener('click', () => { if (lightboxAt > 0) { lightboxAt--; renderShot(); } });
+    lightboxNext.addEventListener('click', () => {
+      if (lightboxAt < lightboxShots.length - 1) { lightboxAt++; renderShot(); }
+    });
+    document.addEventListener('keydown', e => {
+      if (lightbox.hidden) return;
+      if (e.key === 'Escape') closePhotos();
+      if (e.key === 'ArrowLeft') lightboxNext.click();
+      if (e.key === 'ArrowRight') lightboxPrev.click();
+    });
+
     // ===== מפת המסלול =====
     // Loads on first open only: a maps iframe is heavy, and on a phone it would
     // otherwise swallow the page scroll on the way down to the calendar.
@@ -1747,6 +2011,7 @@
     });
 
     renderDays();
+    loadLivePhotos();
     updateTodayStrip();
     updateClocks();
     setInterval(updateClocks, 30000);
