@@ -31,10 +31,31 @@ def fetch():
         return json.load(r)
 
 
+def to_utc(value):
+    """Polarsteps sends unix seconds on tracked steps but ISO strings on planned
+    ones, so accept either."""
+    if value is None:
+        return None
+    if isinstance(value, (int, float)):
+        return datetime.fromtimestamp(value, tz=timezone.utc)
+    if isinstance(value, str):
+        text = value.strip()
+        try:
+            return datetime.fromtimestamp(float(text), tz=timezone.utc)
+        except ValueError:
+            pass
+        try:
+            parsed = datetime.fromisoformat(text.replace("Z", "+00:00"))
+        except ValueError:
+            return None
+        return parsed if parsed.tzinfo else parsed.replace(tzinfo=timezone.utc)
+    return None
+
+
 def step_date(step):
-    """Local (India) calendar date for a step."""
-    ts = step.get("start_time") or step.get("creation_time")
-    if not ts:
+    """Local calendar date for a step, in the timezone it was recorded in."""
+    when = to_utc(step.get("start_time")) or to_utc(step.get("creation_time"))
+    if not when:
         return None
     tz = TRIP_TZ
     name = step.get("timezone_id")
@@ -43,7 +64,7 @@ def step_date(step):
             tz = ZoneInfo(name)
         except Exception:
             pass
-    return datetime.fromtimestamp(float(ts), tz=timezone.utc).astimezone(tz).date().isoformat()
+    return when.astimezone(tz).date().isoformat()
 
 
 def photo_urls(step):
