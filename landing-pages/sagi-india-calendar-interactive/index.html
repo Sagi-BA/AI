@@ -110,7 +110,7 @@
         repeating-linear-gradient(45deg, #fff 0 12px, #faf8ff 12px 24px);
       box-shadow: var(--shadow);
       display: grid;
-      grid-template-rows: 232px auto 48px 600px 300px 24px;
+      grid-template-rows: 232px auto auto 48px 600px 300px 24px;
       gap: 7px;
       overflow: hidden;
       position: relative;
@@ -288,6 +288,124 @@
       border-radius: 999px;
       white-space: nowrap;
       box-shadow: 0 6px 14px rgba(124, 92, 231, .28);
+    }
+
+    .map-section {
+      display: grid;
+      gap: 9px;
+      justify-items: center;
+    }
+
+    .map-toggle {
+      display: inline-flex;
+      align-items: center;
+      gap: 9px;
+      border: 1px solid rgba(124, 92, 231, .28);
+      border-radius: 999px;
+      padding: 10px 20px;
+      cursor: pointer;
+      font-size: 16px;
+      font-weight: 800;
+      color: var(--purple);
+      background: rgba(255, 255, 255, .9);
+      box-shadow: 0 5px 14px rgba(124, 92, 231, .14);
+      transition: transform .16s ease, box-shadow .16s ease;
+    }
+
+    .map-toggle:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 8px 20px rgba(124, 92, 231, .22);
+    }
+
+    .map-frame {
+      width: 100%;
+      aspect-ratio: 16 / 10;
+      max-height: 60vh;
+      border-radius: 16px;
+      overflow: hidden;
+      border: 1px solid rgba(124, 92, 231, .22);
+      box-shadow: var(--shadow-sm, 0 6px 18px rgba(40, 48, 68, .12));
+    }
+
+    .map-frame iframe {
+      display: block;
+      width: 100%;
+      height: 100%;
+      border: 0;
+    }
+
+    .extras-buttons {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      justify-content: center;
+    }
+
+    .retreat-panel {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 22px;
+      align-items: center;
+      width: 100%;
+      padding: 20px 24px;
+      border-radius: 16px;
+      background: linear-gradient(120deg, #fdf8f1, #fffdf8 60%, #f4f8f2);
+      border: 1px solid rgba(180, 140, 100, .25);
+    }
+
+    .retreat-rhythm h3 {
+      margin: 0 0 12px;
+      font-size: 19px;
+      color: #7a4a2b;
+    }
+
+    .retreat-rhythm ol {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+      gap: 8px 18px;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+      font-size: 16px;
+      font-weight: 600;
+      color: var(--ink);
+    }
+
+    .retreat-rhythm li b {
+      display: inline-block;
+      min-width: 52px;
+      color: #b06a3b;
+      font-variant-numeric: tabular-nums;
+    }
+
+    .retreat-dates {
+      margin: 14px 0 0;
+      font-size: 15px;
+      font-weight: 800;
+      color: var(--muted);
+    }
+
+    .retreat-poster {
+      position: relative;
+      display: block;
+      flex-shrink: 0;
+    }
+
+    .retreat-poster img {
+      display: block;
+      width: 150px;
+      border-radius: 10px;
+      box-shadow: 0 8px 22px rgba(80, 50, 30, .22);
+      border: 1px solid rgba(180, 140, 100, .3);
+    }
+
+    .retreat-poster span {
+      display: block;
+      margin-top: 7px;
+      text-align: center;
+      font-size: 13px;
+      font-weight: 700;
+      color: #b06a3b;
     }
 
     .journey-progress {
@@ -782,6 +900,20 @@
       .today-where {
         font-size: 18px;
       }
+
+      .retreat-panel {
+        grid-template-columns: 1fr;
+        justify-items: center;
+        padding: 18px 16px;
+      }
+
+      .retreat-rhythm h3 {
+        text-align: center;
+      }
+
+      .retreat-poster img {
+        width: 210px;
+      }
     }
 
     @media print {
@@ -804,8 +936,10 @@
         display: none !important;
       }
 
-      /* Live/date-dependent bits would be frozen (and wrong) on paper. */
-      .today-strip {
+      /* Live/date-dependent bits would be frozen (and wrong) on paper; an
+         iframe can't print at all. */
+      .today-strip,
+      .map-section {
         display: none !important;
       }
 
@@ -1279,6 +1413,43 @@
       <div class="today-countdown" id="todayCountdown"></div>
     </section>
 
+    <section class="map-section">
+      <div class="extras-buttons">
+        <button class="map-toggle" id="mapToggle" type="button" aria-expanded="false" aria-controls="mapFrame">
+          <span aria-hidden="true">🗺️</span>
+          <span id="mapToggleText">המסלול של אבא על המפה</span>
+        </button>
+        <button class="map-toggle" id="retreatToggle" type="button" aria-expanded="false" aria-controls="retreatPanel">
+          <span aria-hidden="true">🧘</span>
+          <span id="retreatToggleText">יום בריטריט של אבא</span>
+        </button>
+      </div>
+
+      <div class="map-frame" id="mapFrame" hidden>
+        <iframe title="מפת המסלול של אבא בהודו" loading="lazy" allowfullscreen
+          referrerpolicy="no-referrer-when-downgrade"></iframe>
+      </div>
+
+      <div class="retreat-panel" id="retreatPanel" hidden>
+        <div class="retreat-rhythm">
+          <h3>ככה נראה יום שלם של אבא בריטריט 🌿</h3>
+          <ol>
+            <li><b>06:45</b> מדיטציה</li>
+            <li><b>07:00</b> יוגה</li>
+            <li><b>08:30</b> ארוחת בוקר</li>
+            <li><b>10:00</b> טיפולים וזמן חופשי</li>
+            <li><b>12:30</b> ארוחת צהריים</li>
+            <li><b>19:00</b> ארוחת ערב</li>
+          </ol>
+          <p class="retreat-dates">הריטריט נמשך מ-26.9 עד 7.10 - שתים עשרה יום!</p>
+        </div>
+        <a class="retreat-poster" href="ayurveda-retreat.webp" target="_blank" rel="noopener noreferrer">
+          <img src="ayurveda-retreat.webp" alt="תוכנית ריטריט האיורוודה של אבא בקרלה" loading="lazy">
+          <span>לחצו להגדלה</span>
+        </a>
+      </div>
+    </section>
+
     <section class="journey-progress" aria-label="התקדמות במסע">
       <div class="progress-title">המסע שלנו 💫</div>
       <div class="progress-track" id="progressTrack" role="progressbar" aria-valuemin="0" aria-valuemax="31"
@@ -1341,6 +1512,7 @@
           <div class="legend-item"><span class="legend-icon">🛶</span><span>סירת בית קסומה</span></div>
           <div class="legend-item"><span class="legend-icon">🍃</span><span>גבעות תה כמו ציור</span></div>
           <div class="legend-item"><span class="legend-icon">🌊</span><span>מפלים בג'ונגל</span></div>
+          <div class="legend-item"><span class="legend-icon">🥾</span><span>טרקים והליכות בהרים</span></div>
         </div>
       </section>
     </footer>
@@ -1352,32 +1524,32 @@
     const days = [
       { date: '2026-09-13', label: "יום א׳ | 13.9", icon: '🏙️', place: 'דלהי', en: 'Delhi', note: 'הגעה ועיר גדולה', region: 'delhi' },
       { date: '2026-09-14', label: "יום ב׳ | 14.9", icon: '🏙️', place: 'דלהי', en: 'Delhi', note: 'מגלים את העיר הסואנת', region: 'delhi' },
-      { date: '2026-09-15', label: "יום ג׳ | 15.9", icon: '🏔️', place: "ג׳יבי", en: 'Jibhi', note: 'בקתות עץ והרי ההימלאיה', region: 'himachal' },
-      { date: '2026-09-16', label: "יום ד׳ | 16.9", icon: '🏔️', place: "ג׳יבי", en: 'Jibhi', note: 'יערות אורן ואוויר הרים', region: 'himachal' },
-      { date: '2026-09-17', label: "יום ה׳ | 17.9", icon: '🏔️', place: "ג׳יבי", en: 'Jibhi', note: 'עוד יום בין ההרים', region: 'himachal' },
-      { date: '2026-09-18', label: "יום ו׳ | 18.9", icon: '🌊', place: 'עמק טירטהאן', en: 'Tirthan', note: 'נהר ומפלים יפים', region: 'himachal' },
-      { date: '2026-09-19', label: "שבת | 19.9", icon: '🌊', place: 'עמק טירטהאן', en: 'Tirthan', note: 'טבע, מים ושקט', region: 'himachal' },
+      { date: '2026-09-15', label: "יום ג׳ | 15.9", icon: '🏔️', place: "ג׳יבי", en: 'Jibhi', note: 'נוחתים בהרים! מפל ליד הכפר', region: 'himachal' },
+      { date: '2026-09-16', label: "יום ד׳ | 16.9", icon: '🥾', place: "ג׳יבי", en: 'Jibhi', note: 'מעבר ג׳לורי וטרק למצודה', region: 'himachal' },
+      { date: '2026-09-17', label: "יום ה׳ | 17.9", icon: '🏔️', place: "ג׳יבי", en: 'Jibhi', note: 'מגדל אבן ועץ בן מאות שנים', region: 'himachal' },
+      { date: '2026-09-18', label: "יום ו׳ | 18.9", icon: '🌊', place: 'עמק טירטהאן', en: 'Tirthan', note: 'עוברים עמק ומטפסים למפל', region: 'himachal' },
+      { date: '2026-09-19', label: "שבת | 19.9", icon: '🏔️', place: 'עמק טירטהאן', en: 'Tirthan', note: 'כפרי הרים ופארק לאומי ענק', region: 'himachal' },
 
-      { date: '2026-09-20', label: "יום א׳ | 20.9", icon: '🪂', place: 'ביר ביילינג', en: 'Bir Billing', note: 'עיירת הרחיפה', region: 'himachal' },
-      { date: '2026-09-21', label: "יום ב׳ | 21.9", icon: '🥾', place: "טרק רג׳גונדה", en: 'Rajgundha', note: 'הולכים וישנים בטבע!', region: 'himachal' },
-      { date: '2026-09-22', label: "יום ג׳ | 22.9", icon: '🪂', place: 'ביר ביילינג', en: 'Bir Billing', note: 'שמיים, הרים ומצנחים', region: 'himachal' },
-      { date: '2026-09-23', label: "יום ד׳ | 23.9", icon: '🧘', place: "מקלאוד גאנג׳", en: 'Mcleod Ganj', note: 'כפר בודהיסטי גבוה', region: 'himachal' },
-      { date: '2026-09-24', label: "יום ה׳ | 24.9", icon: '🏔️', place: "מקלאוד גאנג׳", en: 'Mcleod Ganj', note: 'הרים, מנזרים ושקט', region: 'himachal' },
+      { date: '2026-09-20', label: "יום א׳ | 20.9", icon: '🪂', place: 'ביר ביילינג', en: 'Bir Billing', note: 'הנסיעה הארוכה, ואז שקיעה', region: 'himachal' },
+      { date: '2026-09-21', label: "יום ב׳ | 21.9", icon: '🥾', place: "טרק רג׳גונדה", en: 'Rajgundha', note: 'טרק 6 שעות וישנים בעמק מבודד', region: 'himachal' },
+      { date: '2026-09-22', label: "יום ג׳ | 22.9", icon: '🪂', place: 'ביר ביילינג', en: 'Bir Billing', note: 'מצנחים מביילינג ומנזרים', region: 'himachal' },
+      { date: '2026-09-23', label: "יום ד׳ | 23.9", icon: '🍃', place: "מקלאוד גאנג׳", en: 'Mcleod Ganj', note: 'מקדש עתיק ומטעי תה בדרך', region: 'himachal' },
+      { date: '2026-09-24', label: "יום ה׳ | 24.9", icon: '🥾', place: "מקלאוד גאנג׳", en: 'Mcleod Ganj', note: 'טרק לטריאונד ומקדש הדלאי לאמה', region: 'himachal' },
       { date: '2026-09-25', label: "יום ו׳ | 25.9", icon: '✈️', place: 'טיסה לקרלה', en: 'Kerala', note: 'דרומה אל הטרופיים! קובלם ואמארה', region: 'flight' },
-      { date: '2026-09-26', label: "שבת | 26.9", icon: '🧘', place: 'קובלם / אמארה', en: 'Kovalam / Amara', note: 'מסע מרפא, שקט ויוגה', region: 'kerala' },
+      { date: '2026-09-26', label: "שבת | 26.9", icon: '🧘', place: 'ריטריט אמארה', en: 'Amara Retreat', note: 'מגיעים לריטריט בקובלם', region: 'kerala' },
 
-      { date: '2026-09-27', label: "יום א׳ | 27.9", icon: '🏖️', place: 'קובלם / אמארה', en: 'Kovalam / Amara', note: 'ים כחול ושקט', region: 'kerala' },
-      { date: '2026-09-28', label: "יום ב׳ | 28.9", icon: '🧘', place: 'קובלם / אמארה', en: 'Kovalam / Amara', note: 'יוגה ומנוחה', region: 'kerala' },
-      { date: '2026-09-29', label: "יום ג׳ | 29.9", icon: '🏖️', place: 'קובלם / אמארה', en: 'Kovalam / Amara', note: 'יום רגוע ליד הים', region: 'kerala' },
-      { date: '2026-09-30', label: "יום ד׳ | 30.9", icon: '🧘', place: 'קובלם / אמארה', en: 'Kovalam / Amara', note: 'נושמים, נחים ומתרפאים', region: 'kerala' },
-      { date: '2026-10-01', label: "יום ה׳ | 1.10", icon: '🏖️', place: 'קובלם / אמארה', en: 'Kovalam / Amara', note: 'טרופיים ושמש חמימה', region: 'kerala' },
-      { date: '2026-10-02', label: "יום ו׳ | 2.10", icon: '🧘', place: 'קובלם / אמארה', en: 'Kovalam / Amara', note: 'יום אחרון בריטריט', region: 'kerala' },
-      { date: '2026-10-03', label: "שבת | 3.10", icon: '🌅', place: 'ורקלה', en: 'Varkala', note: 'חוף מדהים על צוק', region: 'kerala' },
+      { date: '2026-09-27', label: "יום א׳ | 27.9", icon: '🧘', place: 'ריטריט אמארה', en: 'Amara Retreat', note: 'נעים מאוד - מעגל פתיחה', region: 'kerala' },
+      { date: '2026-09-28', label: "יום ב׳ | 28.9", icon: '🌾', place: 'ריטריט אמארה', en: 'Amara Retreat', note: 'לפגוש את קרלה: כפרים ואגם', region: 'kerala' },
+      { date: '2026-09-29', label: "יום ג׳ | 29.9", icon: '🧘', place: 'ריטריט אמארה', en: 'Amara Retreat', note: 'איך אפשר להיות בריאים יותר?', region: 'kerala' },
+      { date: '2026-09-30', label: "יום ד׳ | 30.9", icon: '🎨', place: 'ריטריט אמארה', en: 'Amara Retreat', note: 'קרלה יוצרת - אמנות ומלאכה', region: 'kerala' },
+      { date: '2026-10-01', label: "יום ה׳ | 1.10", icon: '🧘', place: 'ריטריט אמארה', en: 'Amara Retreat', note: 'דע את עצמך - סדנה', region: 'kerala' },
+      { date: '2026-10-02', label: "יום ו׳ | 2.10", icon: '🏙️', place: 'טריוונדרום', en: 'Trivandrum', note: 'שוק, מוזיאון ומופע תרבות', region: 'kerala' },
+      { date: '2026-10-03', label: "שבת | 3.10", icon: '🧘', place: 'ריטריט אמארה', en: 'Amara Retreat', note: 'לנקות ולהרפות - יום מנוחה', region: 'kerala' },
 
-      { date: '2026-10-04', label: "יום א׳ | 4.10", icon: '🌅', place: 'ורקלה', en: 'Varkala', note: 'שקיעה מעל הים', region: 'kerala' },
-      { date: '2026-10-05', label: "יום ב׳ | 5.10", icon: '🛶', place: 'האוסבוט באלפי', en: 'Houseboat', note: 'ישנים על סירה צפה!', region: 'kerala' },
-      { date: '2026-10-06', label: "יום ג׳ | 6.10", icon: '🌿', place: 'אלפי', en: 'Alleppey', note: 'תעלות מים וטבע פראי', region: 'kerala' },
-      { date: '2026-10-07', label: "יום ד׳ | 7.10", icon: '🍃', place: 'מונאר', en: 'Munnar', note: 'גבעות ירוקות של תה', region: 'kerala' },
+      { date: '2026-10-04', label: "יום א׳ | 4.10", icon: '🏖️', place: 'ריטריט אמארה', en: 'Amara Retreat', note: 'יום חופשי - ים או כלום!', region: 'kerala' },
+      { date: '2026-10-05', label: "יום ב׳ | 5.10", icon: '💃', place: 'ריטריט אמארה', en: 'Amara Retreat', note: 'סדנה ומופע ריקוד הודי בערב', region: 'kerala' },
+      { date: '2026-10-06', label: "יום ג׳ | 6.10", icon: '🛶', place: 'שייט בפובאר', en: 'Poovar', note: 'סוגרים מעגל - שייט וארוחה', region: 'kerala' },
+      { date: '2026-10-07', label: "יום ד׳ | 7.10", icon: '👋', place: 'ריטריט אמארה', en: 'Amara Retreat', note: 'נפרדים מהריטריט', region: 'kerala' },
       { date: '2026-10-08', label: "יום ה׳ | 8.10", icon: '🍃', place: 'מונאר', en: 'Munnar', note: 'מטעי תה כמו ציור', region: 'kerala' },
       { date: '2026-10-09', label: "יום ו׳ | 9.10", icon: '🍃', place: 'מונאר', en: 'Munnar', note: 'עוד יום בין הגבעות', region: 'kerala' },
       { date: '2026-10-10', label: "שבת | 10.10", icon: '⚓', place: "פורט קוצ׳י", en: 'Fort Kochi', note: 'עיר נמל עתיקה', region: 'kerala' },
@@ -1512,6 +1684,39 @@
       if (!card) return;
       card.scrollIntoView({ behavior: 'smooth', block: 'center' });
     }
+
+    // ===== מפת המסלול =====
+    // Loads on first open only: a maps iframe is heavy, and on a phone it would
+    // otherwise swallow the page scroll on the way down to the calendar.
+    const MAP_SRC = 'https://www.google.com/maps/d/embed?mid=1QklmhDLq6rqmwE9oDELZQtf2GyW6t5A&ehbc=2E312F';
+    const mapToggle = document.getElementById('mapToggle');
+    const mapFrame = document.getElementById('mapFrame');
+    const mapToggleText = document.getElementById('mapToggleText');
+
+    mapToggle.addEventListener('click', () => {
+      const opening = mapFrame.hidden;
+      if (opening) {
+        const iframe = mapFrame.querySelector('iframe');
+        if (!iframe.getAttribute('src')) iframe.setAttribute('src', MAP_SRC);
+        mapFrame.hidden = false;
+        mapToggleText.textContent = 'סגירת המפה';
+      } else {
+        mapFrame.hidden = true;
+        mapToggleText.textContent = 'ראו את המסלול של אבא על המפה';
+      }
+      mapToggle.setAttribute('aria-expanded', opening ? 'true' : 'false');
+    });
+
+    const retreatToggle = document.getElementById('retreatToggle');
+    const retreatPanel = document.getElementById('retreatPanel');
+    const retreatToggleText = document.getElementById('retreatToggleText');
+
+    retreatToggle.addEventListener('click', () => {
+      const opening = retreatPanel.hidden;
+      retreatPanel.hidden = !opening;
+      retreatToggleText.textContent = opening ? 'סגירת הריטריט' : 'יום בריטריט של אבא';
+      retreatToggle.setAttribute('aria-expanded', opening ? 'true' : 'false');
+    });
 
     document.querySelectorAll('[data-print]').forEach(btn => {
       btn.addEventListener('click', () => {
