@@ -1,10 +1,20 @@
 {
-  "trip": "India",
-  "updated": "2026-09-13T01:49:31+00:00",
+  "trip": "אחים בהודו 2026",
+  "updated": "2026-09-13T10:44:51+00:00",
   "days": {
     "2026-09-13": {
       "title": "Palmachim",
-      "photos": []
+      "photos": [
+        "https://media.prod.polarsteps.com/user_images/steps/large_thumb/u_23467031/99e0b05c-ac45-4fa7-9fd3-4182cb8959c9_e2c798e6-b642-4181-9104-0e1ae49d05a7.jpg",
+        "https://media.prod.polarsteps.com/user_images/steps/large_thumb/u_23467031/c034891e-776f-40f3-935f-1f3e4fac518b_98dfb81a-6ba9-4c09-8249-f7d30a807084.jpg",
+        "https://media.prod.polarsteps.com/user_images/steps/large_thumb/u_23467031/24442bd7-a592-47a0-9e62-5abcf8955698_c9a2a5ea-0980-42eb-ac95-6599edf7462c.jpg",
+        "https://media.prod.polarsteps.com/user_images/steps/large_thumb/u_23467031/f2947bf7-21f6-4358-8d0d-7bb9168b668b_120db4cd-1470-456e-a9ef-8302ebdbf24d.jpg",
+        "https://media.prod.polarsteps.com/user_images/steps/large_thumb/u_23467031/70a85583-ff93-49c0-8402-88c4cee7dfa9_795f0b1d-02cf-4cea-9289-e1994f27dd9b.jpg",
+        "https://media.prod.polarsteps.com/user_images/steps/large_thumb/u_23467031/e4c499a9-2479-4bb0-b5ad-9e49c353802f_253afece-a7cb-4322-8b66-ad2f7e1d6089.jpg",
+        "https://media.prod.polarsteps.com/user_images/steps/large_thumb/u_23467031/13736175-b7cb-40c7-a665-99becca89e68_6a85ea2d-075f-43b4-bd54-bd5548b28cc6.jpg",
+        "https://media.prod.polarsteps.com/user_images/steps/large_thumb/u_23467031/c4be39db-e4ed-4c1c-956d-2ba0b1c7d739_c2c6dc50-5d81-451a-bc77-b18271ed8459.jpg",
+        "https://media.prod.polarsteps.com/user_images/steps/large_thumb/u_23467031/11029a1d-4221-4350-b929-8c93ae1270f1_0e26596a-1437-439e-bbf1-36728c3e65bc.jpg"
+      ]
     }
   }
 }
